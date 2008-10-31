@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtdimLinks">
+
+<HTML>
+<HEAD><TITLE>Converter</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="robots" content="nofollow,noindex" />
+</HEAD>
+
+<BODY>
+
+<TABLE cellpadding="5"><td width="550" style="background-color:#FF0000; font-weight: bold;"><B><font color="#FFFFFF" size="-1" face="Verdana, Arial, Helvetica, sans-serif">Instruções para a conversão do myLinks .</font></B><P><font color="#FFFFFF" size="-1" face="Verdana, Arial, Helvetica, sans-serif">Se você quiser fazer uma nova instalação de imLinks selecione "Instalar".</font></TD>
+</TABLE><p><u><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Lembre-se: É também uma boa ideia fazer um backup de dados antes de instalar qualquer módulo.</font></u>
+<p>
+
+<p><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="+2"><U><strong>Conversão do myLinks/webLinks ==> para imLinks</strong></U></FONT>
+<p><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
+
+<br>
+<em><b>Nota:</b></em> Ao fazer a conversão um script de atualização irá converter as tabelas do myLinks/Weblinks em tabelas do imLinks. Após a conversão não é possível usar o myLinks/Weblinks, porque estará faltando todas as tabelas. Se quiser manter o seu myLinks/Weblinks ainda trabalhando, você precisa fazer um backup das tabelas do myLinks/Weblinks antes de iniciar a atualização e após terminar a conversão para o imLinks, deverá restaurar as tabelas novamente. É possível ter imLinks e myLinks/Weblinks funcionando ao mesmo tempo (mas isto é uma coisa que só você deverá escolher).</font>
+  <br>
+  <br />
+Agora vamos ver abaixo um passo a passo sobre esta conversão e esperamos que você consiga executar todas as etapas de forma tranquila.
+  <br>
+<ol>
+  <li><U><B><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Faça um backup</font></B></U>
+  <P><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Backup das tabelas do myLinks/Weblinks e também do seu banco de dados para garantir tudo caso algo de errado aconteça.</font></li>
+  <li><U><B><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Carregar o módulo para o seu site via ftp ou qualquer outro métdo em seu servidor.</font></B></U><font face="Arial">
+  <P><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Enviar o novo módulo para dentro do diretório <b><I>'modules'</I></b> e o diretório <b><I>'uploads'</I></b> para o seu <b><I>{DiretórioRaiz}</I></b></font>  </li><li><U><B><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Alterar e verificar permissões de pastas</font></B></U>
+    <P><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Executar o comando CHMOD 777 nas seguintes pastas:
+    </font>
+    <p><font size="-1" face="Verdana, Arial, Helvetica, sans-serif"><em>
+	{DiretórioRaiz}/uploads/images<br>
+    {DiretórioRaiz}/uploads/images/category<br>
+    {DiretórioRaiz}/uploads/images/category/thumbs<br>
+    {DiretórioRaiz}/uploads/images/flags<br>
+    {DiretórioRaiz}/uploads/images/flags/flags_small<br>
+    {DiretórioRaiz}/uploads/images/screenshots<br>
+    {DiretórioRaiz}/uploads/images/screenshots/thumbs<br>
+    {DiretórioRaiz}/uploads/images/thumbs</em></font></li>
+  <li><font size="-1" face="Verdana, Arial, Helvetica, sans-serif"><U><B>Instalar o módulo</B></U></font>
+    <P><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Faça o Login como administrador e vá até a página de Administração. Selecione <I>Sistema -> módulos </I> e instale o imLinks</font></li>
+  <li><U><B><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Inicie o script de conversão</font></B></U>
+    <P><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Aponte o seu browser para <I>{DiretórioRaiz}/modules/imlinks/update.php</I> e execute o script de atualização. <BR>
+      Siga as instruções fornecidas durante o processo de instalação. <BR>
+      O script irá tentar determinar qual a versão ou versões de myLinks ou Weblinks você tem. <BR> 
+      Se o módulo estiver instalado, ele irá tentar a atualização.</font>    
+  <li><U><B><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Atualizar o módulo</font></B></U>
+    <P><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Retorne para o <i>Sistema --> Módulos</i> e execute a atualização do imLinks, caso contrário, os modelos(templates) ainda irão ficar com a versão anterior e as páginas não serão exibidas corretamente.</font><BR>
+    </li><li><U><B><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Configurar o módulo</font></B></U>
+    <P><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">A coisa mais importante agora será a configuração das permissões para o grupo do módulo e seus blocos via <I>Sistema --> Grupos</I></font></li><li><U><B><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Restaurar ou remover myLinks/webLinks</font></B></U>
+    <P><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Se quiser continuar usando myLinks ou Weblinks além de imLinks, em seguida, restaure o seus dados do myLinks/Weblinks.<BR>
+  A partir de agora você pode fazer backup na etapa 1. Se você não quiser usar esses, desativar o módulo velho e também deverá desinstalá-lo.</font></li>
+  </ol>
+<b>Ps:</b> Esta tradução é uma cortesia da equipe de <a href="http://br.impresscms.org" target="_blank"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Suporte Brasileiro do ImpressCMS.</font></a>   
+</BODY>
+</HTML>
