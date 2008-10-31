@@ -162,7 +162,7 @@ $xoopsTpl -> assign( 'commentz', '<a href="' . ICMS_URL . '/modules/' . $xoopsMo
 $xoopsTpl -> assign( 'print', '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/print.php?lid=' . $link_arr['lid'] . '"  target="_blank">' . _MD_IMLINKS_PRINT . '</a>' );
 
 $link['icons'] = iml_displayicons( $link_arr['published'], $link_arr['status'], $link_arr['hits'] );
-$link['allow_rating'] = ( iml_checkgroups( $cid, 'WFLinkRatePerms' ) ) ? true : false;
+$link['allow_rating'] = ( iml_checkgroups( $cid, 'imLinkRatePerms' ) ) ? true : false;
 $link['total_chars'] = $xoopsModuleConfig['totalchars'];
 $link['module_dir'] = $xoopsModule -> getVar( 'dirname' );
 $link['otherlinx'] = $xoopsModuleConfig['otherlinks'];
