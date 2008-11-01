@@ -7,6 +7,7 @@ xx.xx.2008   1.00 RC-1
 - Added: option to have linked terms if imGlossary is installed
 - Added: captcha to submit form
 - Added: RSS feed using icmsfeed.php
+- Added: GPL2 license incl. unofficial translations
 
 - Renamed: module name from 'WF-Links' into 'imLinks'
 - Renamed: file 'bugfixlist.txt' into 'changelog.txt'
