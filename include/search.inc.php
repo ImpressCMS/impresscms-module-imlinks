@@ -61,7 +61,7 @@ function imlinks_search( $queryarray, $andor, $limit, $offset, $userid ) {
     $i = 0;
 
     while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
-        $ret[$i]['image'] = 'images/size2.gif';
+        $ret[$i]['image'] = 'images/imlinks_search.gif';
         $ret[$i]['link'] = 'singlelink.php?cid=' . $myrow['cid'] . '&amp;lid=' . $myrow['lid'];
         $ret[$i]['title'] = $myrow['title'];
         $ret[$i]['time'] = $myrow['published'];

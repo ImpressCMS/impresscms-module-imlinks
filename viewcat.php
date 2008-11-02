@@ -124,7 +124,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 }
 
 // Show Description for Category listing
-$sql = "SELECT title, description, nohtml, nosmiley, noxcodes, noimages, nobreak, imgurl, client_id, banner_id FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE cid =" . intval( $cid );
+$sql = 'SELECT title, description, nohtml, nosmiley, noxcodes, noimages, nobreak, imgurl, client_id, banner_id FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid =' . intval( $cid );
 $head_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 $html = ( $head_arr['nohtml'] ) ? 0 : 1;
 $smiley = ( $head_arr['nosmiley'] ) ? 0 : 1;
@@ -134,7 +134,6 @@ $breaks = ( $head_arr['nobreak'] ) ? 1 : 0;
 $description = $immyts -> displayTarea( $head_arr['description'], $html, $smiley, $xcodes, $images, $breaks );
 $xoopsTpl -> assign( 'description', $description );
 $xoopsTpl -> assign( 'xoops_pagetitle', $head_arr['title'] );
-//$xoopsTpl -> assign( 'client_banner', iml_getbanner_from_id_client($head_arr['client_id']) );
 
 if ($head_arr['client_id'] > 0){
   $catarray['imageheader'] = iml_getbanner_from_id_client( $head_arr['client_id'] );
@@ -162,53 +161,54 @@ if ( $selectdate ) {
     $stat_begin = mktime ( 0, 0, 0, $m, $d, $y );
     $stat_end = mktime ( 23, 59, 59, $m, $d, $y );
 
-    $query = " WHERE published >= " . $stat_begin . " AND published <= " . $stat_end . "
-		AND (expired = 0 OR expired > " . $time . ")
+    $query = ' WHERE published >= ' . $stat_begin . ' AND published <= ' . $stat_end . '
+		AND (expired = 0 OR expired > ' . $time . ')
 		AND offline = 0
-		AND cid > 0";
+		AND cid > 0';
 
-    $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . $query . " ORDER BY " . $orderby;
+    $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . $query . ' ORDER BY ' . $orderby;
     $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['perpage'] , $start );
 
-    $sql = "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . $query;
+    $sql = 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . $query;
     list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql ) );
 
     $list_by = 'selectdate=' . $selectdate;
 
 } elseif ( $list ) {
 
-    $query = " WHERE title LIKE '$list%' AND (published > 0 AND published <= " . $time . ") AND (expired = 0 OR expired > " . $time . ") AND offline = 0 AND cid > 0";
+    $query = ' WHERE title LIKE $list% AND (published > 0 AND published <= ' . $time . ') AND (expired = 0 OR expired > ' . $time . ') AND offline = 0 AND cid > 0';
 
-    $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . $query . " ORDER BY " . $orderby;
+    $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . $query . ' ORDER BY ' . $orderby;
     $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['perpage'] , $start );
 
-    $sql = "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . $query;
+    $sql = 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . $query;
     list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql ) );
     $list_by = 'list='.$list;
 
 } else {
 
-    $sql = "SELECT DISTINCT a.* FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " a LEFT JOIN "
-     . $xoopsDB -> prefix( 'imlinks_altcat' ) . " b "
-     . " ON b.lid = a.lid"
-     . " WHERE a.published > 0 AND a.published <= " . $time
-     . " AND (a.expired = 0 OR a.expired > " . $time . ") AND a.offline = 0"
-     . " AND (b.cid=a.cid OR (a.cid=" . intval($cid) . " OR b.cid=" . intval($cid) . "))"
-     . " ORDER BY "
+    $sql = 'SELECT DISTINCT a.* FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+     . $xoopsDB -> prefix( 'imlinks_altcat' ) . ' b'
+     . ' ON b.lid=a.lid'
+     . ' WHERE a.published > 0 AND a.published <= ' . time()
+     . ' AND (a.expired = 0 OR a.expired > ' . time() . ') AND a.offline=0'
+     . ' AND (b.cid=a.cid OR (a.cid=' . intval($cid) . ' OR b.cid=' . intval($cid) . '))'
+     . ' ORDER BY '
      . $orderby;
-    $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['perpage'] , $start );
+    $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['perpage'], $start );
     $xoopsTpl -> assign( 'show_categort_title', false );
 
-    $sql2 = "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " a LEFT JOIN " . $xoopsDB -> prefix( 'imlinks_altcat' ) . " b "
-     . " ON b.lid = a.lid"
-     . " WHERE a.published > 0 AND a.published <= " . $time
-     . " AND (a.expired = 0 OR a.expired > " . $time . ") AND a.offline = 0"
-     . " AND (b.cid=a.cid OR (a.cid=" . intval($cid) . " OR b.cid=" . intval($cid) . "))";
+    $sql2 = 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN ' . $xoopsDB -> prefix( 'imlinks_altcat' ) . ' b '
+     . ' ON b.lid=a.lid'
+     . ' WHERE a.published > 0 AND a.published <= ' . time()
+     . ' AND (a.expired = 0 OR a.expired > ' . time() . ') AND a.offline=0'
+     . ' AND (b.cid=a.cid OR (a.cid=' . intval($cid) . ' OR b.cid=' . intval($cid) . '))';
     list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql2 ) );
     $order = iml_convertorderbyout($orderby);
-    $cid = intval($cid);
+   $cid = intval($cid);
     $list_by = 'cid=' . intval($cid) . '&orderby=' . $order;
 }
+
     $pagenav = new XoopsPageNav( $count, $xoopsModuleConfig['perpage'] , $start, 'start', $list_by );
     $page_nav = $pagenav -> renderNav();
     $istrue = ( isset( $page_nav ) && !empty( $page_nav ) ) ? true : false;
@@ -244,6 +244,7 @@ if ( $count > 0 ) {
     }
 }
 unset( $link_arr );
+unset( $page_nav );
 
 include ICMS_ROOT_PATH . '/footer.php';
 

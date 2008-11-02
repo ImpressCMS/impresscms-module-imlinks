@@ -72,7 +72,7 @@ $result = $xoopsDB -> query( $sql );
 while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
     $countin++;
     $subtotallinkload = 0;
-    $totallinkload = iml_getTotalItems( $myrow['cid'], 1 );
+    $totallinkload = iml_getTotalItems( $myrow['cid'], 1, 0 );
     $indicator = iml_isnewimage( $totallinkload['published'] );
     if ( iml_checkgroups( $myrow['cid'] ) ) {
         $title = $immyts -> htmlSpecialCharsStrip( $myrow['title'] );
