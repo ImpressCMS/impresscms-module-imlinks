@@ -312,13 +312,15 @@ define("_MI_IMLINKS_COUNTRY_A", "Land (A)");
 define("_MI_IMLINKS_COUNTRY_D", "Land (D)");
 
 // imLinks 1.00 RC-1
-define( "_MI_IMLINKS_CAPTCHA", "Use captcha in submit form?" );
-define( "_MI_IMLINKS_CAPTCHADSC", "Select <em>Yes</em> to use captcha in the submit form.<br />Default: <em>Yes</em>" );
-define( "_MI_IMLINKS_LINKEDTERMS", "Link to terms glossary?" );
-define( "_MI_IMLINKS_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
-define( "_MI_IMLINKS_IMGLOSSARYDIR", "Folder name of imGlossary:" );
-define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
-define( '_MI_IMLINKS_SELECTFEED', 'Use ICMS RSS feed?' );
-define( '_MI_IMLINKS_SELECTFEED_DSC', 'Select <em>Yes</em> to use ImpressCMS RSS feed. Select <em>No</em> to use Brandycoke\'s RSSfit module (subfeed needs to be activated).'  );
+define( "_MI_IMLINKS_CAPTCHA", "Gebruik captcha in inzendformulier?" );
+define( "_MI_IMLINKS_CAPTCHADSC", "Kies <em>Ja</em> om captcha in het inzendformulier te gebruiken.<br />Standaard: <em>Ja</em>" );
+define( "_MI_IMLINKS_LINKEDTERMS", "Link naar termen in woordenlijst?" );
+define( "_MI_IMLINKS_LINKEDTERMSDSC", "De module imGlossary dient hiervoor geïnstalleerd en aktief te zijn." );
+define( "_MI_IMLINKS_IMGLOSSARYDIR", "Naam map van imGlossary:" );
+define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "De naam van de map waarin imGlossary zich bevindt.<br />Standaard: <em>imglossary</em>" );
+define( '_MI_IMLINKS_SELECTFEED', 'Gebruik ICMS RSS feed?' );
+define( '_MI_IMLINKS_SELECTFEED_DSC', 'Kies <em>Ja</em> om ImpressCMS RSS feed te gebruiken. Kies <em>Nee</em> voor Brandycoke\'s RSSfit module (subfeed dient geaktiveerd te zijn).'  );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - een kopie van de GNU licentie is bijgesloten (license.txt).' );
+define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Kies bron voor het genereren van auto screenshot' );
+define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Meer informatie:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
 ?>
