@@ -416,6 +416,15 @@ $modversion['config'][$i]['formtype'] = 'yesno';
 $modversion['config'][$i]['valuetype'] = 'int';
 $modversion['config'][$i]['default'] = 0;
 $i++;
+$modversion['config'][$i]['name'] = 'autothumbsrc';
+$modversion['config'][$i]['title'] = '_MI_IMLINKS_AUTOTHUMBSRC';
+$modversion['config'][$i]['description'] = '_MI_IMLINKS_AUTOTHUMBSRCDSC';
+$modversion['config'][$i]['formtype'] = 'select';
+$modversion['config'][$i]['valuetype'] = 'int';
+$modversion['config'][$i]['default'] = 0;
+$modversion['config'][$i]['options'] = array(	'Thumbshots.org' => 0,
+												'Mozshot' => 1 );
+$i++;
 $modversion['config'][$i]['name'] = 'mainimagedir';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_MAINIMGDIR';
 $modversion['config'][$i]['description'] = '_MI_IMLINKS_MAINIMGDIRDSC';

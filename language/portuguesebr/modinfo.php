@@ -320,4 +320,6 @@ define( '_MI_IMLINKS_SELECTFEED_DSC', 'Escolhendo <em><b>Sim</b></em> você irá
 define( '_MI_IMLINKS_FEEDSTOTAL', 'Quantos Links para exibição no RSS?' );
 define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Este número só irá afetar o RSS do ImpressCMS. Padrão: <em><b>15</b></em>' );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - uma cópia desta licença GNU está incluída no arquivo (license.txt).' );
+define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Select source for generating auto screenshot' );
+define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'More info:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
 ?>

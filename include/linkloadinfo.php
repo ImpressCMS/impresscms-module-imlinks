@@ -170,4 +170,5 @@ $link['showpagerank'] = $xoopsModuleConfig['showpagerank'];
 $link['quickview'] = $xoopsModuleConfig['quickview'];
 $link['comment_rules'] = $xoopsModuleConfig['com_rule'];
 $link['autoscrshot'] = $xoopsModuleConfig['useautothumb'];
+$link['autothumbsrc'] = $xoopsModuleConfig['autothumbsrc'];
 ?>
