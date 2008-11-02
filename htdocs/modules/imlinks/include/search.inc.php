@@ -26,28 +26,6 @@
 * @version		$Id$
 */
 
-function checkSearchgroups( $cid = 0, $permType = 'WFLinkCatPerm', $redirect = false ) {
-    $mydirname = basename( dirname( __FILE__ ) );
-    global $xoopsUser;
-
-    $groups = is_object( $xoopsUser ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-    $gperm_handler = &xoops_gethandler( 'groupperm' );
-
-    $module_handler = &xoops_gethandler( 'module' );
-    $module = &$module_handler -> getByDirname( $mydirname );
-
-    if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
-        if ( $redirect == false ) {
-            return false;
-        } else {
-            redirect_header( 'index.php', 3, _NOPERM );
-            exit();
-        } 
-    } 
-    unset( $module );
-    return true;
-} 
-
 function imlinks_search( $queryarray, $andor, $limit, $offset, $userid ) {
     global $xoopsDB, $xoopsUser;
 
@@ -83,11 +61,8 @@ function imlinks_search( $queryarray, $andor, $limit, $offset, $userid ) {
     $i = 0;
 
     while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
-//        if ( false == checkSearchgroups( $myrow['cid'] ) ) {
-//            continue;
-//        } 
-        $ret[$i]['image'] = "images/size2.gif";
-        $ret[$i]['link'] = "singlelink.php?cid=" . $myrow['cid'] . "&amp;lid=" . $myrow['lid'];
+        $ret[$i]['image'] = 'images/size2.gif';
+        $ret[$i]['link'] = 'singlelink.php?cid=' . $myrow['cid'] . '&amp;lid=' . $myrow['lid'];
         $ret[$i]['title'] = $myrow['title'];
         $ret[$i]['time'] = $myrow['published'];
         $ret[$i]['uid'] = $myrow['submitter'];
