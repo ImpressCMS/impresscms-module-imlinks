@@ -54,7 +54,7 @@ function imlinks_tag_iteminfo(&$items) {
 
     foreach(array_keys($items) as $cat_id){ 
         foreach(array_keys($items[$cat_id]) as $item_id){
-            $sql = "SELECT l.lid, l.cid as lcid, l.title as ltitle, l.date, l.cid, l.submitter, l.description, l.item_tag, c.title as ctitle FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " l, " . $xoopsDB -> prefix( 'imlinks_cat' ) . " c WHERE l.lid=".$item_id." AND l.cid=c.cid AND l.status > 0 ORDER BY l.date DESC";
+            $sql = "SELECT l.lid, l.cid as lcid, l.title as ltitle, l.published, l.cid, l.submitter, l.description, l.item_tag, c.title as ctitle FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " l, " . $xoopsDB -> prefix( 'imlinks_cat' ) . " c WHERE l.lid=".$item_id." AND l.cid=c.cid AND l.status > 0 ORDER BY l.date DESC";
             $result = $xoopsDB -> query($sql);
             $row = $xoopsDB -> fetchArray($result);
             $lcid = $row['lcid'];
@@ -62,7 +62,7 @@ function imlinks_tag_iteminfo(&$items) {
                 "title"      => '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/imlinks.gif" alt="" />&nbsp;' . $row['ltitle'],
                 "uid"        => $row['submitter'],
                 "link"       => "singlelink.php?cid=$lcid&amp;lid=$item_id",
-                "time"       => $row['date'],
+                "time"       => $row['published'],
                 "tags"       => $row['item_tag'],
                 "content"    => $row['description']
             ); 
