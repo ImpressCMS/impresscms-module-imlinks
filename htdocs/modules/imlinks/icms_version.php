@@ -70,7 +70,7 @@ $modversion['people']['translators'][] = '[url=http://community.impresscms.org/u
 $modversion['people']['translators'][] = '[url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url] (Dutch)';
 $modversion['people']['other']      [] = '<a href="http://xoops.peak.ne.jp/" target="_blank">GIJOE</a> (blocks hack)';
 $modversion['people']['other']		[] = '<a href="http://www.bitfolge.de/" target="_blank">Kai Blankenhorn</a> (vCard script)';
-$modversion['people']['other']      [] = '<a href="http://www.famfamfam.com" target="_blank">famfamfam.org</a> (icons)';
+$modversion['people']['other']      [] = '<a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
 
 //	** If Release Candidate **
 $modversion['warning'] = _MODABOUT_WARNING_RC;
