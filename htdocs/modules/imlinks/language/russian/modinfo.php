@@ -44,12 +44,12 @@ define("_MI_IMLINKS_SMNAME4", "Новейшие ссылки");
 
 // Names of admin menu items
 define("_MI_IMLINKS_BINDEX", "Индекс");
-define("_MI_IMLINKS_INDEXPAGE", "Управление индексной страницей");
-define("_MI_IMLINKS_MCATEGORY", "Управление категориями");
-define("_MI_IMLINKS_MLINKS", "Управление ссылками");
-define("_MI_IMLINKS_MUPLOADS", "Загрузка изображений");
-define("_MI_IMLINKS_PERMISSIONS", "Установки прав доступа");
-define("_MI_IMLINKS_BLOCKADMIN", "Установки блоков");
+define("_MI_IMLINKS_INDEXPAGE", "Индексная страница");
+define("_MI_IMLINKS_MCATEGORY", "Категории");
+define("_MI_IMLINKS_MLINKS", "Ссылки");
+define("_MI_IMLINKS_MUPLOADS", "Изображения");
+define("_MI_IMLINKS_PERMISSIONS", "Права доступа");
+define("_MI_IMLINKS_BLOCKADMIN", "Блоки");
 define("_MI_IMLINKS_MVOTEDATA", "Голосование");
 
 // Title of config items
