@@ -38,7 +38,7 @@ if ( file_exists( ICMS_ROOT_PATH . '/language/'. $xoopsConfig['language'] . '/mo
 
 $modversion['name'] 			= _MI_IMLINKS_NAME;
 $modversion['version'] 			= '1.00';
-$modversion['date'] 			= 'October 18, 2008';
+$modversion['date'] 			= 'November, 2008';
 $modversion['status'] 			= 'RC-1';
 $modversion['status_version'] 	= 'RC-1';
 $modversion['description'] 		= _MI_IMLINKS_DESC;
