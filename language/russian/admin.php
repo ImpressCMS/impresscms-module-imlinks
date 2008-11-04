@@ -56,12 +56,12 @@ define( "_AM_IMLINKS_UPLOADFILE", "Ссылка загружена" );
 define( "_AM_IMLINKS_NOMENUITEMS", "No menu items within the menu" );
 // Admin Bread crumb
 define( "_AM_IMLINKS_PREFS", "Настройки" );
-define( "_AM_IMLINKS_BUPDATE", "Обновить модуль" );
+define( "_AM_IMLINKS_BUPDATE", "Обновление" );
 define( "_AM_IMLINKS_BINDEX", "Индекс" );
 define( "_AM_IMLINKS_BPERMISSIONS", "Права доступа" );
 // define( "_AM_IMLINKS_BLOCKADMIN", "Блоки" );
 define( "_AM_IMLINKS_BLOCKADMIN", "Установки блоков" );
-define( "_AM_IMLINKS_GOMODULE", "Перейти в модуль" );
+define( "_AM_IMLINKS_GOMODULE", "В модуль" );
 define( "_AM_IMLINKS_ABOUT", "О модуле" );
 // Admin Summary
 define( "_AM_IMLINKS_SCATEGORY", "Категории: " );
