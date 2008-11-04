@@ -61,16 +61,17 @@ $modversion['warning'] 			= _MI_IMLINKS_WARNINGTEXT;
 $modversion['author_credits'] 	= _MI_IMLINKS_AUTHOR_CREDITSTEXT;
 
 // 	** Contributors **
-$modversion['people']['developers'][] = '[url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url]&nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
-$modversion['people']['testers']	[] = '[url=http://community.impresscms.org/userinfo.php?uid=10]sato-san[/url]';
-$modversion['people']['testers']	[] = '[url=http://community.impresscms.org/userinfo.php?uid=14]GibaPhp[/url]';
-$modversion['people']['translators'][] = '[url=http://community.impresscms.org/userinfo.php?uid=10]sato-san[/url] (German)';
-$modversion['people']['translators'][] = '[url=http://community.impresscms.org/userinfo.php?uid=14]GibaPhp[/url] (Portuguese-Brazil)';
-$modversion['people']['translators'][] = '[url=http://community.impresscms.org/userinfo.php?uid=97]debianus[/url] (Spanish)';
-$modversion['people']['translators'][] = '[url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url] (Dutch)';
-$modversion['people']['other']      [] = '<a href="http://xoops.peak.ne.jp/" target="_blank">GIJOE</a> (blocks hack)';
-$modversion['people']['other']		[] = '<a href="http://www.bitfolge.de/" target="_blank">Kai Blankenhorn</a> (vCard script)';
-$modversion['people']['other']      [] = '<a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
+$modversion['people']['developers'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a>&nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
+$modversion['people']['testers']	[] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a> (German)';
+$modversion['people']['testers']	[] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>  (Portuguese-Brazil)';
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a> (German)';
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>  (Portuguese-Brazil)';
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=97" target="_blank">debianus</a> (Spanish)';
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a>  (Dutch)';
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=480" target="_blank">algalochkin</a> (Russian)';
+$modversion['people']['other']      [] = '&middot; <a href="http://xoops.peak.ne.jp" target="_blank">GIJOE</a> (blocks hack)';
+$modversion['people']['other']		[] = '&middot; <a href="http://www.bitfolge.de" target="_blank">Kai Blankenhorn</a> (vCard script)';
+$modversion['people']['other']      [] = '&middot; <a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
 
 //	** If Release Candidate **
 $modversion['warning'] = _MODABOUT_WARNING_RC;
