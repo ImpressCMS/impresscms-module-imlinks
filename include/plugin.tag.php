@@ -59,12 +59,13 @@ function imlinks_tag_iteminfo(&$items) {
             $row = $xoopsDB -> fetchArray($result);
             $lcid = $row['lcid'];
             $items[$cat_id][$item_id] = array(
-                "title"      => '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/imlinks.gif" alt="" />&nbsp;' . $row['ltitle'],
+             //   "title"      => '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/imlinks_iconsmall.png" alt="" />&nbsp;' . $row['ltitle'],
+				"title"      => $row['ltitle'],
                 "uid"        => $row['submitter'],
                 "link"       => "singlelink.php?cid=$lcid&amp;lid=$item_id",
                 "time"       => $row['published'],
                 "tags"       => $row['item_tag'],
-                "content"    => $row['description']
+                "content"    => strip_tags( $row['description'] )
             ); 
         } 
     } 
