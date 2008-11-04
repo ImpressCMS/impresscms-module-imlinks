@@ -52,7 +52,11 @@ $xoopsTpl -> assign( 'printcategoryname', $mycat['title'] );
 
 if ( $xoopsModuleConfig['screenshot'] ) {
 	if ( $xoopsModuleConfig['useautothumb'] ) {
-		$xoopsTpl -> assign( 'printscrshot', '<img src="http://mozshot.nemui.org/shot/200x200?' . $myrow['url'] . '" alt="" title="" border="0" />' );
+		if ($xoopsModuleConfig['autothumbsrc'] == 0 ) {
+			$xoopsTpl -> assign( 'printscrshot', '<img src=http://open.thumbshots.org/image.pxf?url=' . $myrow['url'] . '" alt="" title="" border="0" hspace="5" />' );
+		} else {
+			$xoopsTpl -> assign( 'printscrshot', '<img src="http://mozshot.nemui.org/shot/200x200?' . $myrow['url'] . '" alt="" title="" border="0" hspace="5" />' );
+		}
 	} else {
 		$xoopsTpl -> assign( 'printscrshot', '<img src="' . ICMS_URL . '/' . $xoopsModuleConfig['screenshots'] .'/'. $myrow['screenshot'] . '" alt="" title="" border="0" />' );
 	}		
