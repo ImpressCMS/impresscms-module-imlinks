@@ -479,19 +479,19 @@ function iml_isnewimage( $published ) {
     $path = 'modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon';
 
     if ( $published > 0 && $published < $week ) {
-        $indicator['image'] = "$path/linkload4.gif";
+        $indicator['image'] = "$path/linkload4.png";
         $indicator['alttext'] = _MD_IMLINKS_NEWLAST;
     } elseif ( $published >= $week && $published < $threedays ) {
-        $indicator['image'] = "$path/linkload3.gif";
+        $indicator['image'] = "$path/linkload3.png";
         $indicator['alttext'] = _MD_IMLINKS_NEWTHIS;
     } elseif ( $published >= $threedays && $published < $oneday ) {
-        $indicator['image'] = "$path/linkload2.gif";
+        $indicator['image'] = "$path/linkload2.png";
         $indicator['alttext'] = _MD_IMLINKS_THREE;
     } elseif ( $published >= $oneday ) {
-        $indicator['image'] = "$path/linkload1.gif";
+        $indicator['image'] = "$path/linkload1.png";
         $indicator['alttext'] = _MD_IMLINKS_TODAY;
     } else {
-        $indicator['image'] = "$path/linkload.gif";
+        $indicator['image'] = "$path/linkload.png";
         $indicator['alttext'] = _MD_IMLINKS_NO_FILES;
     } 
     return $indicator;

@@ -18,10 +18,10 @@
  <tr> 
   <!-- Start category loop --> 
   <{foreach item=category from=$categories}>
-   <td width="5%" style="text-align: center; "> 
+   <td width="5%" style="text-align: center; vertical-align: middle;"> 
     <a href="<{$xoops_url}>/modules/<{$module_dir}>/viewcat.php?cid=<{$category.id}>"><img src="<{$category.image}>" alt="<{$category.alttext}>" title="<{$category.alttext}>" align="top" /></a>
    </td> 
-   <td width="35%" style="text-align: left; vertical-align: text-top;">
+   <td width="35%" style="text-align: left; vertical-align: middle;">
    <a href="<{$xoops_url}>/modules/<{$module_dir}>/viewcat.php?cid=<{$category.id}>"><b><{$category.title}></b></a>&nbsp;(<{$category.totallinks}>) 
       <{if $category.subcategories}>
       <div style="margin-bottom: 3px; margin-left: 16px; font-size: smaller; vertical-align: top;"><{$category.subcategories}></div>
@@ -40,10 +40,10 @@
 <div style="padding-bottom: 12px; padding-top: 12px; vertical-align: middle;">
 <div style="float: left;">&nbsp;<{$imlinks_feed}></div>
  <div style="float: right; font-size: smaller;">
-  <img src="<{$xoops_url}>/modules/<{$module_dir}>/images/icon/linkload1_small.gif" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEW}>" alt="" align="middle"/>&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEW}> 
-  <img src="<{$xoops_url}>/modules/<{$module_dir}>/images/icon/linkload2_small.gif" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWTHREE}>" alt="" align="middle"/>&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWTHREE}> 
-  <img src="<{$xoops_url}>/modules/<{$module_dir}>/images/icon/linkload3_small.gif" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTTHISWEEK}>" alt="" align="middle"/>&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTTHISWEEK}> 
-  <img src="<{$xoops_url}>/modules/<{$module_dir}>/images/icon/linkload4_small.gif" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWLAST}>"  alt="" align="middle"/>&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWLAST}>
+  <img src="<{$xoops_url}>/modules/<{$module_dir}>/images/icon/linkload1_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEW}>" alt="" align="middle"/>&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEW}> 
+  <img src="<{$xoops_url}>/modules/<{$module_dir}>/images/icon/linkload2_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWTHREE}>" alt="" align="middle"/>&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWTHREE}> 
+  <img src="<{$xoops_url}>/modules/<{$module_dir}>/images/icon/linkload3_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTTHISWEEK}>" alt="" align="middle"/>&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTTHISWEEK}> 
+  <img src="<{$xoops_url}>/modules/<{$module_dir}>/images/icon/linkload4_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWLAST}>"  alt="" align="middle"/>&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWLAST}>
  &nbsp;</div>
 </div>
 <{/if}>
