@@ -40,7 +40,7 @@ define("_MI_IMLINKS_BNAME2", "Топ ссылок");
 define("_MI_IMLINKS_SMNAME1", "Разместить");
 define("_MI_IMLINKS_SMNAME2", "Популярные");
 define("_MI_IMLINKS_SMNAME3", "Топ оцененных");
-define("_MI_IMLINKS_SMNAME4", "Последние списки");
+define("_MI_IMLINKS_SMNAME4", "Новейшие ссылки");
 
 // Names of admin menu items
 define("_MI_IMLINKS_BINDEX", "Индекс");
@@ -120,8 +120,8 @@ define("_MI_IMLINKS_QUALITY", "Качество наброска (контрол
 define("_MI_IMLINKS_QUALITYDSC", "Худшее: 0, Лучшее: 100");
 define("_MI_IMLINKS_KEEPASPECT", "Сохранить пропорции изображения?");
 define("_MI_IMLINKS_KEEPASPECTDSC", "");
-define("_MI_IMLINKS_ADMINPAGE", "Admin Index Links Count:");
-define("_MI_IMLINKS_AMDMINPAGEDSC", "Number of new links to display in module admin area.");
+define("_MI_IMLINKS_ADMINPAGE", "Кол-во ссылок для администратора:");
+define("_MI_IMLINKS_AMDMINPAGEDSC", "Количество новых ссылок, показываемых администратору.");
 define("_MI_IMLINKS_ARTICLESSORT", "Порядок ссылок по умолчанию:");
 define("_MI_IMLINKS_ARTICLESSORTDSC", "Select the default order for the link listings.");
 define("_MI_IMLINKS_TITLE", "Заголовок");
@@ -142,50 +142,50 @@ define('_MI_IMLINKS_CATEGORY_NOTIFYDSC', 'Notification options that apply to the
 define('_MI_IMLINKS_LINK_NOTIFY', 'Ссылка');
 define('_MI_IMLINKS_FILE_NOTIFYDSC', 'Notification options that apply to the current link.');
 define('_MI_IMLINKS_GLOBAL_NEWCATEGORY_NOTIFY', 'Новая категория');
-define('_MI_IMLINKS_GLOBAL_NEWCATEGORY_NOTIFYCAP', 'Notify me when a new link category is created.');
+define('_MI_IMLINKS_GLOBAL_NEWCATEGORY_NOTIFYCAP', 'Оповестить меня, когда будет создана новая категория ссылок.');
 define('_MI_IMLINKS_GLOBAL_NEWCATEGORY_NOTIFYDSC', 'Receive notification when a new link category is created.');
-define('_MI_IMLINKS_GLOBAL_NEWCATEGORY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} авто-оповещение : New link category');                              
+define('_MI_IMLINKS_GLOBAL_NEWCATEGORY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : Новая категория ссылок');                              
 
-define('_MI_IMLINKS_GLOBAL_LINKMODIFY_NOTIFY', 'Modify Link Requested');
-define('_MI_IMLINKS_GLOBAL_LINKMODIFY_NOTIFYCAP', 'Notify me of any link modification request.');
+define('_MI_IMLINKS_GLOBAL_LINKMODIFY_NOTIFY', 'Запрос о редактировании ссылки');
+define('_MI_IMLINKS_GLOBAL_LINKMODIFY_NOTIFYCAP', 'Оповестить меня о любом запросе на редактирование ссылки.');
 define('_MI_IMLINKS_GLOBAL_LINKMODIFY_NOTIFYDSC', 'Receive notification when any link modification request is submitted.');
-define('_MI_IMLINKS_GLOBAL_LINKMODIFY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Link Modification Requested');
+define('_MI_IMLINKS_GLOBAL_LINKMODIFY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : Запрос на редактирование ссылки');
 
-define('_MI_IMLINKS_GLOBAL_LINKBROKEN_NOTIFY', 'Broken Link Submitted');
-define('_MI_IMLINKS_GLOBAL_LINKBROKEN_NOTIFYCAP', 'Notify me of any broken link report.');
+define('_MI_IMLINKS_GLOBAL_LINKBROKEN_NOTIFY', 'Обнаружена сбойная ссылка');
+define('_MI_IMLINKS_GLOBAL_LINKBROKEN_NOTIFYCAP', 'Оповестить меня, когда будет сообщено о любой сбойной ссылке.');
 define('_MI_IMLINKS_GLOBAL_LINKBROKEN_NOTIFYDSC', 'Receive notification when any broken link report is submitted.');
-define('_MI_IMLINKS_GLOBAL_LINKBROKEN_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Broken Link Reported');
+define('_MI_IMLINKS_GLOBAL_LINKBROKEN_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : Сообщение осбойной ссылке');
 
-define('_MI_IMLINKS_GLOBAL_LINKSUBMIT_NOTIFY', 'Link Submitted');
-define('_MI_IMLINKS_GLOBAL_LINKSUBMIT_NOTIFYCAP', 'Notify me when any new link is submitted (awaiting approval).');
+define('_MI_IMLINKS_GLOBAL_LINKSUBMIT_NOTIFY', 'Размещение ссылки');
+define('_MI_IMLINKS_GLOBAL_LINKSUBMIT_NOTIFYCAP', 'Оповестить меня, когда любая новая ссылка будет размещена (ожидающая одобрения).');
 define('_MI_IMLINKS_GLOBAL_LINKSUBMIT_NOTIFYDSC', 'Receive notification when any new link is submitted (awaiting approval).');
-define('_MI_IMLINKS_GLOBAL_LINKSUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New link submitted');
+define('_MI_IMLINKS_GLOBAL_LINKSUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : Размещена новая ссылка');
 
 define('_MI_IMLINKS_GLOBAL_NEWLINK_NOTIFY', 'Новая ссылка');
-define('_MI_IMLINKS_GLOBAL_NEWLINK_NOTIFYCAP', 'Notify me when any new link is posted.');
+define('_MI_IMLINKS_GLOBAL_NEWLINK_NOTIFYCAP', 'Оповестить меня, когда будет отправлена любая новая ссылка.');
 define('_MI_IMLINKS_GLOBAL_NEWLINK_NOTIFYDSC', 'Receive notification when any new link is posted.');
-define('_MI_IMLINKS_GLOBAL_NEWLINK_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New link');
+define('_MI_IMLINKS_GLOBAL_NEWLINK_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : New link');
 
 define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFY', 'Размещена ссылка');
-define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYCAP', 'Notify me when a new link is submitted (awaiting approval) to the current category.');   
+define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYCAP', 'Оповестить меня, когда будет размщена новая ссылка (ожидающая одобрения) в текущей категории.');   
 define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYDSC', 'Receive notification when a new link is submitted (awaiting approval) to the current category.');      
-define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New link submitted in category'); 
+define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : В категории размщена новая ссылка'); 
 
 define('_MI_IMLINKS_CATEGORY_NEWLINK_NOTIFY', 'Новая ссылка');
-define('_MI_IMLINKS_CATEGORY_NEWLINK_NOTIFYCAP', 'Notify me when a new link is posted to the current category.');   
+define('_MI_IMLINKS_CATEGORY_NEWLINK_NOTIFYCAP', 'Оповестить меня, когда новая ссылка отправлена в текущую категорию.');   
 define('_MI_IMLINKS_CATEGORY_NEWLINK_NOTIFYDSC', 'Receive notification when a new link is posted to the current category.');      
-define('_MI_IMLINKS_CATEGORY_NEWLINK_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New link in category'); 
+define('_MI_IMLINKS_CATEGORY_NEWLINK_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : New link in category'); 
 
-define('_MI_IMLINKS_LINK_APPROVE_NOTIFY', 'Link Approved');
-define('_MI_IMLINKS_LINK_APPROVE_NOTIFYCAP', 'Notify me when this link is approved.');
-define('_MI_IMLINKS_LINK_APPROVE_NOTIFYDSC', 'Receive notification when this link is approved.');
-define('_MI_IMLINKS_LINK_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Link Approved');
+define('_MI_IMLINKS_LINK_APPROVE_NOTIFY', 'Одобрение ссылки');
+define('_MI_IMLINKS_LINK_APPROVE_NOTIFYCAP', 'Оповестить меня, когда эта ссылка будет одобрена.');
+define('_MI_IMLINKS_LINK_APPROVE_NOTIFYDSC', 'Получить оповещение, когда эта ссылка будет одоббрена.');
+define('_MI_IMLINKS_LINK_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : Link Approved');
 
-define('_MI_IMLINKS_AUTHOR_INFO', "Developer Information");
-define('_MI_IMLINKS_AUTHOR_NAME', "Developer");
-define('_MI_IMLINKS_AUTHOR_DEVTEAM', "Команда разработки");
-define('_MI_IMLINKS_AUTHOR_WEBSITE', "Developer website");
-define('_MI_IMLINKS_AUTHOR_EMAIL', "Developer email");
+define('_MI_IMLINKS_AUTHOR_INFO', "Информация о разработчиках");
+define('_MI_IMLINKS_AUTHOR_NAME', "Разработчик");
+define('_MI_IMLINKS_AUTHOR_DEVTEAM', "Команда разработчиков");
+define('_MI_IMLINKS_AUTHOR_WEBSITE', "Вэбсайт разработчиков");
+define('_MI_IMLINKS_AUTHOR_EMAIL', "Email разработчика");
 define('_MI_IMLINKS_AUTHOR_CREDITS', "Участники");
 define('_MI_IMLINKS_MODULE_INFO', "Module Development Information");
 define('_MI_IMLINKS_MODULE_STATUS', "Development Status");
@@ -251,30 +251,30 @@ define("_MI_IMLINKS_KEYLENGTH", "Enter max. characters for meta keywords:");
 define("_MI_IMLINKS_KEYLENGTHDSC", "По умолчанию 255 символов");
 define("_MI_IMLINKS_OTHERLINKS", "Show other links submitted by Submitter?");
 define("_MI_IMLINKS_OTHERLINKSDSC", "Select if other links of the submitter will be displayed.");
-define("_MI_IMLINKS_TOTALCHARS", "Set total amount of characters for description?");
+define("_MI_IMLINKS_TOTALCHARS", "Кол-во символов для описания");
 define("_MI_IMLINKS_TOTALCHARSDSC", "Set total amount of characters for description in category view.");
-define("_MI_IMLINKS_QUICKVIEW", "Show Quick View option?");
+define("_MI_IMLINKS_QUICKVIEW", "Установть опцию быстрого просмотра");
 define("_MI_IMLINKS_QUICKVIEWDSC", "This turns on/off the Quick View option.");
 define('_MI_IMLINKS_ICONS_CREDITS', "Icons by");
-define("_MI_IMLINKS_SHOWSBOOKMARKS", "Show Social Bookmarks?");
+define("_MI_IMLINKS_SHOWSBOOKMARKS", "Показать социальные закладки?");
 define("_MI_IMLINKS_SHOWSBOOKMARKSDSC", "Select Yes if you want Social Bookmark icons to be displayed under article.");
 define("_MI_IMLINKS_SHOWPAGERANK", "Показать Google PageRank™?");
-define("_MI_IMLINKS_SHOWPAGERANKSDSC", "Select Yes if you want Google PageRank™ to be displayed.");
+define("_MI_IMLINKS_SHOWPAGERANKSDSC", "Выберите Да, если Вы желаете показывать Google PageRank™ .");
 define("_MI_IMLINKS_USERTAGDESCR", "User can submit Tags:");
 define("_MI_IMLINKS_USERTAGDSC", "Select Yes if user is allowed to submit tags.");
 
 // Version 1.05 RC5
 define('_MI_IMLINKS_DATEFORMATADMIN', 'Формат даты для администратора:');
 define('_MI_IMLINKS_DATEFORMATADMINDSC', 'Формат даты для администратора в imLinks<br />Смотрите <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP руководство</a>');
-define("_MI_IMLINKS_USEADDRESSDESCR", "Use address and map options?");
-define("_MI_IMLINKS_USEADDRESSDSC", "Select Yes to use the address and maps feature.");
+define("_MI_IMLINKS_USEADDRESSDESCR", "Использовать опции карты и адреса?");
+define("_MI_IMLINKS_USEADDRESSDSC", "Выберите Да, если Вы желаете использовать показ адресов на карте.");
 define("_MI_IMLINKS_HEADERPRINT", "Заголовок на странице для печати");
 define("_MI_IMLINKS_HEADERPRINTDSC", "Header that will be printed for each link");
-define("_MI_IMLINKS_LOGOURLPRINT", "[PRINT OPTIONS] Logo print url");
-define("_MI_IMLINKS_LOGOURLDSCPRINT", "Url of the logo that will be printed at the top of the page");
+define("_MI_IMLINKS_LOGOURLPRINT", "Url логотипа");
+define("_MI_IMLINKS_LOGOURLDSCPRINT", "Url логотипа, который будет напечатан вверху страницы");
 define("_MI_IMLINKS_FOOTERPRINT", "Подпись на странице для печати");
 define("_MI_IMLINKS_FOOTERPRINTDSC", "Footer that will be printed for each link");
-define("_MI_IMLINKS_BNAME3", "imLinks Sponsor Statistics");
+define("_MI_IMLINKS_BNAME3", "Статистика спонсоров imLinks");
 define("_MI_IMLINKS_VCARD_CREDITS", "vCard script by");
 
 // Version 1.05 RC6
