@@ -1,14 +1,16 @@
 =========================================================
-xx.xx.2008   1.00 RC-1
+xx.11.2008   1.00 RC-1
 =========================================================
 - Revamped Main Index page
 
-- Added: developers, testers, translators for About page
+- Added: developers, testers, translators, etc for About page
 - Added: option to have linked terms if imGlossary is installed
 - Added: option for selecting source of autoscr.shot (Thumbshot.org or Mozshot)
 - Added: captcha to submit form
 - Added: RSS feed using icmsfeed.php
 - Added: GPL2 license incl. unofficial translations
+- Added: upgrade from WF-Links 1.06
+- Added: icons for button bar, plus new module and category icons
 
 - Renamed: module name from 'WF-Links' into 'imLinks'
 - Renamed: file 'bugfixlist.txt' into 'changelog.txt'
