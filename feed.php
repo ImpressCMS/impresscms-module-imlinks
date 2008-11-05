@@ -32,16 +32,18 @@ $sql = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links'
 
     while ( $myrow = $xoopsDB -> fetchArray( $sql ) ) {	
 		
-		$date = formatTimestamp( $myrow['published'], $xoopsModuleConfig['dateformat'] );
-		$text = icms_substr( $myrow['description'], 0, $xoopsModuleConfig['totalchars'], '...' );
-		$text = $immyts -> displayTarea( $text, 1, 1, 1, 1, 1 );
+		$date  = date( 'D, d M Y H:i:s', $myrow['published'] );
+		$title = htmlspecialchars( $myrow['title'] );
+		$text  = icms_substr( $myrow['description'], 0, $xoopsModuleConfig['totalchars'], '...' );
+		$text  = htmlspecialchars( $immyts -> displayTarea( $text, 1, 1, 1, 1, 1 ) );
+		$link  = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . intval( $myrow['cid'] ) . '&amp;lid=' . intval( $myrow['lid'] );
 
 		$myFeed -> feeds[] = array(
-			'title' 		=> $myrow['title'],
-			'link' 			=> ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . intval( $myrow['cid'] ) . '&amp;lid=' . intval( $myrow['lid'] ),
+			'title' 		=> $title,
+			'link' 			=> $link,
 			'description' 	=> $text,
 			'pubdate' 		=> $date,
-			'guid' 			=> ''
+			'guid' 			=> $link
 			);
 	}
 	
