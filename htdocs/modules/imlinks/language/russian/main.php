@@ -76,10 +76,10 @@ define( "_MD_IMLINKS_HOMEPAGEC", "Главная страница: " );
 define( "_MD_IMLINKS_NOTSPECIFIED", "Не определено" );
 define( "_MD_IMLINKS_SUBMITTER", "Издатель" );
 define( "_MD_IMLINKS_UPDATEDON", "Обновлена" );
-define( "_MD_IMLINKS_PRICEFREE", "Free" );
+define( "_MD_IMLINKS_PRICEFREE", "Бесплатно" );
 define( "_MD_IMLINKS_VIEWDETAILS", "Посмотреть подробности" );
 define( "_MD_IMLINKS_OPTIONS", 'Опции: ' );
-define( "_MD_IMLINKS_NOTIFYAPPROVE", 'Оповестить меня, когда эта ссылка будет одобрна' );
+define( "_MD_IMLINKS_NOTIFYAPPROVE", 'Оповестить меня, когда эта ссылка будет одобрена' );
 define( "_MD_IMLINKS_VOTEAPPRE", "Your vote is appreciated." );
 define( "_MD_IMLINKS_THANKYOU", "Thank you for taking the time to vote here at %s" ); // %s is your site name
 define( "_MD_IMLINKS_VOTEONCE", "Please do not vote for the same resource more than once." );
