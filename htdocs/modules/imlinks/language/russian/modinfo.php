@@ -40,7 +40,7 @@ define("_MI_IMLINKS_BNAME2", "Топ ссылок");
 define("_MI_IMLINKS_SMNAME1", "Разместить");
 define("_MI_IMLINKS_SMNAME2", "Популярные");
 define("_MI_IMLINKS_SMNAME3", "Топ оцененных");
-define("_MI_IMLINKS_SMNAME4", "Новейшие ссылки");
+define("_MI_IMLINKS_SMNAME4", "Новые ссылки");
 
 // Names of admin menu items
 define("_MI_IMLINKS_BINDEX", "Индекс");
@@ -85,11 +85,11 @@ define('_MI_IMLINKS_AUTOAPPROVE', 'Auto Approve Submitted links');
 define('_MI_IMLINKS_AUTOAPPROVEDSC', 'Select to approve submitted links without moderation.');
 
 define('_MI_IMLINKS_MAXFILESIZE', 'Размер загружаемого файла (KB)');
-define('_MI_IMLINKS_MAXFILESIZEDSC', 'Maximum link size permitted with link uploads.');
+define('_MI_IMLINKS_MAXFILESIZEDSC', 'Максимальный размер ссылки, разрешенный для загрузки.');
 define('_MI_IMLINKS_IMGWIDTH', 'Ширина загружаемой картинки');
-define('_MI_IMLINKS_IMGWIDTHDSC', 'Maximum image width permitted when uploading image links');
+define('_MI_IMLINKS_IMGWIDTHDSC', 'Максимальный размер файла картинки, разрешенный для загрузки изображения ссылок');
 define('_MI_IMLINKS_IMGHEIGHT', 'Высота загружаемой картинки');
-define('_MI_IMLINKS_IMGHEIGHTDSC', 'Maximum image height permitted when uploading image links');
+define('_MI_IMLINKS_IMGHEIGHTDSC', 'Максимальная высота картинки, зарешенная для загрузки изображения ссылки');
 
 define('_MI_IMLINKS_UPLOADDIR', 'Каталог для загрузки (без завершающего слэша)');
 define('_MI_IMLINKS_ALLOWSUBMISS', 'User Submissions:');
@@ -103,8 +103,8 @@ define('_MI_IMLINKS_USETHUMBS', 'Использовать набросок?');
 define("_MI_IMLINKS_USETHUMBSDSC", "Поддерживаемые типы файлов: JPG, GIF, PNG.<div style='padding-top: 8px;'>imLinks will use thumb nails for images. Set to 'No' to use orginal image if the server does not support this option.</div>");
 define('_MI_IMLINKS_DATEFORMAT', 'Формат даты:');
 define('_MI_IMLINKS_DATEFORMATDSC', 'Формат даты по умолчанию для imLinks.<br />Смотрите <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP руководство</a>');
-define('_MI_IMLINKS_SHOWDISCLAIMER', 'Show Disclaimer before User Submission?');
-define('_MI_IMLINKS_SHOWDISCLAIMERDSC', 'Before a User can submit a Link show the Entry regulations?');
+define('_MI_IMLINKS_SHOWDISCLAIMER', 'Показать предупреждение об ответственности перед размещением?');
+define('_MI_IMLINKS_SHOWDISCLAIMERDSC', 'Перед тем, как пользователь сможет разместить ссылку могут быть показаны правила');
 define('_MI_IMLINKS_SHOWLINKDISCL', 'Показать сообщение об отвественности перед размещением ссылки?');
 define('_MI_IMLINKS_SHOWLINKDISCLDSC', 'Show link regulations before open a link?');
 define('_MI_IMLINKS_DISCLAIMER', 'Текст предупреждения об ответственности при размещении ссылки:');
@@ -123,16 +123,16 @@ define("_MI_IMLINKS_KEEPASPECTDSC", "");
 define("_MI_IMLINKS_ADMINPAGE", "Кол-во ссылок для администратора:");
 define("_MI_IMLINKS_AMDMINPAGEDSC", "Количество новых ссылок, показываемых администратору.");
 define("_MI_IMLINKS_ARTICLESSORT", "Порядок ссылок по умолчанию:");
-define("_MI_IMLINKS_ARTICLESSORTDSC", "Select the default order for the link listings.");
+define("_MI_IMLINKS_ARTICLESSORTDSC", "Выбрать порядок отображения списка ссылок.");
 define("_MI_IMLINKS_TITLE", "Заголовок");
 define("_MI_IMLINKS_RATING", "Оценка");
 define("_MI_IMLINKS_WEIGHT", "Вес");
 define("_MI_IMLINKS_POPULARITY", "Популярность");
 define("_MI_IMLINKS_SUBMITTED2", "Дата размещения");
-define('_MI_IMLINKS_COPYRIGHT', 'Сообщение о защите прав:');
+define('_MI_IMLINKS_COPYRIGHT', 'Показывать сообщение о защите прав?');
 define('_MI_IMLINKS_COPYRIGHTDSC', 'Select to display a copyright notice on link page.');
 // Description of each config items
-define('_MI_IMLINKS_SUBCATSDSC', 'Select Yes to display sub-categories. Selecting No will hide sub-categories from the listings');
+define('_MI_IMLINKS_SUBCATSDSC', 'Выберите ДА для показа подкатегорий. Выберите НЕТ, если Вы желаете скрыть подкатегории в списке');
 
 // Text for notifications
 define('_MI_IMLINKS_GLOBAL_NOTIFY', 'Общие');
@@ -194,17 +194,17 @@ define('_MI_IMLINKS_MODULE_SUPPORT', "Официальный сайт подде
 define('_MI_IMLINKS_MODULE_BUG', "Report a bug for this module");
 define('_MI_IMLINKS_MODULE_FEATURE', "Suggest a new feature for this module");
 define('_MI_IMLINKS_MODULE_DISCLAIMER', "Отказ от ответственности");
-define('_MI_IMLINKS_RELEASE', "Release Date: ");
+define('_MI_IMLINKS_RELEASE', "Дата релиза: ");
 
-define('_MI_IMLINKS_MODULE_MAILLIST', "WF-Project Mailing Lists");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTS', "Announcements Mailing List");
-define('_MI_IMLINKS_MODULE_MAILBUGS', "Bug Mailing List");
-define('_MI_IMLINKS_MODULE_MAILFEATURES', "Features Mailing List");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTSDSC', "Get the latest announcements from WF-Project.");
-define('_MI_IMLINKS_MODULE_MAILBUGSDSC', "Bug Tracking and submission mailing list");
-define('_MI_IMLINKS_MODULE_MAILFEATURESDSC', "Request New Features mailing list.");
+define('_MI_IMLINKS_MODULE_MAILLIST', "Список рассылки WF-Project");
+define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTS', "Список рассылки анонсов");
+define('_MI_IMLINKS_MODULE_MAILBUGS', "Список рассылки ошибок");
+define('_MI_IMLINKS_MODULE_MAILFEATURES', "Список рассылки свойств");
+define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTSDSC', "Возьмите последние анонсы о WF-Project.");
+define('_MI_IMLINKS_MODULE_MAILBUGSDSC', "Список рассылки отслеживания ошибок");
+define('_MI_IMLINKS_MODULE_MAILFEATURESDSC', "Список рассылки для запросов о новых свойствах.");
 
-define('_MI_IMLINKS_WARNINGTEXT', "THE SOFTWARE IS PROVIDED BY WF-PROJECTS \"AS IS\" AND \"WITH ALL FAULTS.\"
+define('_MI_IMLINKS_WARNINGTEXT', "ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ WF-PROJECTS \"КАК ЕСТЬ\" И \"ВСЕМИ ОШИБКАМИ.\"
 WF-PROJECTS MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING
 THE QUALITY, SAFETY OR SUITABILITY OF THE SOFTWARE, EITHER EXPRESS OR
 IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF
@@ -217,16 +217,16 @@ INCIDENTAL OR CONSEQUENTIAL DAMAGES HOWEVER THEY MAY ARISE AND EVEN IF
 WF-PROJECT HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES..");
 
 define('_MI_IMLINKS_AUTHOR_CREDITSTEXT',"The WF-Projects Team would like to thank the following people for their help and support during the development phase of this module.<br /></br />EdStacey, maumed, banned, krobi, Pnooka, MarcoFr, cosmodrum, placebo333, GibaPhp");
-define('_MI_IMLINKS_AUTHOR_BUGFIXES', "Bug Fix History");
+define('_MI_IMLINKS_AUTHOR_BUGFIXES', "История исправления ошибок");
 
 define('_MI_IMLINKS_COPYRIGHT2', 'Copyright' );
 define('_MI_IMLINKS_COPYRIGHTIMAGE', "Unless stated otherwise, this Module (imLinks) and its images are copyright to the ImpressCMS community.<br /><br />You have the permission to copy, edit and change imLinks to suit your personal requirements. You agree not to modify, adapt and redistribute the source code of the Software without the express permission from the ImpressCMS team.<br /><br />PageRank is a trademark of Google Inc.");
 
-define('_MI_IMLINKS_SELECTFORUM', "Select Forum:");
-define('_MI_IMLINKS_SELECTFORUMDSC', "Select the forum you have installed and will be used by imLinks.");
+define('_MI_IMLINKS_SELECTFORUM', "Выбор форума:");
+define('_MI_IMLINKS_SELECTFORUMDSC', "Выбрать форум, который Вы инсталлируете и будете использовать с imLinks.");
 
 define('_MI_IMLINKS_DISPLAYFORUM1', "Newbb (все)");
-define('_MI_IMLINKS_DISPLAYFORUM2', "IPB Forum");
+define('_MI_IMLINKS_DISPLAYFORUM2', "IPB форум");
 define('_MI_IMLINKS_DISPLAYFORUM3', "PHPBB2 модуль");
 
 // added by McDonald
@@ -246,7 +246,7 @@ define("_MI_IMLINKS_FORM_TINYEDITOR", "TinyEditor");
 define("_MI_IMLINKS_FORM_TINYMCE", "TinyMCE");
 define("_MI_IMLINKS_FORM_DHTMLEXT", "DHTML Extended");
 define("_MI_IMLINKS_SORTCATS", "Сортировать категории по:");
-define("_MI_IMLINKS_SORTCATSDSC", "Select how categories and sub-categories are sorted.");
+define("_MI_IMLINKS_SORTCATSDSC", "Выберите по какому параметру сортировать категории и подкатегории.");
 define("_MI_IMLINKS_KEYLENGTH", "Enter max. characters for meta keywords:");
 define("_MI_IMLINKS_KEYLENGTHDSC", "По умолчанию 255 символов");
 define("_MI_IMLINKS_OTHERLINKS", "Show other links submitted by Submitter?");
@@ -260,8 +260,8 @@ define("_MI_IMLINKS_SHOWSBOOKMARKS", "Показать социальные за
 define("_MI_IMLINKS_SHOWSBOOKMARKSDSC", "Select Yes if you want Social Bookmark icons to be displayed under article.");
 define("_MI_IMLINKS_SHOWPAGERANK", "Показать Google PageRank™?");
 define("_MI_IMLINKS_SHOWPAGERANKSDSC", "Выберите Да, если Вы желаете показывать Google PageRank™ .");
-define("_MI_IMLINKS_USERTAGDESCR", "User can submit Tags:");
-define("_MI_IMLINKS_USERTAGDSC", "Select Yes if user is allowed to submit tags.");
+define("_MI_IMLINKS_USERTAGDESCR", "Пользователь может размещать тэги?");
+define("_MI_IMLINKS_USERTAGDSC", "Выберите ДА, если пользователю разрешено размещать тэги.");
 
 // Version 1.05 RC5
 define('_MI_IMLINKS_DATEFORMATADMIN', 'Формат даты для администратора:');
@@ -269,11 +269,11 @@ define('_MI_IMLINKS_DATEFORMATADMINDSC', 'Формат даты для адми�
 define("_MI_IMLINKS_USEADDRESSDESCR", "Использовать опции карты и адреса?");
 define("_MI_IMLINKS_USEADDRESSDSC", "Выберите Да, если Вы желаете использовать показ адресов на карте.");
 define("_MI_IMLINKS_HEADERPRINT", "Заголовок на странице для печати");
-define("_MI_IMLINKS_HEADERPRINTDSC", "Header that will be printed for each link");
+define("_MI_IMLINKS_HEADERPRINTDSC", "Заголовок, который будет напечатан для каждой ссылки");
 define("_MI_IMLINKS_LOGOURLPRINT", "Url логотипа");
 define("_MI_IMLINKS_LOGOURLDSCPRINT", "Url логотипа, который будет напечатан вверху страницы");
 define("_MI_IMLINKS_FOOTERPRINT", "Подпись на странице для печати");
-define("_MI_IMLINKS_FOOTERPRINTDSC", "Footer that will be printed for each link");
+define("_MI_IMLINKS_FOOTERPRINTDSC", "Подпись, которая будет напечатана для каждой ссылки");
 define("_MI_IMLINKS_BNAME3", "Статистика спонсоров imLinks");
 define("_MI_IMLINKS_VCARD_CREDITS", "vCard script by");
 
@@ -294,22 +294,22 @@ define("_MI_IMLINKS_BNAME5", "Топ тэгов imLinks");
 
 // Version 1.06 RC-3
 define('_MI_IMLINKS_DISPLAYFORUM4', "Newbbex");
-define("_MI_IMLINKS_TITLE_A", "Заголовок (A)");
-define("_MI_IMLINKS_TITLE_D", "Заголовок (D)");
-define("_MI_IMLINKS_RATING_A", "Оценка (A)");
-define("_MI_IMLINKS_RATING_D", "Оценка (D)");
-define("_MI_IMLINKS_SUBMITTED_A", "Дата размещения (A)");
-define("_MI_IMLINKS_SUBMITTED_D", "Дата размещения (D)");
-define("_MI_IMLINKS_POPULARITY_A", "Популярность (A)");
-define("_MI_IMLINKS_POPULARITY_D", "Популярность (D)");
-define("_MI_IMLINKS_COUNTRY_A", "Страна (A)");
-define("_MI_IMLINKS_COUNTRY_D", "Страна (D)");
+define("_MI_IMLINKS_TITLE_A", "Заголовок (взр)");
+define("_MI_IMLINKS_TITLE_D", "Заголовок (убв)");
+define("_MI_IMLINKS_RATING_A", "Оценка (взр)");
+define("_MI_IMLINKS_RATING_D", "Оценка (убв)");
+define("_MI_IMLINKS_SUBMITTED_A", "Дата размещения (взр)");
+define("_MI_IMLINKS_SUBMITTED_D", "Дата размещения (убв)");
+define("_MI_IMLINKS_POPULARITY_A", "Популярность (взр)");
+define("_MI_IMLINKS_POPULARITY_D", "Популярность (убв)");
+define("_MI_IMLINKS_COUNTRY_A", "Страна (взр)");
+define("_MI_IMLINKS_COUNTRY_D", "Страна (убв)");
 
 // imLinks 1.00 RC-1
 define( "_MI_IMLINKS_CAPTCHA", "Использовать captcha в формах?" );
 define( "_MI_IMLINKS_CAPTCHADSC", "Выберите <em>Да</em>  чтобы использовать captcha формах запроса на размещение.<br />По умолчанию: <em>Да</em>" );
-define( "_MI_IMLINKS_LINKEDTERMS", "Link to terms glossary?" );
-define( "_MI_IMLINKS_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
+define( "_MI_IMLINKS_LINKEDTERMS", "Ссылка на термин глоссария?" );
+define( "_MI_IMLINKS_LINKEDTERMSDSC", "Для этого свойства необходимо установить и активировать модуль imGlossary." );
 define( "_MI_IMLINKS_IMGLOSSARYDIR", "Каталог imGlossary:" );
 define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "Имя каталога, где расположен imGlossary.<br />По умолчанию: <em>imglossary</em>" );
 define( '_MI_IMLINKS_SELECTFEED', 'Использовать ICMS RSS канал?' );
@@ -319,6 +319,6 @@ define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Это число имеет значен�
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Выбор источника автоматической генерации образов экрана' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Дополнительная информация:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
-define( '_MI_IMLINKS_CATCOLS', 'Number of category colums:' );
-define( '_MI_IMLINKS_CATCOLSDSC', 'Select the number of category colums for Index Page.<br />Default: <em>2</em>' );
+define( '_MI_IMLINKS_CATCOLS', 'Кол-во колонок категории:' );
+define( '_MI_IMLINKS_CATCOLSDSC', 'Выберите количество колонок категории на индексной странице.<br />По умолчанию: <em>2</em>' );
 ?>
