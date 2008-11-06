@@ -320,6 +320,8 @@ define( "_MI_IMLINKS_IMGLOSSARYDIR", "Naam map van imGlossary:" );
 define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "De naam van de map waarin imGlossary zich bevindt.<br />Standaard: <em>imglossary</em>" );
 define( '_MI_IMLINKS_SELECTFEED', 'Gebruik ICMS RSS feed?' );
 define( '_MI_IMLINKS_SELECTFEED_DSC', 'Kies <em>Ja</em> om ImpressCMS RSS feed te gebruiken. Kies <em>Nee</em> voor Brandycoke\'s RSSfit module (subfeed dient geaktiveerd te zijn).'  );
+define( '_MI_IMLINKS_FEEDSTOTAL', 'Aantal linken weer te geven in RSS feed?' );
+define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Dit aantal heeft alleen invloed op de ImpressCMS RSS feed. Standaard: <em>15</em>' );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - een kopie van de GNU licentie is bijgesloten (license.txt).' );
 define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Kies bron voor het genereren van auto screenshot' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Meer informatie:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
