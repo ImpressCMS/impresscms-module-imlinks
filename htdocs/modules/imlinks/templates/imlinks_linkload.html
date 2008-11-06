@@ -25,12 +25,8 @@
           <td width="65%" valign="top"> <{if $link.autoscrshot == 0}> <{if $show_screenshot == true}> <{if $link.screenshot_full != ''}>
             <div> <a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><img src="<{$link.screenshot_thumb}>" alt="" hspace="7" vspace="3" border="0" align="right" /></a> </div> 
 <{/if}> <{/if}> <{/if}>
-<{if $link.autoscrshot == 1}> <div> 
-  <{if $link.autothumbsrc == 0}>
-	<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&lid=<{$link.id}>" target="_blank"><img src="http://open.thumbshots.org/image.pxf?url=<{$link.url}>" width="128px" height="96px" align="right" /></a>
-  <{else}>
-	<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&lid=<{$link.id}>" target="_blank"><img src="http://mozshot.nemui.org/shot/128x128?<{$link.url}>" align="right" /></a>
-	<{/if}>
+<{if $link.autoscrshot == 1}> <div style="float:right;"> 
+<{$link.autothumbsrc}>
  </div> <{/if}>
             <div style="margin-left: 6px;" align="left"> 
             <a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"> 

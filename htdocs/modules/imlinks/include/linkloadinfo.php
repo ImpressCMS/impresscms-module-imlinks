@@ -170,5 +170,10 @@ $link['showpagerank'] = $xoopsModuleConfig['showpagerank'];
 $link['quickview'] = $xoopsModuleConfig['quickview'];
 $link['comment_rules'] = $xoopsModuleConfig['com_rule'];
 $link['autoscrshot'] = $xoopsModuleConfig['useautothumb'];
-$link['autothumbsrc'] = $xoopsModuleConfig['autothumbsrc'];
+if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
+	$link['autothumbsrc'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/visit.php?cid=' . $link_arr['cid'] . '&lid='.$link_arr['lid'] . '" target="_blank"><img src="http://mozshot.nemui.org/shot/128x128?' . $link_arr['url'] . '" align="middle" alt="" /></a>';
+	} else {
+	$link['autothumbsrc'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/visit.php?cid=' . $link_arr['cid'] . '&lid='.$link_arr['lid'] . '" target="_blank"><img src="http://open.thumbshots.org/image.pxf?url=' . $link_arr['url'] . '" width="120" height="90" align="middle" alt="" /></a>';
+	}
+//$xoopsTpl -> assign('autothumbsrc', $autothumbsrc);
 ?>
