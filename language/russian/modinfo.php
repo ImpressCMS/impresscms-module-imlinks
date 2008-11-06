@@ -307,15 +307,15 @@ define("_MI_IMLINKS_COUNTRY_D", "Страна (D)");
 
 // imLinks 1.00 RC-1
 define( "_MI_IMLINKS_CAPTCHA", "Использовать captcha в формах?" );
-define( "_MI_IMLINKS_CAPTCHADSC", "Select <em>Yes</em> to use captcha in the submit form.<br />По умолчанию: <em>Да</em>" );
+define( "_MI_IMLINKS_CAPTCHADSC", "Выберите <em>Да</em>  чтобы использовать captcha формах запроса на размещение.<br />По умолчанию: <em>Да</em>" );
 define( "_MI_IMLINKS_LINKEDTERMS", "Link to terms glossary?" );
 define( "_MI_IMLINKS_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
 define( "_MI_IMLINKS_IMGLOSSARYDIR", "Каталог imGlossary:" );
 define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "Имя каталога, где расположен imGlossary.<br />По умолчанию: <em>imglossary</em>" );
 define( '_MI_IMLINKS_SELECTFEED', 'Использовать ICMS RSS канал?' );
-define( '_MI_IMLINKS_SELECTFEED_DSC', 'Select <em>Yes</em> to use ImpressCMS RSS feed. Select <em>Нет</em> to use Brandycoke\'s RSSfit module (subfeed needs to be activated).'  );
-define( '_MI_IMLINKS_FEEDSTOTAL', 'Какое количество статей отображать в RSS канале?' );
-define( '_MI_IMLINKS_FEEDSTOTALDSC', 'This number only affects the ImpressCMS RSS feed. По умолчанию: <em>15</em>' );
+define( '_MI_IMLINKS_SELECTFEED_DSC', 'Выберите <em>Да</em>, чтобы использовать ImpressCMS RSS канал. Выберите <em>Нет</em>, чтобы использовать модуль Brandycoke\'s RSSfit (должны быть активированы подканалы).'  );
+define( '_MI_IMLINKS_FEEDSTOTAL', 'Какое количество ссылок отображать в RSS канале?' );
+define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Это число имеет значение только для ImpressCMS RSS канала. По умолчанию: <em>15</em>' );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Выбор источника автоматической генерации образов экрана' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Дополнительная информация:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
