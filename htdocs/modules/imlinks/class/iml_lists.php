@@ -143,7 +143,7 @@ class imlLists {
         } 
         $result = $xoopsDB->query( $sql );
 	
-	    $noforum = ( defined( '_WFL_NO_FORUM' ) ) ? _WFL_NO_FORUM : _AM_IMLINKS_NO_FORUM;		
+	    $noforum = ( defined( '_AM_IMLINKS_NO_FORUM' ) ) ? _AM_IMLINKS_NO_FORUM : _AM_IMLINKS_NO_FORUM;		
 	
 		echo "<select size='1' name='forumid'>";
         echo "<option value='0'>" . $noforum . "</option>";
