@@ -298,6 +298,8 @@ define( "_MI_IMLINKS_IMGLOSSARYDIR", "Folder name of imGlossary:" );
 define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
 define( '_MI_IMLINKS_SELECTFEED', 'Use ICMS RSS feed?' );
 define( '_MI_IMLINKS_SELECTFEED_DSC', 'Select <em>Yes</em> to use ImpressCMS RSS feed. Select <em>No</em> to use Brandycoke\'s RSSfit module (subfeed needs to be activated).'  );
+define( '_MI_IMLINKS_FEEDSTOTAL', 'How many links to display in RSS feed?' );
+define( '_MI_IMLINKS_FEEDSTOTALDSC', 'This number only affects the ImpressCMS RSS feed. Default: <em>15</em>' );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Select source for generating auto screenshot' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'More info:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
