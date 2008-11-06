@@ -141,6 +141,7 @@ switch ( $total_cat ) {
 } 
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
 $xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
+$xoopsTpl -> assign( 'catcols', $xoopsModuleConfig['catcols'] );
 
 // Screenshots display
 if ( isset( $xoopsModuleConfig['screenshot'] ) && $xoopsModuleConfig['screenshot'] == 1 ) {

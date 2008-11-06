@@ -18,7 +18,7 @@
  <tr> 
   <!-- Start category loop --> 
   <{foreach item=category from=$categories}>
-   <td width="5%" style="text-align: center; vertical-align: middle;"> 
+   <td width="5%" style="text-align: center;"> 
     <a href="<{$xoops_url}>/modules/<{$module_dir}>/viewcat.php?cid=<{$category.id}>"><img src="<{$category.image}>" alt="<{$category.alttext}>" title="<{$category.alttext}>" align="top" /></a>
    </td> 
    <td width="35%" style="text-align: left; vertical-align: middle;">
@@ -27,7 +27,7 @@
       <div style="margin-bottom: 3px; margin-left: 16px; font-size: smaller; vertical-align: top;"><{$category.subcategories}></div>
       <{/if}>
    </td>
-  <{if $category.count is div by 2}> 
+  <{if $category.count is div by $catcols}> 
  </tr> 
  <tr> <{/if}> <{/foreach}> 
   <!-- End category loop --> 
