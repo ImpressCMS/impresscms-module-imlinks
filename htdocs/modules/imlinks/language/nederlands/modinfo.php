@@ -325,4 +325,6 @@ define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Dit aantal heeft alleen invloed op de Impr
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - een kopie van de GNU licentie is bijgesloten (license.txt).' );
 define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Kies bron voor het genereren van auto screenshot' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Meer informatie:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
+define( '_MI_IMLINKS_CATCOLS', 'Aantal categorie kolommen:' );
+define( '_MI_IMLINKS_CATCOLSDSC', 'Kies het aantal categorie kolommen voor de Hoofd index.<br />Standaard: <em>2</em>' );
 ?>

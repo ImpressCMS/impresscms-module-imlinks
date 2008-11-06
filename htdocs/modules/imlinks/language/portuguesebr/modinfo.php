@@ -322,4 +322,6 @@ define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Este número só irá afetar o RSS do Impr
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - uma cópia desta licença GNU está incluída no arquivo (license.txt).' );
 define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Select source for generating auto screenshot' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'More info:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
+define( '_MI_IMLINKS_CATCOLS', 'Number of category colums:' );
+define( '_MI_IMLINKS_CATCOLSDSC', 'Select the number of category colums for Index Page.<br />Default: <em>2</em>' );
 ?>
