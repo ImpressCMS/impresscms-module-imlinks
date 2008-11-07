@@ -26,22 +26,22 @@
 */
 
 define( "_MD_IMLINKS_NOLINK", "Эта ссылка не существует!" );
-define( "_MD_IMLINKS_SUBCATLISTING", "Category Listing" );
-define( "_MD_IMLINKS_ISADMINNOTICE", "Вэбмастер: There is a problem with this image." );
-define( "_MD_IMLINKS_THANKSFORINFO", "Thank-you for your submission.<br />You will be notified once your request has be approved by the webmaster." );
-define( "_MD_IMLINKS_ISAPPROVED", "Thank-you for your submission.<br />Your request has been approved and will now appear in our listing." );
-define( "_MD_IMLINKS_THANKSFORHELP", "Thank-you for helping to maintain this directory's integrity." );
-define( "_MD_IMLINKS_FORSECURITY", "For security reasons your user name and IP address will also be temporarily recorded." );
+define( "_MD_IMLINKS_SUBCATLISTING", "Список подкатегорий" );
+define( "_MD_IMLINKS_ISADMINNOTICE", "Вэбмастер: Проблема с этой картинкой." );
+define( "_MD_IMLINKS_THANKSFORINFO", "Спасибо за Ваше сообщение.<br />Вы будете оповещены, когда Ваш запрос будет одобрен модератором." );
+define( "_MD_IMLINKS_ISAPPROVED", "Спасибо за Ваше сообщение.<br />Ваш запрос одобрен и будет представлен в нашем списке." );
+define( "_MD_IMLINKS_THANKSFORHELP", "Спасибо за помощь в поддержании этого каталога в целостном состоянии." );
+define( "_MD_IMLINKS_FORSECURITY", "Из соображений безопасности Ваше имя и IP адрес будут временно записаны." );
 define( "_MD_IMLINKS_DESCRIPTION", "Описание" );
 define( "_MD_IMLINKS_SUBMITCATHEAD", "Форма для размещения ссылки" );
 define( "_MD_IMLINKS_MAIN", "Главная" );
-define( "_MD_IMLINKS_POPULAR", "Popular" );
+define( "_MD_IMLINKS_POPULAR", "Популярность" );
 define( "_MD_IMLINKS_NEWTHISWEEK", "Новые на этой неделе" );
 define( "_MD_IMLINKS_UPTHISWEEK", "Обновленные на этой неделе" );
-define( "_MD_IMLINKS_POPULARITYLTOM", "Popularity (Least to Most Hits)" );
-define( "_MD_IMLINKS_POPULARITYMTOL", "Popularity (Most to Least Hits)" );
-define( "_MD_IMLINKS_TITLEATOZ", "Заголовок (A до Z)" );
-define( "_MD_IMLINKS_TITLEZTOA", "Заголовок (Z до A)" );
+define( "_MD_IMLINKS_POPULARITYLTOM", "Популярность (по возрастанию обращений)" );
+define( "_MD_IMLINKS_POPULARITYMTOL", "Популярность (по убыванию обращений)" );
+define( "_MD_IMLINKS_TITLEATOZ", "Заголовок (в прямом порядке букв)" );
+define( "_MD_IMLINKS_TITLEZTOA", "Заголовок (в обратном порядке букв)" );
 define( "_MD_IMLINKS_DATEOLD", "Дата (сначало старые)" );
 define( "_MD_IMLINKS_DATENEW", "Дата (сначало новые)" );
 define( "_MD_IMLINKS_RATINGLTOH", "Оценка (по возрастанию)" );
@@ -49,7 +49,7 @@ define( "_MD_IMLINKS_RATINGHTOL", "Оценка (по убыванию)" );
 define( "_MD_IMLINKS_DESCRIPTIONC", "Описание: " );
 define( "_MD_IMLINKS_CATEGORYC", "Категория: " );
 define( "_MD_IMLINKS_VERSION", "Версия" );
-define( "_MD_IMLINKS_SUBMITDATE", "Кто разместил" );
+define( "_MD_IMLINKS_SUBMITDATE", "Дата размещения" );
 define( "_MD_IMLINKS_LINKHITS", "<b>Воспользовались:</b> %s раз" );
 define( "_MD_IMLINKS_URLRATING", "<b>ICRA</b>: %s" );
 define( "_MD_IMLINKS_PUBLISHERC", "Кто опубликовал: " );
@@ -62,8 +62,8 @@ define( "_MD_IMLINKS_RATETHISFILE", "Оценить ресурс" );
 define( "_MD_IMLINKS_MODIFY", "Редактировать" );
 define( "_MD_IMLINKS_REPORTBROKEN", "Сбойная ссылка" );
 define( "_MD_IMLINKS_BROKENREPORT", "Сообщить о сбойном ресурсе" );
-define( "_MD_IMLINKS_SUBMITBROKEN", "Разместить" );
-define( "_MD_IMLINKS_BEFORESUBMIT", "Before submitting a broken resource request, please check that the actual source of the link you intend reporting broken, is no longer there and that the website is not temporally link." );
+define( "_MD_IMLINKS_SUBMITBROKEN", "Сообщить" );
+define( "_MD_IMLINKS_BEFORESUBMIT", "Прежде, чем отправить сообщение о сбойном ресурсе, пожалуйста, проверьте, что фактический источник ссылки, о которой Вы намереваетесь сообщить, более не находится по указанному адресу URL и что вебсайт не является временной ссылкой." );
 define( "_MD_IMLINKS_TELLAFRIEND", "Рекомендовать" );
 define( "_MD_IMLINKS_EDIT", "Редактировать" );
 define( "_MD_IMLINKS_THEREARE", "Представлено <b>%s</b> <i>категорий</i> и <b>%s</b> <i>ссылок</i>" );
@@ -80,11 +80,11 @@ define( "_MD_IMLINKS_PRICEFREE", "Бесплатно" );
 define( "_MD_IMLINKS_VIEWDETAILS", "Посмотреть подробности" );
 define( "_MD_IMLINKS_OPTIONS", 'Опции: ' );
 define( "_MD_IMLINKS_NOTIFYAPPROVE", 'Оповестить меня, когда эта ссылка будет одобрена' );
-define( "_MD_IMLINKS_VOTEAPPRE", "Your vote is appreciated." );
-define( "_MD_IMLINKS_THANKYOU", "Thank you for taking the time to vote here at %s" ); // %s is your site name
-define( "_MD_IMLINKS_VOTEONCE", "Please do not vote for the same resource more than once." );
-define( "_MD_IMLINKS_RATINGSCALE", "The scale is 1 - 10, with 1 being poor and 10 being excellent." );
-define( "_MD_IMLINKS_BEOBJECTIVE", "Please be objective, if everyone receives a 1 or a 10, the ratings aren't very useful." );
+define( "_MD_IMLINKS_VOTEAPPRE", "Ваш голос оценен." );
+define( "_MD_IMLINKS_THANKYOU", "Спасибо за время, уделенное для голосания на %s" ); // %s is your site name
+define( "_MD_IMLINKS_VOTEONCE", "Пожалуйста, не голосуйте за один ресурс более одного раза." );
+define( "_MD_IMLINKS_RATINGSCALE", "Градация от 1 до 10, 1 - плохо и 10 - отлично." );
+define( "_MD_IMLINKS_BEOBJECTIVE", "Пожалуйста, будьте объективны, если каждый отправит 1 или 10, рэйтинг не будет полезен." );
 define( "_MD_IMLINKS_DONOTVOTE", "Не надо оценивать собственный ресурс." );
 define( "_MD_IMLINKS_RATEIT", "Оцените!" );
 define( "_MD_IMLINKS_INTFILEFOUND", "Хорошие ссылки, расположенные на %s" ); // %s is your site name
@@ -100,7 +100,7 @@ define( "_MD_IMLINKS_POPULARITY", "Популярные" );
 define( "_MD_IMLINKS_TOPRATED", "Оценка" );
 define( "_MD_IMLINKS_CURSORTBY", "Ссылки отсортированы по: %s" );
 define( "_MD_IMLINKS_CANCEL", "Отменить" );
-define( "_MD_IMLINKS_ALREADYREPORTED", "You have already submitted a broken report for this resource." );
+define( "_MD_IMLINKS_ALREADYREPORTED", "Вы уже разместили отчет о некорректности этого ресурса." );
 define( "_MD_IMLINKS_MUSTREGFIRST", "Извините, у Вас нет прав доступа на выполнение этого действия.<br />Пожалуйста, сначала зарегистрируйтесь или войдите на сайт!" );
 define( "_MD_IMLINKS_NORATING", "Оценка не выбрана." );
 define( "_MD_IMLINKS_VOTEFORTITLE", "Оценка этой ссылки: " );
@@ -119,15 +119,15 @@ define( "_MD_IMLINKS_NEWLINKS", "Новые ссылки" );
 define( "_MD_IMLINKS_TOTALNEWLINKS", "Всего новых ссылок" );
 define( "_MD_IMLINKS_DTOTALFORLAST", "Всего новых ссылок за последние" );
 define( "_MD_IMLINKS_AGREE", "Согласен" );
-define( "_MD_IMLINKS_DOYOUAGREE", "Do you agree to the above terms?" );
-define( "_MD_IMLINKS_DISCLAIMERAGREEMENT", "Disclaimer" );
-define( "_MD_IMLINKS_DUPLOADSCRSHOT", "Upload Screenshot Image:" );
-define( "_MD_IMLINKS_RESOURCEID", "Resource id#: " );
+define( "_MD_IMLINKS_DOYOUAGREE", "Вы согласны с указанным термином?" );
+define( "_MD_IMLINKS_DISCLAIMERAGREEMENT", "Предупреждение об ответственности" );
+define( "_MD_IMLINKS_DUPLOADSCRSHOT", "Загрузка картинки образа экрана:" );
+define( "_MD_IMLINKS_RESOURCEID", "Id ресурса: " );
 define( "_MD_IMLINKS_REPORTER", "Original Reporter: " );
-define( "_MD_IMLINKS_DATEREPORTED", "Date Reported: " );
+define( "_MD_IMLINKS_DATEREPORTED", "Дата отчета: " );
 define( "_MD_IMLINKS_RESOURCEREPORTED", "Resource Reported Broken" );
-define( "_MD_IMLINKS_RESOURCEREPORTED2", "This link has been already reported as broken, we are working on a fix" );
-define( "_MD_IMLINKS_BROWSETOTOPIC", "<b>Показ ссылок в алфавитном порядке</b>" );
+define( "_MD_IMLINKS_RESOURCEREPORTED2", "Эта ссылка уже записана как сбойная, we are working on a fix" );
+define( "_MD_IMLINKS_BROWSETOTOPIC", "<b>Ссылоки в алфавитном порядке</b>" );
 define( "_MD_IMLINKS_WEBMASTERACKNOW", "Broken Report Acknowledged: " );
 define( "_MD_IMLINKS_WEBMASTERCONFIRM", "Broken Report Confirmed: " );
 define( "_MD_IMLINKS_ERRORSENDEMAIL", "Broken Report Confirmed But Error sending notification email to webmaster." );
@@ -138,15 +138,15 @@ define( "_MD_IMLINKS_LEGENDTEXTNEW", "Новые сегодня" );
 define( "_MD_IMLINKS_LEGENDTEXTNEWTHREE", "Новые за 3 дня" );
 define( "_MD_IMLINKS_LEGENDTEXTTHISWEEK", "Новые за эту неделю" );
 define( "_MD_IMLINKS_LEGENDTEXTNEWLAST", "Более 1 недели" );
-define( "_MD_IMLINKS_THISFILEDOESNOTEXIST", "Ошибка: This link does not exist!" );
+define( "_MD_IMLINKS_THISFILEDOESNOTEXIST", "Ошибка: Эта ссылка не существует!" );
 define( "_MD_IMLINKS_BROKENREPORTED", "Обнаружена сбойная ссылка" );
 
 define( "_MD_IMLINKS_REV_SNEWMNAMEDESC", " 
-Please completely fill out the form below, and we'll add your review as soon as possible.<br /><br />
-Thank you for taking the time to submit your opinion. We want to give our users a possibility to find quality software faster.<br /><br />All reviews will be reviewed by one of our webmasters before they are put up on the web site. 
+Пожалуйста, заполние форму, представленную ниже и конечно добавьте Ваш обзор, если возможно.<br /><br />
+Спасибо за уделенное время на размещение Вашего мнения. Мы желаем предоставить нашим пользователям возможность быстрее найти качественные программы.<br /><br />Обзоры будут просмотрены одним из наших вэбмастеров, прежде чем будут размещены на сайте. 
 " );
-define( "_MD_IMLINKS_ISNOTAPPROVED", "Your submission has to be approved by a moderator first." );
-define( "_MD_IMLINKS_HOMEPAGETITLEC", "Home Page Title: " );
+define( "_MD_IMLINKS_ISNOTAPPROVED", "Ваше размещение должно быть сперва одобрено модератором." );
+define( "_MD_IMLINKS_HOMEPAGETITLEC", "Заголовок главной страницы: " );
 define( "_MD_IMLINKS_SCREENSHOT", "Образ экрана:" );
 define( "_MD_IMLINKS_SCREENSHOTCLICK", "Показать всю картинку" );
 define( "_MD_IMLINKS_OTHERBYUID", "Другие ссылки от: " );
@@ -154,19 +154,19 @@ define( "_MD_IMLINKS_LINKTIMES", "link Times: " );
 define( "_MD_IMLINKS_MAINTOTAL", "Всего ссылок: " );
 define( "_MD_IMLINKS_LINKNOW", "Посетить ссылку" );
 define( "_MD_IMLINKS_PAGES", "<b>Страниц</b>" );
-define( "_MD_IMLINKS_RATEDRESOURCE", "Rated Resource" );
+define( "_MD_IMLINKS_RATEDRESOURCE", "Оцененный ресурс" );
 define( "_MD_IMLINKS_PUBLISHER", "Издатель" );
-define( "_MD_IMLINKS_ERROR", "Error Updating Database: Information not saved" );
+define( "_MD_IMLINKS_ERROR", "Ошибка во время обновления базы данных: Информация не сохранена" );
 define( "_MD_IMLINKS_COPYRIGHT", "copyright" );
 define( "_MD_IMLINKS_INFORUM", "Дискуссия в форуме" );
 // added frankblack
-define( "_MD_IMLINKS_NOTALLOWESTOSUBMIT", "You are not allowed to submit links" );
-define( "_MD_IMLINKS_INFONOSAVEDB", "Information not saved to database: <br /><br />" );
+define( "_MD_IMLINKS_NOTALLOWESTOSUBMIT", "У вас нет прав на размещение ссылок" );
+define( "_MD_IMLINKS_INFONOSAVEDB", "Информация не сохранена в базе данных: <br /><br />" );
 
-define( "_MD_IMLINKS_NEWLAST", "New Submitted Before Last Week" );
-define( "_MD_IMLINKS_NEWTHIS", "New Submitted Within This week" );
-define( "_MD_IMLINKS_THREE", "New Submitted Within Last Three days" );
-define( "_MD_IMLINKS_TODAY", "New Submitted Today" );
+define( "_MD_IMLINKS_NEWLAST", "Новые размещения за врмя более недели" );
+define( "_MD_IMLINKS_NEWTHIS", "Новые размещения за последнюю неделю" );
+define( "_MD_IMLINKS_THREE", "Новые размещения за последние три дня" );
+define( "_MD_IMLINKS_TODAY", "Новые размещения сегодня" );
 define( "_MD_IMLINKS_NO_FILES", "Пока нет ссылок" );
 
 define( "_MD_IMLINKS_NOPERMISSIONTOPOST", "У Вас нет прав доступа в эту категорию." );
@@ -180,7 +180,7 @@ define( "_MD_IMLINKS_COUNTRY", "Страна:" );
 define( "_MD_IMLINKS_COUNTRYB", "<b>Страна:</b>" );
 define( "_MD_IMLINKS_KEYWORDS", "Ключевые слова:" );
 define( "_MD_IMLINKS_KEYWORDS_NOTE", "Ключевые слова должны быть разделены запятыми (keyword1, keyword2, keyword3, ..)" );
-define( "_MD_IMLINKS_NOLINKLOAD", "Спасибо за Ваш пост!" );
+define( "_MD_IMLINKS_NOLINKLOAD", "Спасибо за Ваше сообщение!" );
 define( "_MD_IMLINKS_LINKID", "ID ссылки" );
 define( "_MD_IMLINKS_COUNTRYSORT", "Страна" );
 define( "_MD_IMLINKS_COUNTRYLTOH", "Страна (A to Z)" );
@@ -202,12 +202,12 @@ define( "_MD_IMLINKS_ZIPCODE", "Почтовый индекс" );
 define( "_MD_IMLINKS_TELEPHONE", "Телефон");
 define( "_MD_IMLINKS_TEL", "Тел. " );
 define( "_MD_IMLINKS_FAX", "Факс " );
-define( "_MD_IMLINKS_GETMAP", "Get map" );
+define( "_MD_IMLINKS_GETMAP", "Получить карту" );
 
 // Version 1.05 RC5
 define( "_MD_IMLINKS_VOIP", "VoIP " );
 define( "_MD_IMLINKS_PRINT", "Печать" );
-define( "_MD_IMLINKS_NOITEMSELECTED", "You did not select a valid link!");
+define( "_MD_IMLINKS_NOITEMSELECTED", "Вы не выбрали ссылку!");
 define( "_MD_IMLINKS_MOBILE", "Мобильный" );
 
 // Version 1.05 RC6
