@@ -97,22 +97,20 @@ div.imlinks_socbookmark a:hover img
         <{/if}>
         
         <tr> 
-         <td colspan="2" class="even" style="vertical-align: top; text-align: center;">
-		  <div class="even" align="center">
-			<small>
-		        [&nbsp;
+			<td colspan="2" class="even" style="text-align: center; font-size: smaller;">
 				<{if $link.allow_rating}>
-				  <{$ratethislink}>&nbsp;|&nbsp;
+				  <{$ratethislink}>
 				<{/if}> 
-				<{$reportbroken}>&nbsp;|&nbsp;
+				 <{$reportbroken}>
 				<{if $link.useradminlink}>
 				  <{$link.usermodify}>
 				<{/if}>
-				<{$mailto}>
+				 <{$mailto}>
 				<{if $link.comment_rules > 0}>
-				  &nbsp;|&nbsp;<{$commentz}>
+				  <{$commentz}>
 				<{/if}>
-				&nbsp;|&nbsp;<{$print}>&nbsp;]			</small>		  </div>		 </td> 
+				  <{$print}>
+			</td> 
         </tr> 
        </table> 
   </tr> 
