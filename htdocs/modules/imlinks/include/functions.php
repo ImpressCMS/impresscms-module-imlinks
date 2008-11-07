@@ -135,7 +135,7 @@ function iml_cleanRequestVars( &$array, $name = null, $def = null, $strict = fal
                 $value = intval( $value );
             } else  {
                 if ( $strict == true ) {
-                    $value = preg_replace( '/\W/', '', trim( $value ) );
+                    $value = preg_replace( "/\W/", '', trim( $value ) );
                 } 
                 $value = strtolower( strval( $value ) );
             } 
@@ -152,7 +152,7 @@ function iml_cleanRequestVars( &$array, $name = null, $def = null, $strict = fal
         $value = intval( $value );
     } else {
         if ( $strict == true ) {
-            $value = preg_replace( '/\W/', '', trim( $value ) );
+            $value = preg_replace( "/\W/", '', trim( $value ) );
         } 
         $value = strtolower( strval( $value ) );
     } 
@@ -163,12 +163,14 @@ function iml_cleanRequestVars( &$array, $name = null, $def = null, $strict = fal
 // toolbar()
 // @return
 function iml_toolbar( $cid = 0 ) {
-    $toolbar = "[ ";
-    if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) )
-    {
-        $toolbar .= "<a href='submit.php?cid=" . $cid . "'>" . _MD_IMLINKS_SUBMITLINK . "</a> | ";
+	global $xoopsModule;
+	$style ='style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
+	$toolbar = '';
+    if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
+        $toolbar .= "<a " . $style . " href='submit.php?cid=" . $cid . "'>" . _MD_IMLINKS_SUBMITLINK . "</a> ";
     }
-    $toolbar .= "<a href='newlist.php?newlinkshowdays=7'>" . _MD_IMLINKS_LATESTLIST . "</a> | <a href='topten.php?list=hit'>" . _MD_IMLINKS_POPULARITY . "</a>  ]";
+    $toolbar .= "<a " . $style . " href='newlist.php?newlinkshowdays=7'>" . _MD_IMLINKS_LATESTLIST . "</a> ";
+	$toolbar .= "<a " . $style . " href='topten.php?list=hit'>" . _MD_IMLINKS_POPULARITY . "</a>";
     return $toolbar;
 } 
 
@@ -451,21 +453,21 @@ function iml_displayimage( $image = '', $path = '', $imgsource = '', $alttext = 
 
 function iml_letters() {
     global $xoopsModule;
-
-    $letterchoice = "<div>" . _MD_IMLINKS_BROWSETOTOPIC . "</div>";
-    $letterchoice .= "[  ";
-    $alphabet = array ( "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" );
+	$style ='style="margin-bottom: 8px; margin-top: 8px; padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 1px; padding-top: 1px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
+    $letterchoice = '<div style="padding: 2px;">' . _MD_IMLINKS_BROWSETOTOPIC . '</div>';
+ //   $letterchoice .= '';
+    $alphabet = array ( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' );
     $num = count( $alphabet ) - 1;
     $counter = 0;
     while ( list( , $ltr ) = each( $alphabet ) ) {
-        $letterchoice .= "<a href='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/viewcat.php?list=$ltr'>$ltr</a>";
+        $letterchoice .= '<a '.$style.' href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/viewcat.php?list='.$ltr.'">'.$ltr.'</a>';
         if ( $counter == round( $num / 2 ) )
-            $letterchoice .= " ]<br />[ ";
+            $letterchoice .= '<div style="height: 4px;"></div>';
         elseif ( $counter != $num )
-            $letterchoice .= "&nbsp;|&nbsp;";
+            $letterchoice .= '&nbsp;';
         $counter++;
     } 
-    $letterchoice .= " ]";
+    $letterchoice .= '';
     return $letterchoice;
 } 
 
