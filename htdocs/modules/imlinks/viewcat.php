@@ -176,14 +176,14 @@ if ( $selectdate ) {
 
 } elseif ( $list ) {
 
-    $query = ' WHERE title LIKE $list% AND (published > 0 AND published <= ' . $time . ') AND (expired = 0 OR expired > ' . $time . ') AND offline = 0 AND cid > 0';
+    $query = " WHERE title LIKE '$list%' AND (published > 0 AND published <= " . $time . ") AND (expired = 0 OR expired > " . $time . ") AND offline = 0 AND cid > 0";
 
     $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . $query . ' ORDER BY ' . $orderby;
     $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['perpage'] , $start );
 
     $sql = 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . $query;
     list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql ) );
-    $list_by = 'list='.$list;
+    $list_by = 'list=' . $list;
 
 } else {
 
