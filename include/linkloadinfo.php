@@ -116,13 +116,15 @@ if ( $link['isadmin'] == true && $moderate == 0 ) {
 
 $votestring = ( $link_arr['votes'] == 1 ) ? _MD_IMLINKS_ONEVOTE : sprintf( _MD_IMLINKS_NUMVOTES, $link_arr['votes'] );
 
+$style ='style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
+
 $link['useradminlink'] = 0;
 if ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) {
   $_user_submitter = ( $xoopsUser -> getvar( 'uid' ) == $link_arr['submitter'] ) ? true : false;
   if ( true == iml_checkgroups( $cid ) ) {
     $link['useradminlink'] = 1;
     if ( $xoopsUser -> getvar( 'uid' ) == $link_arr['submitter'] ) {
-      $link['usermodify'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/submit.php?lid=' . $link_arr['lid'] . '"> ' . _MD_IMLINKS_MODIFY . '</a> |';
+      $link['usermodify'] = '<a '.$style.' href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/submit.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_edit.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_MODIFY . '</a>';
     }
   }
 }
@@ -151,15 +153,15 @@ if ( is_object( $xoopsforumModule ) && $xoopsforumModule -> getVar( 'isactive' )
     $link['forum_path'] = $forum_path_prefix . "{$link['forumid']}";
 }
 
-$xoopsTpl -> assign ( 'ratethislink', '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/ratelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '">' ._MD_IMLINKS_RATETHISFILE . '</a>');
+$xoopsTpl -> assign ( 'ratethislink', '<a '.$style.' href="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/ratelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/medal_gold.png" alt="" style="vertical-align: middle;" /> ' ._MD_IMLINKS_RATETHISFILE . '</a>');
 
-$xoopsTpl -> assign ( 'reportbroken', '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/brokenlink.php?lid=' . $link_arr['lid'] . '">' . _MD_IMLINKS_REPORTBROKEN . '</a>');
+$xoopsTpl -> assign ( 'reportbroken', '<a '.$style.' href="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/brokenlink.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_break.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_REPORTBROKEN . '</a>');
 
-$xoopsTpl -> assign ( 'mailto', '<a href="mailto:?subject=' . $mail_subject . '&body=' . $mail_body . '" target="_top">' . _MD_IMLINKS_TELLAFRIEND . '</a>');
+$xoopsTpl -> assign ( 'mailto', '<a '.$style.' href="mailto:?subject=' . $mail_subject . '&body=' . $mail_body . '" target="_top"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_TELLAFRIEND . '</a>');
 
-$xoopsTpl -> assign( 'commentz', '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '">' . _COMMENTS . '&nbsp;(' . $link_arr['comments'] . ')</a>' );
+$xoopsTpl -> assign( 'commentz', '<a '.$style.' href="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/comments.png" alt="" style="vertical-align: middle;" /> ' . _COMMENTS . '&nbsp;(' . $link_arr['comments'] . ')</a>' );
 
-$xoopsTpl -> assign( 'print', '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/print.php?lid=' . $link_arr['lid'] . '"  target="_blank">' . _MD_IMLINKS_PRINT . '</a>' );
+$xoopsTpl -> assign( 'print', '<a '.$style.' href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/print.php?lid=' . $link_arr['lid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/printer.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_PRINT . '</a>' );
 
 $link['icons'] = iml_displayicons( $link_arr['published'], $link_arr['status'], $link_arr['hits'] );
 $link['allow_rating'] = ( iml_checkgroups( $cid, 'imLinkRatePerms' ) ) ? true : false;
