@@ -123,11 +123,11 @@ define( "_MD_IMLINKS_DOYOUAGREE", "Вы согласны с указанным �
 define( "_MD_IMLINKS_DISCLAIMERAGREEMENT", "Предупреждение об ответственности" );
 define( "_MD_IMLINKS_DUPLOADSCRSHOT", "Загрузка картинки образа экрана:" );
 define( "_MD_IMLINKS_RESOURCEID", "Id ресурса: " );
-define( "_MD_IMLINKS_REPORTER", "Original Reporter: " );
+define( "_MD_IMLINKS_REPORTER", "Начальный докладчик: " );
 define( "_MD_IMLINKS_DATEREPORTED", "Дата отчета: " );
-define( "_MD_IMLINKS_RESOURCEREPORTED", "Resource Reported Broken" );
+define( "_MD_IMLINKS_RESOURCEREPORTED", "Ресурс сбойный" );
 define( "_MD_IMLINKS_RESOURCEREPORTED2", "Эта ссылка уже записана как сбойная, we are working on a fix" );
-define( "_MD_IMLINKS_BROWSETOTOPIC", "<b>Ссылоки в алфавитном порядке</b>" );
+define( "_MD_IMLINKS_BROWSETOTOPIC", "<b>Ссылки в алфавитном порядке</b>" );
 define( "_MD_IMLINKS_WEBMASTERACKNOW", "Broken Report Acknowledged: " );
 define( "_MD_IMLINKS_WEBMASTERCONFIRM", "Broken Report Confirmed: " );
 define( "_MD_IMLINKS_ERRORSENDEMAIL", "Broken Report Confirmed But Error sending notification email to webmaster." );
@@ -142,7 +142,7 @@ define( "_MD_IMLINKS_THISFILEDOESNOTEXIST", "Ошибка: Эта ссылка �
 define( "_MD_IMLINKS_BROKENREPORTED", "Обнаружена сбойная ссылка" );
 
 define( "_MD_IMLINKS_REV_SNEWMNAMEDESC", " 
-Пожалуйста, заполние форму, представленную ниже и конечно добавьте Ваш обзор, если возможно.<br /><br />
+Пожалуйста, заполние форму, представленную ниже и, конечно, добавьте Ваш обзор, если возможно.<br /><br />
 Спасибо за уделенное время на размещение Вашего мнения. Мы желаем предоставить нашим пользователям возможность быстрее найти качественные программы.<br /><br />Обзоры будут просмотрены одним из наших вэбмастеров, прежде чем будут размещены на сайте. 
 " );
 define( "_MD_IMLINKS_ISNOTAPPROVED", "Ваше размещение должно быть сперва одобрено модератором." );
