@@ -54,6 +54,7 @@ $pathstring = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'di
 $pathstring .= $mytree -> getNicePathFromId( $cid, 'title', 'viewcat.php?op=' );
 $xoopsTpl -> assign( 'category_path', $pathstring );
 $xoopsTpl -> assign( 'category_id', $cid );
+$xoopsTpl -> assign( 'catcols', $xoopsModuleConfig['catcols'] );
 
 $time = time();
 
