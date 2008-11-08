@@ -77,7 +77,7 @@ define( "_MD_IMLINKS_NOTSPECIFIED", "Не определено" );
 define( "_MD_IMLINKS_SUBMITTER", "Разместил" );
 define( "_MD_IMLINKS_UPDATEDON", "Обновлена" );
 define( "_MD_IMLINKS_PRICEFREE", "Бесплатно" );
-define( "_MD_IMLINKS_VIEWDETAILS", "Посмотреть подробности" );
+define( "_MD_IMLINKS_VIEWDETAILS", "Подробности" );
 define( "_MD_IMLINKS_OPTIONS", 'Опции: ' );
 define( "_MD_IMLINKS_NOTIFYAPPROVE", 'Оповестить меня, когда эта ссылка будет одобрена' );
 define( "_MD_IMLINKS_VOTEAPPRE", "Ваш голос оценен." );
@@ -149,8 +149,8 @@ define( "_MD_IMLINKS_ISNOTAPPROVED", "Ваше размещение должно
 define( "_MD_IMLINKS_HOMEPAGETITLEC", "Заголовок главной страницы: " );
 define( "_MD_IMLINKS_SCREENSHOT", "Образ экрана:" );
 define( "_MD_IMLINKS_SCREENSHOTCLICK", "Показать всю картинку" );
-define( "_MD_IMLINKS_OTHERBYUID", "Другие ссылки от: " );
-define( "_MD_IMLINKS_LINKTIMES", "link Times: " );
+define( "_MD_IMLINKS_OTHERBYUID", "Другие ссылки от " );
+define( "_MD_IMLINKS_LINKTIMES", "Визиты: " );
 define( "_MD_IMLINKS_MAINTOTAL", "Всего ссылок: " );
 define( "_MD_IMLINKS_LINKNOW", "Посетить ссылку" );
 define( "_MD_IMLINKS_PAGES", "<b>Страниц</b>" );
@@ -158,7 +158,7 @@ define( "_MD_IMLINKS_RATEDRESOURCE", "Оцененный ресурс" );
 define( "_MD_IMLINKS_PUBLISHER", "Издатель" );
 define( "_MD_IMLINKS_ERROR", "Ошибка во время обновления базы данных: Информация не сохранена" );
 define( "_MD_IMLINKS_COPYRIGHT", "copyright" );
-define( "_MD_IMLINKS_INFORUM", "Дискуссия в форуме" );
+define( "_MD_IMLINKS_INFORUM", "Дискуссия на форуме" );
 // added frankblack
 define( "_MD_IMLINKS_NOTALLOWESTOSUBMIT", "У вас нет прав на размещение ссылок" );
 define( "_MD_IMLINKS_INFONOSAVEDB", "Информация не сохранена в базе данных: <br /><br />" );
@@ -217,7 +217,7 @@ define( "_MD_IMLINKS_EMAIL", "Email" );
 define( "_MD_IMLINKS_LINK_CREATEADDRESS", '<b>Об адресе ссылки</b>' );
 
 //Version 1.06 RC2
-define( '_MD_IMLINKS_STOPIT', 'STOP IT YOU FOOL!!' );
+define( '_MD_IMLINKS_STOPIT', 'ОСТАНОВИСЬ БЕЗУМЕЦ!!!' );
 
 // imLinks v1.00 RC-1
 define( '_MD_IMLINKS_FEED', 'RSS канал' );

@@ -110,9 +110,9 @@ define( "_AM_IMLINKS_IPAGE_UPDATED", "Индексная страница отр
 define( "_AM_IMLINKS_IPAGE_INFORMATION", "Информация об индексной странице" );
 define( "_AM_IMLINKS_IPAGE_MODIFY", "Редактирование индексной страницы" );
 define( "_AM_IMLINKS_IPAGE_CIMAGE", "Выбор картинки для индексной страницы:" );
-define( "_AM_IMLINKS_IPAGE_CTITLE", "Заголовок на индексной странице:" );
-define( "_AM_IMLINKS_IPAGE_CHEADING", "Тэг header индексной страницы:" );
-define( "_AM_IMLINKS_IPAGE_CHEADINGA", "Расположение заголовка:" );
+define( "_AM_IMLINKS_IPAGE_CTITLE", "Заголовок индексной страницы:" );
+define( "_AM_IMLINKS_IPAGE_CHEADING", "Шапка индексной страницы:" );
+define( "_AM_IMLINKS_IPAGE_CHEADINGA", "Расположение шапки:" );
 define( "_AM_IMLINKS_IPAGE_CFOOTER", "Подпись на индексной странице:" );
 define( "_AM_IMLINKS_IPAGE_CFOOTERA", "Расположение подписи:" );
 define( "_AM_IMLINKS_IPAGE_CLEFT", "Влево" );
@@ -122,13 +122,13 @@ define( "_AM_IMLINKS_IPAGE_CRIGHT", "Вправо" );
  * Permissions defines
  */
 define( "_AM_IMLINKS_PERM_MANAGEMENT", "Управление правами доступа" );
-define( "_AM_IMLINKS_PERM_PERMSNOTE", "<div><b>ВНИМАНИЕ:</b> Please be aware that even if you've set correct viewing permissions here, a group might not see the articles or blocks if you don't also grant that group permissions to access the module. To do that, go to <b>System admin > Groups</b>, choose the appropriate group and click the checkboxes to grant its members the access.</div>" );
+define( "_AM_IMLINKS_PERM_PERMSNOTE", "<div><b>ВНИМАНИЕ:</b> Пожалуйста, имейте ввиду, что если Вы установите здесь правильные права на просмотр, группа может не увидеть статьи и блоки в том случае, если она не имеет общих прав для группы на доступ к модулю. Перейдите в <b>Система > Группы</b>, выберите необходимую группу и отметьте чекбокс для предоставления доступа к модулю участникам группы.</div>" );
 define( "_AM_IMLINKS_PERM_CPERMISSIONS", "Права доступа к категории" );
-define( "_AM_IMLINKS_PERM_CSELECTPERMISSIONS", "Выбор категорий, просмотр которых разрешен каждой группе пользователей" );
+define( "_AM_IMLINKS_PERM_CSELECTPERMISSIONS", "Выбор категорий, просмотр которых разрешен конкретной группе пользователей" );
 define( "_AM_IMLINKS_PERM_CNOCATEGORY", "Невозможно установить права доступа: Ни одной категории не создано!" );
 define( "_AM_IMLINKS_PERM_FPERMISSIONS", "Права доступа к ссылкам" );
 define( "_AM_IMLINKS_PERM_FNOFILES", "Невозможно установить права доступа: Ни одной ссылки не создано!" );
-define( "_AM_IMLINKS_PERM_FSELECTPERMISSIONS", "Выбор ссылок, просмотр которых разрешен каждой группе пользователей" );
+define( "_AM_IMLINKS_PERM_FSELECTPERMISSIONS", "Выбор ссылок, просмотр которых разрешен конкретной группе пользователей" );
 /**
  * Upload defines
  */
@@ -159,7 +159,7 @@ define( "_AM_IMLINKS_LINK_MAINIMAGEDIR", "Основные картинки" );
 define( "_AM_IMLINKS_LINK_FCATIMAGE", "Путь к картинкам категорий" );
 define( "_AM_IMLINKS_LINK_FSCREENSHOTS", "Путь к образам экрана" );
 define( "_AM_IMLINKS_LINK_FMAINIMAGEDIR", "Основной путь" );
-define( "_AM_IMLINKS_LINK_FUPLOADIMAGETO", "Загрузка картинки" );
+define( "_AM_IMLINKS_LINK_FUPLOADIMAGETO", "Загрузка изображения" );
 define( "_AM_IMLINKS_LINK_FUPLOADPATH", "Путь для загрузки: " );
 define( "_AM_IMLINKS_LINK_FUPLOADURL", "URL картинки: " );
 define( "_AM_IMLINKS_LINK_FOLDERSELECTION", "Выбор пункта назначения загрузки:" );
@@ -271,8 +271,8 @@ define( "_AM_IMLINKS_LINK_SHOTIMAGE", "Образ экрана ссылки: " )
 define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "Добавить дискуссию на этом форуме?" );
 define( "_AM_IMLINKS_LINK_PUBLISHDATE", "Дата публикации ссылки:" );
 define( "_AM_IMLINKS_LINK_EXPIREDATE", "Дата устаревания ссылки:" );
-define( "_AM_IMLINKS_LINK_CLEARPUBLISHDATE", "<br /><br />Перемещение даты публикации:" );
-define( "_AM_IMLINKS_LINK_CLEAREXPIREDATE", "<br /><br />Перемещение даты устаревания:" );
+define( "_AM_IMLINKS_LINK_CLEARPUBLISHDATE", "<br /><br />Отменить дату публикации:" );
+define( "_AM_IMLINKS_LINK_CLEAREXPIREDATE", "<br /><br />Отменить дату устаревания:" );
 define( "_AM_IMLINKS_LINK_PUBLISHDATESET", " Установлена дата публикации: " );
 define( "_AM_IMLINKS_LINK_SETDATETIMEPUBLISH", " Установить дату/время публикации" );
 define( "_AM_IMLINKS_LINK_SETDATETIMEEXPIRE", " Установить дату/время устаревания" );
@@ -282,7 +282,7 @@ define( "_AM_IMLINKS_LINK_SETPUBDATESETS", "<b>Установка даты пу�
 define( "_AM_IMLINKS_LINK_EXPIREDATESET", " Установка даты устаревания: " );
 define( "_AM_IMLINKS_LINK_SETEXPIREDATE", "<b>Установка даты устаревания: </b>" );
 define( "_AM_IMLINKS_LINK_DELEDITMESS", "Удалить сообщение о сбойных ссылках?<br /><br /><span style='font-weight: normal;'>When you choose <b>ДА</b> the Broken Report will automatically deleted and you confirm that the link now works again.</span>" );
-define( "_AM_IMLINKS_LINK_MUSTBEVALID", "Screenshot image must be a valid image link under %s directory (например: shot.gif). Leave it blank if there is no image link." );
+define( "_AM_IMLINKS_LINK_MUSTBEVALID", "Образ экрана должен быть файлом изображения в каталоге %s (например: shot.gif). Оставьте пустым, если нет изображений для этой ссылки." );
 define( "_AM_IMLINKS_LINK_EDITAPPROVE", "Одобрение ссылки:" );
 define( "_AM_IMLINKS_LINK_NEWFILEUPLOAD", "Новая ссылка создана и база данных обновлена" );
 define( "_AM_IMLINKS_LINK_FILEMODIFIEDUPDATE", "Выбранная ссылка отредактирована и база данных обновлена" );
@@ -319,7 +319,7 @@ define( "_AM_IMLINKS_BROKEN_REPORTER", "Докладчик" );
 define( "_AM_IMLINKS_BROKEN_FILESUBMITTER", "Кто разместил" );
 define( "_AM_IMLINKS_BROKEN_DATESUBMITTED", "Дата размещения" );
 define( "_AM_IMLINKS_BROKEN_ACTION", "Действие" );
-define( "_AM_IMLINKS_BROKEN_NOFILEMATCH", "There are no Broken reports that match this critera" );
+define( "_AM_IMLINKS_BROKEN_NOFILEMATCH", "Нет отчета о сбойных ссылках, соответствующего данному критерию" );
 define( "_AM_IMLINKS_BROKENFILEDELETED", "Сбойная ссылка и отчет о ней удалены из базы данных" );
 /**
  * About defines
@@ -362,7 +362,7 @@ define( "_AM_IMLINKS_ICO_ACK", "Broken Report Acknowledged" );
 define( "_AM_IMLINKS_ICO_REPORT", "Acknowledge Broken Report?" );
 define( "_AM_IMLINKS_ICO_CONFIRM", "Broken Report Confirmed" );
 define( "_AM_IMLINKS_ICO_CONBROKEN", "Confirm Broken Report?" );
-define( "_AM_IMLINKS_ICO_RES", "Edit Resources/Links for this Item" );
+define( "_AM_IMLINKS_ICO_RES", "Редактировать ресурсы/ссылки" );
 define( "_AM_IMLINKS_MOD_URLRATING", "Оценка Interent-контента:" );
 // Alternate category
 define( "_AM_IMLINKS_ALTCAT_CREATEF", "Добавить альтенативную категорию" );
@@ -383,10 +383,10 @@ define( "_AM_IMLINKS_RES_MODIFYF", "Добавить ресурс" );
 define( "_AM_IMLINKS_RES_NAMEF", "Наименование ресурса:" );
 define( "_AM_IMLINKS_RES_DESCF", "Описание ресурса:" );
 define( "_AM_IMLINKS_RES_URLF", "URL ресурса:" );
-define( "_AM_IMLINKS_RES_ITEMIDF", "Resource Item ID:" );
-define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>New resources can be added, edited or removed easily via this form.</li>
-	<li>List all resources linked to a link</li>
-	<li>Modify resource name and description</li></ul>
+define( "_AM_IMLINKS_RES_ITEMIDF", "ID записи о ресурсе:" );
+define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>Новый ресурс может быть добавлен, отредактирован или удален через эту форму.</li>
+	<li>Список всех ресурсов, связанных с ссылкой</li>
+	<li>Редактировать имя ресурса и описание</li></ul>
 	" );
 define( "_AM_IMLINKS_LISTBROKEN", "Показаны ссылки, которые, возможно, являются сбойными. ВНИМАНИЕ: Этот результат может быть не совсем правильным.<br /><br />Пожалуйста, до принятия каких-либо действий проверьте ссылку на существование.<br /><br />" );
 define( "_AM_IMLINKS_PINGTIMES", "Показано время отклика на первый ping для каждой ссылки.<br /><br />ВНИМАНИЕ: Этот результат может быть не совсем правильным.<br /><br />" );
@@ -394,16 +394,16 @@ define( "_AM_IMLINKS_PINGTIMES", "Показано время отклика н�
 define( "_AM_IMLINKS_NO_FORUM", "Форум не выбран" );
 
 define( "_AM_IMLINKS_PERM_RATEPERMISSIONS", "Права доступа к оценке" );
-define( "_AM_IMLINKS_PERM_RATEPERMISSIONS_TEXT", "Select the groups that can rate a link in the selected categories." );
+define( "_AM_IMLINKS_PERM_RATEPERMISSIONS_TEXT", "Выбор групп, пользователи которых могут оценивать ссылки в определенных категориях." );
 
 define( "_AM_IMLINKS_PERM_AUTOPERMISSIONS", "Автоодобрение ссылок" );
-define( "_AM_IMLINKS_PERM_AUTOPERMISSIONS_TEXT", "Select the groups that will have new links auto approved without admin intervention." );
+define( "_AM_IMLINKS_PERM_AUTOPERMISSIONS_TEXT", "Выбор групп, пользователи которых могут создавать новые ссылки в режиме автоодобрения без вмешательства администратора." );
 
-define( "_AM_IMLINKS_PERM_SPERMISSIONS", "Submitter Permissions" );
-define( "_AM_IMLINKS_PERM_SPERMISSIONS_TEXT", "Select the groups who can submit new links to selected categories." );
+define( "_AM_IMLINKS_PERM_SPERMISSIONS", "Права на размещение" );
+define( "_AM_IMLINKS_PERM_SPERMISSIONS_TEXT", "Выбор групп, пользователи которых могут размещать ссылки в определенных категориях." );
 
 define( "_AM_IMLINKS_PERM_APERMISSIONS", "Группы модераторов" );
-define( "_AM_IMLINKS_PERM_APERMISSIONS_TEXT", "Select the groups who have moderator privligages for the selected categories." );
+define( "_AM_IMLINKS_PERM_APERMISSIONS_TEXT", "Выбор групп, пользователи которых имеют привилегии модераторов в определенных категориях." );
 
 // added by McDonald
 define( "_AM_IMLINKS_COUNTRY", "Страна:" );
@@ -424,17 +424,17 @@ define( "_AM_IMLINKS_TELEPHONE", "Телефон" );
 define( "_AM_IMLINKS_FAX", "Факс" );
 
 // Version 1.05 RC2
-define( "_AM_IMLINKS_WARNINSTALL4", "<b>ПРЕДУПРЕЖДЕНИЕ:</b> <u>Folder</u> %s is not writeable. <br />This folder needs to be writeable (CHMOD 777) for imLinks." );
+define( "_AM_IMLINKS_WARNINSTALL4", "<b>ПРЕДУПРЕЖДЕНИЕ:</b> <u>Каталог</u> %s недоступен для записи. <br />Этот каталог должен иметь права доступа на запись (CHMOD 777) для imLinks." );
 // Version 1.05 RC5
 define( "_AM_IMLINKS_VOIP", "VoIP" );
 define( "_AM_IMLINKS_LINK_SUBMITTER", "Имя разместившего ссылку: " );
 define( "_AM_IMLINKS_MOBILE", "Мобильный" );
 define( "_AM_IMLINKS_CATSPONSOR", "Выбор спонсора категории:" );
-define( "_AM_IMLINKS_CATSPONSORDSC", "If you select a Client the banner id from the form below will not be saved!" );
+define( "_AM_IMLINKS_CATSPONSORDSC", "Если Вы выберите id баннера из пункта ниже, то это значение не сохранится!" );
 define( "_AM_IMLINKS_BANNER", "Баннер" );
 define( "_AM_IMLINKS_FBANNER", "Баннер" );
 define( "_AM_IMLINKS_BANNERID", "Выбор ID баннера:" );
-define( "_AM_IMLINKS_BANNERIDDSC", "If you have selected a Client in the form above the banner id will not be saved!" );
+define( "_AM_IMLINKS_BANNERIDDSC", "Если Вы выберите спонсора категории из пункта выше, то это значение не сохранится!" );
 
 // Version 1.05 RC6
 define( "_AM_IMLINKS_VAT", "Регистрационный номер VAT" );
@@ -453,25 +453,25 @@ define( "_AM_IMLINKS_NOFILEUPLOAD", "Файл не загружен, это ош
 define( "_AM_IMLINKS_UPLOADERRORZERO", "Проблема при загрузке. Ошибка: 0" );
 define( "_AM_IMLINKS_UPLOADERRORONE", "Файл для загрузки слишком большой. Ошибка: 1" );
 define( "_AM_IMLINKS_UPLOADERRORTWO", "Файл для загрузки слишком большой. Ошибка: 2" );
-define( "_AM_IMLINKS_UPLOADERRORTHREE", "The file you are trying upload was only partially uploaded. Ошибка: 3" );
+define( "_AM_IMLINKS_UPLOADERRORTHREE", "Файл, который Вы пытаетесь загрузить, загружен частично. Ошибка: 3" );
 define( "_AM_IMLINKS_UPLOADERRORFOUR", "Файл для загрузки не выбран. Ошибка: 4" );
 define( "_AM_IMLINKS_UPLOADERRORFIVE", "Файл для загрузки не выбран. Ошибка: 5" );
 define( "_AM_IMLINKS_NOUPLOADDIR", "Не установлен каталог для загрузки" );
 define( "_AM_IMLINKS_FAILOPENDIR", "Ошибка при открытии каталога: " );
 define( "_AM_IMLINKS_FAILOPENDIRWRITEPERM", "Ошибка при открытии каталога с правами на запись: " );
-define( "_AM_IMLINKS_FILESIZEMAXSIZE", "File Size: %u. Maximum Size Allowed: %u" );
-define( "_AM_IMLINKS_FILESIZEMAXWIDTH", "File width: %u. Maximum width allowed: %u" );
-define( "_AM_IMLINKS_FILESIZEMAXHEIGHT", "File height: %u. Maximum height allowed: %u" );
+define( "_AM_IMLINKS_FILESIZEMAXSIZE", "Размер файла: %u. Максимально допустимый: %u" );
+define( "_AM_IMLINKS_FILESIZEMAXWIDTH", "Ширина: %u. Максимально допустимая: %u" );
+define( "_AM_IMLINKS_FILESIZEMAXHEIGHT", "Высота: %u. Максимально допустимая: %u" );
 define( "_AM_IMLINKS_MIMENOTALLOW", "Неразрешенный MIME-тип: " );
 define( "_AM_IMLINKS_FAILEDUPLOADING", "Сбой при загрузке файла: " );
 define( "_AM_IMLINKS_FILE", "Файл " );
-define( "_AM_IMLINKS_ALREADYEXISTTRYAGAIN", " already exists on the server. Please rename this file and try again.<br />" );
-define( "_AM_IMLINKS_ERRORSRETURNUPLOAD", "<h4>Errors Returned While Uploading</h4>" );
+define( "_AM_IMLINKS_ALREADYEXISTTRYAGAIN", " уже существует на сервере. Пожалуйста, переименуйте этот файл и повторите снова.<br />" );
+define( "_AM_IMLINKS_ERRORSRETURNUPLOAD", "<h4>Ошибки во время загрузки</h4>" );
 define( "_AM_IMLINKS_DOESNOTEXIST", " не существует!" );
 define( "_AM_IMLINKS_INFORMATION", "Информация о ссылке" );
 define( "_AM_IMLINKS_HITS", "Обращений: " );
 define( "_AM_IMLINKS_PAGERANK", "PageRank™: ");
-define( "_AM_IMLINKS_ERROR_CATISCAT", "You can NOT set a category as a sub-category of itself!" );
+define( "_AM_IMLINKS_ERROR_CATISCAT", "Вы не можете установить категорию как подкатегорию самой себя!" );
 define( "_AM_IMLINKS_MOD_COUNTRY", "Страна:" );
 define( "_AM_IMLINKS_MOD_KEYWORDS", "Ключевые слова:" );
 define( "_AM_IMLINKS_MOD_ITEM_TAG", "Тэги:" );
@@ -493,7 +493,7 @@ define( "_AM_IMLINKS_MOD_VAT", "VAT:" );
 // version 1.06 RC-2
 define( "_AM_IMLINKS_IPAGE_SHOWLATEST", "Показать последние ссылки?" );
 define( "_AM_IMLINKS_IPAGE_LATESTTOTAL", "Сколько ссылок показывать?" );
-define( "_AM_IMLINKS_IPAGE_LATESTTOTAL_DSC", "0 Отключение опции." );
+define( "_AM_IMLINKS_IPAGE_LATESTTOTAL_DSC", "0 - отключение опции." );
 
 //version 1.06 Final
 define( "_AM_IMLINKS_DOCUMENTATION", "Документация(англ.)" );

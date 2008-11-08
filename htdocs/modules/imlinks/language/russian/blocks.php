@@ -41,5 +41,5 @@ define( "_MB_IMLINKS_CLICKS", "Клики" );
 define( "_MB_IMLINKS_CATTITLE", "Категория" );
 define( "_MB_IMLINKS_UNLIMIT", "Нелимитировано" );
 define( "_MB_IMLINKS_DATEFORMAT", "Формат даты" );
-define( "_MB_IMLINKS_DATEFORMATMANUAL", 'Смотрите <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>' );
+define( "_MB_IMLINKS_DATEFORMATMANUAL", 'Смотрите <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP руководство</a>' );
 ?>
