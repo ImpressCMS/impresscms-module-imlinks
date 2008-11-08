@@ -46,7 +46,7 @@ function install_header() {
 	<meta http-equiv="Content-Type" content="text/html; charset=" />
 	</head>
 	<body>
-	<br /><div style="text-align:center"><img src="./images/logo-en.gif" alt="" /><h2>imLinks Update</h2>
+	<br /><div style="text-align:center"><img src="./images/logo-en.png" alt="" /><h2>imLinks Update</h2>
 <?php
 } 
 
