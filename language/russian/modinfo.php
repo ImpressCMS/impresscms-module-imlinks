@@ -39,8 +39,8 @@ define("_MI_IMLINKS_BNAME2", "Топ ссылок");
 // Sub menu titles
 define("_MI_IMLINKS_SMNAME1", "Разместить");
 define("_MI_IMLINKS_SMNAME2", "Популярные");
-define("_MI_IMLINKS_SMNAME3", "Топ оцененных");
-define("_MI_IMLINKS_SMNAME4", "Новые ссылки");
+define("_MI_IMLINKS_SMNAME3", "Рейтинговые");
+define("_MI_IMLINKS_SMNAME4", "Новые");
 
 // Names of admin menu items
 define("_MI_IMLINKS_BINDEX", "Индекс");
@@ -92,9 +92,9 @@ define('_MI_IMLINKS_IMGHEIGHT', 'Высота загружаемой карти�
 define('_MI_IMLINKS_IMGHEIGHTDSC', 'Максимальная высота картинки, зарешенная для загрузки изображения ссылки');
 
 define('_MI_IMLINKS_UPLOADDIR', 'Каталог для загрузки (без завершающего слэша)');
-define('_MI_IMLINKS_ALLOWSUBMISS', 'User Submissions:');
+define('_MI_IMLINKS_ALLOWSUBMISS', 'Пользовательские размещения:');
 define('_MI_IMLINKS_ALLOWSUBMISSDSC', 'Разрешить пользователям размещать ссылки?');
-define('_MI_IMLINKS_ALLOWUPLOADS', 'User Uploads:');
+define('_MI_IMLINKS_ALLOWUPLOADS', 'Пользовательские загрузки:');
 define('_MI_IMLINKS_ALLOWUPLOADSDSC', 'Разрешить пользователям загружать ссылки напрямую на Ваш сайт');
 define('_MI_IMLINKS_SCREENSHOTS', 'Каталог для загрузки изображений экрана');
 define('_MI_IMLINKS_CATEGORYIMG', 'Каталог для загрузки картинок категории');
@@ -106,7 +106,7 @@ define('_MI_IMLINKS_DATEFORMATDSC', 'Формат даты по умолчани
 define('_MI_IMLINKS_SHOWDISCLAIMER', 'Показать предупреждение об ответственности перед размещением?');
 define('_MI_IMLINKS_SHOWDISCLAIMERDSC', 'Перед тем, как пользователь сможет разместить ссылку могут быть показаны правила');
 define('_MI_IMLINKS_SHOWLINKDISCL', 'Показать сообщение об отвественности перед размещением ссылки?');
-define('_MI_IMLINKS_SHOWLINKDISCLDSC', 'Show link regulations before open a link?');
+define('_MI_IMLINKS_SHOWLINKDISCLDSC', 'Показать правила ссылок перед открытием ссылки?');
 define('_MI_IMLINKS_DISCLAIMER', 'Текст предупреждения об ответственности при размещении ссылки:');
 define('_MI_IMLINKS_LINKDISCLAIMER', 'Текст предупреждения об ответственности при создании ссылки:');
 define('_MI_IMLINKS_SUBCATS', 'Показывать подкатегории?');
@@ -191,7 +191,7 @@ define('_MI_IMLINKS_MODULE_INFO', "Информация о разработке 
 define('_MI_IMLINKS_MODULE_STATUS', "Статус разработки");
 define('_MI_IMLINKS_MODULE_DEMO', "Демо сайт");
 define('_MI_IMLINKS_MODULE_SUPPORT', "Официальный сайт поддержки");
-define('_MI_IMLINKS_MODULE_BUG', "Report a bug for this module");
+define('_MI_IMLINKS_MODULE_BUG', "Отчет об ошибках в этом модуле");
 define('_MI_IMLINKS_MODULE_FEATURE', "Предложение новых свойств для этого модуля");
 define('_MI_IMLINKS_MODULE_DISCLAIMER', "Предупреждение об ответственности");
 define('_MI_IMLINKS_RELEASE', "Дата релиза: ");
@@ -220,7 +220,7 @@ define('_MI_IMLINKS_AUTHOR_CREDITSTEXT',"The WF-Projects Team would like to than
 define('_MI_IMLINKS_AUTHOR_BUGFIXES', "История исправления ошибок");
 
 define('_MI_IMLINKS_COPYRIGHT2', 'Copyright' );
-define('_MI_IMLINKS_COPYRIGHTIMAGE', "Unless stated otherwise, авторское право на этот модуль (imLinks) и его картинки принадлежит сообществу ImpressCMS.<br /><br />Вы имеете право копировать, редактировать и изменять imLinks по Вашему усмотрению. You agree not to modify, adapt and redistribute the source code of the Software without the express permission from the ImpressCMS team.<br /><br />PageRank является торговой маркой Google Inc.");
+define('_MI_IMLINKS_COPYRIGHTIMAGE', "Если не указано иначе, то авторское право на этот модуль (imLinks) и его картинки принадлежит сообществу ImpressCMS.<br /><br />Вы имеете право копировать, редактировать и изменять imLinks по Вашему усмотрению. You agree not to modify, adapt and redistribute the source code of the Software without the express permission from the ImpressCMS team.<br /><br />PageRank является торговой маркой Google Inc.");
 
 define('_MI_IMLINKS_SELECTFORUM', "Выбор форума:");
 define('_MI_IMLINKS_SELECTFORUMDSC', "Выбрать форум, который Вы инсталлируете и будете использовать с imLinks.");
@@ -247,14 +247,14 @@ define("_MI_IMLINKS_FORM_TINYMCE", "TinyMCE");
 define("_MI_IMLINKS_FORM_DHTMLEXT", "DHTML Extended");
 define("_MI_IMLINKS_SORTCATS", "Сортировать категории по:");
 define("_MI_IMLINKS_SORTCATSDSC", "Выберите по какому параметру сортировать категории и подкатегории.");
-define("_MI_IMLINKS_KEYLENGTH", "Enter max. characters for meta keywords:");
+define("_MI_IMLINKS_KEYLENGTH", "Макс. количество символов для мета-тэга keywords:");
 define("_MI_IMLINKS_KEYLENGTHDSC", "По умолчанию 255 символов");
-define("_MI_IMLINKS_OTHERLINKS", "Show other links submitted by Submitter?");
-define("_MI_IMLINKS_OTHERLINKSDSC", "Select if other links of the submitter will be displayed.");
+define("_MI_IMLINKS_OTHERLINKS", "Показывать другие ссылки, разещенные этим отправителем?");
+define("_MI_IMLINKS_OTHERLINKSDSC", "Выберите, если желаете отображать другие ссылки этого отправителя.");
 define("_MI_IMLINKS_TOTALCHARS", "Кол-во символов для описания");
-define("_MI_IMLINKS_TOTALCHARSDSC", "Set total amount of characters for description in category view.");
+define("_MI_IMLINKS_TOTALCHARSDSC", "Установите общее количество символов описания при просмотре категории.");
 define("_MI_IMLINKS_QUICKVIEW", "Установть опцию быстрого просмотра");
-define("_MI_IMLINKS_QUICKVIEWDSC", "This turns on/off the Quick View option.");
+define("_MI_IMLINKS_QUICKVIEWDSC", "Переключает вкл/откл опцию быстрого просмотра.");
 define('_MI_IMLINKS_ICONS_CREDITS', "Icons by");
 define("_MI_IMLINKS_SHOWSBOOKMARKS", "Показать социальные закладки?");
 define("_MI_IMLINKS_SHOWSBOOKMARKSDSC", "Select Yes if you want Social Bookmark icons to be displayed under article.");
@@ -275,7 +275,7 @@ define("_MI_IMLINKS_LOGOURLDSCPRINT", "Url логотипа, который бу
 define("_MI_IMLINKS_FOOTERPRINT", "Подпись на странице для печати");
 define("_MI_IMLINKS_FOOTERPRINTDSC", "Подпись, которая будет напечатана для каждой ссылки");
 define("_MI_IMLINKS_BNAME3", "Статистика спонсоров imLinks");
-define("_MI_IMLINKS_VCARD_CREDITS", "vCard script by");
+define("_MI_IMLINKS_VCARD_CREDITS", "vCard скрипт от");
 
 // Version 1.05 RC6
 define("_MI_IMLINKS_FLAGIMG", "Каталог с картинками флагов стран");
@@ -319,6 +319,6 @@ define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Это число имеет значен�
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Выбор источника автоматической генерации образов экрана' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Дополнительная информация:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
-define( '_MI_IMLINKS_CATCOLS', 'Кол-во колонок категории:' );
-define( '_MI_IMLINKS_CATCOLSDSC', 'Выберите количество колонок категории на индексной странице.<br />По умолчанию: <em>2</em>' );
+define( '_MI_IMLINKS_CATCOLS', 'Кол-во колонок в списке категорий:' );
+define( '_MI_IMLINKS_CATCOLSDSC', 'Выберите количество колонок в списке категорий на индексной странице.<br />По умолчанию: <em>2</em>' );
 ?>
