@@ -119,7 +119,7 @@ define( "_MD_IMLINKS_NEWLINKS", "Новые ссылки" );
 define( "_MD_IMLINKS_TOTALNEWLINKS", "Всего новых ссылок" );
 define( "_MD_IMLINKS_DTOTALFORLAST", "Всего новых ссылок за последние" );
 define( "_MD_IMLINKS_AGREE", "Согласен" );
-define( "_MD_IMLINKS_DOYOUAGREE", "Вы согласны с указанным термином?" );
+define( "_MD_IMLINKS_DOYOUAGREE", "Вы согласны с указанным выше?" );
 define( "_MD_IMLINKS_DISCLAIMERAGREEMENT", "Предупреждение об ответственности" );
 define( "_MD_IMLINKS_DUPLOADSCRSHOT", "Загрузка картинки образа экрана:" );
 define( "_MD_IMLINKS_RESOURCEID", "Id ресурса: " );
@@ -163,7 +163,7 @@ define( "_MD_IMLINKS_INFORUM", "Дискуссия в форуме" );
 define( "_MD_IMLINKS_NOTALLOWESTOSUBMIT", "У вас нет прав на размещение ссылок" );
 define( "_MD_IMLINKS_INFONOSAVEDB", "Информация не сохранена в базе данных: <br /><br />" );
 
-define( "_MD_IMLINKS_NEWLAST", "Новые размещения за врмя более недели" );
+define( "_MD_IMLINKS_NEWLAST", "Новые размещения за время более недели" );
 define( "_MD_IMLINKS_NEWTHIS", "Новые размещения за последнюю неделю" );
 define( "_MD_IMLINKS_THREE", "Новые размещения за последние три дня" );
 define( "_MD_IMLINKS_TODAY", "Новые размещения сегодня" );
@@ -183,8 +183,8 @@ define( "_MD_IMLINKS_KEYWORDS_NOTE", "Ключевые слова должны �
 define( "_MD_IMLINKS_NOLINKLOAD", "Спасибо за Ваше сообщение!" );
 define( "_MD_IMLINKS_LINKID", "ID ссылки" );
 define( "_MD_IMLINKS_COUNTRYSORT", "Страна" );
-define( "_MD_IMLINKS_COUNTRYLTOH", "Страна (A to Z)" );
-define( "_MD_IMLINKS_COUNTRYHTOL", "Страна (Z to A)" );
+define( "_MD_IMLINKS_COUNTRYLTOH", "Страна (по алфавиту)" );
+define( "_MD_IMLINKS_COUNTRYHTOL", "Страна (в обратном порядке алфавита)" );
 define( "_MD_IMLINKS_BACKBUTTON", "Вернуться" );
 define( "_MD_IMLINKS_ADMINSECTION", "Администрировать" );
 define( "_MD_IMLINKS_ADDTO", "Добавить: " );

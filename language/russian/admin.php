@@ -4,7 +4,7 @@
 *
 * Based upon WF-Links 1.06
 *
-* File: language/english/admin.php
+* File: language/russian/admin.php
 *
 * @copyright		http://www.xoops.org/ The XOOPS Project
 * @copyright		XOOPS_copyrights.txt
@@ -35,7 +35,7 @@ define( "_AM_IMLINKS_BMODIFY", "Редактировать" );
 define( "_AM_IMLINKS_BDELETE", "Удалить" );
 define( "_AM_IMLINKS_BCREATE", "Создать" );
 define( "_AM_IMLINKS_BADD", "Добавить" );
-define( "_AM_IMLINKS_BAPPROVE", "Утвердить" );
+define( "_AM_IMLINKS_BAPPROVE", "Одобрить" );
 define( "_AM_IMLINKS_BIGNORE", "Игнорировать" );
 define( "_AM_IMLINKS_BCANCEL", "Отменить" );
 define( "_AM_IMLINKS_BSAVE", "Сохранить" );
@@ -43,7 +43,7 @@ define( "_AM_IMLINKS_BRESET", "Сбросить" );
 define( "_AM_IMLINKS_BMOVE", "Переместить ссылку" );
 define( "_AM_IMLINKS_BUPLOAD", "Загрузить" );
 define( "_AM_IMLINKS_BDELETEIMAGE", "Удалить выбранную картинку" );
-define( "_AM_IMLINKS_BRETURN", "Вернитесь туда, где Вы были" );
+define( "_AM_IMLINKS_BRETURN", "Вернитесь туда, где Вы были!" );
 define( "_AM_IMLINKS_DBERROR", "Ошибка доступа к базе данных: Please report this error to the [url=http://community.impresscms.org/modules/newbb/viewforum.php?forum=9]ImpressCMS Community Forum - Module Support[/url] forum." );
 // Other Options
 define( "_AM_IMLINKS_TEXTOPTIONS", "Опции текста:" );
@@ -106,12 +106,12 @@ define( "_AM_IMLINKS_FCATEGORY_SUMMARY", "Резюме категории:" );
 /**
  * Index page Defines
  */
-define( "_AM_IMLINKS_IPAGE_UPDATED", "Индексная страница отредактирована и база данных обновлена!" );
+define( "_AM_IMLINKS_IPAGE_UPDATED", "Индексная страница отредактирована и база данных обновлена" );
 define( "_AM_IMLINKS_IPAGE_INFORMATION", "Информация об индексной странице" );
 define( "_AM_IMLINKS_IPAGE_MODIFY", "Редактирование индексной страницы" );
 define( "_AM_IMLINKS_IPAGE_CIMAGE", "Выбор картинки для индексной страницы:" );
-define( "_AM_IMLINKS_IPAGE_CTITLE", "Заголовок на индексной страницы:" );
-define( "_AM_IMLINKS_IPAGE_CHEADING", "Заголовок индекса:" );
+define( "_AM_IMLINKS_IPAGE_CTITLE", "Заголовок на индексной странице:" );
+define( "_AM_IMLINKS_IPAGE_CHEADING", "Тэг header индексной страницы:" );
 define( "_AM_IMLINKS_IPAGE_CHEADINGA", "Расположение заголовка:" );
 define( "_AM_IMLINKS_IPAGE_CFOOTER", "Подпись на индексной странице:" );
 define( "_AM_IMLINKS_IPAGE_CFOOTERA", "Расположение подписи:" );
@@ -126,7 +126,7 @@ define( "_AM_IMLINKS_PERM_PERMSNOTE", "<div><b>ВНИМАНИЕ:</b> Please be a
 define( "_AM_IMLINKS_PERM_CPERMISSIONS", "Права доступа к категории" );
 define( "_AM_IMLINKS_PERM_CSELECTPERMISSIONS", "Выбор категорий, просмотр которых разрешен каждой группе пользователей" );
 define( "_AM_IMLINKS_PERM_CNOCATEGORY", "Невозможно установить права доступа: Ни одной категории не создано!" );
-define( "_AM_IMLINKS_PERM_FPERMISSIONS", "Права доступа ссылок" );
+define( "_AM_IMLINKS_PERM_FPERMISSIONS", "Права доступа к ссылкам" );
 define( "_AM_IMLINKS_PERM_FNOFILES", "Невозможно установить права доступа: Ни одной ссылки не создано!" );
 define( "_AM_IMLINKS_PERM_FSELECTPERMISSIONS", "Выбор ссылок, просмотр которых разрешен каждой группе пользователей" );
 /**
@@ -145,7 +145,7 @@ define( "_AM_IMLINKS_LINK_SAFEMODESTATUS", "Статус Safe Mode: " );
 define( "_AM_IMLINKS_LINK_REGISTERGLOBALS", "Статус Register Globals: " );
 define( "_AM_IMLINKS_LINK_SERVERUPLOADSTATUS", "Статус Server Uploads: " );
 define( "_AM_IMLINKS_LINK_MAXUPLOADSIZE", "Макс. разрешенный размер загрузки: " );
-define( "_AM_IMLINKS_LINK_MAXPOSTSIZE", "Макс. разрешенный размер поста: " );
+define( "_AM_IMLINKS_LINK_MAXPOSTSIZE", "Макс. разрешенный размер сообщения: " );
 define( "_AM_IMLINKS_LINK_SAFEMODEPROBLEMS", " (Это может быть проблемой)" );
 define( "_AM_IMLINKS_LINK_GDLIBSTATUS", "Поддержка GD библиотеки: " );
 define( "_AM_IMLINKS_LINK_GDLIBVERSION", "Версия GD библиотеки: " );
@@ -172,7 +172,7 @@ define( "_AM_IMLINKS_MINDEX_PUBLISHEDLINK", "Опубликованные ссы
 define( "_AM_IMLINKS_MINDEX_AUTOPUBLISHEDLINK", "Автоматически опубликованные ссылки:" );
 define( "_AM_IMLINKS_MINDEX_AUTOEXPIRE", "Автоматически устаревшие ссылки:" );
 define( "_AM_IMLINKS_MINDEX_EXPIRED", "Устаревшие ссылки:" );
-define( "_AM_IMLINKS_MINDEX_OFFLINELINK", "Отключенные ссылки:" );
+define( "_AM_IMLINKS_MINDEX_OFFLINELINK", "Временно отключенные ссылки:" );
 define( "_AM_IMLINKS_MINDEX_ID", "ID" );
 define( "_AM_IMLINKS_MINDEX_TITLE", "Заголовок ссылки" );
 define( "_AM_IMLINKS_MINDEX_POSTER", "Отправитель" );
@@ -288,7 +288,7 @@ define( "_AM_IMLINKS_LINK_NEWFILEUPLOAD", "Новая ссылка создан�
 define( "_AM_IMLINKS_LINK_FILEMODIFIEDUPDATE", "Выбранная ссылка отредактирована и база данных обновлена" );
 define( "_AM_IMLINKS_LINK_REALLYDELETEDTHIS", "Действительно удалить выбранную ссылку?" );
 define( "_AM_IMLINKS_LINK_FILEWASDELETED", "Ссылка %s удалена из базы данных!" );
-define( "_AM_IMLINKS_LINK_FILEAPPROVED", "Ссылка одобрна и база данных обновлена" );
+define( "_AM_IMLINKS_LINK_FILEAPPROVED", "Ссылка одобрена и база данных обновлена" );
 define( "_AM_IMLINKS_LINK_CREATENEWSSTORY", "<b>Создать новостийное сообщение из ссылки</b>" );
 define( "_AM_IMLINKS_LINK_SUBMITNEWS", "Разместить новую ссылку как запись новостей?" );
 define( "_AM_IMLINKS_LINK_NEWSCATEGORY", "Выбор категории новостей для размещения новости:" );
@@ -369,7 +369,7 @@ define( "_AM_IMLINKS_ALTCAT_CREATEF", "Добавить альтенативну
 define( "_AM_IMLINKS_MALTCAT", "Управление альтернативной категорией" );
 define( "_AM_IMLINKS_ALTCAT_MODIFYF", "Управление альтернативной категорией" );
 define( "_AM_IMLINKS_ALTCAT_INFOTEXT", "<ul><li>Альтернативные категории могут быть созданы и сохранены через эту форму.</li></ul>" );
-define( '_AM_IMLINKS_ALTCAT_CREATED', 'Альтернативные категори сохранены!' );
+define( '_AM_IMLINKS_ALTCAT_CREATED', 'Альтернативные категори сохранены' );
 
 define( "_AM_IMLINKS_MRESOURCES", "Управление ресурсами" );
 define( "_AM_IMLINKS_RES_CREATED", "Управление ресурсами" );
