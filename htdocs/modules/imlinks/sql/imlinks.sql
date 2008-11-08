@@ -84,7 +84,7 @@ CREATE TABLE imlinks_indexpage (
 # Dumping data for table 'imlinks_indexpage'
 #
 
-INSERT INTO imlinks_indexpage (indeximage,indexheading,indexheader,indexfooter,nohtml,nosmiley,noxcodes,noimages,nobreak,indexheaderalign,indexfooteralign,lastlinksyn,lastlinkstotal) VALUES ('logo-en.gif', 'imLinks', 'Welcome to imLinks.', 'imLinks footer', 0, 0, 0, 0, 1, 'left', 'left', 0, 5);
+INSERT INTO imlinks_indexpage (indeximage,indexheading,indexheader,indexfooter,nohtml,nosmiley,noxcodes,noimages,nobreak,indexheaderalign,indexfooteralign,lastlinksyn,lastlinkstotal) VALUES ('logo-en.png', 'imLinks', 'Welcome to imLinks.', 'imLinks footer', 0, 0, 0, 0, 1, 'left', 'left', 0, 5);
 
 # ############################
 
