@@ -4,7 +4,7 @@
 *
 * Based upon WF-Links 1.06
 *
-* File: language/english/main.php
+* File: language/russian/main.php
 *
 * @copyright		http://www.xoops.org/ The XOOPS Project
 * @copyright		XOOPS_copyrights.txt
@@ -50,7 +50,7 @@ define( "_MD_IMLINKS_DESCRIPTIONC", "Описание: " );
 define( "_MD_IMLINKS_CATEGORYC", "Категория: " );
 define( "_MD_IMLINKS_VERSION", "Версия" );
 define( "_MD_IMLINKS_SUBMITDATE", "Дата размещения" );
-define( "_MD_IMLINKS_LINKHITS", "<b>Воспользовались:</b> %s раз" );
+define( "_MD_IMLINKS_LINKHITS", "<b>Визиты:</b> %s раз" );
 define( "_MD_IMLINKS_URLRATING", "<b>ICRA</b>: %s" );
 define( "_MD_IMLINKS_PUBLISHERC", "Кто опубликовал: " );
 define( "_MD_IMLINKS_RATINGC", "Оценка: " );
@@ -58,9 +58,9 @@ define( "_MD_IMLINKS_PAGERANK", "PageRank™: ");
 define( "_MD_IMLINKS_PAGERANKALT", "Google PageRank™: ");
 define( "_MD_IMLINKS_ONEVOTE", "1 голос" );
 define( "_MD_IMLINKS_NUMVOTES", "%s голосов" );
-define( "_MD_IMLINKS_RATETHISFILE", "Оценить ресурс" );
+define( "_MD_IMLINKS_RATETHISFILE", "Оценить" );
 define( "_MD_IMLINKS_MODIFY", "Редактировать" );
-define( "_MD_IMLINKS_REPORTBROKEN", "Сбойная ссылка" );
+define( "_MD_IMLINKS_REPORTBROKEN", "Сбойная" );
 define( "_MD_IMLINKS_BROKENREPORT", "Сообщить о сбойном ресурсе" );
 define( "_MD_IMLINKS_SUBMITBROKEN", "Сообщить" );
 define( "_MD_IMLINKS_BEFORESUBMIT", "Прежде, чем отправить сообщение о сбойном ресурсе, пожалуйста, проверьте, что фактический источник ссылки, о которой Вы намереваетесь сообщить, более не находится по указанному адресу URL и что вебсайт не является временной ссылкой." );
@@ -68,13 +68,13 @@ define( "_MD_IMLINKS_TELLAFRIEND", "Рекомендовать" );
 define( "_MD_IMLINKS_EDIT", "Редактировать" );
 define( "_MD_IMLINKS_THEREARE", "Представлено <b>%s</b> <i>категорий</i> и <b>%s</b> <i>ссылок</i>" );
 define( "_MD_IMLINKS_THEREIS", "Представлено <b>%s</b> <i>категорий</i> и <b>%s</b> <i>ссылок</i>" );
-define( "_MD_IMLINKS_LATESTLIST", "Новые ссылки" );
+define( "_MD_IMLINKS_LATESTLIST", "Новые" );
 define( "_MD_IMLINKS_FILETITLE", "Заголовок ссылки: " );
 define( "_MD_IMLINKS_DLURL", "URL ссылки: " );
 define( "_MD_IMLINKS_LINK_DIRCA", " Оценка Internet-контента: " );
 define( "_MD_IMLINKS_HOMEPAGEC", "Главная страница: " );
 define( "_MD_IMLINKS_NOTSPECIFIED", "Не определено" );
-define( "_MD_IMLINKS_SUBMITTER", "Издатель" );
+define( "_MD_IMLINKS_SUBMITTER", "Разместил" );
 define( "_MD_IMLINKS_UPDATEDON", "Обновлена" );
 define( "_MD_IMLINKS_PRICEFREE", "Бесплатно" );
 define( "_MD_IMLINKS_VIEWDETAILS", "Посмотреть подробности" );
@@ -105,7 +105,7 @@ define( "_MD_IMLINKS_MUSTREGFIRST", "Извините, у Вас нет прав
 define( "_MD_IMLINKS_NORATING", "Оценка не выбрана." );
 define( "_MD_IMLINKS_VOTEFORTITLE", "Оценка этой ссылки: " );
 define( "_MD_IMLINKS_CANTVOTEOWN", "Вы не можете голосовать за ресурс, который разместили.<br />Все голоса регистрируются и просматриваются." );
-define( "_MD_IMLINKS_SUBMITLINK", "Разместить ссылку" );
+define( "_MD_IMLINKS_SUBMITLINK", "Разместить" );
 define( "_MD_IMLINKS_SUB_SNEWMNAMEDESC", "<ul><li>Все новые ссылки проходят процедуру валидации (проверки на достоверность) и до появления ссылки в списке может пройти до 24 часов.</li><li>Мы оставляем за собой право отвергнуть любую, размещенную ссылку или изменить контент без одобрения.</li></ul>" );
 define( "_MD_IMLINKS_MAINLISTING", "Список категорий" );
 define( "_MD_IMLINKS_LASTWEEK", "Последняя неделя" );
@@ -171,7 +171,7 @@ define( "_MD_IMLINKS_NO_FILES", "Пока нет ссылок" );
 
 define( "_MD_IMLINKS_NOPERMISSIONTOPOST", "У Вас нет прав доступа в эту категорию." );
 
-define( "_MD_IMLINKS_PUBLISHDATE", "Опубликовано" );
+define( "_MD_IMLINKS_PUBLISHDATE", "Издано" );
 define( "_MD_IMLINKS_APPROVE", "Одобрить" );
 define( "_MD_IMLINKS_MODERATOR_OPTIONS", "Опции модератора" );
 
