@@ -35,13 +35,19 @@ $sql = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links'
 		$date  = date( 'D, d M Y H:i:s', $myrow['published'] );
 		$title = htmlspecialchars( $myrow['title'] );
 		$text  = icms_substr( $myrow['description'], 0, $xoopsModuleConfig['totalchars'], '...' );
-		$text  = htmlspecialchars( $immyts -> displayTarea( $text, 1, 1, 1, 1, 1 ) );
+		$text  = $immyts -> displayTarea( $text, 1, 1, 1, 1, 1 );
 		$link  = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . intval( $myrow['cid'] ) . '&amp;lid=' . intval( $myrow['lid'] );
+		
+		if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
+			$autothumbsrc = '<img src="http://mozshot.nemui.org/shot/128x128?' . $myrow['url'] . '" align="right" alt="" />' . $text;
+		} else {
+			$autothumbsrc = '<img src="http://open.thumbshots.org/image.pxf?url=' . $myrow['url'] . '" width="120" height="90" align="right" alt="" />' . $text;
+}
 
 		$myFeed -> feeds[] = array(
 			'title' 		=> $title,
 			'link' 			=> $link,
-			'description' 	=> $text,
+			'description' 	=> htmlspecialchars( $autothumbsrc ),
 			'pubdate' 		=> $date,
 			'guid' 			=> $link
 			);
