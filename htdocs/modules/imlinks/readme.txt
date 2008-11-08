@@ -39,27 +39,9 @@ Go to the Control Panel, choose Modules and install imLinks as any other ICMS mo
 
 **Fixes for ImpressCMS 1.1 Final**
 ----------------------------------
-Hereby 2 minor fixes to be made to have Impression 1.0 RC-3 working correctly with ImpressCMS 1.1 Final.
+Hereby a minor fix to be made to have Impression 1.0 RC-3 working correctly with ImpressCMS 1.1 Final.
 
 
-RSS Feed
---------
-Open the file /class/icmsfeed.php in a texteditor and replace these lines:
-
-	function render () {
-		//header ('Content-Type:text/xml; charset='._CHARSET);
-		$xoopsOption['template_main'] = "db:system_rss.html";
-		$tpl = new XoopsTpl();
-		
-With these lines:
-
-	function render () {
-		include_once ICMS_ROOT_PATH . '/class/template.php';
-		//header ('Content-Type:text/xml; charset='._CHARSET);
-		$xoopsOption['template_main'] = "db:system_rss.html";
-		$tpl = new XoopsTpl();
-
-		
 TinyMCE
 -------
 This is a fix to have the captions visible when TinyMCE is selected as editor in Impression -> Preferences.
