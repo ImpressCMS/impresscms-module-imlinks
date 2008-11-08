@@ -580,7 +580,7 @@ $modversion['config'][$i]['title'] = '_MI_IMLINKS_LOGOURLPRINT';
 $modversion['config'][$i]['description'] = '_MI_IMLINKS_LOGOURLDSCPRINT';
 $modversion['config'][$i]['formtype'] = 'textbox';
 $modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = ICMS_URL . '/modules/' . $modversion['dirname'] . '/images/logo-en.gif';
+$modversion['config'][$i]['default'] = ICMS_URL . '/modules/' . $modversion['dirname'] . '/images/logo-en.png';
 $i++;
 $modversion['config'][$i]['name'] = 'showdisclaimer';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_SHOWDISCLAIMER';
