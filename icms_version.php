@@ -325,6 +325,22 @@ $modversion['config'][$i]['options'] =  array(	_MI_IMLINKS_FORM_DHTML => 'dhtml'
 												_MI_IMLINKS_FORM_TINYMCE => 'tinymce'
                                               );
 $i++;
+$modversion['config'][$i]['name'] = 'indexpage_form';
+$modversion['config'][$i]['title'] = '_MI_IMLINKS_EDITOR';
+$modversion['config'][$i]['description'] = '_MI_IMLINKS_EDITORCHOICE';
+$modversion['config'][$i]['formtype'] = 'select';
+$modversion['config'][$i]['valuetype'] = 'text';
+$modversion['config'][$i]['default'] = 'dhtml';
+$modversion['config'][$i]['options'] =  array(	_MI_IMLINKS_FORM_DHTML => 'dhtml',
+                                                _MI_IMLINKS_FORM_DHTMLEXT => 'dhtmlext',
+												_MI_IMLINKS_FORM_COMPACT => 'textarea',
+												_MI_IMLINKS_FORM_HTMLAREA => 'htmlarea',
+												_MI_IMLINKS_FORM_KOIVI => 'koivi',
+												_MI_IMLINKS_FORM_FCK => 'fck',
+												_MI_IMLINKS_FORM_TINYEDITOR => 'tinyeditor',
+												_MI_IMLINKS_FORM_TINYMCE => 'tinymce'
+                                              );
+$i++;
 $modversion['config'][$i]['name'] = 'form_optionsuser';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_EDITORUSER';
 $modversion['config'][$i]['description'] = '_MI_IMLINKS_EDITORCHOICEUSER';
@@ -564,14 +580,14 @@ $i++;
 $modversion['config'][$i]['name'] = 'footerprint';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_FOOTERPRINT';
 $modversion['config'][$i]['description'] = '_MI_IMLINKS_FOOTERPRINTDSC';
-$modversion['config'][$i]['formtype'] = 'textarea';
+$modversion['config'][$i]['formtype'] = 'textsarea';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = ''.ICMS_URL.'';
 //$i++;
 //$modversion['config'][$i]['name'] = 'printheader';
 //$modversion['config'][$i]['title'] = '_MI_IMLINKS_HEADERPRINT';
 //$modversion['config'][$i]['description'] = '_MI_IMLINKS_HEADERPRINTDSC';
-//$modversion['config'][$i]['formtype'] = 'textarea';
+//$modversion['config'][$i]['formtype'] = 'textsarea';
 //$modversion['config'][$i]['valuetype'] = 'text';
 //$modversion['config'][$i]['default'] = '';
 $i++;
@@ -592,7 +608,7 @@ $i++;
 $modversion['config'][$i]['name'] = 'disclaimer';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_DISCLAIMER';
 $modversion['config'][$i]['description'] = '_MI_IMLINKS_DISCLAIMERDSC';
-$modversion['config'][$i]['formtype'] = 'textarea';
+$modversion['config'][$i]['formtype'] = 'textsarea';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = 'We have the right, but not the obligation to monitor and review submissions submitted by users, in the forums. We shall not be responsible for any of the content of these messages. We further reserve the right, to delete, move or edit submissions that the we, in its exclusive discretion, deems abusive, defamatory, obscene or in violation of any Copyright or Trademark laws or otherwise objectionable.';
 $i++;
@@ -606,7 +622,7 @@ $i++;
 $modversion['config'][$i]['name'] = 'linkdisclaimer';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_LINKDISCLAIMER';
 $modversion['config'][$i]['description'] = '_MI_IMLINKS_LINKDISCLAIMERDSC';
-$modversion['config'][$i]['formtype'] = 'textarea';
+$modversion['config'][$i]['formtype'] = 'textsarea';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = 'The links on this site are provided as is without warranty either expressed or implied. linkloaded files should be checked for possible virus infection using the most up-to-date detection and security packages. If you have a question concerning a particular piece of software, feel free to contact the developer. We refuse liability for any damage or loss resulting from the use or misuse of any software offered from this site for linkloading. If you have any doubt at all about the safety and operation of software made available to you on this site, do not linkload it.<br /><br />Contact us if you have questions concerning this disclaimer.';
 $i++;
