@@ -48,7 +48,7 @@ define("_MI_IMLINKS_SMNAME4","Laatste linken");
 
 // Names of admin menu items
 define("_MI_IMLINKS_BINDEX","Hoofd index");
-define("_MI_IMLINKS_INDEXPAGE","Index pagina management");
+define("_MI_IMLINKS_INDEXPAGE","Index pagina");
 define("_MI_IMLINKS_MCATEGORY","Categorie management");
 define("_MI_IMLINKS_MLINKS","Linken management");
 define("_MI_IMLINKS_MUPLOADS","Afbeeldingen uploaden");
