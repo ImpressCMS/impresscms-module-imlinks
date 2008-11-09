@@ -132,17 +132,18 @@ $smiley = ( $head_arr['nosmiley'] ) ? 0 : 1;
 $xcodes = ( $head_arr['noxcodes'] ) ? 0 : 1;
 $images = ( $head_arr['noimages'] ) ? 0 : 1;
 $breaks = ( $head_arr['nobreak'] ) ? 1 : 0;
-$description = $immyts -> displayTarea( $head_arr['description'], $html, $smiley, $xcodes, $images, $breaks );
-$xoopsTpl -> assign( 'description', $description );
+$description = $immyts -> displayTarea( $head_arr['description'], $html, $smiley, $xcodes, $images, $breaks ); 
+if ( $head_arr['description'] != '' ) {
+$xoopsTpl -> assign( 'description', '<div style="padding-top: 10px; padding-bottom: 10px;">' . $description . '</div><br />'); }
 $xoopsTpl -> assign( 'xoops_pagetitle', $head_arr['title'] );
 
 if ($head_arr['client_id'] > 0){
   $catarray['imageheader'] = iml_getbanner_from_id_client( $head_arr['client_id'] );
 } elseif ($head_arr['banner_id'] > 0) {
   $catarray['imageheader'] = iml_getbanner_from_id_banner( $head_arr['banner_id'] );
-} else {
-  $catarray['imageheader'] = iml_imageheader();
-}
+} elseif ( iml_imageheader() != '' ) {
+  $catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';
+} else { $catarray['imageheader'] = ''; }
 $catarray['letters'] = iml_letters();
 $catarray['toolbar'] = iml_toolbar();
 $xoopsTpl -> assign( 'catarray', $catarray );

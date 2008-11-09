@@ -1,10 +1,6 @@
-<{if $catarray.imageheader != ""}>
-<div style="padding-top: 12px; padding-bottom: 12px; text-align: center;"><{$catarray.imageheader}></div>
-<{/if}> 
-<{if $catarray.indexheading != ""}> 
-	<h4 style="text-align: center;"><{$catarray.indexheading}></h4> 
-<{/if}>
-<div style="padding-bottom: 12px; text-align: <{$catarray.indexheaderalign}>;"><{$catarray.indexheader}></div>
+<{$catarray.imageheader}>
+<{$catarray.indexheading}>
+<{$catarray.indexheader}>
 <div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink"><{$catarray.letters}></div>
 <div style="padding-bottom: 12px; text-align: center;"><{$catarray.toolbar}></div>
 
@@ -47,7 +43,7 @@
  &nbsp;</div>
 </div>
 <{/if}>
-<div style="padding 12px; padding-top: 12px;  text-align: <{$catarray.indexfooteralign}>;"><{$catarray.indexfooter}></div>
+<{$catarray.indexfooter}>
 
 <{if $showlatest}>
     <br /><br />
