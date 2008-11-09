@@ -43,8 +43,7 @@ if (!defined('IS_UPDATE_FILE')) {
 		imlinks_indexpage,
         imlinks_links,
         imlinks_mod,
-        imlinks_votedata,
-        imlinks_indexpage
+        imlinks_votedata
         );
     foreach ( $table_array as $table_arr ) {
         $result = $xoopsDB -> queryF( "DROP TABLE " . $xoopsDB -> prefix( $table_arr ) . " " );
@@ -58,13 +57,13 @@ if (!defined('IS_UPDATE_FILE')) {
      * Copy over old links tables without delete;
      */
     $table_array = array(
-		'wflinks_altcat' => imlinks_altcat,
-		'wflinks_broken' => imlinks_broken,
-        'wflinks_cat' => imlinks_cat,
+		'wflinks_altcat' 	=> imlinks_altcat,
+		'wflinks_broken' 	=> imlinks_broken,
+        'wflinks_cat' 		=> imlinks_cat,
 		'wflinks_indexpage' => imlinks_indexpage,
-        'wflinks_links' => imlinks_links,
-        'wflinks_mod' => imlinks_mod,
-        'wflinks_votedata' => imlinks_votedata,
+        'wflinks_links' 	=> imlinks_links,
+        'wflinks_mod' 		=> imlinks_mod,
+        'wflinks_votedata' 	=> imlinks_votedata,
         ); 
     foreach ( $table_array as $table1 => $table2 ) {
         $result = $xoopsDB -> queryF( "ALTER TABLE " . $xoopsDB -> prefix( trim( $table1 ) ) . " RENAME TO " . $xoopsDB -> prefix( trim( $table2 ) ) . " " );
