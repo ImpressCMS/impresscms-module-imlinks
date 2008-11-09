@@ -63,7 +63,7 @@ CREATE TABLE imlinks_cat (
 
 CREATE TABLE imlinks_indexpage (
   indeximage varchar(255) NOT NULL default 'blank.gif',
-  indexheading varchar(255) NOT NULL default 'WF-Links',
+  indexheading varchar(255) NOT NULL default 'imLinks',
   indexheader text NOT NULL,
   indexfooter text NOT NULL,
   nohtml tinyint(8) NOT NULL default '1',
