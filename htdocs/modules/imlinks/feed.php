@@ -24,31 +24,43 @@ global $xoopsModuleConfig;
 $myFeed = new IcmsFeed();
 
 $myFeed -> webMaster = '';  // Admin contact email as stated in general preferences.
+$myFeed -> image = array( 'url' => ICMS_ROOT_PATH . '/modules/' . $mydirname . '/images/imlinks_iconbig.png' );
+$myFeed -> title = $xoopsConfig['sitename'] . ' : ' . $xoopsModule -> getVar( 'name' );
 
 $sql = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) 
 							. ' WHERE published > 0 AND published <= ' . time()
 							. ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0'
 							. ' ORDER BY published DESC ', $xoopsModuleConfig['rssfeedtotal'], 0 );
 
-    while ( $myrow = $xoopsDB -> fetchArray( $sql ) ) {	
+    while ( $myrow = $xoopsDB -> fetchArray( $sql ) ) {
 		
+		// First get the main category title of the link
+		$sql2 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix('imlinks_cat') . ' WHERE cid=' . $myrow['cid'] );
+        $mycat = $xoopsDB -> fetchArray( $sql2 );
+		$category = htmlspecialchars( $mycat['title'] );
+		
+		// Get date, title, definition (shortened) and the url of the link
 		$date  = date( 'D, d M Y H:i:s', $myrow['published'] );
 		$title = htmlspecialchars( $myrow['title'] );
 		$text  = icms_substr( $myrow['description'], 0, $xoopsModuleConfig['totalchars'], '...' );
 		$text  = $immyts -> displayTarea( $text, 1, 1, 1, 1, 1 );
 		$link  = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . intval( $myrow['cid'] ) . '&amp;lid=' . intval( $myrow['lid'] );
+		$author= $myrow['publisher'];
 		
+		// Add an automatic screenshot to the definition
 		if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
-			$autothumbsrc = '<img src="http://mozshot.nemui.org/shot/128x128?' . $myrow['url'] . '" align="right" alt="" />' . $text;
+			$autothumbsrc = htmlspecialchars( '<img src="http://mozshot.nemui.org/shot/128x128?' . $myrow['url'] . '" align="right" alt="" />' . $text );
 		} else {
-			$autothumbsrc = '<img src="http://open.thumbshots.org/image.pxf?url=' . $myrow['url'] . '" width="120" height="90" align="right" alt="" />' . $text;
+			$autothumbsrc = htmlspecialchars( '<img src="http://open.thumbshots.org/image.pxf?url=' . $myrow['url'] . '" width="120" height="90" align="right" alt="" />' . $text );
 }
-
-		$myFeed -> feeds[] = array(
+		
+$myFeed -> feeds[] = array(
 			'title' 		=> $title,
 			'link' 			=> $link,
-			'description' 	=> htmlspecialchars( $autothumbsrc ),
+			'description' 	=> $autothumbsrc,
 			'pubdate' 		=> $date,
+			'category'		=> $category,
+			'author'		=> $author,
 			'guid' 			=> $link
 			);
 	}
