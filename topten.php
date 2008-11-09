@@ -61,14 +61,20 @@ while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
         $query .= ") order by " . $sortDB . " DESC";
         $result2 = $xoopsDB -> query( $query, 10, 0 );
         $filecount = $xoopsDB -> getRowsNum( $result2 );
+		
+		
 
         if ( $filecount > 0 ) {
             $rankings[$e]['title'] = $immyts -> htmlSpecialCharsStrip( $ctitle );
             $rank = 1;
             while ( list( $did, $dcid, $dtitle, $hits, $rating, $votes ) = $xoopsDB -> fetchRow( $result2 ) ) {
-                $catpath = basename( $mytree -> getPathFromId( $dcid, 'title' ) );
+				
+				$result3 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid='.$dcid);
+				$mycat = $xoopsDB -> fetchArray( $result3 );
+				
+                $category = $mycat['title'];
                 $dtitle = $immyts -> htmlSpecialCharsStrip( $dtitle );
-                $rankings[$e]['file'][] = array( 'id' => $did, 'cid' => $dcid, 'rank' => $rank, 'title' => $dtitle, 'category' => $catpath, 'hits' => $hits, 'rating' => number_format( $rating, 2 ), 'votes' => $votes );
+                $rankings[$e]['file'][] = array( 'id' => $did, 'cid' => $dcid, 'rank' => $rank, 'title' => $dtitle, 'category' => $category, 'hits' => $hits, 'rating' => number_format( $rating, 2 ), 'votes' => $votes );
                 $rank++;
             }
             $e++;
