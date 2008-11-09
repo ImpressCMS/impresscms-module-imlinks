@@ -8,43 +8,46 @@
 #                                                                        #
 # Last modified on 25.04.2005                                            #
 /*************************************************************************/
-function b_waiting_wflinks()
-{
+# Since imLinks 1.00                                                     #
+# McDonald     -   pietjebell31@hotmail.com                              #
+#                                                                        #
+# Last modified on 10.11.2008                                            #
+/*************************************************************************/	
+	
+function b_waiting_imlinks() {
 	$xoopsDB =& Database::getInstance();
-	$ret = array() ;
+	$ret = array();
 
-	// wflinks waiting
+	// imlinks waiting
 	$block = array();
-	$result = $xoopsDB->query("SELECT COUNT(*) FROM ".$xoopsDB->prefix("wflinks_links")." WHERE status=0");
+	$result = $xoopsDB -> query ( 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE status=0' );
 	if ( $result ) {
-		$block['adminlink'] = XOOPS_URL."/modules/wflinks/admin/newlinks.php";
-		list($block['pendingnum']) = $xoopsDB->fetchRow($result);
-		$block['lang_linkname'] = _PI_WAITING_WAITINGS ;
+		$block['adminlink'] = ICMS_URL . '/modules/imlinks/admin/newlinks.php';
+		list( $block['pendingnum'] ) = $xoopsDB -> fetchRow( $result );
+		$block['lang_linkname'] = _PI_WAITING_WAITINGS;
 	}
 	$ret[] = $block ;
 
-	// wflinks broken
+	// imlinks broken
 	$block = array();
-	$result = $xoopsDB->query("SELECT COUNT(*) FROM ".$xoopsDB->prefix("wflinks_broken"));
+	$result = $xoopsDB -> query( 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'imlinks_broken' ) );
 	if ( $result ) {
-		$block['adminlink'] = XOOPS_URL."/modules/wflinks/admin/brokenlink.php";
-		list($block['pendingnum']) = $xoopsDB->fetchRow($result);
-		$block['lang_linkname'] = _PI_WAITING_BROKENS ;
+		$block['adminlink'] = ICMS_URL . '/modules/imlinks/admin/brokenlink.php';
+		list( $block['pendingnum'] ) = $xoopsDB -> fetchRow( $result );
+		$block['lang_linkname'] = _PI_WAITING_BROKENS;
 	}
 	$ret[] = $block ;
 
-	// wflinks modreq
+	// imlinks modreq
 	$block = array();
-	$result = $xoopsDB->query("SELECT COUNT(*) FROM ".$xoopsDB->prefix("wflinks_mod"));
+	$result = $xoopsDB -> query( 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'imlinks_mod' ) );
 	if ( $result ) {
-		$block['adminlink'] = XOOPS_URL."/modules/wflinks/admin/modifications.php";
-		list($block['pendingnum']) = $xoopsDB->fetchRow($result);
-		$block['lang_linkname'] = _PI_WAITING_MODREQS ;
+		$block['adminlink'] = ICMS_URL . '/modules/imlinks/admin/modifications.php';
+		list( $block['pendingnum'] ) = $xoopsDB -> fetchRow( $result );
+		$block['lang_linkname'] = _PI_WAITING_MODREQS;
 	}
 	$ret[] = $block ;
 
 	return $ret;
 }
-
-
 ?>
