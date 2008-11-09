@@ -325,22 +325,6 @@ $modversion['config'][$i]['options'] =  array(	_MI_IMLINKS_FORM_DHTML => 'dhtml'
 												_MI_IMLINKS_FORM_TINYMCE => 'tinymce'
                                               );
 $i++;
-$modversion['config'][$i]['name'] = 'indexpage_form';
-$modversion['config'][$i]['title'] = '_MI_IMLINKS_EDITOR';
-$modversion['config'][$i]['description'] = '_MI_IMLINKS_EDITORCHOICE';
-$modversion['config'][$i]['formtype'] = 'select';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'dhtml';
-$modversion['config'][$i]['options'] =  array(	_MI_IMLINKS_FORM_DHTML => 'dhtml',
-                                                _MI_IMLINKS_FORM_DHTMLEXT => 'dhtmlext',
-												_MI_IMLINKS_FORM_COMPACT => 'textarea',
-												_MI_IMLINKS_FORM_HTMLAREA => 'htmlarea',
-												_MI_IMLINKS_FORM_KOIVI => 'koivi',
-												_MI_IMLINKS_FORM_FCK => 'fck',
-												_MI_IMLINKS_FORM_TINYEDITOR => 'tinyeditor',
-												_MI_IMLINKS_FORM_TINYMCE => 'tinymce'
-                                              );
-$i++;
 $modversion['config'][$i]['name'] = 'form_optionsuser';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_EDITORUSER';
 $modversion['config'][$i]['description'] = '_MI_IMLINKS_EDITORCHOICEUSER';
