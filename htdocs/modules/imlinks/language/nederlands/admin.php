@@ -79,7 +79,7 @@ define( "_AM_IMLINKS_MCATEGORY", "Categorie management" );
 define( "_AM_IMLINKS_MLINKS", "Link management" );
 define( "_AM_IMLINKS_MLISTBROKEN", "Gebroken linken index" );
 define( "_AM_IMLINKS_MLISTPINGTIMES", "Linken pingtijd index" );
-define( "_AM_IMLINKS_INDEXPAGE", "Index pagina management" );
+define( "_AM_IMLINKS_INDEXPAGE", "Index pagina" );
 define( "_AM_IMLINKS_MCOMMENTS", "Commenta(a)r(en)" );
 define( "_AM_IMLINKS_MVOTEDATA", "Stem data" );
 define( "_AM_IMLINKS_MUPLOADS", "Afbeelding uploaden" );
@@ -112,7 +112,7 @@ define( "_AM_IMLINKS_FCATEGORY_SUMMARY", "Categorie samenvatting:" );
  */
 define( "_AM_IMLINKS_IPAGE_UPDATED", "Indexpagina aangepast en database succelvol geupdate!" );
 define( "_AM_IMLINKS_IPAGE_INFORMATION", "Indexpagina informatie" );
-define( "_AM_IMLINKS_IPAGE_MODIFY", "Indexpagin aanpassen" );
+define( "_AM_IMLINKS_IPAGE_MODIFY", "Indexpagina aanpassen" );
 define( "_AM_IMLINKS_IPAGE_CIMAGE", "Index afbeelding:" );
 define( "_AM_IMLINKS_IPAGE_CTITLE", "Index Titel:" );
 define( "_AM_IMLINKS_IPAGE_CHEADING", "Index koptekst:" );

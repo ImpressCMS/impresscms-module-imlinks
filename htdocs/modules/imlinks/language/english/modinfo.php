@@ -44,7 +44,7 @@ define("_MI_IMLINKS_SMNAME4", "Latest Listings");
 
 // Names of admin menu items
 define("_MI_IMLINKS_BINDEX", "Main Index");
-define("_MI_IMLINKS_INDEXPAGE", "Index Page Management");
+define("_MI_IMLINKS_INDEXPAGE", "Index Page");
 define("_MI_IMLINKS_MCATEGORY", "Category Management");
 define("_MI_IMLINKS_MLINKS", "Link Management");
 define("_MI_IMLINKS_MUPLOADS", "Image Upload");

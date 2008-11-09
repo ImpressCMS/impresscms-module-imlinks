@@ -75,7 +75,7 @@ define( "_AM_IMLINKS_MCATEGORY", "Category Management" );
 define( "_AM_IMLINKS_MLINKS", "Link Management" );
 define( "_AM_IMLINKS_MLISTBROKEN", "List Broken Links" );
 define( "_AM_IMLINKS_MLISTPINGTIMES", "List Links Pingtime" );
-define( "_AM_IMLINKS_INDEXPAGE", "Index Page Management" );
+define( "_AM_IMLINKS_INDEXPAGE", "Index Page" );
 define( "_AM_IMLINKS_MCOMMENTS", "Comments" );
 define( "_AM_IMLINKS_MVOTEDATA", "Vote Data" );
 define( "_AM_IMLINKS_MUPLOADS", "Image Upload" );
