@@ -94,14 +94,14 @@ if ( isset( $xoopsModule ) ) {
 	$i++;
 	$headermenu[$i]['title'] = _PREFERENCES;
 	$headermenu[$i]['link']  = '../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod=' . $xoopsModule -> getVar( 'mid' );
-	
-	$i++;
-	$headermenu[$i]['title'] = _AM_IMLINKS_BPERMISSIONS;
-	$headermenu[$i]['link']  = '../admin/permissions.php';
 
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMLINKS_BUPDATE;
 	$headermenu[$i]['link']  = ICMS_URL . '/modules/system/admin.php?fct=modulesadmin&op=update&module=' . $admin_dirname;
+	
+	$i++;
+	$headermenu[$i]['title'] = _AM_IMLINKS_BPERMISSIONS;
+	$headermenu[$i]['link']  = '../admin/permissions.php';
 	
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMLINKS_MLISTPINGTIMES;
