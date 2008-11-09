@@ -417,13 +417,13 @@ function iml_imageheader( $indeximage = '', $indexheading = '' ) {
     global $xoopsDB, $xoopsModuleConfig;
 
     if ( $indeximage == '' ) {
-        $result = $xoopsDB -> query( "SELECT indeximage, indexheading FROM " . $xoopsDB -> prefix( 'imlinks_indexpage' ) );
+        $result = $xoopsDB -> query( 'SELECT indeximage, indexheading FROM ' . $xoopsDB -> prefix( 'imlinks_indexpage' ) );
         list( $indeximage, $indexheading ) = $xoopsDB -> fetchrow( $result );
     } 
 
     $image = '';
     if ( !empty( $indeximage ) ) {
-        $image = iml_displayimage( $indeximage, "'index.php'", $xoopsModuleConfig['mainimagedir'], $indexheading );
+        $image = iml_displayimage( $indeximage, 'index.php', $xoopsModuleConfig['mainimagedir'], $indexheading );
     } 
     return $image;
 } 

@@ -41,8 +41,12 @@ $mytree = new XoopsTree( $xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
 $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_indexpage' );
 $head_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 
-$catarray['imageheader'] = iml_imageheader( $head_arr['indeximage'], $head_arr['indexheading'] );
-$catarray['indexheading'] = $immyts -> displayTarea( $head_arr['indexheading'] );
+if ( $head_arr['indeximage'] != '' ) {
+$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader( $head_arr['indeximage'], '' ) . '</div>'; }
+
+if ( $head_arr['indexheading'] != '' ) {
+$catarray['indexheading'] = '<h4 style="text-align: center;">' . $immyts -> displayTarea( $head_arr['indexheading'] ) . '</h4>'; }
+
 $catarray['indexheaderalign'] = $immyts -> htmlSpecialCharsStrip( $head_arr['indexheaderalign'] );
 $catarray['indexfooteralign'] = $immyts -> htmlSpecialCharsStrip( $head_arr['indexfooteralign'] );
 
@@ -52,8 +56,12 @@ $xcodes = ( $head_arr['noxcodes'] ) ? 0 : 1;
 $images = ( $head_arr['noimages'] ) ? 0 : 1;
 $breaks = ( $head_arr['nobreak'] ) ? 1 : 0;
 
-$catarray['indexheader'] = $immyts -> displayTarea( $head_arr['indexheader'], $html, $smiley, $xcodes, $images, $breaks );
-$catarray['indexfooter'] = $immyts -> displayTarea( $head_arr['indexfooter'], $html, $smiley, $xcodes, $images, $breaks );
+if ( $head_arr['indexheader'] != '' ) {
+$catarray['indexheader'] = '<div style="text-align: ' . $head_arr['indexheaderalign'] . ';">' . $immyts -> displayTarea( $head_arr['indexheader'], $html, $smiley, $xcodes, $images, $breaks ) . '</div>'; }
+
+if ( $head_arr['indexfooter'] != '' ) {
+$catarray['indexfooter'] = '<div style="padding 12px; padding-top: 12px;  text-align: ' . $head_arr['indexfooteralign'] . ';">' . $immyts -> displayTarea( $head_arr['indexfooter'], $html, $smiley, $xcodes, $images, $breaks ) . '</div>'; }
+
 $catarray['letters'] = iml_letters();
 $catarray['toolbar'] = iml_toolbar();
 $xoopsTpl -> assign( 'catarray', $catarray );

@@ -155,5 +155,7 @@ if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
 } else {
 	$link['autothumbsrc'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&lid='.$link_arr['lid'] . '" target="_blank"><img src="http://open.thumbshots.org/image.pxf?url=' . $link_arr['url'] . '" width="120" height="90" align="middle" alt="" /></a>';
 }
+$style ='style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
+$link['viewdetails'] = '<a '.$style.' href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid='.$link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
 
 ?>

@@ -1,7 +1,7 @@
 =========================================================
 xx.11.2008   1.00 RC-1
 =========================================================
-- Revamped Main Index page
+- Revamped Main Index page in administration
 
 - Added: developers, testers, translators, etc for About page
 - Added: option to have linked terms if imGlossary is installed
