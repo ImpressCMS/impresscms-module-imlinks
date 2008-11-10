@@ -321,4 +321,6 @@ define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Выбор источника автома�
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Дополнительная информация:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
 define( '_MI_IMLINKS_CATCOLS', 'Кол-во колонок в списке категорий:' );
 define( '_MI_IMLINKS_CATCOLSDSC', 'Выберите количество колонок в списке категорий на индексной странице.<br />По умолчанию: <em>2</em>' );
+define( '_MI_IMLINKS_FEEDSLOGO', 'Logo to display with RSS feed:' );
+define( '_MI_IMLINKS_FEEDSLOGODSC', 'Enter the url for the logo to display with the RSS feed.' );
 ?>

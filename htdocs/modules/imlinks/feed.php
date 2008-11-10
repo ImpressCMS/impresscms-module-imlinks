@@ -27,7 +27,7 @@ include_once ICMS_ROOT_PATH . '/class/icmsfeed.php';
 $myFeed = new IcmsFeed();
 
 $myFeed -> webMaster = '';  // Admin contact email as stated in general preferences.
-$myFeed -> image = array( 'url' => ICMS_ROOT_PATH . '/modules/' . $mydirname . '/images/imlinks_iconbig.png' );
+$myFeed -> image = array( 'url' => $xoopsModuleConfig['rssfeedlogo'] );
 $myFeed -> title = $xoopsConfig['sitename'] . ' : ' . $xoopsModule -> getVar( 'name' );
 
 $sql = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) 
