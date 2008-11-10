@@ -187,6 +187,7 @@ define( "_MD_IMLINKS_COUNTRYB", "<b>Land:</b>" );
 define( "_MD_IMLINKS_COUNTRYSORT", "Land" );
 define( "_MD_IMLINKS_COUNTRYLTOH", "Land (A - Z)" );
 define( "_MD_IMLINKS_COUNTRYHTOL", "Land (Z - A)" );
+define( '_MD_IMLINKS_BACKBUTTON', 'Terug' );
 define( "_MD_IMLINKS_KEYWORDS", "Keywords:" );
 define( "_MD_IMLINKS_KEYWORDS_NOTE", "Keywords dienen gescheiden te worden door een komma (keyword1, keyword2, keyword3)." );
 define( "_MD_IMLINKS_PAGERANK", "PageRank™: ");
