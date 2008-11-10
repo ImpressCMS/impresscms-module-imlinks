@@ -230,28 +230,28 @@ if ( isset( $xoopsModuleConfig['otherlinks'] ) && $xoopsModuleConfig['otherlinks
     $xoopsTpl -> assign( 'other_links', "" . "<b>" ._MD_IMLINKS_OTHERBYUID . "</b>"  . $link['submitter'] . "<br />" );
 }
 
-$style = 'style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
-
 $link['useradminlink'] = 0;
 if ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) {
   $_user_submitter = ( $xoopsUser -> getvar( 'uid' ) == $link_arr['submitter'] ) ? true : false;
   if ( true == iml_checkgroups( $cid ) ) {
     $link['useradminlink'] = 1;
     if ( $xoopsUser -> getvar( 'uid' ) == $link_arr['submitter'] ) {
-      $link['usermodify'] = '<a '.$style.' href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_edit.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_MODIFY . '</a>';
+      $link['usermodify'] = '<a ' . $style . ' href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_edit.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_MODIFY . '</a>';
     }
   }
 }
 
-$xoopsTpl -> assign ( 'ratethislink', '<a '.$style.' href="' . ICMS_URL . '/modules/' . $mydirname . '/ratelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/medal_gold.png" alt="" style="vertical-align: middle;" /> ' ._MD_IMLINKS_RATETHISFILE . '</a>');
+$xoopsTpl -> assign ( 'ratethislink', '<a ' . $style . ' href="' . ICMS_URL . '/modules/' . $mydirname . '/ratelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/medal_gold.png" alt="" style="vertical-align: middle;" /> ' ._MD_IMLINKS_RATETHISFILE . '</a>');
 
-$xoopsTpl -> assign ( 'reportbroken', '<a '.$style.' href="' . ICMS_URL . '/modules/' . $mydirname . '/brokenlink.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_break.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_REPORTBROKEN . '</a>');
+$xoopsTpl -> assign ( 'reportbroken', '<a ' . $style . ' href="' . ICMS_URL . '/modules/' . $mydirname . '/brokenlink.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_break.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_REPORTBROKEN . '</a>');
 
-$xoopsTpl -> assign ( 'mailto', '<a '.$style.' href="mailto:?subject=' . $mail_subject . '&body=' . $mail_body . '" target="_top"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_TELLAFRIEND . '</a>');
+$xoopsTpl -> assign ( 'mailto', '<a ' . $style . ' href="mailto:?subject=' . $mail_subject . '&body=' . $mail_body . '" target="_top"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_TELLAFRIEND . '</a>');
 
-$xoopsTpl -> assign( 'commentz', '<a '.$style.' href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/comments.png" alt="" style="vertical-align: middle;" /> ' . _COMMENTS . '&nbsp;(' . $link_arr['comments'] . ')</a>' );
+$xoopsTpl -> assign( 'commentz', '<a ' . $style . ' href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/comments.png" alt="" style="vertical-align: middle;" /> ' . _COMMENTS . '&nbsp;(' . $link_arr['comments'] . ')</a>' );
 
-$xoopsTpl -> assign( 'print', '<a '.$style.' href="' . ICMS_URL . '/modules/' . $mydirname . '/print.php?lid=' . $link_arr['lid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/printer.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_PRINT . '</a>' );
+$xoopsTpl -> assign( 'print', '<a ' . $style . ' href="' . ICMS_URL . '/modules/' . $mydirname . '/print.php?lid=' . $link_arr['lid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/printer.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_PRINT . '</a>' );
+
+$xoopsTpl -> assign( 'back' , '<a ' . $style . ' href="javascript:history.go(-1)">&#9668; ' . _MD_IMLINKS_BACKBUTTON . '</a>' );
 
 $link['otherlinx'] = $xoopsModuleConfig['otherlinks'];
 $link['showsbookmarx'] = $xoopsModuleConfig['showsbookmarks'];
