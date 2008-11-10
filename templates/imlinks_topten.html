@@ -1,7 +1,7 @@
 <{if $catarray.imageheader != ""}>
 	<div style="text-align: center; line-height: 120%; padding-bottom: 12px;"><{$catarray.imageheader}></div>
 <{/if}>
-<div style="text-align: left; font-weight: bold; line-height: 120%; padding-top: 12px; padding-bottom: 12px; font-size: smaller;">
+<div style="text-align: left; font-weight: bold; line-height: 120%; padding-top: 12px; padding-bottom: 12px;">
 <div style="float: left;"><{$smarty.const._MD_IMLINKS_DISPLAYING}><{$lang_sortby}></div>
 <div style="float: right;"><{$back}>&nbsp;</div>
 </div>
@@ -11,7 +11,7 @@
 <h5><{$smarty.const._MD_IMLINKS_DISPLAYING}><{$lang_sortby}></h5>   -->
 <!-- Start ranking loop --> 
 <{foreach item=ranking from=$rankings}>
-<div style="margin-bottom: 5px;"><b><{$smarty.const._MD_IMLINKS_CATEGORY}>: <{$ranking.title}></b></div>
+<div style="margin-bottom: 5px;"><b><{$smarty.const._MD_IMLINKS_CATEGORY}>:</b> <{$ranking.title}></div>
 <table cellpadding="0" cellspacing="1" width="100%" class="outer"> 
   <tr> 
     <th align="center" ><{$smarty.const._MD_IMLINKS_RANK}></th> 

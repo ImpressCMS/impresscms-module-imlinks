@@ -260,8 +260,6 @@ $link['total_chars'] = $xoopsModuleConfig['totalchars'];
 
 $xoopsTpl -> assign( 'link', $link );
 
-$xoopsTpl -> assign( 'back' , '<a href="javascript:history.go(-1)"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/back.png" /></a>' ); // Displays Back button
-
 $xoopsTpl -> assign( 'module_dir', $mydirname );
 
 include ICMS_ROOT_PATH . '/include/comment_view.php';
