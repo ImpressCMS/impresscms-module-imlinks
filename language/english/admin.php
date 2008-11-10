@@ -411,24 +411,24 @@ define( "_AM_IMLINKS_KEYWORDS", "Keywords:" );
 define( "_AM_IMLINKS_KEYWORDS_NOTE", "Keywords should be seperated with a comma (keyword1, keyword2, keyword3, ..)" );
 define( "_AM_IMLINKS_CHECKURL", "Check URL" );
 define( "_AM_IMLINKS_CATTITLE", "Category" );
-define( "_AM_IMLINKS_LINK_GOOGLEMAP", "Google Maps" );
-define( "_AM_IMLINKS_LINK_YAHOOMAP", "Yahoo Maps" );
-define( "_AM_IMLINKS_LINK_MULTIMAP", "Multimap" );
+define( "_AM_IMLINKS_LINK_GOOGLEMAP", "Google Maps:" );
+define( "_AM_IMLINKS_LINK_YAHOOMAP", "Yahoo Maps:" );
+define( "_AM_IMLINKS_LINK_MULTIMAP", "Multimap:" );
 define( "_AM_IMLINKS_LINK_CHECKMAP", "Check map" );
-define( "_AM_IMLINKS_STREET1", "Street 1" );
-define( "_AM_IMLINKS_STREET2", "Street 2 (optional)" );
-define( "_AM_IMLINKS_TOWN", "Town" );
-define( "_AM_IMLINKS_STATE", "State" );
-define( "_AM_IMLINKS_ZIPCODE", "ZIP code" );
-define( "_AM_IMLINKS_TELEPHONE", "Telephone" );
-define( "_AM_IMLINKS_FAX", "Fax" );
+define( "_AM_IMLINKS_STREET1", "Street 1:" );
+define( "_AM_IMLINKS_STREET2", "Street 2 (optional):" );
+define( "_AM_IMLINKS_TOWN", "Town:" );
+define( "_AM_IMLINKS_STATE", "State:" );
+define( "_AM_IMLINKS_ZIPCODE", "ZIP code:" );
+define( "_AM_IMLINKS_TELEPHONE", "Telephone:" );
+define( "_AM_IMLINKS_FAX", "Fax:" );
 
 // Version 1.05 RC2
 define( "_AM_IMLINKS_WARNINSTALL4", "<b>WARNING:</b> <u>Folder</u> %s is not writeable. <br />This folder needs to be writeable (CHMOD 777) for imLinks." );
 // Version 1.05 RC5
-define( "_AM_IMLINKS_VOIP", "VoIP" );
+define( "_AM_IMLINKS_VOIP", "VoIP:" );
 define( "_AM_IMLINKS_LINK_SUBMITTER", "Link submitter name: " );
-define( "_AM_IMLINKS_MOBILE", "Mobile" );
+define( "_AM_IMLINKS_MOBILE", "Mobile:" );
 define( "_AM_IMLINKS_CATSPONSOR", "Select category sponsor:" );
 define( "_AM_IMLINKS_CATSPONSORDSC", "If you select a client the banner id from the form below will not be saved!" );
 define( "_AM_IMLINKS_BANNER", "Banner" );
@@ -437,9 +437,9 @@ define( "_AM_IMLINKS_BANNERID", "Select banner ID:" );
 define( "_AM_IMLINKS_BANNERIDDSC", "If you have selected a client in the form above the banner id will not be saved!" );
 
 // Version 1.05 RC6
-define( "_AM_IMLINKS_VAT", "VAT Reg No" );
+define( "_AM_IMLINKS_VAT", "VAT Reg No:" );
 define( "_AM_IMLINKS_VATWIKI", "For more information see <a href='http://en.wikipedia.org/wiki/Value_added_tax_identification_number' target='_blank'>Wikipedia</a>" );
-define( "_AM_IMLINKS_EMAIL", "E-Mail" );
+define( "_AM_IMLINKS_EMAIL", "E-Mail:" );
 define( "_AM_IMLINKS_ICO_EXPIRE", "Expired" );
 define( "_AM_IMLINKS_LINK_NORESPONSE", 'No response' );
 define( "_AM_IMLINKS_LINK_CREATEADDRESS", '&nbsp;<b>Address form</b>' );
@@ -500,4 +500,14 @@ define( "_AM_IMLINKS_DOCUMENTATION", "Documentation" );
 define( "_AM_IMLINKS_SHOWNOIMAGE", "Show no image" );
 define( "_AM_IMLINKS_NOSELECTION", "No selection" );
 define( "_AM_IMLINKS_NOFILESELECT", "No selected file" );
+
+// *** imLinks ***
+
+//version 1.00 RC-1
+define( '_AM_IMLINKS_COUNTRYDSC', 'If no country is selected the address can not be formatted and will not be displayed.' );
+define( '_AM_IMLINKS_MAPDSC', 'Click icon to open a new new browser tab or window showing the map.<br />Default: %s' );
+define( '_AM_IMLINKS_LINKURLDSC', 'Click icon to open url in a new browser tab or window.<br />You can use this to check the url.' );
+define( '_AM_IMLINKS_STREETTWODSC', 'This field is optional. If field is left blank it will not be used.' );
+define( '_AM_IMLINKS_STATEDSC', 'Enter county, district, province, state, etc. If field is left blank it will not be used.' );
+define( '_AM_IMLINKS_EMAILDSC', 'Enter email address as:<br />- name@domain.com<br />- mailto:name@domain.com' );
 ?>

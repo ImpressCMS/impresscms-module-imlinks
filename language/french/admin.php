@@ -509,4 +509,14 @@ define( "_AM_IMLINKS_DOCUMENTATION", "Documentation" );
 define( "_AM_IMLINKS_SHOWNOIMAGE", "Ne montrez aucune image" );
 define( "_AM_IMLINKS_NOSELECTION", "No selection" );
 define( "_AM_IMLINKS_NOFILESELECT", "No selected file" );
+
+// *** imLinks ***
+
+//version 1.00 RC-1
+define( '_AM_IMLINKS_COUNTRYDSC', 'If no country is selected the address can not be formatted and will not be displayed.' );
+define( '_AM_IMLINKS_MAPDSC', 'Click icon to open a new new browser tab or window showing the map.<br />Default: %s' );
+define( '_AM_IMLINKS_LINKURLDSC', 'Click icon to open url in a new browser tab or window.<br />You can use this to check the url.' );
+define( '_AM_IMLINKS_STREETTWODSC', 'This field is optional. If field is left blank it will not be used.' );
+define( '_AM_IMLINKS_STATEDSC', 'Enter county, district, province, state, etc. If field is left blank it will not be used.' );
+define( '_AM_IMLINKS_EMAILDSC', 'Enter email address as:<br />- name@domain.com<br />- mailto:name@domain.com' );
 ?>

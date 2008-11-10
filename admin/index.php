@@ -138,6 +138,7 @@ function edit( $lid = 0 ) {
 // Link url form
     $url_text = new XoopsFormText('', 'url', 70, 255, $url);
     $url_tray = new XoopsFormElementTray(_AM_IMLINKS_LINK_DLURL, '');
+	$url_tray -> SetDescription( _AM_IMLINKS_LINKURLDSC );
     $url_tray -> addElement( $url_text, true) ;
     $url_tray -> addElement( new XoopsFormLabel( "&nbsp;<img src='../images/icon/world.png' onClick=\"window.open(document.storyform.url.value,'','');return(false);\" alt='Check URL' />" ));
     $sform -> addElement( $url_tray );
@@ -186,18 +187,21 @@ if ($xoopsModuleConfig['useaddress']){
 // Google Maps
     $googlemap_text = new XoopsFormText( '', 'googlemap', 70, 1024, $googlemap );
     $googlemap_tray = new XoopsFormElementTray( _AM_IMLINKS_LINK_GOOGLEMAP, '' );
+	$googlemap_tray -> SetDescription( sprintf( _AM_IMLINKS_MAPDSC, '<em>http://maps.google.com</em>' ) );
     $googlemap_tray -> addElement( $googlemap_text , false ) ;
     $googlemap_tray -> addElement( new XoopsFormLabel( "&nbsp;<img src='../images/icon/google_map.png' onClick=\"window.open(document.storyform.googlemap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' />" ) );
     $sform -> addElement( $googlemap_tray );
 // Yahoo Maps
     $yahoomap_text = new XoopsFormText( '', 'yahoomap', 70, 1024, $yahoomap );
     $yahoomap_tray = new XoopsFormElementTray( _AM_IMLINKS_LINK_YAHOOMAP, '' );
+	$yahoomap_tray -> SetDescription( sprintf( _AM_IMLINKS_MAPDSC, '<em>http://maps.yahoo.com</em>' ) );
     $yahoomap_tray -> addElement( $yahoomap_text , false ) ;
     $yahoomap_tray -> addElement( new XoopsFormLabel( "&nbsp;<img src='../images/icon/yahoo_map.png' onClick=\"window.open(document.storyform.yahoomap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' />" ) );
     $sform -> addElement( $yahoomap_tray );
 // MS Live Maps
     $multimap_text = new XoopsFormText( '', 'multimap', 70, 1024, $multimap );
     $multimap_tray = new XoopsFormElementTray( _AM_IMLINKS_LINK_MULTIMAP, '' );
+	$multimap_tray -> SetDescription( sprintf( _AM_IMLINKS_MAPDSC, '<em>http://www.multimap.com</em>' ) );
     $multimap_tray -> addElement( $multimap_text , false ) ;
     $multimap_tray -> addElement( new XoopsFormLabel( "&nbsp;<img src='../images/icon/multimap.png' onClick=\"window.open(document.storyform.multimap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' />" ) );
     $sform -> addElement( $multimap_tray );
@@ -206,10 +210,12 @@ if ($xoopsModuleConfig['useaddress']){
     $street1 = new XoopsFormText( _AM_IMLINKS_STREET1, 'street1', 70, 255, $street1 );
     $sform -> addElement( $street1, false );
     $street2 = new XoopsFormText( _AM_IMLINKS_STREET2, 'street2', 70, 255, $street2 );
+	$street2 -> SetDescription( _AM_IMLINKS_STREETTWODSC );
     $sform -> addElement( $street2, false );
     $town = new XoopsFormText( _AM_IMLINKS_TOWN, 'town', 70, 255, $town );
     $sform -> addElement( $town, false );
     $state = new XoopsFormText( _AM_IMLINKS_STATE, 'state', 70, 255, $state );
+	$state -> Setdescription( _AM_IMLINKS_STATEDSC );
     $sform -> addElement( $state, false );
     $zip = new XoopsFormText( _AM_IMLINKS_ZIPCODE, 'zip', 25, 25, $zip );
     $sform -> addElement( $zip, false );
@@ -222,6 +228,7 @@ if ($xoopsModuleConfig['useaddress']){
     $fax = new XoopsFormText( _AM_IMLINKS_FAX, 'fax', 25, 25, $fax );
     $sform -> addElement( $fax, false );
     $email = new XoopsFormText( _AM_IMLINKS_EMAIL, 'email', 25, 60, $email );
+	$email -> SetDescription( _AM_IMLINKS_EMAILDSC );
     $sform -> addElement( $email, false );
     $vat = new XoopsFormText( _AM_IMLINKS_VAT, 'vat', 25, 25, $vat );
     $vat -> setDescription( _AM_IMLINKS_VATWIKI );
@@ -232,6 +239,7 @@ if ($xoopsModuleConfig['useaddress']){
 
 // Country form
     $country_select = new XoopsFormSelectCountry( _AM_IMLINKS_COUNTRY, 'country', $country );
+	$country_select -> SetDescription( _AM_IMLINKS_COUNTRYDSC );
     $sform -> addElement( $country_select, false );
 
 // Miscellaneous Link settings

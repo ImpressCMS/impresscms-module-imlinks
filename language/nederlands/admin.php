@@ -502,4 +502,14 @@ define( "_AM_IMLINKS_DOCUMENTATION", "Documentatie" );
 define( "_AM_IMLINKS_SHOWNOIMAGE", "Geen afbeelding" );
 define( "_AM_IMLINKS_NOSELECTION", "Geen selektie" );
 define( "_AM_IMLINKS_NOFILESELECT", "Geen bestand gekozen" );
+
+// *** imLinks ***
+
+//version 1.00 RC-1
+define( '_AM_IMLINKS_COUNTRYDSC', 'Als geen land gekozen is, dan kan het adres niet samengestelt worden en wordt in dit geval ook niet weergegeven.' );
+define( '_AM_IMLINKS_MAPDSC', 'Klik op het icoon om een nieuw browser tab of venster met daarin de kaart te openen.<br />Standaard: %s' );
+define( '_AM_IMLINKS_LINKURLDSC', 'Klik op het icoon om de url in een nieuw browser tab of venster te tonen. U kunt dit gebruiken om de link te testen.' );
+define( '_AM_IMLINKS_STREETTWODSC', 'Dit veld is optioneel. Indien gewenst kan het veld leeg gelaten worden.' );
+define( '_AM_IMLINKS_STATEDSC', 'Vul hier de graafschap, district, gemeente, provincie, staat, etc. in. Indien gewenst kan het veld leeg gelaten worden.' );
+define( '_AM_IMLINKS_EMAILDSC', 'Vul het email adres in als:<br />- name@domain.com<br />- mailto:name@domain.com' );
 ?>
