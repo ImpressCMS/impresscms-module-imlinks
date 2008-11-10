@@ -313,7 +313,7 @@ define( "_MI_IMLINKS_LINKEDTERMSDSC", "Для этого свойства нео
 define( "_MI_IMLINKS_IMGLOSSARYDIR", "Каталог imGlossary:" );
 define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "Имя каталога, где расположен imGlossary.<br />По умолчанию: <em>imglossary</em>" );
 define( '_MI_IMLINKS_SELECTFEED', 'Использовать ICMS RSS канал?' );
-define( '_MI_IMLINKS_SELECTFEED_DSC', 'Выберите <em>Да</em>, чтобы использовать ImpressCMS RSS канал. Выберите <em>Нет</em>, чтобы использовать модуль Brandycoke\'s RSSfit (должны быть активированы подканалы).'  );
+define( '_MI_IMLINKS_SELECTFEED_DSC', 'Выберите <em>Да</em>, чтобы использовать ImpressCMS RSS канал.' );
 define( '_MI_IMLINKS_FEEDSTOTAL', 'Какое количество ссылок отображать в RSS канале?' );
 define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Это число имеет значение только для ImpressCMS RSS канала. По умолчанию: <em>15</em>' );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );

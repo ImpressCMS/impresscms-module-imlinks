@@ -316,7 +316,7 @@ define( "_MI_IMLINKS_LINKEDTERMSDSC", "O módulo imGlossary precisa estar instal
 define( "_MI_IMLINKS_IMGLOSSARYDIR", "Nome da pasta onde está o ImGlossary:" );
 define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "O nome da pasta onde está fisicamente o módulo imGlossary no seu site<br />O padrão é: <em>imglossary</em> mas se você instalou em outro local, fique muito atento aqui." );
 define( '_MI_IMLINKS_SELECTFEED', 'Usar ICMS RSS?' );
-define( '_MI_IMLINKS_SELECTFEED_DSC', 'Escolhendo <em><b>Sim</b></em> você irá usar a classe de RSS do ImpressCMS. Caso escolha <em>Não</em> ovcê irá utilizar o módulo Brandycoke RSSfit (de qualquer maneira, este módulo precisa estar instalado e ativo para este recurso trabalhar corretamente).'  );
+define( '_MI_IMLINKS_SELECTFEED_DSC', 'Escolhendo <em><b>Sim</b></em> você irá usar a classe de RSS do ImpressCMS.' );
 define( '_MI_IMLINKS_FEEDSTOTAL', 'Quantos Links para exibição no RSS?' );
 define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Este número só irá afetar o RSS do ImpressCMS. Padrão: <em><b>15</b></em>' );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - uma cópia desta licença GNU está incluída no arquivo (license.txt).' );

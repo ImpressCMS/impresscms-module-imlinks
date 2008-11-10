@@ -16,11 +16,14 @@
 * @version		$Id$
 */
 
-include 'header.php';	
+include 'header.php';
+
+global $xoopsModuleConfig, $xoopsModule;
+
+if ( $xoopsModuleConfig['rssfeed'] ) {
+	
 include_once ICMS_ROOT_PATH . '/class/icmsfeed.php'; 
-
-global $xoopsModuleConfig;
-
+	
 $myFeed = new IcmsFeed();
 
 $myFeed -> webMaster = '';  // Admin contact email as stated in general preferences.
@@ -66,5 +69,7 @@ $myFeed -> feeds[] = array(
 	}
 	
 $myFeed -> render(); 
+
+} else { echo 'RSS feed for ' . $xoopsModule -> getVar( 'name' ) . ' is turned off.'; }
 
 ?>

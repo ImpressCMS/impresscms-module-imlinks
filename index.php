@@ -198,10 +198,8 @@ if ( $lastlinks['lastlinksyn'] == 1 && $lastlinks['lastlinkstotal'] > 0 ) {
 }
 if ( $xoopsModuleConfig['rssfeed'] ) {
 	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="' . _MD_IMLINKS_FEED . '" title="' . _MD_IMLINKS_FEED . '" /></a>' );
-} else {
-	$xoopsTpl -> assign( 'imlinks_feed', '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . $xoopsModule -> getVar( 'dirname' ) . '" target="_blank"><img src="images/icon/feed.png" border="0" alt="' . _MD_IMPRESSION_FEED . '" title="' . _MD_IMLINKS_FEED . '" /></a>' );
 }
-include ICMS_ROOT_PATH . '/footer.php';
 
+include ICMS_ROOT_PATH . '/footer.php';
 
 ?>
