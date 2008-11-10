@@ -1,11 +1,13 @@
 <{if $show_categort_title == true}>
-<div style="margin-bottom: 4px;"><b><{$smarty.const._MD_IMLINKS_CATEGORYC}></b><{$link.category}></div>
+<div style="margin-left: 5px; margin-bottom: 4px;"><b><{$smarty.const._MD_IMLINKS_CATEGORYC}></b><{$link.category}></div>
 <{/if}> 
 <table width="100%" cellspacing="0" cellpadding="2"> 
   <tr> 
     <td class="even">
 	<div style="float:left;"><a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><{$link.title}></a> <{$link.icons}><{if $xoops_isadmin}>&nbsp;<{$link.adminlink}> <{/if}></div>
-	<{if $link.published > 0 }> <div style="float:right"><{$link.viewdetails}></div><{/if}>
+	<{if $link.published > 0 }> 
+		<div style="float:right"><{$link.viewdetails}></div>
+	<{/if}>
 	</td>  
   </tr>
   <tr> 
@@ -28,9 +30,9 @@
 			 <{$smarty.const._MD_IMLINKS_LINKNOW}>
 			</a> </div> 
             <br /> 
-            <div><b><{$smarty.const._MD_IMLINKS_DESCRIPTIONC}></b><br /> 
+            <div style="margin-left: 5px;"><b><{$smarty.const._MD_IMLINKS_DESCRIPTIONC}></b><br /> 
 <{$link.description}></div></td>
-          <td width="35%"> <div class="outer style2" style="margin-left: 10px; margin-right: 10px; padding: 4px; background-color:#E6E6E6; border-color:#999999;">
+          <td width="35%"> <div class="outer" style="margin-left: 10px; margin-right: 5px; padding: 4px; background-color:#E6E6E6; border-color:#999999;">
 				<div><small><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$link.submitter}></small></div>
 				<div><small><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$link.publisher}></small></div>
 				<div><small><b><{$lang_subdate}>:</b>&nbsp;<{$link.updated|wordwrap:50:"\n":true}></small></div>
