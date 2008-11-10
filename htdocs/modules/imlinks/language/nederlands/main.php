@@ -222,7 +222,15 @@ define( "_MD_IMLINKS_LINK_CREATEADDRESS", '<b>Adres formulier</b>' );
 //Version 1.06 RC2
 define( '_MD_IMLINKS_STOPIT', 'HOUDT DAAR ONMIDDELIJK MEE OP!!' );
 
-// imLinks v1.00 RC-1
+// *** imLinks ***
+
+//version 1.00 RC-1
 define( '_MD_IMLINKS_FEED', 'RSS feed' );
+define( '_MD_IMLINKS_COUNTRYDSC', 'Als geen land gekozen is, dan kan het adres niet samengestelt worden en wordt in dit geval ook niet weergegeven.' );
+define( '_MD_IMLINKS_MAPDSC', 'Klik op het icoon om een nieuw browser tab of venster met daarin de kaart te openen.<br />Standaard: %s' );
+define( '_MD_IMLINKS_LINKURLDSC', 'Klik op het icoon om de url in een nieuw browser tab of venster te tonen. U kunt dit gebruiken om de link te testen.' );
+define( '_MD_IMLINKS_STREETTWODSC', 'Dit veld is optioneel. Indien gewenst kan het veld leeg gelaten worden.' );
+define( '_MD_IMLINKS_STATEDSC', 'Vul hier de graafschap, district, gemeente, provincie, staat, etc. in. Indien gewenst kan het veld leeg gelaten worden.' );
+define( '_MD_IMLINKS_EMAILDSC', 'Vul het email adres in als:<br />- name@domain.com<br />- mailto:name@domain.com' );
 
 ?>

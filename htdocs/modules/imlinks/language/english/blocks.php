@@ -33,7 +33,7 @@ define( "_MB_IMLINKS_LENGTH", "characters" );
 
 // Version 1.05 RC5
 define( "_MB_IMLINKS_ID", "ID" );
-define( "_MB_IMLINKS_CLIENT", "Client Name" );
+define( "_MB_IMLINKS_CLIENT", "Client name" );
 define( "_MB_IMLINKS_BANNERID", "Banner ID" );
 define( "_MB_IMLINKS_IMPMADE", "Impr. made" );
 define( "_MB_IMLINKS_IMPLEFT", "Impr. left" );

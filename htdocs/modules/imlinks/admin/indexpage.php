@@ -72,7 +72,7 @@ switch ( strtolower( $op ) ) {
 		 <div style='padding: 8px;'>" . _AM_IMLINKS_MINDEX_PAGEINFOTXT . "</div>\n
 		 </fieldset><br />\n";
 
-        $sform = new XoopsThemeForm( _AM_IMLINKS_IPAGE_MODIFY, "op", xoops_getenv( 'PHP_SELF' ) );
+        $sform = new XoopsThemeForm( _AM_IMLINKS_IPAGE_MODIFY, 'op', xoops_getenv( 'PHP_SELF' ) );
         $sform -> addElement( new XoopsFormText( _AM_IMLINKS_IPAGE_CTITLE, 'indexheading', 60, 60, $indexheading ), false );
         $graph_array = &imlLists :: getListTypeAsArray( ICMS_ROOT_PATH . "/" . $xoopsModuleConfig['mainimagedir'], $type = "images" );
         $indeximage_select = new XoopsFormSelect( '', 'indeximage', $indeximage );
@@ -95,7 +95,7 @@ switch ( strtolower( $op ) ) {
         $sform -> addElement( $headeralign_select );
         $sform -> addElement( new XoopsFormTextArea( _AM_IMLINKS_IPAGE_CFOOTER, 'indexfooter', $indexfooter, 10, 60 ) );
         $footeralign_select = new XoopsFormSelect( _AM_IMLINKS_IPAGE_CFOOTERA, 'indexfooteralign', $indexfooteralign );
-        $footeralign_select -> addOptionArray( array( "left" => _AM_IMLINKS_IPAGE_CLEFT, 'right' => _AM_IMLINKS_IPAGE_CRIGHT, 'center' => _AM_IMLINKS_IPAGE_CCENTER ) );
+        $footeralign_select -> addOptionArray( array( 'left' => _AM_IMLINKS_IPAGE_CLEFT, 'right' => _AM_IMLINKS_IPAGE_CRIGHT, 'center' => _AM_IMLINKS_IPAGE_CCENTER ) );
         $sform -> addElement( $footeralign_select );
 
         $options_tray = new XoopsFormElementTray( _AM_IMLINKS_TEXTOPTIONS, '<br />' );
@@ -124,7 +124,7 @@ switch ( strtolower( $op ) ) {
         $sform -> addElement(  new XoopsFormRadioYN( _AM_IMLINKS_IPAGE_SHOWLATEST, 'lastlinksyn', $lastlinksyn, ' ' . _YES . '', ' ' . _NO . '' ) );
 
         $lastlinkstotalform = new XoopsFormText( _AM_IMLINKS_IPAGE_LATESTTOTAL, 'lastlinkstotal', 2, 2, $lastlinkstotal );
-		$lastlinkstotalform -> setDescription( "<small>" . _AM_IMLINKS_IPAGE_LATESTTOTAL_DSC . "</small>");
+		$lastlinkstotalform -> setDescription( '<small>' . _AM_IMLINKS_IPAGE_LATESTTOTAL_DSC . '</small>');
         $sform -> addElement( $lastlinkstotalform, false );
 
         $button_tray = new XoopsFormElementTray( '', '' );
