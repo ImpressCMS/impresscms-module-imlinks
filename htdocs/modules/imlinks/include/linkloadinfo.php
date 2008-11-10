@@ -157,5 +157,6 @@ if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
 }
 $style ='style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
 $link['viewdetails'] = '<a '.$style.' href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid='.$link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
+$xoopsTpl -> assign( 'back' , '<a '.$style.' href="javascript:history.go(-1)">&#9668; Back</a>' ); // Displays Back button
 
 ?>

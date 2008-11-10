@@ -1,56 +1,96 @@
 <{if $show_categort_title == true}>
-<div style="margin-left: 5px; margin-bottom: 4px;"><b><{$smarty.const._MD_IMLINKS_CATEGORYC}></b><{$link.category}></div>
+ <div style="margin-left: 5px; margin-bottom: 4px;"><b><{$smarty.const._MD_IMLINKS_CATEGORYC}></b><{$link.category}></div>
 <{/if}> 
+
 <table width="100%" cellspacing="0" cellpadding="2"> 
   <tr> 
     <td class="even">
-	<div style="float:left;"><a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><{$link.title}></a> <{$link.icons}><{if $xoops_isadmin}>&nbsp;<{$link.adminlink}> <{/if}></div>
-	<{if $link.published > 0 }> 
-		<div style="float:right"><{$link.viewdetails}></div>
-	<{/if}>
+	  <a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><{$link.title}></a> <{$link.icons}><{if $xoops_isadmin}>&nbsp;<{$link.adminlink}> <{/if}>
 	</td>  
   </tr>
+  
   <tr> 
     <td colspan="2"> <table width="100%" border="0" cellspacing="0" cellpadding="2"> 
         <tr> 
           <td colspan="2">&nbsp;</td>
         </tr> 
-        <tr> 
-          <td width="65%" valign="top"> <{if $link.autoscrshot == 0}> <{if $show_screenshot == true}> <{if $link.screenshot_full != ''}>
-            <div> <a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><img src="<{$link.screenshot_thumb}>" alt="" hspace="7" vspace="3" border="0" align="right" /></a> </div> 
-<{/if}> <{/if}> <{/if}>
-<{if $link.autoscrshot == 1}> <div style="float:right;"> 
-<{$link.autothumbsrc}>
- </div> <{/if}>
+        
+		<tr> 
+          <td width="65%" valign="top"> 
+		    <{if $link.autoscrshot == 0}> 
+			  <{if $show_screenshot == true}> 
+			    <{if $link.screenshot_full != ''}>
+				<div>
+				  <a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><img src="<{$link.screenshot_thumb}>" alt="" hspace="7" vspace="3" border="0" align="right" /></a> 
+				</div> 
+				<{/if}> 
+			  <{/if}> 
+			<{/if}>
+			<{if $link.autoscrshot == 1}> 
+			  <div style="float:right;"><{$link.autothumbsrc}></div> 
+			<{/if}>
             <div style="margin-left: 6px;" align="left"> 
-            <a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"> 
-			 <img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/spinner.gif" alt="" align="absmiddle" />
-			</a>&nbsp;
-			<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank">
-			 <{$smarty.const._MD_IMLINKS_LINKNOW}>
-			</a> </div> 
+              <a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"> 
+			    <img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/spinner.gif" alt="" align="absmiddle" />
+			  </a>&nbsp;
+			  <a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank">
+			    <{$smarty.const._MD_IMLINKS_LINKNOW}>
+			  </a> 
+			</div>
+			
             <br /> 
-            <div style="margin-left: 5px;"><b><{$smarty.const._MD_IMLINKS_DESCRIPTIONC}></b><br /> 
-<{$link.description}></div></td>
-          <td width="35%"> <div class="outer" style="margin-left: 10px; margin-right: 5px; padding: 4px; background-color:#E6E6E6; border-color:#999999;">
-				<div><small><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$link.submitter}></small></div>
-				<div><small><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$link.publisher}></small></div>
-				<div><small><b><{$lang_subdate}>:</b>&nbsp;<{$link.updated|wordwrap:50:"\n":true}></small></div>
-				<div><small><{$link.hits|wordwrap:50:"\n":true}></small></div>
-				<div><{$link.country}></div>
-              </div> 
+			
+            <div style="margin-left: 5px;">
+			  <b><{$smarty.const._MD_IMLINKS_DESCRIPTIONC}></b>
+			  <br /> 
+			  <{$link.description}>
+			  <!-- Display 'View full details' button -->
+			  <{if $link.published > 0 }> 
+				<div style="padding: 10px 0 5px 5px;"><{$link.viewdetails}></div>
+			  <{/if}>
+			</div>
+		  </td>
+		  
+          <td width="35%"> 
+		    <div class="outer" style="margin-left: 10px; margin-right: 5px; padding: 4px; background-color:#E6E6E6; border-color:#999999;">
+				<div>
+				  <small><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$link.submitter}></small>
+				</div>
+				<div>
+				  <small><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$link.publisher}></small>
+				</div>
+				<div>
+				  <small><b><{$lang_subdate}>:</b>&nbsp;<{$link.updated|wordwrap:50:"\n":true}></small>
+				</div>
+				<div>
+				  <small><{$link.hits|wordwrap:50:"\n":true}></small>
+				</div>
+				<div>
+				  <{$link.country}>
+				</div>
+            </div> 
+			
             <br /> 
-          <div style="margin-left: 10px; margin-right: 10px; padding: 4px;" class="outer">
-          <div> <small><b><{$smarty.const._MD_IMLINKS_RATINGC}></b>&nbsp;<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/<{$link.rateimg}>" alt="" align="absmiddle" />&nbsp;&nbsp;(<{$link.votes}>)</small></div>
-          <{if $link.showpagerank > 0}><br />
-          <div><small><b><{$smarty.const._MD_IMLINKS_PAGERANK}></b></small>&nbsp;<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/pr<{$link.pagerank}>.png" alt="&lt;{$smarty.const._MD_IMLINKS_PAGERANKALT}&gt;&lt;{$link.pagerank}&gt;" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$link.pagerank}>" align="absmiddle" />&nbsp;<small>(<{$link.pagerank}>/10)</small></div>
-          <{/if}>
-          </div>
+			
+			<div style="margin-left: 10px; margin-right: 10px; padding: 4px;" class="outer">
+				<div> 
+				  <small><b><{$smarty.const._MD_IMLINKS_RATINGC}></b>&nbsp;<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/<{$link.rateimg}>" alt="" align="absmiddle" />&nbsp;&nbsp;(<{$link.votes}>)</small></div>
+				  <{if $link.showpagerank > 0}>
+				    <br />
+					<div>
+					  <small><b><{$smarty.const._MD_IMLINKS_PAGERANK}></b></small>
+					  &nbsp;<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/pr<{$link.pagerank}>.png" alt="&lt;{$smarty.const._MD_IMLINKS_PAGERANKALT}&gt;&lt;{$link.pagerank}&gt;" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$link.pagerank}>" align="absmiddle" />
+					  &nbsp;<small>(<{$link.pagerank}>/10)</small>
+					</div>
+				  <{/if}>
+			</div>
           </td>
         </tr>
+		
         <tr>
           <td colspan="2" valign="top">&nbsp;</td>
         </tr> 
+		
         <{if $link.published == 0 }> 
 		<tr> 
           <td colspan="2" valign="top">
@@ -91,4 +131,7 @@
   <td height="1" colspan="2" bgcolor="#000000"></td>
 </tr>
 <{/if}>
-</table><br />
+
+</table>
+
+<br />
