@@ -74,7 +74,7 @@ function iml_checkgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = fal
 function iml_getVoteDetails( $lid = 0 ) {
     global $xoopsDB;
 
-    $sql = "SELECT 
+    $sql = 'SELECT 
 		COUNT(rating) AS rate, 
 		MIN(rating) AS min_rate, 
 		MAX(rating) AS max_rate, 
@@ -84,9 +84,9 @@ function iml_getVoteDetails( $lid = 0 ) {
 		MAX(title) AS max_title, 
 		MIN(title) AS min_title, 
 		sum(ratinguser = 0) AS null_ratinguser 
-		FROM " . $xoopsDB -> prefix( 'imlinks_votedata' );
+		FROM ' . $xoopsDB -> prefix( 'imlinks_votedata' );
     if ( $lid > 0 ) {
-        $sql .= " WHERE lid = $lid";
+        $sql .= ' WHERE lid = $lid';
     } 
     if ( !$result = $xoopsDB -> query( $sql ) ) {
         return false;
@@ -100,9 +100,9 @@ function iml_calcVoteData( $sel_id = 0 ) {
     $ret = array();
     $ret['useravgrating'] = 0;
 
-    $sql = "SELECT rating FROM " . $xoopsDB -> prefix( 'imlinks_votedata' );
+    $sql = 'SELECT rating FROM ' . $xoopsDB -> prefix( 'imlinks_votedata' );
     if ( $sel_id != 0 ) {
-        " WHERE lid = " . $sel_id;
+        ' WHERE lid = ' . $sel_id;
     } 
     if ( !$result = $xoopsDB -> query( $sql ) ) {
         return false;
@@ -164,7 +164,7 @@ function iml_cleanRequestVars( &$array, $name = null, $def = null, $strict = fal
 // @return
 function iml_toolbar( $cid = 0 ) {
 	global $xoopsModule;
-	$style ='style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
+	$style = 'style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-size: smaller; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
 	$toolbar = '';
     if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
         $toolbar .= "<a " . $style . " href='submit.php?cid=" . $cid . "'>" . _MD_IMLINKS_SUBMITLINK . "</a> ";
@@ -319,7 +319,7 @@ if ( !function_exists( 'iml_convertorderbyout' ) ) {
 // @return updates rating data in itemtable for a given item
 function iml_updaterating( $sel_id ) {
     global $xoopsDB;
-    $query = "SELECT rating FROM " . $xoopsDB -> prefix( 'imlinks_votedata' ) . " WHERE lid=" . $sel_id;
+    $query = 'SELECT rating FROM ' . $xoopsDB -> prefix( 'imlinks_votedata' ) . ' WHERE lid=' . $sel_id;
     $voteresult = $xoopsDB -> query( $query );
     $votesDB = $xoopsDB -> getRowsNum( $voteresult );
     $totalrating = 0;
@@ -453,7 +453,7 @@ function iml_displayimage( $image = '', $path = '', $imgsource = '', $alttext = 
 
 function iml_letters() {
     global $xoopsModule;
-	$style ='style="margin-bottom: 8px; margin-top: 8px; padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 1px; padding-top: 1px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
+	$style = 'style="margin-bottom: 8px; margin-top: 8px; padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 1px; padding-top: 1px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-size: smaller; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
     $letterchoice = '<div style="padding: 2px;">' . _MD_IMLINKS_BROWSETOTOPIC . '</div>';
  //   $letterchoice .= '';
     $alphabet = array ( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' );

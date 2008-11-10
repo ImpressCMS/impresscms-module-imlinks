@@ -323,4 +323,6 @@ define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Select source for generating auto screensho
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'More info:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
 define( '_MI_IMLINKS_CATCOLS', 'Number of category colums:' );
 define( '_MI_IMLINKS_CATCOLSDSC', 'Select the number of category colums for Index Page.<br />Default: <em>2</em>' );
+define( '_MI_IMLINKS_FEEDSLOGO', 'Logo to display with RSS feed:' );
+define( '_MI_IMLINKS_FEEDSLOGODSC', 'Enter the url for the logo to display with the RSS feed.' );
 ?>

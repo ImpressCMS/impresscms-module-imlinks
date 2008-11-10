@@ -327,4 +327,6 @@ define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Kies bron voor het genereren van auto scree
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Meer informatie:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
 define( '_MI_IMLINKS_CATCOLS', 'Aantal categorie kolommen:' );
 define( '_MI_IMLINKS_CATCOLSDSC', 'Kies het aantal categorie kolommen voor de Hoofd index.<br />Standaard: <em>2</em>' );
+define( '_MI_IMLINKS_FEEDSLOGO', 'Logo weer te geven met RSS feed:' );
+define( '_MI_IMLINKS_FEEDSLOGODSC', 'Voer de url van de logo om weer te geven met de RSS feed in.' );
 ?>
