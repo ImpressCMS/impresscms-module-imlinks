@@ -315,7 +315,7 @@ define( "_MI_IMLINKS_LINKEDTERMSDSC", "The module imGlossary needs to be install
 define( "_MI_IMLINKS_IMGLOSSARYDIR", "Folder name of imGlossary:" );
 define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
 define( '_MI_IMLINKS_SELECTFEED', 'Use ICMS RSS feed?' );
-define( '_MI_IMLINKS_SELECTFEED_DSC', 'Select <em>Yes</em> to use ImpressCMS RSS feed. Select <em>No</em> to use Brandycoke\'s RSSfit module (subfeed needs to be activated).'  );
+define( '_MI_IMLINKS_SELECTFEED_DSC', 'Select <em>Yes</em> to use ImpressCMS RSS feed.' );
 define( '_MI_IMLINKS_FEEDSTOTAL', 'How many links to display in RSS feed?' );
 define( '_MI_IMLINKS_FEEDSTOTALDSC', 'This number only affects the ImpressCMS RSS feed. Default: <em>15</em>' );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
