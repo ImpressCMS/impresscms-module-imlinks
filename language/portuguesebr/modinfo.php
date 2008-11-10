@@ -320,10 +320,10 @@ define( '_MI_IMLINKS_SELECTFEED_DSC', 'Escolhendo <em><b>Sim</b></em> você irá
 define( '_MI_IMLINKS_FEEDSTOTAL', 'Quantos Links para exibição no RSS?' );
 define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Este número só irá afetar o RSS do ImpressCMS. Padrão: <em><b>15</b></em>' );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - uma cópia desta licença GNU está incluída no arquivo (license.txt).' );
-define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Select source for generating auto screenshot' );
-define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'More info:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
-define( '_MI_IMLINKS_CATCOLS', 'Number of category colums:' );
-define( '_MI_IMLINKS_CATCOLSDSC', 'Select the number of category colums for Index Page.<br />Default: <em>2</em>' );
-define( '_MI_IMLINKS_FEEDSLOGO', 'Logo to display with RSS feed:' );
-define( '_MI_IMLINKS_FEEDSLOGODSC', 'Enter the url for the logo to display with the RSS feed.' );
+define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Escolha a fonte para a geração automática do screenshot' );
+define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Mais informações:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
+define( '_MI_IMLINKS_CATCOLS', 'Número de colunas da categoria:' );
+define( '_MI_IMLINKS_CATCOLSDSC', 'Escolha o número de colunas para a página da categoria principal.<br />Padrão: <em>2</em>' );
+define( '_MI_IMLINKS_FEEDSLOGO', 'Logo para mostrar com o RSS feed:' );
+define( '_MI_IMLINKS_FEEDSLOGODSC', 'Digite o url para o logotipo que será mostrado com o RSS feed.' );
 ?>

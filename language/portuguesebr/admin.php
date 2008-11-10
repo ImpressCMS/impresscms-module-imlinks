@@ -508,10 +508,10 @@ define( "_AM_IMLINKS_NOFILESELECT", "Nenhum arquivo selecionado" );
 // *** imLinks ***
 
 //version 1.00 RC-1
-define( '_AM_IMLINKS_COUNTRYDSC', 'If no country is selected the address can not be formatted and will not be displayed.' );
-define( '_AM_IMLINKS_MAPDSC', 'Click icon to open a new new browser tab or window showing the map.<br />Default: %s' );
-define( '_AM_IMLINKS_LINKURLDSC', 'Click icon to open url in a new browser tab or window.<br />You can use this to check the url.' );
-define( '_AM_IMLINKS_STREETTWODSC', 'This field is optional. If field is left blank it will not be used.' );
-define( '_AM_IMLINKS_STATEDSC', 'Enter county, district, province, state, etc. If field is left blank it will not be used.' );
-define( '_AM_IMLINKS_EMAILDSC', 'Enter email address as:<br />- name@domain.com<br />- mailto:name@domain.com' );
+define( '_AM_IMLINKS_COUNTRYDSC', 'Se o endereço não for conhecido deste país selecionado e não pode ser formatado, ele não irá será exibido.' );
+define( '_AM_IMLINKS_MAPDSC', 'Clique no ícone para abrir uma nova aba ou janela do browser que irá mostrar o mapa.<br />Padrão: %s' );
+define( '_AM_IMLINKS_LINKURLDSC', 'Clique no ícone para abrir uma nova url em uma aba ou janela no navegador.<br />Você pode usar isso para verificar o url.' );
+define( '_AM_IMLINKS_STREETTWODSC', 'Este campo é opcional. Se o campo for deixado em branco, não será usado.' );
+define( '_AM_IMLINKS_STATEDSC', 'Digite país, distrito, cidade, estado, etc. Se o campo for deixado em branco, não será usado.' );
+define( '_AM_IMLINKS_EMAILDSC', 'Digite endereço de e-mail como:<br />- name@domain.com<br />- mailto:name@domain.com' );
 ?>

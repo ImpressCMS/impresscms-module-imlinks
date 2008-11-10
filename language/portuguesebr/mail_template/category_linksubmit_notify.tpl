@@ -1,4 +1,4 @@
-Hello {X_UNAME},
+Olá {X_UNAME},
 
 Um novo link "{LINK_NAME}" foi enviado na categoria "{CATEGORY_NAME}" no {X_SITENAME} e está aguardando aprovação.
 
