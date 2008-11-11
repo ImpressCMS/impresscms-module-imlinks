@@ -34,11 +34,8 @@ $start = intval( $start );
 $xoopsOption['template_main'] = 'imlinks_index.html';
 include ICMS_ROOT_PATH . '/header.php';
 
-global $xoopsModuleConfig;
-$mytree = new XoopsTree( $xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
-
 // Begin Main page Heading etc
-$sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_indexpage' );
+$sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_indexpage' );
 $head_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 
 if ( $head_arr['indeximage'] != '' ) {
@@ -50,7 +47,7 @@ $catarray['indexheading'] = '<h4 style="text-align: center;">' . $immyts -> disp
 $catarray['indexheaderalign'] = $immyts -> htmlSpecialCharsStrip( $head_arr['indexheaderalign'] );
 $catarray['indexfooteralign'] = $immyts -> htmlSpecialCharsStrip( $head_arr['indexfooteralign'] );
 
-$html = ( $head_arr['nohtml'] ) ? 0 : 1;
+$html   = ( $head_arr['nohtml'] ) ? 0 : 1;
 $smiley = ( $head_arr['nosmiley'] ) ? 0 : 1;
 $xcodes = ( $head_arr['noxcodes'] ) ? 0 : 1;
 $images = ( $head_arr['noimages'] ) ? 0 : 1;
@@ -60,33 +57,30 @@ if ( $head_arr['indexheader'] != '' ) {
 $catarray['indexheader'] = '<div style="text-align: ' . $head_arr['indexheaderalign'] . ';">' . $immyts -> displayTarea( $head_arr['indexheader'], $html, $smiley, $xcodes, $images, $breaks ) . '</div>'; }
 
 if ( $head_arr['indexfooter'] != '' ) {
-$catarray['indexfooter'] = '<div style="padding 12px; padding-top: 12px;  text-align: ' . $head_arr['indexfooteralign'] . ';">' . $immyts -> displayTarea( $head_arr['indexfooter'], $html, $smiley, $xcodes, $images, $breaks ) . '</div>'; }
+$catarray['indexfooter'] = '<div style="padding 12px; text-align: ' . $head_arr['indexfooteralign'] . ';">' . $immyts -> displayTarea( $head_arr['indexfooter'], $html, $smiley, $xcodes, $images, $breaks ) . '</div>'; }
 
 $catarray['letters'] = iml_letters();
 $catarray['toolbar'] = iml_toolbar();
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 // End main page Headers
-$count = 1;
-$chcount = 0;
-$countin = 0;
 
+$count = 1;
+$countin = 0;
+$mytree = new XoopsTree( $xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
 // Begin Main page linkload info
-$listings  = iml_getTotalItems();
-$total_cat = iml_totalcategory();  // get total amount of categories
 $catsort   = $xoopsModuleConfig['sortcats'];
-$sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE pid=0 ORDER BY " . $catsort;
+$sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE pid=0 ORDER BY ' . $catsort;
 $result = $xoopsDB -> query( $sql );
 while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
     $countin++;
-    $subtotallinkload = 0;
-    $totallinkload = iml_getTotalItems( $myrow['cid'], 1, 0 );
+    $totallinkload = iml_getTotalItems( $myrow['cid'], 1 );
     $indicator = iml_isnewimage( $totallinkload['published'] );
     if ( iml_checkgroups( $myrow['cid'] ) ) {
         $title = $immyts -> htmlSpecialCharsStrip( $myrow['title'] );
 
         $arr = array();
-        $arr = $mytree -> getFirstChild( $myrow['cid'], 'title' );
+        $arr = $mytree -> getFirstChild( $myrow['cid'], $catsort );
 
         $space = 1;
         $chcount = 1;
@@ -100,7 +94,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
                         break;
                     } 
                     if ( $space > 0 ) {
-                      $subcategories .= "<a href='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/viewcat.php?cid=" . $ele['cid'] . "'>" . $chtitle . "</a><br />";
+                      $subcategories .= '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/viewcat.php?cid=' . $ele['cid'] . '">' . $chtitle . '</a><br />';
                     }
                     $space++;
                     $chcount++;
@@ -110,15 +104,17 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
 
         // This code is copyright WF-Projects
         // Using this code without our permission or removing this code voids the license agreement
-        $_image = ( $myrow['imgurl'] ) ? urldecode( $myrow['imgurl'] ) : '';
-		if ( $_image != '' && $xoopsModuleConfig['usethumbs'] ) {
+        $_image = ( $myrow['imgurl'] ) ? urldecode( $myrow['imgurl'] ) : "";
+		if ( $_image != "" && $xoopsModuleConfig['usethumbs'] ) {
                   $_thumb_image = new imThumbsNails( $_image, $xoopsModuleConfig['catimage'], 'thumbs' );
                   if ( $_thumb_image ) { 
                     $_thumb_image -> setUseThumbs( 1 );
                     $_thumb_image -> setImageType( 'gd2' );
-                    $_image = $_thumb_image -> do_thumb( $xoopsModuleConfig['imagequality'],
+                    $_image = $_thumb_image -> do_thumb( $xoopsModuleConfig['shotwidth'],
+														 $xoopsModuleConfig['shotheight'],
+														 $xoopsModuleConfig['imagequality'],
                                                          $xoopsModuleConfig['updatethumbs'],
-                                                         $xoopsModuleConfig['keepaspect']);
+                                                         $xoopsModuleConfig['keepaspect'] );
                     }
                  }
 	if ( empty( $_image ) || $_image == '' ) {
@@ -128,17 +124,20 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
         }
         // End
 
-        $xoopsTpl -> append( 'categories', array( 'image' => ICMS_URL . "/$imgurl",
-                'id' => $myrow['cid'],
-                'title' => $title,
-                'subcategories' => $subcategories,
-                'totallinks' => $totallinkload['count'],
-                'count' => $count,
-                'alttext' => $myrow['description'] )
+        $xoopsTpl -> append( 'categories', array( 'image' 			=> ICMS_URL . "/$imgurl",
+												  'id' 				=> $myrow['cid'],
+												  'title' 			=> $title,
+												  'subcategories' 	=> $subcategories,
+												  'totallinks' 		=> $totallinkload['count'],
+												  'count' 			=> $count,
+												  'alttext' 		=> $myrow['description'] )
             );
         $count++;
     } 
 } 
+
+$listings  = iml_getTotalItems();  // get total amount of links
+$total_cat = iml_totalcategory();  // get total amount of categories 
 switch ( $total_cat ) {
     case '1':
         $lang_thereare = _MD_IMLINKS_THEREIS;
@@ -146,7 +145,7 @@ switch ( $total_cat ) {
     default:
         $lang_thereare = _MD_IMLINKS_THEREARE;
         break;
-} 
+}
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
 $xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
 $xoopsTpl -> assign( 'catcols', $xoopsModuleConfig['catcols'] );
@@ -159,8 +158,6 @@ if ( isset( $xoopsModuleConfig['screenshot'] ) && $xoopsModuleConfig['screenshot
     $xoopsTpl -> assign( 'show_screenshot', true );
 }
 
-$time = time();
-
 // Show Latest Listings on Index Page
 $sql = $xoopsDB -> query( "SELECT lastlinksyn, lastlinkstotal FROM " . $xoopsDB -> prefix( 'imlinks_indexpage' ) );
 $lastlinks = $xoopsDB -> fetchArray( $sql );
@@ -168,8 +165,8 @@ $lastlinks = $xoopsDB -> fetchArray( $sql );
 if ( $lastlinks['lastlinksyn'] == 1 && $lastlinks['lastlinkstotal'] > 0 ) {
 
   $result = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE published > 0 
-								AND published <= " . $time . " 
-								AND (expired = 0 OR expired > " . $time . ") 
+								AND published <= " . time() . " 
+								AND (expired = 0 OR expired > " . time() . ") 
 								AND offline = 0 
 								ORDER BY published DESC", 0, 0 );
   list( $count ) = $xoopsDB -> fetchRow( $result );
@@ -178,8 +175,8 @@ if ( $lastlinks['lastlinksyn'] == 1 && $lastlinks['lastlinkstotal'] > 0 ) {
   $limit = ( ( $start + $xoopsModuleConfig['perpage'] ) > $count ) ? ( $count - $start ) : $xoopsModuleConfig['perpage'];
 
   $result = $xoopsDB -> query( "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE published > 0 
-								AND published <= " . $time . " 
-								AND (expired = 0 OR expired > " . $time . ") 
+								AND published <= " . time() . " 
+								AND (expired = 0 OR expired > " . time() . ") 
 								AND offline = 0 
 								ORDER BY published DESC", $limit, $start );
   while ( $link_arr = $xoopsDB -> fetchArray( $result ) ) {
@@ -196,6 +193,7 @@ if ( $lastlinks['lastlinksyn'] == 1 && $lastlinks['lastlinkstotal'] > 0 ) {
   $xoopsTpl -> assign( 'showlatest', $lastlinks['lastlinksyn'] );
    
 }
+
 if ( $xoopsModuleConfig['rssfeed'] ) {
 	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="' . _MD_IMLINKS_FEED . '" title="' . _MD_IMLINKS_FEED . '" /></a>' );
 }
