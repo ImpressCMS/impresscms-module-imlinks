@@ -53,9 +53,9 @@ define( "_AM_IMLINKS_DBERROR", "Database toegang fout: Rapporteer deze fout aan 
 define( "_AM_IMLINKS_TEXTOPTIONS", "Tekst opties:" );
 define( "_AM_IMLINKS_DISABLEHTML", " Uitschakelen HTML tags" );
 define( "_AM_IMLINKS_DISABLESMILEY", " Uitschakelen Smilies" );
-define( "_AM_IMLINKS_DISABLEXCODE", " Uitschakelen XOOPS codes" );
+define( "_AM_IMLINKS_DISABLEXCODE", " Uitschakelen ICMS codes" );
 define( "_AM_IMLINKS_DISABLEIMAGES", " Uitschakelen afbeeldingen" );
-define( "_AM_IMLINKS_DISABLEBREAK", " Gebruik XOOPS linebreak omzetting?" );
+define( "_AM_IMLINKS_DISABLEBREAK", " Gebruik ICMS linebreak omzetting?" );
 define( "_AM_IMLINKS_UPLOADFILE", "Link succesvol geupload" );
 define( "_AM_IMLINKS_NOMENUITEMS", "Geen menu items in het menu" );
 // Admin Bread crumb

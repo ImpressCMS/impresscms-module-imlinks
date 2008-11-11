@@ -55,7 +55,7 @@ define( "_AM_IMLINKS_DISABLEHTML", " Desabilitar Tags HTML" );
 define( "_AM_IMLINKS_DISABLESMILEY", " Desabilitar icones de Smilie" );
 define( "_AM_IMLINKS_DISABLEXCODE", " Desabilitar BBcodes" );
 define( "_AM_IMLINKS_DISABLEIMAGES", " Desabilitar Imagens" );
-define( "_AM_IMLINKS_DISABLEBREAK", " Converter 'quebra de linha' ?" );
+define( "_AM_IMLINKS_DISABLEBREAK", " Converter 'quebra de linha'?" );
 define( "_AM_IMLINKS_UPLOADFILE", "Link enviado com sucesso" );
 define( "_AM_IMLINKS_NOMENUITEMS", "Nenhum sub-item dentro do menu" );
 // Admin Bread crumb

@@ -53,9 +53,9 @@ define( "_AM_IMLINKS_DBERROR", "Erreur d'acc&egrave;s &agrave; la base de donn&e
 define( "_AM_IMLINKS_TEXTOPTIONS", "Options texte:" );
 define( "_AM_IMLINKS_DISABLEHTML", " D&eacute;sactiver les balises HTML" );
 define( "_AM_IMLINKS_DISABLESMILEY", " D&eacute;sactiver les smilies" );
-define( "_AM_IMLINKS_DISABLEXCODE", " D&eacute;sactiver le code XOOPS" );
+define( "_AM_IMLINKS_DISABLEXCODE", " D&eacute;sactiver le code ICMS" );
 define( "_AM_IMLINKS_DISABLEIMAGES", " D&eacute;sactiver les images" );
-define( "_AM_IMLINKS_DISABLEBREAK", " Utiliser la conversion XOOPS linebreak ?" );
+define( "_AM_IMLINKS_DISABLEBREAK", " Utiliser la conversion ICMS linebreak?" );
 define( "_AM_IMLINKS_UPLOADFILE", "Liens t&eacute;l&eacute;charg&eacute; avec succ&eacute;s" );
 define( "_AM_IMLINKS_NOMENUITEMS", "Aucun items dans le menu" );
 // Admin Bread crumb

@@ -232,5 +232,7 @@ define( '_MD_IMLINKS_EMAILDSC', 'Введите email адрес:<br />- name@do
 define( '_MD_IMLINKS_NEW', 'Новый!' );
 define( '_MD_IMLINKS_UPDATED', 'Обновленный!' );
 define( '_MD_IMLINKS_POPULAR2', 'Популярный!' );
+define( '_MD_IMLINKS_TEXTOPTIONS', 'Опции текста:' );
+define( '_MD_IMLINKS_DISABLEBREAK', ' Использовать ICMS конверсию разрыва строк?' );
 
 ?>
