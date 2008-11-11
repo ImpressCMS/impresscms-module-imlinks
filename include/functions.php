@@ -783,24 +783,6 @@ function iml_getWysiwygForm( $caption, $name, $value ) {
         }
 
 	switch($formuser) {
-	case 'fck':
-		if ( is_readable( ICMS_ROOT_PATH . '/class/xoopseditor/fckeditor/formfckeditor.php' ) )	{
-			include_once( ICMS_ROOT_PATH . '/class/xoopseditor/fckeditor/formfckeditor.php' );
-			$editor = new XoopsFormFckeditor( $editor_configs,true );
-		} else {
-			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
-		}
-		break;
-
-	case 'htmlarea':
-		if ( is_readable( ICMS_ROOT_PATH . '/class/htmlarea/formhtmlarea.php' ) )	{
-			include_once( ICMS_ROOT_PATH . '/class/htmlarea/formhtmlarea.php' );
-			$editor = new XoopsFormHtmlarea( $caption, $name, $value );
-		} else {
-			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
-		}
-		break;
-
 	case 'dhtml':
 		if ( is_readable( ICMS_ROOT_PATH . '/editors/dhtmltextarea/dhtmltextarea.php' ) )	{
 			include_once( ICMS_ROOT_PATH . '/editors/dhtmltextarea/dhtmltextarea.php' );
@@ -810,8 +792,26 @@ function iml_getWysiwygForm( $caption, $name, $value ) {
 		}
 		break;
 
+	case 'dhtmlext':
+		if ( is_readable( ICMS_ROOT_PATH . '/class/xoopseditor/dhtmlext/dhtmlext.php' ) )	{
+			include_once( ICMS_ROOT_PATH . '/class/xoopseditor/dhtmlext/dhtmlext.php' );
+			$editor = new XoopsFormDhtmlTextAreaExtended( $caption, $name, $value, 10, 50 );
+		} else {
+			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
+		}
+		break;
+
 	case 'textarea':
 		$editor = new XoopsFormTextArea( $caption, $name, $value );
+		break;
+		
+	case 'fck':
+		if ( is_readable( ICMS_ROOT_PATH . '/class/xoopseditor/fckeditor/formfckeditor.php' ) )	{
+			include_once( ICMS_ROOT_PATH . '/class/xoopseditor/fckeditor/formfckeditor.php' );
+			$editor = new XoopsFormFckeditor( $editor_configs,true );
+		} else {
+			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
+		}
 		break;
 
 	case 'koivi':
@@ -832,19 +832,10 @@ function iml_getWysiwygForm( $caption, $name, $value ) {
 		}
 		break;
 
-	case 'dhtmlext':
-		if ( is_readable( ICMS_ROOT_PATH . '/class/xoopseditor/dhtmlext/dhtmlext.php' ) )	{
-			include_once( ICMS_ROOT_PATH . '/class/xoopseditor/dhtmlext/dhtmlext.php' );
-			$editor = new XoopsFormDhtmlTextAreaExtended( $caption, $name, $value, 10, 50 );
-		} else {
-			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
-		}
-		break;
-
 	case 'tinymce' :
         if ( is_readable( ICMS_ROOT_PATH . '/editors/tinymce/formtinymce.php' ) ) {
 			include_once( ICMS_ROOT_PATH . '/editors/tinymce/formtinymce.php' );
-			$editor = new XoopsFormTinymce( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => $editor_configs['width'], 'height' => $editor_configs['height'] ) );
+			$editor = new XoopsFormTinymce( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => $editor_configs['width'], 'height' => $editor_configs['height'], 0 ) );
 		} else {
 			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
         }

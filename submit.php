@@ -304,13 +304,13 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
         ob_end_clean();
 
 // Link description form
-    $editor = iml_getWysiwygForm( _MD_IMLINKS_DESCRIPTIONC, 'descriptionb', $descriptionb, 15, 60 );
-    $sform -> addElement( $editor,false );
+    $editor = iml_getWysiwygForm( _MD_IMLINKS_DESCRIPTIONC, 'descriptionb', $descriptionb );
+    $sform -> addElement( $editor, false );
 
 // Keywords form
-    $keywords = new XoopsFormTextArea( _MD_IMLINKS_KEYWORDS, 'keywords', $keywords, 7, 60, false );
+    $keywords = new XoopsFormTextArea( _MD_IMLINKS_KEYWORDS, 'keywords', $keywords, 7, 60 );
     $keywords -> setDescription( "<small>" . _MD_IMLINKS_KEYWORDS_NOTE . "</small>" );
-    $sform -> addElement( $keywords );
+    $sform -> addElement( $keywords, false );
         
 // Insert tags if Tag-module is installed and if user is allowed
 if ( $xoopsModuleConfig['usercantag'] ) {
