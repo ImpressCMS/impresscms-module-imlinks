@@ -43,7 +43,7 @@ $sql = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links'
 		$category = htmlspecialchars( $mycat['title'] );
 		
 		// Get date, title, definition (shortened) and the url of the link
-		$date  = date( 'D, d M Y H:i:s', $myrow['published'] );
+		$date  = formatTimestamp( $myrow['published'], 'D, d M Y H:i:s' );
 		$title = htmlspecialchars( $myrow['title'] );
 		$text  = icms_substr( $myrow['description'], 0, $xoopsModuleConfig['totalchars'], '...' );
 		$text  = $immyts -> displayTarea( $text, 1, 1, 1, 1, 1 );
