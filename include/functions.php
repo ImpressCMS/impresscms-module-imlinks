@@ -168,10 +168,10 @@ function iml_toolbar( $cid = 0 ) {
 	$style = 'style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-size: smaller; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
 	$toolbar = '';
     if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
-        $toolbar .= '<a "' . $style . ' href="submit.php?cid=' . $cid . '">' . _MD_IMLINKS_SUBMITLINK . '</a> ';
+        $toolbar .= '<a ' . $style . ' href="submit.php?cid=' . $cid . '">' . _MD_IMLINKS_SUBMITLINK . '</a> ';
     }
-    $toolbar .= '<a "' . $style . ' href="newlist.php?newlinkshowdays=7">' . _MD_IMLINKS_LATESTLIST . '</a> ';
-	$toolbar .= '<a "' . $style . ' href="topten.php?list=hit">' . _MD_IMLINKS_POPULARITY . '</a>';
+    $toolbar .= '<a ' . $style . ' href="newlist.php?newlinkshowdays=7">' . _MD_IMLINKS_LATESTLIST . '</a> ';
+	$toolbar .= '<a ' . $style . ' href="topten.php?list=hit">' . _MD_IMLINKS_POPULARITY . '</a>';
     return $toolbar;
 } 
 
