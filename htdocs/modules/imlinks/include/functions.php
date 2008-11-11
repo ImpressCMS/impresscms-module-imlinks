@@ -87,7 +87,7 @@ function iml_getVoteDetails( $lid = 0 ) {
 		sum(ratinguser = 0) AS null_ratinguser 
 		FROM ' . $xoopsDB -> prefix( 'imlinks_votedata' );
     if ( $lid > 0 ) {
-        $sql .= ' WHERE lid = $lid';
+        $sql .= ' WHERE lid=' . $lid;
     } 
     if ( !$result = $xoopsDB -> query( $sql ) ) {
         return false;
@@ -103,7 +103,7 @@ function iml_calcVoteData( $sel_id = 0 ) {
 
     $sql = 'SELECT rating FROM ' . $xoopsDB -> prefix( 'imlinks_votedata' );
     if ( $sel_id != 0 ) {
-        ' WHERE lid = ' . $sel_id;
+        ' WHERE lid=' . $sel_id;
     } 
     if ( !$result = $xoopsDB -> query( $sql ) ) {
         return false;
@@ -136,7 +136,7 @@ function iml_cleanRequestVars( &$array, $name = null, $def = null, $strict = fal
                 $value = intval( $value );
             } else  {
                 if ( $strict == true ) {
-                    $value = preg_replace( "/\W/", '', trim( $value ) );
+                    $value = preg_replace( '/\W/', '', trim( $value ) );
                 } 
                 $value = strtolower( strval( $value ) );
             } 
@@ -153,7 +153,7 @@ function iml_cleanRequestVars( &$array, $name = null, $def = null, $strict = fal
         $value = intval( $value );
     } else {
         if ( $strict == true ) {
-            $value = preg_replace( "/\W/", '', trim( $value ) );
+            $value = preg_replace( '/\W/', '', trim( $value ) );
         } 
         $value = strtolower( strval( $value ) );
     } 
@@ -359,17 +359,17 @@ function iml_totalcategory( $pid = 0 ) {
 // @param integer $return_sql
 // @return
 function iml_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 ) {
-    global $xoopsDB, $mytree, $_check_array;
+   global $xoopsDB, $mytree, $_check_array;
 
     if ( $sel_id > 0 ) {
-        $sql = 'SELECT DISTINCT a.lid, a.cid, published FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+        $sql = 'SELECT DISTINCT a.lid, a.cid, a.published FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
          . $xoopsDB -> prefix( 'imlinks_altcat' ) . ' b '
          . 'ON b.lid=a.lid '
-         . 'WHERE published > 0 AND published <= ' . time()
-         . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0 '
+         . 'WHERE a.published > 0 AND a.published <= ' . time()
+         . ' AND (a.expired = 0 OR a.expired > ' . time() . ') AND offline = 0 '
          . ' AND (b.cid=a.cid OR (a.cid=' . $sel_id . ' OR b.cid=' . $sel_id . '))';
     } else {
-        $sql = "SELECT lid, cid, published from " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE offline = 0 AND published > 0 AND published <= " . time() . " AND (expired = 0 OR expired > " . time() . ")";
+        $sql = 'SELECT lid, cid, published FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE offline = 0 AND published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ')';
     } 
     if ( $return_sql == 1 ) {
         return $sql;
@@ -392,12 +392,12 @@ function iml_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 ) {
         $arr = $mytree -> getAllChildId( $sel_id );
         $size = count( $arr );
         for( $i = 0; $i < count( $arr ); $i++ ) {
-            $query2 = 'SELECT DISTINCT a.lid, a.cid, published FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+            $query2 = 'SELECT DISTINCT a.lid, a.published, a.cid FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
              . $xoopsDB -> prefix( 'imlinks_altcat' ) . ' b '
              . 'ON b.lid=a.lid '
-             . 'WHERE published > 0 AND published <= ' . time()
-             . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0'
-             . ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . ')) ';
+             . 'WHERE a.published > 0 AND a.published <= ' . time()
+             . ' AND (a.expired = 0 OR a.expired > ' . time() . ') AND offline = 0 '
+             . ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . '))';
 
             $result2 = $xoopsDB -> query( $query2 );
             while ( list( $lid, $published ) = $xoopsDB -> fetchRow( $result2 ) ) {
@@ -473,7 +473,7 @@ function iml_letters() {
 } 
 
 function iml_isnewimage( $published ) {
-    global $xoopsModule, $xoopsDB;
+    global $xoopsModule;
 
     $oneday = ( time() - ( 86400 * 1 ) );
     $threedays = ( time() - ( 86400 * 3 ) );
@@ -498,7 +498,7 @@ function iml_isnewimage( $published ) {
         $indicator['alttext'] = _MD_IMLINKS_NO_FILES;
     } 
     return $indicator;
-} 
+}  
 
 function iml_strrrchr( $haystack, $needle ) {
     return substr( $haystack, 0, strpos( $haystack, $needle ) + 1 );

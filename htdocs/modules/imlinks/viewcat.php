@@ -47,16 +47,12 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 $xoopsOption['template_main'] = 'imlinks_viewcat.html';
 include ICMS_ROOT_PATH . '/header.php';
 
-global $xoopsModuleConfig;
-
 // Breadcrumb
 $pathstring = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/index.php">' . _MD_IMLINKS_MAIN . '</a>&nbsp;:&nbsp;';
 $pathstring .= $mytree -> getNicePathFromId( $cid, 'title', 'viewcat.php?op=' );
 $xoopsTpl -> assign( 'category_path', $pathstring );
 $xoopsTpl -> assign( 'category_id', $cid );
 $xoopsTpl -> assign( 'catcols', $xoopsModuleConfig['catcols'] );
-
-$time = time();
 
 // Display Sub-categories for selected Category
 if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
@@ -80,14 +76,14 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
                     $infercategories .= '...';
                     break;
                 }
-                if ( $space > 0 ) $infercategories .= ", ";
-                $infercategories .= "<a href='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/viewcat.php?cid=" . $sub_ele['cid'] . "'>" . $immyts -> htmlSpecialCharsStrip( $sub_ele['title'] ) . "</a> (" . $hassubitems['count'] . ")";
+                if ( $space > 0 ) $infercategories .= ', ';
+                $infercategories .= '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/viewcat.php?cid=' . $sub_ele['cid'] . '">' . $immyts -> htmlSpecialCharsStrip( $sub_ele['title'] ) . '</a> (' . $hassubitems['count'] . ')';
                 $space++;
                 $chcount++;
             }
         }
         $totallinks = iml_getTotalItems( $ele['cid'] );
-        $indicator = iml_isnewimage( $totallinks['published'] );
+        $indicator  = iml_isnewimage( $totallinks['published'] );
 
 // This code is copyright WF-Projects
 // Using this code without our permission or removing this code voids the license agreement
@@ -98,10 +94,10 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
                     $_thumb_image -> setUseThumbs( 1 );
                     $_thumb_image -> setImageType( 'gd2' );
                     $_image = $_thumb_image -> do_thumb( $xoopsModuleConfig['shotwidth'],
-                    $xoopsModuleConfig['shotheight'],
-                    $xoopsModuleConfig['imagequality'],
-                    $xoopsModuleConfig['updatethumbs'],
-                    $xoopsModuleConfig['keepaspect']
+														 $xoopsModuleConfig['shotheight'],
+														 $xoopsModuleConfig['imagequality'],
+														 $xoopsModuleConfig['updatethumbs'],
+														 $xoopsModuleConfig['keepaspect']
                     );
             }
         } 
@@ -112,14 +108,13 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
                  }
 // End
         $xoopsTpl -> append( 'subcategories',
-            array( 'title' => $immyts -> htmlSpecialCharsStrip( $ele['title'] ),
-                'id' => $ele['cid'],
-                'image' => ICMS_URL . "/$imgurl",
-                'infercategories' => $infercategories,
-                'totallinks' => $totallinks['count'],
-                'count' => $scount,
-                'alttext' => $ele['description'] )
-            );
+            array( 'title' => $immyts -> htmlSpecialCharsStrip( $ele['title'] ), 'id' => $ele['cid'],
+																				 'image' => ICMS_URL . "/$imgurl",
+																				 'infercategories' => $infercategories,
+																				 'totallinks' => $totallinks['count'],
+																				 'count' => $scount,
+																				 'alttext' => $ele['description'] )
+																				 );
         $scount++;
     }
 }
@@ -163,10 +158,9 @@ if ( $selectdate ) {
     $stat_begin = mktime ( 0, 0, 0, $m, $d, $y );
     $stat_end = mktime ( 23, 59, 59, $m, $d, $y );
 
-    $query = ' WHERE published >= ' . $stat_begin . ' AND published <= ' . $stat_end . '
-		AND (expired = 0 OR expired > ' . $time . ')
-		AND offline = 0
-		AND cid > 0';
+    $query = ' WHERE published >= ' . $stat_begin . ' AND published <= ' . $stat_end . ' AND (expired = 0 OR expired > ' . time() . ')
+													  AND offline = 0
+													  AND cid > 0';
 
     $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . $query . ' ORDER BY ' . $orderby;
     $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['perpage'] , $start );
@@ -178,7 +172,7 @@ if ( $selectdate ) {
 
 } elseif ( $list ) {
 
-    $query = " WHERE title LIKE '$list%' AND (published > 0 AND published <= " . $time . ") AND (expired = 0 OR expired > " . $time . ") AND offline = 0 AND cid > 0";
+    $query = " WHERE title LIKE '$list%' AND (published > 0 AND published <= " . time() . ") AND (expired = 0 OR expired > " . time() . ") AND offline = 0 AND cid > 0";
 
     $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . $query . ' ORDER BY ' . $orderby;
     $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['perpage'] , $start );

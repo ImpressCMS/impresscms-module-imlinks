@@ -76,17 +76,7 @@ $link['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">'
 $link['id'] = $link_arr['lid'];
 $link['cid'] = $link_arr['cid'];
 
-if ( $xoopsModuleConfig['linkedterms'] ) {
-	if ( imlinks_imglossary_module_included() ) {
-		$glossaryterm = $immyts -> makeTboxData4Show( $link_arr['title'] );
-		$description = imlinks_linkterms( $link_arr['description'], $glossaryterm );
-		$link['description2'] = $immyts -> displayTarea( $description, 1, 1, 1, 1, 1 );
-	} else {
-		$link['description2'] = $immyts -> displayTarea( $link_arr['description'], 1, 1, 1, 1, 1 );
-	}
-} else {
-	$link['description2'] = $immyts -> displayTarea( $link_arr['description'], 1, 1, 1, 1, 1 );
-}
+$link['description2'] = $link_arr['description'];
 
 $link['sbmarks'] = imlinks_sbmarks( $link_arr['lid'] );
 
