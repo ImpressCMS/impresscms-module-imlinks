@@ -132,6 +132,7 @@ CREATE TABLE `imlinks_links` (
   `mobile` varchar(25) NOT NULL,
   `email` varchar(60) NOT NULL,
   `vat` varchar(25) NOT NULL,
+  `nobreak` int(1) NOT NULL default '0',
   PRIMARY KEY  (`lid`),
   KEY `cid` (`cid`),
   KEY `status` (`status`),
@@ -183,6 +184,7 @@ CREATE TABLE `imlinks_mod` (
   `mobile` varchar(25) NOT NULL default '',
   `email` varchar(60) NOT NULL default '',
   `vat` varchar(25) NOT NULL default '',
+  `nobreak` int(1) NOT NULL default '0',
   PRIMARY KEY  (`requestid`)
 ) TYPE=MyISAM;
 

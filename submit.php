@@ -94,6 +94,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
         $mobile = $immyts -> addslashes( ltrim( $_REQUEST['mobile'] ) );
         $email = emailcnvrt( $immyts -> addslashes( ltrim( $_REQUEST['email'] ) ) );
         $vat = $immyts -> addslashes( ltrim( $_REQUEST['vat'] ) );
+		$nobreak = iml_cleanRequestVars( $_REQUEST, 'nobreak', 0 );
         } else {
           $googlemap = $yahoomap = $multimap = $street1 = $street2 = $town = $state = $zip = $tel = $fax = $voip = $mobile = $email = $vat = '';
         }
@@ -114,9 +115,9 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
                 $message = _MD_IMLINKS_ISAPPROVED;
             } 
             
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'imlinks_links' ) . "	(lid, cid, title, url, submitter, status, date, hits, rating, votes, comments, forumid, published, expired, offline, description, ipaddress, notifypub, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat ) ";
+            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'imlinks_links' ) . "	(lid, cid, title, url, submitter, status, date, hits, rating, votes, comments, forumid, published, expired, offline, description, ipaddress, notifypub, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, nobreak ) ";
 
-            $sql .= " VALUES 	('', $cid, '$title', '$url', '$submitter', '$status', '$date', 0, 0, 0, 0, '$forumid', '$publishdate', 0, '$offline', '$descriptionb', '$ipaddress', '$notifypub', '$country', '$keywords', '$item_tag', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat' )";
+            $sql .= " VALUES 	('', $cid, '$title', '$url', '$submitter', '$status', '$date', 0, 0, 0, 0, '$forumid', '$publishdate', 0, '$offline', '$descriptionb', '$ipaddress', '$notifypub', '$country', '$keywords', '$item_tag', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat', '$nobreak' )";
             
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
@@ -162,7 +163,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
         } else {
             if ( true == iml_checkgroups( $cid, 'imLinkAutoApp' ) || $approve == 1 ) {
                 $updated = time();
-                $sql = "UPDATE " . $xoopsDB -> prefix( 'imlinks_links' ) . " SET cid=$cid, title='$title', url='$url', updated='$updated', offline='$offline', description='$descriptionb', ipaddress='$ipaddress', notifypub='$notifypub', country='$country', keywords='$keywords', item_tag='$item_tag', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state',  zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat' WHERE lid=" . intval($lid);
+                $sql = "UPDATE " . $xoopsDB -> prefix( 'imlinks_links' ) . " SET cid=$cid, title='$title', url='$url', updated='$updated', offline='$offline', description='$descriptionb', ipaddress='$ipaddress', notifypub='$notifypub', country='$country', keywords='$keywords', item_tag='$item_tag', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state',  zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat', nobreak='$nobreak' WHERE lid=" . intval( $lid );
                 if ( !$result = $xoopsDB -> query( $sql ) ) {
                     $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
                     XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -171,12 +172,12 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
                 $notification_handler = &xoops_gethandler( 'notification' );
                 $tags = array();
                 $tags['LINK_NAME'] = $title;
-                $tags['LINK_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlelink.php?cid=' . intval($cid) . '&amp;lid=' . intval($lid);
+                $tags['LINK_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlelink.php?cid=' . intval( $cid ) . '&amp;lid=' . intval($lid);
                 $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE cid=" . intval($cid);
                 $result = $xoopsDB -> query( $sql );
                 $row = $xoopsDB -> fetchArray( $result );
                 $tags['CATEGORY_NAME'] = $row['title'];
-                $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/viewcat.php?cid=' . intval($lid);
+                $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/viewcat.php?cid=' . intval( $lid );
 
                 $notification_handler -> triggerEvent( 'global', 0, 'new_link', $tags );
                 $notification_handler -> triggerEvent( 'category', intval($cid), 'new_link', $tags );
@@ -186,10 +187,10 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
                 $requestid = $modifysubmitter;
                 $requestdate = time();
                 $updated = iml_cleanRequestVars( $_REQUEST, 'up_dated', time() );
-                $sql = "INSERT INTO " . $xoopsDB -> prefix( 'imlinks_mod' ) . " (requestid, lid, cid, title, url, forumid, description, modifysubmitter, requestdate, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat)";
-                $sql .= " VALUES ('', $lid, $cid, '$title', '$url', '$forumid', '$descriptionb', '$modifysubmitter', '$requestdate', '$country', '$keywords', '$item_tag', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat')";
+                $sql = "INSERT INTO " . $xoopsDB -> prefix( 'imlinks_mod' ) . " (requestid, lid, cid, title, url, forumid, description, modifysubmitter, requestdate, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, nobreak)";
+                $sql .= " VALUES ('', $lid, $cid, '$title', '$url', '$forumid', '$descriptionb', '$modifysubmitter', '$requestdate', '$country', '$keywords', '$item_tag', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat', '$nobreak')";
                 if ( !$result = $xoopsDB -> query( $sql ) ) {
-                    $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
+                    $_error = $xoopsDB -> error() . ' : ' . $xoopsDB -> errno();
                     XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
                 } 
 
@@ -237,7 +238,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
         echo "<br /><div style='text-align: center;'>" . iml_imageheader() . "</div><br />\n";
         echo "<div>" . _MD_IMLINKS_SUB_SNEWMNAMEDESC . "</div>\n<br />\n";
 
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE lid=" . intval( $lid );
+        $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid );
         $link_array = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 
         $lid = $link_array['lid'] ? $link_array['lid'] : 0;
@@ -273,6 +274,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
         $fax = $link_array['fax'] ? $immyts -> htmlSpecialCharsStrip( $link_array['fax'] ) : '';
         $email = $link_array['email'] ? $immyts -> htmlSpecialCharsStrip( $link_array['email'] ) : '';
         $vat = $link_array['vat'] ? $immyts -> htmlSpecialCharsStrip( $link_array['vat'] ) : '';
+		$nobreak = $link_array['nobreak'] ? $link_array['nobreak'] : 0;
 
      	$sform = new XoopsThemeForm( _MD_IMLINKS_SUBMITCATHEAD, "storyform", xoops_getenv( 'PHP_SELF' ) );
         $sform -> setExtra( 'enctype="multipart/form-data"' );
@@ -281,8 +283,8 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
         $sform -> addElement( new XoopsFormText( _MD_IMLINKS_FILETITLE, 'title', 70, 255, $title ), true );
 
 // Link url form
-        $url_text = new XoopsFormText('', 'url', 70, 255, $url);
-        $url_tray = new XoopsFormElementTray(_MD_IMLINKS_DLURL, '');
+        $url_text = new XoopsFormText( '', 'url', 70, 255, $url );
+        $url_tray = new XoopsFormElementTray( _MD_IMLINKS_DLURL, '' );
 		$url_tray -> SetDescription( '<small>' . _MD_IMLINKS_LINKURLDSC . '</small>' );
         $url_tray -> addElement( $url_text , true ) ;
         $url_tray -> addElement( new XoopsFormLabel( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/world.png' onClick=\"window.open(document.storyform.url.value,'','');return(false);\" alt='Check URL' />" ));
@@ -291,7 +293,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 // Category selection menu
         $mytree = new XoopsTree( $xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
         $submitcats = array();
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " ORDER BY title";
+        $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' ORDER BY title';
         $result = $xoopsDB -> query( $sql );
         while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
             if ( true == iml_checkgroups( $myrow['cid'], 'imLinkSubPerm' ) ) {
@@ -306,6 +308,13 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 // Link description form
     $editor = iml_getWysiwygForm( _MD_IMLINKS_DESCRIPTIONC, 'descriptionb', $descriptionb );
     $sform -> addElement( $editor, false );
+
+// Linebreak option
+	$options_tray = new XoopsFormElementTray( _MD_IMLINKS_TEXTOPTIONS, '<br />' );
+    $breaks_checkbox = new XoopsFormCheckBox( '', 'nobreak', $nobreak );
+    $breaks_checkbox -> addOption( 1, _MD_IMLINKS_DISABLEBREAK );
+    $options_tray -> addElement( $breaks_checkbox );
+    $sform -> addElement( $options_tray );	
 
 // Keywords form
     $keywords = new XoopsFormTextArea( _MD_IMLINKS_KEYWORDS, 'keywords', $keywords, 7, 60 );

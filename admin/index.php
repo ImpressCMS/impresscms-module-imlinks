@@ -76,6 +76,7 @@ function edit( $lid = 0 ) {
     $fax = $link_array['fax'] ? $immyts -> htmlSpecialCharsStrip( $link_array['fax'] ) : '';
     $email = $link_array['email'] ? $immyts -> htmlSpecialCharsStrip( $link_array['email'] ) : '';
     $vat = $link_array['vat'] ? $immyts -> htmlSpecialCharsStrip( $link_array['vat'] ) : '';
+	$nobreak = $link_array['nobreak'] ? $link_array['nobreak'] : 0;
 
     xoops_cp_header();
     iml_adminmenu( 2, _AM_IMLINKS_MLINKS );
@@ -152,6 +153,13 @@ function edit( $lid = 0 ) {
 // Link description form
     $editor = iml_getWysiwygForm( _AM_IMLINKS_LINK_DESCRIPTION, 'descriptionb', $descriptionb );
     $sform -> addElement( $editor, false );
+
+// Linebreak option
+	$options_tray = new XoopsFormElementTray(_AM_IMLINKS_TEXTOPTIONS, '<br />');
+    $breaks_checkbox = new XoopsFormCheckBox( '', 'nobreak', $nobreak );
+    $breaks_checkbox -> addOption( 1, _AM_IMLINKS_DISABLEBREAK );
+    $options_tray -> addElement( $breaks_checkbox );
+    $sform -> addElement( $options_tray );
 
 // Meta keywords form
     $keywords = new XoopsFormTextArea( _AM_IMLINKS_KEYWORDS, 'keywords', $keywords );
@@ -473,6 +481,7 @@ switch ( strtolower( $op ) )
         $status = ( !empty( $_POST['status'] ) ) ? $_POST['status'] : 2;
         $url = ( $_POST['url'] != 'http://' ) ? $immyts -> addslashes( $_POST['url'] ) : '';
         $title = $immyts -> addslashes( trim( $_POST['title'] ) );
+		$nobreak = ( !empty( $_POST['nobreak'] ) ) ? $_POST['nobreak'] : 0;
 
 // Get data from form
         $screenshot = ( $_POST['screenshot'] != 'blank.gif' ) ? $immyts -> addslashes( $_POST['screenshot'] ) : '';
@@ -535,11 +544,11 @@ switch ( strtolower( $op ) )
             $date = time();
             $publishdate = time();
             $ipaddress = $_SERVER['REMOTE_ADDR'];
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'imlinks_links' ) . " (lid, cid, title, url, screenshot, submitter, publisher, status, date, hits, rating, votes, comments, forumid, published, expired, updated, offline, description, ipaddress, notifypub, urlrating, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat )";
-            $sql .= " VALUES 	('', $cid, '$title', '$url', '$screenshot', '$submitter', '$publisher','$status', '$date', 0, 0, 0, 0, '$forumid', '$published', '$expiredate', '$updated', '$offline', '$descriptionb', '$ipaddress', '0', '$urlrating', '$country', '$keywords', '$item_tag', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat' )";
+            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'imlinks_links' ) . " (lid, cid, title, url, screenshot, submitter, publisher, status, date, hits, rating, votes, comments, forumid, published, expired, updated, offline, description, ipaddress, notifypub, urlrating, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, nobreak )";
+            $sql .= " VALUES 	('', $cid, '$title', '$url', '$screenshot', '$submitter', '$publisher','$status', '$date', 0, 0, 0, 0, '$forumid', '$published', '$expiredate', '$updated', '$offline', '$descriptionb', '$ipaddress', '0', '$urlrating', '$country', '$keywords', '$item_tag', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat', '$nobreak' )";
            // $newid = $xoopsDB -> getInsertId();
         } else {
-            $sql = "UPDATE " . $xoopsDB -> prefix( 'imlinks_links' ) . " SET cid = $cid, title='$title', url='$url', screenshot='$screenshot', publisher='$publisher', status='$status', forumid='$forumid', published='$published', expired='$expiredate', updated='$updated', offline='$offline', description='$descriptionb', urlrating='$urlrating', country='$country', keywords='$keywords', item_tag='$item_tag', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state',  zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat' WHERE lid=" . $lid;
+            $sql = "UPDATE " . $xoopsDB -> prefix( 'imlinks_links' ) . " SET cid = $cid, title='$title', url='$url', screenshot='$screenshot', publisher='$publisher', status='$status', forumid='$forumid', published='$published', expired='$expiredate', updated='$updated', offline='$offline', description='$descriptionb', urlrating='$urlrating', country='$country', keywords='$keywords', item_tag='$item_tag', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state',  zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat', nobreak='$nobreak' WHERE lid=" . $lid;
         } 
         if ( !$result = $xoopsDB -> queryF( $sql ) ) {
           XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );

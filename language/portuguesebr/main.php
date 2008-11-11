@@ -236,5 +236,7 @@ define( '_MD_IMLINKS_EMAILDSC', 'Digite endereço de e-mail como:<br />- name@do
 define( '_MD_IMLINKS_NEW', 'New!' );
 define( '_MD_IMLINKS_UPDATED', 'Updated!' );
 define( '_MD_IMLINKS_POPULAR2', 'Popular!' );
+define( '_MD_IMLINKS_TEXTOPTIONS', 'Opções de texto:' );
+define( '_AM_IMLINKS_DISABLEBREAK', ' Converter \'quebra de linha\'?' );
 
 ?>

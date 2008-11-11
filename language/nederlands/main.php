@@ -236,5 +236,7 @@ define( '_MD_IMLINKS_EMAILDSC', 'Vul het email adres in als:<br />- name@domain.
 define( '_MD_IMLINKS_NEW', 'Nieuw!' );
 define( '_MD_IMLINKS_UPDATED', 'Bijgewerkt!' );
 define( '_MD_IMLINKS_POPULAR2', 'Populair!' );
+define( '_MD_IMLINKS_TEXTOPTIONS', 'Tekst opties:' );
+define( '_MD_IMLINKS_DISABLEBREAK', ' Gebruik ICMS linebreak omzetting?' );
 
 ?>

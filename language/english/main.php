@@ -232,5 +232,7 @@ define( '_MD_IMLINKS_EMAILDSC', 'Enter email address as:<br />- name@domain.com<
 define( '_MD_IMLINKS_NEW', 'New!' );
 define( '_MD_IMLINKS_UPDATED', 'Updated!' );
 define( '_MD_IMLINKS_POPULAR2', 'Popular!' );
+define( '_MD_IMLINKS_TEXTOPTIONS', 'Text options:' );
+define( '_MD_IMLINKS_DISABLEBREAK', ' Use ICMS linebreak conversion?' );
 
 ?>
