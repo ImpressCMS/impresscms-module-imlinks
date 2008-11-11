@@ -124,7 +124,7 @@ function createcat($cid = 0) {
     } 
     $sform -> addElement( $indeximage_tray );
 
-    $editor = iml_getWysiwygForm( _AM_IMLINKS_FCATEGORY_DESCRIPTION, 'description', $description, 15, 60, '' );
+    $editor = iml_getWysiwygForm( _AM_IMLINKS_FCATEGORY_DESCRIPTION, 'description', $description );
     $sform -> addElement( $editor, false );
 
 // Select Client/Sponsor
