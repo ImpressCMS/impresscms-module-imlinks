@@ -36,7 +36,7 @@ $lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 function edit( $lid = 0 ) {
     global $xoopsDB, $immyts, $mytree, $imagearray, $xoopsConfig, $xoopsModuleConfig, $xoopsModule, $xoopsUser;
     
-    $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE lid=" . $lid;
+    $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
     if ( !$result = $xoopsDB -> query( $sql ) ) {
         XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
         return false;
@@ -136,11 +136,11 @@ function edit( $lid = 0 ) {
     $sform -> addElement( new XoopsFormText( _AM_IMLINKS_LINK_TITLE, 'title', 70, 255, $title ), true );
 
 // Link url form
-    $url_text = new XoopsFormText('', 'url', 70, 255, $url);
-    $url_tray = new XoopsFormElementTray(_AM_IMLINKS_LINK_DLURL, '');
+    $url_text = new XoopsFormText( '', 'url', 70, 255, $url );
+    $url_tray = new XoopsFormElementTray( _AM_IMLINKS_LINK_DLURL, '' );
 	$url_tray -> SetDescription( _AM_IMLINKS_LINKURLDSC );
     $url_tray -> addElement( $url_text, true) ;
-    $url_tray -> addElement( new XoopsFormLabel( "&nbsp;<img src='../images/icon/world.png' onClick=\"window.open(document.storyform.url.value,'','');return(false);\" alt='Check URL' />" ));
+    $url_tray -> addElement( new XoopsFormLabel( "&nbsp;<img src='../images/icon/world.png' onClick=\"window.open(document.storyform.url.value,'','');return(false);\" alt='Check URL' />" ) );
     $sform -> addElement( $url_tray );
 
 // Category form
@@ -151,7 +151,7 @@ function edit( $lid = 0 ) {
 
 // Link description form
     $editor = iml_getWysiwygForm( _AM_IMLINKS_LINK_DESCRIPTION, 'descriptionb', $descriptionb, 15, 60 );
-    $sform -> addElement($editor, false);
+    $sform -> addElement( $editor, false );
 
 // Meta keywords form
     $keywords = new XoopsFormTextArea( _AM_IMLINKS_KEYWORDS, 'keywords', $keywords, 7, 60, false );
