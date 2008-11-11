@@ -87,8 +87,8 @@ switch ( strtolower( $op ) ) {
         } 
         $sform -> addElement( $indeximage_tray );
 
-        $editor = iml_getWysiwygForm( _AM_IMLINKS_IPAGE_CHEADING, 'indexheader', $indexheader, 15, 60, '');
-        $sform -> addElement($editor,false);
+        $editor = iml_getWysiwygForm( _AM_IMLINKS_IPAGE_CHEADING, 'indexheader', $indexheader );
+        $sform -> addElement( $editor, false );
 
         $headeralign_select = new XoopsFormSelect( _AM_IMLINKS_IPAGE_CHEADINGA, 'indexheaderalign', $indexheaderalign );
         $headeralign_select -> addOptionArray( array( 'left' => _AM_IMLINKS_IPAGE_CLEFT, 'right' => _AM_IMLINKS_IPAGE_CRIGHT, 'center' => _AM_IMLINKS_IPAGE_CCENTER ) );
