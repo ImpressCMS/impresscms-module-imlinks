@@ -229,8 +229,8 @@ define( '_MD_IMLINKS_LINKURLDSC', 'Кликните на иконку для о�
 define( '_MD_IMLINKS_STREETTWODSC', 'Это поле опционально. Если поле останется пустым, это не будет использоваться.' );
 define( '_MD_IMLINKS_STATEDSC', 'Введите страну, область, провинцию, штат, и т.д. Если поле оставить пустым, это не будет использоваться.' );
 define( '_MD_IMLINKS_EMAILDSC', 'Введите email адрес:<br />- name@domain.com<br />- mailto:name@domain.com' );
-define( '_MD_IMLINKS_NEW', 'New!' );
-define( '_MD_IMLINKS_UPDATED', 'Updated!' );
-define( '_MD_IMLINKS_POPULAR2', 'Popular!' );
+define( '_MD_IMLINKS_NEW', 'Новый!' );
+define( '_MD_IMLINKS_UPDATED', 'Обновленный!' );
+define( '_MD_IMLINKS_POPULAR2', 'Популярный!' );
 
 ?>
