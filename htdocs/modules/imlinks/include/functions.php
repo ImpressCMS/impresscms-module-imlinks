@@ -179,7 +179,7 @@ function iml_toolbar( $cid = 0 ) {
 // @return
 function iml_serverstats() {
     echo '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_LINK_IMAGEINFO . '</legend>\n
-		<div style='padding: 8px;'>\n
+		<div style="padding: 8px;">\n
 		<div>' . _AM_IMLINKS_LINK_SPHPINI . '</div>\n';
 
     $safemode = ( ini_get( 'safe_mode' ) ) ? _AM_IMLINKS_LINK_ON . _AM_IMLINKS_LINK_SAFEMODEPROBLEMS : _AM_IMLINKS_LINK_OFF;
