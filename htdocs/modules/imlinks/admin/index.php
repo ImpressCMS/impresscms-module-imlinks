@@ -150,13 +150,13 @@ function edit( $lid = 0 ) {
     ob_end_clean();
 
 // Link description form
-    $editor = iml_getWysiwygForm( _AM_IMLINKS_LINK_DESCRIPTION, 'descriptionb', $descriptionb, 15, 60 );
+    $editor = iml_getWysiwygForm( _AM_IMLINKS_LINK_DESCRIPTION, 'descriptionb', $descriptionb );
     $sform -> addElement( $editor, false );
 
 // Meta keywords form
-    $keywords = new XoopsFormTextArea( _AM_IMLINKS_KEYWORDS, 'keywords', $keywords, 7, 60, false );
+    $keywords = new XoopsFormTextArea( _AM_IMLINKS_KEYWORDS, 'keywords', $keywords );
     $keywords -> setDescription( '<small>' . _AM_IMLINKS_KEYWORDS_NOTE . '</small>' );
-    $sform -> addElement($keywords);
+    $sform -> addElement( $keywords, false );
 
 // Insert tags if Tag-module is installed
     if (iml_tag_module_included()) {
