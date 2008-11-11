@@ -217,10 +217,13 @@ define( '_MD_IMLINKS_STOPIT', 'Detenlo' );
 //version 1.00 RC-1
 define( '_MD_IMLINKS_FEED', 'RSS feed' );
 define( '_MD_IMLINKS_COUNTRYDSC', 'If no country is selected the address can not be formatted and will not be displayed.' );
-define( '_MD_IMLINKS_MAPDSC', 'Click icon to open a new new browser tab or window showing the map.<br />Default: %s' );
+define( '_MD_IMLINKS_MAPDSC', 'Click icon to open a new browser tab or window showing the map.<br />Default: %s' );
 define( '_MD_IMLINKS_LINKURLDSC', 'Click icon to open url in a new browser tab or window.<br />You can use this to check the url.' );
 define( '_MD_IMLINKS_STREETTWODSC', 'This field is optional. If field is left blank it will not be used.' );
 define( '_MD_IMLINKS_STATEDSC', 'Enter county, district, province, state, etc. If field is left blank it will not be used.' );
 define( '_MD_IMLINKS_EMAILDSC', 'Enter email address as:<br />- name@domain.com<br />- mailto:name@domain.com' );
+define( '_MD_IMLINKS_NEW', 'New!' );
+define( '_MD_IMLINKS_UPDATED', 'Updated!' );
+define( '_MD_IMLINKS_POPULAR2', 'Popular!' );
 
 ?>

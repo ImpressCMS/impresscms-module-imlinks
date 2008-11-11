@@ -233,5 +233,8 @@ define( '_MD_IMLINKS_LINKURLDSC', 'Klik op het icoon om de url in een nieuw brow
 define( '_MD_IMLINKS_STREETTWODSC', 'Dit veld is optioneel. Indien gewenst kan het veld leeg gelaten worden.' );
 define( '_MD_IMLINKS_STATEDSC', 'Vul hier de graafschap, district, gemeente, provincie, staat, etc. in. Indien gewenst kan het veld leeg gelaten worden.' );
 define( '_MD_IMLINKS_EMAILDSC', 'Vul het email adres in als:<br />- name@domain.com<br />- mailto:name@domain.com' );
+define( '_MD_IMLINKS_NEW', 'Nieuw!' );
+define( '_MD_IMLINKS_UPDATED', 'Bijgewerkt!' );
+define( '_MD_IMLINKS_POPULAR2', 'Populair!' );
 
 ?>

@@ -233,5 +233,8 @@ define( '_MD_IMLINKS_LINKURLDSC', 'Clique no ícone para abrir uma nova aba ou j
 define( '_MD_IMLINKS_STREETTWODSC', 'Este campo é opcional. Se o campo for deixado em branco, não será usado.' );
 define( '_MD_IMLINKS_STATEDSC', 'Digite país, distrito, cidade, estado, etc. Se o campo for deixado em branco, não será usado.' );
 define( '_MD_IMLINKS_EMAILDSC', 'Digite endereço de e-mail como:<br />- name@domain.com<br />- mailto:name@domain.com' );
+define( '_MD_IMLINKS_NEW', 'New!' );
+define( '_MD_IMLINKS_UPDATED', 'Updated!' );
+define( '_MD_IMLINKS_POPULAR2', 'Popular!' );
 
 ?>

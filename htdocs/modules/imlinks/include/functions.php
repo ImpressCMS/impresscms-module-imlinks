@@ -26,7 +26,8 @@
 * @version		$Id$
 */
 
-if (!defined('ICMS_ROOT_PATH')) { die('ICMS root path not defined'); }
+if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
+
 /**
  * wfs_gethandler()
  * 
@@ -167,37 +168,37 @@ function iml_toolbar( $cid = 0 ) {
 	$style = 'style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-size: smaller; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
 	$toolbar = '';
     if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
-        $toolbar .= "<a " . $style . " href='submit.php?cid=" . $cid . "'>" . _MD_IMLINKS_SUBMITLINK . "</a> ";
+        $toolbar .= '<a "' . $style . ' href="submit.php?cid=' . $cid . '">' . _MD_IMLINKS_SUBMITLINK . '</a> ';
     }
-    $toolbar .= "<a " . $style . " href='newlist.php?newlinkshowdays=7'>" . _MD_IMLINKS_LATESTLIST . "</a> ";
-	$toolbar .= "<a " . $style . " href='topten.php?list=hit'>" . _MD_IMLINKS_POPULARITY . "</a>";
+    $toolbar .= '<a "' . $style . ' href="newlist.php?newlinkshowdays=7">' . _MD_IMLINKS_LATESTLIST . '</a> ';
+	$toolbar .= '<a "' . $style . ' href="topten.php?list=hit">' . _MD_IMLINKS_POPULARITY . '</a>';
     return $toolbar;
 } 
 
 // iml_serverstats()
 // @return
 function iml_serverstats() {
-    echo "<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_LINK_IMAGEINFO . "</legend>\n
+    echo '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_LINK_IMAGEINFO . '</legend>\n
 		<div style='padding: 8px;'>\n
-		<div>" . _AM_IMLINKS_LINK_SPHPINI . "</div>\n";
+		<div>' . _AM_IMLINKS_LINK_SPHPINI . '</div>\n';
 
     $safemode = ( ini_get( 'safe_mode' ) ) ? _AM_IMLINKS_LINK_ON . _AM_IMLINKS_LINK_SAFEMODEPROBLEMS : _AM_IMLINKS_LINK_OFF;
     $registerglobals = ( ini_get( 'register_globals' ) == '' ) ? _AM_IMLINKS_LINK_OFF : _AM_IMLINKS_LINK_ON;
     $links = ( ini_get( 'file_uploads' ) ) ? _AM_IMLINKS_LINK_ON : _AM_IMLINKS_LINK_OFF;
 
     $gdlib = ( function_exists( 'gd_info' ) ) ? _AM_IMLINKS_LINK_GDON : _AM_IMLINKS_LINK_GDOFF;
-    echo "<li>" . _AM_IMLINKS_LINK_GDLIBSTATUS . $gdlib;
+    echo '<li>' . _AM_IMLINKS_LINK_GDLIBSTATUS . $gdlib;
     if ( function_exists( 'gd_info' ) ) {
         if ( true == $gdlib = gd_info() ) {
-            echo "<li>" . _AM_IMLINKS_LINK_GDLIBVERSION . "<b>" . $gdlib['GD Version'] . "</b>";
+            echo '<li>' . _AM_IMLINKS_LINK_GDLIBVERSION . '<b>' . $gdlib['GD Version'] . '</b>';
         } 
     } 
-    echo "<br /><br />\n\n";
-    echo "<li>" . _AM_IMLINKS_LINK_SAFEMODESTATUS . $safemode;
-    echo "<li>" . _AM_IMLINKS_LINK_REGISTERGLOBALS . $registerglobals;
-    echo "<li>" . _AM_IMLINKS_LINK_SERVERUPLOADSTATUS . $links;
-    echo "</div>";
-    echo "</fieldset><br />";
+    echo '<br /><br />\n\n';
+    echo '<li>' . _AM_IMLINKS_LINK_SAFEMODESTATUS . $safemode;
+    echo '<li>' . _AM_IMLINKS_LINK_REGISTERGLOBALS . $registerglobals;
+    echo '<li>' . _AM_IMLINKS_LINK_SERVERUPLOADSTATUS . $links;
+    echo '</div>';
+    echo '</fieldset><br />';
 } 
 
 // displayicons()
@@ -220,12 +221,12 @@ function iml_displayicons( $time, $status = 0, $counter = 0 ) {
                 if ( $xoopsModuleConfig['displayicons'] == 1 )
                     $new = '&nbsp;<img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/update.png" alt="" align="top" />';
                 if ( $xoopsModuleConfig['displayicons'] == 2 )
-                    $new = "<i>Updated!</i>";
+                    $new = '<i>' . _MD_IMLINKS_UPDATED . '</i>';
             } else {
                 if ( $xoopsModuleConfig['displayicons'] == 1 )
                     $new = '&nbsp;<img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/new.png" alt="" align="top" />';
                 if ( $xoopsModuleConfig['displayicons'] == 2 )
-                    $new = "<i>New!</i>";
+                    $new = '<i>' . _MD_IMLINKS_NEW . '</i>';
             }
         } 
         if ( $popdate > $time ) {
@@ -233,7 +234,7 @@ function iml_displayicons( $time, $status = 0, $counter = 0 ) {
                 if ( $xoopsModuleConfig['displayicons'] == 1 )
                     $pop = '&nbsp;<img src ="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/popular.png" alt="" align="top" />';
                 if ( $xoopsModuleConfig['displayicons'] == 2 )
-                    $pop = "<i>Popular!</i>";
+                    $pop = '<i>' . _MD_IMLINKS_POPULAR2 . '</i>';
             } 
         } 
     } 
@@ -263,7 +264,7 @@ if ( !function_exists( 'iml_convertorderbyin' ) ) {
             case 'countryA':
                 $orderby = 'country ASC';
                 break;
-            case "titleD":
+            case 'titleD':
                 $orderby = 'title DESC';
                 break;
             case 'hitsD':
@@ -328,7 +329,7 @@ function iml_updaterating( $sel_id ) {
     } 
     $finalrating = $totalrating / $votesDB;
     $finalrating = number_format( $finalrating, 4 );
-    $sql = sprintf( "UPDATE %s SET rating = %u, votes = %u WHERE lid = %u", $xoopsDB -> prefix( 'imlinks_links' ), $finalrating, $votesDB, $sel_id );
+    $sql = sprintf( 'UPDATE %s SET rating = %u, votes = %u WHERE lid = %u', $xoopsDB -> prefix( 'imlinks_links' ), $finalrating, $votesDB, $sel_id );
     $xoopsDB -> query( $sql );
 } 
 
@@ -361,12 +362,12 @@ function iml_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 ) {
     global $xoopsDB, $mytree, $_check_array;
 
     if ( $sel_id > 0 ) {
-        $sql = "SELECT DISTINCT a.lid, a.cid, published FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " a LEFT JOIN "
-         . $xoopsDB -> prefix( 'imlinks_altcat' ) . " b "
-         . "ON b.lid=a.lid "
-         . "WHERE published > 0 AND published <= " . time()
-         . " AND (expired = 0 OR expired > " . time() . ") AND offline = 0 "
-         . " AND (b.cid=a.cid OR (a.cid=" . $sel_id . " OR b.cid=" . $sel_id . ")) ";
+        $sql = 'SELECT DISTINCT a.lid, a.cid, published FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+         . $xoopsDB -> prefix( 'imlinks_altcat' ) . ' b '
+         . 'ON b.lid=a.lid '
+         . 'WHERE published > 0 AND published <= ' . time()
+         . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0 '
+         . ' AND (b.cid=a.cid OR (a.cid=' . $sel_id . ' OR b.cid=' . $sel_id . '))';
     } else {
         $sql = "SELECT lid, cid, published from " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE offline = 0 AND published > 0 AND published <= " . time() . " AND (expired = 0 OR expired > " . time() . ")";
     } 
@@ -391,12 +392,12 @@ function iml_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 ) {
         $arr = $mytree -> getAllChildId( $sel_id );
         $size = count( $arr );
         for( $i = 0; $i < count( $arr ); $i++ ) {
-            $query2 = "SELECT DISTINCT a.lid, a.cid, published FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " a LEFT JOIN "
-             . $xoopsDB -> prefix( 'imlinks_altcat' ) . " b "
-             . "ON b.lid=a.lid "
-             . "WHERE published > 0 AND published <= " . time()
-             . " AND (expired = 0 OR expired > " . time() . ") AND offline = 0 "
-             . " AND (b.cid=a.cid OR (a.cid=" . $arr[$i] . " OR b.cid=" . $arr[$i] . ")) ";
+            $query2 = 'SELECT DISTINCT a.lid, a.cid, published FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+             . $xoopsDB -> prefix( 'imlinks_altcat' ) . ' b '
+             . 'ON b.lid=a.lid '
+             . 'WHERE published > 0 AND published <= ' . time()
+             . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0'
+             . ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . ')) ';
 
             $result2 = $xoopsDB -> query( $query2 );
             while ( list( $lid, $published ) = $xoopsDB -> fetchRow( $result2 ) ) {
@@ -434,7 +435,7 @@ function iml_displayimage( $image = '', $path = '', $imgsource = '', $alttext = 
     $showimage = '';
     // Check to see if link is given
     if ( $path ) {
-        $showimage = "<a href=" . $path . ">";
+        $showimage = '<a href=' . $path . '>';
     } 
 
     // checks to see if the file is valid else displays default blank image
@@ -505,15 +506,16 @@ function iml_strrrchr( $haystack, $needle ) {
 
 function iml_adminmenu( $currentoption = 0, $header = '', $menu = '', $extra = '', $scount = 4 ) {
     global $xoopsConfig, $xoopsModule, $xoopsModuleConfig;
-	$xoopsModule -> displayAdminMenu( $currentoption, $xoopsModule -> name() . " | " . $header );
+	
+	$xoopsModule -> displayAdminMenu( $currentoption, $xoopsModule -> name() . ' | ' . $header );
 
     // ###### Output warn messages for security ######
-    if ( is_dir( ICMS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/update/" ) ) {
+    if ( is_dir( ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update/' ) ) {
         xoops_error( sprintf( _AM_IMLINKS_WARNINSTALL1, ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update/' ) );
         echo '<br />';
     } 
 
-    $_file = ICMS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/update.php";
+    $_file = ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update.php';
     if ( file_exists( $_file ) ) {
         xoops_error( sprintf( _AM_IMLINKS_WARNINSTALL2, ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update.php' ) );
         echo '<br />';
@@ -579,35 +581,35 @@ function iml_adminmenu( $currentoption = 0, $header = '', $menu = '', $extra = '
         echo '<br />';
     }
 
-    echo "<h3 style='color: #2F5376;'>" . $header . "</h3>";
+    echo '<h3 style="color: #2F5376;">' . $header . '</h3>';
     if ( $extra ) {
-        echo "<div>$extra</div>";
+        echo '<div>$extra</div>';
     } 
 } 
 
 function iml_getDirSelectOption( $selected, $dirarray, $namearray ) {
     echo "<select size='1' name='workd' onchange='location.href=\"upload.php?rootpath=\"+this.options[this.selectedIndex].value'>";
-    echo "<option value=''>--------------------------------------</option>";
+    echo '<option value="">--------------------------------------</option>';
     foreach( $namearray as $namearray => $workd ) {
         if ( $workd === $selected ) {
-            $opt_selected = "selected";
+            $opt_selected = 'selected';
         } else {
-            $opt_selected = "";
+            $opt_selected = '';
         } 
-        echo "<option value='" . htmlspecialchars( $namearray, ENT_QUOTES ) . "' $opt_selected>" . $workd . "</option>";
+        echo '<option value="' . htmlspecialchars( $namearray, ENT_QUOTES ) . '" $opt_selected>' . $workd . '</option>';
     } 
-    echo "</select>";
+    echo '</select>';
 } 
 
-function iml_uploading( $_FILES, $uploaddir = "uploads", $allowed_mimetypes = '', $redirecturl = "index.php", $num = 0, $redirect = 0, $usertype = 1 ) {
+function iml_uploading( $_FILES, $uploaddir = 'uploads', $allowed_mimetypes = '', $redirecturl = 'index.php', $num = 0, $redirect = 0, $usertype = 1 ) {
     global $_FILES, $xoopsConfig, $xoopsModuleConfig, $xoopsModule;
 
     $down = array();
-    include_once ICMS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/class/uploader.php";
+    include_once ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/class/uploader.php';
     if ( empty( $allowed_mimetypes ) ) {
         $allowed_mimetypes = iml_retmime( $_FILES['userfile']['name'], $usertype );
     } 
-    $upload_dir = ICMS_ROOT_PATH . "/" . $uploaddir . "/";
+    $upload_dir = ICMS_ROOT_PATH . '/' . $uploaddir . '/';
 
     $maxfilesize = $xoopsModuleConfig['maxfilesize'];
     $maxfilewidth = $xoopsModuleConfig['maximgwidth'];
@@ -624,8 +626,8 @@ function iml_uploading( $_FILES, $uploaddir = "uploads", $allowed_mimetypes = ''
                 redirect_header( $redirecturl, 1 , _AM_PDD_UPLOADFILE );
             } else {
                 if ( is_file( $uploader -> savedDestination ) ) {
-                    $down['url'] = ICMS_URL . "/" . $uploaddir . "/" . strtolower( $uploader -> savedFileName );
-                    $down['size'] = filesize( ICMS_ROOT_PATH . "/" . $uploaddir . "/" . strtolower( $uploader -> savedFileName ) );
+                    $down['url'] = ICMS_URL . '/' . $uploaddir . '/' . strtolower( $uploader -> savedFileName );
+                    $down['size'] = filesize( ICMS_ROOT_PATH . '/' . $uploaddir . '/' . strtolower( $uploader -> savedFileName ) );
                 } 
                 return $down;
             } 
@@ -681,9 +683,9 @@ function iml_linklistbody( $published ) {
     $lid = $published['lid'];
     $cid = $published['cid'];
     
-    $title = "<a href='../singlelink.php?cid=" . $published['cid'] . "&amp;lid=" . $published['lid'] . "'>" . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . "</a>";;
+    $title = '<a href="../singlelink.php?cid=' . $published['cid'] . '&amp;lid=' . $published['lid'] . '">' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
     $maintitle = urlencode( $immyts -> htmlSpecialChars( trim( $published['title'] ) ) );
-    $cattitle = iml_cattitle($published['cid']);
+    $cattitle = iml_cattitle( $published['cid'] );
     $submitter = icms_getLinkedUnameFromId( $published['submitter'] );
     $hwhoisurl = str_replace( 'http://', '', $published['url']);
     $submitted = formatTimestamp( $published['date'], $xoopsModuleConfig['dateformat'] );
@@ -694,9 +696,9 @@ function iml_linklistbody( $published ) {
 //    } else {
 //        $published_status = ( $published['published'] == 0 ) ? "<a href='newlinks.php'>" . $imagearray['offline'] . "</a>" : $imagearray['offline'];
 //    }
-    if ( (( $published['expired'] && $published['expired'] > time() ) OR  $published['expired']==0)&& ( $published['published'] && $published['published'] < time() ) && $published['offline'] == 0 ) {
+    if ( ( ( $published['expired'] && $published['expired'] > time() ) OR  $published['expired']==0)&& ( $published['published'] && $published['published'] < time() ) && $published['offline'] == 0 ) {
         $published_status = $imagearray['online'];
-    } elseif (( $published['expired'] && $published['expired'] < time() )  && $published['offline'] == 0){
+    } elseif ( ( $published['expired'] && $published['expired'] < time() )  && $published['offline'] == 0 ) {
         $published_status = $imagearray['expired'];
     } else {
         $published_status = ( $published['published'] == 0 ) ? "<a href='newlinks.php'>" . $imagearray['offline'] . "</a>" : $imagearray['offline'];
@@ -723,7 +725,7 @@ function iml_linklistbody( $published ) {
 
 function iml_cattitle($catt) {
   global $xoopsDB;
-  $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE cid=" . $catt;
+  $sql = 'SELECT title FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $catt;
          $result = $xoopsDB -> query( $sql );
          $result = $xoopsDB -> fetchArray( $result );
          return $result['title'];
@@ -741,14 +743,14 @@ function iml_linklistpagenav( $pubrowamount, $start, $art = "art", $_this = '' )
     } 
     // Display Page Nav if published is > total display pages amount.
     include_once ICMS_ROOT_PATH . '/class/pagenav.php';
-//    $page = ( $pubrowamount > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMLINKS_MINDEX_PAGE : '';
+
     $pagenav = new XoopsPageNav( $pubrowamount, $xoopsModuleConfig['admin_perpage'], $start, 'st' . $art, $_this );
     echo '<div align="right" style="padding: 8px;">' . $pagenav -> renderNav() . '</div>';
 } 
 
-function iml_linklistpagenavleft( $pubrowamount, $start, $art = "art", $_this = '' ) {
+function iml_linklistpagenavleft( $pubrowamount, $start, $art = 'art', $_this = '' ) {
     global $xoopsModuleConfig;
-//    echo "</table>\n";
+
     if ( ( $pubrowamount < $xoopsModuleConfig['admin_perpage'] ) ) {
         return false;
     }
@@ -761,21 +763,17 @@ function iml_linklistpagenavleft( $pubrowamount, $start, $art = "art", $_this = 
 
  // Retreive an editor according to the module's option "form_options"
 function iml_getWysiwygForm( $caption, $name, $value ) {
-        global $xoopsModuleConfig, $xoopsUser, $xoopsModule;
+	global $xoopsModuleConfig, $xoopsUser, $xoopsModule;
 
 	$editor = false;
-	$x22 = false;
-	$xv = str_replace( 'XOOPS ', '', XOOPS_VERSION );
-	if ( substr( $xv, 2, 1 ) == '2') {
-          $x22 = true;
-	}
 	$editor_configs = array();
-	$editor_configs["name"] = $name;
-	$editor_configs["value"] = $value;
-	$editor_configs["rows"] = 35;
-	$editor_configs["cols"] = 60;
-	$editor_configs["width"] = "100%";
-	$editor_configs["height"] = "400px";
+	$editor_configs['caption'] = $caption;
+	$editor_configs['name'] = $name;
+	$editor_configs['value'] = $value;
+	$editor_configs['rows'] = 35;
+	$editor_configs['cols'] = 60;
+	$editor_configs['width'] = '100%';
+	$editor_configs['height'] = '500px';
 
 	$isadmin = ( ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) && $xoopsUser -> isAdmin( $xoopsModule -> mid() ) ) ? true : false;
         if ( $isadmin == true ) {
@@ -785,122 +783,77 @@ function iml_getWysiwygForm( $caption, $name, $value ) {
         }
 
 	switch($formuser) {
-	case "fck":
-		if (!$x22) {
-			if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/fckeditor/formfckeditor.php"))	{
-				include_once(ICMS_ROOT_PATH . "/class/xoopseditor/fckeditor/formfckeditor.php");
-				$editor = new XoopsFormFckeditor($editor_configs,true);
-			} else {
-				if ($dhtml) {
-					$editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 20, 60);
-				} else {
-					$editor = new XoopsFormTextArea($caption, $name, $value, 7, 60);
-				}
-			}
+	case 'fck':
+		if ( is_readable( ICMS_ROOT_PATH . '/class/xoopseditor/fckeditor/formfckeditor.php' ) )	{
+			include_once( ICMS_ROOT_PATH . '/class/xoopseditor/fckeditor/formfckeditor.php' );
+			$editor = new XoopsFormFckeditor( $editor_configs,true );
 		} else {
-			$editor = new XoopsFormEditor($caption, "fckeditor", $editor_configs);
+			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
 		}
 		break;
 
-	case "htmlarea":
-		if(!$x22) {
-			if ( is_readable(ICMS_ROOT_PATH . "/class/htmlarea/formhtmlarea.php"))	{
-				include_once(ICMS_ROOT_PATH . "/class/htmlarea/formhtmlarea.php");
-				$editor = new XoopsFormHtmlarea($caption, $name, $value);
-			}
+	case 'htmlarea':
+		if ( is_readable( ICMS_ROOT_PATH . '/class/htmlarea/formhtmlarea.php' ) )	{
+			include_once( ICMS_ROOT_PATH . '/class/htmlarea/formhtmlarea.php' );
+			$editor = new XoopsFormHtmlarea( $caption, $name, $value );
 		} else {
-			$editor = new XoopsFormEditor($caption, "htmlarea", $editor_configs);
+			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
 		}
 		break;
 
-	case "dhtml":
-		if(!$x22) {
-			$editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 20, 60);
+	case 'dhtml':
+		if ( is_readable( ICMS_ROOT_PATH . '/editors/dhtmltextarea/dhtmltextarea.php' ) )	{
+			include_once( ICMS_ROOT_PATH . '/editors/dhtmltextarea/dhtmltextarea.php' );
+			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
 		} else {
-			$editor = new XoopsFormEditor($caption, "dhtmltextarea", $editor_configs);
+			$editor = new XoopsFormDhtmlTextArea($caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
 		}
 		break;
 
-	case "textarea":
-		$editor = new XoopsFormTextArea($caption, $name, $value);
+	case 'textarea':
+		$editor = new XoopsFormTextArea( $caption, $name, $value );
 		break;
 
-	case "koivi":
-		if(!$x22) {
-			if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/koivi/formwysiwygtextarea.php"))	{
-				include_once(ICMS_ROOT_PATH . "/class/xoopseditor/koivi/formwysiwygtextarea.php");
-				$editor = new XoopsFormWysiwygTextArea($caption, $name, $value, '100%', '400px');
-			} else {
-				if ($dhtml) {
-					$editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 20, 60);
-				} else {
-					$editor = new XoopsFormTextArea($caption, $name, $value, 7, 60);
-				}
-			}
+	case 'koivi':
+		if ( is_readable( ICMS_ROOT_PATH . '/class/xoopseditor/koivi/formwysiwygtextarea.php' ) ) {
+			include_once( ICMS_ROOT_PATH . '/class/xoopseditor/koivi/formwysiwygtextarea.php' );
+			$editor = new XoopsFormWysiwygTextArea( $caption, $name, $value, '100%', '500px' );
 		} else {
-			$editor = new XoopsFormEditor($caption, "koivi", $editor_configs);
+			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
 		}
 		break;
 
-	case "tinyeditor":
-               if(!$x22) {
-			if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/tinyeditor/formtinyeditortextarea.php"))	{
-				include_once(ICMS_ROOT_PATH . "/class/xoopseditor/tinyeditor/formtinyeditortextarea.php");
-				$editor = new XoopsFormTinyeditorTextArea(array('caption'=>$caption, 'name'=>$name, 'value'=>$value, 'width'=>'100%', 'height'=>'400px'));
-			} else {
-				if ($dhtml) {
-					$editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 50, 60);
-				} else {
-					$editor = new XoopsFormTextArea($caption, $name, $value, 7, 60);
-				}
-			}
+	case 'tinyeditor':
+		if ( is_readable( ICMS_ROOT_PATH . '/class/xoopseditor/tinyeditor/formtinyeditortextarea.php' ) ) {
+			include_once( ICMS_ROOT_PATH . '/class/xoopseditor/tinyeditor/formtinyeditortextarea.php' );
+			$editor = new XoopsFormTinyeditorTextArea( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => $editor_configs['width'], 'height' => $editor_configs['height'] ) );
 		} else {
-			$editor = new XoopsFormEditor($caption, "tinyeditor", $editor_configs);
+			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
 		}
 		break;
 
-	case "dhtmlext":
-               if(!$x22) {
-			if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/dhtmlext/dhtmlext.php"))	{
-				include_once(ICMS_ROOT_PATH . "/class/xoopseditor/dhtmlext/dhtmlext.php");
-				$editor = new XoopsFormDhtmlTextAreaExtended($caption, $name, $value, 10, 50);
-			} else {
-				if ($dhtml) {
-					$editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 50, 60);
-				} else {
-					$editor = new XoopsFormTextArea($caption, $name, $value, 7, 60);
-				}
-			}
+	case 'dhtmlext':
+		if ( is_readable( ICMS_ROOT_PATH . '/class/xoopseditor/dhtmlext/dhtmlext.php' ) )	{
+			include_once( ICMS_ROOT_PATH . '/class/xoopseditor/dhtmlext/dhtmlext.php' );
+			$editor = new XoopsFormDhtmlTextAreaExtended( $caption, $name, $value, 10, 50 );
 		} else {
-			$editor = new XoopsFormEditor($caption, "dhtmlext", $editor_configs);
+			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
 		}
 		break;
 
 	case 'tinymce' :
-             if (!$x22) {
-                       if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/tinymce/formtinymce.php")) {
-                          include_once(ICMS_ROOT_PATH . "/class/xoopseditor/tinymce/formtinymce.php");
-                          $editor = new XoopsFormTinymce(array('caption'=>$caption, 'name'=>$name, 'value'=>$value, 'width'=>'100%', 'height'=>'400px'));
-                       } 
-                       elseif ( is_readable(ICMS_ROOT_PATH . "/editors/tinymce/formtinymce.php")) {
-                          include_once(ICMS_ROOT_PATH . "/editors/tinymce/formtinymce.php");
-                          $editor = new XoopsFormTinymce(array('caption'=>$caption, 'name'=>$name, 'value'=>$value, 'width'=>'100%', 'height'=>'400px'));
-                       } else {
-                          if ($dhtml) {
-                              $editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 20, 60);
-                          } else {
-                              $editor = new XoopsFormTextArea($caption, $name, $value, 7, 60);
-                          }
-                       }
-                       } else {
-                           $editor = new XoopsFormEditor($caption, "tinymce", $editor_configs);
-                       }
-                       break;
-	               }
+        if ( is_readable( ICMS_ROOT_PATH . '/editors/tinymce/formtinymce.php' ) ) {
+			include_once( ICMS_ROOT_PATH . '/editors/tinymce/formtinymce.php' );
+			$editor = new XoopsFormTinymce( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => $editor_configs['width'], 'height' => $editor_configs['height'] ) );
+		} else {
+			$editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
+        }
+        break;
+	}
 	return $editor;
 }
 
-function iml_countryname($countryn) {
+function iml_countryname( $countryn ) {
      $country_array = array (   
 				""   => "Unknown",
 				"-"  => "Unknown",                
