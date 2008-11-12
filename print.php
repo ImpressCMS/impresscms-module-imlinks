@@ -36,12 +36,12 @@ if ( $lid == 0 ) {
 	exit();
 }
 
-global $xoopsDB, $xoopsConfig, $xoopsModuleConfig, $xoopsModule;
+global $xoopsDB, $xoopsConfig, $xoopsModuleConfig, $xoopsModule, $xoopsTpl, $xoTheme;
 
-$result = $xoopsDB -> query( "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE published > 0 AND published <= " . time() . " AND offline = 0 AND lid=" . intval( $lid ) );
+$result = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND offline = 0 AND lid=' . intval( $lid ) );
 $myrow = $xoopsDB -> fetchArray( $result );
 
-$result2 = $xoopsDB -> query( "SELECT title FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE cid=" . $myrow['cid'] );
+$result2 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $myrow['cid'] );
 $mycat = $xoopsDB -> fetchArray( $result2 );
 
 $xoopsTpl = new XoopsTpl();
@@ -53,7 +53,7 @@ $xoopsTpl -> assign( 'printcategoryname', $mycat['title'] );
 if ( $xoopsModuleConfig['screenshot'] ) {
 	if ( $xoopsModuleConfig['useautothumb'] ) {
 		if ($xoopsModuleConfig['autothumbsrc'] == 0 ) {
-			$xoopsTpl -> assign( 'printscrshot', '<img src=http://open.thumbshots.org/image.pxf?url=' . $myrow['url'] . '" alt="" title="" border="0" width="120" height="90" hspace="5" />' );
+			$xoopsTpl -> assign( 'printscrshot', '<img src="http://open.thumbshots.org/image.pxf?url=' . $myrow['url'] . '" alt="" title="" border="0" width="120" height="90" hspace="5" />' );
 		} else {
 			$xoopsTpl -> assign( 'printscrshot', '<img src="http://mozshot.nemui.org/shot/128x128?' . $myrow['url'] . '" alt="" title="" border="0" hspace="5" />' );
 		}
@@ -62,8 +62,10 @@ if ( $xoopsModuleConfig['screenshot'] ) {
 	}		
 }
 
-$xoopsTpl -> assign( 'printtitle', $myts -> displayTarea($myrow['title']) );
-$xoopsTpl -> assign( 'printdescription', $myrow['description'] );
+$description = $myts -> displayTarea( $myrow['description'], 1, 1, 1, 1, $myrow['nobreak'] );
+
+$xoopsTpl -> assign( 'printtitle', $myts -> displayTarea( $myrow['title'] ) );
+$xoopsTpl -> assign( 'printdescription', $description );
 $xoopsTpl -> assign( 'printfooter', $xoopsModuleConfig['footerprint'] );
 $xoopsTpl -> assign( 'lang_category', _MD_IMLINKS_CATEGORY );
 
@@ -76,15 +78,15 @@ if ( $xoopsModuleConfig['printlogourl'] ) {
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/address.php';
 $street1 = $myrow['street1'];
 $street2 = $myrow['street2'];
-$town = $myrow['town'];
-$state = $myrow['state'];
-$zip = $myrow['zip'];
-$tel = $myrow['tel'];
-$mobile = $myrow['mobile'];
-$voip = $myrow['voip'];
-$fax = $myrow['fax'];
-$url = $myrow['url'];
-$email = printemailcnvrt($myrow['email']);
+$town    = $myrow['town'];
+$state   = $myrow['state'];
+$zip     = $myrow['zip'];
+$tel     = $myrow['tel'];
+$mobile  = $myrow['mobile'];
+$voip    = $myrow['voip'];
+$fax     = $myrow['fax'];
+$url     = $myrow['url'];
+$email   = printemailcnvrt( $myrow['email'] );
 $country = iml_countryname( $myrow['country'] );
 
 if ( $street1 == '' || $town == '' || $xoopsModuleConfig['useaddress'] == 0 ) {
@@ -124,8 +126,6 @@ $xoopsTpl -> assign( 'print', $print );
 $xoopsTpl -> assign( 'worldwideweb', '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world.png" title="" alt="" align="absmiddle" />&nbsp;' . $url );
 
 // Start of meta tags
-global $xoopsTpl, $xoTheme;
-
 $maxWords=100;
 $words = array();
 $words = explode( ' ', icms_html2text( $myrow['description'] ) );
@@ -152,7 +152,7 @@ $link_meta_description = implode( ' ', $newWords );
 	$xoopsTpl -> assign( 'xoops_pagetitle', $myrow['title'] );
 	$xoopsTpl -> assign( 'xoops_meta_author', $myrow['publisher'] );
 	$xoopsTpl -> assign( 'xoops_sitename', $xoopsConfig['sitename'] );
-	$xoopsTpl -> assign( 'xoops_meta_robots', "noindex,nofollow" );
+	$xoopsTpl -> assign( 'xoops_meta_robots', 'noindex,nofollow' );
 	$xoopsTpl -> assign( 'xoops_meta_copyright', $xoopsConfig['sitename'] );
 // End of meta tags
 
