@@ -14,6 +14,7 @@ xx.11.2008   1.00 RC-1
 - Added: upgrade from WF-Links 1.06
 - Added: icons for button bar, plus new module and category icons
 - Added: option to set linebreak in submit forms (off by default)
+- Added: option to clone a link
 
 - Renamed: module name from 'WF-Links' into 'imLinks'
 - Renamed: file 'bugfixlist.txt' into 'changelog.txt'

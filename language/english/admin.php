@@ -510,4 +510,7 @@ define( '_AM_IMLINKS_LINKURLDSC', 'Click icon to open url in a new browser tab o
 define( '_AM_IMLINKS_STREETTWODSC', 'This field is optional. If field is left blank it will not be used.' );
 define( '_AM_IMLINKS_STATEDSC', 'Enter county, district, province, state, etc. If field is left blank it will not be used.' );
 define( '_AM_IMLINKS_EMAILDSC', 'Enter email address as:<br />- name@domain.com<br />- mailto:name@domain.com' );
+define( '_AM_IMLINKS_CLONE', '**CLONE**' );
+define( '_AM_IMLINKS_CLONELINK', 'Clone Link' );
+define( '_AM_IMLINKS_ICO_CLONE', 'Clone this item' );
 ?>

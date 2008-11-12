@@ -512,4 +512,7 @@ define( '_AM_IMLINKS_LINKURLDSC', 'Klik op het icoon om de url in een nieuw brow
 define( '_AM_IMLINKS_STREETTWODSC', 'Dit veld is optioneel. Indien gewenst kan het veld leeg gelaten worden.' );
 define( '_AM_IMLINKS_STATEDSC', 'Vul hier de graafschap, district, gemeente, provincie, staat, etc. in. Indien gewenst kan het veld leeg gelaten worden.' );
 define( '_AM_IMLINKS_EMAILDSC', 'Vul het email adres in als:<br />- name@domain.com<br />- mailto:name@domain.com' );
+define( '_AM_IMLINKS_CLONE', '**KLOON**' );
+define( '_AM_IMLINKS_CLONELINK', 'Kloon Link' );
+define( '_AM_IMLINKS_ICO_CLONE', 'Kloon dit item' );
 ?>

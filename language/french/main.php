@@ -239,5 +239,6 @@ define( '_MD_IMLINKS_UPDATED', 'Updated!' );
 define( '_MD_IMLINKS_POPULAR2', 'Popular!' );
 define( '_MD_IMLINKS_TEXTOPTIONS', 'Options texte:' );
 define( '_MD_IMLINKS_DISABLEBREAK', ' Utiliser la conversion ICMS linebreak?' );
+define( '_MD_IMLINKS_CLONE', 'Clone' );
 
 ?>

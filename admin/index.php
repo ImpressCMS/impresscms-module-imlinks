@@ -33,7 +33,7 @@ $mytree = new XoopsTree( $xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
 $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 $lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
-function edit( $lid = 0 ) {
+function edit( $lid = 0, $doclone = 0 ) {
     global $xoopsDB, $immyts, $mytree, $imagearray, $xoopsConfig, $xoopsModuleConfig, $xoopsModule, $xoopsUser;
     
     $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
@@ -44,15 +44,23 @@ function edit( $lid = 0 ) {
     $link_array = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 
     $directory = $xoopsModuleConfig['screenshots'];
-    $lid = $link_array['lid'] ? $link_array['lid'] : 0;
+	if ( $doclone == 0 ) {
+		$lid = $link_array['lid'] ? $link_array['lid'] : 0;
+		$title = $link_array['title'] ? $immyts -> htmlSpecialCharsStrip( $link_array['title'] ) : '';
+		$published = $link_array['published'] ? $link_array['published'] : time();
+	} else {
+		$lid='';
+		$title = $link_array['title'] ? $immyts -> htmlSpecialCharsStrip( $link_array['title'] . '  ' . _AM_IMLINKS_CLONE ) : '';
+		$published = time();
+	}
     $cid = $link_array['cid'] ? $link_array['cid'] : 0;
-    $title = $link_array['title'] ? $immyts -> htmlSpecialCharsStrip( $link_array['title'] ) : '';
+ //   $title = $link_array['title'] ? $immyts -> htmlSpecialCharsStrip( $link_array['title'] ) : '';
     $url = $link_array['url'] ? $immyts -> htmlSpecialCharsStrip( $link_array['url'] ) : 'http://';
     $publisher = $link_array['publisher'] ? $immyts -> htmlSpecialCharsStrip( $link_array['publisher'] ) : '';
     $submitter = $link_array['submitter'] ? $immyts -> htmlSpecialCharsStrip( $link_array['submitter'] ) : '';
     $screenshot = $link_array['screenshot'] ? $immyts -> htmlSpecialCharsStrip( $link_array['screenshot'] ) : '';
     $descriptionb = $link_array['description'] ? $immyts -> htmlSpecialCharsStrip( $link_array['description'] ) : '';
-    $published = $link_array['published'] ? $link_array['published'] : time();
+//    $published = $link_array['published'] ? $link_array['published'] : time();
     $expired = $link_array['expired'] ? $link_array['expired'] : 0;
     $updated = $link_array['updated'] ? $link_array['updated'] : 0;
     $offline = $link_array['offline'] ? $link_array['offline'] : 0;
@@ -116,7 +124,11 @@ function edit( $lid = 0 ) {
     } 
     unset( $_vote_data );
 
-    $caption = ( $lid ) ? _AM_IMLINKS_LINK_MODIFYFILE : _AM_IMLINKS_LINK_CREATENEWFILE;
+	if ( $doclone == 0 ) {
+	  $caption = ( $lid ) ? _AM_IMLINKS_LINK_MODIFYFILE : _AM_IMLINKS_LINK_CREATENEWFILE;
+	} else {
+	  $caption = _AM_IMLINKS_CLONELINK;
+	}
     $sform = new XoopsThemeForm( $caption, 'storyform', xoops_getenv( 'PHP_SELF' ) );
     $sform -> setExtra( 'enctype="multipart / form - data"' );
 
@@ -470,8 +482,12 @@ switch ( strtolower( $op ) )
         break;
 
     case 'edit':
-        edit( $lid );
+        edit( intval( $lid ), 0 );
         break;
+		
+	case 'clone':
+		edit( intval( $lid ), 1 );
+		break;
 
     case 'save':
         $groups = isset( $_POST['groups'] ) ? $_POST['groups'] : array();
