@@ -234,6 +234,6 @@ define( '_MD_IMLINKS_UPDATED', 'Обновленный!' );
 define( '_MD_IMLINKS_POPULAR2', 'Популярный!' );
 define( '_MD_IMLINKS_TEXTOPTIONS', 'Опции текста:' );
 define( '_MD_IMLINKS_DISABLEBREAK', ' Использовать ICMS конверсию разрыва строк?' );
-define( '_MD_IMLINKS_CLONE', 'Clone' );
+define( '_MD_IMLINKS_CLONE', 'Клонировать' );
 
 ?>
