@@ -238,5 +238,6 @@ define( '_MD_IMLINKS_UPDATED', 'Updated!' );
 define( '_MD_IMLINKS_POPULAR2', 'Popular!' );
 define( '_MD_IMLINKS_TEXTOPTIONS', 'Text Optionen:' );
 define( '_MD_IMLINKS_DISABLEBREAK', ' autom. Zeilenumbruch verwenden?' );
+define( '_MD_IMLINKS_CLONE', 'Clone' );
 
 ?>

@@ -703,9 +703,10 @@ function iml_linklistbody( $published ) {
     } else {
         $published_status = ( $published['published'] == 0 ) ? "<a href='newlinks.php'>" . $imagearray['offline'] . "</a>" : $imagearray['offline'];
     }
-    $icon = "<a href='index.php?op=edit&amp;lid=" . $lid . "' title='" . _AM_IMLINKS_ICO_EDIT . "'>" . $imagearray['editimg'] . "</a>&nbsp;";
-    $icon .= "<a href='index.php?op=delete&amp;lid=" . $lid . "' title='" . _AM_IMLINKS_ICO_DELETE . "'>" . $imagearray['deleteimg'] . "</a>&nbsp;";
-    $icon .= "<a href='altcat.php?op=main&amp;cid=" . $cid . "&amp;lid=" . $lid . "&amp;title=" . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . "' title='" . _AM_IMLINKS_ALTCAT_CREATEF . "'>" . $imagearray['altcat'] . "</a>&nbsp;";
+    $icon = '<a href="index.php?op=edit&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_EDIT . '">' . $imagearray['editimg'] . '</a>&nbsp;';
+    $icon .= '<a href="index.php?op=delete&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_DELETE . '">' . $imagearray['deleteimg'] . '</a>&nbsp;';
+	$icon .= '<a href="index.php?op=clone&amp;lid=' . $lid . '" title=_AM_IMLINKS_ICO_CLONE>' . $imagearray['clone'] . '</a>&nbsp;';
+    $icon .= '<a href="altcat.php?op=main&amp;cid="' . $cid . '&amp;lid=' . $lid . '&amp;title=' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '" title="' . _AM_IMLINKS_ALTCAT_CREATEF . '">' . $imagearray['altcat'] . '</a>&nbsp;';
     $icon .= '<a href="http://whois.domaintools.com/' . $hwhoisurl . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" align="absmiddle"/></a>';
 
     echo "

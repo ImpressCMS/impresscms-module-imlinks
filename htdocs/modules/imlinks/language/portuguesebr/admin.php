@@ -514,4 +514,7 @@ define( '_AM_IMLINKS_LINKURLDSC', 'Clique no ícone para abrir uma nova url em u
 define( '_AM_IMLINKS_STREETTWODSC', 'Este campo é opcional. Se o campo for deixado em branco, não será usado.' );
 define( '_AM_IMLINKS_STATEDSC', 'Digite país, distrito, cidade, estado, etc. Se o campo for deixado em branco, não será usado.' );
 define( '_AM_IMLINKS_EMAILDSC', 'Digite endereço de e-mail como:<br />- name@domain.com<br />- mailto:name@domain.com' );
+define( '_AM_IMLINKS_CLONE', '**CLONE**' );
+define( '_AM_IMLINKS_CLONELINK', 'Clone Link' );
+define( '_AM_IMLINKS_ICO_CLONE', 'Clone this item' );
 ?>
