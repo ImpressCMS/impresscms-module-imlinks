@@ -510,7 +510,7 @@ define( '_AM_IMLINKS_LINKURLDSC', 'Кликните на иконку для о�
 define( '_AM_IMLINKS_STREETTWODSC', 'Это поле опционально. Если поле останется пустым, это не будет использоваться.' );
 define( '_AM_IMLINKS_STATEDSC', 'Введите страну, область, провинцию, штат, и т.д. Если поле оставить пустым, это не будет использоваться.' );
 define( '_AM_IMLINKS_EMAILDSC', 'Введите email адрес:<br />- name@domain.com<br />- mailto:name@domain.com' );
-define( '_AM_IMLINKS_CLONE', '**CLONE**' );
-define( '_AM_IMLINKS_CLONELINK', 'Clone Link' );
-define( '_AM_IMLINKS_ICO_CLONE', 'Clone this item' );
+define( '_AM_IMLINKS_CLONE', '**КЛОНИРОВАТЬ**' );
+define( '_AM_IMLINKS_CLONELINK', 'Клонировать ссылку' );
+define( '_AM_IMLINKS_ICO_CLONE', 'Клонировать это' );
 ?>
