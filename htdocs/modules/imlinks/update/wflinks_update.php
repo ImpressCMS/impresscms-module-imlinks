@@ -123,6 +123,6 @@ $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
             echo $nonerr . "<br>";
         } 
     } 
-    echo "<div align='center' style='margin: 20px;'><a style='border: 1px solid #5E5D63; color: #000000; background-color: #EFEFEF; padding: 4px 8px; text-align:center;' href='../../admin.php?fct=modulesadmin'><b>Finish updating Module</b></a></div>\n";
+    echo "<div align='center' style='margin: 20px;'><a style='border: 1px solid #5E5D63; color: #000000; background-color: #EFEFEF; padding: 4px 8px; text-align:center;' href='modules/system/admin.php?fct=modulesadmin'><b>Finish updating Module</b></a></div>\n";
 
 ?>
