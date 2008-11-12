@@ -41,6 +41,9 @@ a:active {
   Select the main category for the link. </p>
   <p><strong>Link description</strong> <br />
   Here you can enter a description of the new link. </p>
+  <p><strong>Text options</strong><br />
+  With this option you can turn on/off linebreaks.<br />
+  For the DHTML editor you have to turn this option on and probably for TinyMCE also.</p>
   <p><strong>Keywords</strong> <br />
   In this field you can enter the meta keywords. Enter the keywords as: keyword1, keyword2, keyword3, ... <br />
   The maximum amount of characters can be set in the Preferences. </p>
@@ -49,13 +52,16 @@ a:active {
   <p><strong>Google Maps, Yahoo Maps and Multimap</strong> <br />
   These three fields can be used to enter an url to an online map. Click the appropriate icon behind the field to open a new tab/window in the browser.  The url used for this action is the url entered in the field.  You can use these icons or buttons to check or modify the map-url entered. </p>
   <p><strong>Address fields</strong> <br />
-  Use these fields for add Contact Details to the link. The way the address is formatted is based on the selected country. If you want another address format you have to modify the file <em>../include/address.php</em> For address formats see the <a href="http://www.upu.int/post_code/en/postal_addressing_systems_member_countries.shtml" target="_blank">Universal Postal Union</a> website. <br />
-  Email addresses can be entered in 2 ways: </p>
+  Use these fields for add Contact Details to the link. The way the address is formatted is based on the selected country. If you want another address format you have to modify the file <em>../include/address.php</em> For address formats see the <a href="http://www.upu.int/post_code/en/postal_addressing_systems_member_countries.shtml" target="_blank">Universal Postal Union</a> website.<br />
+  Street 2 is an optional field. 
+   If field is left blank it will not be used.</p>
+  <p>Email addresses can be entered in 2 ways: </p>
   <ul>
     <li>name@address.com  </li>
     <li>mailto:name@address.com </li>
   </ul>
-  <p>Both email formats are automatic converted to: name [at] address [dot] com </p>
+  <p>Both email formats are automatic converted to: name [at] address [dot] com</p>
+  <p>If no country is selected the address can <u>not</u> be formatted and will <u>not</u> be displayed. </p>
   <p><strong>Set publish date</strong> <br />
   Enter the date and time when the link will be published. </p>
   <p><strong>Link expire date</strong> <br />
@@ -76,7 +82,7 @@ a:active {
   <p><strong>News Title*</strong> <br />
   Give a title for the article or leave blank to use the link title.   </p>
   <p>&nbsp;</p>
-  <p><font size="-3">* These fields appear when the News module is installed only.</font> </p>
+  <p>* These fields appear when the News module is installed only.</p>
 </blockquote>
 </body>
 </html>
