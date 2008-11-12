@@ -2,6 +2,7 @@
 xx.11.2008   1.00 RC-1
 =========================================================
 - Revamped Main Index page in administration
+- Revamped buttons front page
 
 - Added: developers, testers, translators, etc for About page
 - Added: option to have linked terms if imGlossary is installed
@@ -12,12 +13,16 @@ xx.11.2008   1.00 RC-1
 - Added: GPL2 license incl. unofficial translations
 - Added: upgrade from WF-Links 1.06
 - Added: icons for button bar, plus new module and category icons
+- Added: option to set linebreak in submit forms (off by default)
 
 - Renamed: module name from 'WF-Links' into 'imLinks'
 - Renamed: file 'bugfixlist.txt' into 'changelog.txt'
 
+- Updated the online documentation
+
 - Fixed: block settings [skenow]
 - Fixed: search function causing conflict with 'View profile'
+- Fixed: category icons change state when a sub-category contains new link
 
 
 =========================================================
