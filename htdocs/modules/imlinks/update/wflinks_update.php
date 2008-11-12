@@ -74,6 +74,27 @@ if (!defined('IS_UPDATE_FILE')) {
         } 
         unset($result);
     } 
+	
+$i=0;
+//Make changes to table imlinks_links
+$i++;
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD COLUMN nobreak INT(1) NOT NULL default '0' AFTER vat");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+
+//Make changes to table imlinks_mod
+$i++;
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN email VARCHAR(60) NOT NULL default '' AFTER mobile");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$i++;
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN vat VARCHAR(25) NOT NULL default '' AFTER email");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$i++;
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN nobreak INT(1) NOT NULL default '0' AFTER vat");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 
     /**
      * Update comments
@@ -102,6 +123,6 @@ if (!defined('IS_UPDATE_FILE')) {
             echo $nonerr . "<br>";
         } 
     } 
-    echo "<div align='center' style='margin: 20px;'><a style='border: 1px solid #5E5D63; color: #000000; background-color: #EFEFEF; padding: 4px 8px; text-align:center;' href='../../admin.php'><b>Finish updating Module</b></a></div>\n";
+    echo "<div align='center' style='margin: 20px;'><a style='border: 1px solid #5E5D63; color: #000000; background-color: #EFEFEF; padding: 4px 8px; text-align:center;' href='../../admin.php?fct=modulesadmin'><b>Finish updating Module</b></a></div>\n";
 
 ?>
