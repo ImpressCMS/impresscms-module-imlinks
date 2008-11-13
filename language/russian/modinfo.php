@@ -190,7 +190,7 @@ define('_MI_IMLINKS_AUTHOR_CREDITS', "Участники");
 define('_MI_IMLINKS_MODULE_INFO', "Информация о разработке модуля");
 define('_MI_IMLINKS_MODULE_STATUS', "Статус разработки");
 define('_MI_IMLINKS_MODULE_DEMO', "Демо сайт");
-define('_MI_IMLINKS_MODULE_SUPPORT', "Официальный сайт поддержки");
+define('_MI_IMLINKS_MODULE_SUPPORT', "Сайт поддержки");
 define('_MI_IMLINKS_MODULE_BUG', "Отчет об ошибках в этом модуле");
 define('_MI_IMLINKS_MODULE_FEATURE', "Предложение новых свойств для этого модуля");
 define('_MI_IMLINKS_MODULE_DISCLAIMER', "Предупреждение об ответственности");
