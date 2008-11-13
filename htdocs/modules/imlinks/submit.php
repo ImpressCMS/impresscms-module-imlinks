@@ -48,14 +48,22 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
     if ( iml_cleanRequestVars( $_REQUEST, 'submit', 0 ) ) {
 	
 		// Captcha Hack
-		if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) {
-			if ( $xoopsModuleConfig['captcha'] == 1 ) {
-				$xoopsCaptcha = XoopsCaptcha::instance();
-					if ( ! $xoopsCaptcha -> verify( true ) ) {
-						redirect_header( 'submit.php', 2, $xoopsCaptcha -> getMessage() );
-					}
-				}
-			}			
+		// Verify entered code 
+		if ( class_exists( 'XoopsCaptcha' ) || $xoopsModuleConfig['captcha'] == 1 ) { 
+			if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) {
+					$xoopsCaptcha = XoopsCaptcha::instance(); 
+					if ( ! $xoopsCaptcha -> verify( true ) ) { 
+						redirect_header( 'submit.php', 2, $xoopsCaptcha -> getMessage() ); 
+					} 
+			} 
+		} elseif ( class_exists( 'IcmsCaptcha' ) || $xoopsModuleConfig['captcha'] == 1 ) { 
+			if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) { 
+					$icmsCaptcha = IcmsCaptcha::instance(); 
+					if ( ! $icmsCaptcha -> verify( true ) ) { 
+						redirect_header( 'submit.php', 2, $icmsCaptcha -> getMessage() ); 
+					} 
+			} 
+		}			
 		// Captcha Hack
 		
         if ( false == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
@@ -415,8 +423,10 @@ if ( $xoopsModuleConfig['useaddress'] ) {
         $sform -> addElement( $option_tray );
 		
 		// Captcha Hack
-		if ( $xoopsModuleConfig['captcha'] == 1 ) {
-			$sform -> addElement( new XoopsFormCaptcha() );
+		if ( class_exists( 'XoopsFormCaptcha' ) && $xoopsModuleConfig['captcha'] == 1 ) { 
+			$sform -> addElement( new XoopsFormCaptcha() ); 
+		} elseif ( class_exists( 'IcmsFormCaptcha' ) && $xoopsModuleConfig['captcha'] == 1 ) { 
+			$sform -> addElement( new IcmsFormCaptcha() ); 
 		}
 		// Captcha Hack
 		
