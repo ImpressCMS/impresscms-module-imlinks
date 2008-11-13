@@ -107,10 +107,10 @@ $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
     $linksModule = & $modhandler -> getByDirname( 'wflinks' );
     $my_id = $linksModule -> getVar( 'mid' );
 
-    $sql = "UPDATE " . $xoopsDB -> prefix( 'xoopscomments' ) . " SET com_modid = $PD_id WHERE com_modid = $my_id";
+    $sql = 'UPDATE ' . $xoopsDB -> prefix( 'xoopscomments' ) . ' SET com_modid = $PD_id WHERE com_modid = $my_id';
     $result2 = $xoopsDB -> queryF( $sql );
 
-    echo "<p>...Updating</p>\n";
+    echo '<p>...Updating</p>';
 	
     if ( count( $error ) ) {
         foreach($error as $err) {
@@ -118,11 +118,11 @@ $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
         } 
     } 
     if ( count( $output ) ) {
-        echo "<p><span style='color:#0000FF;font-weight:bold'>There where updates made to your database.</span></p>\n";
+        echo '<p><span style="color:#0000FF;font-weight:bold">There where updates made to your database.</span></p>';
         foreach($output as $nonerr) {
-            echo $nonerr . "<br>";
+            echo $nonerr . '<br>';
         } 
     } 
-    echo "<div align='center' style='margin: 20px;'><a style='border: 1px solid #5E5D63; color: #000000; background-color: #EFEFEF; padding: 4px 8px; text-align:center;' href='modules/system/admin.php?fct=modulesadmin'><b>Finish updating Module</b></a></div>\n";
+    echo '<div align="center" style="margin: 20px;"><a style="border: 1px solid #5E5D63; color: #000000; background-color: #EFEFEF; padding: 4px 8px; text-align:center;" href="' . ICMS_URL . '/modules/system/admin.php?fct=modulesadmin"><b>Finish updating Module</b></a></div>';
 
 ?>
