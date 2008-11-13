@@ -239,5 +239,6 @@ define( '_MD_IMLINKS_POPULAR2', 'Populair!' );
 define( '_MD_IMLINKS_TEXTOPTIONS', 'Tekst opties:' );
 define( '_MD_IMLINKS_DISABLEBREAK', ' Gebruik ICMS linebreak omzetting?' );
 define( '_MD_IMLINKS_CLONE', 'Clone' );
+define( '_MD_IMLINKS_TOPRATEDBUTT', 'Hoogste beoordeling' );
 
 ?>
