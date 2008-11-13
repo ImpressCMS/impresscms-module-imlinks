@@ -17,11 +17,15 @@ div.imlinks_socbookmark a:hover img
 <div>&nbsp;</div>
 <div>
      <div style="float: left; margin-left: 4px; font-size: smaller;"><{$link.path}></div>
-     <div style="float: right; margin-right: 2px; padding: 2px;"><{$back}></div>
+     <div style="float: right; padding: 2px;"><{$back}></div>
 </div>
 <div>&nbsp;</div>
 
-<h4 class='even' style="width: 100%; color: #2F5376;"><a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><{$link.title}></a>&nbsp;<{$link.icons}><{if $xoops_isadmin}>&nbsp;<{$link.adminlink}><{/if}></h4>
+<h4 class="outer" style="width: 100%; color: #2F5376;">
+  <div class="even">
+    <a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><{$link.title}></a>&nbsp;<{$link.icons}><{if $xoops_isadmin}>&nbsp;<{$link.adminlink}><{/if}>
+  </div>
+</h4>
 
 
 <table width="100%" cellspacing="0" cellpadding="2">
@@ -138,7 +142,8 @@ div.imlinks_socbookmark a:hover img
         <{/if}>
         
         <tr> 
-			<td colspan="2" class="even" style="text-align: center;">
+			<td colspan="2" class="outer" style="text-align: center;">
+			  <div class="even">
 				<{if $link.allow_rating}>
 				  <{$ratethislink}>
 				<{/if}> 
@@ -151,6 +156,7 @@ div.imlinks_socbookmark a:hover img
 				  <{$commentz}>
 				<{/if}>
 				  <{$print}>
+			  </div>
 			</td> 
         </tr> 
       </table> 
