@@ -1,17 +1,19 @@
-<{if $catarray.imageheader != ""}>
-	<div style="text-align: center; line-height: 120%; padding-bottom: 12px;"><{$catarray.imageheader}></div>
-<{/if}>
-<div style="text-align: left; font-weight: bold; line-height: 120%; padding-top: 12px; padding-bottom: 12px;">
-<div style="float: left;"><{$smarty.const._MD_IMLINKS_DISPLAYING}><{$lang_sortby}></div>
-<div style="float: right;"><{$back}>&nbsp;</div>
-</div>
-<br /><br />
-<!-- <div align="center" class="itemPermaLink"><{$catarray.letters}></div><br />
+<{$catarray.imageheader}>
+
+<div align="center" class="itemPermaLink"><{$catarray.letters}></div><br />
 <div align="center"><{$catarray.toolbar}></div><br />
-<h5><{$smarty.const._MD_IMLINKS_DISPLAYING}><{$lang_sortby}></h5>   -->
+
+<div>
+	<div style="float: left; margin-left: 4px;"><h5><{$smarty.const._MD_IMLINKS_DISPLAYING}><{$lang_sortby}></h5> </div>
+	<div style="float: right; margin-right: 2px; padding: 2px;"><{$back}></div>
+</div>
+
+
 <!-- Start ranking loop --> 
 <{foreach item=ranking from=$rankings}>
-<div style="margin-bottom: 5px;"><b><{$smarty.const._MD_IMLINKS_CATEGORY}>:</b> <{$ranking.title}></div>
+<div style="clear: both; margin-bottom: 5px; text-align: left; padding: 2px; margin-left: 2px;">
+  <b><{$smarty.const._MD_IMLINKS_CATEGORY}>:</b> <{$ranking.title}>
+</div>
 <table cellpadding="0" cellspacing="1" width="100%" class="outer"> 
   <tr> 
     <th align="center" ><{$smarty.const._MD_IMLINKS_RANK}></th> 
