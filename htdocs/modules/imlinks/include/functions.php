@@ -171,7 +171,8 @@ function iml_toolbar( $cid = 0 ) {
         $toolbar .= '<a ' . $style . ' href="submit.php?cid=' . $cid . '">' . _MD_IMLINKS_SUBMITLINK . '</a> ';
     }
     $toolbar .= '<a ' . $style . ' href="newlist.php?newlinkshowdays=7">' . _MD_IMLINKS_LATESTLIST . '</a> ';
-	$toolbar .= '<a ' . $style . ' href="topten.php?list=hit">' . _MD_IMLINKS_POPULARITY . '</a>';
+	$toolbar .= '<a ' . $style . ' href="topten.php?list=hit">' . _MD_IMLINKS_POPULARITY . '</a> ';
+	$toolbar .= '<a ' . $style . ' href="topten.php?list=rate">' . _MD_IMLINKS_TOPRATEDBUTT . '</a>';
     return $toolbar;
 } 
 

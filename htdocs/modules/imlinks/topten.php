@@ -42,23 +42,24 @@ $sort 		= ( isset( $_GET['list'] ) && in_array( $_GET['list'], $action_array ) )
 $sort_arr 	= $action_array[$sort];
 $sortDB 	= $list_array[$sort_arr];
 
-$catarray['imageheader'] = iml_imageheader();
+if ( iml_imageheader() != '' ) {
+$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>'; }
 $catarray['letters'] 	 = iml_letters();
 $catarray['toolbar'] 	 = iml_toolbar();
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 $arr = array();
-$result = $xoopsDB -> query( "SELECT cid, title, pid FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE pid=0 ORDER BY " . $xoopsModuleConfig['sortcats'] );
+$result = $xoopsDB -> query( 'SELECT cid, title, pid FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE pid=0 ORDER BY ' . $xoopsModuleConfig['sortcats'] );
 
 $e = 0;
 while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
     if ( true == iml_checkgroups( $cid ) ) {
-        $query = "SELECT lid, cid, title, hits, rating, votes FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE published > 0 AND published <= " . time() . " AND (expired = 0 OR expired > " . time() . ") AND offline = 0 AND (cid=" . intval($cid);
+        $query = 'SELECT lid, cid, title, hits, rating, votes FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0 AND (cid=' . intval($cid);
         $arr = $mytree -> getAllChildId( $cid );
         for( $i = 0;$i < count( $arr );$i++ ) {
-            $query .= " or cid=" . $arr[$i] . "";
+            $query .= ' or cid=' . $arr[$i] . '';
         }
-        $query .= ") order by " . $sortDB . " DESC";
+        $query .= ') ORDER BY ' . $sortDB . ' DESC';
         $result2 = $xoopsDB -> query( $query, 10, 0 );
         $filecount = $xoopsDB -> getRowsNum( $result2 );
 		
@@ -69,7 +70,7 @@ while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
             $rank = 1;
             while ( list( $did, $dcid, $dtitle, $hits, $rating, $votes ) = $xoopsDB -> fetchRow( $result2 ) ) {
 				
-				$result3 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid='.$dcid);
+				$result3 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $dcid );
 				$mycat = $xoopsDB -> fetchArray( $result3 );
 				
                 $category = $mycat['title'];
@@ -81,10 +82,14 @@ while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
         }
     }
 }
-$xoopsTpl -> assign( 'back' , '<a href="javascript:history.go(-1)"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/images/icon/back.png" /></a>' );
+
+$style = 'style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-size: smaller; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
+
+$xoopsTpl -> assign( 'back' , '<a ' . $style . ' href="javascript:history.go(-1)">&#9668; ' . _MD_IMLINKS_BACKBUTTON . '</a>' );
 $xoopsTpl -> assign( 'lang_sortby' , $lang_array[$sort_arr] );
 $xoopsTpl -> assign( 'rankings', $rankings );
 $xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
+
 include ICMS_ROOT_PATH . '/footer.php';
 
 ?>
