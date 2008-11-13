@@ -49,19 +49,23 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 	
 		// Captcha Hack
 		// Verify entered code 
-		if ( class_exists( 'XoopsCaptcha' ) || $xoopsModuleConfig['captcha'] == 1 ) { 
+		if ( class_exists( 'XoopsCaptcha' ) ) { 
 			if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) {
+				if ( $xoopsModuleConfig['captcha'] == 1 ) {
 					$xoopsCaptcha = XoopsCaptcha::instance(); 
 					if ( ! $xoopsCaptcha -> verify( true ) ) { 
 						redirect_header( 'submit.php', 2, $xoopsCaptcha -> getMessage() ); 
 					} 
+				}
 			} 
-		} elseif ( class_exists( 'IcmsCaptcha' ) || $xoopsModuleConfig['captcha'] == 1 ) { 
+		} elseif ( class_exists( 'IcmsCaptcha' ) ) { 
 			if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) { 
+				if ( $xoopsModuleConfig['captcha'] == 1 ) {
 					$icmsCaptcha = IcmsCaptcha::instance(); 
 					if ( ! $icmsCaptcha -> verify( true ) ) { 
 						redirect_header( 'submit.php', 2, $icmsCaptcha -> getMessage() ); 
 					} 
+				}
 			} 
 		}			
 		// Captcha Hack
@@ -423,9 +427,9 @@ if ( $xoopsModuleConfig['useaddress'] ) {
         $sform -> addElement( $option_tray );
 		
 		// Captcha Hack
-		if ( class_exists( 'XoopsFormCaptcha' ) && $xoopsModuleConfig['captcha'] == 1 ) { 
+		if ( class_exists( 'XoopsCaptcha' ) && $xoopsModuleConfig['captcha'] == 1 ) { 
 			$sform -> addElement( new XoopsFormCaptcha() ); 
-		} elseif ( class_exists( 'IcmsFormCaptcha' ) && $xoopsModuleConfig['captcha'] == 1 ) { 
+		} elseif ( class_exists( 'IcmsCaptcha' ) && $xoopsModuleConfig['captcha'] == 1 ) { 
 			$sform -> addElement( new IcmsFormCaptcha() ); 
 		}
 		// Captcha Hack
