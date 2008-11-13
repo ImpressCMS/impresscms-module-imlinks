@@ -512,5 +512,5 @@ define( '_AM_IMLINKS_STATEDSC', 'Введите страну, область, п
 define( '_AM_IMLINKS_EMAILDSC', 'Введите email адрес:<br />- name@domain.com<br />- mailto:name@domain.com' );
 define( '_AM_IMLINKS_CLONE', '**КЛОНИРОВАТЬ**' );
 define( '_AM_IMLINKS_CLONELINK', 'Клонировать ссылку' );
-define( '_AM_IMLINKS_ICO_CLONE', 'Клонировать это' );
+define( '_AM_IMLINKS_ICO_CLONE', 'Клонировать' );
 ?>
