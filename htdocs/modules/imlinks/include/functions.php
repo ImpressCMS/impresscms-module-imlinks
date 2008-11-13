@@ -340,9 +340,9 @@ function iml_updaterating( $sel_id ) {
 function iml_totalcategory( $pid = 0 ) {
     global $xoopsDB;
 
-    $sql = "SELECT cid FROM " . $xoopsDB -> prefix( 'imlinks_cat' );
+    $sql = 'SELECT cid FROM ' . $xoopsDB -> prefix( 'imlinks_cat' );
     if ( $pid > 0 ) {
-        $sql .= " WHERE pid=0";
+        $sql .= ' WHERE pid=0';
     } 
     $result = $xoopsDB -> query( $sql );
     $catlisting = 0;
@@ -363,12 +363,13 @@ function iml_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 ) {
    global $xoopsDB, $mytree, $_check_array;
 
     if ( $sel_id > 0 ) {
-        $sql = 'SELECT DISTINCT a.lid, a.cid, a.published FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+        $sql = 'SELECT a.lid, a.cid, a.published FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
          . $xoopsDB -> prefix( 'imlinks_altcat' ) . ' b '
          . 'ON b.lid=a.lid '
          . 'WHERE a.published > 0 AND a.published <= ' . time()
          . ' AND (a.expired = 0 OR a.expired > ' . time() . ') AND offline = 0 '
-         . ' AND (b.cid=a.cid OR (a.cid=' . $sel_id . ' OR b.cid=' . $sel_id . '))';
+         . ' AND (b.cid=a.cid OR (a.cid=' . $sel_id . ' OR b.cid=' . $sel_id . ')) '
+		 . ' GROUP BY a.lid, a.cid, a.published';
     } else {
         $sql = 'SELECT lid, cid, published FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE offline = 0 AND published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ')';
     } 
@@ -393,12 +394,12 @@ function iml_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 ) {
         $arr = $mytree -> getAllChildId( $sel_id );
         $size = count( $arr );
         for( $i = 0; $i < count( $arr ); $i++ ) {
-            $query2 = 'SELECT DISTINCT a.lid, a.published, a.cid FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+            $query2 = 'SELECT a.lid, a.published, a.cid FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
              . $xoopsDB -> prefix( 'imlinks_altcat' ) . ' b '
              . 'ON b.lid=a.lid '
              . 'WHERE a.published > 0 AND a.published <= ' . time()
              . ' AND (a.expired = 0 OR a.expired > ' . time() . ') AND offline = 0 '
-             . ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . '))';
+             . ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . ')) GROUP BY a.lid, a.published, a.cid';
 
             $result2 = $xoopsDB -> query( $query2 );
             while ( list( $lid, $published ) = $xoopsDB -> fetchRow( $result2 ) ) {
