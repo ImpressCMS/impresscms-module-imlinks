@@ -56,23 +56,23 @@ function b_imlinks_banner_show( $options ) {
         }
 		
         if ( $imptotal == 0 ) {
-            $left = 'Unlimited';
+            $left = _MB_IMLINKS_UNLIMIT;
         } else {
             $left = intval( $imptotal - $impmade );
         }
 		
-        $bannerload['cat'] = intval( $myrow['acid'] );
-        $bannerload['bid'] = intval( $myrow['bid'] );
-        $bannerload['cid'] = intval( $myrow['cid'] );
+        $bannerload['cat'] 		= intval( $myrow['acid'] );
+        $bannerload['bid'] 		= intval( $myrow['bid'] );
+        $bannerload['cid'] 		= intval( $myrow['cid'] );
         $bannerload['imptotal'] = intval( $myrow['imptotal'] );
-        $bannerload['impmade'] = intval( $myrow['impmade'] );
-        $bannerload['impleft'] = $left;
-        $bannerload['clicks'] = intval( $myrow['clicks'] );
-        $bannerload['client'] = $myclient['name'];
-        $bannerload['percent'] = $percent;
+        $bannerload['impmade'] 	= intval( $myrow['impmade'] );
+        $bannerload['impleft'] 	= $left;
+        $bannerload['clicks'] 	= intval( $myrow['clicks'] );
+        $bannerload['client'] 	= $myclient['name'];
+        $bannerload['percent'] 	= $percent . '%';
         $bannerload['cattitle'] = $myrow['title'];
-        $bannerload['dirname'] = $mydirname;
-        $block['banners'][] = $bannerload;
+        $bannerload['dirname'] 	= $mydirname;
+        $block['banners'][] 	= $bannerload;
     }
     unset( $_block_check_array );
     return $block;
