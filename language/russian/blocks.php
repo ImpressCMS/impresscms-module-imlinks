@@ -33,10 +33,10 @@ define( "_MB_IMLINKS_LENGTH", "символов" );
 
 // Version 1.05 RC5
 define( "_MB_IMLINKS_ID", "ID" );
-define( "_MB_IMLINKS_CLIENT", "Имя клиента" );
-define( "_MB_IMLINKS_BANNERID", "ID баннера" );
-define( "_MB_IMLINKS_IMPMADE", "Impr. made" );
-define( "_MB_IMLINKS_IMPLEFT", "Impr. left" );
+define( "_MB_IMLINKS_CLIENT", "Клиент" );
+define( "_MB_IMLINKS_BANNERID", "Баннер" );
+define( "_MB_IMLINKS_IMPMADE", "Выполнено" );
+define( "_MB_IMLINKS_IMPLEFT", "Осталось" );
 define( "_MB_IMLINKS_CLICKS", "Клики" );
 define( "_MB_IMLINKS_CATTITLE", "Категория" );
 define( "_MB_IMLINKS_UNLIMIT", "Нелимитировано" );
