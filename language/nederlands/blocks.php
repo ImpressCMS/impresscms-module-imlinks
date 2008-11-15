@@ -24,25 +24,26 @@
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
-* translation		mcdonald
+* translation		McDonald
 * language		dutch (nederlands)
 * format			utf-8
 */
  
 // Blocks
-define( "_MB_IMLINKS_DISP", "Tonen" );
-define( "_MB_IMLINKS_FILES", "Links" );
-define( "_MB_IMLINKS_CHARS", "Lengte van de titel" );
-define( "_MB_IMLINKS_LENGTH", "karakters" );
+define( '_MB_IMLINKS_DISP', 'Tonen' );
+define( '_MB_IMLINKS_FILES', 'Links' );
+define( '_MB_IMLINKS_CHARS', 'Lengte van de titel' );
+define( '_MB_IMLINKS_LENGTH', 'karakters' );
 
 // Version 1.05 RC5
-define( "_MB_IMLINKS_ID", "ID");
-define( "_MB_IMLINKS_CLIENT", "Client Naam" );
-define( "_MB_IMLINKS_BANNERID", "Banner ID" );
-define( "_MB_IMLINKS_IMPMADE", "Impressies" );
-define( "_MB_IMLINKS_IMPLEFT", "Impr. over" );
-define( "_MB_IMLINKS_CLICKS", "Kliks" );
-define( "_MB_IMLINKS_CATTITLE", "Categorie" );
-define( "_MB_IMLINKS_DATEFORMAT", 'Datum weergave');
-define( "_MB_IMLINKS_DATEFORMATMANUAL", 'Zie <a href="http://docs.php.net/manual/nl/function.date.php" target="_blank">PHP handleiding</a>' );
+define( '_MB_IMLINKS_ID', 'ID');
+define( '_MB_IMLINKS_CLIENT', 'Client Naam' );
+define( '_MB_IMLINKS_BANNERID', 'Banner ID' );
+define( '_MB_IMLINKS_IMPMADE', 'Impressies' );
+define( '_MB_IMLINKS_IMPLEFT', 'Impr. over' );
+define( '_MB_IMLINKS_CLICKS', 'Kliks' );
+define( '_MB_IMLINKS_CATTITLE', 'Categorie' );
+define( '_MB_IMLINKS_UNLIMIT', 'Ongelimiteerd' );
+define( '_MB_IMLINKS_DATEFORMAT', 'Datum weergave');
+define( '_MB_IMLINKS_DATEFORMATMANUAL', 'Zie <a href="http://docs.php.net/manual/nl/function.date.php" target="_blank">PHP handleiding</a>' );
 ?>

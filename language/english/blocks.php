@@ -26,20 +26,20 @@
 */
  
 // Blocks
-define( "_MB_IMLINKS_DISP", "Display" );
-define( "_MB_IMLINKS_FILES", "Links" );
-define( "_MB_IMLINKS_CHARS", "Length of the title" );
-define( "_MB_IMLINKS_LENGTH", "characters" );
+define( '_MB_IMLINKS_DISP', 'Display' );
+define( '_MB_IMLINKS_FILES', 'Links' );
+define( '_MB_IMLINKS_CHARS', 'Length of the title' );
+define( '_MB_IMLINKS_LENGTH', 'characters' );
 
 // Version 1.05 RC5
-define( "_MB_IMLINKS_ID", "ID" );
-define( "_MB_IMLINKS_CLIENT", "Client name" );
-define( "_MB_IMLINKS_BANNERID", "Banner ID" );
-define( "_MB_IMLINKS_IMPMADE", "Impr. made" );
-define( "_MB_IMLINKS_IMPLEFT", "Impr. left" );
-define( "_MB_IMLINKS_CLICKS", "Clicks" );
-define( "_MB_IMLINKS_CATTITLE", "Category" );
-define( "_MB_IMLINKS_UNLIMIT", "Unlimited" );
-define( "_MB_IMLINKS_DATEFORMAT", "Date format" );
-define( "_MB_IMLINKS_DATEFORMATMANUAL", 'See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>' );
+define( '_MB_IMLINKS_ID', 'ID' );
+define( '_MB_IMLINKS_CLIENT', 'Client name' );
+define( '_MB_IMLINKS_BANNERID', 'Banner ID' );
+define( '_MB_IMLINKS_IMPMADE', 'Impr. made' );
+define( '_MB_IMLINKS_IMPLEFT', 'Impr. left' );
+define( '_MB_IMLINKS_CLICKS', 'Clicks' );
+define( '_MB_IMLINKS_CATTITLE', 'Category' );
+define( '_MB_IMLINKS_UNLIMIT', 'Unlimited' );
+define( '_MB_IMLINKS_DATEFORMAT', 'Date format' );
+define( '_MB_IMLINKS_DATEFORMATMANUAL', 'See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>' );
 ?>
