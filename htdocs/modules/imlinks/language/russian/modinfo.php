@@ -71,12 +71,12 @@ define("_MI_IMLINKS_DAYSUPDATEDDSC", "Количество дней, в тече
 define('_MI_IMLINKS_PERPAGE', 'Ссылок в списке');
 define('_MI_IMLINKS_PERPAGEDSC', 'Количество ссылок, показываемых в каждом списке категории.');
 
-define('_MI_IMLINKS_USESHOTS', 'Показывать картинку образа экрана?');
+define('_MI_IMLINKS_USESHOTS', 'Показывать образ экрана?');
 define('_MI_IMLINKS_USESHOTSDSC', 'Выбрать Да для показа образов экрана для каждой ссылки');
-define('_MI_IMLINKS_SHOTWIDTH', 'Ширина картинки');
-define('_MI_IMLINKS_SHOTWIDTHDSC', 'Ширина картинки образа экрана');
-define('_MI_IMLINKS_SHOTHEIGHT', 'Высота картинки');
-define('_MI_IMLINKS_SHOTHEIGHTDSC', 'Высота картинки образа экрана');
+define('_MI_IMLINKS_SHOTWIDTH', 'Ширина изображения');
+define('_MI_IMLINKS_SHOTWIDTHDSC', 'Ширина изображения образа экрана');
+define('_MI_IMLINKS_SHOTHEIGHT', 'Высота изображения');
+define('_MI_IMLINKS_SHOTHEIGHTDSC', 'Высота изображения образа экрана');
 define('_MI_IMLINKS_CHECKHOST', 'Запретить подключение прямых ссылок? (пиявки [leeching])');
 define('_MI_IMLINKS_REFERERS', 'Эти сайты могут напрямую ссылаться на Ваши ссылки <br />Разделять #');
 define("_MI_IMLINKS_ANONPOST", "Анонимное размещение");
@@ -86,10 +86,10 @@ define('_MI_IMLINKS_AUTOAPPROVEDSC', 'Выбор автоматического 
 
 define('_MI_IMLINKS_MAXFILESIZE', 'Размер загружаемого файла (KB)');
 define('_MI_IMLINKS_MAXFILESIZEDSC', 'Максимальный размер ссылки, разрешенный для загрузки.');
-define('_MI_IMLINKS_IMGWIDTH', 'Ширина загружаемой картинки');
-define('_MI_IMLINKS_IMGWIDTHDSC', 'Максимальный размер файла картинки, разрешенный для загрузки изображения ссылок');
-define('_MI_IMLINKS_IMGHEIGHT', 'Высота загружаемой картинки');
-define('_MI_IMLINKS_IMGHEIGHTDSC', 'Максимальная высота картинки, зарешенная для загрузки изображения ссылки');
+define('_MI_IMLINKS_IMGWIDTH', 'Ширина загружаемого изображения');
+define('_MI_IMLINKS_IMGWIDTHDSC', 'Максимальный размер файла изображения, разрешенный для загрузки изображения ссылок');
+define('_MI_IMLINKS_IMGHEIGHT', 'Высота загружаемого изображения');
+define('_MI_IMLINKS_IMGHEIGHTDSC', 'Максимальная высота изображения, зарешенная для загрузки изображения ссылки');
 
 define('_MI_IMLINKS_UPLOADDIR', 'Каталог для загрузки (без завершающего слэша)');
 define('_MI_IMLINKS_ALLOWSUBMISS', 'Пользовательские размещения:');
@@ -97,8 +97,8 @@ define('_MI_IMLINKS_ALLOWSUBMISSDSC', 'Разрешить пользовател
 define('_MI_IMLINKS_ALLOWUPLOADS', 'Пользовательские загрузки:');
 define('_MI_IMLINKS_ALLOWUPLOADSDSC', 'Разрешить пользователям загружать ссылки напрямую на Ваш сайт');
 define('_MI_IMLINKS_SCREENSHOTS', 'Каталог для загрузки изображений экрана');
-define('_MI_IMLINKS_CATEGORYIMG', 'Каталог для загрузки картинок категории');
-define('_MI_IMLINKS_MAINIMGDIR', 'Основной каталог для картинок');
+define('_MI_IMLINKS_CATEGORYIMG', 'Каталог для загрузки изображений категории');
+define('_MI_IMLINKS_MAINIMGDIR', 'Основной каталог для изображений');
 define('_MI_IMLINKS_USETHUMBS', 'Использовать наброски (контрольки)?');
 define("_MI_IMLINKS_USETHUMBSDSC", "Поддерживаемые типы файлов: JPG, GIF, PNG.<div style='padding-top: 8px;'>imLinks будет использовать наброски для изображений. Установите 'Нет' для использования оригинального изображения в случае, если сервер не поддерживает эту опцию.</div>");
 define('_MI_IMLINKS_DATEFORMAT', 'Формат даты:');
@@ -220,7 +220,7 @@ define('_MI_IMLINKS_AUTHOR_CREDITSTEXT',"The WF-Projects Team would like to than
 define('_MI_IMLINKS_AUTHOR_BUGFIXES', "История исправления ошибок");
 
 define('_MI_IMLINKS_COPYRIGHT2', 'Copyright' );
-define('_MI_IMLINKS_COPYRIGHTIMAGE', "Если не указано иначе, то авторское право на этот модуль (imLinks) и его картинки принадлежит сообществу ImpressCMS.<br /><br />Вы имеете право копировать, редактировать и изменять imLinks по Вашему усмотрению. You agree not to modify, adapt and redistribute the source code of the Software without the express permission from the ImpressCMS team.<br /><br />PageRank является торговой маркой Google Inc.");
+define('_MI_IMLINKS_COPYRIGHTIMAGE', "Если не указано иначе, то авторское право на этот модуль (imLinks) и его изображения принадлежит сообществу ImpressCMS.<br /><br />Вы имеете право копировать, редактировать и изменять imLinks по Вашему усмотрению. You agree not to modify, adapt and redistribute the source code of the Software without the express permission from the ImpressCMS team.<br /><br />PageRank является торговой маркой Google Inc.");
 
 define('_MI_IMLINKS_SELECTFORUM', "Выбор форума:");
 define('_MI_IMLINKS_SELECTFORUMDSC', "Выбрать форум, который Вы инсталлируете и будете использовать с imLinks.");
@@ -278,7 +278,7 @@ define("_MI_IMLINKS_BNAME3", "Статистика спонсоров imLinks");
 define("_MI_IMLINKS_VCARD_CREDITS", "vCard скрипт от");
 
 // Version 1.05 RC6
-define("_MI_IMLINKS_FLAGIMG", "Каталог с картинками флагов стран");
+define("_MI_IMLINKS_FLAGIMG", "Каталог с изображениями флагов стран");
 define("_MI_IMLINKS_FLAGIMGDSC", "Введите url без завершающего слэша");
 define("_MI_IMLINKS_CATEGORYIMGDSC", "Введите url без завершающего слэша");
 define("_MI_IMLINKS_SCREENSHOTSDSC", "Введите url без завершающего слэша");

@@ -27,7 +27,7 @@
 
 define( "_MD_IMLINKS_NOLINK", "Эта ссылка не существует!" );
 define( "_MD_IMLINKS_SUBCATLISTING", "Список подкатегорий" );
-define( "_MD_IMLINKS_ISADMINNOTICE", "Вэбмастер: Проблема с этой картинкой." );
+define( "_MD_IMLINKS_ISADMINNOTICE", "Вэбмастер: Проблема с этим изображением." );
 define( "_MD_IMLINKS_THANKSFORINFO", "Спасибо за Ваше сообщение.<br />Вы будете оповещены, когда Ваш запрос будет одобрен модератором." );
 define( "_MD_IMLINKS_ISAPPROVED", "Спасибо за Ваше сообщение.<br />Ваш запрос одобрен и будет представлен в нашем списке." );
 define( "_MD_IMLINKS_THANKSFORHELP", "Спасибо за помощь в поддержании этого каталога в целостном состоянии." );
@@ -121,7 +121,7 @@ define( "_MD_IMLINKS_DTOTALFORLAST", "Всего новых ссылок за п
 define( "_MD_IMLINKS_AGREE", "Согласен" );
 define( "_MD_IMLINKS_DOYOUAGREE", "Вы согласны с указанным выше?" );
 define( "_MD_IMLINKS_DISCLAIMERAGREEMENT", "Предупреждение об ответственности" );
-define( "_MD_IMLINKS_DUPLOADSCRSHOT", "Загрузка картинки образа экрана:" );
+define( "_MD_IMLINKS_DUPLOADSCRSHOT", "Загрузка изображения образа экрана:" );
 define( "_MD_IMLINKS_RESOURCEID", "Id ресурса: " );
 define( "_MD_IMLINKS_REPORTER", "Начальный докладчик: " );
 define( "_MD_IMLINKS_DATEREPORTED", "Дата отчета: " );
@@ -148,7 +148,7 @@ define( "_MD_IMLINKS_REV_SNEWMNAMEDESC", "
 define( "_MD_IMLINKS_ISNOTAPPROVED", "Ваше размещение должно быть сперва одобрено модератором." );
 define( "_MD_IMLINKS_HOMEPAGETITLEC", "Заголовок главной страницы: " );
 define( "_MD_IMLINKS_SCREENSHOT", "Образ экрана:" );
-define( "_MD_IMLINKS_SCREENSHOTCLICK", "Показать всю картинку" );
+define( "_MD_IMLINKS_SCREENSHOTCLICK", "Показать все изображение" );
 define( "_MD_IMLINKS_OTHERBYUID", "Другие ссылки от " );
 define( "_MD_IMLINKS_LINKTIMES", "Визиты: " );
 define( "_MD_IMLINKS_MAINTOTAL", "Всего ссылок: " );

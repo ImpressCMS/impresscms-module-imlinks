@@ -42,7 +42,7 @@ define( "_AM_IMLINKS_BSAVE", "Сохранить" );
 define( "_AM_IMLINKS_BRESET", "Сбросить" );
 define( "_AM_IMLINKS_BMOVE", "Переместить ссылку" );
 define( "_AM_IMLINKS_BUPLOAD", "Загрузить" );
-define( "_AM_IMLINKS_BDELETEIMAGE", "Удалить выбранную картинку" );
+define( "_AM_IMLINKS_BDELETEIMAGE", "Удалить выбранное изображение" );
 define( "_AM_IMLINKS_BRETURN", "Вернитесь туда, где Вы были!" );
 define( "_AM_IMLINKS_DBERROR", "Ошибка доступа к базе данных: Please report this error to the [url=http://community.impresscms.org/modules/newbb/viewforum.php?forum=9]ImpressCMS Community Forum - Module Support[/url] forum." );
 // Other Options
@@ -50,7 +50,7 @@ define( "_AM_IMLINKS_TEXTOPTIONS", "Опции текста:" );
 define( "_AM_IMLINKS_DISABLEHTML", " Отключить HTML тэги" );
 define( "_AM_IMLINKS_DISABLESMILEY", " Отключить смайлики" );
 define( "_AM_IMLINKS_DISABLEXCODE", " Отключить BBCodes" );
-define( "_AM_IMLINKS_DISABLEIMAGES", " Отключить картинки" );
+define( "_AM_IMLINKS_DISABLEIMAGES", " Отключить изображения" );
 define( "_AM_IMLINKS_DISABLEBREAK", " Использовать ICMS конверсию разрыва строк?" );
 define( "_AM_IMLINKS_UPLOADFILE", "Ссылка загружена" );
 define( "_AM_IMLINKS_NOMENUITEMS", "Отсутствуют пункты меню" );
@@ -100,7 +100,7 @@ define( "_AM_IMLINKS_FCATEGORY_MODGROUPPROMPT", "Права на модерац�
 define( "_AM_IMLINKS_FCATEGORY_TITLE", "Заголовок категории:" );
 define( "_AM_IMLINKS_FCATEGORY_WEIGHT", "Вес категории:" );
 define( "_AM_IMLINKS_FCATEGORY_SUBCATEGORY", "Родительская категория:" );
-define( "_AM_IMLINKS_FCATEGORY_CIMAGE", "Выбор картинки категории:" );
+define( "_AM_IMLINKS_FCATEGORY_CIMAGE", "Выбор изображения категории:" );
 define( "_AM_IMLINKS_FCATEGORY_DESCRIPTION", "Описание категории:" );
 define( "_AM_IMLINKS_FCATEGORY_SUMMARY", "Резюме категории:" );
 /**
@@ -109,7 +109,7 @@ define( "_AM_IMLINKS_FCATEGORY_SUMMARY", "Резюме категории:" );
 define( "_AM_IMLINKS_IPAGE_UPDATED", "Индексная страница отредактирована и база данных обновлена" );
 define( "_AM_IMLINKS_IPAGE_INFORMATION", "Информация об индексной странице" );
 define( "_AM_IMLINKS_IPAGE_MODIFY", "Редактирование индексной страницы" );
-define( "_AM_IMLINKS_IPAGE_CIMAGE", "Выбор картинки для индексной страницы:" );
+define( "_AM_IMLINKS_IPAGE_CIMAGE", "Выбор изображения для индексной страницы:" );
 define( "_AM_IMLINKS_IPAGE_CTITLE", "Заголовок индексной страницы:" );
 define( "_AM_IMLINKS_IPAGE_CHEADING", "Шапка индексной страницы:" );
 define( "_AM_IMLINKS_IPAGE_CHEADINGA", "Расположение шапки:" );
@@ -132,13 +132,13 @@ define( "_AM_IMLINKS_PERM_FSELECTPERMISSIONS", "Выбор ссылок, про�
 /**
  * Upload defines
  */
-define( "_AM_IMLINKS_LINK_IMAGEUPLOAD", "Картинка загружена на сервер" );
+define( "_AM_IMLINKS_LINK_IMAGEUPLOAD", "Изображение загружена на сервер" );
 define( "_AM_IMLINKS_LINK_NOIMAGEEXIST", "Ошибка: Ссылка для загрузки не выбрана. Пожалуйста, повторите снова!" );
-define( "_AM_IMLINKS_LINK_IMAGEEXIST", "Картинка уже существует в области загрузок!" );
+define( "_AM_IMLINKS_LINK_IMAGEEXIST", "Файл изображения уже существует в области загрузок!" );
 define( "_AM_IMLINKS_LINK_FILEDELETED", "Ссылка удалена." );
 define( "_AM_IMLINKS_LINK_FILEERRORDELETE", "Ошибка во время удаления ссылки: Ссылка на сервере не найдена." );
 define( "_AM_IMLINKS_LINK_NOFILEERROR", "Ошибка во время удаления ссылки: Не выбрана ссылка для удаления." );
-define( "_AM_IMLINKS_LINK_DELETEFILE", "ПРЕДУПРЕЖДЕНИЕ: Вы действительно желаете удалить эту картинку ссылки?" );
+define( "_AM_IMLINKS_LINK_DELETEFILE", "ПРЕДУПРЕЖДЕНИЕ: Вы действительно желаете удалить это изображение ссылки?" );
 define( "_AM_IMLINKS_LINK_IMAGEINFO", "Статусы сервера" );
 define( "_AM_IMLINKS_LINK_SPHPINI", "<b>Информация взята из PHP ini:</b>" );
 define( "_AM_IMLINKS_LINK_SAFEMODESTATUS", "Статус Safe Mode: " );
@@ -153,18 +153,18 @@ define( "_AM_IMLINKS_LINK_GDON", "<b>Включено</b> (контрольки 
 define( "_AM_IMLINKS_LINK_GDOFF", "<b>Отключено</b> (контрольки не доступны)" );
 define( "_AM_IMLINKS_LINK_OFF", "<b>Откл</b>" );
 define( "_AM_IMLINKS_LINK_ON", "<b>Вкл</b>" );
-define( "_AM_IMLINKS_LINK_CATIMAGE", "Картинки категории" );
+define( "_AM_IMLINKS_LINK_CATIMAGE", "Изображение категории" );
 define( "_AM_IMLINKS_LINK_SCREENSHOTS", "Образы экрана" );
-define( "_AM_IMLINKS_LINK_MAINIMAGEDIR", "Основные картинки" );
-define( "_AM_IMLINKS_LINK_FCATIMAGE", "Путь к картинкам категорий" );
+define( "_AM_IMLINKS_LINK_MAINIMAGEDIR", "Основные изображения" );
+define( "_AM_IMLINKS_LINK_FCATIMAGE", "Путь к изображениям категорий" );
 define( "_AM_IMLINKS_LINK_FSCREENSHOTS", "Путь к образам экрана" );
 define( "_AM_IMLINKS_LINK_FMAINIMAGEDIR", "Основной путь" );
 define( "_AM_IMLINKS_LINK_FUPLOADIMAGETO", "Загрузка изображения" );
 define( "_AM_IMLINKS_LINK_FUPLOADPATH", "Путь для загрузки: " );
-define( "_AM_IMLINKS_LINK_FUPLOADURL", "URL картинки: " );
+define( "_AM_IMLINKS_LINK_FUPLOADURL", "URL изображения: " );
 define( "_AM_IMLINKS_LINK_FOLDERSELECTION", "Выбор пункта назначения загрузки:" );
-define( "_AM_IMLINKS_LINK_FSHOWSELECTEDIMAGE", "Показать выбранную картинку:" );
-define( "_AM_IMLINKS_LINK_FUPLOADIMAGE", "Загрузить новую картинку по выбранному назначению:" );
+define( "_AM_IMLINKS_LINK_FSHOWSELECTEDIMAGE", "Показать выбранное изображение:" );
+define( "_AM_IMLINKS_LINK_FUPLOADIMAGE", "Загрузить новое изображение по выбранному назначению:" );
 
 // Main Index defines
 define( "_AM_IMLINKS_MINDEX_LINKSUMMARY", "Резюме модуля" );
@@ -497,7 +497,7 @@ define( "_AM_IMLINKS_IPAGE_LATESTTOTAL_DSC", "0 - отключение опци�
 
 //version 1.06 Final
 define( "_AM_IMLINKS_DOCUMENTATION", "Документация(англ.)" );
-define( "_AM_IMLINKS_SHOWNOIMAGE", "Нет картинок" );
+define( "_AM_IMLINKS_SHOWNOIMAGE", "Нет изображений" );
 define( "_AM_IMLINKS_NOSELECTION", "Не выбрано" );
 define( "_AM_IMLINKS_NOFILESELECT", "Файл не выбран" );
 
