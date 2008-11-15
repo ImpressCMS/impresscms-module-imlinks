@@ -47,28 +47,26 @@ if ( false == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
     if ( iml_cleanRequestVars( $_REQUEST, 'submit', 0 ) ) {
 	
-		// Captcha Hack
-		// Verify entered code 
-		if ( class_exists( 'XoopsCaptcha' ) ) { 
-			if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) {
-				if ( $xoopsModuleConfig['captcha'] == 1 ) {
+		if ( $xoopsModuleConfig['captcha'] ) {
+			// Captcha Hack
+			// Verify entered code 
+			if ( class_exists( 'XoopsFormCaptcha' ) ) { 
+				if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) {
 					$xoopsCaptcha = XoopsCaptcha::instance(); 
 					if ( ! $xoopsCaptcha -> verify( true ) ) { 
 						redirect_header( 'submit.php', 2, $xoopsCaptcha -> getMessage() ); 
 					} 
-				}
-			} 
-		} elseif ( class_exists( 'IcmsCaptcha' ) ) { 
-			if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) { 
-				if ( $xoopsModuleConfig['captcha'] == 1 ) {
+				} 
+			} elseif ( class_exists( 'IcmsFormCaptcha' ) ) { 
+				if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) { 
 					$icmsCaptcha = IcmsCaptcha::instance(); 
 					if ( ! $icmsCaptcha -> verify( true ) ) { 
 						redirect_header( 'submit.php', 2, $icmsCaptcha -> getMessage() ); 
 					} 
-				}
-			} 
-		}			
-		// Captcha Hack
+				} 
+			}
+			// Captcha Hack
+		}
 		
         if ( false == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
             redirect_header( 'index.php', 1, _MD_IMLINKS_NOPERMISSIONTOPOST );
@@ -127,7 +125,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
                 $message = _MD_IMLINKS_ISAPPROVED;
             } 
             
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'imlinks_links' ) . "	(lid, cid, title, url, submitter, status, date, hits, rating, votes, comments, forumid, published, expired, offline, description, ipaddress, notifypub, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, nobreak ) ";
+            $sql = 'INSERT INTO ' . $xoopsDB -> prefix( 'imlinks_links' ) . '	(lid, cid, title, url, submitter, status, date, hits, rating, votes, comments, forumid, published, expired, offline, description, ipaddress, notifypub, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, nobreak )';
 
             $sql .= " VALUES 	('', $cid, '$title', '$url', '$submitter', '$status', '$date', 0, 0, 0, 0, '$forumid', '$publishdate', 0, '$offline', '$descriptionb', '$ipaddress', '$notifypub', '$country', '$keywords', '$item_tag', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat', '$nobreak' )";
             
@@ -152,7 +150,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
             $tags['LINK_NAME'] = $title;
             $tags['LINK_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlelink.php?cid=' . intval($cid) . '&amp;lid=' . intval($newid);
             
-            $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE cid=" . intval($cid);
+            $sql = 'SELECT title FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . intval($cid);
             $result = $xoopsDB -> query( $sql );
             $row = $xoopsDB -> fetchArray( $result );
 
@@ -199,7 +197,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
                 $requestid = $modifysubmitter;
                 $requestdate = time();
                 $updated = iml_cleanRequestVars( $_REQUEST, 'up_dated', time() );
-                $sql = "INSERT INTO " . $xoopsDB -> prefix( 'imlinks_mod' ) . " (requestid, lid, cid, title, url, forumid, description, modifysubmitter, requestdate, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, nobreak)";
+                $sql = 'INSERT INTO ' . $xoopsDB -> prefix( 'imlinks_mod' ) . ' (requestid, lid, cid, title, url, forumid, description, modifysubmitter, requestdate, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, nobreak)';
                 $sql .= " VALUES ('', $lid, $cid, '$title', '$url', '$forumid', '$descriptionb', '$modifysubmitter', '$requestdate', '$country', '$keywords', '$item_tag', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat', '$nobreak')";
                 if ( !$result = $xoopsDB -> query( $sql ) ) {
                     $_error = $xoopsDB -> error() . ' : ' . $xoopsDB -> errno();
@@ -426,13 +424,15 @@ if ( $xoopsModuleConfig['useaddress'] ) {
 		
         $sform -> addElement( $option_tray );
 		
-		// Captcha Hack
-		if ( class_exists( 'XoopsCaptcha' ) && $xoopsModuleConfig['captcha'] == 1 ) { 
-			$sform -> addElement( new XoopsFormCaptcha() ); 
-		} elseif ( class_exists( 'IcmsCaptcha' ) && $xoopsModuleConfig['captcha'] == 1 ) { 
-			$sform -> addElement( new IcmsFormCaptcha() ); 
+		if ( $xoopsModuleConfig['captcha'] ) {
+			// Captcha Hack
+			if ( class_exists( 'XoopsFormCaptcha' ) ) { 
+				$sform -> addElement( new XoopsFormCaptcha() ); 
+			} elseif ( class_exists( 'IcmsFormCaptcha' ) ) { 
+				$sform -> addElement( new IcmsFormCaptcha() ); 
+			}
+			// Captcha Hack 
 		}
-		// Captcha Hack
 		
         $button_tray = new XoopsFormElementTray( '', '' );
         $button_tray -> addElement( new XoopsFormButton( '', 'submit', _SUBMIT, 'submit' ) );
