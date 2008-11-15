@@ -643,40 +643,40 @@ function iml_uploading( $_FILES, $uploaddir = 'uploads', $allowed_mimetypes = ''
 function iml_getforum( $forumid ) {
     global $xoopsDB, $xoopsConfig;
 
-    echo "<select name='forumid'>";
-    echo "<option value='0'>----------------------</option>";
+    echo '<select name="forumid">';
+    echo '<option value="0">----------------------</option>';
 	if ($forumid < 4) {
-		$result = $xoopsDB -> query( "SELECT forum_name, forum_id FROM " . $xoopsDB -> prefix( "bb_forums" ) . " ORDER BY forum_id" );
+		$result = $xoopsDB -> query( 'SELECT forum_name, forum_id FROM ' . $xoopsDB -> prefix( 'bb_forums' ) . ' ORDER BY forum_id' );
 	} else {
-		$result = $xoopsDB -> query( "SELECT forum_name, forum_id FROM " . $xoopsDB -> prefix( "bbex_forums" ) . " ORDER BY forum_id" );
+		$result = $xoopsDB -> query( 'SELECT forum_name, forum_id FROM ' . $xoopsDB -> prefix( 'bbex_forums' ) . ' ORDER BY forum_id' );
 	}	
     while ( list( $forum_name, $forum_id ) = $xoopsDB -> fetchRow( $result ) ) {
         if ( $forum_id == $forumid ) {
-            $opt_selected = "selected='selected'";
+            $opt_selected = 'selected="selected"';
         } else {
-            $opt_selected = "";
+            $opt_selected = '';
         } 
-        echo "<option value='" . $forum_id . "' $opt_selected>" . $forum_name . "</option>";
+        echo '<option value="' . $forum_id . '" $opt_selected>' . $forum_name . '</option>';
     } 
-    echo "</select></div>";
+    echo '</select></div>';
     return $forumid;
 } 
 
 function iml_linklistheader( $heading ) {
-    echo "
-		<h4 style='font-weight: bold; color: #0A3760;'>" . $heading . "</h4>\n
-		<table width='100%' cellspacing='1' class='outer' style='font-size: smaller;' summary>\n
-		<tr>\n
-		<th style='text-align: center;'>" . _AM_IMLINKS_MINDEX_ID . "</th>\n
-		<th style='text-align: left;'><b>" . _AM_IMLINKS_MINDEX_TITLE . "</th>\n
-		<th style='text-align: left;'><b>" . _AM_IMLINKS_CATTITLE . "</th>\n
-		<th style='text-align: center;'>" . _AM_IMLINKS_MINDEX_POSTER . "</th>\n
-		<th style='text-align: center;'>" . _AM_IMLINKS_MINDEX_PUBLISH . "</th>\n
-		<th style='text-align: center;'>" . _AM_IMLINKS_MINDEX_EXPIRE . "</th>\n
-		<th style='text-align: center;'>" . _AM_IMLINKS_MINDEX_ONLINE . "</th>\n
-		<th style='text-align: center;'>" . _AM_IMLINKS_MINDEX_ACTION . "</th>\n
-		</tr>\n
-		";
+    echo '
+		<h4 style="font-weight: bold; color: #0A3760;">' . $heading . '</h4>
+		<table width="100%" cellspacing="1" class="outer" style="font-size: smaller;" summary>
+		  <tr>
+		    <th style="text-align: center;">' . _AM_IMLINKS_MINDEX_ID . '</th>
+		    <th style="text-align: left;"><b>' . _AM_IMLINKS_MINDEX_TITLE . '</th>
+		    <th style="text-align: left;"><b>' . _AM_IMLINKS_CATTITLE . '</th>
+		    <th style="text-align: center;">' . _AM_IMLINKS_MINDEX_POSTER . '</th>
+		    <th style="text-align: center;">' . _AM_IMLINKS_MINDEX_PUBLISH . '</th>
+		    <th style="text-align: center;">' . _AM_IMLINKS_MINDEX_EXPIRE . '</th>
+		    <th style="text-align: center;">' . _AM_IMLINKS_MINDEX_ONLINE . '</th>
+		    <th style="text-align: center;">' . _AM_IMLINKS_MINDEX_ACTION . '</th>
+		  </tr>
+		';
 } 
 
 function iml_linklistbody( $published ) {
@@ -687,17 +687,13 @@ function iml_linklistbody( $published ) {
     
     $title = '<a href="../singlelink.php?cid=' . $published['cid'] . '&amp;lid=' . $published['lid'] . '">' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
     $maintitle = urlencode( $immyts -> htmlSpecialChars( trim( $published['title'] ) ) );
-    $cattitle = iml_cattitle( $published['cid'] );
+    $cattitle = '<a href="../viewcat.php?cid=' . $published['cid'] . '">' . iml_cattitle( $published['cid'] ) . '</a>';
     $submitter = icms_getLinkedUnameFromId( $published['submitter'] );
     $hwhoisurl = str_replace( 'http://', '', $published['url']);
     $submitted = formatTimestamp( $published['date'], $xoopsModuleConfig['dateformat'] );
+
     $publish = ( $published['published'] > 0 ) ? formatTimestamp( $published['published'], $xoopsModuleConfig['dateformatadmin'] ): 'Not Published';
     $expires = $published['expired'] ? formatTimestamp( $published['expired'], $xoopsModuleConfig['dateformatadmin'] ): _AM_IMLINKS_MINDEX_NOTSET;
-//    if ( ( $published['published'] && $published['published'] < time() ) && $published['offline'] == 0 ) {
-//        $published_status = $imagearray['online'];
-//    } else {
-//        $published_status = ( $published['published'] == 0 ) ? "<a href='newlinks.php'>" . $imagearray['offline'] . "</a>" : $imagearray['offline'];
-//    }
     if ( ( ( $published['expired'] && $published['expired'] > time() ) OR  $published['expired']==0)&& ( $published['published'] && $published['published'] < time() ) && $published['offline'] == 0 ) {
         $published_status = $imagearray['online'];
     } elseif ( ( $published['expired'] && $published['expired'] < time() )  && $published['offline'] == 0 ) {
@@ -705,24 +701,25 @@ function iml_linklistbody( $published ) {
     } else {
         $published_status = ( $published['published'] == 0 ) ? "<a href='newlinks.php'>" . $imagearray['offline'] . "</a>" : $imagearray['offline'];
     }
+	
     $icon = '<a href="index.php?op=edit&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_EDIT . '">' . $imagearray['editimg'] . '</a>&nbsp;';
     $icon .= '<a href="index.php?op=delete&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_DELETE . '">' . $imagearray['deleteimg'] . '</a>&nbsp;';
 	$icon .= '<a href="index.php?op=clone&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_CLONE . '">' . $imagearray['clone'] . '</a>&nbsp;';
     $icon .= '<a href="altcat.php?op=main&amp;cid="' . $cid . '&amp;lid=' . $lid . '&amp;title=' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '" title="' . _AM_IMLINKS_ALTCAT_CREATEF . '">' . $imagearray['altcat'] . '</a>&nbsp;';
     $icon .= '<a href="http://whois.domaintools.com/' . $hwhoisurl . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" align="absmiddle"/></a>';
 
-    echo "
-		<tr style='text-align: center;'>\n
-		<td class='head'><small>" . $lid . "</small></td>\n
-		<td class='even' style='text-align: left;'><small>" . $title . "</small></td>\n
-		<td class='even' style='text-align: left;'><small>" . $cattitle . "</small></td>\n
-		<td class='even'><small>" . $submitter . "</small></td>\n
-		<td class='even'><small>" . $publish . "</small></td>\n
-		<td class='even'><small>" . $expires . "</small></td>\n
-		<td class='even' width='4%'>" . $published_status . "</td>\n
-		<td class='even' style='text-align: center; width: 6%; white-space: nowrap;'>$icon</td>\n
-		</tr>\n
-		";
+    echo '
+		<tr style="text-align: center;">
+		<td class="head"><small>' . $lid . '</small></td>
+		<td class="even" style="text-align: left;"><small>' . $title . '</small></td>
+		<td class="even" style="text-align: left;"><small>' . $cattitle . '</small></td>
+		<td class="even"><small>' . $submitter . '</small></td>
+		<td class="even"><small>' . $publish . '</small></td>
+		<td class="even"><small>' . $expires . '</small></td>
+		<td class="even">' . $published_status . '</td>
+		<td class="even" style="text-align: center; width: 6%; white-space: nowrap;">' . $icon . '</td>
+		</tr>
+		';
     unset( $published );
 } 
 
@@ -735,12 +732,12 @@ function iml_cattitle($catt) {
 }
 
 function iml_linklistfooter() {
-    echo "<tr style='text-align: center;'>\n<td class='head' colspan='7'>" . _AM_IMLINKS_MINDEX_NOLINKSFOUND . "</td>\n</tr>\n";
+    echo '<tr style="text-align: center;"><td class="head" colspan="7">' . _AM_IMLINKS_MINDEX_NOLINKSFOUND . '</td></tr>';
 } 
 
 function iml_linklistpagenav( $pubrowamount, $start, $art = "art", $_this = '' ) {
     global $xoopsModuleConfig;
-    echo "</table>\n";
+    echo '</table>';
     if ( ( $pubrowamount < $xoopsModuleConfig['admin_perpage'] ) ) {
         return false;
     } 
@@ -759,13 +756,13 @@ function iml_linklistpagenavleft( $pubrowamount, $start, $art = 'art', $_this = 
     }
     // Display Page Nav if published is > total display pages amount.
     include_once ICMS_ROOT_PATH . '/class/pagenav.php';
-//    $page = ( $pubrowamount > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMLINKS_MINDEX_PAGE : '';
     $pagenav = new XoopsPageNav( $pubrowamount, $xoopsModuleConfig['admin_perpage'], $start, 'st' . $art, $_this );
     echo '<div align="left" style="padding: 8px;">' . $pagenav -> renderNav() . '</div>';
 }
 
  // Retreive an editor according to the module's option "form_options"
 function iml_getWysiwygForm( $caption, $name, $value ) {
+	
 	global $xoopsModuleConfig, $xoopsUser, $xoopsModule;
 
 	$editor = false;
@@ -1253,45 +1250,45 @@ function iml_news_module_included() {
   return $iml_news_module_included;
 }
 
-function iml_getbanner_from_id_banner($banner_id) {
+function iml_getbanner_from_id_banner( $banner_id ) {
 ###### Hack by www.stefanosilvestrini.com ######
 global $xoopsConfig;
 $db =& Database::getInstance();
-$bresult = $db -> query("SELECT COUNT(*) FROM " . $db -> prefix('banner') . " WHERE bid=" . $banner_id);
-list ($numrows) = $db -> fetchRow($bresult);
+$bresult = $db -> query( 'SELECT COUNT(*) FROM ' . $db -> prefix( 'banner' ) . ' WHERE bid=' . $banner_id );
+list ( $numrows ) = $db -> fetchRow( $bresult );
 if ( $numrows > 1 ) {
     $numrows = $numrows - 1;
-    mt_srand((double)microtime() * 1000000);
-    $bannum = mt_rand(0, $numrows);
-  } else {
+    mt_srand( ( double )microtime() * 1000000 );
+    $bannum = mt_rand( 0, $numrows );
+} else {
     $bannum = 0;
 }
 if ( $numrows > 0 ) {
-  $bresult = $db -> query("SELECT * FROM " . $db -> prefix('banner'). " WHERE bid=" . $banner_id, 1, $bannum);
-  list ($bid, $cid, $imptotal, $impmade, $clicks, $imageurl, $clickurl, $date, $htmlbanner, $htmlcode) = $db -> fetchRow($bresult);
-  if ($xoopsConfig['my_ip'] == xoops_getenv('REMOTE_ADDR')) {
+  $bresult = $db -> query( 'SELECT * FROM ' . $db -> prefix( 'banner' ). ' WHERE bid=' . $banner_id, 1, $bannum );
+  list ( $bid, $cid, $imptotal, $impmade, $clicks, $imageurl, $clickurl, $date, $htmlbanner, $htmlcode ) = $db -> fetchRow( $bresult );
+  if ($xoopsConfig['my_ip'] == xoops_getenv( 'REMOTE_ADDR' ) ) {
     // EMPTY
     } else {
-      $db -> queryF(sprintf("UPDATE %s SET impmade = impmade+1 WHERE bid = %u", $db -> prefix('banner'), $bid));
+      $db -> queryF( sprintf( 'UPDATE %s SET impmade = impmade+1 WHERE bid = %u', $db -> prefix( 'banner' ), $bid ) );
   }
   /* Check if this impression is the last one and print the banner */
   if ( $imptotal == $impmade ) {
-    $newid = $db -> genId($db -> prefix("bannerfinish") . "_bid_seq");
-    $sql = sprintf("INSERT INTO %s (bid, cid, impressions, clicks, datestart, dateend) VALUES (%u, %u, %u, %u, %u, %u)", $db -> prefix('bannerfinish'), $newid, $cid, $impmade, $clicks, $date, time());
-    $db -> queryF($sql);
-    $db -> queryF(sprintf("DELETE FROM %s WHERE bid = %u", $db -> prefix('banner'), $bid));
+    $newid = $db -> genId( $db -> prefix( 'bannerfinish' ) . '_bid_seq' );
+    $sql = sprintf( 'INSERT INTO %s (bid, cid, impressions, clicks, datestart, dateend) VALUES (%u, %u, %u, %u, %u, %u)', $db -> prefix( 'bannerfinish' ), $newid, $cid, $impmade, $clicks, $date, time() );
+    $db -> queryF( $sql );
+    $db -> queryF( sprintf( 'DELETE FROM %s WHERE bid = %u', $db -> prefix( 'banner' ), $bid ) );
   }
-  if ($htmlbanner) {
+  if ( $htmlbanner ) {
     $bannerobject = $htmlcode;
     } else {
       $bannerobject = '<div align="center"><a href="' . ICMS_URL . '/banners.php?op=click&bid=' . $bid . '" target="_blank">';
-      if (stristr($imageurl, '.swf')) {
+      if ( stristr( $imageurl, '.swf' ) ) {
         $bannerobject = $bannerobject
-        .'<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="468" height="60">'
-        .'<param name="movie" value="' . $imageurl . '"></param>'
-        .'<param name="quality" value="high"></param>'
-        .'<embed src="' . $imageurl . '" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="468" height="60">'
-        .'</embed>'
+        . '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="468" height="60">'
+        . '<param name="movie" value="' . $imageurl . '"></param>'
+        . '<param name="quality" value="high"></param>'
+        . '<embed src="' . $imageurl . '" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="468" height="60">'
+        . '</embed>'
         .'</object>';
         } else {
           $bannerobject = $bannerobject . '<img src="' . $imageurl . '" alt="" />';
@@ -1302,46 +1299,46 @@ if ( $numrows > 0 ) {
   }
 }
 
-function iml_getbanner_from_id_client($client_id) {
+function iml_getbanner_from_id_client( $client_id ) {
 ###### Hack by www.stefanosilvestrini.com ######
 global $xoopsConfig;
 $db =& Database::getInstance();
-$bresult = $db -> query("SELECT COUNT(*) FROM " . $db -> prefix('banner') . " WHERE cid=" . $client_id);
-list ($numrows) = $db -> fetchRow($bresult);
+$bresult = $db -> query( 'SELECT COUNT(*) FROM ' . $db -> prefix('banner') . ' WHERE cid=' . $client_id );
+list ( $numrows ) = $db -> fetchRow( $bresult );
 if ( $numrows > 1 ) {
   $numrows = $numrows - 1;
-  mt_srand((double)microtime() * 1000000);
-  $bannum = mt_rand(0, $numrows);
+  mt_srand( ( double )microtime() * 1000000 );
+  $bannum = mt_rand( 0, $numrows );
 } else {
   $bannum = 0;
 }
 if ( $numrows > 0 ) {
-$bresult = $db -> query("SELECT * FROM " . $db -> prefix('banner') . " WHERE cid=" . $client_id . " ORDER BY rand()", 1, $bannum);
-list ($bid, $cid, $imptotal, $impmade, $clicks, $imageurl, $clickurl, $date, $htmlbanner, $htmlcode) = $db -> fetchRow($bresult);
+$bresult = $db -> query( 'SELECT * FROM ' . $db -> prefix( 'banner' ) . ' WHERE cid=' . $client_id . ' ORDER BY rand()', 1, $bannum );
+list ( $bid, $cid, $imptotal, $impmade, $clicks, $imageurl, $clickurl, $date, $htmlbanner, $htmlcode ) = $db -> fetchRow( $bresult );
 if ($xoopsConfig['my_ip'] == xoops_getenv('REMOTE_ADDR')) {
   // EMPTY
   } else {
-    $db -> queryF(sprintf("UPDATE %s SET impmade = impmade+1 WHERE bid = %u", $db -> prefix('banner'), $bid));
+    $db -> queryF( sprintf( 'UPDATE %s SET impmade = impmade+1 WHERE bid = %u', $db -> prefix( 'banner' ), $bid ) );
 }
 /* Check if this impression is the last one and print the banner */
 if ( $imptotal == $impmade ) {
-  $newid = $db -> genId($db -> prefix('bannerfinish') . "_bid_seq");
-  $sql = sprintf("INSERT INTO %s (bid, cid, impressions, clicks, datestart, dateend) VALUES (%u, %u, %u, %u, %u, %u)", $db -> prefix('bannerfinish'), $newid, $cid, $impmade, $clicks, $date, time());
-  $db -> queryF($sql);
-  $db -> queryF(sprintf("DELETE FROM %s WHERE bid = %u", $db -> prefix('banner'), $bid));
+  $newid = $db -> genId( $db -> prefix( 'bannerfinish' ) . '_bid_seq' );
+  $sql = sprintf( 'INSERT INTO %s (bid, cid, impressions, clicks, datestart, dateend) VALUES (%u, %u, %u, %u, %u, %u)', $db -> prefix( 'bannerfinish' ), $newid, $cid, $impmade, $clicks, $date, time() );
+  $db -> queryF( $sql );
+  $db -> queryF( sprintf( 'DELETE FROM %s WHERE bid = %u', $db -> prefix( 'banner' ), $bid ) );
 }
-if ($htmlbanner) {
+if ( $htmlbanner ) {
   $bannerobject = $htmlcode;
   } else {
     $bannerobject = '<div align="center"><a href="' . ICMS_URL . '/banners.php?op=click&bid=' . $bid . '" target="_blank">';
-    if (stristr($imageurl, '.swf')) {
+    if ( stristr( $imageurl, '.swf' ) ) {
       $bannerobject = $bannerobject
-      .'<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="468" height="60">'
-      .'<param name="movie" value="' . $imageurl . '"></param>'
-      .'<param name="quality" value="high"></param>'
-      .'<embed src="' . $imageurl . '" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="468" height="60">'
-      .'</embed>'
-      .'</object>';
+      . '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="468" height="60">'
+      . '<param name="movie" value="' . $imageurl . '"></param>'
+      . '<param name="quality" value="high"></param>'
+      . '<embed src="' . $imageurl . '" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="468" height="60">'
+      . '</embed>'
+      . '</object>';
       } else {
         $bannerobject = $bannerobject . '<img src="' . $imageurl . '" alt="" />';
     }
