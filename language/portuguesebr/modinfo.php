@@ -292,7 +292,7 @@ define("_MI_IMLINKS_MOZSHOT_CREDITS", "Auto Screenshot por");
 define("_MI_IMLINKS_MOZSHOT_CREDITSTXT", '<a href="http://mozshot.nemui.org" target=_blank>MozShot</a> (todos os códigos fontes estão a sua disposição no <a href="http://www.ruby-lang.org/pt/" target=_blank>Ruby site Pt</a> licença)');
 
 // Version 1.06 RC-1
-define("_MI_IMLINKS_BNAME4","Tag Cloud");
+define("_MI_IMLINKS_BNAME4","Tags");
 define("_MI_IMLINKS_BNAME5","Melhores Tags");
 
 // Version 1.06 RC-3
@@ -326,4 +326,5 @@ define( '_MI_IMLINKS_CATCOLS', 'Número de colunas da categoria:' );
 define( '_MI_IMLINKS_CATCOLSDSC', 'Escolha o número de colunas para a página da categoria principal.<br />Padrão: <em>2</em>' );
 define( '_MI_IMLINKS_FEEDSLOGO', 'Logo para mostrar com o RSS feed:' );
 define( '_MI_IMLINKS_FEEDSLOGODSC', 'Digite o url para o logotipo que será mostrado com o RSS feed.' );
+
 ?>
