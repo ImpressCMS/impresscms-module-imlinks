@@ -20,7 +20,7 @@
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.07
+* @since			1.00
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
@@ -194,8 +194,8 @@ define( "_MD_IMLINKS_ADMINSECTION", "Administração" );
 define( "_MD_IMLINKS_ADDTO", "Adicionar: " );
 define( "_MD_IMLINKS_INFORMATION", "Informação" );
 define( "_MD_IMLINKS_ADDRESS", "Endereço:" );
-define( "_MD_IMLINKS_LINK_GOOGLEMAP", "Google Maps" );
-define( "_MD_IMLINKS_LINK_YAHOOMAP", "Yahoo Maps" );
+define( "_MD_IMLINKS_LINK_GOOGLEMAP", "Mapas Google" );
+define( "_MD_IMLINKS_LINK_YAHOOMAP", "Mapas Yahoo" );
 define( "_MD_IMLINKS_LINK_MSLIVEMAP", "MS Live Maps" );
 define( "_MD_IMLINKS_LINK_CHECKMAP", "Verificar mapa" );
 define( "_MD_IMLINKS_STREET1", "Rua 1" );
@@ -233,12 +233,12 @@ define( '_MD_IMLINKS_LINKURLDSC', 'Clique no ícone para abrir uma nova aba ou j
 define( '_MD_IMLINKS_STREETTWODSC', 'Este campo é opcional. Se o campo for deixado em branco, não será usado.' );
 define( '_MD_IMLINKS_STATEDSC', 'Digite país, distrito, cidade, estado, etc. Se o campo for deixado em branco, não será usado.' );
 define( '_MD_IMLINKS_EMAILDSC', 'Digite endereço de e-mail como:<br />- name@domain.com<br />- mailto:name@domain.com' );
-define( '_MD_IMLINKS_NEW', 'New!' );
-define( '_MD_IMLINKS_UPDATED', 'Updated!' );
+define( '_MD_IMLINKS_NEW', 'Novo!' );
+define( '_MD_IMLINKS_UPDATED', 'Atualizado!' );
 define( '_MD_IMLINKS_POPULAR2', 'Popular!' );
 define( '_MD_IMLINKS_TEXTOPTIONS', 'Opções de texto:' );
 define( '_AM_IMLINKS_DISABLEBREAK', ' Converter \'quebra de linha\'?' );
-define( '_MD_IMLINKS_CLONE', 'Clone' );
-define( '_MD_IMLINKS_TOPRATEDBUTT', 'Top Rated' );
+define( '_MD_IMLINKS_CLONE', 'Clonar' );
+define( '_MD_IMLINKS_TOPRATEDBUTT', 'Mais votados' );
 
 ?>

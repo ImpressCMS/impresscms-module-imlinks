@@ -20,7 +20,7 @@
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.07
+* @since			1.00
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
@@ -479,8 +479,8 @@ define( "_AM_IMLINKS_ERROR_CATISCAT", "Não é possível definir uma categoria c
 define( "_AM_IMLINKS_MOD_COUNTRY", "País:" );
 define( "_AM_IMLINKS_MOD_KEYWORDS", "Palavras-chave:" );
 define( "_AM_IMLINKS_MOD_ITEM_TAG", "Tags:" );
-define( "_AM_IMLINKS_MOD_GOOGLEMAP", "Google Maps:" );
-define( "_AM_IMLINKS_MOD_YAHOOMAP", "Yahoo Maps:" );
+define( "_AM_IMLINKS_MOD_GOOGLEMAP", "Mapas Google:" );
+define( "_AM_IMLINKS_MOD_YAHOOMAP", "Mapas Yahoo:" );
 define( "_AM_IMLINKS_MOD_MULTIMAP", "Multimap:" );
 define( "_AM_IMLINKS_MOD_STREET1", "End 1:" );
 define( "_AM_IMLINKS_MOD_STREET2", "End 2 (opcional):" );
@@ -514,7 +514,7 @@ define( '_AM_IMLINKS_LINKURLDSC', 'Clique no ícone para abrir uma nova url em u
 define( '_AM_IMLINKS_STREETTWODSC', 'Este campo é opcional. Se o campo for deixado em branco, não será usado.' );
 define( '_AM_IMLINKS_STATEDSC', 'Digite país, distrito, cidade, estado, etc. Se o campo for deixado em branco, não será usado.' );
 define( '_AM_IMLINKS_EMAILDSC', 'Digite endereço de e-mail como:<br />- name@domain.com<br />- mailto:name@domain.com' );
-define( '_AM_IMLINKS_CLONE', '**CLONE**' );
-define( '_AM_IMLINKS_CLONELINK', 'Clone Link' );
-define( '_AM_IMLINKS_ICO_CLONE', 'Clone this item' );
+define( '_AM_IMLINKS_CLONE', '**CLONAR**' );
+define( '_AM_IMLINKS_CLONELINK', 'Clonar Link' );
+define( '_AM_IMLINKS_ICO_CLONE', 'Clonar este item' );
 ?>
