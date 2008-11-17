@@ -183,7 +183,7 @@ if ( $selectdate ) {
 
 } else {
 
-    $sql = 'SELECT a.* FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+    $sql = 'SELECT DISTINCT a.* FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
      . $xoopsDB -> prefix( 'imlinks_altcat' ) . ' b'
      . ' ON b.lid=a.lid'
      . ' WHERE a.published > 0 AND a.published <= ' . time()
