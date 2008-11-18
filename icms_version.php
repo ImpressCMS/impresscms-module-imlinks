@@ -93,6 +93,7 @@ $modversion['tables'][3] = 'imlinks_mod';
 $modversion['tables'][4] = 'imlinks_votedata';
 $modversion['tables'][5] = 'imlinks_indexpage';
 $modversion['tables'][6] = 'imlinks_altcat';
+$modversion['tables'][7] = 'imlinks_configs';
 
 // Launch additional install script
 $modversion['onInstall'] = '';
