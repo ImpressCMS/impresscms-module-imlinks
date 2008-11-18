@@ -1,4 +1,20 @@
 <?php
+/**
+* imLinks - a multicategory links management module for ImpressCMS
+*
+* Based upon WF-Link 1.06
+*
+* File: admin/feed.php
+*
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		imLinks
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 include 'admin_header.php';
 
@@ -21,12 +37,12 @@ function rss_edit() {
 		
 	$rssactive   = $feed_array['rssactive'];
 	$rsstitle    = $feed_array['rsstitle'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsstitle'] ) : $xoopsConfig['sitename'];
-	$rsslink     = $feed_array['rsslink'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsslink'] ) : 'http://';
+	$rsslink     = $feed_array['rsslink'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsslink'] ) : ICMS_URL;
 	$rssdsc      = $feed_array['rssdsc'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssdsc'] ) : $xoopsConfig['slogan'];
 	$rssimgurl   = $feed_array['rssimgurl'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssimgurl'] ) : ICMS_URL .'/modules/' . $mydirname . '/images/imlinks_iconbig.png';
 	$rsswidth    = $feed_array['rsswidth'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsswidth'] ) : '32';
 	$rssheight   = $feed_array['rssheight'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssheight'] ) : '32';
-	$rssimgtitle = $feed_array['rssimgtitle'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssimgtitle'] ) : '';
+	$rssimgtitle = $feed_array['rssimgtitle'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssimgtitle'] ) : $modulename;
 	$rssimglink  = $feed_array['rssimglink'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssimglink'] ) : ICMS_URL;
 	$rssttl      = $feed_array['rssttl'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssttl'] ) : '60';
 	$rsswebmaster= $feed_array['rsswebmaster'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsswebmaster'] ) : $webmaster;
@@ -134,7 +150,7 @@ switch ( strtolower( $op ) ) {
 		$rsstitle    = $immyts -> addslashes( trim( $_POST['rsstitle'] ) );
 		$rsslink     = ( $_POST['rsslink'] != 'http://' ) ? $immyts -> addslashes( $_POST['rsslink'] ) : '';
 		$rssdsc      = $immyts -> addslashes( trim( $_POST['rssdsc'] ) );
-		$rssimgurl   = $title = $immyts -> addslashes( trim( $_POST['rssimgurl'] ) );
+		$rssimgurl   = $immyts -> addslashes( trim( $_POST['rssimgurl'] ) );
 		$rsswidth    = $immyts -> addslashes( trim( $_POST['rsswidth'] ) );
 		$rssheight   = $immyts -> addslashes( trim( $_POST['rssheight'] ) );
 		$rssimgtitle = $immyts -> addslashes( trim( $_POST['rssimgtitle'] ) );
