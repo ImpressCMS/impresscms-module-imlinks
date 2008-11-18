@@ -65,6 +65,11 @@ $adminmenu[7]['link']	= 'admin/votedata.php';
 $adminmenu[7]['icon']	= 'images/icon/votes.png';
 $adminmenu[7]['small']	= 'images/icon/votes_small.png';
 
+$adminmenu[8]['title'] 	= 'RSS Feed';
+$adminmenu[8]['link']	= 'admin/feed.php?op=edit';
+$adminmenu[8]['icon']	= 'images/icon/votes.png';
+$adminmenu[8]['small']	= 'images/icon/votes_small.png';
+
 //$adminmenu[9]['title'] 	= _MI_IMLINKS_MCOMMENTS;
 //$adminmenu[9]['link']	= '../../modules/system/admin.php?module=' . $xoopsModule -> getVar( 'mid' ) . '&status=0&limit=100&fct=comments&selsubmit=Go';
                                  
