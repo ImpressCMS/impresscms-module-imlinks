@@ -194,7 +194,10 @@ if ( $lastlinks['lastlinksyn'] == 1 && $lastlinks['lastlinkstotal'] > 0 ) {
    
 }
 
-if ( $xoopsModuleConfig['rssfeed'] ) {
+$sql = 'SELECT rssactive FROM ' . $xoopsDB -> prefix( 'imlinks_configs' );
+list( $rssactive ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql ) );
+
+if ( $rssactive == 1 ) {
 	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="' . _MD_IMLINKS_FEED . '" title="' . _MD_IMLINKS_FEED . '" /></a>' );
 	$xoopsTpl -> assign( 'xoops_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MD_IMLINKS_FEED . '" href="feed.php">' ); 
 }
