@@ -524,4 +524,32 @@ define( '_AM_IMLINKS_RSSLINKS', 'RSS feed link' );
 define( '_AM_IMLINKS_RSSLINKSDSC', 'The URL to the website corresponding to the channel.' );
 define( '_AM_IMLINKS_RSSDESCRIPTION', 'RSS feed description' );
 define( '_AM_IMLINKS_RSSDESCRIPTIONDSC', 'Phrase or sentence describing the channel.' );
+define( '_AM_IMLINKS_RSSIMAGE', 'RSS feed image' );
+define( '_AM_IMLINKS_RSSIMAGEDSC', 'Specifies a GIF, JPEG or PNG image that can be displayed with the channel.' );
+define( '_AM_IMLINKS_RSSWIDTH', 'RSS feed image width' );
+define( '_AM_IMLINKS_RSSWIDTHDSC', 'Indicates the width of the image in pixels.<br />Maximum value for width is 144.' );
+define( '_AM_IMLINKS_RSSHEIGHT', 'RSS feed image height' );
+define( '_AM_IMLINKS_RSSHEIGHTDSC', 'Indicates the height of the image in pixels.<br />Maximum value for height is 400.' );
+define( '_AM_IMLINKS_RSSIMGTITLE', 'RSS feed image title' );
+define( '_AM_IMLINKS_RSSIMGTITLEDSC', 'Describes the image, it\'s used in the ALT attribute of the HTML &#60;img&#62; tag when the channel is rendered in HTML.' );
+define( '_AM_IMLINKS_RSSIMGLINK', 'RSS feed image link' );
+define( '_AM_IMLINKS_RSSIMGLINKDSC', 'This is the URL of the site, when the channel is rendered, the image is a link to the site. (Note, in practice the image &#60;title&#62; and &#60;link&#62; should have the same value as the channel\'s &#60;title&#62; and &#60;link&#62;.' );
+define( '_AM_IMLINKS_RSSTTL', 'RSS feed ttl' );
+define( '_AM_IMLINKS_RSSTTLDSC', 'ttl stands for time to live. It\'s a number of minutes that indicates how long a channel can be cached before refreshing from the source.' );
+define( '_AM_IMLINKS_RSSWEBMASTER', 'RSS feed webmaster' );
+define( '_AM_IMLINKS_RSSWEBMASTERDSC', 'Email address for person responsible for technical issues relating to channel.' );
+define( '_AM_IMLINKS_RSSEDITOR', 'RSS feed channel editor' );
+define( '_AM_IMLINKS_RSSEDITORDSC', 'Email address for person responsible for editorial content.' );
+define( '_AM_IMLINKS_RSSCATEGORY', 'RSS feed category' );
+define( '_AM_IMLINKS_RSSCATEGORYDSC', 'Specify one or more categories that the channel belongs to. Follows the same rules as the <item>-level category element.' );
+define( '_AM_IMLINKS_RSSGENERATOR', 'RSS feed generator' );
+define( '_AM_IMLINKS_RSSGENERATORDSC', 'String indicating the program used to generate the channel.' );
+define( '_AM_IMLINKS_RSSCOPYRIGHT', 'RSS feed copyright' );
+define( '_AM_IMLINKS_RSSCOPYRIGHTDSC', 'Copyright notice for content in the channel.' );
+define( '_AM_IMLINKS_RSSTOTAL', 'RSS feed total links' );
+define( '_AM_IMLINKS_RSSTOTALDSC', 'Give the total number of links to display in RSS feed.' );
+define( '_AM_IMLINKS_RSSDBUPDATED', 'Database has been updated successfully' );
+define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' );
 ?>
+	
+	
