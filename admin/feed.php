@@ -32,8 +32,8 @@ function rss_edit() {
 	
 	$webmaster  = $xoopsConfig['adminmail'] . ' (' . $xoopsModule -> getVar( 'name' ) . ') ';
 	$modulename = $xoopsModule -> getVar( 'name' );
-	$generator  = XOOPS_VERSION . ' (module: ' . $modulename . ')';
-	$copyright  = 'Copyright ' . formatTimestamp( time(), 'Y' ) . ' - ' . $xoopsConfig['sitename'];
+	$generator  = XOOPS_VERSION . ' (module: ' . $modulename . ' ' . $xoopsModule -> getVar( 'version' )/100 . ' ' . ')';
+	$copyright  = _AM_IMLINKS_COPYRIGHT . ' ' . formatTimestamp( time(), 'Y' ) . ' - ' . $xoopsConfig['sitename'];
 		
 	$rssactive   = $feed_array['rssactive'];
 	$rsstitle    = $feed_array['rsstitle'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsstitle'] ) : $xoopsConfig['sitename'];
@@ -82,59 +82,59 @@ function rss_edit() {
 	$formdsc -> SetDescription( _AM_IMLINKS_RSSDESCRIPTIONDSC );
 	$sform -> addElement( $formdsc, false );
 	
-	$formimage = new XoopsFormText( 'RSS feed image', 'rssimgurl', 90, 255, $rssimgurl );
-	$formimage -> SetDescription( 'Specifies a GIF, JPEG or PNG image that can be displayed with the channel.' );
+	$formimage = new XoopsFormText( _AM_IMLINKS_RSSIMAGE, 'rssimgurl', 90, 255, $rssimgurl );
+	$formimage -> SetDescription( _AM_IMLINKS_RSSIMAGEDSC );
 	$sform -> addElement( $formimage, false );
 	
-	$formwidth = new XoopsFormText( 'RSS feed image width', 'rsswidth', 3, 8, $rsswidth );
-	$formwidth -> SetDescription( 'Indicates the width of the image in pixels.<br />Maximum value for width is 144.' );
+	$formwidth = new XoopsFormText( _AM_IMLINKS_RSSWIDTH, 'rsswidth', 3, 8, $rsswidth );
+	$formwidth -> SetDescription( _AM_IMLINKS_RSSWIDTHDSC );
 	$sform -> addElement( $formwidth, false );
 	
-	$formheight = new XoopsFormText( 'RSS feed image height', 'rssheight', 3, 8, $rssheight );
-	$formheight -> SetDescription( 'Indicates the height of the image in pixels.<br />Maximum value for height is 400.' );
+	$formheight = new XoopsFormText( _AM_IMLINKS_RSSHEIGHT, 'rssheight', 3, 8, $rssheight );
+	$formheight -> SetDescription( _AM_IMLINKS_RSSHEIGHTDSC );
 	$sform -> addElement( $formheight, false );
 	
-	$formimgtitle = new XoopsFormText( 'RSS feed image title', 'rssimgtitle', 90, 128, $rssimgtitle );
-	$formimgtitle -> SetDescription( 'Describes the image, it\'s used in the ALT attribute of the HTML &#60;img&#62; tag when the channel is rendered in HTML.' );
+	$formimgtitle = new XoopsFormText( _AM_IMLINKS_RSSIMGTITLE, 'rssimgtitle', 90, 128, $rssimgtitle );
+	$formimgtitle -> SetDescription( _AM_IMLINKS_RSSIMGTITLEDSC );
 	$sform -> addElement( $formimgtitle, false );
 	
-	$formimglink = new XoopsFormText( 'RSS feed image link', 'rssimglink', 90, 255, $rssimglink );
-	$formimglink -> SetDescription( 'This is the URL of the site, when the channel is rendered, the image is a link to the site. (Note, in practice the image &#60;title&#62; and &#60;link&#62; should have the same value as the channel\'s &#60;title&#62; and &#60;link&#62;.' );
+	$formimglink = new XoopsFormText( _AM_IMLINKS_RSSIMGLINK, 'rssimglink', 90, 255, $rssimglink );
+	$formimglink -> SetDescription( _AM_IMLINKS_RSSIMGLINKDSC );
 	$sform -> addElement( $formimglink, false );
 	
-	$formttl = new XoopsFormText( 'RSS feed ttl', 'rssttl', 3, 128, $rssttl );
-	$formttl -> SetDescription( 'ttl stands for time to live. It\'s a number of minutes that indicates how long a channel can be cached before refreshing from the source.' );
+	$formttl = new XoopsFormText( _AM_IMLINKS_RSSTTL, 'rssttl', 3, 128, $rssttl );
+	$formttl -> SetDescription( _AM_IMLINKS_RSSTTLDSC );
 	$sform -> addElement( $formttl, false );
 	
-	$formwebmaster = new XoopsFormText( 'RSS feed webMaster', 'rsswebmaster', 90, 255, $rsswebmaster );
-	$formwebmaster -> SetDescription( 'Email address for person responsible for technical issues relating to channel.' );
+	$formwebmaster = new XoopsFormText( _AM_IMLINKS_RSSWEBMASTER, 'rsswebmaster', 90, 255, $rsswebmaster );
+	$formwebmaster -> SetDescription( _AM_IMLINKS_RSSWEBMASTERDSC );
 	$sform -> addElement( $formwebmaster, false );
 	
-	$formeditor = new XoopsFormText( 'RSS feed channel editor', 'rsseditor', 90, 255, $rsseditor );
-	$formeditor -> SetDescription( 'Email address for person responsible for editorial content.' );
+	$formeditor = new XoopsFormText( _AM_IMLINKS_RSSEDITOR, 'rsseditor', 90, 255, $rsseditor );
+	$formeditor -> SetDescription( _AM_IMLINKS_RSSWEBMASTERDSC );
 	$sform -> addElement( $formeditor, false );
 	
-	$formcategory = new XoopsFormText( 'RSS feed category', 'rsscategory', 90, 128, $rsscategory );
-	$formcategory -> SetDescription( 'Specify one or more categories that the channel belongs to. Follows the same rules as the <item>-level category element.' );
+	$formcategory = new XoopsFormText( _AM_IMLINKS_RSSCATEGORY, 'rsscategory', 90, 128, $rsscategory );
+	$formcategory -> SetDescription( _AM_IMLINKS_RSSCATEGORYDSC );
 	$sform -> addElement( $formcategory, false );
 	
-	$formgenerator = new XoopsFormText( 'RSS feed generator', 'rssgenerator', 90, 128, $rssgenerator );
-	$formgenerator -> SetDescription( ' string indicating the program used to generate the channel.' );
+	$formgenerator = new XoopsFormText( _AM_IMLINKS_RSSGENERATOR, 'rssgenerator', 90, 128, $rssgenerator );
+	$formgenerator -> SetDescription( _AM_IMLINKS_RSSGENERATORDSC );
 	$sform -> addElement( $formgenerator, false );
 	
-	$formcopyright = new XoopsFormText( 'RSS feed copyright', 'rsscopyright', 90, 128, $rsscopyright );
-	$formcopyright -> SetDescription( 'Copyright notice for content in the channel.' );
+	$formcopyright = new XoopsFormText( _AM_IMLINKS_RSSCOPYRIGHT, 'rsscopyright', 90, 128, $rsscopyright );
+	$formcopyright -> SetDescription( _AM_IMLINKS_RSSCOPYRIGHTDSC );
 	$sform -> addElement( $formcopyright, false );
 	
-	$formtotal = new XoopsFormText( 'RSS feed total links', 'rsstotal', 3, 8, $rsstotal );
-	$formtotal -> SetDescription( 'Give the total number of links to display in RSS feed.' );
+	$formtotal = new XoopsFormText( _AM_IMLINKS_RSSTOTAL, 'rsstotal', 3, 8, $rsstotal );
+	$formtotal -> SetDescription( _AM_IMLINKS_RSSTOTALDSC );
 	$sform -> addElement( $formtotal, false );
 	
 	$button_tray = new XoopsFormElementTray( '', '' );
     $hidden = new XoopsFormHidden( 'op', 'save' );
     $button_tray -> addElement( $hidden );
 	
-	$butt_create = new XoopsFormButton( '', '', 'Save', 'submit' );
+	$butt_create = new XoopsFormButton( '', '', _SUBMIT, 'submit' );
     $butt_create -> setExtra( 'onclick="this.form.elements.op.value=\'saverss\'"' );
     $button_tray -> addElement( $butt_create );
 	$sform -> addElement( $button_tray );
@@ -174,7 +174,7 @@ switch ( strtolower( $op ) ) {
             if ( !$result ) {
                 trigger_error( $error, E_USER_ERROR );
             } 
-		redirect_header( 'index.php', 1, 'Database RSS Feed has been succesfully updated' );
+		redirect_header( 'index.php', 1, _AM_IMLINKS_RSSDBUPDATED );
         break;
 		
 }
