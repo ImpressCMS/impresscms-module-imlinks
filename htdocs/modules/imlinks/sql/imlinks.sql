@@ -220,12 +220,13 @@ CREATE TABLE imlinks_configs (
   rssheight TINYINT(8) NOT NULL DEFAULT '0',
   rssimgtitle VARCHAR(128) NOT NULL,
   rssimglink VARCHAR(255) NOT NULL,
-  rssttl TINYINT(8) NOT NULL DEFAULT '60',
+  rssttl TINYINT(8) NOT NULL DEFAULT '0',
   rsswebmaster VARCHAR(255) NOT NULL,
   rsseditor VARCHAR(255) NOT NULL,
   rsscategory VARCHAR(128) NOT NULL,
   rssgenerator VARCHAR(128) NOT NULL,
-  rsscopyright VARCHAR(128) NOT NULL
+  rsscopyright VARCHAR(128) NOT NULL,
+  rrstotal TINYINT(8) NOT NULL DEFAULT '0'
 ) TYPE=MYISAM;
 
-INSERT INTO imlinks_configs (rssactive,rsstitle,rsslink,rssdsc,rssimgurl,rsswidth,rssheight,rssimgtitle,rssimglink,rssttl,rsswebmaster,rsseditor,rsscategory,rssgenerator,rsscopyright) VALUES ('1', '', '', '', '', '', '', '', '', '60', '', '', '', '', '');
+INSERT INTO imlinks_configs (rssactive,rsstitle,rsslink,rssdsc,rssimgurl,rsswidth,rssheight,rssimgtitle,rssimglink,rssttl,rsswebmaster,rsseditor,rsscategory,rssgenerator,rsscopyright) VALUES ('1', '', '', '', '', '', '', '', '', '60', '', '', '', '', '', '15');

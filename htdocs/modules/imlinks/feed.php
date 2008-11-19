@@ -29,21 +29,21 @@ if ( $config_arr['rssactive'] == 1 ) {
 	
 $myFeed = new IcmsFeed();
 
-$myFeed -> webMaster 		= $config_arr['rsswebmaster'];
-$myFeed -> channelEditor 	= $config_arr['rsseditor'];
-$myFeed -> image 			= array( 'url' => $config_arr['rssimgurl'] );
-$myFeed -> width  			= $config_arr['rsswidth'];
-$myFeed -> height 			= $config_arr['rssheight'];
-$myFeed -> title 			= $config_arr['rsstitle'];
-$myFeed -> generator 		= $config_arr['rssgenerator'];
-$myFeed -> category 		= $config_arr['rsscategory'];
-$myFeed -> ttl 				= $config_arr['rssttl'];
-$myFeed -> copyright 		= $config_arr['rsscopyright'];
+$myFeed -> webMaster = $config_arr['rsswebmaster'];
+$myFeed -> channelEditor = $config_arr['rsseditor'];
+$myFeed -> image = array( 'url' => $config_arr['rssimgurl'] );
+$myFeed -> width = $config_arr['rsswidth'];
+$myFeed -> height = $config_arr['rssheight'];
+$myFeed -> title = $config_arr['rsstitle'];
+$myFeed -> generator = $config_arr['rssgenerator'];
+$myFeed -> category = $config_arr['rsscategory'];
+$myFeed -> ttl = $config_arr['rssttl'];
+$myFeed -> copyright = $config_arr['rsscopyright'];
 
 $sql2 = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) 
 							. ' WHERE published > 0 AND published <= ' . time()
 							. ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0'
-							. ' ORDER BY published DESC ', $xoopsModuleConfig['rssfeedtotal'], 0 );
+							. ' ORDER BY published DESC ', $config_arr['rsstotal'], 0 );
 
     while ( $myrow = $xoopsDB -> fetchArray( $sql2 ) ) {
 		

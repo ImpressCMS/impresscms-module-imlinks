@@ -50,35 +50,36 @@ function rss_edit() {
 	$rsscategory = $feed_array['rsscategory'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsscategory'] ) : $modulename;
 	$rssgenerator= $feed_array['rssgenerator'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssgenerator'] ) : $generator;
 	$rsscopyright= $feed_array['rsscopyright'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsscopyright'] ) : $copyright;
+	$rsstotal    = $feed_array['rsstotal'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsstotal'] ) : $copyright;
 		
 	xoops_cp_header();
-	iml_adminmenu( 8, 'RSS Feed' );
+	iml_adminmenu( 8, _AM_IMLINKS_RSSFEED );
 	
 	echo '
-			<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">RSS Feed</legend>
+			<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_RSSFEED . '</legend>
 			<div style="padding: 8px;">
-			Here you can configure the RSS feed for imLinks.<br />
-			For more information vist the <a href="http://www.rssboard.org/" target="_blank">RSS Advisory Board</a> website.
-			</div></fieldset><br />
+			' . _AM_IMLINKS_RSSFEEDDSC . '
+			</div>
+			</fieldset><br />
 		';
 	
-	$sform = new XoopsThemeForm( 'RSS Feed Configuration', 'storyform', xoops_getenv( 'PHP_SELF' ) );
+	$sform = new XoopsThemeForm( _AM_IMLINKS_RSSFEEDCFG, 'storyform', xoops_getenv( 'PHP_SELF' ) );
 	$sform -> setExtra( 'enctype="multipart / form - data"' );
 		
-	$rssstatus_radio = new XoopsFormRadioYN( 'RSS feed activated', 'rssactive', $rssactive, ' ' . _YES . '', ' ' . _NO . '' );
-	$rssstatus_radio -> SetDescription( 'Select <em>Yes</em> to turn RSS feed for imLinks on, select <em>No</em> to turn it off.' );
+	$rssstatus_radio = new XoopsFormRadioYN( _AM_IMLINKS_RSSACTIVE, 'rssactive', $rssactive, ' ' . _YES . '', ' ' . _NO . '' );
+	$rssstatus_radio -> SetDescription( _AM_IMLINKS_RSSACTIVEDSC );
 	$sform -> addElement( $rssstatus_radio );
 	
-	$formtitle = new XoopsFormText( 'RSS feed title', 'rsstitle', 90, 128, $rsstitle );
-	$formtitle -> SetDescription( 'The name of the channel. It\'s how people refer to your service. If you have an HTML website that contains the same information as your RSS file, the title of your channel should be the same as the title of your website.' );
+	$formtitle = new XoopsFormText( _AM_IMLINKS_RSSTITLE, 'rsstitle', 90, 128, $rsstitle );
+	$formtitle -> SetDescription( _AM_IMLINKS_RSSTITLEDSC );
 	$sform -> addElement( $formtitle, false );
 	
-	$formlink = new XoopsFormText( 'RSS feed link', 'rsslink', 90, 255, $rsslink );
-	$formlink -> SetDescription( 'The URL to the HTML website corresponding to the channel.' );
+	$formlink = new XoopsFormText( _AM_IMLINKS_RSSLINKS, 'rsslink', 90, 255, $rsslink );
+	$formlink -> SetDescription( _AM_IMLINKS_RSSLINKSDSC );
 	$sform -> addElement( $formlink, false );
 	
-	$formdsc = new XoopsFormTextArea( 'RSS feed description', 'rssdsc', $rssdsc, 4, 50 );
-	$formdsc -> SetDescription( 'Phrase or sentence describing the channel.' );
+	$formdsc = new XoopsFormTextArea( _AM_IMLINKS_RSSDESCRIPTION, 'rssdsc', $rssdsc, 4, 50 );
+	$formdsc -> SetDescription( _AM_IMLINKS_RSSDESCRIPTIONDSC );
 	$sform -> addElement( $formdsc, false );
 	
 	$formimage = new XoopsFormText( 'RSS feed image', 'rssimgurl', 90, 255, $rssimgurl );
@@ -125,6 +126,10 @@ function rss_edit() {
 	$formcopyright -> SetDescription( 'Copyright notice for content in the channel.' );
 	$sform -> addElement( $formcopyright, false );
 	
+	$formtotal = new XoopsFormText( 'RSS feed total links', 'rsstotal', 3, 8, $rsstotal );
+	$formtotal -> SetDescription( 'Give the total number of links to display in RSS feed.' );
+	$sform -> addElement( $formtotal, false );
+	
 	$button_tray = new XoopsFormElementTray( '', '' );
     $hidden = new XoopsFormHidden( 'op', 'save' );
     $button_tray -> addElement( $hidden );
@@ -160,15 +165,16 @@ switch ( strtolower( $op ) ) {
 		$rsseditor   = $immyts -> addslashes( trim( $_POST['rsseditor'] ) );
 		$rsscategory = $immyts -> addslashes( trim( $_POST['rsscategory'] ) );
 		$rssgenerator= $immyts -> addslashes( trim( $_POST['rssgenerator'] ) );
-		$rsscopyright= $immyts -> addslashes( trim( $_POST['rsscopyright'] ) ); 
+		$rsscopyright= $immyts -> addslashes( trim( $_POST['rsscopyright'] ) );
+		$rsstotal	 = $immyts -> addslashes( trim( $_POST['rsstotal'] ) );
 	
-		$sql = "UPDATE " . $xoopsDB -> prefix( 'imlinks_configs' ) . " SET rssactive='$rssactive', rsstitle='$rsstitle', rsslink='$rsslink', rssdsc='$rssdsc', rssimgurl='$rssimgurl', rsswidth='$rsswidth', rssheight='$rssheight', rssimgtitle='$rssimgtitle', rssimglink='$rssimglink', rssttl='$rssttl', rsswebmaster='$rsswebmaster', rsseditor='$rsseditor', rsscategory='$rsscategory', rssgenerator='$rssgenerator', rsscopyright='$rsscopyright'";
+		$sql = "UPDATE " . $xoopsDB -> prefix( 'imlinks_configs' ) . " SET rssactive='$rssactive', rsstitle='$rsstitle', rsslink='$rsslink', rssdsc='$rssdsc', rssimgurl='$rssimgurl', rsswidth='$rsswidth', rssheight='$rssheight', rssimgtitle='$rssimgtitle', rssimglink='$rssimglink', rssttl='$rssttl', rsswebmaster='$rsswebmaster', rsseditor='$rsseditor', rsscategory='$rsscategory', rssgenerator='$rssgenerator', rsscopyright='$rsscopyright', rsstotal='$rsstotal'";
 		$result = $xoopsDB -> queryF($sql);
             $error = _AM_IMLINKS_DBERROR . ": <br /><br />" . $sql;
             if ( !$result ) {
                 trigger_error( $error, E_USER_ERROR );
             } 
-		redirect_header( 'index.php', 1, 'Database RSS updated' );
+		redirect_header( 'index.php', 1, 'Database RSS Feed has been succesfully updated' );
         break;
 		
 }
