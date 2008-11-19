@@ -226,7 +226,7 @@ CREATE TABLE imlinks_configs (
   rsscategory VARCHAR(128) NOT NULL,
   rssgenerator VARCHAR(128) NOT NULL,
   rsscopyright VARCHAR(128) NOT NULL,
-  rrstotal TINYINT(8) NOT NULL DEFAULT '0'
+  rsstotal TINYINT(8) NOT NULL DEFAULT '0'
 ) TYPE=MYISAM;
 
-INSERT INTO imlinks_configs (rssactive,rsstitle,rsslink,rssdsc,rssimgurl,rsswidth,rssheight,rssimgtitle,rssimglink,rssttl,rsswebmaster,rsseditor,rsscategory,rssgenerator,rsscopyright) VALUES ('1', '', '', '', '', '', '', '', '', '60', '', '', '', '', '', '15');
+INSERT INTO imlinks_configs (rssactive,rsstitle,rsslink,rssdsc,rssimgurl,rsswidth,rssheight,rssimgtitle,rssimglink,rssttl,rsswebmaster,rsseditor,rsscategory,rssgenerator,rsscopyright,rsstotal) VALUES ('1', '', '', '', '', '', '', '', '', '60', '', '', '', '', '', '15');
