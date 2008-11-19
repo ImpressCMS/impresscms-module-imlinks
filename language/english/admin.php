@@ -513,4 +513,15 @@ define( '_AM_IMLINKS_EMAILDSC', 'Enter email address as:<br />- name@domain.com<
 define( '_AM_IMLINKS_CLONE', '**CLONE**' );
 define( '_AM_IMLINKS_CLONELINK', 'Clone Link' );
 define( '_AM_IMLINKS_ICO_CLONE', 'Clone this item' );
+define( '_AM_IMLINKS_RSSFEED', 'RSS Feed' );
+define( '_AM_IMLINKS_RSSFEEDCFG', 'RSS Feed Configuration' );
+define( '_AM_IMLINKS_RSSFEEDDSC', 'Here you can configure the RSS feed for imLinks.<br />For more information visit the <a href="http://www.rssboard.org/" target="_blank">RSS Advisory Board</a> website.' );
+define( '_AM_IMLINKS_RSSACTIVE', 'RSS feed activated' );
+define( '_AM_IMLINKS_RSSACTIVEDSC', 'Select <em>Yes</em> to turn RSS feed for imLinks on, select <em>No</em> to turn it off.' );
+define( '_AM_IMLINKS_RSSTITLE', 'RSS feed title' );
+define( '_AM_IMLINKS_RSSTITLEDSC', 'The name of the channel. It\'s how people refer to your service. If you have a website that contains the same information as your RSS file, the title of your channel should be the same as the title of your website.' );
+define( '_AM_IMLINKS_RSSLINKS', 'RSS feed link' );
+define( '_AM_IMLINKS_RSSLINKSDSC', 'The URL to the website corresponding to the channel.' );
+define( '_AM_IMLINKS_RSSDESCRIPTION', 'RSS feed description' );
+define( '_AM_IMLINKS_RSSDESCRIPTIONDSC', 'Phrase or sentence describing the channel.' );
 ?>
