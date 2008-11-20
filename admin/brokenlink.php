@@ -119,6 +119,8 @@ switch ( strtolower( $op ) ) {
             while ( list( $reportid, $lid, $sender, $ip, $date, $confirmed, $acknowledged ) = $xoopsDB -> fetchRow( $result ) ) {
                 $result2 = $xoopsDB -> query( "SELECT cid, title, url, submitter FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE lid=$lid" );
                 list( $cid, $linkshowname, $url, $submitter ) = $xoopsDB -> fetchRow( $result2 );
+				$email = '';
+				$sendername = '';
                 if ( $sender != 0 ) {
                     $result3 = $xoopsDB -> query( "SELECT uname, email FROM " . $xoopsDB -> prefix( "users" ) . " WHERE uid=" . $sender . "" );
                     list( $sendername, $email ) = $xoopsDB -> fetchRow( $result3 );
