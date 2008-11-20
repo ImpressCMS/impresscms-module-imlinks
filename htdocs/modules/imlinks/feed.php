@@ -29,16 +29,16 @@ if ( $config_arr['rssactive'] == 1 ) {
 	
 $myFeed = new IcmsFeed();
 
-$myFeed -> webMaster = $config_arr['rsswebmaster'];
+$myFeed -> webMaster 	 = $config_arr['rsswebmaster'];
 $myFeed -> channelEditor = $config_arr['rsseditor'];
-$myFeed -> image = array( 'url' => $config_arr['rssimgurl'] );
-$myFeed -> width = $config_arr['rsswidth'];
-$myFeed -> height = $config_arr['rssheight'];
-$myFeed -> title = $config_arr['rsstitle'];
-$myFeed -> generator = $config_arr['rssgenerator'];
-$myFeed -> category = $config_arr['rsscategory'];
-$myFeed -> ttl = $config_arr['rssttl'];
-$myFeed -> copyright = $config_arr['rsscopyright'];
+$myFeed -> image 		 = array( 'url' => $config_arr['rssimgurl'] );
+$myFeed -> width 		 = $config_arr['rsswidth'];
+$myFeed -> height 		 = $config_arr['rssheight'];
+$myFeed -> title 		 = $config_arr['rsstitle'];
+$myFeed -> generator 	 = $config_arr['rssgenerator'];
+$myFeed -> category 	 = $config_arr['rsscategory'];
+$myFeed -> ttl 			 = $config_arr['rssttl'];
+$myFeed -> copyright 	 = $config_arr['rsscopyright'];
 
 $sql2 = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) 
 							. ' WHERE published > 0 AND published <= ' . time()
@@ -80,6 +80,13 @@ $myFeed -> feeds[] = array(
 	
 $myFeed -> render(); 
 
-} else { echo 'RSS feed for ' . $xoopsModule -> getVar( 'name' ) . ' is turned off.'; }
+} else {
+	$myFeed = new IcmsFeed(); 
+	$myFeed -> feeds[] = array( 'title'       => $config_arr['rssofftitle'],
+								'link' 		  => ICMS_URL,
+								'description' => $config_arr['rssoffdsc']
+								);
+	$myFeed -> render(); 
+}
 
 ?>

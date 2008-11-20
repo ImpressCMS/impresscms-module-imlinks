@@ -32,7 +32,8 @@ function rss_edit() {
 	
 	$webmaster  = $xoopsConfig['adminmail'] . ' (' . $xoopsModule -> getVar( 'name' ) . ') ';
 	$modulename = $xoopsModule -> getVar( 'name' );
-	$generator  = XOOPS_VERSION . ' (module: ' . $modulename . ' ' . $xoopsModule -> getVar( 'version' )/100 . ' ' . ')';
+	$modulevers = number_format( $xoopsModule -> getVar( 'version' ) / 100 , 2, '.', '');
+	$generator  = XOOPS_VERSION . ' ( module: ' . $modulename . ' ' . $modulevers . ' )';
 	$copyright  = _AM_IMLINKS_COPYRIGHT . ' ' . formatTimestamp( time(), 'Y' ) . ' - ' . $xoopsConfig['sitename'];
 		
 	$rssactive   = $feed_array['rssactive'];
@@ -50,7 +51,9 @@ function rss_edit() {
 	$rsscategory = $feed_array['rsscategory'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsscategory'] ) : $modulename;
 	$rssgenerator= $feed_array['rssgenerator'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssgenerator'] ) : $generator;
 	$rsscopyright= $feed_array['rsscopyright'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsscopyright'] ) : $copyright;
-	$rsstotal    = $feed_array['rsstotal'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsstotal'] ) : $copyright;
+	$rsstotal    = $feed_array['rsstotal'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsstotal'] ) : '15';
+	$rssofftitle = $feed_array['rssofftitle'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssofftitle'] ) : _AM_IMLINKS_RSSOFFTITLE;
+	$rssoffdsc   = $feed_array['rssoffdsc'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssoffdsc'] ) : _AM_IMLINKS_RSSOFFMSGDEF;
 		
 	xoops_cp_header();
 	iml_adminmenu( 8, _AM_IMLINKS_RSSFEED );
@@ -130,6 +133,14 @@ function rss_edit() {
 	$formtotal -> SetDescription( _AM_IMLINKS_RSSTOTALDSC );
 	$sform -> addElement( $formtotal, false );
 	
+	$formofftitle = new XoopsFormText( _AM_IMLINKS_RSSOFFLINE, 'rssofftitle', 90, 128, $rssofftitle );
+	$formofftitle -> SetDescription( _AM_IMLINKS_RSSOFFLINEDSC );
+	$sform -> addElement( $formofftitle, false );
+	
+	$formoffmsg = new XoopsFormTextArea( _AM_IMLINKS_RSSOFFMSG, 'rssoffdsc', $rssoffdsc, 4, 50 );
+	$formoffmsg -> SetDescription( _AM_IMLINKS_RSSOFFMSGDSC );
+	$sform -> addElement( $formoffmsg, false );
+	
 	$button_tray = new XoopsFormElementTray( '', '' );
     $hidden = new XoopsFormHidden( 'op', 'save' );
     $button_tray -> addElement( $hidden );
@@ -167,8 +178,10 @@ switch ( strtolower( $op ) ) {
 		$rssgenerator= $immyts -> addslashes( trim( $_POST['rssgenerator'] ) );
 		$rsscopyright= $immyts -> addslashes( trim( $_POST['rsscopyright'] ) );
 		$rsstotal	 = $immyts -> addslashes( trim( $_POST['rsstotal'] ) );
+		$rssofftitle = $immyts -> addslashes( trim( $_POST['rssofftitle'] ) );
+		$rssoffdsc   = $immyts -> addslashes( trim( $_POST['rssoffdsc'] ) );
 	
-		$sql = "UPDATE " . $xoopsDB -> prefix( 'imlinks_configs' ) . " SET rssactive='$rssactive', rsstitle='$rsstitle', rsslink='$rsslink', rssdsc='$rssdsc', rssimgurl='$rssimgurl', rsswidth='$rsswidth', rssheight='$rssheight', rssimgtitle='$rssimgtitle', rssimglink='$rssimglink', rssttl='$rssttl', rsswebmaster='$rsswebmaster', rsseditor='$rsseditor', rsscategory='$rsscategory', rssgenerator='$rssgenerator', rsscopyright='$rsscopyright', rsstotal='$rsstotal'";
+		$sql = "UPDATE " . $xoopsDB -> prefix( 'imlinks_configs' ) . " SET rssactive='$rssactive', rsstitle='$rsstitle', rsslink='$rsslink', rssdsc='$rssdsc', rssimgurl='$rssimgurl', rsswidth='$rsswidth', rssheight='$rssheight', rssimgtitle='$rssimgtitle', rssimglink='$rssimglink', rssttl='$rssttl', rsswebmaster='$rsswebmaster', rsseditor='$rsseditor', rsscategory='$rsscategory', rssgenerator='$rssgenerator', rsscopyright='$rsscopyright', rsstotal='$rsstotal', rssofftitle='$rssofftitle', rssoffdsc='$rssoffdsc'";
 		$result = $xoopsDB -> queryF($sql);
             $error = _AM_IMLINKS_DBERROR . ": <br /><br />" . $sql;
             if ( !$result ) {
