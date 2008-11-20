@@ -549,7 +549,11 @@ define( '_AM_IMLINKS_RSSCOPYRIGHTDSC', 'Copyright notice for content in the chan
 define( '_AM_IMLINKS_RSSTOTAL', 'RSS feed total links' );
 define( '_AM_IMLINKS_RSSTOTALDSC', 'Give the total number of links to display in RSS feed.' );
 define( '_AM_IMLINKS_RSSDBUPDATED', 'Database has been updated successfully' );
+define( '_AM_IMLINKS_RSSOFFLINE', 'RSS feed offline message title' );
+define( '_AM_IMLINKS_RSSOFFLINEDSC', 'Enter the title for the message when RSS feed is deactived.' );
+define( '_AM_IMLINKS_RSSOFFMSG', 'RSS feed offline message' );
+define( '_AM_IMLINKS_RSSOFFMSGDSC', 'Enter here an explanation for why the RSS feed has been deactivated.' );
+define( '_AM_IMLINKS_RSSOFFTITLE', 'RSS feed has been deactivated.' );
+define( '_AM_IMLINKS_RSSOFFMSGDEF', 'The RSS feed has been temporarily deactivated for maintenance.' );
 define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' );
 ?>
-	
-	
