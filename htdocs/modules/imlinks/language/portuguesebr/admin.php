@@ -397,13 +397,13 @@ define( "_AM_IMLINKS_PINGTIMES", "Exibir primeiramente o tempo de resposta para 
 
 define( "_AM_IMLINKS_NO_FORUM", "Nenhum fórum selecionado" );
 
-define( "_AM_IMLINKS_PERM_RATEPERMISSIONS", "Permissões de avaliação" );
+define( "_AM_IMLINKS_PERM_RATEPERMISSIONS", "Quem pode enviar avaliações" );
 define( "_AM_IMLINKS_PERM_RATEPERMISSIONS_TEXT", "Selecione os grupos que poderão votar nas categorias selecionadas." );
 
 define( "_AM_IMLINKS_PERM_AUTOPERMISSIONS", "Auto Aprovar Links" );
 define( "_AM_IMLINKS_PERM_AUTOPERMISSIONS_TEXT", "Selecione os grupos que terão novos link aprovados sem intervenção do administrador." );
 
-define( "_AM_IMLINKS_PERM_SPERMISSIONS", "Enviar permissões" );
+define( "_AM_IMLINKS_PERM_SPERMISSIONS", "Pode Enviar links" );
 define( "_AM_IMLINKS_PERM_SPERMISSIONS_TEXT", "Selecione os grupos que poderão enviar novos links para a categoria selecionada." );
 
 define( "_AM_IMLINKS_PERM_APERMISSIONS", "Grupo de moderadores" );
