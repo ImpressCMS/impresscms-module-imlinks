@@ -35,7 +35,7 @@ if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' );
 // @param string $permType
 // @param boolean $redirect
 // @return
-function checkBlockgroups( $cid = 0, $permType = 'WFLinkCatPerm', $redirect = false ) {
+function checkBlockgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = false ) {
     $mydirname = basename( dirname(  dirname( __FILE__ ) ) );
     global $xoopsUser;
 
