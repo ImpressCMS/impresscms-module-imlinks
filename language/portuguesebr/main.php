@@ -237,7 +237,7 @@ define( '_MD_IMLINKS_NEW', 'Novo!' );
 define( '_MD_IMLINKS_UPDATED', 'Atualizado!' );
 define( '_MD_IMLINKS_POPULAR2', 'Popular!' );
 define( '_MD_IMLINKS_TEXTOPTIONS', 'Opções de texto:' );
-define( '_AM_IMLINKS_DISABLEBREAK', ' Converter \'quebra de linha\'?' );
+define( '_MD_IMLINKS_DISABLEBREAK', ' Converter <b>quebra de linha</b> ?' );
 define( '_MD_IMLINKS_CLONE', 'Clonar' );
 define( '_MD_IMLINKS_TOPRATEDBUTT', 'Mais votados' );
 
