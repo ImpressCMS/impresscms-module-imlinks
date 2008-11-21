@@ -413,7 +413,7 @@ define( "_AM_IMLINKS_PERM_APERMISSIONS_TEXT", "Selecione os grupos que terão pr
 define( "_AM_IMLINKS_COUNTRY", "País:" );
 define( "_AM_IMLINKS_KEYWORDS", "Palavra chave:" );
 define( "_AM_IMLINKS_KEYWORDS_NOTE", "<i>A palavra chave deverá ser separada sempre por um virgula, exemplo: (Palavra chave1, Palavra chave2, Palavra chave3, etc...).</i>" );
-define( "_AM_IMLINKS_CHECKURL", "Check URL" );
+define( "_AM_IMLINKS_CHECKURL", "Verificar URL" );
 define( "_AM_IMLINKS_CATTITLE", "Categoria" );
 define( "_AM_IMLINKS_LINK_GOOGLEMAP", "Mapas do Google" );
 define( "_AM_IMLINKS_LINK_YAHOOMAP", "Mapas do Yahoo" );
