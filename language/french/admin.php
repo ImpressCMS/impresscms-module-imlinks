@@ -392,7 +392,7 @@ define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>De nouvelles ressources peuvent &ec
 	<li>Modifier le nom d'une ressource et sa description</li></ul>
 	" );
 define( "_AM_IMLINKS_LISTBROKEN", "Afficher les liens qui sont potentiellement bris&eacute;s. NB :Le r&eacute;sultat peut ne pas &ecirc;tre pr&eacute;cis et doit &ecirc;tre pris comme une indication approximative.<br /><br />Veuillez v&eacute;rifier que le lien existe d'abord avant de prendre les mesures n&eacute;cessaires.<br /><br />" );
-define( "_AM_IMLINKS_PINGTIMES", "Afficher le temps estim&eacute; de la premi&egrave;re boucle ping pour chaque lien.<br /><br />NB :Ces r&eacute;sultats peuvent ne pas &ecirc;tre exacts et doivent &ecirc;tre pris comme une simple indication.<br /><br />" );
+define( "_AM_IMLINKS_PINGTIMES", "Afficher le temps estim&eacute; de la premi&egrave;re boucle ping pour chaque lien.<br /><br />NB :Ces r&eacute;sultats peuvent ne pas &ecirc;tre exacts et doivent &ecirc;tre pris comme une simple indication." );
 
 define( "_AM_IMLINKS_NO_FORUM", "Pas de forum s&eacute;lectionn&eacute;" );
 define( "_MD_IMLINKS_IRCA1", "EC - Early Childhood" );
