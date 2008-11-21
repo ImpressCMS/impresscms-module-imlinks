@@ -10,6 +10,7 @@ xx.11.2008   1.00 RC-1
 - Added: option to set amount of category columns on Index Page
 - Added: captcha to submit form
 - Added: RSS feed using icmsfeed.php
+- Added: RSS feed configuration form
 - Added: GPL2 license incl. unofficial translations
 - Added: upgrade from WF-Links 1.06
 - Added: icons for button bar, plus new module and category icons
