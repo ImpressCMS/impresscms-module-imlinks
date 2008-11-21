@@ -185,7 +185,7 @@ define( "_MD_IMLINKS_COUNTRYB", "<b>País:</b>" );
 define( "_MD_IMLINKS_KEYWORDS", "Palavra chave:" );
 define( "_MD_IMLINKS_KEYWORDS_NOTE", "<i>Palavra chave poderá ser separada por virgula (Palavra chave1, Palavra chave2).</i>" );
 define( "_MD_IMLINKS_NOLINKLOAD", "Obrigado pela postagem!" );
-define( "_MD_IMLINKS_LINKID", "Link id" );
+define( "_MD_IMLINKS_LINKID", "Id do Link" );
 define( "_MD_IMLINKS_COUNTRYSORT", "País" );
 define( "_MD_IMLINKS_COUNTRYLTOH", "País (A to Z)" );
 define( "_MD_IMLINKS_COUNTRYHTOL", "País (Z to A)" );
