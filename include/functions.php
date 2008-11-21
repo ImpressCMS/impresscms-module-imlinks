@@ -179,9 +179,9 @@ function iml_toolbar( $cid = 0 ) {
 // iml_serverstats()
 // @return
 function iml_serverstats() {
-    echo '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_LINK_IMAGEINFO . '</legend>\n
-		<div style="padding: 8px;">\n
-		<div>' . _AM_IMLINKS_LINK_SPHPINI . '</div>\n';
+    echo '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_LINK_IMAGEINFO . '</legend>
+		<div style="padding: 8px;">
+		<div>' . _AM_IMLINKS_LINK_SPHPINI . '</div>';
 
     $safemode = ( ini_get( 'safe_mode' ) ) ? _AM_IMLINKS_LINK_ON . _AM_IMLINKS_LINK_SAFEMODEPROBLEMS : _AM_IMLINKS_LINK_OFF;
     $registerglobals = ( ini_get( 'register_globals' ) == '' ) ? _AM_IMLINKS_LINK_OFF : _AM_IMLINKS_LINK_ON;
@@ -194,7 +194,7 @@ function iml_serverstats() {
             echo '<li>' . _AM_IMLINKS_LINK_GDLIBVERSION . '<b>' . $gdlib['GD Version'] . '</b>';
         } 
     } 
-    echo '<br /><br />\n\n';
+    echo '<br /><br />';
     echo '<li>' . _AM_IMLINKS_LINK_SAFEMODESTATUS . $safemode;
     echo '<li>' . _AM_IMLINKS_LINK_REGISTERGLOBALS . $registerglobals;
     echo '<li>' . _AM_IMLINKS_LINK_SERVERUPLOADSTATUS . $links;
