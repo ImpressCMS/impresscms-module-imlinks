@@ -1,9 +1,4 @@
 <?php
-if (!defined('IS_UPDATE_FILE')) {
-	echo "Cannot access this file directly!";
-	exit();
-}
-
 /**
 * imLinks - a multicategory links management module for ImpressCMS
 *
@@ -30,6 +25,11 @@ if (!defined('IS_UPDATE_FILE')) {
 * @author		McDonald
 * @version		$Id$
 */
+
+if (!defined('IS_UPDATE_FILE')) {
+	echo 'Cannot access this file directly!';
+	exit();
+}
 
     $error = array();
     $output = array();
@@ -99,15 +99,15 @@ $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
     /**
      * Update comments
      */
-    $modhandler = & xoops_gethandler( 'module' );
-    $wflinksModule = & $modhandler -> getByDirname( 'imlinks' );
-    $PD_id = $wflinksModule -> getVar( 'mid' );
+    $modhandler = &xoops_gethandler( 'module' );
+    $imlinksModule = &$modhandler -> getByDirname( $mydirname );
+    $imlinks_id = $imlinksModule -> getVar( 'mid' );
 
-    $modhandler = & xoops_gethandler( 'module' );
-    $linksModule = & $modhandler -> getByDirname( 'wflinks' );
-    $my_id = $linksModule -> getVar( 'mid' );
+    $modhandler = &xoops_gethandler( 'module' );
+    $wflinksModule = &$modhandler -> getByDirname( 'wflinks' );
+    $wflinks_id = $wflinksModule -> getVar( 'mid' );
 
-    $sql = 'UPDATE ' . $xoopsDB -> prefix( 'xoopscomments' ) . ' SET com_modid = $PD_id WHERE com_modid = $my_id';
+    $sql = 'UPDATE ' . $xoopsDB -> prefix( 'xoopscomments' ) . ' SET com_modid=' . $imlinks_id. ' WHERE com_modid=' . $wflinks_id;
     $result2 = $xoopsDB -> queryF( $sql );
 
     echo '<p>...Updating</p>';
@@ -123,6 +123,10 @@ $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
             echo $nonerr . '<br>';
         } 
     } 
-    echo '<div align="center" style="margin: 20px;"><a style="border: 1px solid #5E5D63; color: #000000; background-color: #EFEFEF; padding: 4px 8px; text-align:center;" href="' . ICMS_URL . '/modules/system/admin.php?fct=modulesadmin"><b>Finish updating Module</b></a></div>';
+    echo '<div align="lrft" style="margin: 20px;">
+			<a style="border: 1px solid #5E5D63; color: #000000; background-color: #EFEFEF; padding: 4px 8px; text-align:center;" href="' . ICMS_URL . '/modules/system/admin.php?fct=modulesadmin">
+			<b>Finish updating Module</b>
+			</a>
+		 </div>';
 
 ?>
