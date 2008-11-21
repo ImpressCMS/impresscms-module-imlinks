@@ -236,5 +236,4 @@ define( '_MD_IMLINKS_TEXTOPTIONS', 'Опции текста:' );
 define( '_MD_IMLINKS_DISABLEBREAK', ' Использовать ICMS конверсию разрыва строк?' );
 define( '_MD_IMLINKS_CLONE', 'Клонировать' );
 define( '_MD_IMLINKS_TOPRATEDBUTT', 'Рейтинговые' );
-
 ?>
