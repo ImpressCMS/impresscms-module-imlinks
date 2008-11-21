@@ -318,5 +318,4 @@ define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'More info:<br />- <a href="http://www.th
 define( '_MI_IMLINKS_CATCOLS', 'Number of category colums:' );
 define( '_MI_IMLINKS_CATCOLSDSC', 'Select the number of category colums for Index Page.<br />Default: <em>2</em>' );
 define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
-
 ?>

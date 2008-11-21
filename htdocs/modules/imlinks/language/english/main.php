@@ -236,5 +236,4 @@ define( '_MD_IMLINKS_TEXTOPTIONS', 'Text options:' );
 define( '_MD_IMLINKS_DISABLEBREAK', ' Use ICMS linebreak conversion?' );
 define( '_MD_IMLINKS_CLONE', 'Clone' );
 define( '_MD_IMLINKS_TOPRATEDBUTT', 'Top Rated' );
-
 ?>
