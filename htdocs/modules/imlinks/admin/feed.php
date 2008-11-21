@@ -32,7 +32,7 @@ function rss_edit() {
 	
 	$webmaster  = $xoopsConfig['adminmail'] . ' (' . $xoopsModule -> getVar( 'name' ) . ') ';
 	$modulename = $xoopsModule -> getVar( 'name' );
-	$modulevers = number_format( $xoopsModule -> getVar( 'version' ) / 100 , 2, '.', '');
+	$modulevers = number_format( $xoopsModule -> getVar( 'version' ) / 100 , 2, '.', '' );
 	$generator  = XOOPS_VERSION . ' ( module: ' . $modulename . ' ' . $modulevers . ' )';
 	$copyright  = _AM_IMLINKS_COPYRIGHT . ' ' . formatTimestamp( time(), 'Y' ) . ' - ' . $xoopsConfig['sitename'];
 		
@@ -61,6 +61,7 @@ function rss_edit() {
 	echo '
 			<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_RSSFEED . '</legend>
 			<div style="padding: 8px;">
+			<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
 			' . _AM_IMLINKS_RSSFEEDDSC . '
 			</div>
 			</fieldset><br />
@@ -182,8 +183,8 @@ switch ( strtolower( $op ) ) {
 		$rssoffdsc   = $immyts -> addslashes( trim( $_POST['rssoffdsc'] ) );
 	
 		$sql = "UPDATE " . $xoopsDB -> prefix( 'imlinks_configs' ) . " SET rssactive='$rssactive', rsstitle='$rsstitle', rsslink='$rsslink', rssdsc='$rssdsc', rssimgurl='$rssimgurl', rsswidth='$rsswidth', rssheight='$rssheight', rssimgtitle='$rssimgtitle', rssimglink='$rssimglink', rssttl='$rssttl', rsswebmaster='$rsswebmaster', rsseditor='$rsseditor', rsscategory='$rsscategory', rssgenerator='$rssgenerator', rsscopyright='$rsscopyright', rsstotal='$rsstotal', rssofftitle='$rssofftitle', rssoffdsc='$rssoffdsc'";
-		$result = $xoopsDB -> queryF($sql);
-            $error = _AM_IMLINKS_DBERROR . ": <br /><br />" . $sql;
+		$result = $xoopsDB -> queryF( $sql );
+            $error = _AM_IMLINKS_DBERROR . ': <br /><br />' . $sql;
             if ( !$result ) {
                 trigger_error( $error, E_USER_ERROR );
             } 
