@@ -1,0 +1,35 @@
+##:###########################################################################################################
+##:## File temporary for report bug imLinks with developer...
+##:###########################################################################################################
+##:## Arquivo temporário para reportar Erro ao desenvolvedor...
+##:###########################################################################################################
+
+--------------------------------------------------------------------------------------------------------------
+Reported by.: GibaPhp
+Icms........: version 1.1.1 beta 1 SVN with last revision 7093
+imLinks.....: imLinks version 1.00 (RC-1) 
+
+Bug.........: Doubling the record of categories
+Status......: Investigating
+Priority....: high
+Where.......: In admin area. 
+
+When there..: 1st category, after submit, double category equal.
+............: 
+............: 
+
+Details.....: no more details...
+
+Checks......: Configs, preferences checks.
+............: 
+............: 
+
+Example.....: imlinks 2 - imlinks 2...
+
+Solution indicated..: no disponible...
+
+Recommendation......: This problem was occurring earlier and was resolved, but now is intermittent.
+....................: 
+....................: 
+--------------------------------------------------------------------------------------------------------------
+
