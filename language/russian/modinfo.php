@@ -4,7 +4,7 @@
 *
 * Based upon WF-Links 1.06
 *
-* File: language/english/modinfo.php
+* File: language/russian/modinfo.php
 *
 * @copyright		http://www.xoops.org/ The XOOPS Project
 * @copyright		XOOPS_copyrights.txt
@@ -317,5 +317,5 @@ define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Выбор источника автома�
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Дополнительная информация:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
 define( '_MI_IMLINKS_CATCOLS', 'Кол-во колонок в списке категорий:' );
 define( '_MI_IMLINKS_CATCOLSDSC', 'Выберите количество колонок в списке категорий на индексной странице.<br />По умолчанию: <em>2</em>' );
-define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
+define( '_MI_IMLINKS_RSSFEED', 'RSS канал' );
 ?>
