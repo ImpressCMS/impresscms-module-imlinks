@@ -381,7 +381,7 @@ define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>Nuevos recursos pueden ser agregado
 	<li>Listado de todos los recursos enlazados al enlace</li>
 	<li>Modificar nombre y descripción del recurso</li></ul>
 	" );
-define( "_AM_IMLINKS_LISTBROKEN", "Mostrar enlaces que posiblemente estén fallando. Nota: Estos resultados pueden no ser exactos y se deben tomar como una referencia.<br /><br />Compruebe que el enlace exista antes de realizar cualquier acción.<br /><br />" );
+define( "_AM_IMLINKS_LISTBROKEN", "Mostrar enlaces que posiblemente estén fallando. Nota: Estos resultados pueden no ser exactos y se deben tomar como una referencia.<br /><br />Compruebe que el enlace exista antes de realizar cualquier acción." );
 define( "_AM_IMLINKS_PINGTIMES", "Mostrar los primeros ping time de cada enlace.<br /><br />Nota: Estos resultados pueden no ser exactos y se deben tomar como una referencia." );
 define( "_AM_IMLINKS_NO_FORUM", "No seleccionar foro" );
 define( "_AM_IMLINKS_PERM_RATEPERMISSIONS", "Permisos para calificación" );
