@@ -545,7 +545,7 @@ define( '_AM_IMLINKS_RSSWEBMASTERDSC', 'Email address for person responsible for
 define( '_AM_IMLINKS_RSSEDITOR', 'RSS feed channel editor' );
 define( '_AM_IMLINKS_RSSEDITORDSC', 'Email address for person responsible for editorial content.' );
 define( '_AM_IMLINKS_RSSCATEGORY', 'RSS feed category' );
-define( '_AM_IMLINKS_RSSCATEGORYDSC', 'Specify one or more categories that the channel belongs to. Follows the same rules as the <item>-level category element.' );
+define( '_AM_IMLINKS_RSSCATEGORYDSC', 'Specify one or more categories that the channel belongs to. Follows the same rules as the &#60;item&#62;-level category element.' );
 define( '_AM_IMLINKS_RSSGENERATOR', 'RSS feed generator' );
 define( '_AM_IMLINKS_RSSGENERATORDSC', 'String indicating the program used to generate the channel.' );
 define( '_AM_IMLINKS_RSSCOPYRIGHT', 'RSS feed copyright' );
