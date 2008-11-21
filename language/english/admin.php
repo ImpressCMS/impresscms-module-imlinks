@@ -388,7 +388,7 @@ define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>New resources can be added, edited 
 	<li>List all resources linked to a link</li>
 	<li>Modify resource name and description</li></ul>
 	" );
-define( "_AM_IMLINKS_LISTBROKEN", "Displays links that are possibly broken. NB: These results may not be accurate and should be taken as a rough guide.<br /><br />Please check the link does exist first before any action taken.<br /><br />" );
+define( "_AM_IMLINKS_LISTBROKEN", "Displays links that are possibly broken. NB: These results may not be accurate and should be taken as a rough guide.<br /><br />Please check the link does exist first before any action taken." );
 define( "_AM_IMLINKS_PINGTIMES", "Displays the first estimated round ping time to each link.<br /><br />NB: These results may not be accurate and should be taken as a rough guide." );
 
 define( "_AM_IMLINKS_NO_FORUM", "No forum Selected" );
