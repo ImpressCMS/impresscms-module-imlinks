@@ -313,15 +313,10 @@ define( "_MI_IMLINKS_LINKEDTERMS", "Link to terms glossary?" );
 define( "_MI_IMLINKS_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
 define( "_MI_IMLINKS_IMGLOSSARYDIR", "Folder name of imGlossary:" );
 define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
-define( '_MI_IMLINKS_SELECTFEED', 'Use ICMS RSS feed?' );
-define( '_MI_IMLINKS_SELECTFEED_DSC', 'Select <em>Yes</em> to use ImpressCMS RSS feed.' );
-define( '_MI_IMLINKS_FEEDSTOTAL', 'How many links to display in RSS feed?' );
-define( '_MI_IMLINKS_FEEDSTOTALDSC', 'This number only affects the ImpressCMS RSS feed. Default: <em>15</em>' );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Select source for generating auto screenshot' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'More info:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
 define( '_MI_IMLINKS_CATCOLS', 'Number of category colums:' );
 define( '_MI_IMLINKS_CATCOLSDSC', 'Select the number of category colums for Index Page.<br />Default: <em>2</em>' );
-define( '_MI_IMLINKS_FEEDSLOGO', 'Logo to display with RSS feed:' );
-define( '_MI_IMLINKS_FEEDSLOGODSC', 'Enter the url for the logo to display with the RSS feed.' );
+define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
 ?>
