@@ -535,7 +535,7 @@ define( '_AM_IMLINKS_RSSHEIGHTDSC', 'Geef de hoogte van de afbeelding in pixels.
 define( '_AM_IMLINKS_RSSIMGTITLE', 'RSS feed afbeelding titel' );
 define( '_AM_IMLINKS_RSSIMGTITLEDSC', 'Omschrijft de afbeelding, het wordt gebruikt in de ALT attribute van de HTML &#60;img&#62; tag wanneer het RSS kanaal in HTML afgebeeld wordt.' );
 define( '_AM_IMLINKS_RSSIMGLINK', 'RSS feed afbeelding link' );
-define( '_AM_IMLINKS_RSSIMGLINKDSC', 'Dit is de URL van de website, wanneer het kanaal afgebeeld wordt. De afbeelding funktioneert als link naar de website. (Opgelet, in de praktijk dienen de afbeelding &#60;title&#62; en &#60;link&#62; dezelfde waarde te hebben als &#60;title&#62; en &#60;link&#62; van het kanaal.' );
+define( '_AM_IMLINKS_RSSIMGLINKDSC', 'Dit is de URL van de website, wanneer het kanaal afgebeeld wordt. De afbeelding funktioneert als link naar de website. (Opgelet, in de praktijk dienen de afbeelding &#60;title&#62; en &#60;link&#62; dezelfde waarde te hebben als &#60;title&#62; en &#60;link&#62; van het kanaal).' );
 define( '_AM_IMLINKS_RSSTTL', 'RSS feed ttl' );
 define( '_AM_IMLINKS_RSSTTLDSC', 'ttl staat voor <em>time to live</em>. Het is het aantal minuten dat aangeeft hoe lang een kanaal in het tijdelijk geheugen gehouden wordt, voordat dit vanuit de bron bijgewerkt wordt.' );
 define( '_AM_IMLINKS_RSSWEBMASTER', 'RSS feed webmaster' );
