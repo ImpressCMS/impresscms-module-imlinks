@@ -533,7 +533,7 @@ define( '_AM_IMLINKS_RSSHEIGHTDSC', 'Высота изображения в пи
 define( '_AM_IMLINKS_RSSIMGTITLE', 'Заголовок RSS канала' );
 define( '_AM_IMLINKS_RSSIMGTITLEDSC', 'Описание изображения, используемое в ALT атрибуте HTML-тэга &#60;img&#62;, когда канал представлен в HTML.' );
 define( '_AM_IMLINKS_RSSIMGLINK', 'Ссылка на изображение RSS канала' );
-define( '_AM_IMLINKS_RSSIMGLINKDSC', 'Это URL сайта, с которого берется канал. (На практике изображение &#60;title&#62; и &#60;link&#62; должны иметь те же значения, как каналы &#60;title&#62; и &#60;link&#62;.' );
+define( '_AM_IMLINKS_RSSIMGLINKDSC', 'Это URL сайта, с которого берется канал. (На практике изображение &#60;title&#62; и &#60;link&#62; должны иметь те же значения, как каналы &#60;title&#62; и &#60;link&#62;).' );
 define( '_AM_IMLINKS_RSSTTL', 'TTL RSS канала' );
 define( '_AM_IMLINKS_RSSTTLDSC', 'TTL - время жизни. Это количество минут, которое показывает как долго канал может находиться в кэше до его обновления.' );
 define( '_AM_IMLINKS_RSSWEBMASTER', 'Вэбмастер RSS канала' );
