@@ -393,7 +393,7 @@ define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>Neue Resourcen können durch Benutz
 	<li>Resourcenname und Beschreibung ändern</li></ul>
 	" );
 define( "_AM_IMLINKS_LISTBROKEN", "Möglicherweise defekte Links anzeigen. PS: Die Resultate sind eventuell nicht genau und sollten nur als grober Anhalt dienen.<br /><br />Überprüfen Sie zuerst die existierenden Links bevor Sie weiter Aktionen durchführen.<br /><br />" );
-define( "_AM_IMLINKS_PINGTIMES", "Zeigt die erste geschätzte Pingzeit für jeden Link.<br /><br />PS: Die Resultate sind eventuell nicht genau und sollten nur als grober Anhalt dienen.<br /><br />" );
+define( "_AM_IMLINKS_PINGTIMES", "Zeigt die erste geschätzte Pingzeit für jeden Link.<br /><br />PS: Die Resultate sind eventuell nicht genau und sollten nur als grober Anhalt dienen." );
 
 define( "_AM_IMLINKS_NO_FORUM", "Kein Forum ausgewählt" );
 

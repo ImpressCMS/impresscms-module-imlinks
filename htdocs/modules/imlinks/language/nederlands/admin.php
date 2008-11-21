@@ -393,7 +393,7 @@ define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>Nieuwe bronnen kunnen via dit formu
 	<li>Bronnaam en omschrijving aanpassen</li></ul>
 	" );
 define( "_AM_IMLINKS_LISTBROKEN", "Toon linken die mogelijk zijn gebroken. NB: Deze gegevens zijn mogelijk niet correct/compleet en moeten worden gezien als grove handreiking.<br /><br />Controleer eerst of de link bestaat voordat aktie wordt ondernomen.<br /><br />" );
-define( "_AM_IMLINKS_PINGTIMES", "Displays the first estimated round ping time to each link.<br /><br />NB: These results may not be accurate and should be taken as a rough guide.<br /><br />" );
+define( "_AM_IMLINKS_PINGTIMES", "Displays the first estimated round ping time to each link.<br /><br />NB: These results may not be accurate and should be taken as a rough guide." );
 
 define( "_AM_IMLINKS_NO_FORUM", "Geen forum geselekteerd" );
 
