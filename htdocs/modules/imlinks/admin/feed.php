@@ -114,7 +114,7 @@ function rss_edit() {
 	$sform -> addElement( $formwebmaster, false );
 	
 	$formeditor = new XoopsFormText( _AM_IMLINKS_RSSEDITOR, 'rsseditor', 90, 255, $rsseditor );
-	$formeditor -> SetDescription( _AM_IMLINKS_RSSWEBMASTERDSC );
+	$formeditor -> SetDescription( _AM_IMLINKS_RSSEDITORDSC );
 	$sform -> addElement( $formeditor, false );
 	
 	$formcategory = new XoopsFormText( _AM_IMLINKS_RSSCATEGORY, 'rsscategory', 90, 128, $rsscategory );
