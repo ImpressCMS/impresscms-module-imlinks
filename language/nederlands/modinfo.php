@@ -318,15 +318,10 @@ define( "_MI_IMLINKS_LINKEDTERMS", "Link naar termen in woordenlijst?" );
 define( "_MI_IMLINKS_LINKEDTERMSDSC", "De module imGlossary dient hiervoor geïnstalleerd en aktief te zijn." );
 define( "_MI_IMLINKS_IMGLOSSARYDIR", "Naam map van imGlossary:" );
 define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "De naam van de map waarin imGlossary zich bevindt.<br />Standaard: <em>imglossary</em>" );
-define( '_MI_IMLINKS_SELECTFEED', 'Gebruik ICMS RSS feed?' );
-define( '_MI_IMLINKS_SELECTFEED_DSC', 'Kies <em>Ja</em> om ImpressCMS RSS feed te gebruiken.' );
-define( '_MI_IMLINKS_FEEDSTOTAL', 'Aantal linken weer te geven in RSS feed?' );
-define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Dit aantal heeft alleen invloed op de ImpressCMS RSS feed. Standaard: <em>15</em>' );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - een kopie van de GNU licentie is bijgesloten (license.txt).' );
 define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Kies bron voor het genereren van auto screenshot' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Meer informatie:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
 define( '_MI_IMLINKS_CATCOLS', 'Aantal categorie kolommen:' );
 define( '_MI_IMLINKS_CATCOLSDSC', 'Kies het aantal categorie kolommen voor de Hoofd index.<br />Standaard: <em>2</em>' );
-define( '_MI_IMLINKS_FEEDSLOGO', 'Logo weer te geven met RSS feed:' );
-define( '_MI_IMLINKS_FEEDSLOGODSC', 'Voer de url van de logo om weer te geven met de RSS feed in.' );
+define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
 ?>

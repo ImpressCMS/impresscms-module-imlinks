@@ -312,15 +312,10 @@ define( "_MI_IMLINKS_LINKEDTERMS", "Ссылка на термин глосса�
 define( "_MI_IMLINKS_LINKEDTERMSDSC", "Для этого свойства необходимо установить и активировать модуль imGlossary." );
 define( "_MI_IMLINKS_IMGLOSSARYDIR", "Каталог imGlossary:" );
 define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "Имя каталога, где расположен imGlossary.<br />По умолчанию: <em>imglossary</em>" );
-define( '_MI_IMLINKS_SELECTFEED', 'Использовать ICMS RSS канал?' );
-define( '_MI_IMLINKS_SELECTFEED_DSC', 'Выберите <em>Да</em>, чтобы использовать ImpressCMS RSS канал.' );
-define( '_MI_IMLINKS_FEEDSTOTAL', 'Какое количество ссылок отображать в RSS канале?' );
-define( '_MI_IMLINKS_FEEDSTOTALDSC', 'Это число имеет значение только для ImpressCMS RSS канала. По умолчанию: <em>15</em>' );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Выбор источника автоматической генерации образов экрана' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Дополнительная информация:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
 define( '_MI_IMLINKS_CATCOLS', 'Кол-во колонок в списке категорий:' );
 define( '_MI_IMLINKS_CATCOLSDSC', 'Выберите количество колонок в списке категорий на индексной странице.<br />По умолчанию: <em>2</em>' );
-define( '_MI_IMLINKS_FEEDSLOGO', 'Логотип для отображения с RSS каналом:' );
-define( '_MI_IMLINKS_FEEDSLOGODSC', 'Введите url логотипа, который будет показываться с RSS каналом.' );
+define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
 ?>
