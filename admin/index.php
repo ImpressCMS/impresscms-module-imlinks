@@ -427,9 +427,15 @@ switch ( strtolower( $op ) )
         iml_adminmenu( _AM_IMLINKS_BINDEX );
 		
 		if ( $op == 'pingtime' ) {
-			echo "<fieldset style='border: #e8e8e8 1px solid;'>" . _AM_IMLINKS_PINGTIMES . "</fieldset>";
+			echo '	<fieldset style="border: #e8e8e8 1px solid;">
+					<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MLISTPINGTIMES . '</legend>
+					<div style="padding: 8px;">' . _AM_IMLINKS_PINGTIMES . '</div>
+					</fieldset>';
 		} else {
-			echo "<fieldset style='border: #e8e8e8 1px solid;'>" . _AM_IMLINKS_LISTBROKEN . "</fieldset>";
+			echo '	<fieldset style="border: #e8e8e8 1px solid;">
+					<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MLISTBROKEN . '</legend>
+					<div style="padding: 8px;">' . _AM_IMLINKS_LISTBROKEN . '</div>
+					</fieldset>';
 		}
 			
         echo "

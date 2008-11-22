@@ -68,7 +68,7 @@ switch ( strtolower($op) ) {
         echo "
 		<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_VOTE_DISPLAYVOTES . "</legend>\n
 		<div style='padding: 8px;'>$text_info</div>\n	
-		<div style='padding: 8px;'><li>" . $imagearray['deleteimg'] . " " . _AM_IMLINKS_VOTE_DELETEDSC . "</li></div>\n
+		<div style='padding: 8px;'><li>" . $imagearray['deleteimg'] . "&nbsp;&nbsp;" . _AM_IMLINKS_VOTE_DELETEDSC . "</li></div>\n
 		</fieldset>\n
 		<br />\n
 

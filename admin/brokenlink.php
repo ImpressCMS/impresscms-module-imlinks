@@ -71,19 +71,19 @@ switch ( strtolower( $op ) ) {
       //  break;
 
     case 'delbrokenlinks':
-        $xoopsDB -> queryF( "DELETE FROM " . $xoopsDB -> prefix( 'imlinks_broken' ) . " WHERE lid=" . $lid );
-        $xoopsDB -> queryF( "DELETE FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE lid=" . $lid );
+        $xoopsDB -> queryF( 'DELETE FROM ' . $xoopsDB -> prefix( 'imlinks_broken' ) . ' WHERE lid=' . $lid );
+        $xoopsDB -> queryF( 'DELETE FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid );
         redirect_header( "brokenlink.php?op=default", 1, _AM_IMLINKS_BROKENFILEDELETED );
         exit();
         break;
 
     case 'ignorebrokenlinks':
-        $xoopsDB -> queryF( "DELETE FROM " . $xoopsDB -> prefix( 'imlinks_broken' ) . " WHERE lid=" . $lid );
+        $xoopsDB -> queryF( 'DELETE FROM ' . $xoopsDB -> prefix( 'imlinks_broken' ) . ' WHERE lid=' . $lid );
         redirect_header( 'brokenlink.php?op=default', 1, _AM_IMLINKS_BROKEN_FILEIGNORED );
         break;
 
     default:
-        $result = $xoopsDB -> query( "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_broken' ) . " ORDER BY reportid" );
+        $result = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_broken' ) . ' ORDER BY reportid' );
         $totalbrokenlinks = $xoopsDB -> getRowsNum( $result );
 
         xoops_cp_header();
@@ -93,9 +93,9 @@ switch ( strtolower( $op ) ) {
 		  <div style='padding: 8px;'>" . _AM_IMLINKS_BROKEN_REPORTSNO . "&nbsp;<b>$totalbrokenlinks</b><div>\n
 		  <div style='padding-left: 8px;'>\n
 		   <ul>
-		    <li>" . $imagearray['ignore'] . " " . _AM_IMLINKS_BROKEN_IGNOREDESC . "</li>\n
-		    <li>" . $imagearray['editimg'] . " " . _AM_IMLINKS_BROKEN_EDITDESC . "</li>
-		    <li>" . $imagearray['deleteimg'] . " " . _AM_IMLINKS_BROKEN_DELETEDESC . "</li>\n
+		    <li>" . $imagearray['ignore'] . "&nbsp;&nbsp;" . _AM_IMLINKS_BROKEN_IGNOREDESC . "</li>\n
+		    <li>" . $imagearray['editimg'] . "&nbsp;&nbsp;" . _AM_IMLINKS_BROKEN_EDITDESC . "</li>
+		    <li>" . $imagearray['deleteimg'] . "&nbsp;&nbsp;" . _AM_IMLINKS_BROKEN_DELETEDESC . "</li>\n
 		   </ul>
 		  </div>
 		 </fieldset>
@@ -130,6 +130,8 @@ switch ( strtolower( $op ) ) {
 
                 $ack_image = ( $acknowledged ) ? $imagearray['ack_yes'] : $imagearray['ack_no'];
                 $con_image = ( $confirmed ) ? $imagearray['con_yes'] : $imagearray['con_no'];
+				
+				if ( $ownername == '' ) { $ownername = '&nbsp;'; }
 
                 echo "<tr style='text-align: center;'>\n";
                 echo "<td class='head'>$reportid</td>\n";
@@ -141,11 +143,11 @@ switch ( strtolower( $op ) ) {
                     echo "<td class='even'><a href='mailto:$email'>$sendername</a> ($ip)";
                 } 
                 if ( $owneremail == '' ) {
-                    echo "<td class='even'>$ownername";
+                    echo "<td class='even'>$ownername</td>";
                 } else {
-                    echo "<td class='even'><a href='mailto:$owneremail'>$ownername</a>";
+                    echo "<td class='even'><a href='mailto:$owneremail'>$ownername</a></td>";
                 } 
-                echo "</td>\n";
+             //   echo "</td>\n";
                 echo "<td class='even' style='text-align: center;'>" . formatTimestamp( $date, $xoopsModuleConfig['dateformatadmin'] ) . "</td>\n";
                 echo "<td class='even'><a href='brokenlink.php?op=updateNotice&amp;lid=" . $lid . "&ack=" . intval( $acknowledged ) . "'>" . $ack_image . " </a></td>\n";
                 echo "<td class='even'><a href='brokenlink.php?op=updateNotice&amp;lid=" . $lid . "&con=" . intval( $confirmed ) . "'>" . $con_image . "</a></td>\n";
