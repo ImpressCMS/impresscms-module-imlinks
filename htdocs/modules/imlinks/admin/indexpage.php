@@ -67,10 +67,13 @@ switch ( strtolower( $op ) ) {
         xoops_cp_header();
         iml_adminmenu( 4, _AM_IMLINKS_INDEXPAGE );
 
-        echo "
-		 <fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_IPAGE_INFORMATION . "</legend>\n
-		 <div style='padding: 8px;'>" . _AM_IMLINKS_MINDEX_PAGEINFOTXT . "</div>\n
-		 </fieldset><br />\n";
+        echo '
+		 <fieldset style="border: #e8e8e8 1px solid;">
+		 <legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_IPAGE_INFORMATION . '</legend>
+		 <div style="padding: 8px;">
+		 <img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/indexpage.png" alt="" style="float: left; padding-right: 10px;" />
+		 ' . _AM_IMLINKS_MINDEX_PAGEINFOTXT . '</div>
+		 </fieldset><br />';
 
         $sform = new XoopsThemeForm( _AM_IMLINKS_IPAGE_MODIFY, 'op', xoops_getenv( 'PHP_SELF' ) );
         $sform -> addElement( new XoopsFormText( _AM_IMLINKS_IPAGE_CTITLE, 'indexheading', 60, 60, $indexheading ), false );
