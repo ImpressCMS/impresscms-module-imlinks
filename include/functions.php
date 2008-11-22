@@ -165,14 +165,13 @@ function iml_cleanRequestVars( &$array, $name = null, $def = null, $strict = fal
 // @return
 function iml_toolbar( $cid = 0 ) {
 	global $xoopsModule;
-	$style = 'style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-size: smaller; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
 	$toolbar = '';
     if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
-        $toolbar .= '<a ' . $style . ' href="submit.php?cid=' . $cid . '">' . _MD_IMLINKS_SUBMITLINK . '</a> ';
+        $toolbar .= '<a class="button" href="submit.php?cid=' . $cid . '">' . _MD_IMLINKS_SUBMITLINK . '</a> ';
     }
-    $toolbar .= '<a ' . $style . ' href="newlist.php?newlinkshowdays=7">' . _MD_IMLINKS_LATESTLIST . '</a> ';
-	$toolbar .= '<a ' . $style . ' href="topten.php?list=hit">' . _MD_IMLINKS_POPULARITY . '</a> ';
-	$toolbar .= '<a ' . $style . ' href="topten.php?list=rate">' . _MD_IMLINKS_TOPRATEDBUTT . '</a>';
+    $toolbar .= '<a class="button" href="newlist.php?newlinkshowdays=7">' . _MD_IMLINKS_LATESTLIST . '</a> ';
+	$toolbar .= '<a class="button" href="topten.php?list=hit">' . _MD_IMLINKS_POPULARITY . '</a> ';
+	$toolbar .= '<a class="button" href="topten.php?list=rate">' . _MD_IMLINKS_TOPRATEDBUTT . '</a>';
     return $toolbar;
 } 
 
@@ -456,14 +455,14 @@ function iml_displayimage( $image = '', $path = '', $imgsource = '', $alttext = 
 
 function iml_letters() {
     global $xoopsModule;
-	$style = 'style="margin-bottom: 8px; margin-top: 8px; padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 1px; padding-top: 1px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-size: smaller; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
+//	$style = 'style="margin-bottom: 8px; margin-top: 8px; padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 1px; padding-top: 1px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-size: smaller; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
     $letterchoice = '<div style="padding: 2px;">' . _MD_IMLINKS_BROWSETOTOPIC . '</div>';
  //   $letterchoice .= '';
     $alphabet = array ( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' );
     $num = count( $alphabet ) - 1;
     $counter = 0;
     while ( list( , $ltr ) = each( $alphabet ) ) {
-        $letterchoice .= '<a '.$style.' href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/viewcat.php?list='.$ltr.'">'.$ltr.'</a>';
+        $letterchoice .= '<a class="letters" href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/viewcat.php?list='.$ltr.'">'.$ltr.'</a>';
         if ( $counter == round( $num / 2 ) )
             $letterchoice .= '<div style="height: 4px;"></div>';
         elseif ( $counter != $num )

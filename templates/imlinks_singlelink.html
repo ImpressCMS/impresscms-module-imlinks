@@ -1,17 +1,4 @@
-<style type="text/css">
-div.imlinks_socbookmark a img
-	{
-	opacity: .4;
-	-moz-opacity: .4;
-	filter: alpha(opacity=40);
-	}
-div.imlinks_socbookmark a:hover img
-	{
-	opacity: 1;
-	-moz-opacity: 1;
-	filter: alpha(opacity=100);
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$module_dir}>/style.css" />
 
 <{$link.imageheader}>
 <div>&nbsp;</div>
@@ -71,12 +58,14 @@ div.imlinks_socbookmark a:hover img
 		  </td>
           
 		  <td width="35%"> 
-		    <div class="outer" style="margin-left: 10px; margin-right: 5px; padding: 4px; background-color:#E6E6E6; border-color:#999999;">
-              <div><small><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$link.submitter}></small></div>
-              <div><small><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$link.publisher}></small></div>
-              <div><small><b><{$lang_subdate}>:</b>&nbsp;<{$link.updated|wordwrap:50:"\n":true}></small></div>
-              <div><small><{$link.hits|wordwrap:50:"\n":true}></small></div>
-              <div><{$link.country}></div>
+		    <div class="outer" style="margin-left: 10px; margin-right: 5px;">
+				<div class="infoblock">
+					<div><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$link.submitter}></div>
+					<div><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$link.publisher}></div>
+					<div><b><{$lang_subdate}>:</b>&nbsp;<{$link.updated|wordwrap:50:"\n":true}></div>
+					<div><{$link.hits|wordwrap:50:"\n":true}></div>
+					<div><{$link.country}></div>
+				</div>
             </div>
             
 			<br /> 

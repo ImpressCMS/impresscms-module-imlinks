@@ -1,0 +1,53 @@
+/* imLinks stylesheet */
+
+.button {
+	padding-right: 0.5em; 
+	padding-left: 0.5em; 
+	padding-bottom: 3px; 
+	padding-top: 2px; 
+	background-image: url(images/icon/backgnd.png); 
+	background-position: center center; 
+	background-repeat: repeat-x; 
+	color: #444; 
+	font-size: smaller; 
+	font-weight: bold; 
+	cursor: pointer; 
+	border: outset 1px #ccc;
+	}
+	
+.letters {
+	margin-bottom: 8px; 
+	margin-top: 8px; 
+	padding-right: 0.5em; 
+	padding-left: 0.5em; 
+	padding-bottom: 1px; 
+	padding-top: 1px; 
+	background-image: url(images/icon/backgnd.png); 
+	background-position: center center; 
+	background-repeat: repeat-x; 
+	color: #444; 
+	font-size: smaller; 
+	font-weight: bold; 
+	cursor: pointer; 
+	border: outset 1px #ccc;
+	}
+	
+.infoblock { 
+	padding: 4px; 
+	background-color:#E6E6E6; 
+	border-color:#999999;
+	font-size: smaller;
+	}
+	
+div.imlinks_socbookmark a img
+	{
+	opacity: .4;
+	-moz-opacity: .4;
+	filter: alpha(opacity=40);
+	}
+div.imlinks_socbookmark a:hover img
+	{
+	opacity: 1;
+	-moz-opacity: 1;
+	filter: alpha(opacity=100);
+	}

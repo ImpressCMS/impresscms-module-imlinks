@@ -97,7 +97,7 @@ if ( $link_arr['country'] ) {
 	$country = $link_arr['country'];
 	$link['countryflag'] = ICMS_URL . '/' . $xoopsModuleConfig['flagimage']. '/' . $country . '.gif';
 	$link['countryname'] = iml_countryname( $link_arr['country'] );
-	$link['country'] = '<small>' . _MD_IMLINKS_COUNTRYB . '</small>&nbsp;<img src="' . $link['countryflag'] . '" alt="' . $link['countryname'] . '" align="absmiddle" />';
+	$link['country'] = _MD_IMLINKS_COUNTRYB . '&nbsp;<img src="' . $link['countryflag'] . '" alt="' . $link['countryname'] . '" align="absmiddle" />';
 }
 
 $mail_subject = rawurlencode( sprintf( _MD_IMLINKS_INTFILEFOUND, $xoopsConfig['sitename'] ) );
@@ -157,8 +157,6 @@ if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
 	$link['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&lid='.$link_arr['lid'] . '" target="_blank"><img src="http://open.thumbshots.org/image.pxf?url=' . $link_arr['url'] . '" width="120" height="90" align="middle" alt="" /></a>';
 }
 
-$style = 'style="padding-right: 0.5em; padding-left: 0.5em; padding-bottom: 3px; padding-top: 2px; background-image: url(' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/backgnd.png); background-position: center center; background-repeat: repeat-x; color: #444; font-size: smaller; font-weight: bold; cursor: pointer; border: outset 1px #ccc;"';
-
-$link['viewdetails'] = '<a '.$style.' href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid='.$link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
+$link['viewdetails'] = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid='.$link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
 
 ?>
