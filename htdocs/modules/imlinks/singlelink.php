@@ -173,7 +173,7 @@ $words = explode( ' ', icms_html2text( $link_arr['description'] ) );
 $newWords = array();
 $i = 0;
 
-while ( $i < $maxWords-1 && $i < count($words) ) {
+while ( $i < $maxWords-1 && $i < count( $words ) ) {
 if ( isset( $words[$i] ) ) {
   $newWords[] = trim( $words[$i] );
   }
@@ -181,13 +181,17 @@ $i++;
 }
 $link_meta_description = implode( ' ', $newWords );
 
-if ( is_object($xoTheme) ) {
-  $xoTheme -> addMeta( 'meta', 'keywords', $link_arr['keywords'] );
-  $xoTheme -> addMeta( 'meta', 'title', $link_arr['title'] );
-  $xoTheme -> addMeta( 'meta', 'description', $link_meta_description );
+if ( is_object( $xoTheme ) ) {
+	if ( $link_arr['keywords'] != '' ) {
+		$xoTheme -> addMeta( 'meta', 'keywords', $link_arr['keywords'] );
+	}
+	$xoTheme -> addMeta( 'meta', 'title', $link_arr['title'] );
+	$xoTheme -> addMeta( 'meta', 'description', $link_meta_description );
 } else {
-  $xoopsTpl -> assign( 'xoops_meta_keywords', $link_arr['keywords'] );
-  $xoopsTpl -> assign( 'xoops_meta_description', $link_meta_description );
+	if ( $link_arr['keywords'] != '' ) {
+		$xoopsTpl -> assign( 'xoops_meta_keywords', $link_arr['keywords'] );
+	}
+	$xoopsTpl -> assign( 'xoops_meta_description', $link_meta_description );
 }
 $xoopsTpl -> assign( 'xoops_pagetitle', $link_arr['title'] );
 // End of meta tags
