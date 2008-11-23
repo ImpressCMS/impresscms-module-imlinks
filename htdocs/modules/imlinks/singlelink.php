@@ -238,7 +238,7 @@ if ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) {
   if ( true == iml_checkgroups( $cid ) ) {
     $link['useradminlink'] = 1;
     if ( $xoopsUser -> getvar( 'uid' ) == $link_arr['submitter'] ) {
-      $link['usermodify'] = '<a ' . $style . ' href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_edit.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_MODIFY . '</a>';
+      $link['usermodify'] = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_edit.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_MODIFY . '</a>';
     }
   }
 }
