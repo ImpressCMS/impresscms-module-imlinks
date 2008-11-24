@@ -87,7 +87,7 @@ define( "_MD_IMLINKS_RATINGSCALE", "The scale is 1 - 10, with 1 being poor and 1
 define( "_MD_IMLINKS_BEOBJECTIVE", "Please be objective, if everyone receives a 1 or a 10, the ratings aren't very useful." );
 define( "_MD_IMLINKS_DONOTVOTE", "Do not vote for your own resource." );
 define( "_MD_IMLINKS_RATEIT", "Rate It!" );
-define( "_MD_IMLINKS_INTFILEFOUND", "Here is a good link to link at %s" ); // %s is your site name
+define( "_MD_IMLINKS_INTFILEFOUND", "Here is a good link to look at at %s" ); // %s is your site name
 define( "_MD_IMLINKS_RANK", "Rank" );
 define( "_MD_IMLINKS_CATEGORY", "Category" );
 define( "_MD_IMLINKS_HITS", "Hits" );
