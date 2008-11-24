@@ -86,7 +86,7 @@ $mobile  = $myrow['mobile'];
 $voip    = $myrow['voip'];
 $fax     = $myrow['fax'];
 $url     = $myrow['url'];
-$email   = printemailcnvrt( $myrow['email'] );
+$email   = imlinks_printemailcnvrt( $myrow['email'] );
 $country = iml_countryname( $myrow['country'] );
 
 if ( $street1 == '' || $town == '' || $xoopsModuleConfig['useaddress'] == 0 ) {

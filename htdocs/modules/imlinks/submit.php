@@ -102,7 +102,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
         $fax = $immyts -> addslashes( ltrim( $_REQUEST['fax'] ) );
         $voip = $immyts -> addslashes( ltrim( $_REQUEST['voip'] ) );
         $mobile = $immyts -> addslashes( ltrim( $_REQUEST['mobile'] ) );
-        $email = emailcnvrt( $immyts -> addslashes( ltrim( $_REQUEST['email'] ) ) );
+        $email = imlinks_emailcnvrt( $immyts -> addslashes( ltrim( $_REQUEST['email'] ) ) );
         $vat = $immyts -> addslashes( ltrim( $_REQUEST['vat'] ) );
 		$nobreak = iml_cleanRequestVars( $_REQUEST, 'nobreak', 0 );
         } else {

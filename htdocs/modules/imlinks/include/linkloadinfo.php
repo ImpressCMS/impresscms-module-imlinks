@@ -51,7 +51,7 @@ $link['url'] = $link_arr['url'];
 
 // Get Google Pagerank
 if ( isset( $xoopsModuleConfig['showpagerank'] ) && $xoopsModuleConfig['showpagerank'] == 1 ) {
-  $link['pagerank'] = pagerank( $link['url'] );
+  $link['pagerank'] = imlinks_pagerank( $link['url'] );
 }
 
 if ( isset( $link_arr['screenshot'] ) ) {
