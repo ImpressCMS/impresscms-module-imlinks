@@ -105,7 +105,7 @@ define( "_MD_IMLINKS_MUSTREGFIRST", "Sorry, you don't have the permission to per
 define( "_MD_IMLINKS_NORATING", "No rating selected." );
 define( "_MD_IMLINKS_VOTEFORTITLE", "Rate This Link: " );
 define( "_MD_IMLINKS_CANTVOTEOWN", "You cannot vote on the resource you submitted.<br />All votes are logged and reviewed." );
-define( "_MD_IMLINKS_SUBMITLINK", "Submit link" );
+define( "_MD_IMLINKS_SUBMITLINK", "Submit Link" );
 define( "_MD_IMLINKS_SUB_SNEWMNAMEDESC", "<ul><li>All new links's are subject to validation and may take up to 24 hours before they appear in our listing.</li><li>We reserve the rights to refuse any submitted link or change the content without approval.</li></ul>" );
 define( "_MD_IMLINKS_MAINLISTING", "Main Category Listings" );
 define( "_MD_IMLINKS_LASTWEEK", "Last week" );
