@@ -198,7 +198,7 @@ function iml_serverstats() {
     echo '<li>' . _AM_IMLINKS_LINK_REGISTERGLOBALS . $registerglobals;
     echo '<li>' . _AM_IMLINKS_LINK_SERVERUPLOADSTATUS . $links;
     echo '</div>';
-    echo '</fieldset><br />';
+    echo '</fieldset>';
 } 
 
 // displayicons()

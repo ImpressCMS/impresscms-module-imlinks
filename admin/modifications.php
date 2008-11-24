@@ -195,9 +195,9 @@ switch ( strtolower( $op ) ) {
 
         xoops_cp_header();
         iml_adminmenu( _AM_IMLINKS_MOD_MODREQUESTS );
-        echo "<fieldset><legend style='font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_MOD_MODREQUESTSINFO . "</legend>\n";
+        echo "<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_MOD_MODREQUESTSINFO . "</legend>\n";
         echo "<div style='padding: 8px;'>" . _AM_IMLINKS_MOD_TOTMODREQUESTS . " <b>$totalmodrequests</></div>\n";
-        echo "</fieldset><br />\n";
+        echo "</fieldset>\n";
 
         echo "<table width='100%' cellspacing='1' class='outer'>\n";
         echo "<tr style='text-align: center;'>\n";

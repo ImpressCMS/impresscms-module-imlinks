@@ -70,7 +70,6 @@ switch ( strtolower($op) ) {
 		<div style='padding: 8px;'>$text_info</div>\n	
 		<div style='padding: 8px;'><li>" . $imagearray['deleteimg'] . "&nbsp;&nbsp;" . _AM_IMLINKS_VOTE_DELETEDSC . "</li></div>\n
 		</fieldset>\n
-		<br />\n
 
 		<table width='100%' cellspacing='1' cellpadding='2' class='outer'>\n
 		<tr>\n

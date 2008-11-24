@@ -64,7 +64,7 @@ function rss_edit() {
 			<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
 			' . _AM_IMLINKS_RSSFEEDDSC . '
 			</div>
-			</fieldset><br />
+			</fieldset>
 		';
 	
 	$sform = new XoopsThemeForm( _AM_IMLINKS_RSSFEEDCFG, 'storyform', xoops_getenv( 'PHP_SELF' ) );
