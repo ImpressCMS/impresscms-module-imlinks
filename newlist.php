@@ -34,8 +34,8 @@ include ICMS_ROOT_PATH . '/header.php';
 global $xoopsDB, $xoopsModule, $xoopsModuleConfig;
 
 $catarray['imageheader'] = iml_imageheader();
-//$catarray['letters'] = iml_letters();
-//$catarray['toolbar'] = iml_toolbar();
+$catarray['letters'] = iml_letters();
+$catarray['toolbar'] = iml_toolbar();
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 if ( isset( $_GET['newlinkshowdays'] ) ) {
