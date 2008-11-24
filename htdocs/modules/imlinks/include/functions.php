@@ -165,7 +165,7 @@ function iml_cleanRequestVars( &$array, $name = null, $def = null, $strict = fal
 // @return
 function iml_toolbar( $cid = 0 ) {
 	global $xoopsModule;
-	$toolbar = '';
+	$toolbar = '<a class="button" href="index.php">' . _MD_IMLINKS_MAIN . '</a> ';
     if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
         $toolbar .= '<a class="button" href="submit.php?cid=' . $cid . '">' . _MD_IMLINKS_SUBMITLINK . '</a> ';
     }
