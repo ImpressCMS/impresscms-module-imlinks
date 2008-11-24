@@ -1109,7 +1109,7 @@ function iml_countryname( $countryn ) {
 //    Start functions for Google PageRank
 //    Source: http://www.sws-tech.com/scripts/googlepagerank.php
 //    This code is released under the public domain
-function zeroFill($a, $b) {
+function imlinks_zeroFill($a, $b) {
     $z = hexdec(80000000);
     //echo $z;
         if ($z & $a) {
@@ -1123,20 +1123,20 @@ function zeroFill($a, $b) {
         return $a;
 }
 
-function mix($a,$b,$c) {
-  $a -= $b; $a -= $c; $a ^= (zeroFill($c,13));
+function imlinks_mix($a,$b,$c) {
+  $a -= $b; $a -= $c; $a ^= (imlinks_zeroFill($c,13));
   $b -= $c; $b -= $a; $b ^= ($a<<8);
-  $c -= $a; $c -= $b; $c ^= (zeroFill($b,13));
-  $a -= $b; $a -= $c; $a ^= (zeroFill($c,12));
+  $c -= $a; $c -= $b; $c ^= (imlinks_zeroFill($b,13));
+  $a -= $b; $a -= $c; $a ^= (imlinks_zeroFill($c,12));
   $b -= $c; $b -= $a; $b ^= ($a<<16);
-  $c -= $a; $c -= $b; $c ^= (zeroFill($b,5));
-  $a -= $b; $a -= $c; $a ^= (zeroFill($c,3));
+  $c -= $a; $c -= $b; $c ^= (imlinks_zeroFill($b,5));
+  $a -= $b; $a -= $c; $a ^= (imlinks_zeroFill($c,3));
   $b -= $c; $b -= $a; $b ^= ($a<<10);
-  $c -= $a; $c -= $b; $c ^= (zeroFill($b,15));
+  $c -= $a; $c -= $b; $c ^= (imlinks_zeroFill($b,15));
   return array($a,$b,$c);
 }
 
-function GoogleCH($url, $length=null, $init=0xE6359A60) {
+function imlinks_GoogleCH($url, $length=null, $init=0xE6359A60) {
     if (is_null($length)) {
         $length = sizeof($url);
     }
@@ -1148,7 +1148,7 @@ function GoogleCH($url, $length=null, $init=0xE6359A60) {
         $a += ($url[$k+0] +($url[$k+1]<<8) +($url[$k+2]<<16) +($url[$k+3]<<24));
         $b += ($url[$k+4] +($url[$k+5]<<8) +($url[$k+6]<<16) +($url[$k+7]<<24));
         $c += ($url[$k+8] +($url[$k+9]<<8) +($url[$k+10]<<16)+($url[$k+11]<<24));
-        $mix = mix($a,$b,$c);
+        $mix = imlinks_mix($a,$b,$c);
         $a = $mix[0]; $b = $mix[1]; $c = $mix[2];
         $k += 12;
         $len -= 12;
@@ -1170,22 +1170,22 @@ function GoogleCH($url, $length=null, $init=0xE6359A60) {
         case 1 : $a+=($url[$k+0]);
          /* case 0: nothing left to add */
     }
-    $mix = mix($a,$b,$c);
+    $mix = imlinks_mix($a,$b,$c);
     //echo $mix[0];
     /*-------------------------------------------- report the result */
     return $mix[2];
 }
 //converts a string into an array of integers containing the numeric value of the char
-function strord($string) {
+function imlinks_strord($string) {
   for($i=0; $i<strlen($string); $i++) {
     $result[$i] = ord($string{$i});
   }
   return $result;
 }
 
-function pagerank($url) {
+function imlinks_pagerank($url) {
   $pagerank = '';
-  $ch = "6" . GoogleCH(strord("info:" . $url));
+  $ch = "6" . imlinks_GoogleCH(imlinks_strord("info:" . $url));
   $fp = fsockopen("www.google.com", 80, $errno, $errstr, 30);
   if (!$fp) {
       echo "$errstr ($errno)<br />\n";
@@ -1347,7 +1347,7 @@ if ( $htmlbanner ) {
   }
 }
 
-function emailcnvrt($email) {
+function imlinks_emailcnvrt($email) {
          $search = array(
          "/\@/",
          "/\./",
@@ -1364,7 +1364,7 @@ function emailcnvrt($email) {
         return $text;
 }
 
-function printemailcnvrt($email) {
+function imlinks_printemailcnvrt($email) {
          $search = array (
          "/\ [at] /",
          "/\ [dot] /",

@@ -525,7 +525,7 @@ switch ( strtolower( $op ) )
            $fax = $immyts -> addslashes( trim( $_POST['fax'] ) );
            $voip = $immyts -> addslashes( trim( $_POST['voip'] ) );
            $mobile = $immyts -> addslashes( trim( $_POST['mobile'] ) );
-           $email = emailcnvrt( $immyts -> addslashes( trim( $_POST['email'] ) ) );
+           $email = imlinks_emailcnvrt( $immyts -> addslashes( trim( $_POST['email'] ) ) );
            $vat = $immyts -> addslashes( trim( $_POST['vat'] ) );
         } else {
            $googlemap = $yahoomap = $multimap = $street1 = $street2 = $town = $state = $zip = $tel = $fax = $voip = $mobile = $email = $vat = '';
