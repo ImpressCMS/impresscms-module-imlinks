@@ -167,7 +167,7 @@ define('_MI_IMLINKS_GLOBAL_NEWLINK_NOTIFYDSC', 'Получить оповеще�
 define('_MI_IMLINKS_GLOBAL_NEWLINK_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : Новая ссылка');
 
 define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFY', 'Размещена ссылка');
-define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYCAP', 'Оповестить меня, когда будет размщена новая ссылка (ожидающая одобрения) в текущей категории.');   
+define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYCAP', 'Оповестить меня, когда будет размещена новая ссылка (ожидающая одобрения) в текущей категории.');   
 define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYDSC', 'Receive notification when a new link is submitted (ожидающая одобрения) to the current category.');      
 define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : В категории размещена новая ссылка'); 
 
