@@ -88,7 +88,7 @@ define( "_MD_IMLINKS_RATINGSCALE", "De schaal is 1 - 10, waarbij 1 slecht is en 
 define( "_MD_IMLINKS_BEOBJECTIVE", "Wees objectief, zodat de informatie nuttig is." );
 define( "_MD_IMLINKS_DONOTVOTE", "Stem niet op uw eigen link." );
 define( "_MD_IMLINKS_RATEIT", "Geef een cijfer!" );
-define( "_MD_IMLINKS_INTFILEFOUND", "Hier is een goede link om te bekijken via %s" ); // %s is your site name
+define( "_MD_IMLINKS_INTFILEFOUND", "Hier is een goede link om te bekijken op %s" ); // %s is your site name
 define( "_MD_IMLINKS_RANK", "Score" );
 define( "_MD_IMLINKS_CATEGORY", "Categorie" );
 define( "_MD_IMLINKS_HITS", "Kliks" );
