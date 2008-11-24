@@ -716,7 +716,7 @@ switch ( strtolower( $op ) )
 			<a href='newlinks.php'>" . _AM_IMLINKS_SNEWFILESVAL . "</a><b>" . $totalnewlinks . "</b> | \n
 			<a href='modifications.php'>" . _AM_IMLINKS_SMODREQUEST . "</a><b>" . $totalmodrequests . "</b> | \n
 			<a href='brokenlink.php'>" . _AM_IMLINKS_SBROKENSUBMIT . "</a><b>" . $totalbrokenlinks . "</b>\n
-			</small></div></fieldset><br />\n
+			</small></div></fieldset>\n
 		";
 
         if ( $totalcats > 0 ) {

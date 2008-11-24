@@ -98,8 +98,7 @@ switch ( strtolower( $op ) ) {
 		    <li>" . $imagearray['deleteimg'] . "&nbsp;&nbsp;" . _AM_IMLINKS_BROKEN_DELETEDESC . "</li>\n
 		   </ul>
 		  </div>
-		 </fieldset>
-		<br />\n
+		</fieldset>\n
 
 		<table width='100%' border='0' cellspacing='1' cellpadding='2' class='outer'>\n
 		<tr style='text-align: center;'>\n

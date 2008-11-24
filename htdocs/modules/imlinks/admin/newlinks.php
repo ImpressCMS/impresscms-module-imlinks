@@ -86,13 +86,13 @@ switch ( strtolower( $op ) ) {
         xoops_cp_header();
         iml_adminmenu( _AM_IMLINKS_SUB_SUBMITTEDFILES );
 
-        echo "<fieldset><legend style='font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_SUB_FILESWAITINGINFO . "</legend>\n";
+        echo "<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_SUB_FILESWAITINGINFO . "</legend>\n";
         echo "<div style='padding: 8px;'>" . _AM_IMLINKS_SUB_FILESWAITINGVALIDATION . "&nbsp;<b>$new_array_count</b><div>\n";
         echo "<div div style='padding: 8px;'>\n";
         echo "<li>" . $imagearray['approve'] . " " . _AM_IMLINKS_SUB_APPROVEWAITINGFILE . "\n";
         echo "<li>" . $imagearray['editimg'] . " " . _AM_IMLINKS_SUB_EDITWAITINGFILE . "\n";
         echo "<li>" . $imagearray['deleteimg'] . " " . _AM_IMLINKS_SUB_DELETEWAITINGFILE . "</div>\n";
-        echo "</fieldset><br />\n";
+        echo "</fieldset>\n";
 
         echo "<table width='100%' cellspacing='1' class='outer'>\n";
         echo "<tr style='text-align: center;'>\n";
