@@ -85,8 +85,11 @@ function list_blocks() {
 		$bcachetime = $block_arr[$i] -> getVar( 'bcachetime' );
 		$bid = $block_arr[$i] -> getVar( 'bid' );
 		$yvisible = $nvisible = '';
+		$ystyle = $nstyle = '';
 		$yvisible = ( $block_arr[$i] -> getVar( 'visible' ) == 1 ? "checked='checked'" : '' );
 		$nvisible = ( $block_arr[$i] -> getVar( 'visible' ) == 1 ? '' : "checked='checked'" );
+		if ( $yvisible ) { $ystyle = 'style="background-color: #00FF00;"'; }
+		if ( $nvisible ) { $nstyle = 'style="background-color: #FF0000;"'; }
   		$side_options = '';
      // Block positions - XOOPS 2.0.x, 2.3.x
      if ( !$adv_blocks ) {
@@ -189,8 +192,8 @@ function list_blocks() {
 				</select>
 			</td>
 			<td class='$class' align='center'>
-			  <input type='radio' name='visible[$bid]' value='1' $yvisible />" . _YES . "&nbsp;
-                 <input type='radio' name='visible[$bid]' value='0' $nvisible />" . _NO . "
+			  <input type='radio' name='visible[$bid]' $ystyle value='1' $yvisible />" . _YES . "&nbsp;
+                 <input type='radio' name='visible[$bid]' $nstyle value='0' $nvisible />" . _NO . "
                  <input type='hidden' name='oldvisible[$bid]' value='" . $block_arr[$i] -> getVar( 'visible' ) . "' />
                </td>
 			<td class='$class' align='center'>
