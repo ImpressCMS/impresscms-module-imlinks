@@ -1,7 +1,7 @@
 =========================================================
 xx.11.2008   1.00 RC-1
 =========================================================
-- Revamped Main Index page in administration
+- Revamped Main Index page in Control Panel
 - Revamped buttons front page
 
 - Added: developers, testers, translators, etc for About page
@@ -16,6 +16,7 @@ xx.11.2008   1.00 RC-1
 - Added: icons for button bar, plus new module and category icons
 - Added: option to set linebreak in submit forms (off by default)
 - Added: option to clone a link
+- Added: Home button
 
 - Renamed: module name from 'WF-Links' into 'imLinks'
 - Renamed: file 'bugfixlist.txt' into 'changelog.txt'
@@ -25,6 +26,8 @@ xx.11.2008   1.00 RC-1
 - Fixed: block settings [skenow]
 - Fixed: search function causing conflict with 'View profile'
 - Fixed: category icons change state when a sub-category contains new link
+- Fixed: unclosed div-tag in imlinks_viewcat.html
+- Fixed: body-tag was declared twice in imlinks_print.html
 
 
 =========================================================
