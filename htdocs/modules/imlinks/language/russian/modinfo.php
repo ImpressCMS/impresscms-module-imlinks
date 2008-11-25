@@ -34,7 +34,7 @@ define("_MI_IMLINKS_DESC", "Создание секции ссылок, где �
 
 // Names of blocks for this module (Not all module has blocks)
 define("_MI_IMLINKS_BNAME1", "Последние ссылки");
-define("_MI_IMLINKS_BNAME2", "Топ ссылок");
+define("_MI_IMLINKS_BNAME2", "Популярные ссылки");
 
 // Sub menu titles
 define("_MI_IMLINKS_SMNAME1", "Разместить");
