@@ -66,11 +66,11 @@ if (!defined('IS_UPDATE_FILE')) {
         'wflinks_votedata' 	=> imlinks_votedata,
         ); 
     foreach ( $table_array as $table1 => $table2 ) {
-        $result = $xoopsDB -> queryF( "ALTER TABLE " . $xoopsDB -> prefix( trim( $table1 ) ) . " RENAME TO " . $xoopsDB -> prefix( trim( $table2 ) ) . " " );
+        $result = $xoopsDB -> queryF( "CREATE TABLE " . $xoopsDB -> prefix( trim( $table2 ) ) . " SELECT * FROM " . $xoopsDB -> prefix( trim( $table1 ) ) . " " );
         if (!$result) {
             $error[]="<b>Error:</b> Could <span style='color:#ff0000;font-weight:bold'>not rename</span> table $table1 to table <b>$table2</b>!";
         } else {
-            $output[]="<b>Success:</b> Table <b>$table1</b> was <span style='color:#FF0000;font-weight:bold'>renamed</span> to $table2 Successfully";
+            $output[]="<b>Success:</b> Table <b>$table1</b> was <span style='color:#FF0000;font-weight:bold'>copied</span> to $table2 Successfully";
         } 
         unset($result);
     } 

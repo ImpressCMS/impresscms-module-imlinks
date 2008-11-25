@@ -108,13 +108,13 @@ if ( $action == 'message' ) {
     } 
 	echo '<div style="text-align: center; padding-bottom: 20px;"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/logo-en.png" alt="" /></div>';
     echo '<div><b>Welcome to the imLinks Update script</b></div><br />';
-    echo '<div>This script will upgrade WF-Links.</div><br /><br />';
+    echo '<div>This script will upgrade imLinks from WF-Links.</div><br /><br />';
 
     if ( $link_num != 0 ) {
-        echo '<div><span style="color:#ff0000;font-weight:bold;">WARNING: If upgrading from WF-Links.<br />This module will **NOT** function after the upgrade and should be uninstalled. </span></div><br />';
+//        echo '<div><span style="color:#ff0000;font-weight:bold;">WARNING: If upgrading from WF-Links.<br />This module will **NOT** function after the upgrade and should be uninstalled. </span></div><br />';
         echo '<div><b>Before upgrading to imLinks, make sure that you have:</b></div><br />';
         echo '<div><span style="color:#ff0000; ">1. <b>Important:</b> First, create a back-up from your database before proceeding further. </span></div>';
-        echo '<div>2. Upload all the contents of the imLinks package to your server.</div><br />';
+        echo '<div>2. Upload all the contents of the imLinks package to your server.</div>';
         echo '<div>3. After the upgrade you must update imLinks in System Admin -> Modules.</div><br /><br />';
 
         echo '<div><b>Press the button below to ';
