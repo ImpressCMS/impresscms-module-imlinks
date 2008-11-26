@@ -35,8 +35,9 @@ a:active {
   If you want to do a fresh install of imLinks please select 'Install'.
 </div>
 <br />
-<p><strong>Remember:</strong> It is always a good idea to make a database backup before installing any modules.  </p>
-<p>Note: When you do the conversion the update script will convert the WF-Links tables in the database into imLinks tables. After the conversion you can't use WF-Links anymore because it is missing tables then. If you want to keep your WF-Links working you would have to backup the WF-Links tables before you start updating and restore them afterwards. It is possible to have imLinks and WF-Links running at the same time (though we don't know why you would won't that).  </p>
+<p><strong><br />
+Remember:</strong> It is always a good idea to make a database backup before installing any modules.</p>
+<p>&nbsp;</p>
 <blockquote>
   <p><strong>1. Make a backup </strong></p>
   <p>Backup the WF-Links tables from your database. </p>
@@ -62,8 +63,11 @@ a:active {
   <p>Return to Control Panel --&gt; Modules and update imLinks. </p>
   <p><strong>7. Configure the module </strong></p>
   <p>Most importent steps now will be to setup the group permissions for the module and its blocks via Control Panel --&gt; Groups. </p>
-  <p><strong>8. Restore or remove WF-Links </strong></p>
-  <p>If you want to continue using WF-Links in addition to imLinks then restore your WF-Links tables now from the backup you did in step 1. If you don't want to use those anymore deactivate the old module and uninstall it. </p>
+  <p><strong>8. Removing conversing script</strong></p>
+  <p>After a successfull conversion you should remove the file <em>update.php</em> and the folder <em>{icms_rootdirectory}/update</em> and its contents from your server.  </p>
+  <p><strong>9. Restore or remove WF-Links </strong></p>
+  <p>You can continue using WF-Links after the upgrade. It is possible to run imLinks and WF-Links at the same time, where both module can share the folder <em>{icms_rootdirectory}/uploads/images.</em> If you don't want to use WF-Links anymore deactivate the old module and uninstall it. </p>
+  <p>&nbsp;</p>
 </blockquote>
 </body>
 </html>

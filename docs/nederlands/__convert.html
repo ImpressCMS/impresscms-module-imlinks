@@ -35,9 +35,9 @@ a:active {
     <br />
   Indien u een nieuwe installatie wilt doen kies dan 'Installeren' uit het menu.</div>
 <br />
-<p><strong>Opmerking: </strong>Het is altijd goed om eerst een database backup te maken alvorens een module te installeren.  </p>
-<h2>Conversie van WF-Links --&gt; imLinks  </h2>
-<p>Opmerking: Wanneer u de conversie doet zal het update script de WF-Links tabellen in de database in imLinks tabellen omzetten. Na de conversie kunt u WF-Links niet meer gebruiken, omdat de tabellen ontbreken. Als u WF-Links werkend wilt houden dient u eerst een backup van de WF-Links tabellen te maken en ze na de conversie weer terug te plaatsen. Het is mogelijk om imLinks en imLinks naast elkaar te laten werken (hoewel wij niet weten waarom u dat zou willen).  </p>
+<p><strong><br />
+Opmerking: </strong>Het is altijd goed om eerst een database backup te maken alvorens een module te installeren.</p>
+<p>&nbsp;  </p>
 <blockquote>
   <p><strong>1. Maak een backup  </strong></p>
   <p>Maak een backup van de myLinks/webLinks tabellen van uw database.  </p>
@@ -65,8 +65,12 @@ a:active {
   <p>Ga terug naar Systeem --&gt; Modules en update imLinks, dit is om de templates bij te werken. </p>
   <p><strong>7. Configureer de module </strong></p>
   <p>De meest belangrijke stap nu is om de groep- en blokrechten voor de module in te stellen via Systeem --&gt; Groepen  </p>
-  <p><strong>8. Herstel of verwijder WF-Links </strong></p>
-  <p>Als u WF-Links wilt blijven gebruiken naast imLinks, herstel dan uw WF-Links tabellen met de in stap 1 gemaakte backup. Als u WF-Links niet meer wilt gebruiken deactiveer en deïnstalleer de oude module dan. </p>
+  <p><strong>8. Verwijderen conversie script</strong></p>
+  <p>Na een succesvolle conversie dient u het bestand <em>update.php</em> en de map <em>{icms_rootdirectory}/update</em> van uw server te verwijderen. </p>
+  <p><strong>9. Herstel of verwijder WF-Links </strong></p>
+  <p>U kunt WF-Links naast imLinks blijven gebruiken. Beide modules kunnen de map <em>{icms_rootdirectory}/uploads/images</em> gemeenschappelijk gebruiken.  <br />
+  Als u WF-Links niet meer wilt gebruiken deactiveer en deïnstalleer de oude module dan. </p>
+  <p>&nbsp;</p>
 </blockquote>
 </body>
 </html>
