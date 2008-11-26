@@ -33,9 +33,8 @@ if (!defined('IS_UPDATE_FILE')) {
 
     $error = array();
     $output = array();
-    /**
-     * Delete newly created tables in imLinks
-     */
+	
+    // Delete newly created tables in imLinks
     $table_array = array(
 		imlinks_altcat,
 		imlinks_broken,
@@ -53,9 +52,8 @@ if (!defined('IS_UPDATE_FILE')) {
             $output[]="<b>Success:</b> Table <b>$table_arr</b> was <span style='color:#FF0000;font-weight:bold'>delete</span> Successfully";
         } 
     } 
-    /**
-     * Copy over old links tables without delete;
-     */
+	
+    // Copy over old links tables without delete;
     $table_array = array(
 		'wflinks_altcat' 	=> imlinks_altcat,
 		'wflinks_broken' 	=> imlinks_broken,
@@ -68,9 +66,9 @@ if (!defined('IS_UPDATE_FILE')) {
     foreach ( $table_array as $table1 => $table2 ) {
         $result = $xoopsDB -> queryF( "CREATE TABLE " . $xoopsDB -> prefix( trim( $table2 ) ) . " SELECT * FROM " . $xoopsDB -> prefix( trim( $table1 ) ) . " " );
         if (!$result) {
-            $error[]="<b>Error:</b> Could <span style='color:#ff0000;font-weight:bold'>not rename</span> table $table1 to table <b>$table2</b>!";
+            $error[]="<b>Error:</b> Could <span style='color: #ff0000; font-weight: bold;'>not rename</span> table $table1 to table <b>$table2</b>!";
         } else {
-            $output[]="<b>Success:</b> Table <b>$table1</b> was <span style='color:#FF0000;font-weight:bold'>copied</span> to $table2 Successfully";
+            $output[]="<b>Success:</b> Table <b>$table1</b> was <span style='color: #FF0000; font-weight:bold;'>copied</span> to $table2 Successfully";
         } 
         unset($result);
     } 
@@ -182,9 +180,7 @@ $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_votedata') . " ADD INDEX(lid)");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 
-    /**
-     * Update comments
-     */
+    // Update comments
     $modhandler = &xoops_gethandler( 'module' );
     $imlinksModule = &$modhandler -> getByDirname( $mydirname );
     $imlinks_id = $imlinksModule -> getVar( 'mid' );
@@ -200,19 +196,18 @@ $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 	
     if ( count( $error ) ) {
         foreach($error as $err) {
-            echo $err . "<br>";
+            echo $err . '<br>';
         } 
     } 
     if ( count( $output ) ) {
-        echo '<p><span style="color:#0000FF;font-weight:bold">There where updates made to your database.</span></p>';
+        echo '<p><span style="color: #0000FF; font-weight: bold;">There where updates made to your database.</span></p>';
         foreach($output as $nonerr) {
             echo $nonerr . '<br>';
         } 
     } 
-    echo '<div align="lrft" style="margin: 20px;">
-			<a style="border: 1px solid #5E5D63; color: #000000; background-color: #EFEFEF; padding: 4px 8px; text-align:center;" href="' . ICMS_URL . '/modules/system/admin.php?fct=modulesadmin">
+    echo '<div align="left" style="margin: 20px;">
+			<a style="border: 1px solid #5E5D63; color: #000000; background-color: #EFEFEF; padding: 4px 8px; text-align: center;" href="' . ICMS_URL . '/modules/system/admin.php?fct=modulesadmin">
 			<b>Finish updating Module</b>
 			</a>
 		 </div>';
-
 ?>
