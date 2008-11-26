@@ -423,17 +423,16 @@ switch ( strtolower( $op ) )
         $broken_array = $xoopsDB -> query( $sql, $xoopsModuleConfig['admin_perpage'], $start );
         $broken_array_count = $xoopsDB -> getRowsNum( $result );
 
-        xoops_cp_header();
-        iml_adminmenu( _AM_IMLINKS_BINDEX );
+        xoops_cp_header();  
 		
 		if ( $op == 'pingtime' ) {
+			iml_adminmenu( '', _AM_IMLINKS_MLISTPINGTIMES );
 			echo '	<fieldset style="border: #e8e8e8 1px solid;">
-					<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MLISTPINGTIMES . '</legend>
 					<div style="padding: 8px;">' . _AM_IMLINKS_PINGTIMES . '</div>
 					</fieldset>';
 		} else {
+			iml_adminmenu( '', _AM_IMLINKS_MLISTBROKEN );
 			echo '	<fieldset style="border: #e8e8e8 1px solid;">
-					<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MLISTBROKEN . '</legend>
 					<div style="padding: 8px;">' . _AM_IMLINKS_LISTBROKEN . '</div>
 					</fieldset>';
 		}
