@@ -20,7 +20,7 @@ include 'header.php';
 
 global $xoopsModuleConfig, $xoopsModule;
 	
-include_once ICMS_ROOT_PATH . '/class/icmsfeed.php'; 
+include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/icmsfeed.php'; 
 
 $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_configs' );
 $config_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );

@@ -220,6 +220,8 @@ $modversion['templates'][9]['file'] = 'imlinks_print.html';
 $modversion['templates'][9]['description'] = '';
 $modversion['templates'][10]['file'] = 'imlinks_disclaimer.html';
 $modversion['templates'][10]['description'] = '';
+$modversion['templates'][11]['file'] = 'imlinks_rss.html';
+$modversion['templates'][11]['description'] = '';
 
 // Module config setting
 $i=0;
