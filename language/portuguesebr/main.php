@@ -240,5 +240,5 @@ define( '_MD_IMLINKS_TEXTOPTIONS', 'Opções de texto:' );
 define( '_MD_IMLINKS_DISABLEBREAK', ' Converter <b>quebra de linha</b> ?' );
 define( '_MD_IMLINKS_CLONE', 'Clonar' );
 define( '_MD_IMLINKS_TOPRATEDBUTT', 'Mais votados' );
-
+define( '_MD_IMLINKS_ALPHABET', '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' );
 ?>

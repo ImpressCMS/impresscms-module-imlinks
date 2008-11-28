@@ -241,5 +241,5 @@ define( '_MD_IMLINKS_TEXTOPTIONS', 'Options texte:' );
 define( '_MD_IMLINKS_DISABLEBREAK', ' Utiliser la conversion ICMS linebreak?' );
 define( '_MD_IMLINKS_CLONE', 'Clone' );
 define( '_MD_IMLINKS_TOPRATEDBUTT', 'Top Rated' );
-
+define( '_MD_IMLINKS_ALPHABET', '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' );
 ?>
