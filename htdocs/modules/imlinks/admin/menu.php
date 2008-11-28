@@ -76,11 +76,7 @@ $adminmenu[8]['small']	= 'images/icon/feed.png';
 
 if ( isset( $xoopsModule ) ) {
 
-	if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $admin_dirname . '/language/' . $xoopsConfig['language'] . '/admin.php' ) ) {
-		include_once ICMS_ROOT_PATH . '/modules/' . $admin_dirname . '/language/' . $xoopsConfig['language'] . '/admin.php';
-	} else {
-		include_once ICMS_ROOT_PATH . '/modules/' . $admin_dirname . '/language/english/admin.php';
-	}
+	icms_loadLanguageFile( $admin_dirname, 'admin' );
 	
 	if ( file_exists( "../docs/" . $xoopsConfig['language'] . "/readme.html") ) {
 			$docs = '../docs/' . $xoopsConfig['language'] . '/readme.html" target="_blank"'; 
