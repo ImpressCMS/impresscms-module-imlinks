@@ -240,4 +240,5 @@ define( '_MD_IMLINKS_TEXTOPTIONS', 'Text Optionen:' );
 define( '_MD_IMLINKS_DISABLEBREAK', ' autom. Zeilenumbruch verwenden?' );
 define( '_MD_IMLINKS_CLONE', 'Klonen' );
 define( '_MD_IMLINKS_TOPRATEDBUTT', 'Top Bewertet' );
+define( '_MD_IMLINKS_ALPHABET', '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' );
 ?>

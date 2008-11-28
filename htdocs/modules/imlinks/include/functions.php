@@ -457,7 +457,7 @@ function iml_letters() {
     global $xoopsModule;
     $letterchoice = '<div style="padding: 2px; font-size: smaller;">' . _MD_IMLINKS_BROWSETOTOPIC . '</div>';
  //   $letterchoice .= '';
-    $alphabet = array ( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' );
+    $alphabet = preg_split( '//', _MD_IMLINKS_ALPHABET, -1, PREG_SPLIT_NO_EMPTY );
     $num = count( $alphabet ) - 1;
     $counter = 0;
     while ( list( , $ltr ) = each( $alphabet ) ) {
