@@ -28,7 +28,7 @@
 
 $module_link = '';
 
-$link['id'] = intval( $link_arr['lid'] );
+$link['id']  = intval( $link_arr['lid'] );
 $link['cid'] = intval( $link_arr['cid'] );
 $link['published'] = intval( $link_arr['published'] ) ? true : false;
 
@@ -43,7 +43,7 @@ $link['rateimg'] = 'rate' . $rating . '.gif';
 unset( $rating );
 
 $link['votes'] = ( $link_arr['votes'] == 1 ) ? _MD_IMLINKS_ONEVOTE : sprintf( _MD_IMLINKS_NUMVOTES, $link_arr['votes'] );
-$link['hits'] = sprintf( _MD_IMLINKS_LINKHITS, intval( $link_arr['hits'] ) ) ;
+$link['hits']  = sprintf( _MD_IMLINKS_LINKHITS, intval( $link_arr['hits'] ) ) ;
 $xoopsTpl -> assign( 'lang_dltimes', $link['hits'] );
 
 $link['title'] = $link_arr['title'];
@@ -63,11 +63,10 @@ if ( isset( $link_arr['screenshot'] ) ) {
                 $_thumb_image -> setUseThumbs( 1 );
                 $_thumb_image -> setImageType( 'gd2' );
                 $_image = $_thumb_image -> do_thumb( $xoopsModuleConfig['shotwidth'],
-                    $xoopsModuleConfig['shotheight'],
-                    $xoopsModuleConfig['imagequality'],
-                    $xoopsModuleConfig['updatethumbs'],
-                    $xoopsModuleConfig['keepaspect']
-                    );
+													 $xoopsModuleConfig['shotheight'],
+													 $xoopsModuleConfig['imagequality'],
+													 $xoopsModuleConfig['updatethumbs'],
+													 $xoopsModuleConfig['keepaspect'] );
             }
             $link['screenshot_thumb'] = ICMS_URL . "/{$xoopsModuleConfig['screenshots']}/$_image";
         } else {
@@ -88,7 +87,7 @@ if ( $moderate == 0 ) {
  
 $link['updated'] = formatTimestamp( $time, $xoopsModuleConfig['dateformat'] );
 $description = $immyts -> displayTarea( $link_arr['description'], 1, 1, 1, 1, 1 );
-$link['description'] = icms_substr( $description, 0, $xoopsModuleConfig['totalchars'],'...');
+$link['description'] = icms_substr( $description, 0, $xoopsModuleConfig['totalchars'], '...' );
 
 $link['submitter'] = icms_getLinkedUnameFromId( $link_arr['submitter'] );
 $link['publisher'] = ( isset( $link_arr['publisher'] ) && !empty( $link_arr['publisher'] ) ) ? $immyts -> htmlSpecialCharsStrip( $link_arr['publisher'] ) : _MD_IMLINKS_NOTSPECIFIED;
