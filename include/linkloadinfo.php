@@ -101,12 +101,11 @@ if ( $link_arr['country'] ) {
 
 $mail_subject = rawurlencode( sprintf( _MD_IMLINKS_INTFILEFOUND, $xoopsConfig['sitename'] ) );
 $mail_body = rawurlencode( sprintf( _MD_IMLINKS_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] );
-$link['isadmin'] = ( ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) && $xoopsUser -> isAdmin( $xoopsModule -> mid() ) ) ? true : false;
 $link['comments'] = $link_arr['comments'];
 $whoisurl = str_replace( 'http://', '', $link['url']);
 
 $link['adminlink'] = '';
-if ( $link['isadmin'] == true && $moderate == 0 ) {
+if ( icms_userIsAdmin() == true && $moderate == 0 ) {
     $link['adminlink'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/computer.png" alt="' . _MD_IMLINKS_ADMINSECTION . '" title="' . _MD_IMLINKS_ADMINSECTION . '" align="absmiddle"/></a>&nbsp;';
     $link['adminlink'] .=  '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=edit&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_edit.png" alt="' . _MD_IMLINKS_EDIT . '" title="' . _MD_IMLINKS_EDIT . '" align="absmiddle"/></a>&nbsp;';
     $link['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=delete&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_delete.png" alt="' . _MD_IMLINKS_DELETE . '" title="' . _MD_IMLINKS_DELETE . '" align="absmiddle"/></a>&nbsp;';
