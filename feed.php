@@ -20,14 +20,14 @@ include 'header.php';
 
 global $xoopsModuleConfig, $xoopsModule;
 	
-include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/icmsfeed.php'; 
+include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/imlinksfeed.php'; 
 
 $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_configs' );
 $config_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 
 if ( $config_arr['rssactive'] == 1 ) {
 	
-$myFeed = new IcmsFeed();
+$myFeed = new imLinksFeed();
 
 $myFeed -> webMaster 	 = $config_arr['rsswebmaster'];
 $myFeed -> channelEditor = $config_arr['rsseditor'];
@@ -81,7 +81,7 @@ $myFeed -> feeds[] = array(
 $myFeed -> render(); 
 
 } else {
-	$myFeed = new IcmsFeed(); 
+	$myFeed = new imLinksFeed(); 
 	$myFeed -> feeds[] = array( 'title'       => $config_arr['rssofftitle'],
 								'link' 		  => ICMS_URL,
 								'description' => $config_arr['rssoffdsc']
