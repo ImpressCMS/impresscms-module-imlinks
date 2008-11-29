@@ -87,7 +87,7 @@ switch ( strtolower( $op ) ) {
         $totalbrokenlinks = $xoopsDB -> getRowsNum( $result );
 
         xoops_cp_header();
-        iml_adminmenu( _AM_IMLINKS_BROKEN_FILE );
+        iml_adminmenu( '', _AM_IMLINKS_BROKEN_FILE );
         echo "
 		<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_BROKEN_REPORTINFO . "</legend>\n
 		  <div style='padding: 8px;'>" . _AM_IMLINKS_BROKEN_REPORTSNO . "&nbsp;<b>$totalbrokenlinks</b><div>\n
