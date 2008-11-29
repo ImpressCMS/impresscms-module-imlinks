@@ -507,7 +507,7 @@ function iml_strrrchr( $haystack, $needle ) {
 function iml_adminmenu( $currentoption = 0, $header = '', $menu = '', $extra = '', $scount = 4 ) {
     global $xoopsConfig, $xoopsModule, $xoopsModuleConfig;
 	
-	$xoopsModule -> displayAdminMenu( $currentoption, $xoopsModule -> name() . ' | ' . $header );
+	$xoopsModule -> displayAdminMenu( $currentoption, icms_getCurrentModuleName() . ' | ' . $header );
 
     // ###### Output warn messages for security ######
     if ( is_dir( ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update/' ) ) {
