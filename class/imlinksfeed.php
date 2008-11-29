@@ -15,7 +15,7 @@ if ( !defined( 'ICMS_ROOT_PATH' ) ) { exit(); }
 
 include_once ICMS_ROOT_PATH . '/class/template.php';
 
-class IcmsFeed {
+class imLinksFeed {
 
 		var $title;
 		var $url;
@@ -34,7 +34,7 @@ class IcmsFeed {
 		var $ttl;
 		var $image = array ();
 
-	function IcmsFeed() {
+	function imLinksFeed() {
 		global $xoopsConfig;
 		$this -> title = $xoopsConfig['sitename'];
 		$this -> url = ICMS_URL;
