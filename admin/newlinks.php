@@ -84,7 +84,7 @@ switch ( strtolower( $op ) ) {
         $new_array_count = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
 
         xoops_cp_header();
-        iml_adminmenu( _AM_IMLINKS_SUB_SUBMITTEDFILES );
+        iml_adminmenu( '', _AM_IMLINKS_SUB_SUBMITTEDFILES );
 
         echo "<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_SUB_FILESWAITINGINFO . "</legend>\n";
         echo "<div style='padding: 8px;'>" . _AM_IMLINKS_SUB_FILESWAITINGVALIDATION . "&nbsp;<b>$new_array_count</b><div>\n";
@@ -109,7 +109,7 @@ switch ( strtolower( $op ) ) {
                 $title = $immyts -> htmlSpecialCharsStrip( $new['title'] );
                 $url = urldecode( $immyts -> htmlSpecialCharsStrip( $new['url'] ) );
                 $logourl = $immyts -> htmlSpecialCharsStrip( $new['screenshot'] );
-                $submitter = xoops_getLinkedUnameFromId( $new['submitter'] );
+                $submitter = icms_getLinkedUnameFromId( $new['submitter'] );
                 $datetime = formatTimestamp( $new['date'], $xoopsModuleConfig['dateformatadmin'] );
 
                 $icon = ( $new['published'] ) ? $approved : "<a href='newlinks.php?op=approve&amp;lid=" . $lid . "'>" . $imagearray['approve'] . "</a>&nbsp;";

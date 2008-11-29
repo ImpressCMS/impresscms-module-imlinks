@@ -37,7 +37,7 @@ switch ( strtolower( $op ) ) {
     case 'listmodreqshow':
 
         xoops_cp_header();
-        iml_adminmenu( _AM_IMLINKS_MOD_MODREQUESTS );
+        iml_adminmenu( '', _AM_IMLINKS_MOD_MODREQUESTS );
 
         $sql = "SELECT modifysubmitter, requestid, lid, cid, title, url, description, screenshot, forumid, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat FROM " . $xoopsDB -> prefix( 'imlinks_mod' ) . " WHERE requestid=" . $requestid;
         $mod_array = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
@@ -194,7 +194,7 @@ switch ( strtolower( $op ) ) {
         $totalmodrequests = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
 
         xoops_cp_header();
-        iml_adminmenu( _AM_IMLINKS_MOD_MODREQUESTS );
+        iml_adminmenu( '', _AM_IMLINKS_MOD_MODREQUESTS );
         echo "<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_MOD_MODREQUESTSINFO . "</legend>\n";
         echo "<div style='padding: 8px;'>" . _AM_IMLINKS_MOD_TOTMODREQUESTS . " <b>$totalmodrequests</></div>\n";
         echo "</fieldset>\n";
