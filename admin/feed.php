@@ -20,7 +20,7 @@ include 'admin_header.php';
 
 $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 
-function rss_edit() {
+function imlinks_rss_edit() {
 	global $xoopsDB, $xoopsConfig, $xoopsModule, $immyts;
 	
 	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
@@ -31,7 +31,7 @@ function rss_edit() {
 	$feed_array = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 	
 	$webmaster  = $xoopsConfig['adminmail'] . ' (' . $xoopsModule -> getVar( 'name' ) . ') ';
-	$modulename = $xoopsModule -> getVar( 'name' );
+	$modulename = icms_getCurrentModuleName();
 	$modulevers = number_format( $xoopsModule -> getVar( 'version' ) / 100 , 2, '.', '' );
 	$generator  = XOOPS_VERSION . ' ( module: ' . $modulename . ' ' . $modulevers . ' )';
 	$copyright  = _AM_IMLINKS_COPYRIGHT . ' ' . formatTimestamp( time(), 'Y' ) . ' - ' . $xoopsConfig['sitename'];
@@ -158,7 +158,7 @@ function rss_edit() {
 
 switch ( strtolower( $op ) ) {
 	case 'edit':
-        rss_edit();
+        imlinks_rss_edit();
         break;
 		
 	case 'saverss':
@@ -192,7 +192,4 @@ switch ( strtolower( $op ) ) {
         break;
 		
 }
-		
-
-
 ?>
