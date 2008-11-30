@@ -54,12 +54,13 @@ if ( $xoopsModuleConfig['showlinkdisclaimer'] && $agreed == 0 )
 {
 	$xoopsOption['template_main'] = 'imlinks_disclaimer.html';
 	include ICMS_ROOT_PATH . '/header.php';
-
+	
 	$xoopsTpl -> assign( 'image_header', iml_imageheader() );
 	$xoopsTpl -> assign( 'linkdisclaimer', $immyts -> displayTarea( $xoopsModuleConfig['linkdisclaimer'], 1, 1, 1, 1, 1 ) );
 	$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/index.php' );
 	$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/visit.php?agree=1&amp;lid=' . intval($lid ) . '&amp;cid=' . intval( $cid ) );
 	$xoopsTpl -> assign( 'link_disclaimer', true );
+	$xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar('dirname') );
 
 	include ICMS_ROOT_PATH . '/footer.php';
 	exit();
