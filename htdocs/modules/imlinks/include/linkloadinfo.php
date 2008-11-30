@@ -87,7 +87,7 @@ if ( $moderate == 0 ) {
  
 $link['updated'] = formatTimestamp( $time, $xoopsModuleConfig['dateformat'] );
 $description = $immyts -> displayTarea( $link_arr['description'], 1, 1, 1, 1, 1 );
-$link['description'] = icms_substr( $description, 0, $xoopsModuleConfig['totalchars'], '...' );
+$link['description'] = icms_substr( $description, 0, $xoopsModuleConfig['totalchars'], '&#8230;' );
 
 $link['submitter'] = icms_getLinkedUnameFromId( $link_arr['submitter'] );
 $link['publisher'] = ( isset( $link_arr['publisher'] ) && !empty( $link_arr['publisher'] ) ) ? $immyts -> htmlSpecialCharsStrip( $link_arr['publisher'] ) : _MD_IMLINKS_NOTSPECIFIED;
