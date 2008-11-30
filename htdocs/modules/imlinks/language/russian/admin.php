@@ -515,7 +515,7 @@ define( '_AM_IMLINKS_CLONELINK', 'Клонировать ссылку' );
 define( '_AM_IMLINKS_ICO_CLONE', 'Клонировать' );
 define( '_AM_IMLINKS_RSSFEED', 'RSS канал' );
 define( '_AM_IMLINKS_RSSFEEDCFG', 'Установки RSS канала' );
-define( '_AM_IMLINKS_RSSFEEDDSC', 'Here you can configure the RSS feed for imLinks.<br />Для получения дополнительной информации посетите сайт <a href="http://www.rssboard.org/" target="_blank">RSS Advisory Board</a>.' );
+define( '_AM_IMLINKS_RSSFEEDDSC', 'Здесь Вы можете настроить RSS канал для imLinks.<br />Для получения дополнительной информации посетите сайт <a href="http://www.rssboard.org/" target="_blank">RSS Advisory Board</a>.' );
 define( '_AM_IMLINKS_RSSACTIVE', 'Активировать RSS канал?' );
 define( '_AM_IMLINKS_RSSACTIVEDSC', 'Выберите <em>Да</em>, чтобы подключить RSS канал в imLinks, выберите <em>Нет</em>, чтобы - отключить канал.' );
 define( '_AM_IMLINKS_RSSTITLE', 'Заголовок RSS канала' );
