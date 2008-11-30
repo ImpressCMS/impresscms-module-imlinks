@@ -86,7 +86,7 @@ function b_imlinks_top_show( $options ) {
         $title = $immyts -> htmlSpecialChars( $immyts -> stripSlashesGPC( $myrow["title"] ) );
         if ( !XOOPS_USE_MULTIBYTES ) {
             if ( strlen( $myrow['title'] ) >= $options[2] ) {
-                $title = substr( $myrow['title'], 0, ( $options[2] -1 ) ) . "...";
+                $title = substr( $myrow['title'], 0, $options[2] ) . "...";
             } 
         } 
         $linkload['id'] = intval( $myrow['lid'] );
