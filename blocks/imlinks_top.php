@@ -35,7 +35,7 @@ if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' );
 // @param string $permType
 // @param boolean $redirect
 // @return
-function checkBlockgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = false ) {
+function imlinks_checkBlockgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = false ) {
     $mydirname = basename( dirname(  dirname( __FILE__ ) ) );
     global $xoopsUser;
 
@@ -57,7 +57,7 @@ function checkBlockgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = fa
     return true;
 } 
 
-// Function: b_mylinks_top_show
+// Function: b_imlinks_top_show
 // Input   : $options[0] = date for the most recent links
 // 		           hits for the most popular links
 //           $options[1] = How many links are displayes
@@ -79,22 +79,22 @@ function b_imlinks_top_show( $options ) {
 
     $result = $xoopsDB -> query( "SELECT lid, cid, title, published, hits FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE published > 0 AND published <= " . $time . " AND (expired = 0 OR expired > " . $time . ") AND offline = 0 ORDER BY " . $options[0] . " DESC", $options[1], 0 );
     while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
-        if ( false == checkBlockgroups( $myrow['cid'] ) || $myrow['cid'] == 0 ) {
+        if ( false == imlinks_checkBlockgroups( $myrow['cid'] ) || $myrow['cid'] == 0 ) {
             continue;
         } 
         $linkload = array();
         $title = $immyts -> htmlSpecialChars( $immyts -> stripSlashesGPC( $myrow["title"] ) );
         if ( !XOOPS_USE_MULTIBYTES ) {
             if ( strlen( $myrow['title'] ) >= $options[2] ) {
-                $title = substr( $myrow['title'], 0, $options[2] ) . "...";
+                $title = substr( $myrow['title'], 0, $options[2] ) . '...';
             } 
         } 
         $linkload['id'] = intval( $myrow['lid'] );
         $linkload['cid'] = intval( $myrow['cid'] );
         $linkload['title'] = $title;
-        if ( $options[0] == "published" ) {
+        if ( $options[0] == 'published' ) {
             $linkload['date'] = formatTimestamp( $myrow['published'], $options[3] );
-        } elseif ( $options[0] == "hits" ) {
+        } elseif ( $options[0] == 'hits' ) {
             $linkload['hits'] = $myrow['hits'];
         } 
         $linkload['dirname'] = $imlModule -> getVar( 'dirname' );
