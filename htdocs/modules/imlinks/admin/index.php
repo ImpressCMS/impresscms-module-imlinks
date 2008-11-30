@@ -91,36 +91,36 @@ function edit( $lid = 0, $doclone = 0 ) {
 
       if ( $lid > 0 ) {
         $_vote_data = iml_getVoteDetails( $lid );
-        $text_info = "<table width='100%'>
+        $text_info = '<table width="100%">
 			 <tr>
-			  <td width='33%' valign='top'>
-			   <div><b>" . _AM_IMLINKS_LINK_ID . " </b>" . $lid . "</div>
-			   <div><b>" . _AM_IMLINKS_MINDEX_SUBMITTED . ": </b>" . formatTimestamp( $link_array['date'], $xoopsModuleConfig['dateformat'] ) . "</div>
-			   <div><b>" . _AM_IMLINKS_LINK_SUBMITTER . " </b>" . xoops_getLinkedUnameFromId( $submitter ) . "</div>
-			   <div><b>" . _AM_IMLINKS_LINK_IP . " </b>" . $ipaddress . "</div>
-			   <div><b>" . _AM_IMLINKS_PAGERANK . " </b>" . imlinks_pagerank($link_array['url']) . "</div>
-			   <div><b>" . _AM_IMLINKS_HITS . " </b>" . $link_array['hits'] . "</div>
+			  <td width="33%" valign="top">
+			   <div><b>' . _AM_IMLINKS_LINK_ID . ' </b>' . $lid . '</div>
+			   <div><b>' . _AM_IMLINKS_MINDEX_SUBMITTED . ': </b>' . formatTimestamp( $link_array['date'], $xoopsModuleConfig['dateformat'] ) . '</div>
+			   <div><b>' . _AM_IMLINKS_LINK_SUBMITTER . ' </b>' . xoops_getLinkedUnameFromId( $submitter ) . '</div>
+			   <div><b>' . _AM_IMLINKS_LINK_IP . ' </b>' . $ipaddress . '</div>
+			   <div><b>' . _AM_IMLINKS_PAGERANK . ' </b>' . imlinks_pagerank( $link_array['url'] ) . '</div>
+			   <div><b>' . _AM_IMLINKS_HITS . ' </b>' . $link_array['hits'] . '</div>
 
 			  </td>
-			  <td valign='top'>
-			   <div><b>" . _AM_IMLINKS_VOTE_TOTALRATE . ": </b>" . intval( $_vote_data['rate'] ) . "</div>
-			   <div><b>" . _AM_IMLINKS_VOTE_USERAVG . ": </b>" . intval( round( $_vote_data['avg_rate'], 2 ) ) . "</div>
-			   <div><b>" . _AM_IMLINKS_VOTE_MAXRATE . ": </b>" . intval( $_vote_data['min_rate'] ) . "</div>
-			   <div><b>" . _AM_IMLINKS_VOTE_MINRATE . ": </b>" . intval( $_vote_data['max_rate'] ) . "</div>
+			  <td valign="top">
+			   <div><b>' . _AM_IMLINKS_VOTE_TOTALRATE . ': </b>' . intval( $_vote_data['rate'] ) . '</div>
+			   <div><b>' . _AM_IMLINKS_VOTE_USERAVG . ': </b>' . intval( round( $_vote_data['avg_rate'], 2 ) ) . '</div>
+			   <div><b>' . _AM_IMLINKS_VOTE_MAXRATE . ': </b>' . intval( $_vote_data['min_rate'] ) . '</div>
+			   <div><b>' . _AM_IMLINKS_VOTE_MINRATE . ': </b>' . intval( $_vote_data['max_rate'] ) . '</div>
 			  </td>
-			  <td valign='top'>
-			   <div><b>" . _AM_IMLINKS_VOTE_MOSTVOTEDTITLE . ": </b>" . intval( $_vote_data['max_title'] ) . "</div>
-		           <div><b>" . _AM_IMLINKS_VOTE_LEASTVOTEDTITLE . ": </b>" . intval( $_vote_data['min_title'] ) . "</div>
-			   <div><b>" . _AM_IMLINKS_VOTE_REGISTERED . ": </b>" . ( intval( $_vote_data['rate'] - $_vote_data['null_ratinguser'] ) ) . "</div>
-			   <div><b>" . _AM_IMLINKS_VOTE_NONREGISTERED . ": </b>" . intval( $_vote_data['null_ratinguser'] ) . "</div>
+			  <td valign="top">
+			   <div><b>' . _AM_IMLINKS_VOTE_MOSTVOTEDTITLE . ': </b>' . intval( $_vote_data['max_title'] ) . '</div>
+		           <div><b>' . _AM_IMLINKS_VOTE_LEASTVOTEDTITLE . ': </b>' . intval( $_vote_data['min_title'] ) . '</div>
+			   <div><b>' . _AM_IMLINKS_VOTE_REGISTERED . ': </b>' . ( intval( $_vote_data['rate'] - $_vote_data['null_ratinguser'] ) ) . '</div>
+			   <div><b>' . _AM_IMLINKS_VOTE_NONREGISTERED . ': </b>' . intval( $_vote_data['null_ratinguser'] ) . '</div>
 			  </td>
 			 </tr>
-			</table>";
-        echo "<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_INFORMATION . "</legend>\n
-			<div style='padding: 8px;'>" . $text_info . "</div>\n
-		<!--	<div style='padding: 8px;'><li>" . $imagearray['deleteimg'] . " " . _AM_IMLINKS_VOTE_DELETEDSC . "</li></div>\n  -->
-			</fieldset>\n
-			<br />\n";
+			</table>';
+        echo '<fieldset style="border: #E8E8E8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_INFORMATION . '</legend>
+			<div style="padding: 8px;">' . $text_info . '</div>
+		<!--	<div style="padding: 8px;"><li>' . $imagearray['deleteimg'] . ' ' . _AM_IMLINKS_VOTE_DELETEDSC . '</li></div>  -->
+			</fieldset>
+			<br />';
     } 
     unset( $_vote_data );
 
@@ -179,12 +179,12 @@ function edit( $lid = 0, $doclone = 0 ) {
     $sform -> addElement( $keywords, false );
 
 // Insert tags if Tag-module is installed
-    if (iml_tag_module_included()) {
-      include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
-      $text_tags = new XoopsFormTag( 'item_tag', 70, 255, $link_array['item_tag'], 0 );
-      $sform -> addElement( $text_tags );
+    if ( iml_tag_module_included() ) {
+		include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
+		$text_tags = new XoopsFormTag( 'item_tag', 70, 255, $link_array['item_tag'], 0 );
+		$sform -> addElement( $text_tags );
     } else {
-      $sform -> addElement( new XoopsFormHidden( 'item_tag', $link_array['item_tag'] ) );
+		$sform -> addElement( new XoopsFormHidden( 'item_tag', $link_array['item_tag'] ) );
     }
 
 // Screenshot
@@ -196,13 +196,13 @@ function edit( $lid = 0, $doclone = 0 ) {
     $indeximage_tray -> setDescription( sprintf( _AM_IMLINKS_LINK_MUSTBEVALID, '<b>' . $directory . '</b>' ));
     $indeximage_tray -> addElement( $indeximage_select );
     if ( !empty( $imgurl ) ) {
-        $indeximage_tray -> addElement( new XoopsFormLabel( '', " <br /><br />< img src='" . ICMS_URL . "/" . $xoopsModuleConfig['screenshots'] . "/" . $screenshot . "' name = 'image' id = 'image' alt = '' / > " ) );
+        $indeximage_tray -> addElement( new XoopsFormLabel( '', '<br /><br />< img src="' . ICMS_URL . '/' . $xoopsModuleConfig['screenshots'] . '/' . $screenshot . '" name="image" id="image" alt="" />' ) );
     } else {
-        $indeximage_tray -> addElement( new XoopsFormLabel( '', " <br /><br /><img src='" . ICMS_URL . "/uploads/blank.gif' name='image' id='image' alt='' / > " ) );
+        $indeximage_tray -> addElement( new XoopsFormLabel( '', '<br /><br /><img src="' . ICMS_URL . '/uploads/blank.gif" name="image" id="image" alt="" />' ) );
     } 
     $sform -> addElement( $indeximage_tray );
 
-if ($xoopsModuleConfig['useaddress']){
+if ( $xoopsModuleConfig['useaddress'] ){
     $sform -> insertBreak( _AM_IMLINKS_LINK_CREATEADDRESS, 'bg3' );
 // Google Maps
     $googlemap_text = new XoopsFormText( '', 'googlemap', 70, 1024, $googlemap );
@@ -218,7 +218,7 @@ if ($xoopsModuleConfig['useaddress']){
     $yahoomap_tray -> addElement( $yahoomap_text , false ) ;
     $yahoomap_tray -> addElement( new XoopsFormLabel( "&nbsp;<img src='../images/icon/yahoo_map.png' onClick=\"window.open(document.storyform.yahoomap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' />" ) );
     $sform -> addElement( $yahoomap_tray );
-// MS Live Maps
+// Multimap
     $multimap_text = new XoopsFormText( '', 'multimap', 70, 1024, $multimap );
     $multimap_tray = new XoopsFormElementTray( _AM_IMLINKS_LINK_MULTIMAP, '' );
 	$multimap_tray -> SetDescription( sprintf( _AM_IMLINKS_MAPDSC, '<em>http://www.multimap.com</em>' ) );
@@ -278,7 +278,7 @@ if ($xoopsModuleConfig['useaddress']){
     $expiredates = ( $expired > time() ) ? _AM_IMLINKS_LINK_EXPIREDATESET . formatTimestamp( $expired, $xoopsModuleConfig['dateformat'] ) : _AM_IMLINKS_LINK_SETDATETIMEEXPIRE;
     $warning = ( $published > $expired && $expired > time() ) ? _AM_IMLINKS_LINK_EXPIREWARNING : '';
     $expiredate_checkbox = new XoopsFormCheckBox( '', 'expiredateactivate', $isexpired );
-    $expiredate_checkbox -> addOption( 1, $expiredates . " <br /> <br /> " );
+    $expiredate_checkbox -> addOption( 1, $expiredates . ' <br /> <br /> ' );
 
     $expiredate_tray = new XoopsFormElementTray( _AM_IMLINKS_LINK_EXPIREDATE . $warning, '' );
     $expiredate_tray -> addElement( $expiredate_checkbox );
@@ -411,11 +411,11 @@ switch ( strtolower( $op ) )
         $ping = iml_cleanRequestVars( $_REQUEST, 'ping', 0 );
         $cid = iml_cleanRequestVars( $_REQUEST, 'cid', 0 );
 
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' );
+        $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' );
         if ( $cid > 0 ) {
-            $sql .= " WHERE cid=" . $cid;
+            $sql .= ' WHERE cid=' . $cid;
         } 
-        $sql .= " ORDER BY lid DESC";
+        $sql .= ' ORDER BY lid DESC';
         if ( !$result = $xoopsDB -> query( $sql ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
@@ -427,27 +427,27 @@ switch ( strtolower( $op ) )
 		
 		if ( $op == 'pingtime' ) {
 			iml_adminmenu( '', _AM_IMLINKS_MLISTPINGTIMES );
-			echo '	<fieldset style="border: #e8e8e8 1px solid;">
+			echo '	<fieldset style="border: #E8E8E8 1px solid;">
 					<div style="padding: 8px;">' . _AM_IMLINKS_PINGTIMES . '</div>
 					</fieldset>';
 		} else {
 			iml_adminmenu( '', _AM_IMLINKS_MLISTBROKEN );
-			echo '	<fieldset style="border: #e8e8e8 1px solid;">
+			echo '	<fieldset style="border: #E8E8E8 1px solid;">
 					<div style="padding: 8px;">' . _AM_IMLINKS_LISTBROKEN . '</div>
 					</fieldset>';
 		}
 			
-        echo "
-			<table width='100%' cellspacing='1' cellpadding='2' border='0' class='outer'>\n
-			<tr>\n
-			<th style='text-align: center;'>" . _AM_IMLINKS_MINDEX_ID . "</th>\n
-			<th style='text-align: left;'><b>" . _AM_IMLINKS_MINDEX_TITLE . "</th>\n
-			<th style='text-align: center;'>"._AM_IMLINKS_MINDEX_POSTER."</th>\n
-			<th style='text-align: center;'>" . _AM_IMLINKS_MINDEX_PUBLISHED . "</th>\n
-            <th style='text-align: center;'>" . _AM_IMLINKS_MINDEX_RESPONSE . "</th>\n
-            <th style='text-align: center;'>PR</th>\n
-	        <th style='text-align: center;'>" . _AM_IMLINKS_MINDEX_ACTION . "</th>\n
-			</tr>\n";
+        echo '
+			<table width="100%" cellspacing="1" cellpadding="2" border="0" class="outer">
+			<tr>
+			<th style="text-align: center;">' . _AM_IMLINKS_MINDEX_ID . '</th>
+			<th style="text-align: left;"><b>' . _AM_IMLINKS_MINDEX_TITLE . '</th>
+			<th style="text-align: center;">' . _AM_IMLINKS_MINDEX_POSTER . '</th>
+			<th style="text-align: center;">' . _AM_IMLINKS_MINDEX_PUBLISHED . '</th>
+            <th style="text-align: center;">' . _AM_IMLINKS_MINDEX_RESPONSE . '</th>
+            <th style="text-align: center;">PR</th>\n
+	        <th style="text-align: center;">' . _AM_IMLINKS_MINDEX_ACTION . '</th>
+			</tr>';
 
         if ( $broken_array_count > 0 ) {
             while ( $published = $xoopsDB -> fetchArray( $broken_array ) ) {
@@ -461,22 +461,22 @@ switch ( strtolower( $op ) )
 
                 $lid = $published['lid'];
                 $cid = $published['cid'];
-                $title = "<a href='../singlelink.php?cid=" . $published['cid'] . "&amp;lid=" . $published['lid'] . "'>" . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . "</a>";;
+                $title = '<a href="../singlelink.php?cid=' . $published['cid'] . '&amp;lid=' . $published['lid'] . '">' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';;
                 $maintitle = urlencode( $immyts -> htmlSpecialChars( trim( $published['title'] ) ) );
                 $submitter = xoops_getLinkedUnameFromId( $published['submitter'] );
                 $publish = formatTimestamp( $published['published'], $xoopsModuleConfig['dateformatadmin'] );
-                $status = ( $published['published'] > 0 ) ? $imagearray['online'] : "<a href='newlinks.php'>" . $imagearray['offline'] . "</a>";
-                $icon = "<a href='index.php?op=edit&amp;lid=" . $lid . "'>" . $imagearray['editimg'] . "</a>&nbsp;";
-                $icon .= "<a href='index.php?op=delete&amp;lid=" . $lid . "'>" . $imagearray['deleteimg'] . "</a>";
-                echo "<tr style='text-align: center;'>\n
-						<td class='head'><small>" . $lid . "</small></td>\n
-						<td class='even' style='text-align: left;'><small>" . $title . "</small></td>\n
-						<td class='even'><small>" . $submitter . "</small></td>\n
-						<td class='even'><small>" . $publish . "</small></td>\n
-						<td class='even'><small>" . $_ping_results . "</small></td>\n
-						<td class='even'><small>" . imlinks_pagerank($published['url']) . "</small></td>\n
-						<td class='even'>$icon</td>\n
-						</tr>\n";
+                $status = ( $published['published'] > 0 ) ? $imagearray['online'] : '<a href="newlinks.php">' . $imagearray['offline'] . '</a>';
+                $icon = '<a href="index.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>&nbsp;';
+                $icon .= '<a href="index.php?op=delete&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>';
+                echo '<tr style="text-align: center;">
+						<td class="head"><small>' . $lid . '</small></td>
+						<td class="even" style="text-align: left;"><small>' . $title . '</small></td>
+						<td class="even"><small>' . $submitter . '</small></td>
+						<td class="even"><small>' . $publish . '</small></td>
+						<td class="even"><small>' . $_ping_results . '</small></td>
+						<td class="even"><small>' . imlinks_pagerank($published['url']) . '</small></td>
+						<td class="even">' . $icon . '</td>
+						</tr>';
                 unset( $published );
             } 
         } else {
@@ -590,7 +590,7 @@ switch ( strtolower( $op ) )
             $tags = array();
             $tags['LINK_NAME'] = $title;
             $tags['LINK_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlelink.php?cid=' . $cid . '&amp;lid=' . $newid;
-            $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE cid=" . $cid;
+            $sql = 'SELECT title FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $cid;
             $result = $xoopsDB -> query( $sql );
             $row = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
             $tags['CATEGORY_NAME'] = $row['title'];
@@ -603,7 +603,7 @@ switch ( strtolower( $op ) )
             $tags = array();
             $tags['LINK_NAME'] = $title;
             $tags['LINK_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlelink.php?cid=' . $cid . '&amp;lid=' . $lid;
-            $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE cid=" . $cid;
+            $sql = 'SELECT title FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $cid;
             $result = $xoopsDB -> query( $sql );
             $row = $xoopsDB -> fetchArray( $result );
             $tags['CATEGORY_NAME'] = $row['title'];
@@ -616,7 +616,7 @@ switch ( strtolower( $op ) )
         $message = ( !$lid ) ? _AM_IMLINKS_LINK_NEWFILEUPLOAD : _AM_IMLINKS_LINK_FILEMODIFIEDUPDATE ;
         $message = ( $lid && !$_POST['was_published'] && $approved ) ? _AM_IMLINKS_LINK_FILEAPPROVED : $message;
         if ( iml_cleanRequestVars( $_REQUEST, 'delbroken', 0 ) ) {
-            $sql = "DELETE FROM " . $xoopsDB -> prefix( 'imlinks_broken' ) . " WHERE lid=" . $lid;
+            $sql = 'DELETE FROM ' . $xoopsDB -> prefix( 'imlinks_broken' ) . ' WHERE lid=' . $lid;
             if ( !$result = $xoopsDB -> queryF( $sql ) ) {
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                 return false;
@@ -633,21 +633,21 @@ switch ( strtolower( $op ) )
             $title = iml_cleanRequestVars( $_REQUEST, 'title', 0 );
 			
 			// delete link
-            $sql = "DELETE FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE lid=" . $lid;
+            $sql = 'DELETE FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                 return false;
             }
 			
 			// delete from altcat
-            $sql = "DELETE FROM " . $xoopsDB -> prefix( 'imlinks_altcat' ) . " WHERE lid=" . $lid;
+            $sql = 'DELETE FROM ' . $xoopsDB -> prefix( 'imlinks_altcat' ) . ' WHERE lid=' . $lid;
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                 return false;
             }
 			
 			// delete vote data
-            $sql = "DELETE FROM " . $xoopsDB -> prefix( 'imlinks_votedata' ) . " WHERE lid=" . $lid;
+            $sql = 'DELETE FROM ' . $xoopsDB -> prefix( 'imlinks_votedata' ) . ' WHERE lid=' . $lid;
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                 return false;
@@ -658,7 +658,7 @@ switch ( strtolower( $op ) )
             redirect_header( 'index.php', 1, sprintf( _AM_IMLINKS_LINK_FILEWASDELETED, $title ) );
             exit();
         } else {
-            $sql = "SELECT lid, title, item_tag, url FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE lid=" . $lid;
+            $sql = 'SELECT lid, title, item_tag, url FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                 return false;
@@ -678,7 +678,7 @@ switch ( strtolower( $op ) )
 
     case 'delvote':
         $rid = iml_cleanRequestVars( $_REQUEST, 'rid', 0 );
-        $sql = "DELETE FROM " . $xoopsDB -> prefix( 'imlinks_votedata' ) . " WHERE ratingid=" . $rid;
+        $sql = 'DELETE FROM ' . $xoopsDB -> prefix( 'imlinks_votedata' ) . ' WHERE ratingid=' . $rid;
         if ( !$result = $xoopsDB -> queryF( $sql ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
@@ -696,27 +696,30 @@ switch ( strtolower( $op ) )
         $start4 = iml_cleanRequestVars( $_REQUEST, 'start4', 0 );
         $totalcats = iml_totalcategory();
 
-        $result = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'imlinks_broken' ) );
+        $result = $xoopsDB -> query( 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'imlinks_broken' ) );
         list( $totalbrokenlinks ) = $xoopsDB -> fetchRow( $result );
-        $result2 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'imlinks_mod' ) );
+        $result2 = $xoopsDB -> query( 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'imlinks_mod' ) );
         list( $totalmodrequests ) = $xoopsDB -> fetchRow( $result2 );
-        $result3 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE published = 0" );
+        $result3 = $xoopsDB -> query( 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published=0' );
         list( $totalnewlinks ) = $xoopsDB -> fetchRow( $result3 );
-        $result4 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE published > 0" );
+        $result4 = $xoopsDB -> query( 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published>0' );
         list( $totallinks ) = $xoopsDB -> fetchRow( $result4 );
 
         xoops_cp_header();
         iml_adminmenu( 1, _AM_IMLINKS_BINDEX );
-        echo "
-			<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_MINDEX_LINKSUMMARY . "</legend>\n
-			<div style='padding: 8px;'><small>\n
-			<a href='category.php'>" . _AM_IMLINKS_SCATEGORY . "</a><b>" . $totalcats . "</b> | \n
-			<a href='index.php'>" . _AM_IMLINKS_SFILES . "</a><b>" . $totallinks . "</b> | \n
-			<a href='newlinks.php'>" . _AM_IMLINKS_SNEWFILESVAL . "</a><b>" . $totalnewlinks . "</b> | \n
-			<a href='modifications.php'>" . _AM_IMLINKS_SMODREQUEST . "</a><b>" . $totalmodrequests . "</b> | \n
-			<a href='brokenlink.php'>" . _AM_IMLINKS_SBROKENSUBMIT . "</a><b>" . $totalbrokenlinks . "</b>\n
-			</small></div></fieldset>\n
-		";
+        echo '
+			<fieldset style="border: #E8E8E8 1px solid;">
+			<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_LINKSUMMARY . '</legend>
+			<div style="padding: 8px;">
+			<small>
+			<a href="category.php">' . _AM_IMLINKS_SCATEGORY . '</a><b>' . $totalcats . '</b> | 
+			<a href="index.php">' . _AM_IMLINKS_SFILES . '</a><b>' . $totallinks . '</b> | 
+			<a href="newlinks.php">' . _AM_IMLINKS_SNEWFILESVAL . '</a><b>' . $totalnewlinks . '</b> | 
+			<a href="modifications.php">' . _AM_IMLINKS_SMODREQUEST . '</a><b>' . $totalmodrequests . '</b> | 
+			<a href="brokenlink.php">' . _AM_IMLINKS_SBROKENSUBMIT . '</a><b>' . $totalbrokenlinks . '</b>
+			</small>
+			</div>
+			</fieldset>';
 
         if ( $totalcats > 0 ) {
             $sform = new XoopsThemeForm( _AM_IMLINKS_CCATEGORY_MODIFY, 'category', 'category.php' );
@@ -737,7 +740,7 @@ switch ( strtolower( $op ) )
         } 
 
         if ( $totallinks > 0 ) {
-            $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE published > 0  ORDER BY lid DESC" ;
+            $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0  ORDER BY lid DESC' ;
             $published_array = $xoopsDB -> query( $sql, $xoopsModuleConfig['admin_perpage'], $start );
             $published_array_count = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
             iml_linklistheader( _AM_IMLINKS_MINDEX_PUBLISHEDLINK );
@@ -754,5 +757,4 @@ switch ( strtolower( $op ) )
         xoops_cp_footer();
         break;
 } 
-
 ?>
