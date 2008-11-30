@@ -4,10 +4,12 @@
 <{/if}> 
 <div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink"><{$catarray.letters}></div>
 <div style="padding-bottom: 12px; text-align: center;"><{$catarray.toolbar}></div>
+<div style="clear: both;">&nbsp;</div>
 
 <{if $brokenreport == true}>
  <div align="left">
-  <h4><{$smarty.const._MD_IMLINKS_RESOURCEREPORTED}></h4>
+ <fieldset>
+ <legend><{$smarty.const._MD_IMLINKS_RESOURCEREPORTED}></legend>
  <div align="center">
   <h4><{$smarty.const._MD_IMLINKS_RESOURCEREPORTED}></h4>
    <div><{$smarty.const._MD_IMLINKS_RESOURCEREPORTED}></div><br />
@@ -18,10 +20,13 @@
    <div><b><{$smarty.const._MD_IMLINKS_WEBMASTERACKNOW}></b> <{$broken.acknowledged}></div>
    <div><b><{$smarty.const._MD_IMLINKS_WEBMASTERCONFIRM}></b> <{$broken.confirmed}></div>
  </div>
+ </fieldset>
  </div>
 <{else}>
  <div align="left">
-  <h4><{$smarty.const._MD_IMLINKS_BROKENREPORT}></h4>
+ <fieldset>
+  <legend><{$smarty.const._MD_IMLINKS_BROKENREPORT}></legend>
+  <div style="padding: 8px;">
   <div><{$smarty.const._MD_IMLINKS_THANKSFORHELP}></div>
   <div><{$smarty.const._MD_IMLINKS_FORSECURITY}></div><br />
   <div><{$smarty.const._MD_IMLINKS_BEFORESUBMIT}></div><br />
@@ -32,9 +37,12 @@
    <form action="brokenlink.php" method="POST">
     <input type="hidden" name="lid" value="<{$link_id}>" />
 	<input type="hidden" name="title" value="<{$link.title}>" />
-	<input type="submit" name="op" value="<{$smarty.const._MD_IMLINKS_SUBMITBROKEN}>" alt="<{$smarty.const._MD_IMLINKS_SUBMITBROKEN}>" />
-	&nbsp;<input type="button" value="<{$smarty.const._MD_IMLINKS_CANCEL}>" alt="<{$smarty.const._MD_IMLINKS_CANCEL}>" onclick="javascript:history.go(-1)" />
+	<input type="submit" name="op" class="button" value="<{$smarty.const._MD_IMLINKS_SUBMITBROKEN}>" alt="<{$smarty.const._MD_IMLINKS_SUBMITBROKEN}>" />&nbsp;
+	<input type="button" class="button" value="<{$smarty.const._MD_IMLINKS_CANCEL}>" alt="<{$smarty.const._MD_IMLINKS_CANCEL}>" onclick="javascript:history.go(-1)" />
    </form>
   </div>
+  </div>
+</fieldset>
  </div>
+
 <{/if}>

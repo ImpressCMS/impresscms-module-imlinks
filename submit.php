@@ -228,12 +228,13 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 //Show disclaimer
         if ( $xoopsModuleConfig['showdisclaimer'] && !isset( $_GET['agree'] ) && $approve == 0 ) {
 		$xoopsOption['template_main'] = 'imlinks_disclaimer.html';
-	    include ICMS_ROOT_PATH . '/header.php';
+	    include ICMS_ROOT_PATH . '/header.php';	
 		
 		$xoopsTpl -> assign( 'image_header', iml_imageheader() );
 		$xoopsTpl -> assign( 'disclaimer', $immyts -> displayTarea( $xoopsModuleConfig['disclaimer'], 1, 1, 1, 1, 1 ) );
 		$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . $xoopsModule -> getVar('dirname') . '/index.php' );
 		$xoopsTpl -> assign( 'link_disclaimer', false );
+		$xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar('dirname') );
 		if ( !isset( $_REQUEST['lid'] ) ) {
 			$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . $xoopsModule -> getVar('dirname') . '/submit.php?agree=1' );
 		}

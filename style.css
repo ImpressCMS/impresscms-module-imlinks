@@ -10,7 +10,8 @@
 	background-repeat: repeat-x; 
 	color: #444; 
 	font-size: smaller; 
-	font-weight: bold; 
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
 	cursor: pointer; 
 	border: outset 1px #ccc;
 	}
@@ -35,10 +36,37 @@
 .infoblock { 
 	padding: 4px; 
 	background-color:#E6E6E6; 
-	border-color:#999999;
+	border: 1px solid #ccc;
 	font-size: smaller;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;	
+	-moz-border-radius: 6px;
+	border-radius: 6px;
 	}
-
+	
+.infoblock2 { 
+	padding: 4px; 
+	border: 1px solid #ccc;
+	font-size: smaller;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;	
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	}
+	
+fieldset {
+	border: #E8E8E8 1px solid;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;	
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	}
+	
+legend {
+	display: inline;
+	font-weight: bold;
+	}
+	
 div.imlinks_socbookmark {
 	clear: both; 
 	width: 70%; 

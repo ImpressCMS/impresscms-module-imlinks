@@ -15,7 +15,7 @@
 </h4>
 <div style="clear: both;">&nbsp;</div>
 <div style="width: 30%; float: right;"> 
-	<div class="outer" style="margin-left: 10px; margin-right: 5px;">
+	<div style="margin-left: 10px; margin-right: 5px;">
 		<div class="infoblock">
 			<div><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$link.submitter}></div>
 			<div><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$link.publisher}></div>
@@ -27,7 +27,7 @@
 	
 	<br />
 	
-	<div class="outer" style="margin-left: 10px; margin-right: 5px; padding: 4px;">
+	<div class="infoblock2" style="margin-left: 10px; margin-right: 5px; padding: 4px;">
 		<div> 
 			<small><b><{$smarty.const._MD_IMLINKS_RATINGC}></b>&nbsp;<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/<{$link.rateimg}>" alt="" align="absmiddle" />&nbsp;&nbsp;(<{$link.votes}>)</small></div>
 			<{if $link.showpagerank > 0}>
@@ -42,7 +42,7 @@
 	
 	<{if $tagbar}>
 		<br />
-		<div class="outer" style="margin-left: 10px; margin-right: 5px; padding: 4px; font-size: smaller;">
+		<div class="infoblock2" style="margin-left: 10px; margin-right: 5px; padding: 4px; font-size: smaller;">
 			<{include file="db:tag_bar.html"}>               
 		</div>
 	<{/if}>
