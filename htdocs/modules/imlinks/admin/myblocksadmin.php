@@ -1,6 +1,6 @@
 <?php
 /**
- * Block admin for imGlossary
+ * Block admin for imLinks
  *  
  * @todo Get the core block admin form so it is always current
  * @package imGlossary
