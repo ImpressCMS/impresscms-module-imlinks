@@ -1,6 +1,6 @@
 <?php
 /**
- * Block admin for imGlossary
+ * Block admin for imLinks
  *  
  * @package imGlossary
  * @author Kazumi Ono (AKA onokazu) <http://www.myweb.ne.jp/, http://www.xoops.org/, http://jp.xoops.org/>
