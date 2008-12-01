@@ -318,4 +318,6 @@ define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Дополнительная инфор�
 define( '_MI_IMLINKS_CATCOLS', 'Кол-во колонок в списке категорий:' );
 define( '_MI_IMLINKS_CATCOLSDSC', 'Выберите количество колонок в списке категорий на индексной странице.<br />По умолчанию: <em>2</em>' );
 define( '_MI_IMLINKS_RSSFEED', 'RSS канал' );
+define( '_MI_IMLINKS_SHOWRATING', 'Show rating features?' );
+define( '_MI_IMLINKS_SHOWRATINGDSC', 'Select <em>Yes</em> to display the rating features. Select <em>No</em> to hide the rating features. Note: This setting has nothing to do with the permissions setting.' );
 ?>
