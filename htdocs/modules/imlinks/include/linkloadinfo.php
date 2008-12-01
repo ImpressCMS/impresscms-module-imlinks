@@ -46,13 +46,9 @@ $link['votes'] = ( $link_arr['votes'] == 1 ) ? _MD_IMLINKS_ONEVOTE : sprintf( _M
 $link['hits']  = sprintf( _MD_IMLINKS_LINKHITS, intval( $link_arr['hits'] ) ) ;
 $xoopsTpl -> assign( 'lang_dltimes', $link['hits'] );
 
-$link['title'] = $link_arr['title'];
-$link['url'] = $link_arr['url'];
-
-// Get Google Pagerank
-if ( isset( $xoopsModuleConfig['showpagerank'] ) && $xoopsModuleConfig['showpagerank'] == 1 ) {
-  $link['pagerank'] = imlinks_pagerank( $link['url'] );
-}
+$link['title'] = $link_arr['title'];  // Title of link
+$link['url'] = $link_arr['url']; // url of link
+$link['pagerank'] = imlinks_pagerank( $link['url'] );  // Google Pagerank
 
 if ( isset( $link_arr['screenshot'] ) ) {
     $link['screenshot_full'] = $immyts -> htmlSpecialCharsStrip( $link_arr['screenshot'] );
@@ -142,12 +138,14 @@ if ( is_object( $xoopsforumModule ) && $xoopsforumModule -> getVar( 'isactive' )
     $link['forum_path'] = $forum_path_prefix . "{$link['forumid']}";
 }
 
-$link['icons'] = iml_displayicons( $link_arr['published'], $link_arr['status'], $link_arr['hits'] );
-$link['module_dir'] = $mydirname;
-$link['showpagerank'] = $xoopsModuleConfig['showpagerank'];
-$link['quickview'] = $xoopsModuleConfig['quickview'];
+$link['icons']         = iml_displayicons( $link_arr['published'], $link_arr['status'], $link_arr['hits'] );
+$link['module_dir']    = $mydirname;
+$link['showrating']    = $xoopsModuleConfig['showrating'];
+$link['showpagerank']  = $xoopsModuleConfig['showpagerank'];
+$link['infoblock2']    = ( $link['showrating'] || $link['showpagerank'] );
+$link['quickview']     = $xoopsModuleConfig['quickview'];
 $link['comment_rules'] = $xoopsModuleConfig['com_rule'];
-$link['autoscrshot'] = $xoopsModuleConfig['useautothumb'];
+$link['autoscrshot']   = $xoopsModuleConfig['useautothumb'];
 
 if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
 	$link['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&lid='.$link_arr['lid'] . '" target="_blank"><img src="http://mozshot.nemui.org/shot/128x128?' . $link_arr['url'] . '" align="middle" alt="" /></a>';

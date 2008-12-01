@@ -25,20 +25,27 @@
 		</div>
 	</div>
 	
-	<br />
-	
-	<div class="infoblock2" style="margin-left: 10px; margin-right: 5px; padding: 4px;">
-		<div> 
-			<small><b><{$smarty.const._MD_IMLINKS_RATINGC}></b>&nbsp;<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/<{$link.rateimg}>" alt="" align="absmiddle" />&nbsp;&nbsp;(<{$link.votes}>)</small></div>
-			<{if $link.showpagerank > 0}>
-			<br />
-			<div>
-				<small><b><{$smarty.const._MD_IMLINKS_PAGERANK}></b></small>
-				&nbsp;<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/pr<{$link.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$link.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$link.pagerank}>" align="absmiddle" />
-				&nbsp;<small>(<{$link.pagerank}>/10)</small>
-			</div>
+	<{if $link.infoblock2==1}>
+		<br />
+		<div class="infoblock2" style="margin-left: 10px; margin-right: 5px; padding: 4px;">
+		<{if $link.showrating > 0}>
+			<small>
+			<b><{$smarty.const._MD_IMLINKS_RATINGC}></b>&nbsp;
+			<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/<{$link.rateimg}>" alt="" align="absmiddle" />&nbsp;&nbsp;
+			(<{$link.votes}>)
+			</small>
+		<{/if}>
+			
+		<{if $link.showpagerank > 0}>
+			<{if $link.showrating > 0}>
+				<br />
 			<{/if}>
-	</div>
+			<small><b><{$smarty.const._MD_IMLINKS_PAGERANK}></b></small>&nbsp;
+			<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/pr<{$link.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$link.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$link.pagerank}>" align="absmiddle" />&nbsp;
+			<small>(<{$link.pagerank}>/10)</small>
+		<{/if}>
+		</div>
+	<{/if}>
 	
 	<{if $tagbar}>
 		<br />
@@ -107,9 +114,11 @@
 	
 <div class="outer" style="clear: both; text-align: center;">
 	<div class="even">
-		<{if $link.allow_rating}>
-			<{$ratethislink}>
-		<{/if}> 
+		<{if $link.showrating > 0}>
+			<{if $link.allow_rating}>
+				<{$ratethislink}>
+			<{/if}> 
+		<{/if}>
 		<{$reportbroken}>
 		<{if $link.useradminlink}>
 			<{$link.usermodify}>

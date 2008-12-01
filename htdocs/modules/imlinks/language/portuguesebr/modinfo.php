@@ -321,5 +321,5 @@ define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Mais informações:<br />- <a href="http
 define( '_MI_IMLINKS_CATCOLS', 'Número de colunas da categoria:' );
 define( '_MI_IMLINKS_CATCOLSDSC', 'Escolha o número de colunas para a página da categoria principal.<br />Padrão: <em>2</em>' );
 define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
-
-?>
+define( '_MI_IMLINKS_SHOWRATING', 'Show rating features?' );
+define( '_MI_IMLINKS_SHOWRATINGDSC', 'Select <em>Yes</em> to display the rating features. Select <em>No</em> to hide the rating features. Note: This setting has nothing to do with the permissions setting.' );?>

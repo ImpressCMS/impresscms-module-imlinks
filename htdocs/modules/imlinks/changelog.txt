@@ -8,6 +8,7 @@ xx.11.2008   1.00 RC-1
 - Added: option to have linked terms if imGlossary is installed
 - Added: option for selecting source of autoscr.shot (Thumbshot.org or Mozshot)
 - Added: option to set amount of category columns on Index Page
+- Added: option to make rating features invisible
 - Added: captcha to submit form
 - Added: RSS feed using icmsfeed.php
 - Added: RSS feed configuration form
@@ -17,6 +18,7 @@ xx.11.2008   1.00 RC-1
 - Added: option to set linebreak in submit forms (off by default)
 - Added: option to clone a link
 - Added: Home button
+- Added: css stylesheet
 
 - Renamed: module name from 'WF-Links' into 'imLinks'
 - Renamed: file 'bugfixlist.txt' into 'changelog.txt'
