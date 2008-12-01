@@ -32,19 +32,46 @@ Go to the Control Panel, choose Modules and install imLinks as any other ICMS mo
 5. remove the file <your.url>/modules/imlinks/update.php
 6. remove the folder <your.url>/modules/imlinks/update/
 7. go to Modules Administration and update the module imLinks
-8. restore the backup from step 1 if you want to continue using WF-Links otherwise uninstall the module
-9. start setting up imLinks (Preferences, Permissions, etc.)
+8. start setting up imLinks (Preferences, Permissions, etc.)
+
+
+
+**Sitemap**
+-----------
+A plugin for the Sitemap module is included.
+You ca download the module Sitemap from Gijoe's website: http://xoops.peak.ne.jp/
+
+
+
+**imGlossary**
+--------------
+To have words linked to imGlossary this module has to be installed.
+
+
+
+**Tags**
+--------
+To use the tag feature with imLinks your installation needs the following:
+- Frameworks library installed
+    http://addons.impresscms.org/modules/wfdownloads/singlefile.php?lid=170
+- Xoops Tag module installed and active, for example version 1.6. 
+    http://addons.impresscms.org/modules/wfdownloads/singlefile.php?cid=8&lid=1333
+
+Make sure that you use versions for Xoops 2.0.18 and not for Xoops 2.3
+If the Tag module is installed and active, an extra form for entering the tags will be visible in the submit forms.
+
+Note: Do NOT use the blocks Top Tag and Tag Cloud when the Tag module is not installed.
 
 
 
 **Fixes for ImpressCMS 1.1 Final**
 ----------------------------------
-Hereby a minor fix to be made to have Impression 1.0 RC-3 working correctly with ImpressCMS 1.1 Final.
+Hereby a minor fix to be made to have imLinks 1.0 RC-3 working correctly with ImpressCMS 1.1 Final.
 
 
 TinyMCE
 -------
-This is a fix to have the captions visible when TinyMCE is selected as editor in Impression -> Preferences.
+This is a fix to have the captions visible when TinyMCE is selected as editor in imLinks -> Preferences.
 Open the file /editors/tinymce/formtinymce.php and find this line:
 
 	$this->XoopsFormTextArea ( "", @$this->_name, @$this->_value );
@@ -59,4 +86,4 @@ Replace it with this one:
 
 .::McDonald::.
 
-http://members.lycos.nl/mcdonaldsstore/
+http://code.google.com/p/mcdonaldsstore/downloads/list
