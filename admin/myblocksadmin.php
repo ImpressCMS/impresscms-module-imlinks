@@ -76,9 +76,9 @@ function list_blocks() {
 	$adv_blocks = method_exists( 'XoopsBlock', 'getBlockPositions' );
 	$adv_pages = @file_exists( ICMS_ROOT_PATH . '/kernel/page.php' );
 // blocks displaying loop
-	$class = 'even';
+//	$class = 'even';
 	foreach ( array_keys( $block_arr ) as $i ) {
-
+		$class='';
 		$weight = $block_arr[$i] -> getVar( 'weight' ) ;
 		$title = $block_arr[$i] -> getVar( 'title' );
 		$name = $block_arr[$i] -> getVar( 'name' );
@@ -88,8 +88,10 @@ function list_blocks() {
 		$ystyle = $nstyle = '';
 		$yvisible = ( $block_arr[$i] -> getVar( 'visible' ) == 1 ? "checked='checked'" : '' );
 		$nvisible = ( $block_arr[$i] -> getVar( 'visible' ) == 1 ? '' : "checked='checked'" );
-		if ( $yvisible ) { $ystyle = 'style="background-color: #00FF00;"'; }
-		if ( $nvisible ) { $nstyle = 'style="background-color: #FF0000;"'; }
+		if ( $yvisible ) { $ystyle = 'style="background-color: #00FF00;"';
+							$class = 'style="background-color: #E3F5E3; color:inherit; border: 1px solid #CCCCCC; padding: 2px;"'; }
+		if ( $nvisible ) { $nstyle = 'style="background-color: #FF0000;"';
+							$class = 'style="background-color: #F5E3E3; color:inherit; border: 1px solid #CCCCCC; padding: 2px;"';}
   		$side_options = '';
      // Block positions - XOOPS 2.0.x, 2.3.x
      if ( !$adv_blocks ) {
@@ -168,35 +170,35 @@ function list_blocks() {
      // displaying part
 		echo "
 		<tr valign='middle'>
-			<td class='$class' align='center'>
-				$name
+			<td $class align='center'>
+				<strong>$name</strong>
 				<br />
 				<input type='text' name='title[$bid]' value='$title' size='20' />
 			</td>
-			<td class='$class' align='center' nowrap='nowrap'>
+			<td $class align='center' nowrap='nowrap'>
 				<select name='side[$bid]' size='5' >
 				      $side_options
 				</select>
 			</td>
-			<td class='$class' align='center'>
+			<td $class align='center'>
 				<input type='text' name='weight[$bid]' value='$weight' size='5' maxlength='5' style='text-align:right;' />
 			</td>
-			<td class='$class' align='center'>
+			<td $class align='center'>
 				<select name='bmodule[$bid][]' size='5' multiple='multiple'>
 					$module_options
 				</select>
 			</td>
-			<td class='$class' align='center'>
+			<td $class align='center'>
 				<select name='bcachetime[$bid]' size='1'>
 					$cachetime_options
 				</select>
 			</td>
-			<td class='$class' align='center'>
+			<td $class align='center'>
 			  <input type='radio' name='visible[$bid]' $ystyle value='1' $yvisible />" . _YES . "&nbsp;
                  <input type='radio' name='visible[$bid]' $nstyle value='0' $nvisible />" . _NO . "
                  <input type='hidden' name='oldvisible[$bid]' value='" . $block_arr[$i] -> getVar( 'visible' ) . "' />
                </td>
-			<td class='$class' align='center'>
+			<td $class align='center'>
 				<a href='admin.php?fct=blocksadmin&amp;op=edit&amp;bid=$bid'>" . _EDIT . "</a>
 				<input type='hidden' name='bid[$bid]' value='$bid' />
 			</td>
