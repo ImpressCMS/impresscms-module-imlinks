@@ -51,7 +51,7 @@ if (!defined('IS_UPDATE_FILE')) {
             $output[]="<b>Success:</b> Table <b>$table_arr</b> was <span style='color:#FF0000;font-weight:bold'>delete</span> Successfully";
         } 
     } 
-	
+	echo '&nbsp;';
     // Copy over old links tables without delete;
     $table_array = array(
 		'wflinks_altcat' 	=> imlinks_altcat,
@@ -72,13 +72,13 @@ if (!defined('IS_UPDATE_FILE')) {
     } 
 	
 $i=0;
-//Make changes to table imlinks_altcat
+// Make changes to table imlinks_altcat
 $i++;
 $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_altcat') . " ADD PRIMARY KEY(lid,cid)");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 
-//Make changes to table imlinks_broken
+// Make changes to table imlinks_broken
 $i++;
 $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_broken') . " ADD PRIMARY KEY(reportid)");
@@ -96,7 +96,7 @@ $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_broken') . " ADD INDEX(ip)");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 
-//Make changes to table imlinks_cat
+// Make changes to table imlinks_cat
 $i++;
 $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_cat') . " ADD PRIMARY KEY(cid)");
@@ -106,7 +106,7 @@ $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_cat') . " ADD INDEX(pid)");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 
-//Make changes to table imlinks_indexpage
+// Make changes to table imlinks_indexpage
 $i++;
 $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_indexpage') . " ADD FULLTEXT(indexheading)");
@@ -120,7 +120,7 @@ $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_indexpage') . " ADD FULLTEXT(indexfooter)");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 
-//Make changes to table imlinks_links
+// Make changes to table imlinks_links
 $i++;
 $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD PRIMARY KEY(lid)");
@@ -138,11 +138,28 @@ $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD INDEX(title)");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 $i++;
+// Drop old rating system
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " DROP rating");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$i++;
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " DROP votes");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$i++;
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD COLUMN rating DOUBLE(6,4) NOT NULL default '0.0000' AFTER hits");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$i++;
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD COLUMN votes INT(11) unsigned NOT NULL default '0' AFTER rating");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$i++;
 $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD COLUMN nobreak INT(1) NOT NULL default '0' AFTER vat");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 
-//Make changes to table imlinks_mod
+// Make changes to table imlinks_mod
 $i++;
 $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " ADD INDEX(requestid)");
@@ -160,23 +177,6 @@ $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN nobreak INT(1) NOT NULL default '0' AFTER vat");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 
-//Make changes to table imlinks_votedata
-$i++;
-$ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_votedata') . " ADD PRIMARY KEY(ratingid)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
-$i++;
-$ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_votedata') . " ADD INDEX(ratinguser)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
-$i++;
-$ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_votedata') . " ADD INDEX(ratinghostname)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
-$i++;
-$ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_votedata') . " ADD INDEX(lid)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 
     // Update comments
     $modhandler = &xoops_gethandler( 'module' );
