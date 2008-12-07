@@ -34,6 +34,9 @@ Go to the Control Panel, choose Modules and install imLinks as any other ICMS mo
 7. go to Modules Administration and update the module imLinks
 8. start setting up imLinks (Preferences, Permissions, etc.)
 
+Note: All information from WF-Links will be copied to imLinks, except the rating details they will be reset.
+	  It's possible to have both imLinks and WF-Links installed at the same time.
+
 
 
 **Sitemap**
