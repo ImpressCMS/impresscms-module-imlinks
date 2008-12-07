@@ -45,14 +45,13 @@ $insertip = serialize( $checkIP );
 //IP check when voting
 $voted = mysql_num_rows( mysql_query( "SELECT used_ips FROM " . $xoopsDB -> prefix( 'imlinks_ratings' ) . " WHERE used_ips LIKE '%" . $ip . "%' AND id='" . $id_sent . "' " ) );
 
-//if the user hasn't yet voted, then vote normally...
-if( !$voted ) {     
-	if (($vote_sent >= 1 && $vote_sent <= $units) && ($ip == $ip_num)) { // keep votes within range
-		$update = 'UPDATE ' . $xoopsDB -> prefix( 'imlinks_ratings' ) . ' SET total_votes=' . $added . ', total_value=' . $sum . ', used_ips=' . $insertip . ' WHERE id=' . $id_sent;
-		$result = mysql_query( $update );		
-	} 
-	header( 'Location: ' . $referer ); // go back to the page we came from 
-	exit;
+if(!$voted) {     //if the user hasn't yet voted, then vote normally...
+
+if (($vote_sent >= 1 && $vote_sent <= $units) && ($ip == $ip_num)) { // keep votes within range
+	$update = 'UPDATE ' . $xoopsDB -> prefix( 'imlinks_ratings' ) . ' SET total_votes=' . $added . ', total_value=' . $sum . ', used_ips=' . $insertip . ' WHERE id=' . $id_sent;
+	$result = mysql_query( $update );		
 } 
-//end for the "if(!$voted)"
+header( 'Location: ' . $referer ); // go back to the page we came from 
+exit;
+} //end for the "if(!$voted)"
 ?>
