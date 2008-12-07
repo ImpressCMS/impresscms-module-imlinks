@@ -115,7 +115,10 @@ if ( $action == 'message' ) {
         echo '<div><b>Before upgrading to imLinks, make sure that you have:</b></div><br />';
         echo '<div><span style="color:#ff0000; ">1. <b>Important:</b> First, create a back-up from your database before proceeding further. </span></div>';
         echo '<div>2. Upload all the contents of the imLinks package to your server.</div>';
-        echo '<div>3. After the upgrade you must update imLinks in System Admin -> Modules.</div><br /><br />';
+        echo '<div>3. After the upgrade you must update imLinks in System Admin -> Modules.</div><br />';
+		echo '&nbsp;';
+		echo '<div><span style="color:#ff0000; "><b>Note: All rating information will be removed. By clicking the button below you agree with this.</b></span></div>';
+		echo '&nbsp;';
 
         echo '<div><b>Press the button below to ';
         switch ( $link_num ) {
