@@ -244,8 +244,6 @@ if ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) {
   }
 }
 
-// $xoopsTpl -> assign ( 'ratethislink', '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/ratelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/medal_gold.png" alt="" style="vertical-align: middle;" /> ' ._MD_IMLINKS_RATETHISFILE . '</a>');
-
 $xoopsTpl -> assign ( 'reportbroken', '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/brokenlink.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_break.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_REPORTBROKEN . '</a>');
 
 $xoopsTpl -> assign ( 'mailto', '<a class="button" href="mailto:?subject=' . $mail_subject . '&body=' . $mail_body . '" target="_top"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_TELLAFRIEND . '</a>');
