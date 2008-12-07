@@ -99,7 +99,6 @@ $modversion['tables'][7] = 'imlinks_configs';
 // Launch additional install script
 $modversion['onInstall'] = '';
 $modversion['onUpdate'] = '';
-//$modversion['onUpdate'] = 'include/update.php';
 
 // Admin things
 $modversion['hasAdmin'] = 1;
@@ -207,22 +206,20 @@ $modversion['templates'][2]['file'] = 'imlinks_linkload.html';
 $modversion['templates'][2]['description'] = 'Links load template';
 $modversion['templates'][3]['file'] = 'imlinks_index.html';
 $modversion['templates'][3]['description'] = 'Index page imLinks';
-//$modversion['templates'][4]['file'] = 'imlinks_ratelink.html';
-//$modversion['templates'][4]['description'] = 'Links rating template';
-$modversion['templates'][5]['file'] = 'imlinks_singlelink.html';
-$modversion['templates'][5]['description'] = 'Single link template';
-$modversion['templates'][6]['file'] = 'imlinks_topten.html';
-$modversion['templates'][6]['description'] = 'Popularity template';
-$modversion['templates'][7]['file'] = 'imlinks_viewcat.html';
-$modversion['templates'][7]['description'] = 'Category template';
-$modversion['templates'][8]['file'] = 'imlinks_newlistindex.html';
-$modversion['templates'][8]['description'] = 'New links template';
-$modversion['templates'][9]['file'] = 'imlinks_print.html';
-$modversion['templates'][9]['description'] = 'Printing template';
-$modversion['templates'][10]['file'] = 'imlinks_disclaimer.html';
-$modversion['templates'][10]['description'] = 'Disclaimer template';
-$modversion['templates'][11]['file'] = 'imlinks_rss.html';
-$modversion['templates'][11]['description'] = 'RSS feed template';
+$modversion['templates'][4]['file'] = 'imlinks_singlelink.html';
+$modversion['templates'][4]['description'] = 'Single link template';
+$modversion['templates'][5]['file'] = 'imlinks_topten.html';
+$modversion['templates'][5]['description'] = 'Popularity template';
+$modversion['templates'][6]['file'] = 'imlinks_viewcat.html';
+$modversion['templates'][6]['description'] = 'Category template';
+$modversion['templates'][7]['file'] = 'imlinks_newlistindex.html';
+$modversion['templates'][7]['description'] = 'New links template';
+$modversion['templates'][8]['file'] = 'imlinks_print.html';
+$modversion['templates'][8]['description'] = 'Printing template';
+$modversion['templates'][9]['file'] = 'imlinks_disclaimer.html';
+$modversion['templates'][9]['description'] = 'Disclaimer template';
+$modversion['templates'][10]['file'] = 'imlinks_rss.html';
+$modversion['templates'][10]['description'] = 'RSS feed template';
 
 // Module config setting
 $i=0;
@@ -563,13 +560,6 @@ $modversion['config'][$i]['description'] = '_MI_IMLINKS_FOOTERPRINTDSC';
 $modversion['config'][$i]['formtype'] = 'textsarea';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = ''.ICMS_URL.'';
-//$i++;
-//$modversion['config'][$i]['name'] = 'printheader';
-//$modversion['config'][$i]['title'] = '_MI_IMLINKS_HEADERPRINT';
-//$modversion['config'][$i]['description'] = '_MI_IMLINKS_HEADERPRINTDSC';
-//$modversion['config'][$i]['formtype'] = 'textsarea';
-//$modversion['config'][$i]['valuetype'] = 'text';
-//$modversion['config'][$i]['default'] = '';
 $i++;
 $modversion['config'][$i]['name'] = 'printlogourl';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_LOGOURLPRINT';
