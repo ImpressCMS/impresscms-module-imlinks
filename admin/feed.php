@@ -56,16 +56,15 @@ function imlinks_rss_edit() {
 	$rssoffdsc   = $feed_array['rssoffdsc'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssoffdsc'] ) : _AM_IMLINKS_RSSOFFMSGDEF;
 		
 	xoops_cp_header();
-	iml_adminmenu( 8, _AM_IMLINKS_RSSFEED );
+	iml_adminmenu( 7, _AM_IMLINKS_RSSFEED );
 	
-	echo '
-			<fieldset style="border: #e8e8e8 1px solid;">
+	echo '	<fieldset style="border: #e8e8e8 1px solid;">
 			<div style="padding: 8px;">
 			<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
 			' . _AM_IMLINKS_RSSFEEDDSC . '
 			</div>
 			</fieldset>
-		';
+		 ';
 	
 	$sform = new XoopsThemeForm( _AM_IMLINKS_RSSFEEDCFG, 'storyform', xoops_getenv( 'PHP_SELF' ) );
 	$sform -> setExtra( 'enctype="multipart / form - data"' );
@@ -190,6 +189,5 @@ switch ( strtolower( $op ) ) {
             } 
 		redirect_header( 'index.php', 1, _AM_IMLINKS_RSSDBUPDATED );
         break;
-		
 }
 ?>

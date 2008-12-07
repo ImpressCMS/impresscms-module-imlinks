@@ -41,8 +41,7 @@ if (!defined('IS_UPDATE_FILE')) {
         imlinks_cat,
 		imlinks_indexpage,
         imlinks_links,
-        imlinks_mod,
-        imlinks_votedata
+        imlinks_mod
         );
     foreach ( $table_array as $table_arr ) {
         $result = $xoopsDB -> queryF( "DROP TABLE " . $xoopsDB -> prefix( $table_arr ) . " " );
@@ -60,8 +59,7 @@ if (!defined('IS_UPDATE_FILE')) {
         'wflinks_cat' 		=> imlinks_cat,
 		'wflinks_indexpage' => imlinks_indexpage,
         'wflinks_links' 	=> imlinks_links,
-        'wflinks_mod' 		=> imlinks_mod,
-        'wflinks_votedata' 	=> imlinks_votedata,
+        'wflinks_mod' 		=> imlinks_mod
         ); 
     foreach ( $table_array as $table1 => $table2 ) {
         $result = $xoopsDB -> queryF( "CREATE TABLE " . $xoopsDB -> prefix( trim( $table2 ) ) . " SELECT * FROM " . $xoopsDB -> prefix( trim( $table1 ) ) . " " );

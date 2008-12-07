@@ -76,18 +76,11 @@ function iml_getVoteDetails( $lid = 0 ) {
     global $xoopsDB;
 
     $sql = 'SELECT 
-		COUNT(rating) AS rate, 
-		MIN(rating) AS min_rate, 
-		MAX(rating) AS max_rate, 
-		AVG(rating) AS avg_rate, 
-		COUNT(ratinguser) AS rating_user, 
-		MAX(ratinguser) AS max_user, 
-		MAX(title) AS max_title, 
-		MIN(title) AS min_title, 
-		sum(ratinguser = 0) AS null_ratinguser 
-		FROM ' . $xoopsDB -> prefix( 'imlinks_votedata' );
+		total_votes AS total_votes, 
+		total_value AS total_value 
+		FROM ' . $xoopsDB -> prefix( 'imlinks_ratings' );
     if ( $lid > 0 ) {
-        $sql .= ' WHERE lid=' . $lid;
+        $sql .= ' WHERE id=' . $lid;
     } 
     if ( !$result = $xoopsDB -> query( $sql ) ) {
         return false;

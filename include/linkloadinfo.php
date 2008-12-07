@@ -42,7 +42,7 @@ $rating = round( number_format( $link_arr['rating'], 0 ) / 2 );
 $link['rateimg'] = 'rate' . $rating . '.gif';
 unset( $rating );
 
-$link['votes'] = ( $link_arr['votes'] == 1 ) ? _MD_IMLINKS_ONEVOTE : sprintf( _MD_IMLINKS_NUMVOTES, $link_arr['votes'] );
+//$link['votes'] = ( $link_arr['votes'] == 1 ) ? _MD_IMLINKS_ONEVOTE : sprintf( _MD_IMLINKS_NUMVOTES, $link_arr['votes'] );
 $link['hits']  = sprintf( _MD_IMLINKS_LINKHITS, intval( $link_arr['hits'] ) ) ;
 $xoopsTpl -> assign( 'lang_dltimes', $link['hits'] );
 
@@ -112,7 +112,7 @@ if ( icms_userIsAdmin() == true && $moderate == 0 ) {
     $link['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?op=delete&amp;lid=' . $link_arr['lid'] . '">' . _MD_IMLINKS_DELETE . '</a> ]';
 }
 
-$votestring = ( $link_arr['votes'] == 1 ) ? _MD_IMLINKS_ONEVOTE : sprintf( _MD_IMLINKS_NUMVOTES, $link_arr['votes'] );
+//$votestring = ( $link_arr['votes'] == 1 ) ? _MD_IMLINKS_ONEVOTE : sprintf( _MD_IMLINKS_NUMVOTES, $link_arr['votes'] );
 
 switch ( $xoopsModuleConfig['selectforum'] ) {
     case '1':
@@ -137,6 +137,9 @@ if ( is_object( $xoopsforumModule ) && $xoopsforumModule -> getVar( 'isactive' )
     $link['forumid'] = ( $link_arr['forumid'] > 0 ) ? $link_arr['forumid'] : 0;
     $link['forum_path'] = $forum_path_prefix . "{$link['forumid']}";
 }
+
+include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/_drawrating.php';
+$link['ratingbar'] = rating_bar( $link_arr['lid'], '5', $cid );
 
 $link['icons']         = iml_displayicons( $link_arr['published'], $link_arr['status'], $link_arr['hits'] );
 $link['module_dir']    = $mydirname;
