@@ -19,6 +19,7 @@ xx.11.2008   1.00 RC-1
 - Added: option to clone a link
 - Added: Home button
 - Added: css stylesheet
+- Added: AJAX rating to replace old rating feature
 
 - Renamed: module name from 'WF-Links' into 'imLinks'
 - Renamed: file 'bugfixlist.txt' into 'changelog.txt'

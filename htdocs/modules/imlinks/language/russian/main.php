@@ -51,14 +51,10 @@ define( "_MD_IMLINKS_CATEGORYC", "Категория: " );
 define( "_MD_IMLINKS_VERSION", "Версия" );
 define( "_MD_IMLINKS_SUBMITDATE", "Дата размещения" );
 define( "_MD_IMLINKS_LINKHITS", "<b>Визиты:</b> %s раз" );
-define( "_MD_IMLINKS_URLRATING", "<b>ICRA</b>: %s" );
 define( "_MD_IMLINKS_PUBLISHERC", "Кто опубликовал: " );
 define( "_MD_IMLINKS_RATINGC", "Оценка: " );
 define( "_MD_IMLINKS_PAGERANK", "PageRank™: ");
 define( "_MD_IMLINKS_PAGERANKALT", "Google PageRank™: ");
-define( "_MD_IMLINKS_ONEVOTE", "1 голос" );
-define( "_MD_IMLINKS_NUMVOTES", "%s голосов" );
-define( "_MD_IMLINKS_RATETHISFILE", "Оценить" );
 define( "_MD_IMLINKS_MODIFY", "Редактировать" );
 define( "_MD_IMLINKS_REPORTBROKEN", "Сбойная" );
 define( "_MD_IMLINKS_BROKENREPORT", "Сообщить о сбойном ресурсе" );
@@ -71,7 +67,6 @@ define( "_MD_IMLINKS_THEREIS", "Представлено <b>%s</b> <i>катег
 define( "_MD_IMLINKS_LATESTLIST", "Новые" );
 define( "_MD_IMLINKS_FILETITLE", "Заголовок ссылки: " );
 define( "_MD_IMLINKS_DLURL", "URL ссылки: " );
-define( "_MD_IMLINKS_LINK_DIRCA", " Оценка Internet-контента: " );
 define( "_MD_IMLINKS_HOMEPAGEC", "Главная страница: " );
 define( "_MD_IMLINKS_NOTSPECIFIED", "Не определено" );
 define( "_MD_IMLINKS_SUBMITTER", "Разместил" );
@@ -80,19 +75,10 @@ define( "_MD_IMLINKS_PRICEFREE", "Бесплатно" );
 define( "_MD_IMLINKS_VIEWDETAILS", "Подробности" );
 define( "_MD_IMLINKS_OPTIONS", 'Опции: ' );
 define( "_MD_IMLINKS_NOTIFYAPPROVE", 'Оповестить меня, когда эта ссылка будет одобрена' );
-define( "_MD_IMLINKS_VOTEAPPRE", "Ваш голос оценен." );
-define( "_MD_IMLINKS_THANKYOU", "Спасибо за время, уделенное для голосания на %s" ); // %s is your site name
-define( "_MD_IMLINKS_VOTEONCE", "Пожалуйста, не голосуйте за один ресурс более одного раза." );
-define( "_MD_IMLINKS_RATINGSCALE", "Градация от 1 до 10, 1 - плохо и 10 - отлично." );
-define( "_MD_IMLINKS_BEOBJECTIVE", "Пожалуйста, будьте объективны, если каждый отправит 1 или 10, рэйтинг не будет полезен." );
-define( "_MD_IMLINKS_DONOTVOTE", "Не надо оценивать собственный ресурс." );
-define( "_MD_IMLINKS_RATEIT", "Оцените!" );
 define( "_MD_IMLINKS_INTFILEFOUND", "Хорошие ссылки, расположенные на %s" ); // %s is your site name
 define( "_MD_IMLINKS_RANK", "Ранг" );
 define( "_MD_IMLINKS_CATEGORY", "Категория" );
 define( "_MD_IMLINKS_HITS", "Обращения" );
-define( "_MD_IMLINKS_RATING", "Оценка" );
-define( "_MD_IMLINKS_VOTE", "Голосование" );
 define( "_MD_IMLINKS_SORTBY", "Сортировать по:" );
 define( "_MD_IMLINKS_TITLE", "Заголовок" );
 define( "_MD_IMLINKS_DATE", "Дата" );
@@ -102,9 +88,6 @@ define( "_MD_IMLINKS_CURSORTBY", "Ссылки отсортированы по: 
 define( "_MD_IMLINKS_CANCEL", "Отменить" );
 define( "_MD_IMLINKS_ALREADYREPORTED", "Вы уже разместили отчет о некорректности этого ресурса." );
 define( "_MD_IMLINKS_MUSTREGFIRST", "Извините, у Вас нет прав доступа на выполнение этого действия.<br />Пожалуйста, сначала зарегистрируйтесь или войдите на сайт!" );
-define( "_MD_IMLINKS_NORATING", "Оценка не выбрана." );
-define( "_MD_IMLINKS_VOTEFORTITLE", "Оценка этой ссылки: " );
-define( "_MD_IMLINKS_CANTVOTEOWN", "Вы не можете голосовать за ресурс, который разместили.<br />Все голоса регистрируются и просматриваются." );
 define( "_MD_IMLINKS_SUBMITLINK", "Разместить" );
 define( "_MD_IMLINKS_SUB_SNEWMNAMEDESC", "<ul><li>Все новые ссылки проходят процедуру валидации (проверки на достоверность) и до появления ссылки в списке может пройти до 24 часов.</li><li>Мы оставляем за собой право отвергнуть любую, размещенную ссылку или изменить контент без одобрения.</li></ul>" );
 define( "_MD_IMLINKS_MAINLISTING", "Список категорий" );
@@ -237,4 +220,12 @@ define( '_MD_IMLINKS_DISABLEBREAK', ' Использовать ICMS конвер
 define( '_MD_IMLINKS_CLONE', 'Клонировать' );
 define( '_MD_IMLINKS_TOPRATEDBUTT', 'Рейтинговые' );
 define( '_MD_IMLINKS_ALPHABET', '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' );
+define( '_MD_IMLINKS_VOTES', 'Votes' );
+define( '_MD_IMLINKS_THANKYOU', 'Thanks for voting!' );
+define( '_MD_IMLINKS_RATING', 'Rating' );
+define( '_MD_IMLINKS_VOTE', 'vote' );
+define( '_MD_IMLINKS_CURRATING', 'Current rating.' );
+define( '_MD_IMLINKS_RATEDISABLE', 'Rating is disabled.' );
+define( '_MD_IMLINKS_OUTOF', ' out of ' );
+define( '_MD_IMLINKS_INVALIDVOTE', 'Sorry, vote appears to be invalid.' );
 ?>

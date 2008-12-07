@@ -64,6 +64,7 @@ $xoopsOption['template_main'] = 'imlinks_singlelink.html';
 include ICMS_ROOT_PATH . '/header.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/sbookmarks.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/address.php';
+//include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/_drawrating.php';
 
 // tags support
 if ( iml_tag_module_included() ) {
@@ -209,10 +210,10 @@ if ( isset( $xoopsModuleConfig['screenshot'] ) && $xoopsModuleConfig['screenshot
 }
 
 // Show other author links
-$sql = "SELECT lid, cid, title, published FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . "
-	WHERE submitter=" . $link_arr['submitter'] . "
-	AND published > 0 AND published <= " . time() . " AND (expired = 0 OR expired > " . time() . ")
-	AND offline = 0 ORDER by published DESC";
+$sql = 'SELECT lid, cid, title, published FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . '
+	WHERE submitter=' . $link_arr['submitter'] . '
+	AND published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ')
+	AND offline = 0 ORDER by published DESC';
 $result = $xoopsDB -> query( $sql, 10, 0 );
 
 while ( $arr = $xoopsDB -> fetchArray( $result ) ) {
@@ -225,11 +226,11 @@ while ( $arr = $xoopsDB -> fetchArray( $result ) ) {
 
 // Copyright notice
 if ( isset( $xoopsModuleConfig['copyright'] ) && $xoopsModuleConfig['copyright'] == 1 ) {
-    $xoopsTpl -> assign( 'lang_copyright', "" . $link['title'] . " &copy; " . _MD_IMLINKS_COPYRIGHT . " " . formatTimestamp( time(), "Y" ) . " - <a href='" . ICMS_URL . "'>" . $xoopsConfig['sitename'] . "</a>" );
+    $xoopsTpl -> assign( 'lang_copyright', $link['title'] . ' &copy; ' . _MD_IMLINKS_COPYRIGHT . ' ' . formatTimestamp( time(), 'Y' ) . ' - <a href="' . ICMS_URL . '">' . $xoopsConfig['sitename'] . '</a>' );
 }
 
 if ( isset( $xoopsModuleConfig['otherlinks'] ) && $xoopsModuleConfig['otherlinks'] == 1 ) {
-    $xoopsTpl -> assign( 'other_links', "" . "<b>" ._MD_IMLINKS_OTHERBYUID . "</b>"  . $link['submitter'] . "<br />" );
+    $xoopsTpl -> assign( 'other_links', '<b>' ._MD_IMLINKS_OTHERBYUID . '</b>'  . $link['submitter'] . '<br />' );
 }
 
 $link['useradminlink'] = 0;
@@ -243,7 +244,7 @@ if ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) {
   }
 }
 
-$xoopsTpl -> assign ( 'ratethislink', '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/ratelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/medal_gold.png" alt="" style="vertical-align: middle;" /> ' ._MD_IMLINKS_RATETHISFILE . '</a>');
+// $xoopsTpl -> assign ( 'ratethislink', '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/ratelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/medal_gold.png" alt="" style="vertical-align: middle;" /> ' ._MD_IMLINKS_RATETHISFILE . '</a>');
 
 $xoopsTpl -> assign ( 'reportbroken', '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/brokenlink.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_break.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_REPORTBROKEN . '</a>');
 
@@ -261,7 +262,6 @@ $link['allow_rating'] = ( iml_checkgroups( $cid, 'imLinkRatePerms' ) ) ? true : 
 $link['total_chars'] = $xoopsModuleConfig['totalchars'];
 
 $xoopsTpl -> assign( 'link', $link );
-
 $xoopsTpl -> assign( 'module_dir', $mydirname );
 
 include ICMS_ROOT_PATH . '/include/comment_view.php';

@@ -91,6 +91,11 @@ function edit( $lid = 0, $doclone = 0 ) {
 
       if ( $lid > 0 ) {
         $_vote_data = iml_getVoteDetails( $lid );
+		if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
+			$autothumbsrc = '<img src="http://mozshot.nemui.org/shot/128x128?' . $link_array['url'] . '" alt="" />';
+		} else {
+			$autothumbsrc = '<img src="http://open.thumbshots.org/image.pxf?url=' . $link_array['url'] . '" width="120" height="90" alt="" />';
+		}
         $text_info = '<table width="100%">
 			 <tr>
 			  <td width="33%" valign="top">
@@ -98,21 +103,17 @@ function edit( $lid = 0, $doclone = 0 ) {
 			   <div><b>' . _AM_IMLINKS_MINDEX_SUBMITTED . ': </b>' . formatTimestamp( $link_array['date'], $xoopsModuleConfig['dateformat'] ) . '</div>
 			   <div><b>' . _AM_IMLINKS_LINK_SUBMITTER . ' </b>' . xoops_getLinkedUnameFromId( $submitter ) . '</div>
 			   <div><b>' . _AM_IMLINKS_LINK_IP . ' </b>' . $ipaddress . '</div>
-			   <div><b>' . _AM_IMLINKS_PAGERANK . ' </b>' . imlinks_pagerank( $link_array['url'] ) . '</div>
-			   <div><b>' . _AM_IMLINKS_HITS . ' </b>' . $link_array['hits'] . '</div>
+			   
 
 			  </td>
 			  <td valign="top">
-			   <div><b>' . _AM_IMLINKS_VOTE_TOTALRATE . ': </b>' . intval( $_vote_data['rate'] ) . '</div>
-			   <div><b>' . _AM_IMLINKS_VOTE_USERAVG . ': </b>' . intval( round( $_vote_data['avg_rate'], 2 ) ) . '</div>
-			   <div><b>' . _AM_IMLINKS_VOTE_MAXRATE . ': </b>' . intval( $_vote_data['min_rate'] ) . '</div>
-			   <div><b>' . _AM_IMLINKS_VOTE_MINRATE . ': </b>' . intval( $_vote_data['max_rate'] ) . '</div>
+			   <div><b>' . _AM_IMLINKS_HITS . ' </b>' . $link_array['hits'] . '</div>
+			   <div><b>' . _AM_IMLINKS_PAGERANK . ' </b>' . imlinks_pagerank( $link_array['url'] ) . '</div>
+			   <div><b>' . _AM_IMLINKS_VOTE_RATING . ': </b>' . round( $_vote_data['total_value']/$_vote_data['total_votes'], 1) . '</div>
+			   <div><b>' . _AM_IMLINKS_VOTE_TOTALRATE . ': </b>' . $_vote_data['total_votes'] . '</div>
 			  </td>
 			  <td valign="top">
-			   <div><b>' . _AM_IMLINKS_VOTE_MOSTVOTEDTITLE . ': </b>' . intval( $_vote_data['max_title'] ) . '</div>
-		           <div><b>' . _AM_IMLINKS_VOTE_LEASTVOTEDTITLE . ': </b>' . intval( $_vote_data['min_title'] ) . '</div>
-			   <div><b>' . _AM_IMLINKS_VOTE_REGISTERED . ': </b>' . ( intval( $_vote_data['rate'] - $_vote_data['null_ratinguser'] ) ) . '</div>
-			   <div><b>' . _AM_IMLINKS_VOTE_NONREGISTERED . ': </b>' . intval( $_vote_data['null_ratinguser'] ) . '</div>
+			   <div>' . $autothumbsrc . '</div>
 			  </td>
 			 </tr>
 			</table>';

@@ -1,7 +1,6 @@
-# phpMyAdmin SQL Dump
-# version 2.6.0-pl3
-# http://www.phpmyadmin.net
-# 
+#
+# SQL file for imLinks
+#
 
 # 
 # Table structure for table 'imlinks_altcat'
@@ -155,7 +154,7 @@ CREATE TABLE `imlinks_mod` (
   `status` tinyint(2) NOT NULL default '0',
   `date` int(10) NOT NULL default '0',
   `hits` int(11) unsigned NOT NULL default '0',
-  `rating` double(6,4) NOT NULL default '0.0000',
+  `rating` double(6,2) NOT NULL default '0.00',
   `votes` int(11) unsigned NOT NULL default '0',
   `comments` int(11) unsigned NOT NULL default '0',
   `forumid` int(11) NOT NULL default '0',
@@ -189,21 +188,15 @@ CREATE TABLE `imlinks_mod` (
 ) TYPE=MyISAM;
 
 #
-# Table structure for table 'imlinks_votedata'
+# Table structure for table 'imlinks_ratings'
 #
 
-CREATE TABLE imlinks_votedata (
-  ratingid int(11) unsigned NOT NULL auto_increment,
-  lid int(11) unsigned NOT NULL default '0',
-  ratinguser int(11) NOT NULL default '0',
-  rating tinyint(3) unsigned NOT NULL default '0',
-  ratinghostname varchar(60) NOT NULL default '',
-  ratingtimestamp int(10) NOT NULL default '0',
-  title varchar(255) NOT NULL default '',
-  PRIMARY KEY  (ratingid),
-  KEY ratinguser (ratinguser),
-  KEY ratinghostname (ratinghostname),
-  KEY lid (lid)
+CREATE TABLE imlinks_ratings (
+  id int(11) NOT NULL,
+  total_votes int(11) NOT NULL default '0',
+  total_value int(11) NOT NULL default '0',
+  used_ips longtext,
+  PRIMARY KEY  (id)
 ) TYPE=MyISAM;
 
 #

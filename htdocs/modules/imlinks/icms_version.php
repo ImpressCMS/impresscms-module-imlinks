@@ -73,6 +73,7 @@ $modversion['people']['translators'][] = '&middot; <a href="http://www.frxoops.o
 $modversion['people']['other']      [] = '&middot; <a href="http://xoops.peak.ne.jp" target="_blank">GIJOE</a> (blocks hack)';
 $modversion['people']['other']		[] = '&middot; <a href="http://www.bitfolge.de" target="_blank">Kai Blankenhorn</a> (vCard script)';
 $modversion['people']['other']      [] = '&middot; <a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
+$modversion['people']['other']      [] = '&middot; <a href="http://www.masugadesign.com" target="_blank">Ryan Masuga</a> (AJAX Rating Bars)';
 
 //	** If Release Candidate **
 $modversion['warning'] = _MODABOUT_WARNING_RC;
@@ -90,7 +91,7 @@ $modversion['tables'][0] = 'imlinks_broken';
 $modversion['tables'][1] = 'imlinks_cat';
 $modversion['tables'][2] = 'imlinks_links';
 $modversion['tables'][3] = 'imlinks_mod';
-$modversion['tables'][4] = 'imlinks_votedata';
+$modversion['tables'][4] = 'imlinks_ratings';
 $modversion['tables'][5] = 'imlinks_indexpage';
 $modversion['tables'][6] = 'imlinks_altcat';
 $modversion['tables'][7] = 'imlinks_configs';
@@ -206,8 +207,8 @@ $modversion['templates'][2]['file'] = 'imlinks_linkload.html';
 $modversion['templates'][2]['description'] = 'Links load template';
 $modversion['templates'][3]['file'] = 'imlinks_index.html';
 $modversion['templates'][3]['description'] = 'Index page imLinks';
-$modversion['templates'][4]['file'] = 'imlinks_ratelink.html';
-$modversion['templates'][4]['description'] = 'Links rating template';
+//$modversion['templates'][4]['file'] = 'imlinks_ratelink.html';
+//$modversion['templates'][4]['description'] = 'Links rating template';
 $modversion['templates'][5]['file'] = 'imlinks_singlelink.html';
 $modversion['templates'][5]['description'] = 'Single link template';
 $modversion['templates'][6]['file'] = 'imlinks_topten.html';

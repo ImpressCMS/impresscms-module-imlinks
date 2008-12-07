@@ -60,19 +60,10 @@ $adminmenu[6]['link']	= 'admin/myblocksadmin.php';
 $adminmenu[6]['icon']	= 'images/icon/blocks.png';
 $adminmenu[6]['small']	= 'images/icon/blocks_small.png';
 
-$adminmenu[7]['title'] 	= _MI_IMLINKS_MVOTEDATA;
-$adminmenu[7]['link']	= 'admin/votedata.php';
-$adminmenu[7]['icon']	= 'images/icon/votes.png';
-$adminmenu[7]['small']	= 'images/icon/votes_small.png';
-
-$adminmenu[8]['title'] 	= _MI_IMLINKS_RSSFEED;
-$adminmenu[8]['link']	= 'admin/feed.php?op=edit';
-$adminmenu[8]['icon']	= 'images/icon/feed32.png';
-$adminmenu[8]['small']	= 'images/icon/feed.png';
-
-//$adminmenu[9]['title'] 	= _MI_IMLINKS_MCOMMENTS;
-//$adminmenu[9]['link']	= '../../modules/system/admin.php?module=' . $xoopsModule -> getVar( 'mid' ) . '&status=0&limit=100&fct=comments&selsubmit=Go';
-                                 
+$adminmenu[7]['title'] 	= _MI_IMLINKS_RSSFEED;
+$adminmenu[7]['link']	= 'admin/feed.php?op=edit';
+$adminmenu[7]['icon']	= 'images/icon/feed32.png';
+$adminmenu[7]['small']	= 'images/icon/feed.png';                   
 
 if ( isset( $xoopsModule ) ) {
 
