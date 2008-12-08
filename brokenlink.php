@@ -31,11 +31,9 @@ include 'header.php';
 $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 $lid = iml_cleanRequestVars( $_REQUEST, 'lid', 0 );
 $lid = intval( $lid );
-$buttonn = _MD_IMLINKS_SUBMITBROKEN;
-$buttonn = strtolower( $buttonn );
  
 switch ( strtolower( $op ) ) {
-    case $buttonn:
+    case 'submit':
         global $xoopsUser;
 
         $sender = ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) ? $xoopsUser -> getVar( 'uid' ) : 0;
