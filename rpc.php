@@ -33,7 +33,7 @@ $checkIP = unserialize( $numbers['used_ips'] );
 $count = $numbers['total_votes']; //how many votes total
 $current_rating = $numbers['total_value']; //total number of rating added together and stored
 $sum = $vote_sent+$current_rating; // add together the current vote value and the total vote value
-$tense = ( $count==1 ) ? _MD_IMLINKS_VOTE : strtolower( _MD_IMLINKS_VOTES ); //plural form votes/vote
+$tense = ( $count==1 ) ? _MD_IMLINKS_VOTE : _MD_IMLINKS_VOTESLC ; //plural form votes/vote
 
 // checking to see if the first vote has been tallied
 // or increment the current number of votes

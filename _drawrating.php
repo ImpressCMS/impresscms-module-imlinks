@@ -41,7 +41,7 @@ if ( $numbers['total_votes'] < 1 ) {
 	$count = $numbers['total_votes']; //how many votes total
 }
 $current_rating = $numbers['total_value']; //total number of rating added together and stored
-$tense = ( $count == 1 ) ? _MD_IMLINKS_VOTE : strtolower( _MD_IMLINKS_VOTES ); //plural form votes/vote
+$tense = ( $count == 1 ) ? _MD_IMLINKS_VOTE : _MD_IMLINKS_VOTESLC ; //plural form votes/vote
 
 // determine whether the user has voted, so we know how to draw the ul/li
 $voted = mysql_num_rows( mysql_query( "SELECT used_ips FROM " . $xoopsDB -> prefix( 'imlinks_ratings' ) . " WHERE used_ips LIKE '%" . $ip . "%' AND id='" . $id . "' " ) ); 
