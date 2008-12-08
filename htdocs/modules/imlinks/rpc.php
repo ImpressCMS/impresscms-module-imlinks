@@ -61,7 +61,7 @@ $newtotals = mysql_query("SELECT total_votes, total_value, used_ips FROM " . $xo
 $numbers = mysql_fetch_assoc($newtotals);
 $count = $numbers['total_votes'];//how many votes total
 $current_rating = $numbers['total_value'];//total number of rating added together and stored
-$tense = ($count==1) ? strtolower( _MD_IMLINKS_VOTE ) : _MD_IMLINKS_VOTES; //plural form votes/vote
+$tense = ($count==1) ? _MD_IMLINKS_VOTE : _MD_IMLINKS_VOTESLC; //plural form votes/vote
 
 // $new_back is what gets 'drawn' on your page after a successful 'AJAX/Javascript' vote
 
