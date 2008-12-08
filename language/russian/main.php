@@ -220,13 +220,13 @@ define( '_MD_IMLINKS_DISABLEBREAK', ' Использовать ICMS конвер
 define( '_MD_IMLINKS_CLONE', 'Клонировать' );
 define( '_MD_IMLINKS_TOPRATEDBUTT', 'Рейтинговые' );
 define( '_MD_IMLINKS_ALPHABET', '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' );
-define( '_MD_IMLINKS_VOTES', 'Votes' );
-define( '_MD_IMLINKS_VOTESLC', 'votes' );
-define( '_MD_IMLINKS_THANKYOU', 'Thanks for voting!' );
-define( '_MD_IMLINKS_RATING', 'Rating' );
-define( '_MD_IMLINKS_VOTE', 'vote' );
-define( '_MD_IMLINKS_CURRATING', 'Current rating.' );
-define( '_MD_IMLINKS_RATEDISABLE', 'Rating is disabled.' );
+define( '_MD_IMLINKS_VOTES', 'Голоса' );
+define( '_MD_IMLINKS_VOTESLC', 'голосов' );
+define( '_MD_IMLINKS_THANKYOU', 'Спасибо за голосование!' );
+define( '_MD_IMLINKS_RATING', 'Рейтинг' );
+define( '_MD_IMLINKS_VOTE', 'голос' );
+define( '_MD_IMLINKS_CURRATING', 'Текущий рейтинг.' );
+define( '_MD_IMLINKS_RATEDISABLE', 'Рейтинг отключен.' );
 define( '_MD_IMLINKS_OUTOF', ' out of ' );
-define( '_MD_IMLINKS_INVALIDVOTE', 'Sorry, vote appears to be invalid.' );
+define( '_MD_IMLINKS_INVALIDVOTE', 'К сожалению голосование недопустимо.' );
 ?>
