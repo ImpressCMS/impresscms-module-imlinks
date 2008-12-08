@@ -226,6 +226,7 @@ define( '_MD_IMLINKS_CLONE', 'Clone' );
 define( '_MD_IMLINKS_TOPRATEDBUTT', 'Hoogste beoordeling' );
 define( '_MD_IMLINKS_ALPHABET', '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' );
 define( '_MD_IMLINKS_VOTES', 'Stemmen' );
+define( '_MD_IMLINKS_VOTESLC', 'stemmen' );
 define( '_MD_IMLINKS_THANKYOU', 'Bedankt voor het stemmen!' );
 define( '_MD_IMLINKS_RATING', 'Beoordeling' );
 define( '_MD_IMLINKS_VOTE', 'stem' );

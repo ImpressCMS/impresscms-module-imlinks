@@ -221,6 +221,7 @@ define( '_MD_IMLINKS_CLONE', 'Клонировать' );
 define( '_MD_IMLINKS_TOPRATEDBUTT', 'Рейтинговые' );
 define( '_MD_IMLINKS_ALPHABET', '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' );
 define( '_MD_IMLINKS_VOTES', 'Votes' );
+define( '_MD_IMLINKS_VOTESLC', 'votes' );
 define( '_MD_IMLINKS_THANKYOU', 'Thanks for voting!' );
 define( '_MD_IMLINKS_RATING', 'Rating' );
 define( '_MD_IMLINKS_VOTE', 'vote' );
