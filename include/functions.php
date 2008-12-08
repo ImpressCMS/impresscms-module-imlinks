@@ -75,10 +75,7 @@ function iml_checkgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = fal
 function iml_getVoteDetails( $lid = 0 ) {
     global $xoopsDB;
 
-    $sql = 'SELECT 
-		total_votes AS total_votes, 
-		total_value AS total_value 
-		FROM ' . $xoopsDB -> prefix( 'imlinks_ratings' );
+    $sql = 'SELECT total_votes AS total_votes, total_value AS total_value FROM ' . $xoopsDB -> prefix( 'imlinks_ratings' );
     if ( $lid > 0 ) {
         $sql .= ' WHERE id=' . $lid;
     } 
@@ -87,27 +84,6 @@ function iml_getVoteDetails( $lid = 0 ) {
     } 
     $ret = $xoopsDB -> fetchArray( $result );
 
-    return $ret;
-} 
-
-function iml_calcVoteData( $sel_id = 0 ) {
-    $ret = array();
-    $ret['useravgrating'] = 0;
-
-    $sql = 'SELECT rating FROM ' . $xoopsDB -> prefix( 'imlinks_votedata' );
-    if ( $sel_id != 0 ) {
-        ' WHERE lid=' . $sel_id;
-    } 
-    if ( !$result = $xoopsDB -> query( $sql ) ) {
-        return false;
-    } 
-    $ret['uservotes'] = $xoopsDB -> getRowsNum( $result );
-    while ( list( $rating ) = $xoopsDB -> fetchRow( $result ) ) {
-        $ret['useravgrating'] += intval( $rating );
-    } 
-    if ( $ret['useravgrating'] > 0 ) {
-        $ret['useravgrating'] = number_format( ( $ret['useravgrating'] / $ret['uservotes'] ), 2 );
-    } 
     return $ret;
 } 
 
