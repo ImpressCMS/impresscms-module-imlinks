@@ -48,7 +48,7 @@ $xoopsOption['template_main'] = 'imlinks_viewcat.html';
 include ICMS_ROOT_PATH . '/header.php';
 
 // Breadcrumb
-$pathstring = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/index.php">' . _MD_IMLINKS_MAIN . '</a>&nbsp;:&nbsp;';
+$pathstring = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/index.php">' . _MD_IMLINKS_MAIN . '</a>&nbsp;:&nbsp;';
 $pathstring .= $mytree -> getNicePathFromId( $cid, 'title', 'viewcat.php?op=' );
 $xoopsTpl -> assign( 'category_path', $pathstring );
 $xoopsTpl -> assign( 'category_id', $cid );
@@ -77,7 +77,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
                     break;
                 }
                 if ( $space > 0 ) $infercategories .= ', ';
-                $infercategories .= '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/viewcat.php?cid=' . $sub_ele['cid'] . '">' . $immyts -> htmlSpecialCharsStrip( $sub_ele['title'] ) . '</a> (' . $hassubitems['count'] . ')';
+                $infercategories .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/viewcat.php?cid=' . $sub_ele['cid'] . '">' . $immyts -> htmlSpecialCharsStrip( $sub_ele['title'] ) . '</a> (' . $hassubitems['count'] . ')';
                 $space++;
                 $chcount++;
             }
@@ -210,14 +210,14 @@ if ( $selectdate ) {
     $istrue = ( isset( $page_nav ) && !empty( $page_nav ) ) ? true : false;
     $xoopsTpl -> assign( 'page_nav', $istrue );
     $xoopsTpl -> assign( 'pagenav', $page_nav );
-    $xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
+    $xoopsTpl -> assign( 'module_dir', $mydirname );
 
 // Show links
 if ( $count > 0 ) {
     $moderate = 0;
     while ( $link_arr = $xoopsDB -> fetchArray( $result ) ) {
         $res_type = 0;
-        require ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/linkloadinfo.php';
+        require ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/linkloadinfo.php';
         $xoopsTpl -> append( 'link', $link );
     } 
 

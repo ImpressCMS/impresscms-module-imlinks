@@ -22,8 +22,6 @@
 * @version		$Id$
 */
 
-$mydirname = basename( dirname( __FILE__ ) );
-
 include_once 'header.php';
 require_once ICMS_ROOT_PATH . '/class/template.php';
 

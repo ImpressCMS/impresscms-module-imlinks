@@ -43,7 +43,7 @@ if ( isset( $_GET['newlinkshowdays'] ) ) {
 	if ( $newlinkshowdays != 7 ) {
           if ( $newlinkshowdays != 14 ) {
             if ( $newlinkshowdays != 30 ) {
-              redirect_header( 'newlist.php?newlinkshowdays=7', 5, _MD_IMLINKS_STOPIT . '<br /><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/images/icon/security.png" />' );
+              redirect_header( 'newlist.php?newlinkshowdays=7', 5, _MD_IMLINKS_STOPIT . '<br /><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/security.png" />' );
               exit();
             }
           }
@@ -105,7 +105,7 @@ $sql .="WHERE (published > 0 AND published <= " . $time_cur . ")
 		ORDER BY " . $xoopsModuleConfig['linkxorder'];
 $result = $xoopsDB -> query( $sql, 10 , 0 );
 while ( $link_arr = $xoopsDB -> fetchArray( $result ) ) {
-    include ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/linkloadinfo.php';
+    include ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/linkloadinfo.php';
 } 
 
 // Screenshots display
@@ -115,7 +115,7 @@ if ( $xoopsModuleConfig['screenshot'] ) {
     $xoopsTpl -> assign( 'shotheight', $xoopsModuleConfig['shotheight'] );
     $xoopsTpl -> assign( 'show_screenshot', true );
 }
-$xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
+$xoopsTpl -> assign( 'module_dir', $mydirname );
 include ICMS_ROOT_PATH . '/footer.php';
 
 ?>
