@@ -308,17 +308,17 @@ define("_MI_IMLINKS_COUNTRY_D", "Land (D)");
 
 // imLinks 1.00 RC-1
 define( "_MI_IMLINKS_CAPTCHA", "Benutze den Verifizierungscode?" );
-define( "_MI_IMLINKS_CAPTCHADSC", "Select <em>Yes</em> to use captcha in the submit form.<br />Default: <em>Yes</em>" );
-define( "_MI_IMLINKS_LINKEDTERMS", "Link to terms glossary?" );
-define( "_MI_IMLINKS_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
-define( "_MI_IMLINKS_IMGLOSSARYDIR", "Folder name of imGlossary:" );
-define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
+define( "_MI_IMLINKS_CAPTCHADSC", "Wählen Sie <em>Ja</em> um die Verifizierung (Captcha) einzuschalten.<br />Voreinstellung: <em>Ja</em>" );
+define( "_MI_IMLINKS_LINKEDTERMS", "Link zum Glossar-Modul (imGlossar)?" );
+define( "_MI_IMLINKS_LINKEDTERMSDSC", "Das Modul muss installiert und aktiv sein, damit die Funktion genutzt werden kann." );
+define( "_MI_IMLINKS_IMGLOSSARYDIR", "Verzeichnisname des Glossar-Moduls:" );
+define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "Geben Sie den Namen des Glossar Modules ein.<br />Voreinstellung: <em>imglossary</em>" );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
-define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Select source for generating auto screenshot' );
+define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Eine Quelle wählen zum automatischen Erstellen eines Bildschirmfotos' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'Weitere Informationen:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
-define( '_MI_IMLINKS_CATCOLS', 'Number of category colums:' );
-define( '_MI_IMLINKS_CATCOLSDSC', 'Select the number of category colums for Index Page.<br />Default: <em>2</em>' );
+define( '_MI_IMLINKS_CATCOLS', 'Anzahl der Kategoriespalten:' );
+define( '_MI_IMLINKS_CATCOLSDSC', 'Wählen Sie die Anzahl der Kategoriespalten für die Modul-Startseite.<br />Voreinstellung: <em>2</em>' );
 define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
-define( '_MI_IMLINKS_SHOWRATING', 'Show rating features?' );
-define( '_MI_IMLINKS_SHOWRATINGDSC', 'Select <em>Yes</em> to display the rating features. Select <em>No</em> to hide the rating features. Note: This setting has nothing to do with the permissions setting.' );
+define( '_MI_IMLINKS_SHOWRATING', 'Zeige Bewertungsfunktion?' );
+define( '_MI_IMLINKS_SHOWRATINGDSC', 'Wählen Sie <em>Ja</em> um die Bewertung zu aktivieren oder wählen Sie <em>Nein</em> um die Funktion zu verstecken. Hinweis: Diese Einstellung hat nichts mit den Berechtigungen zu tun.' );
 ?>
