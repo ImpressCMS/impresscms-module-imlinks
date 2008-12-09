@@ -94,7 +94,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
                         break;
                     } 
                     if ( $space > 0 ) {
-                      $subcategories .= '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/viewcat.php?cid=' . $ele['cid'] . '">' . $chtitle . '</a><br />';
+                      $subcategories .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/viewcat.php?cid=' . $ele['cid'] . '">' . $chtitle . '</a><br />';
                     }
                     $space++;
                     $chcount++;
@@ -147,7 +147,7 @@ switch ( $total_cat ) {
         break;
 }
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
-$xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
+$xoopsTpl -> assign( 'module_dir', $mydirname );
 $xoopsTpl -> assign( 'catcols', $xoopsModuleConfig['catcols'] );
 
 // Screenshots display
@@ -183,7 +183,7 @@ if ( $lastlinks['lastlinksyn'] == 1 && $lastlinks['lastlinkstotal'] > 0 ) {
         $res_type = 0;
         $moderate = 0;
         $cid = $link_arr['cid'];
-        require ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/linkloadinfo.php';
+        require ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/linkloadinfo.php';
         $xoopsTpl -> append( 'link', $link );
   }
   
@@ -198,7 +198,7 @@ $rsssql = 'SELECT rssactive FROM ' . $xoopsDB -> prefix( 'imlinks_configs' );
 list( $rssactive ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $rsssql ) );
 
 if ( $rssactive == 1 ) {
-	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="' . _MD_IMLINKS_FEED . '" title="' . _MD_IMLINKS_FEED . '" /></a>' );
+	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed.png" border="0" alt="' . _MD_IMLINKS_FEED . '" title="' . _MD_IMLINKS_FEED . '" /></a>' );
 	$xoopsTpl -> assign( 'xoops_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MD_IMLINKS_FEED . '" href="feed.php">' ); 
 }
 

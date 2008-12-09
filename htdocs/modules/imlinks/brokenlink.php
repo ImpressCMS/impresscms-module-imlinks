@@ -58,7 +58,7 @@ switch ( strtolower( $op ) ) {
 
 // Send notifications
             $tags = array();
-            $tags['BROKENREPORTS_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php?op=listBrokenlinks';
+            $tags['BROKENREPORTS_URL'] = ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=listBrokenlinks';
             $notification_handler = &xoops_gethandler( 'notification' );
             $notification_handler -> triggerEvent( 'global', 0, 'link_broken', $tags );
 
@@ -77,7 +77,7 @@ switch ( strtolower( $op ) ) {
 
                 $xoopsMailer = &getMailer();
                 $xoopsMailer -> useMail();
-                $template_dir = ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/language/' . $xoopsConfig['language'] . '/mail_template';
+                $template_dir = ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/' . $xoopsConfig['language'] . '/mail_template';
 
                 $xoopsMailer -> setTemplateDir( $template_dir );
                 $xoopsMailer -> setTemplate( 'linkbroken_notify.tpl' );
@@ -90,7 +90,7 @@ switch ( strtolower( $op ) ) {
                 $xoopsMailer -> assign( 'X_SITEURL', ICMS_URL . '/' );
                 $xoopsMailer -> assign( "X_TITLE", $title );
                 $xoopsMailer -> assign( "X_SUB_DATE", $subdate );
-                $xoopsMailer -> assign( 'X_LINKLOAD', ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlelink.php?cid=' . intval($cid) . '&amp;lid=' . intval($lid) );
+                $xoopsMailer -> assign( 'X_LINKLOAD', ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . intval($cid) . '&amp;lid=' . intval($lid) );
                 $xoopsMailer -> setSubject( $subject );
                 $message = ( $xoopsMailer -> send() ) ? _MD_IMLINKS_BROKENREPORTED : _MD_IMLINKS_ERRORSENDEMAIL;
             } else {
@@ -150,7 +150,7 @@ switch ( strtolower( $op ) ) {
           $xoopsTpl -> assign( 'xoops_meta_robots', 'noindex,nofollow' );
         }
         
-        $xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
+        $xoopsTpl -> assign( 'module_dir', $mydirname );
         include ICMS_ROOT_PATH . '/footer.php';
         break;
 } // switch
