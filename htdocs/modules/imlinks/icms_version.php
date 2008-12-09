@@ -594,7 +594,7 @@ $modversion['config'][$i]['title'] = '_MI_IMLINKS_LINKDISCLAIMER';
 $modversion['config'][$i]['description'] = '_MI_IMLINKS_LINKDISCLAIMERDSC';
 $modversion['config'][$i]['formtype'] = 'textsarea';
 $modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'The links on this site are provided as is without warranty either expressed or implied. linkloaded files should be checked for possible virus infection using the most up-to-date detection and security packages. If you have a question concerning a particular piece of software, feel free to contact the developer. We refuse liability for any damage or loss resulting from the use or misuse of any software offered from this site for linkloading. If you have any doubt at all about the safety and operation of software made available to you on this site, do not linkload it.<br /><br />Contact us if you have questions concerning this disclaimer.';
+$modversion['config'][$i]['default'] = 'The links on this site are provided as is without warranty either expressed or implied. linkloaded files should be checked for possible virus infection using the most up-to-date detection and security packages. If you have a question concerning a particular piece of software, feel free to contact the developer. We refuse liability for any damage or loss resulting from the use or misuse of any software offered from this site for linkloading. If you have any doubt at all about the safety and operation of software made available to you on this site, do not linkload it. Contact us if you have questions concerning this disclaimer.';
 $i++;
 $modversion['config'][$i]['name'] = 'copyright';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_COPYRIGHT';
