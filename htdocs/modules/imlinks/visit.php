@@ -50,20 +50,33 @@ if ( false == iml_checkgroups( $cid ) && $count == 0 ) {
     exit();
 } 
 
-if ( $xoopsModuleConfig['showlinkdisclaimer'] && $agreed == 0 )
-{
-	$xoopsOption['template_main'] = 'imlinks_disclaimer.html';
-	include ICMS_ROOT_PATH . '/header.php';
-	
-	$xoopsTpl -> assign( 'image_header', iml_imageheader() );
-	$xoopsTpl -> assign( 'linkdisclaimer', $immyts -> displayTarea( $xoopsModuleConfig['linkdisclaimer'], 1, 1, 1, 1, 1 ) );
-	$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . $mydirname . '/index.php' );
-	$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . $mydirname . '/visit.php?agree=1&amp;lid=' . intval($lid ) . '&amp;cid=' . intval( $cid ) );
-	$xoopsTpl -> assign( 'link_disclaimer', true );
-	$xoopsTpl -> assign( 'module_dir', $mydirname );
+if ( $xoopsModuleConfig['showlinkdisclaimer'] && $agreed == 0 ) {
+	if ( $xoopsModuleConfig['quickview'] ) {
+		echo "<br /><div style='text-align: center;'>" . iml_imageheader() . "</div>\n
+		<div style='font-family: Verdana, Arial, Helvetica, sans-serif;'><h4>" . _MD_IMLINKS_DISCLAIMERAGREEMENT . "</h4>\n
+		<div style='font-size: 12px;'>" . $immyts -> displayTarea( $xoopsModuleConfig['linkdisclaimer'], 1, 1, 1, 1, 1 ) . "</div><br />\n
+		<form action='visit.php' method='post'>\n
+		<div style='text-align: center; font-weight: bold;'>" . _MD_IMLINKS_DOYOUAGREE . "</b><br /><br />\n
+		<input type='button' onclick='location=\"visit.php?agree=1&amp;lid=" . $lid . "&amp;cid=" . $cid . "\"' class='formButton' value='" . _MD_IMLINKS_AGREE . "' alt='" . _MD_IMLINKS_AGREE . "' />\n
+		&nbsp;\n
+		<input type='button' onclick='location=\"index.php\"' class='formButton' value='" . _CANCEL . "' alt='" . _CANCEL . "' />\n
+		<input type='hidden' name='lid' value='1' />\n
+		<input type='hidden' name='cid' value='1' />\n
+		</div></div></form>\n";
+	} else {
+		$xoopsOption['template_main'] = 'imlinks_disclaimer.html';
+		include ICMS_ROOT_PATH . '/header.php';
 
-	include ICMS_ROOT_PATH . '/footer.php';
-	exit();
+		$xoopsTpl -> assign( 'image_header', iml_imageheader() );
+		$xoopsTpl -> assign( 'linkdisclaimer', $immyts -> displayTarea( $xoopsModuleConfig['linkdisclaimer'], 1, 1, 1, 1, 1 ) );
+		$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . $mydirname . '/index.php' );
+		$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . $mydirname . '/visit.php?agree=1&amp;lid=' . intval($lid ) . '&amp;cid=' . intval( $cid ) );
+		$xoopsTpl -> assign( 'link_disclaimer', true );
+		$xoopsTpl -> assign( 'module_dir', $mydirname );
+
+		include ICMS_ROOT_PATH . '/footer.php';
+		exit();
+	}
 } else {
     $url = '';
     $sql = 'UPDATE ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' SET hits=hits+1 WHERE lid=' . intval( $lid );
