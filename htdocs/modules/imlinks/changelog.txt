@@ -31,6 +31,7 @@ xx.11.2008   1.00 RC-1
 - Fixed: category icons change state when a sub-category contains new link
 - Fixed: unclosed div-tag in imlinks_viewcat.html
 - Fixed: body-tag was declared twice in imlinks_print.html
+- Fixed: displaying dislaimer in Quick View
 
 
 =========================================================
