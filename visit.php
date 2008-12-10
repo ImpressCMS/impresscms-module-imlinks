@@ -52,7 +52,9 @@ if ( false == iml_checkgroups( $cid ) && $count == 0 ) {
 
 if ( $xoopsModuleConfig['showlinkdisclaimer'] && $agreed == 0 ) {
 	if ( $xoopsModuleConfig['quickview'] ) {
-		echo "<br /><div style='text-align: center;'>" . iml_imageheader() . "</div>\n
+		echo "
+		<meta http-equiv='content-type' content='text/html; charset='"._CHARSET."' />\n
+		<br /><div style='text-align: center;'>" . iml_imageheader() . "</div>\n
 		<div style='font-family: Verdana, Arial, Helvetica, sans-serif;'><h4>" . _MD_IMLINKS_DISCLAIMERAGREEMENT . "</h4>\n
 		<div style='font-size: 12px;'>" . $immyts -> displayTarea( $xoopsModuleConfig['linkdisclaimer'], 1, 1, 1, 1, 1 ) . "</div><br />\n
 		<form action='visit.php' method='post'>\n
