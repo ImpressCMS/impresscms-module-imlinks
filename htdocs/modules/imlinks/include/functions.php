@@ -812,8 +812,8 @@ function iml_getWysiwygForm( $caption, $name, $value ) {
 }
 
 function iml_countryname( $countryn ) {
-			global $xoopsConfig, $xoopsModule;
-			include_once ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/language/' . $xoopsConfig['language'] . '/countries.php';
+			global $xoopsModule;
+			icms_loadLanguageFile( $xoopsModule -> getVar( 'dirname' ), 'countries' );
 			$country_array = array (
 				''   => _IMLINKS_COUNTRY_UNKNOWN,
 				'-'  => _IMLINKS_COUNTRY_UNKNOWN,
