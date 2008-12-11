@@ -69,13 +69,13 @@ if ( isset( $xoopsModule ) ) {
 
 	icms_loadLanguageFile( $admin_dirname, 'admin' );
 	
-	if ( file_exists( "../docs/" . $xoopsConfig['language'] . "/readme.html") ) {
-			$docs = '../docs/' . $xoopsConfig['language'] . '/readme.html" target="_blank"'; 
-		} elseif ( file_exists( "../docs/english/readme.html") ) { 
-			$docs = '../docs/english/readme.html" target="_blank"'; 
-		} else {
-			$docs = '';
-		}
+	if ( file_exists( '../docs/' . $xoopsConfig['language'] . '/readme.html') ) {
+		$docs = '../docs/' . $xoopsConfig['language'] . '/readme.html" target="_blank"'; 
+	} elseif ( file_exists( '../docs/english/readme.html') ) { 
+		$docs = '../docs/english/readme.html" target="_blank"'; 
+	} else {
+		$docs = '';
+	}
 
 	$i = -1;
 	
