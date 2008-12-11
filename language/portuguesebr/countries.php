@@ -19,7 +19,7 @@
 * @version		$Id$
 */ 
 
-define( '_IMLINKS_COUNTRY_UNKNOWN', 'Unknown' );
+define( '_IMLINKS_COUNTRY_UNKNOWN', 'Desconhecido' );
 define( '_IMLINKS_COUNTRY_AD', 'Andorra' );
 define( '_IMLINKS_COUNTRY_AE', 'United Arab Emirates' );
 define( '_IMLINKS_COUNTRY_AF', 'Afghanistan' );
@@ -50,7 +50,7 @@ define( '_IMLINKS_COUNTRY_BL', 'Saint Barthélemy' );
 define( '_IMLINKS_COUNTRY_BM', 'Bermuda' );
 define( '_IMLINKS_COUNTRY_BN', 'Brunei Darussalam' );
 define( '_IMLINKS_COUNTRY_BO', 'Bolivia' );
-define( '_IMLINKS_COUNTRY_BR', 'Brazil' );
+define( '_IMLINKS_COUNTRY_BR', 'Brasil' );
 define( '_IMLINKS_COUNTRY_BS', 'Bahamas' );
 define( '_IMLINKS_COUNTRY_BT', 'Bhutan' );
 define( '_IMLINKS_COUNTRY_BV', 'Bouvet Island' );
