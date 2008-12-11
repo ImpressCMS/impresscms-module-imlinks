@@ -439,12 +439,14 @@ if ( $xoopsModuleConfig['useaddress'] ) {
         $button_tray -> addElement( new XoopsFormButton( '', 'submit', _SUBMIT, 'submit' ) );
         $button_tray -> addElement( new XoopsFormHidden( 'lid', $lid ) );
         $sform -> addElement( $button_tray );
+		
         $sform -> display();
+		
+		imlinks_noindexnofollow();
         include ICMS_ROOT_PATH . '/footer.php';
     } 
 } else {
     redirect_header( 'index.php', 2, _MD_IMLINKS_NOPERMISSIONTOPOST );
     exit();
 } 
-
 ?>
