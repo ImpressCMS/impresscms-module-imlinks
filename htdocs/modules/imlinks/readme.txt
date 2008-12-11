@@ -42,7 +42,7 @@ Note: All information from WF-Links will be copied to imLinks, except the rating
 **Sitemap**
 -----------
 A plugin for the Sitemap module is included.
-You ca download the module Sitemap from Gijoe's website: http://xoops.peak.ne.jp/
+You can download the module Sitemap from Gijoe's website: http://xoops.peak.ne.jp/
 
 
 

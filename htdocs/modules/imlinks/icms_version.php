@@ -38,7 +38,7 @@ if ( file_exists( ICMS_ROOT_PATH . '/language/'. $xoopsConfig['language'] . '/mo
 
 $modversion['name'] 			= _MI_IMLINKS_NAME;
 $modversion['version'] 			= '1.00';
-$modversion['date'] 			= 'November, 2008';
+$modversion['date'] 			= 'December 13, 2008';
 $modversion['status'] 			= 'RC-1';
 $modversion['status_version'] 	= 'RC-1';
 $modversion['description'] 		= _MI_IMLINKS_DESC;
@@ -101,12 +101,12 @@ $modversion['tables'][7] = 'imlinks_configs';
 
 // Launch additional install script
 $modversion['onInstall'] = '';
-$modversion['onUpdate'] = '';
+$modversion['onUpdate']  = '';
 
 // Admin things
 $modversion['hasAdmin'] = 1;
 $modversion['adminindex'] = 'admin/index.php';
-$modversion['adminmenu'] = 'admin/menu.php';
+$modversion['adminmenu']  = 'admin/menu.php';
 
 // Blocks
 $modversion['blocks'][1]['file'] = 'imlinks_top.php';
@@ -177,13 +177,13 @@ unset( $cansubmit );
 
 $i = 1;
 $modversion['sub'][$i]['name'] = _MI_IMLINKS_SMNAME2;
-$modversion['sub'][$i]['url'] = 'topten.php?list=hit';
+$modversion['sub'][$i]['url']  = 'topten.php?list=hit';
 $i++;
 $modversion['sub'][$i]['name'] = _MI_IMLINKS_SMNAME3;
-$modversion['sub'][$i]['url'] = 'topten.php?list=rate';
+$modversion['sub'][$i]['url']  = 'topten.php?list=rate';
 $i++;
 $modversion['sub'][$i]['name'] = _MI_IMLINKS_SMNAME4;
-$modversion['sub'][$i]['url'] = 'newlist.php?newlinkshowdays=7';
+$modversion['sub'][$i]['url']  = 'newlist.php?newlinkshowdays=7';
 unset( $i );
 
 // Search
@@ -288,8 +288,7 @@ $modversion['config'][$i]['options'] = array( '_MI_IMLINKS_TITLE_A' => 'title AS
                                               '_MI_IMLINKS_POPULARITY_A' => 'hits ASC',
                                               '_MI_IMLINKS_POPULARITY_D' => 'hits DESC',
                                               '_MI_IMLINKS_COUNTRY_A' => 'country ASC',
-                                              '_MI_IMLINKS_COUNTRY_D' => 'country DESC'
-                                             );
+                                              '_MI_IMLINKS_COUNTRY_D' => 'country DESC' );
 $i++;
 $modversion['config'][$i]['name'] = 'sortcats';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_SORTCATS';
@@ -326,8 +325,7 @@ $modversion['config'][$i]['options'] =  array(	_MI_IMLINKS_FORM_DHTML => 'dhtml'
 												_MI_IMLINKS_FORM_KOIVI => 'koivi',
 												_MI_IMLINKS_FORM_FCK => 'fck',
 												_MI_IMLINKS_FORM_TINYEDITOR => 'tinyeditor',
-												_MI_IMLINKS_FORM_TINYMCE => 'tinymce'
-                                              );
+												_MI_IMLINKS_FORM_TINYMCE => 'tinymce' );
 $i++;
 $modversion['config'][$i]['name'] = 'form_optionsuser';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_EDITORUSER';
@@ -341,8 +339,7 @@ $modversion['config'][$i]['options'] =  array(  _MI_IMLINKS_FORM_DHTML => 'dhtml
 												_MI_IMLINKS_FORM_KOIVI => 'koivi',
 												_MI_IMLINKS_FORM_FCK => 'fck',
 												_MI_IMLINKS_FORM_TINYEDITOR => 'tinyeditor',
-												_MI_IMLINKS_FORM_TINYMCE => 'tinymce'
-                                              );
+												_MI_IMLINKS_FORM_TINYMCE => 'tinymce' );
 $i++;
 $modversion['config'][$i]['name'] = 'captcha';
 $modversion['config'][$i]['title'] = '_MI_IMLINKS_CAPTCHA';
@@ -617,7 +614,7 @@ $modversion['config'][$i]['options'] = array( '_MI_IMLINKS_DISPLAYFORUM1' => 1, 
 // Notification
 $modversion['hasNotification'] = 1;
 $modversion['notification']['lookup_file'] = 'include/notification.inc.php';
-$modversion['notification']['lookup_func'] = 'wflinks_notify_iteminfo';
+$modversion['notification']['lookup_func'] = 'imlinks_notify_iteminfo';
 
 $modversion['notification']['category'][1]['name'] = 'global';
 $modversion['notification']['category'][1]['title'] = _MI_IMLINKS_GLOBAL_NOTIFY;
