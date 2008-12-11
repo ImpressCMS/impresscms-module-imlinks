@@ -91,10 +91,12 @@ function edit( $lid = 0, $doclone = 0 ) {
 
       if ( $lid > 0 ) {
         $_vote_data = iml_getVoteDetails( $lid );
-		if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
-			$autothumbsrc = '<img src="http://mozshot.nemui.org/shot/128x128?' . $link_array['url'] . '" alt="" />';
-		} else {
-			$autothumbsrc = '<img src="http://open.thumbshots.org/image.pxf?url=' . $link_array['url'] . '" width="120" height="90" alt="" />';
+		if ( $xoopsModuleConfig['useautothumb'] ) {
+			if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
+				$autothumbsrc = '<img src="http://mozshot.nemui.org/shot/128x128?' . $link_array['url'] . '" alt="" />';
+			} else {
+				$autothumbsrc = '<img src="http://open.thumbshots.org/image.pxf?url=' . $link_array['url'] . '" width="120" height="90" alt="" />';
+			}
 		}
         $text_info = '<table width="100%">
 			 <tr>
