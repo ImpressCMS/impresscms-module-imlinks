@@ -5,59 +5,30 @@
 ##:###########################################################################################################
 
 --------------------------------------------------------------------------------------------------------------
-Reported by.: GibaPhp
-Icms........: version 1.1.1 beta 1 SVN with last revision 7093
-imLinks.....: imLinks version 1.00 (RC-1) 
+Reported by.: 
+Icms........: 
+imLinks.....: 
 
-Bug.........: Doubling the record of categories
-Status......: Investigating
-Priority....: high
-Where.......: In admin area. 
+Bug.........: 
+Status......: 
+Priority....: 
+Where.......: 
 
-When there..: 1st category, after submit, double category equal.
+When there..: 
 ............: 
 ............: 
 
-Details.....: no more details...
+Details.....: 
 
-Checks......: Configs, preferences checks.
+Checks......: 
 ............: 
 ............: 
 
-Example.....: imlinks 2 - imlinks 2...
+Example.....: 
 
-Solution indicated..: deleted duplicity...
+Solution indicated..: 
 
-Recommendation......: This problem was occurring earlier and was resolved, but now is intermittent.
+Recommendation......: 
 ....................: 
 ....................: 
 --------------------------------------------------------------------------------------------------------------
-Reported by.: GibaPhp
-Icms........: version 1.1.1 beta 1 SVN with last revision 7093
-imLinks.....: imLinks version 1.00 (RC-1) 
-
-Bug.........: Doubling the record of links
-Status......: Investigating
-Priority....: high
-Where.......: In admin area. 
-
-When there..: 1st link, after submit, double link and equal.
-............: 
-............: 
-
-Details.....: no more details...
-
-Checks......: Configs, preferences checks.
-............: 
-............: 
-
-Example.....: 2 	ImpressCMS 	ImLinks 	Admin 	Fri, 21-Nov-2008 - 12:30 	Data não ajustada 	Online 	
-............: 1 	ImpressCMS 	ImLinks 	Admin 	Fri, 21-Nov-2008 - 12:30 	Data não ajustada 	Online 	
-
-Solution indicated..: deleted duplicity...
-
-Recommendation......: This problem was occurring earlier and was resolved, but now is intermittent.
-....................: 
-....................: 
---------------------------------------------------------------------------------------------------------------
-
