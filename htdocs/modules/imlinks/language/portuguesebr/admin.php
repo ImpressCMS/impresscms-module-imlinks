@@ -559,5 +559,6 @@ define( '_AM_IMLINKS_RSSOFFMSG', 'Mensagem do RSS feed offline' );
 define( '_AM_IMLINKS_RSSOFFMSGDSC', 'Digite aqui uma explicação do porque o seu RSS feed foi desativado.' );
 define( '_AM_IMLINKS_RSSOFFTITLE', 'RSS feed foi desactivado.' );
 define( '_AM_IMLINKS_RSSOFFMSGDEF', 'O RSS feed foi temporariamente desativado para manutenção.' );
+define( '_AM_IMLINKS_RSSCLICKSUBMIT', 'Please click Submit to store all form values in the database!' );
 define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' ); //Mantendo sem tradução, se necessário, mudar para Direitos Autorais.
 ?>

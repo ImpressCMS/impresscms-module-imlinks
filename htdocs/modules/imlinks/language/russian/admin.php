@@ -555,5 +555,6 @@ define( '_AM_IMLINKS_RSSOFFMSG', 'Сообщение об отключенном
 define( '_AM_IMLINKS_RSSOFFMSGDSC', 'Введите здесь пояснение, почему RSS канал деактивирован.' );
 define( '_AM_IMLINKS_RSSOFFTITLE', 'RSS канал неактивен.' );
 define( '_AM_IMLINKS_RSSOFFMSGDEF', 'RSS канал временно деактивирован для обслуживания.' );
+define( '_AM_IMLINKS_RSSCLICKSUBMIT', 'Please click Submit to store all form values in the database!' );
 define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' );
 ?>
