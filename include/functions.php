@@ -1403,4 +1403,12 @@ function imlinks_linkterms( $definition, $glossaryterm ) {
 	return $definition;
 }
 
+function imlinks_noindexnofollow() { 
+    global $xoTheme, $xoopsTpl; 
+    if ( is_object( $xoTheme ) ) { 
+        $xoTheme -> addMeta( 'meta', 'robots', 'noindex,nofollow' ); 
+    } else { 
+        $xoopsTpl -> assign( 'xoops_meta_robots', 'noindex,nofollow' ); 
+    } 
+}
 ?>

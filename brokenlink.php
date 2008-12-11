@@ -144,15 +144,9 @@ switch ( strtolower( $op ) ) {
             $xoopsTpl -> assign( 'link', $link );
         } 
 	
-        if ( is_object( $xoTheme ) ) {
-          $xoTheme -> addMeta( 'meta', 'robots', 'noindex,nofollow' );
-        } else {
-          $xoopsTpl -> assign( 'xoops_meta_robots', 'noindex,nofollow' );
-        }
-        
+        imlinks_noindexnofollow();
         $xoopsTpl -> assign( 'module_dir', $mydirname );
         include ICMS_ROOT_PATH . '/footer.php';
         break;
 } // switch
-
 ?>
