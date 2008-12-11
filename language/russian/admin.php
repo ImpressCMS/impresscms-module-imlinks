@@ -220,8 +220,8 @@ define( "_AM_IMLINKS_VOTEDELETED", "Выбранные голоса удален
 
 define( "_AM_IMLINKS_VOTE_USERAVG", "Средняя оценка" );
 define( "_AM_IMLINKS_VOTE_TOTALRATE", "Всего голосов" );
-define( "_AM_IMLINKS_VOTE_MAXRATE", "Макс. Item голосования" );
-define( "_AM_IMLINKS_VOTE_MINRATE", "Мин. Item голосования" );
+define( "_AM_IMLINKS_VOTE_MAXRATE", "Макс.оценка голосования" );
+define( "_AM_IMLINKS_VOTE_MINRATE", "Мин.оценка голосования" );
 define( "_AM_IMLINKS_VOTE_MOSTVOTEDTITLE", "Наибольшее кол-во голосов за" );
 define( "_AM_IMLINKS_VOTE_LEASTVOTEDTITLE", "Наименьшее кол-во голосов за" );
 define( "_AM_IMLINKS_VOTE_MOSTVOTERSUID", "Наиболее активный голосующий" );
@@ -363,7 +363,7 @@ define( "_AM_IMLINKS_ICO_REPORT", "Acknowledge Broken Report?" );
 define( "_AM_IMLINKS_ICO_CONFIRM", "Broken Report Confirmed" );
 define( "_AM_IMLINKS_ICO_CONBROKEN", "Confirm Broken Report?" );
 define( "_AM_IMLINKS_ICO_RES", "Редактировать ресурсы/ссылки" );
-define( "_AM_IMLINKS_MOD_URLRATING", "Оценка Interent-контента:" );
+define( "_AM_IMLINKS_MOD_URLRATING", "Оценка Интернет-контента:" );
 // Alternate category
 define( "_AM_IMLINKS_ALTCAT_CREATEF", "Добавить альтенативную категорию" );
 define( "_AM_IMLINKS_MALTCAT", "Управление альтернативной категорией" );
@@ -446,7 +446,7 @@ define( "_AM_IMLINKS_LINK_CREATEADDRESS", '&nbsp;<b>Об адресе ссылк
 define( "_AM_IMLINKS_LINK_MISCLINKSETTINGS", '&nbsp;<b>Прочие установки ссылки</b>' );
 
 // Version 1.06 RC1
-define( "_AM_IMLINKS_READWRITEERROR", "You either did not choose a file to upload or the server has insufficient read/writes to upload this file!" );
+define( "_AM_IMLINKS_READWRITEERROR", "Вы не выбрали файл для загрузки или на сервере не установлены права, позволяющие загрузить этот файл!" );
 define( "_AM_IMLINKS_INVALIDFILESIZE", "Неверный размер файла" );
 define( "_AM_IMLINKS_FILENAMEEMPTY", "Имя файла не указано" );
 define( "_AM_IMLINKS_NOFILEUPLOAD", "Файл не загружен, это ошибка" );
@@ -555,6 +555,6 @@ define( '_AM_IMLINKS_RSSOFFMSG', 'Сообщение об отключенном
 define( '_AM_IMLINKS_RSSOFFMSGDSC', 'Введите здесь пояснение, почему RSS канал деактивирован.' );
 define( '_AM_IMLINKS_RSSOFFTITLE', 'RSS канал неактивен.' );
 define( '_AM_IMLINKS_RSSOFFMSGDEF', 'RSS канал временно деактивирован для обслуживания.' );
-define( '_AM_IMLINKS_RSSCLICKSUBMIT', 'Please click Submit to store all form values in the database!' );
+define( '_AM_IMLINKS_RSSCLICKSUBMIT', 'Для сохранения в базе всех данных формы, пожалуйста, нажмите кнопку Подтвердить.' );
 define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' );
 ?>
