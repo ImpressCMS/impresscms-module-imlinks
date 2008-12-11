@@ -44,7 +44,7 @@ define( "_AM_IMLINKS_BIGNORE", "Ignorar" );
 define( "_AM_IMLINKS_BCANCEL", "Cancelar" );
 define( "_AM_IMLINKS_BSAVE", "Salvar" );
 define( "_AM_IMLINKS_BRESET", "Limpar" );
-define( "_AM_IMLINKS_BMOVE", "Mover links" );
+define( "_AM_IMLINKS_BMOVE", "Mover" );
 define( "_AM_IMLINKS_BUPLOAD", "Enviar" );
 define( "_AM_IMLINKS_BDELETEIMAGE", "Apagar imagens selecionadas" );
 define( "_AM_IMLINKS_BRETURN", "Voltar!" );

@@ -49,8 +49,8 @@ define("_MI_IMLINKS_SMNAME4","Últimos Links");
 // Names of admin menu items
 define("_MI_IMLINKS_BINDEX","Início");
 define("_MI_IMLINKS_INDEXPAGE","Administração");
-define("_MI_IMLINKS_MCATEGORY","Gerenciar Categorias");
-define("_MI_IMLINKS_MLINKS","Gerenciar Links");
+define("_MI_IMLINKS_MCATEGORY","Categorias");
+define("_MI_IMLINKS_MLINKS","Links");
 define("_MI_IMLINKS_MUPLOADS","Envio de imagens");
 define("_MI_IMLINKS_PERMISSIONS","Permissões");
 define("_MI_IMLINKS_BLOCKADMIN","Blocos");
