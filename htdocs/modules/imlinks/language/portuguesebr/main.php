@@ -73,7 +73,7 @@ define( "_MD_IMLINKS_FILETITLE", "Titúlo do link: " );
 define( "_MD_IMLINKS_DLURL", "URL link: " );
 define( "_MD_IMLINKS_HOMEPAGEC", "Página principal: " );
 define( "_MD_IMLINKS_NOTSPECIFIED", "Não especificada" );
-define( "_MD_IMLINKS_PUBLISHER", "Publicado por:" );
+define( "_MD_IMLINKS_SUBMITTER", "Enviado por" );
 define( "_MD_IMLINKS_UPDATEDON", "Atualizado em" );
 define( "_MD_IMLINKS_PRICEFREE", "Livre" );
 define( "_MD_IMLINKS_VIEWDETAILS", "Veja todos detalhes" );
