@@ -24,8 +24,8 @@
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
- * Translations: GibaPhp - http://br.impresscms.org /
- * Revisions: 
+* Translations: GibaPhp - http://br.impresscms.org /
+* Revisions: 
 * ----------------------------------------------------------------------------------------------------------
 */
  

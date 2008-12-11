@@ -24,8 +24,8 @@
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
- * Translations: GibaPhp - http://br.impresscms.org /
- * Revisions: 
+* Translations: GibaPhp - http://br.impresscms.org /
+* Revisions: 
 * ----------------------------------------------------------------------------------------------------------
 */
 
@@ -136,39 +136,39 @@ define( "_AM_IMLINKS_PERM_FSELECTPERMISSIONS", "Escolha os links que cada grupo 
 /**
  * Upload defines
  */
-define("_AM_IMLINKS_LINK_IMAGEUPLOAD", "Imagem enviada com sucesso para o servidor.");
-define("_AM_IMLINKS_LINK_NOIMAGEEXIST", "Erro: Não foi selecionado nenhum arquivo!");
-define("_AM_IMLINKS_LINK_IMAGEEXIST", "Imagem já existe na pasta de upload!");
-define("_AM_IMLINKS_LINK_FILEDELETED", "Arquivo foi removido.");
-define("_AM_IMLINKS_LINK_FILEERRORDELETE", "Erro ao remover link: link não encontrado.");
-define("_AM_IMLINKS_LINK_NOFILEERROR", "Erro ao remover link: nenhum link selecionado.");
-define("_AM_IMLINKS_LINK_DELETEFILE", "ATENÇãO: Você tem certeza que deseja apagar esta imagem de link.");
-define("_AM_IMLINKS_LINK_IMAGEINFO", "Status do Servidor");
-define("_AM_IMLINKS_LINK_SPHPINI", "<b>Informações extraídas do PHP ini:</b>");
-define("_AM_IMLINKS_LINK_SAFEMODESTATUS", "Modo Seguro: ");
-define("_AM_IMLINKS_LINK_REGISTERGLOBALS", "Registros Globais: ");
-define("_AM_IMLINKS_LINK_SERVERUPLOADSTATUS", "Status de Uploads: ");
-define("_AM_IMLINKS_LINK_MAXUPLOADSIZE", "Tamanho Max de Upload: ");
-define("_AM_IMLINKS_LINK_MAXPOSTSIZE", "Tamanho Max de Mensagem: ");
-define("_AM_IMLINKS_LINK_SAFEMODEPROBLEMS", " (Isto pode causar problemas)");
-define("_AM_IMLINKS_LINK_GDLIBSTATUS", "Suporte à Biblioteca GD: ");
-define("_AM_IMLINKS_LINK_GDLIBVERSION", "Versão da Biblioteca GD: ");
-define("_AM_IMLINKS_LINK_GDON", "<b>Ativo</b> (Thumbnails Disponíveis)");
-define("_AM_IMLINKS_LINK_GDOFF", "<b>Inativo</b> (Nenhum Thumbnail Disponível)");
-define("_AM_IMLINKS_LINK_OFF", "<b>OFF</b>");
-define("_AM_IMLINKS_LINK_ON", "<b>ON</b>");
-define("_AM_IMLINKS_LINK_CATIMAGE", "Imagens de Categoria");
-define("_AM_IMLINKS_LINK_SCREENSHOTS", "Imagens de ScreenShots");
-define("_AM_IMLINKS_LINK_MAINIMAGEDIR", "Imagens Principais");
-define("_AM_IMLINKS_LINK_FCATIMAGE", "Caminho para Imagens de Categoria");
-define("_AM_IMLINKS_LINK_FSCREENSHOTS", "Caminho para Imagens de Screenshot");
-define("_AM_IMLINKS_LINK_FMAINIMAGEDIR", "Caminho para Imagens Principais");
-define("_AM_IMLINKS_LINK_FUPLOADIMAGETO", "Enviar Imagem: ");
-define("_AM_IMLINKS_LINK_FUPLOADPATH", "Caminho do Upload: ");
-define("_AM_IMLINKS_LINK_FUPLOADURL", "URL de Upload : ");
-define("_AM_IMLINKS_LINK_FOLDERSELECTION", "Escolha o diretório de envio:");
-define("_AM_IMLINKS_LINK_FSHOWSELECTEDIMAGE", "Mostrar Imagem Selecionada:");
-define("_AM_IMLINKS_LINK_FUPLOADIMAGE", "Enviar nova imagem para a pasta selecionada:");
+define( "_AM_IMLINKS_LINK_IMAGEUPLOAD", "Imagem enviada com sucesso para o servidor.");
+define( "_AM_IMLINKS_LINK_NOIMAGEEXIST", "Erro: Não foi selecionado nenhum arquivo!");
+define( "_AM_IMLINKS_LINK_IMAGEEXIST", "Imagem já existe na pasta de upload!");
+define( "_AM_IMLINKS_LINK_FILEDELETED", "Arquivo foi removido.");
+define( "_AM_IMLINKS_LINK_FILEERRORDELETE", "Erro ao remover link: link não encontrado.");
+define( "_AM_IMLINKS_LINK_NOFILEERROR", "Erro ao remover link: nenhum link selecionado.");
+define( "_AM_IMLINKS_LINK_DELETEFILE", "ATENÇãO: Você tem certeza que deseja apagar esta imagem de link.");
+define( "_AM_IMLINKS_LINK_IMAGEINFO", "Status do Servidor");
+define( "_AM_IMLINKS_LINK_SPHPINI", "<b>Informações extraídas do PHP ini:</b>");
+define( "_AM_IMLINKS_LINK_SAFEMODESTATUS", "Modo Seguro: ");
+define( "_AM_IMLINKS_LINK_REGISTERGLOBALS", "Registros Globais: ");
+define( "_AM_IMLINKS_LINK_SERVERUPLOADSTATUS", "Status de Uploads: ");
+define( "_AM_IMLINKS_LINK_MAXUPLOADSIZE", "Tamanho Max de Upload: ");
+define( "_AM_IMLINKS_LINK_MAXPOSTSIZE", "Tamanho Max de Mensagem: ");
+define( "_AM_IMLINKS_LINK_SAFEMODEPROBLEMS", " (Isto pode causar problemas)");
+define( "_AM_IMLINKS_LINK_GDLIBSTATUS", "Suporte à Biblioteca GD: ");
+define( "_AM_IMLINKS_LINK_GDLIBVERSION", "Versão da Biblioteca GD: ");
+define( "_AM_IMLINKS_LINK_GDON", "<b>Ativo</b> (Thumbnails Disponíveis)");
+define( "_AM_IMLINKS_LINK_GDOFF", "<b>Inativo</b> (Nenhum Thumbnail Disponível)");
+define( "_AM_IMLINKS_LINK_OFF", "<b>OFF</b>");
+define( "_AM_IMLINKS_LINK_ON", "<b>ON</b>");
+define( "_AM_IMLINKS_LINK_CATIMAGE", "Imagens de Categoria");
+define( "_AM_IMLINKS_LINK_SCREENSHOTS", "Imagens de ScreenShots");
+define( "_AM_IMLINKS_LINK_MAINIMAGEDIR", "Imagens Principais");
+define( "_AM_IMLINKS_LINK_FCATIMAGE", "Caminho para Imagens de Categoria");
+define( "_AM_IMLINKS_LINK_FSCREENSHOTS", "Caminho para Imagens de Screenshot");
+define( "_AM_IMLINKS_LINK_FMAINIMAGEDIR", "Caminho para Imagens Principais");
+define( "_AM_IMLINKS_LINK_FUPLOADIMAGETO", "Enviar Imagem: ");
+define( "_AM_IMLINKS_LINK_FUPLOADPATH", "Caminho do Upload: ");
+define( "_AM_IMLINKS_LINK_FUPLOADURL", "URL de Upload : ");
+define( "_AM_IMLINKS_LINK_FOLDERSELECTION", "Escolha o diretório de envio:");
+define( "_AM_IMLINKS_LINK_FSHOWSELECTEDIMAGE", "Mostrar Imagem Selecionada:");
+define( "_AM_IMLINKS_LINK_FUPLOADIMAGE", "Enviar nova imagem para a pasta selecionada:");
 
 // Main Index defines
 define( "_AM_IMLINKS_MINDEX_LINKSUMMARY", "Resumo sobre a administração do módulo" );
