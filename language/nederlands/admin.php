@@ -557,5 +557,6 @@ define( '_AM_IMLINKS_RSSOFFMSG', 'RSS feed offline bericht' );
 define( '_AM_IMLINKS_RSSOFFMSGDSC', 'Geef hier een verklaring waarom de RSS feed is gedeaktiveerd.' );
 define( '_AM_IMLINKS_RSSOFFTITLE', 'RSS feed is gedeaktiveerd' );
 define( '_AM_IMLINKS_RSSOFFMSGDEF', 'De RSS feed is tijdelijk gedeaktiveerd in verband met onderhoud aan de server.' );
+define( '_AM_IMLINKS_RSSCLICKSUBMIT', 'Klik Submit om alle weergegeven informatie in de database op te slaan!' );
 define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' );
 ?>
