@@ -136,7 +136,7 @@ define( "_MD_IMLINKS_ISNOTAPPROVED", "A sua participação tem que ser aprovada 
 define( "_MD_IMLINKS_HOMEPAGETITLEC", "Titúlo da página principal: " );
 define( "_MD_IMLINKS_SCREENSHOT", "ScreenShot:" );
 define( "_MD_IMLINKS_SCREENSHOTCLICK", "Exibir imagem completa" );
-define( "_MD_IMLINKS_OTHERBYUID", "Outros links por: " );
+define( "_MD_IMLINKS_OTHERBYUID", "Outros links: " );
 define( "_MD_IMLINKS_LINKTIMES", "Tempo do link: " );
 define( "_MD_IMLINKS_MAINTOTAL", "Total de Links: " );
 define( "_MD_IMLINKS_LINKNOW", "Visitar Link" );
