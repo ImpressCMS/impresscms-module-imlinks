@@ -53,9 +53,12 @@ $modversion['credits'] 			= '<b>WF-Projects Team:</b> Based on WF-Links, thanks 
 $modversion['author_website_url'] 	= 'http://members.lycos.nl/mcdonaldsstore/';
 $modversion['author_website_name'] 	= 'McDonalds Store';
 
+/*
+*** COMMENTED OUT UNTIL REl="EXTERNAL" GETS FIXED ***
 $modversion['support_site_url'] = 'http://community.impresscms.org/modules/newbb/viewforum.php?forum=9';
 $modversion['support_site_name']= 'ImpressCMS Community Forum - Modules Support';
 $modversion['submit_bug'] 		= 'https://sourceforge.net/tracker2/?words=tracker_browse&sort=open_date&sortdir=desc&offset=0&group_id=205633&atid=1064496&assignee=&status=&category=1164361&artgroup=&keyword=&submitter=&artifact_id=';
+*/
 
 $modversion['warning'] 			= _MI_IMLINKS_WARNINGTEXT;
 $modversion['author_credits'] 	= _MI_IMLINKS_AUTHOR_CREDITSTEXT;
