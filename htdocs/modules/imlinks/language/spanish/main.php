@@ -29,7 +29,6 @@
 * format			utf-8
 */
 
-//Traducción por debianus. Sugerencias y reporte de errores en http://es.impresscms.org
 define( "_MD_IMLINKS_NOLINK", "Este enlace no existe" );
 define( "_MD_IMLINKS_SUBCATLISTING", "Lista de categorías" );
 define( "_MD_IMLINKS_ISADMINNOTICE", "Hay un problema con esta imagen." );
@@ -200,28 +199,28 @@ define( '_MD_IMLINKS_STOPIT', 'Detenlo' );
 // *** imLinks ***
 
 //version 1.00 RC-1
-define( '_MD_IMLINKS_FEED', 'RSS feed' );
-define( '_MD_IMLINKS_COUNTRYDSC', 'If no country is selected the address can not be formatted and will not be displayed.' );
-define( '_MD_IMLINKS_MAPDSC', 'Click icon to open a new browser tab or window showing the map.<br />Default: %s' );
-define( '_MD_IMLINKS_LINKURLDSC', 'Click icon to open url in a new browser tab or window.<br />You can use this to check the url.' );
-define( '_MD_IMLINKS_STREETTWODSC', 'This field is optional. If field is left blank it will not be used.' );
-define( '_MD_IMLINKS_STATEDSC', 'Enter county, district, province, state, etc. If field is left blank it will not be used.' );
-define( '_MD_IMLINKS_EMAILDSC', 'Enter email address as:<br />- name@domain.com<br />- mailto:name@domain.com' );
-define( '_MD_IMLINKS_NEW', 'New!' );
-define( '_MD_IMLINKS_UPDATED', 'Updated!' );
-define( '_MD_IMLINKS_POPULAR2', 'Popular!' );
+define( '_MD_IMLINKS_FEED', 'Origen de RSS' );
+define( '_MD_IMLINKS_COUNTRYDSC', 'Si no se ha seleccionado ningún país la dirección no podrá ser formateada y no será mostrada.' );
+define( '_MD_IMLINKS_MAPDSC', 'Clic en el icono para abrir una nueva solapa o ventana en el navegador mostrando el mapa.<br />Predeterminado: %s' );
+define( '_MD_IMLINKS_LINKURLDSC', 'Clic en el icono para abrir el URL en una nueva solapa o ventana en el navegador.<br />Puede usar esta posibilidad para comprobar la URL.' );
+define( '_MD_IMLINKS_STREETTWODSC', 'Este campo es opcional. Si se deja en blanco no será usado.' );
+define( '_MD_IMLINKS_STATEDSC', 'Introduzca el condado, distrito, provincia, estado, etc. Si se deja en blanco no será usado.' );
+define( '_MD_IMLINKS_EMAILDSC', 'Introduzca la dirección de correo electrónico:<br />- name@domain.com<br />- mailto:name@domain.com' );
+define( '_MD_IMLINKS_NEW', 'Nuevo' );
+define( '_MD_IMLINKS_UPDATED', 'Actualizado' );
+define( '_MD_IMLINKS_POPULAR2', 'Popular' );
 define( '_MD_IMLINKS_TEXTOPTIONS', 'Opciones de texto:' );
 define( '_MD_IMLINKS_DISABLEBREAK', '¿Usar conversion <em>linebreak</em>?' );
-define( '_MD_IMLINKS_CLONE', 'Clone' );
-define( '_MD_IMLINKS_TOPRATEDBUTT', 'Top Rated' );
+define( '_MD_IMLINKS_CLONE', 'Duplicar' );
+define( '_MD_IMLINKS_TOPRATEDBUTT', 'Más valorados' );
 define( '_MD_IMLINKS_ALPHABET', '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' );
-define( '_MD_IMLINKS_VOTES', 'Votes' );
-define( '_MD_IMLINKS_VOTESLC', 'votes' );
-define( '_MD_IMLINKS_THANKYOU', 'Thanks for voting!' );
-define( '_MD_IMLINKS_RATING', 'Rating' );
-define( '_MD_IMLINKS_VOTE', 'vote' );
-define( '_MD_IMLINKS_CURRATING', 'Current rating.' );
-define( '_MD_IMLINKS_RATEDISABLE', 'Rating is disabled.' );
-define( '_MD_IMLINKS_OUTOF', ' out of ' );
-define( '_MD_IMLINKS_INVALIDVOTE', 'Sorry, vote appears to be invalid.' );
+define( '_MD_IMLINKS_VOTES', 'Votos' );
+define( '_MD_IMLINKS_VOTESLC', 'votos' );
+define( '_MD_IMLINKS_THANKYOU', 'Gracias por votar' );
+define( '_MD_IMLINKS_RATING', 'Valoración' );
+define( '_MD_IMLINKS_VOTE', 'voto' );
+define( '_MD_IMLINKS_CURRATING', 'Valoración actual.' );
+define( '_MD_IMLINKS_RATEDISABLE', 'La valoración está desactivada.' );
+define( '_MD_IMLINKS_OUTOF', ' fuera de ' );
+define( '_MD_IMLINKS_INVALIDVOTE', 'Lo sentimos: el voto aparece como no válido.' );
 ?>
