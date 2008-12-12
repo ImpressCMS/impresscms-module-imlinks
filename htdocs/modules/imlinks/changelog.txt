@@ -4,6 +4,7 @@
 - Revamped Main Index page in Control Panel
 - Revamped buttons front page
 
+- Added: About page
 - Added: developers, testers, translators, etc for About page
 - Added: option to have linked terms if imGlossary is installed
 - Added: option for selecting source of autoscr.shot (Thumbshot.org or Mozshot)
