@@ -16,9 +16,11 @@
 
 include_once 'admin_header.php';
 
-include_once ICMS_ROOT_PATH . '/kernel/icmsmoduleabout.php';
+global $xoopsModule;
 
-$aboutObj = new IcmsModuleAbout();
+include_once ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/imlinks_moduleabout.php';
+
+$aboutObj = new imLinksModuleAbout();
 $aboutObj -> render();
 
 ?>
