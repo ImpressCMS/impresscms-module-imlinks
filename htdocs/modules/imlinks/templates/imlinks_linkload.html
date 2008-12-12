@@ -12,21 +12,18 @@
  
 <br />
 
-<div style="width: 250px; float: right;"> 
-
-	<div style="margin-left: 10px; margin-right: 5px;">
-		<div class="infoblock">
-			<div><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$link.submitter}></div>
-			<div><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$link.publisher}></div>
-			<div><b><{$lang_subdate}>:</b>&nbsp;<{$link.updated|wordwrap:50:"\n":true}></div>
-			<div><{$link.hits|wordwrap:50:"\n":true}></div>
-			<div><{$link.country}></div>
-		</div>
-	</div> 
+<div style="width: 250px; float: right; margin-left: 10px; margin-right: 5px;">
+	<div class="infoblock">
+		<div><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$link.submitter}></div>
+		<div><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$link.publisher}></div>
+		<div><b><{$lang_subdate}>:</b>&nbsp;<{$link.updated|wordwrap:50:"\n":true}></div>
+		<div><{$link.hits|wordwrap:50:"\n":true}></div>
+		<div><{$link.country}></div>
+	</div>
 	
 	<{if $link.infoblock2==1}>
 		<br />
-		<div class="infoblock2" style="margin-left: 10px; margin-right: 5px; padding: 4px;">
+		<div class="infoblock2">
 		<{if $link.showrating > 0}>
 			<small><{$link.ratingbar}></small>
 		<{/if}>
@@ -41,44 +38,43 @@
 		<{/if}>
 		</div>
 	<{/if}>
-	
-</div>	
+</div> 
 
-<div style="float: left;"> 
-	<{if $link.autoscrshot == 0}> 
-		<{if $show_screenshot == true}> 
-			<{if $link.screenshot_full != ''}>
-				<div>
-				<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><img src="<{$link.screenshot_thumb}>" alt="" hspace="7" vspace="3" border="0" align="right" /></a> 
-				</div> 
-			<{/if}> 
+<{if $link.autoscrshot == 0}> 
+	<{if $show_screenshot == true}> 
+		<{if $link.screenshot_full != ''}>
+			<div>
+			<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><img src="<{$link.screenshot_thumb}>" alt="" hspace="7" vspace="3" border="0" align="right" /></a> 
+			</div> 
 		<{/if}> 
-	<{/if}>
-	<{if $link.autoscrshot == 1}> 
-		<div style="float:right;"><{$link.autothumbsrc}></div> 
-	<{/if}>
-	<div style="margin-left: 6px;" align="left"> 
-		<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"> 
-			<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/spinner.gif" alt="" align="absmiddle" />
-		</a>&nbsp;
-		<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank">
-			<{$smarty.const._MD_IMLINKS_LINKNOW}>
-		</a> 
-	</div>
-			
-    <br /> 
-			
-    <div style="margin-left: 5px;">
-		<b><{$smarty.const._MD_IMLINKS_DESCRIPTIONC}></b>
-		<br /> 
-		<{$link.description}>
-		 <!-- Display 'View full details' button -->
-		<{if $link.published > 0 }> 
-			<div style="padding: 10px 0 5px 5px;"><{$link.viewdetails}></div>
-		<{/if}>
-	</div>
+	<{/if}> 
+<{/if}>
+
+<{if $link.autoscrshot == 1}> 
+	<div style="float:right;"><{$link.autothumbsrc}></div> 
+<{/if}>
+
+<div style="margin-left: 6px;" align="left"> 
+	<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"> 
+		<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/spinner.gif" alt="" align="absmiddle" />
+	</a>&nbsp;
+	<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank">
+		<{$smarty.const._MD_IMLINKS_LINKNOW}>
+	</a> 
 </div>
-		  
+			
+<br /> 
+			
+<div style="margin-left: 5px;">
+	<b><{$smarty.const._MD_IMLINKS_DESCRIPTIONC}></b>
+	<br /> 
+	<{$link.description}>
+	<!-- Display 'View full details' button -->
+	<{if $link.published > 0 }> 
+		<div style="padding: 10px 0 5px 5px;"><{$link.viewdetails}></div>
+	<{/if}>
+</div>
+	  
 <{if $link.quickview}>
 	<div style="width: 99%;">&nbsp;</div>
 	<script language="javascript" src="<{$xoops_url}>/modules/<{$link.module_dir}>/js/quickview.js"></script>
