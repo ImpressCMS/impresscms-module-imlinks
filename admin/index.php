@@ -448,7 +448,7 @@ switch ( strtolower( $op ) )
 			<th style="text-align: center;">' . _AM_IMLINKS_MINDEX_POSTER . '</th>
 			<th style="text-align: center;">' . _AM_IMLINKS_MINDEX_PUBLISHED . '</th>
             <th style="text-align: center;">' . _AM_IMLINKS_MINDEX_RESPONSE . '</th>
-            <th style="text-align: center;">PR</th>\n
+            <th style="text-align: center;">PR</th>
 	        <th style="text-align: center;">' . _AM_IMLINKS_MINDEX_ACTION . '</th>
 			</tr>';
 
