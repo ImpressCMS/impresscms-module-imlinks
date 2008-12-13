@@ -95,11 +95,19 @@ $i++;
 $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_broken') . " ADD INDEX(ip)");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$i++;
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_broken') . " CHANGE `reportid` `reportid` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 
 // Make changes to table imlinks_cat
 $i++;
 $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_cat') . " ADD PRIMARY KEY(cid)");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$i++;
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_cat') . " CHANGE `cid` `cid` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
@@ -138,7 +146,11 @@ $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD INDEX(title)");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 $i++;
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " CHANGE `lid` `lid` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 // Drop old rating system
+$i++;
 $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " DROP rating");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
@@ -175,6 +187,10 @@ $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
 $query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN nobreak INT(1) NOT NULL default '0' AFTER vat");
+$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$i++;
+$ret[$i] = true;
+$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " CHANGE `requestid` `requestid` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT");
 $ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
 
 
