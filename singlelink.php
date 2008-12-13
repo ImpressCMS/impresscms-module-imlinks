@@ -259,7 +259,7 @@ $link['showsbookmarx'] = $xoopsModuleConfig['showsbookmarks'];
 $link['allow_rating'] = ( iml_checkgroups( $cid, 'imLinkRatePerms' ) ) ? true : false;
 $link['total_chars'] = $xoopsModuleConfig['totalchars'];
 
-$xoopsTpl -> assign( 'link', $link );
+$xoopsTpl -> assign( 'imlink', $link );
 $xoopsTpl -> assign( 'module_dir', $mydirname );
 
 include ICMS_ROOT_PATH . '/include/comment_view.php';
