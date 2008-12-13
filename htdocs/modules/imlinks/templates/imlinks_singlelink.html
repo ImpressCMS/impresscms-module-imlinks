@@ -2,43 +2,43 @@
 <script type="text/javascript" language="javascript" src="<{$xoops_url}>/modules/<{$module_dir}>/js/behavior.js"></script>
 <script type="text/javascript" language="javascript" src="<{$xoops_url}>/modules/<{$module_dir}>/js/rating.js"></script>
 
-<{$link.imageheader}>
+<{$imlink.imageheader}>
 <div>&nbsp;</div>
 <div style="clear: both;">
-     <div style="float: left; margin-left: 4px; font-size: smaller;"><{$link.path}></div>
+     <div style="float: left; margin-left: 4px; font-size: smaller;"><{$imlink.path}></div>
      <div style="float: right; padding: 2px;"><{$back}></div>
 </div>
 <div style="clear: both;">&nbsp;</div>
 
 <h4 class="outer" style="width: 100%; color: #2F5376; clear: both;">
   <div class="even">
-    <a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><{$link.title}></a>&nbsp;<{$link.icons}><{if $xoops_isadmin}>&nbsp;<{$link.adminlink}><{/if}>
+    <a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>" target="_blank"><{$imlink.title}></a>&nbsp;<{$imlink.icons}><{if $xoops_isadmin}>&nbsp;<{$imlink.adminlink}><{/if}>
   </div>
 </h4>
 
 <div style="width: 250px; float: right; padding-left: 10px; margin-left: 10px; margin-right: 5px;">
 	<div class="infoblock">
-		<div><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$link.submitter}></div>
-		<div><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$link.publisher}></div>
-		<div><b><{$lang_subdate}>:</b>&nbsp;<{$link.updated|wordwrap:50:"\n":true}></div>
-		<div><{$link.hits|wordwrap:50:"\n":true}></div>
-		<div><{$link.country}></div>
+		<div><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$imlink.submitter}></div>
+		<div><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$imlink.publisher}></div>
+		<div><b><{$lang_subdate}>:</b>&nbsp;<{$imlink.updated|wordwrap:50:"\n":true}></div>
+		<div><{$imlink.hits|wordwrap:50:"\n":true}></div>
+		<div><{$imlink.country}></div>
 	</div>
 	
-	<{if $link.infoblock2==1}>
+	<{if $imlink.infoblock2==1}>
 		<br />
 		<div class="infoblock2">
-		<{if $link.showrating > 0}>
-			<small><{$link.ratingbar}></small>
+		<{if $imlink.showrating > 0}>
+			<small><{$imlink.ratingbar}></small>
 		<{/if}>
 			
-		<{if $link.showpagerank > 0}>
-			<{if $link.showrating > 0}>
+		<{if $imlink.showpagerank > 0}>
+			<{if $imlink.showrating > 0}>
 				<br />
 			<{/if}>
 			<small><b><{$smarty.const._MD_IMLINKS_PAGERANK}></b></small>&nbsp;
-			<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/pr<{$link.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$link.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$link.pagerank}>" align="absmiddle" />&nbsp;
-			<small>(<{$link.pagerank}>/10)</small>
+			<img src="<{$xoops_url}>/modules/<{$imlink.module_dir}>/images/icon/pr<{$imlink.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" align="absmiddle" />&nbsp;
+			<small>(<{$imlink.pagerank}>/10)</small>
 		<{/if}>
 		</div>
 	<{/if}>
@@ -50,83 +50,83 @@
 		</div>
 	<{/if}>
 	
-	<{if $link.autoscrshot == 0}> 
+	<{if $imlink.autoscrshot == 0}> 
 		<{if $show_screenshot == true}> 
-			<{if $link.screenshot_full != ''}>
+			<{if $imlink.screenshot_full != ''}>
 			<br />
 				<div class="infoblock2" style="text-align: center;">
-				<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><img src="<{$link.screenshot_thumb}>" alt="" border="0" /></a> 
+				<a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>" target="_blank"><img src="<{$imlink.screenshot_thumb}>" alt="" border="0" /></a> 
 				</div> 
 			<{/if}> 
 		<{/if}> 
 	<{/if}>
 	
-	<{if $link.autoscrshot == 1}>
+	<{if $imlink.autoscrshot == 1}>
 		<br />	
 		<div class="infoblock2" style="text-align: center;">
-		<{$link.autothumbsrc}>
+		<{$imlink.autothumbsrc}>
 		</div> 
 	<{/if}>
 	<br />
 </div> 
  
 <div style="padding-left: 6px; text-align: left;"> 
-	<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"> 
-	<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/spinner.gif" alt="" align="absmiddle" /></a>&nbsp;
-	<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank">
+	<a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>" target="_blank"> 
+	<img src="<{$xoops_url}>/modules/<{$imlink.module_dir}>/images/icon/spinner.gif" alt="" align="absmiddle" /></a>&nbsp;
+	<a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>" target="_blank">
 	<{$smarty.const._MD_IMLINKS_LINKNOW}></a> 
-	<{if $link.forumid > 0}> 
-		&nbsp;<a href="<{$xoops_url}><{$link.forum_path}>"><img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/forum.png" title="<{$smarty.const._MD_IMLINKS_INFORUM}>" alt="<{$smarty.const._MD_IMLINKS_INFORUM}>" border="0" align="absmiddle" /></a> 
-		<a href="<{$xoops_url}><{$link.forum_path}>"><{$smarty.const._MD_IMLINKS_INFORUM}></a>
+	<{if $imlink.forumid > 0}> 
+		&nbsp;<a href="<{$xoops_url}><{$imlink.forum_path}>"><img src="<{$xoops_url}>/modules/<{$imlink.module_dir}>/images/icon/forum.png" title="<{$smarty.const._MD_IMLINKS_INFORUM}>" alt="<{$smarty.const._MD_IMLINKS_INFORUM}>" border="0" align="absmiddle" /></a> 
+		<a href="<{$xoops_url}><{$imlink.forum_path}>"><{$smarty.const._MD_IMLINKS_INFORUM}></a>
 	<{/if}>
 	
 <div style="margin-left: 6px;">
 	<br />
 		<b><{$smarty.const._MD_IMLINKS_DESCRIPTIONC}></b>
 		<br /> 
-		<{$link.description2}>
+		<{$imlink.description2}>
 	</div>
 			
 	<br />
 			
-	<{if $link.addryn == 1}>
+	<{if $imlink.addryn == 1}>
 		<div style="margin-left: 6px; text-align: left; padding: 1px;">
-			<div><{$contactdetails}><{$link.address}>
-				<{$link.tel}><{$link.mobile}><{$link.voip}><{$link.fax}><{$link.email}><{$vcard}><{$link.vat}>
+			<div><{$contactdetails}><{$imlink.address}>
+				<{$imlink.tel}><{$imlink.mobile}><{$imlink.voip}><{$imlink.fax}><{$imlink.email}><{$vcard}><{$imlink.vat}>
 			</div>
 		</div>
 	<{/if}>
-	<{if $link.googlemap || $link.yahoomap || $link.multimap == true}>
+	<{if $imlink.googlemap || $imlink.yahoomap || $imlink.multimap == true}>
 		<div style="margin-left: 6px; text-align: left; white-space: nowrap; padding: 3px;">
-			<{$link.googlemap}><{$link.yahoomap}><{$link.multimap}>
+			<{$imlink.googlemap}><{$imlink.yahoomap}><{$imlink.multimap}>
 		</div>
 	<{/if}>
 </div> 
  
-<{if $link.showsbookmarx > 0}>        
-	<div class="imlinks_socbookmark"><{$link.sbmarks}></div>
+<{if $imlink.showsbookmarx > 0}>        
+	<div class="imlinks_socbookmark"><{$imlink.sbmarks}></div>
 <{/if}> 
 	
 <div class="outer" style="clear: both; text-align: center;">
 	<div class="even">
 		<{$reportbroken}>
-		<{if $link.useradminlink}>
-			<{$link.usermodify}>
+		<{if $imlink.useradminlink}>
+			<{$imlink.usermodify}>
 		<{/if}>
 		<{$mailto}>
-		<{if $link.comment_rules > 0}>
+		<{if $imlink.comment_rules > 0}>
 			<{$commentz}>
 		<{/if}>
 		<{$print}>
 	</div>
 </div>
 
-<{if $link.otherlinx > 0}>
+<{if $imlink.otherlinx > 0}>
 <br />
 <{$other_links}>
 <{foreach item=link_user from=$link_uid}>
    <div style="margin-left: 10px;">
-   <a href="<{$xoops_url}>/modules/<{$link.module_dir}>/singlelink.php?cid=<{$link_user.cid}>&amp;lid=<{$link_user.lid}>"><{$link_user.title}></a> 
+   <a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/singlelink.php?cid=<{$link_user.cid}>&amp;lid=<{$link_user.lid}>"><{$link_user.title}></a> 
    (<{$link_user.published}>)
    </div>
 <{/foreach}>

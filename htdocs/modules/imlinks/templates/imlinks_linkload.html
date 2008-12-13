@@ -3,62 +3,62 @@
 <script type="text/javascript" language="javascript" src="<{$xoops_url}>/modules/<{$module_dir}>/js/rating.js"></script>
 
 <{if $show_categort_title == true}>
- <div style="margin-left: 5px; margin-bottom: 4px;"><b><{$smarty.const._MD_IMLINKS_CATEGORYC}></b><{$link.category}></div>
+ <div style="margin-left: 5px; margin-bottom: 4px;"><b><{$smarty.const._MD_IMLINKS_CATEGORYC}></b><{$imlink.category}></div>
 <{/if}> 
 
 <div class="even" style="clear: both;">
-	<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><{$link.title}></a> <{$link.icons}><{if $xoops_isadmin}>&nbsp;<{$link.adminlink}> <{/if}>
+	<a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>" target="_blank"><{$imlink.title}></a> <{$imlink.icons}><{if $xoops_isadmin}>&nbsp;<{$imlink.adminlink}> <{/if}>
 </div> 
  
 <br />
 
 <div style="width: 250px; float: right; margin-left: 10px; margin-right: 5px;">
 	<div class="infoblock">
-		<div><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$link.submitter}></div>
-		<div><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$link.publisher}></div>
-		<div><b><{$lang_subdate}>:</b>&nbsp;<{$link.updated|wordwrap:50:"\n":true}></div>
-		<div><{$link.hits|wordwrap:50:"\n":true}></div>
-		<div><{$link.country}></div>
+		<div><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$imlink.submitter}></div>
+		<div><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$imlink.publisher}></div>
+		<div><b><{$lang_subdate}>:</b>&nbsp;<{$imlink.updated|wordwrap:50:"\n":true}></div>
+		<div><{$imlink.hits|wordwrap:50:"\n":true}></div>
+		<div><{$imlink.country}></div>
 	</div>
 	
-	<{if $link.infoblock2==1}>
+	<{if $imlink.infoblock2==1}>
 		<br />
 		<div class="infoblock2">
-		<{if $link.showrating > 0}>
-			<small><{$link.ratingbar}></small>
+		<{if $imlink.showrating > 0}>
+			<small><{$imlink.ratingbar}></small>
 		<{/if}>
 			
-		<{if $link.showpagerank > 0}>
-			<{if $link.showrating > 0}>
+		<{if $imlink.showpagerank > 0}>
+			<{if $imlink.showrating > 0}>
 				<br />
 			<{/if}>
 			<small><b><{$smarty.const._MD_IMLINKS_PAGERANK}></b></small>&nbsp;
-			<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/pr<{$link.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$link.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$link.pagerank}>" align="absmiddle" />&nbsp;
-			<small>(<{$link.pagerank}>/10)</small>
+			<img src="<{$xoops_url}>/modules/<{$imlink.module_dir}>/images/icon/pr<{$imlink.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" align="absmiddle" />&nbsp;
+			<small>(<{$imlink.pagerank}>/10)</small>
 		<{/if}>
 		</div>
 	<{/if}>
 </div> 
 
-<{if $link.autoscrshot == 0}> 
+<{if $imlink.autoscrshot == 0}> 
 	<{if $show_screenshot == true}> 
-		<{if $link.screenshot_full != ''}>
+		<{if $imlink.screenshot_full != ''}>
 			<div>
-			<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"><img src="<{$link.screenshot_thumb}>" alt="" hspace="7" vspace="3" border="0" align="right" /></a> 
+			<a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>" target="_blank"><img src="<{$imlink.screenshot_thumb}>" alt="" hspace="7" vspace="3" border="0" align="right" /></a> 
 			</div> 
 		<{/if}> 
 	<{/if}> 
 <{/if}>
 
-<{if $link.autoscrshot == 1}> 
-	<div style="float:right;"><{$link.autothumbsrc}></div> 
+<{if $imlink.autoscrshot == 1}> 
+	<div style="float:right;"><{$imlink.autothumbsrc}></div> 
 <{/if}>
 
 <div style="margin-left: 6px;" align="left"> 
-	<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank"> 
-		<img src="<{$xoops_url}>/modules/<{$link.module_dir}>/images/icon/spinner.gif" alt="" align="absmiddle" />
+	<a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>" target="_blank"> 
+		<img src="<{$xoops_url}>/modules/<{$imlink.module_dir}>/images/icon/spinner.gif" alt="" align="absmiddle" />
 	</a>&nbsp;
-	<a href="<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>" target="_blank">
+	<a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>" target="_blank">
 		<{$smarty.const._MD_IMLINKS_LINKNOW}>
 	</a> 
 </div>
@@ -68,21 +68,21 @@
 <div style="margin-left: 5px;">
 	<b><{$smarty.const._MD_IMLINKS_DESCRIPTIONC}></b>
 	<br /> 
-	<{$link.description}>
+	<{$imlink.description}>
 	<!-- Display 'View full details' button -->
-	<{if $link.published > 0 }> 
-		<div style="padding: 10px 0 5px 5px;"><{$link.viewdetails}></div>
+	<{if $imlink.published > 0 }> 
+		<div style="padding: 10px 0 5px 5px;"><{$imlink.viewdetails}></div>
 	<{/if}>
 </div>
 	  
-<{if $link.quickview}>
+<{if $imlink.quickview}>
 	<div style="width: 99%;">&nbsp;</div>
-	<script language="javascript" src="<{$xoops_url}>/modules/<{$link.module_dir}>/js/quickview.js"></script>
+	<script language="javascript" src="<{$xoops_url}>/modules/<{$imlink.module_dir}>/js/quickview.js"></script>
 		<br />
 		<div class="even" style="clear: both; text-align: center; width: 99%; border-bottom: 2px solid #AAAAAA;">
 			<i><small><script>
-			ppreview("<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>",<{$link.id}>);
-			potherfunctions("<{$xoops_url}>/modules/<{$link.module_dir}>/visit.php?cid=<{$link.cid}>&amp;lid=<{$link.id}>",<{$link.id}>, '');
+			ppreview("<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>",<{$imlink.id}>);
+			potherfunctions("<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>",<{$imlink.id}>, '');
 			</script></small></i>
 		</div>
 <{/if}>

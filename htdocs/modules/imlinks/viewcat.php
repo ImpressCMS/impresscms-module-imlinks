@@ -218,7 +218,7 @@ if ( $count > 0 ) {
     while ( $link_arr = $xoopsDB -> fetchArray( $result ) ) {
         $res_type = 0;
         require ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/linkloadinfo.php';
-        $xoopsTpl -> append( 'link', $link );
+        $xoopsTpl -> append( 'imlink', $link );
     } 
 
 // Show order box
