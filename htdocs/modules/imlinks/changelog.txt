@@ -1,4 +1,11 @@
 =========================================================
+xx.xx.200x   1.00 RC-x
+=========================================================
+- Fixed: icons and text in buttons could break
+- Fixed: thumbnail class not working
+- Fixed: date format in blocks will use default from prefs if not set
+
+=========================================================
 13.12.2008   1.00 RC-1
 =========================================================
 - Revamped Main Index page in Control Panel
