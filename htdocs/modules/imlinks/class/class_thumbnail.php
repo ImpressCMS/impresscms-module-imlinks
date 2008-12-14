@@ -97,10 +97,10 @@ class imThumbsNails {
             $this -> _img_savepath = strval( trim( $img_savepath ) );
         } 
 
-        $path_to_check = ICMS_ROOT_PATH . '/$img_path/$img_savepath';
+        $path_to_check = ICMS_ROOT_PATH . "/$img_path/$img_savepath";
 
         if ( !is_dir( $path_to_check ) ) {
-            if ( false == mkdir( '$path_to_check', 0777 ) )
+            if ( false == mkdir( "$path_to_check", 0777 ) )
             {
                 return false;
             } 
@@ -137,11 +137,11 @@ class imThumbsNails {
      * @param int $img_aspect 
      * @return 
      */
-    function do_thumb( $img_width = null, $img_height = null, $img_quality = null, $img_update = null, $img_aspect = null ) {
-        $this -> _source_path = ICMS_ROOT_PATH . '/{$this->_img_path}';
-        $this -> _save_path = ICMS_ROOT_PATH . '/{$this->_img_path}/{$this->_img_savepath}';
-        $this -> _source_url = XOOPS_URL . '/{$this->_img_path}';
-        $this -> _source_image = '{$this->_source_path}/{$this->_img_name}';
+    function do_thumb( $img_width = null, $img_height = null, $img_quality = null, $img_update = null, $img_aspect = null ) { 
+        $this -> _source_path = ICMS_ROOT_PATH . "/{$this->_img_path}"; 
+        $this -> _save_path = ICMS_ROOT_PATH . "/{$this->_img_path}/{$this->_img_savepath}"; 
+        $this -> _source_url = XOOPS_URL . "/{$this->_img_path}"; 
+        $this -> _source_image = "{$this->_source_path}/{$this->_img_name}"; 
 
         if ( isset( $img_width ) && !is_null( $img_width ) )
             $this -> img_width = intval( $img_width );
@@ -224,14 +224,14 @@ class imThumbsNails {
         $newHeight = ( $newHeight > $this -> _img_info[0] ) ? $this -> _img_info[0] : $newHeight;
         /**
          */
-        $savefile = '{$newWidth}x{$newHeight}_{$this->_img_name}';
-        $this -> _save_image = '{$this->_save_path}/{$savefile}';
+        $savefile = "{$newWidth}x{$newHeight}_{$this->_img_name}";
+        $this -> _save_image = "{$this->_save_path}/{$savefile}";
 
         if ( $this -> img_update == 0 && file_exists( $this -> _save_image ) ) {
             if ( $this -> _return_fullpath == 1 ) {
-                return $this -> _source_url . '/{$this->_img_savepath}/{$savefile}';
+                return $this -> _source_url . "/{$this->_img_savepath}/{$savefile}";
             } else {
-                return '{$this->_img_savepath}/{$savefile}';
+                return "{$this->_img_savepath}/{$savefile}";
             } 
         } 
 
@@ -248,7 +248,7 @@ class imThumbsNails {
                     } 
                     $magick_command = $xoopsModuleConfig['path_magick'] . '/convert -quality {$xoopsModuleConfig["imagequality"]} -antialias -sample {$newWidth}x{$newHeight} {$src_file_im} +profile "*" ' . str_replace( '\\', '/', $new_file_im ) . '';
                     passthru( $magick_command );
-                    return $this -> _source_url . '/{$this->_img_savepath}/{$savefile}';
+                    return $this -> _source_url . "/{$this->_img_savepath}/{$savefile}";
                 } 
                 else
                     return false;
@@ -301,11 +301,11 @@ class imThumbsNails {
                         return false;
                 } 
                 if ( $this -> _return_fullpath == 1 ) {
-                    return $this -> _source_url . '/{$this->_img_savepath}/{$savefile}';
+                    return $this -> _source_url . "/{$this->_img_savepath}/{$savefile}";
                 } 
                 else
                 {
-                    return '{$this->_img_savepath}/{$savefile}';
+                    return "{$this->_img_savepath}/{$savefile}";
                 } 
                 break;
         } 
@@ -366,5 +366,4 @@ class imThumbsNails {
         return false;
     } 
 } 
-
 ?>
