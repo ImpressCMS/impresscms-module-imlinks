@@ -4,7 +4,7 @@
 *
 * Based upon WF-Links 1.06
 *
-* File: language/english/modinfo.php
+* File: language/czech/modinfo.php
 *
 * @copyright		http://www.xoops.org/ The XOOPS Project
 * @copyright		XOOPS_copyrights.txt
