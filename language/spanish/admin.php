@@ -31,7 +31,7 @@
 
 define( "_AM_IMLINKS_WARNINSTALL1", "Aviso: el directorio %s existe en su servidor. <br />Por favor, por razones de seguridad elimine este directorio." );
 define( "_AM_IMLINKS_WARNINSTALL2", "Aviso: el archivo %s existe en tu servidor. <br />Por favor, por razones de seguridad elimine este archivo." );
-define( "_AM_IMLINKS_WARNINSTALL3", "Aviso: la carpeta %s no existe en su servidor. <br />Esta carpeta es necesaria para el funcionamiento de WF-Links." );
+define( "_AM_IMLINKS_WARNINSTALL3", "Aviso: la carpeta %s no existe en su servidor. <br />Esta carpeta es necesaria para el funcionamiento de imLinks." );
 define( "_AM_IMLINKS_MODULE_NAME", "imLinks" );
 define( "_AM_IMLINKS_BMODIFY", "Modificar" );
 define( "_AM_IMLINKS_BDELETE", "Eliminar" );
@@ -409,7 +409,7 @@ define( "_AM_IMLINKS_ZIPCODE", "Código postal" );
 define( "_AM_IMLINKS_TELEPHONE", "Teléfono" );
 define( "_AM_IMLINKS_FAX", "Fax" );
 // Version 1.05 RC2
-define( "_AM_IMLINKS_WARNINSTALL4", "<b>Aviso:</b> <u>La carpeta</u> %s no es escribible. <br />Esta carpeta necesita tener permisos de escritura (CHMOD 777) para que WF-Links pueda escribir en ella." );
+define( "_AM_IMLINKS_WARNINSTALL4", "<b>Aviso:</b> <u>La carpeta</u> %s no es escribible. <br />Esta carpeta necesita tener permisos de escritura (CHMOD 777) para que imLinks pueda escribir en ella." );
 // Version 1.05 RC5
 define( "_AM_IMLINKS_VOIP", "VoIP" );
 define( "_AM_IMLINKS_LINK_SUBMITTER", "Nombre de quien envió el enlace: " );
