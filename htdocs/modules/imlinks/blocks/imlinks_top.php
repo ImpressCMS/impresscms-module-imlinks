@@ -93,7 +93,11 @@ function b_imlinks_top_show( $options ) {
         $linkload['cid'] = intval( $myrow['cid'] );
         $linkload['title'] = $title;
         if ( $options[0] == 'published' ) {
-            $linkload['date'] = formatTimestamp( $myrow['published'], $options[3] );
+			if ( $options[3] == '' ) {
+				$linkload['date'] = formatTimestamp( $myrow['published'], $imlModuleConfig['dateformat'] );
+			} else {
+				$linkload['date'] = formatTimestamp( $myrow['published'], $options[3] );
+			}
         } elseif ( $options[0] == 'hits' ) {
             $linkload['hits'] = $myrow['hits'];
         } 
