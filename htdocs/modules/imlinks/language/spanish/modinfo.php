@@ -99,9 +99,9 @@ define('_MI_IMLINKS_SCREENSHOTS','Directorio para la captura de pantalla');
 define('_MI_IMLINKS_CATEGORYIMG','Directorio para la imagen de la categoría');
 define('_MI_IMLINKS_MAINIMGDIR','Directorio para la imagen principal');
 define('_MI_IMLINKS_USETHUMBS', 'Usar miniaturas:');
-define("_MI_IMLINKS_USETHUMBSDSC", "Tipos de formatos soportados: JPG, GIF, PNG.<div style='padding-top: 8px;'>WF-Links usará thumbnails para mostrar las imagenes. Configure 'No' para utilizar la imagen original si el servidor no soporta esta opción.</div>");
+define("_MI_IMLINKS_USETHUMBSDSC", "Tipos de formatos soportados: JPG, GIF, PNG.<div style='padding-top: 8px;'>imLinks usará thumbnails para mostrar las imagenes. Configure 'No' para utilizar la imagen original si el servidor no soporta esta opción.</div>");
 define('_MI_IMLINKS_DATEFORMAT', 'Formato de fecha:');
-define('_MI_IMLINKS_DATEFORMATDSC', 'Formato predeterminado para las fechas en WF-links');
+define('_MI_IMLINKS_DATEFORMATDSC', 'Formato predeterminado para las fechas en imLinks');
 define('_MI_IMLINKS_SHOWDISCLAIMER', 'Mostrar condiciones de uso antes del envío de enlaces:');
 define('_MI_IMLINKS_SHOWDISCLAIMERDSC', 'Se mostrarán las condiciones de uso antes de que un usuario envíe un enlace');
 define('_MI_IMLINKS_SHOWLINKDISCL', 'Mostrar condiciones de uso antes de que el usuario visite un sitio:');
@@ -208,7 +208,7 @@ define('_MI_IMLINKS_AUTHOR_BUGFIXES', "Historial de solución de errores");
 define('_MI_IMLINKS_COPYRIGHT2', 'Copyright' );
 define('_MI_IMLINKS_COPYRIGHTIMAGE', "Unless stated otherwise, this Module (WF-Links) and its images are copyright to the WF-Projects team.<br /><br />You have the permission to copy, edit and change WF-Links to suit your personal requirements. You agree not to modify, adapt and redistribute the source code of the Software without the express permission from the WF-Projects team.");
 define('_MI_IMLINKS_SELECTFORUM', "Seleccionar foro:");
-define('_MI_IMLINKS_SELECTFORUMDSC', "Seleccione el foro que tiene instalado para ser usado por WF-Links.");
+define('_MI_IMLINKS_SELECTFORUMDSC', "Seleccione el foro que tiene instalado para ser usado por imLinks.");
 define('_MI_IMLINKS_DISPLAYFORUM1', "Newbb (all)");
 define('_MI_IMLINKS_DISPLAYFORUM2', "IPB Forum");
 define('_MI_IMLINKS_DISPLAYFORUM3', "PHPBB2");
@@ -243,12 +243,12 @@ define("_MI_IMLINKS_SHOWSBOOKMARKS", "¿Mostrar Marcadores Sociales?");
 define("_MI_IMLINKS_SHOWSBOOKMARKSDSC", "Selecione <em>Sí</em> si desea que un bloque de Marcadores Sociales sea mostrado debajo de cada artículo.");
 define("_MI_IMLINKS_SHOWPAGERANK", "¿Mostrar Google PageRank?");
 define("_MI_IMLINKS_SHOWPAGERANKSDSC", "Selecione <em>Sí</em> si desea que sea mostrado.");
-define("_MI_IMLINKS_USERTAGDESCR", "Los usuarios pueden enviar solapas:");
+define("_MI_IMLINKS_USERTAGDESCR", "Los usuarios pueden enviar solapas (tags):");
 define("_MI_IMLINKS_USERTAGDSC", "Selecione si los usuarios pueden o no enviar solapas.");
 
 // Version 1.05 RC5
 define('_MI_IMLINKS_DATEFORMATADMIN', 'Administración de fechas:');
-define('_MI_IMLINKS_DATEFORMATADMINDSC', 'Administración predeterminada de fechas para WF-Links<br />Lea el <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">Manual de PHP</a>');
+define('_MI_IMLINKS_DATEFORMATADMINDSC', 'Administración predeterminada de fechas para imLinks en la sección administrativa del módulo.<br />Lea el <a href="http://jp.php.net/manual/es/function.date.php" target="_blank">Manual de PHP</a> para más información sobre la materia');
 define("_MI_IMLINKS_USEADDRESSDESCR", "¿Usar direcciones y mapas?");
 define("_MI_IMLINKS_USEADDRESSDSC","Seleccione si desea usar o no la característica de adición de direcciones y mapas.");
 define("_MI_IMLINKS_HEADERPRINT","[Opciones de impresión] Cabecera de página a imprimir");
@@ -257,7 +257,7 @@ define("_MI_IMLINKS_LOGOURLPRINT","[Opciones de impresión] URL del logo a impri
 define("_MI_IMLINKS_LOGOURLDSCPRINT","URL del logo que se imprimirá en la parte superior de la página.");
 define("_MI_IMLINKS_FOOTERPRINT","[Opciones de impresión] Pie de página de impresión");
 define("_MI_IMLINKS_FOOTERPRINTDSC","Pie de página que será impreso en cada enlace");
-define("_MI_IMLINKS_BNAME3","Estadísticas del patrocinador de WF-Links");
+define("_MI_IMLINKS_BNAME3","Estadísticas del patrocinador de imLinks");
 define("_MI_IMLINKS_VCARD_CREDITS","Script de vCard por");
 
 // Version 1.05 RC6
@@ -272,8 +272,8 @@ define("_MI_IMLINKS_MOZSHOT_CREDITS", "Autocaptura de pantalla por");
 define("_MI_IMLINKS_MOZSHOT_CREDITSTXT", '<a href="http://mozshot.nemui.org" target=_blank>Mozshot</a> (todo el código fuente está publicado con la licencia <a href="http://www.ruby-lang.org/en/" target=_blank>Ruby</a>)');
 
 // Version 1.06 RC-1
-define("_MI_IMLINKS_BNAME4","'Nube de etiquetas' de WF-Links");
-define("_MI_IMLINKS_BNAME5","Etiquetas relevantes de WF-Links");
+define("_MI_IMLINKS_BNAME4","'Nube de etiquetas' de imLinks");
+define("_MI_IMLINKS_BNAME5","Etiquetas relevantes de imLinks");
 
 // Version 1.06 RC-3
 define('_MI_IMLINKS_DISPLAYFORUM4', "Newbbex");
