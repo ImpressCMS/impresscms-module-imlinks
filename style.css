@@ -14,6 +14,7 @@
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	cursor: pointer; 
 	border: outset 1px #CCC;
+	white-space: nowrap;
 	}
 	
 .letters {
