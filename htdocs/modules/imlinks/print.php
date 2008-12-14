@@ -55,7 +55,7 @@ if ( $xoopsModuleConfig['screenshot'] ) {
 		} else {
 			$xoopsTpl -> assign( 'printscrshot', '<img src="http://mozshot.nemui.org/shot/128x128?' . $myrow['url'] . '" alt="" title="" border="0" hspace="5" />' );
 		}
-	} else {
+	} elseif ( !$myrow['screenshot'] == '' ) {
 		$xoopsTpl -> assign( 'printscrshot', '<img src="' . ICMS_URL . '/' . $xoopsModuleConfig['screenshots'] .'/'. $myrow['screenshot'] . '" alt="" title="" border="0" />' );
 	}		
 }
