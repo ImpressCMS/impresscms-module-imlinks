@@ -71,6 +71,7 @@ $modversion['people']['translators'][] = '&middot; <a href="http://community.imp
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a>  (Dutch)';
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=480" target="_blank">algalochkin</a> (Russian)';
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=523" target="_blank">JardaR</a> (Czech)';
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=953" target="_blank">hisapapa</a> (Japanese)';
 $modversion['people']['translators'][] = '&middot; <a href="http://www.frxoops.org/userinfo.php?uid=18073" target="_blank">Burning</a> (French)';
 $modversion['people']['other']      [] = '&middot; <a href="http://xoops.peak.ne.jp" target="_blank">GIJOE</a> (blocks hack)';
 $modversion['people']['other']		[] = '&middot; <a href="http://www.bitfolge.de" target="_blank">Kai Blankenhorn</a> (vCard script)';

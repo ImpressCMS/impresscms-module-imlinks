@@ -1,0 +1,34 @@
+﻿<?php
+define('_MODABOUT_IMLINKS_DEVELOPER_CONTRIBUTOR', '功労者の方々');
+define('_MODABOUT_IMLINKS_DEVELOPER_CREDITS', 'クレジット');
+define('_MODABOUT_IMLINKS_DEVELOPER_EMAIL', 'Email');
+define('_MODABOUT_IMLINKS_DEVELOPER_WEBSITE', 'サイト');
+define('_MODABOUT_IMLINKS_GOTOMODULE', 'モジュールを開く');
+define('_MODABOUT_IMLINKS_MODULE_BUG', 'モジュールのバグを報告する');
+define('_MODABOUT_IMLINKS_MODULE_DEMO', 'デモサイト');
+define('_MODABOUT_IMLINKS_MODULE_DISCLAIMER', '特記事項');
+define('_MODABOUT_IMLINKS_MODULE_FEATURE', '新機能を提案する');
+define('_MODABOUT_IMLINKS_MODULE_INFO', 'モジュール開発情報');
+define('_MODABOUT_IMLINKS_MODULE_RELEASE_DATE', 'リリース日');
+define('_MODABOUT_IMLINKS_MODULE_STATUS', '状態');
+define('_MODABOUT_IMLINKS_MODULE_SUBMIT_BUG', 'バグを送信');
+define('_MODABOUT_IMLINKS_MODULE_SUBMIT_FEATURE', '機能をリクエスト');
+define('_MODABOUT_IMLINKS_MODULE_SUPPORT', 'サポートサイト');
+define('_MODABOUT_IMLINKS_UPDATE_MODULE', 'モジュール更新');
+define('_MODABOUT_IMLINKS_VERSION_HISTORY', '更新履歴');
+define('_MODABOUT_IMLINKS_WARNING_ALPHA', "モジュールに使用に際しては無保証であることを認識してください。このモジュールはアルファーバージョンです。アルファバージョンは開発中を意味します。あくまでも開発と試用でお使い下さい。まだ正式に公開しているサイトでは試用しないでください。.");
+define('_MODABOUT_IMLINKS_WARNING_BETA', "モジュールに使用に際しては無保証であることを認識してください。このモジュールはベータバージョンです。ベータバージョンは開発中を意味します。あくまでも開発と試用でお使い下さい。まだ正式に公開しているサイトでは試用しないでください。..");
+define('_MODABOUT_IMLINKS_WARNING_FINAL', "モジュールに使用に際しては無保証であることを認識してください。このモジュールは完成していますが、まだ開発・改善の余地があることを御了解ください。");
+define('_MODABOUT_IMLINKS_WARNING_RC', "モジュールに使用に際しては無保証であることを認識してください。このモジュールは最終チェック中です。まだまだ開発・改善の余地があることを御了解ください。");
+define('_MODABOUT_IMLINKS_BY', 'By');
+define('_MODABOUT_IMLINKS_PEOPLE_DEVELOPERS', '開発者');
+define('_MODABOUT_IMLINKS_PEOPLE_TESTERS', '試用者');
+define('_MODABOUT_IMLINKS_PEOPLE_DOCUMENTERS', 'ドキュメント作者');
+define('_MODABOUT_IMLINKS_PEOPLE_TRANSLATERS', '翻訳者');
+define('_MODABOUT_IMLINKS_PEOPLE_OTHER', 'その他の功労者');
+define('_MODABOUT_IMLINKS_AUTHOR_INFO', '功労者情報');
+define('_MODABOUT_IMLINKS_AUTHOR_WORD', '著者の言葉');
+define('_MODABOUT_IMLINKS_MODULE_LICENSE', 'ライセンス');
+define('_MODABOUT_IMLINKS_MANUAL', 'マニュアル');
+define('_MODABOUT_IMLINKS_MANUAL_WIKI', 'ImpressCMS Wiki');
+?>
