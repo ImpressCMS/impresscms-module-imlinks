@@ -326,4 +326,7 @@ define( '_MI_IMLINKS_CATCOLSDSC', 'Kies het aantal categorie kolommen voor de Ho
 define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
 define( '_MI_IMLINKS_SHOWRATING', 'Laat stem opties zien?' );
 define( '_MI_IMLINKS_SHOWRATINGDSC', 'Kies <em>Ja</em> om alle stem opties te laten zien. Kies <em>Nee</em> om de stem opties te verbergen.<br />Opgelet: Deze instelling heeft niets te doen met de rechten instelling voor het stemmen.' );
+
+// imLinks 1.00 RC-2
+define( '_MI_IMLINKS_BNAME6', 'Willekeurige link' );
 ?>

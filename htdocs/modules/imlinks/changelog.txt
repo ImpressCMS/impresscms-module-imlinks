@@ -1,6 +1,8 @@
 =========================================================
-xx.xx.200x   1.00 RC-x
+xx.xx.200x   1.00 RC-2
 =========================================================
+- Added: random block [hisapapa]
+
 - Fixed: icons and text in buttons could break
 - Fixed: thumbnail class not working
 - Fixed: date format in blocks will use default from prefs if not set

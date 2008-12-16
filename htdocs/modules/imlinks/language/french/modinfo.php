@@ -322,4 +322,7 @@ define( '_MI_IMLINKS_CATCOLSDSC', 'Select the number of category colums for Inde
 define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
 define( '_MI_IMLINKS_SHOWRATING', 'Show rating features?' );
 define( '_MI_IMLINKS_SHOWRATINGDSC', 'Select <em>Yes</em> to display the rating features. Select <em>No</em> to hide the rating features. Note: This setting has nothing to do with the permissions setting.' );
+
+// imLinks 1.00 RC-2
+define( '_MI_IMLINKS_BNAME6', 'Random Link' );
 ?>

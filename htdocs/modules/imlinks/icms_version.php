@@ -154,6 +154,15 @@ $modversion['blocks'][5]['options'] = '50|30|c';
 $modversion['blocks'][5]['template'] = 'imlinks_tag_block_tag.html';
 $modversion['blocks'][5]['can_clone'] = true ;
 
+$modversion['blocks'][6]['file'] = 'imlinks_top.php';
+$modversion['blocks'][6]['name'] = _MI_IMLINKS_BNAME6;
+$modversion['blocks'][6]['description'] = 'Shows Random links';
+$modversion['blocks'][6]['show_func'] = 'b_imlinks_random_show';
+$modversion['blocks'][6]['edit_func'] = "b_imlinks_random_edit";
+$modversion['blocks'][6]['options'] = 'published|10|19|d/m/Y';
+$modversion['blocks'][6]['template'] = 'imlinks_block_random.html';
+$modversion['blocks'][6]['can_clone'] = true ;
+
 // Menu
 $modversion['hasMain'] = 1;
 
