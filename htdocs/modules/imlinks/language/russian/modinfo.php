@@ -322,5 +322,5 @@ define( '_MI_IMLINKS_SHOWRATING', 'Показывать рейтинги?' );
 define( '_MI_IMLINKS_SHOWRATINGDSC', 'Выберите <em>Да</em> для отображения рейтингов. Выберите <em>Нет</em>, чтобы скрывать рейтинги. Внимание: Эта установка не имеет ничего общего с установками прав доступа.' );
 
 // imLinks 1.00 RC-2
-define( '_MI_IMLINKS_BNAME6', 'Random Link' );
+define( '_MI_IMLINKS_BNAME6', 'Случайная ссылка' );
 ?>
