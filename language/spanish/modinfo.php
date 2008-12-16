@@ -303,4 +303,7 @@ define( '_MI_IMLINKS_CATCOLSDSC', 'Seleccione el mismo para la página índice.<
 define( '_MI_IMLINKS_RSSFEED', 'Origen de RSS' );
 define( '_MI_IMLINKS_SHOWRATING', '¿Mostrar característica de valoración?' );
 define( '_MI_IMLINKS_SHOWRATINGDSC', 'Seleccione <em>Sí</em> para mostrar la posibilidad de valorar a los usuarios. Seleccione <em>No</em> para ocultarla. Nota: esta configuración es ajena al sistema de permisos.' );
+
+// imLinks 1.00 RC-2
+define( '_MI_IMLINKS_BNAME6', 'Random Link' );
 ?>

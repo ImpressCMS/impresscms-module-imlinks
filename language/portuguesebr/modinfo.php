@@ -323,4 +323,7 @@ define( '_MI_IMLINKS_CATCOLSDSC', 'Escolha o número de colunas para a página d
 define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
 define( '_MI_IMLINKS_SHOWRATING', 'Mostrar a funcionalidade de votos?' );
 define( '_MI_IMLINKS_SHOWRATINGDSC', 'Escolha <em><b>Sim</b></em> para mostrar a nova função de votos interativa. Escolha <em>Não</em> para esconder as votações. Nota: Esta opção não tem nada em comum com a definição de permissões.' );
+
+// imLinks 1.00 RC-2
+define( '_MI_IMLINKS_BNAME6', 'Random Link' );
 ?>

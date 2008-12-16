@@ -321,4 +321,7 @@ define( '_MI_IMLINKS_CATCOLSDSC', 'Wählen Sie die Anzahl der Kategoriespalten f
 define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
 define( '_MI_IMLINKS_SHOWRATING', 'Zeige Bewertungsfunktion?' );
 define( '_MI_IMLINKS_SHOWRATINGDSC', 'Wählen Sie <em>Ja</em> um die Bewertung zu aktivieren oder wählen Sie <em>Nein</em> um die Funktion zu verstecken. Hinweis: Diese Einstellung hat nichts mit den Berechtigungen zu tun.' );
+
+// imLinks 1.00 RC-2
+define( '_MI_IMLINKS_BNAME6', 'Random Link' );
 ?>

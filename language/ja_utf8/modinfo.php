@@ -321,8 +321,6 @@ define( '_MI_IMLINKS_RSSFEED', 'RSSフィード' );
 define( '_MI_IMLINKS_SHOWRATING', '評価を表示する?' );
 define( '_MI_IMLINKS_SHOWRATINGDSC', '<em>はい</em> で評価を表示します。<em>いいえ</em> で非表示. 注意: これは権限設定は変更しません.' );
 
-// imLinks 1.00 RC-1.1
+// imLinks 1.00 RC-2
 define("_MI_IMLINKS_BNAME6", "ランダムリンク");
-
-
 ?>

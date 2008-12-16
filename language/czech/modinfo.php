@@ -320,4 +320,7 @@ define( '_MI_IMLINKS_CATCOLSDSC', 'Vyberte počet sloupců zobrazených kategori
 define( '_MI_IMLINKS_RSSFEED', 'RSS zdroj' );
 define( '_MI_IMLINKS_SHOWRATING', 'Zobrazovat vlastnosti hodnocení?' );
 define( '_MI_IMLINKS_SHOWRATINGDSC', 'Výběrem <em>Ano</em> se zobrazí volby hodnocení odkazů. Vyběrem <em>Ne</em> tyto možnosti schováte. Poznámka: Toto nastavení nemá nic společného s nastavením oprávnění.' );
+
+// imLinks 1.00 RC-2
+define( '_MI_IMLINKS_BNAME6', 'Random Link' );
 ?>
