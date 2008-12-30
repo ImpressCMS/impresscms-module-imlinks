@@ -379,7 +379,23 @@ switch ( $op ) {
             $error = _AM_IMLINKS_DBERROR . ": <br /><br />" . $sql;
 			
 			// delete group permissions
-            xoops_groupperm_deletebymoditem( $xoopsModule -> getVar( 'mid' ), 'WFLinkCatPerm', $cid );
+            xoops_groupperm_deletebymoditem( $xoopsModule -> getVar( 'mid' ), 'imLinkCatPerm', $cid );
+            if ( !$result = $xoopsDB -> query( $sql ) ) {
+                trigger_error( $error, E_USER_ERROR );
+            }
+			xoops_groupperm_deletebymoditem( $xoopsModule -> getVar( 'mid' ), 'imLinkSubPerm', $cid );
+            if ( !$result = $xoopsDB -> query( $sql ) ) {
+                trigger_error( $error, E_USER_ERROR );
+            }
+			xoops_groupperm_deletebymoditem( $xoopsModule -> getVar( 'mid' ), 'imLinkAppPerm', $cid );
+            if ( !$result = $xoopsDB -> query( $sql ) ) {
+                trigger_error( $error, E_USER_ERROR );
+            }
+			xoops_groupperm_deletebymoditem( $xoopsModule -> getVar( 'mid' ), 'imLinkAutoApp', $cid );
+            if ( !$result = $xoopsDB -> query( $sql ) ) {
+                trigger_error( $error, E_USER_ERROR );
+            }
+			xoops_groupperm_deletebymoditem( $xoopsModule -> getVar( 'mid' ), 'imLinkRatePerms', $cid );
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 trigger_error( $error, E_USER_ERROR );
             }

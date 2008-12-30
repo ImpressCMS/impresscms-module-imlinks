@@ -6,6 +6,7 @@ xx.xx.200x   1.00 RC-2
 - Fixed: icons and text in buttons could break
 - Fixed: thumbnail class not working
 - Fixed: date format in blocks will use default from prefs if not set
+- Fixed: category permissions will be deleted when category is deleted
 
 =========================================================
 13.12.2008   1.00 RC-1
