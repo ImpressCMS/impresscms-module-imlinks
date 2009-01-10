@@ -1,7 +1,9 @@
 =========================================================
-xx.xx.200x   1.00 RC-2
+10.01.2009   1.00 RC-2
 =========================================================
 - Added: random block [hisapapa]
+
+- Replaced spinner icon
 
 - Fixed: icons and text in buttons could break
 - Fixed: thumbnail class not working
