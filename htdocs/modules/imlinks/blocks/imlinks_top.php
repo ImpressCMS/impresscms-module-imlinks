@@ -106,7 +106,7 @@ function b_imlinks_top_show( $options ) {
 // @param $options
 // @return
 function b_imlinks_top_edit( $options ) {
-    $form = "" . _MB_IMLINKS_DISP . "&nbsp;";
+    $form = _MB_IMLINKS_DISP . '&nbsp;';
     $form .= "<input type='hidden' name='options[]' value='";
     if ( $options[0] == "published" ) {
         $form .= "published'";
@@ -180,7 +180,7 @@ function b_imlinks_random_show( $options ) {
 // @param $options
 // @return
 function b_imlinks_random_edit( $options ) {
-    $form = "" . _MB_IMLINKS_DISP . "&nbsp;";
+    $form = _MB_IMLINKS_DISP . '&nbsp;';
     $form .= "<input type='hidden' name='options[]' value='";
     if ( $options[0] == "published" ) {
         $form .= "published'";
