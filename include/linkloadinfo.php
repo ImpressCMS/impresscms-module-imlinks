@@ -156,6 +156,7 @@ if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
 	$link['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&lid='.$link_arr['lid'] . '" target="_blank"><img src="http://open.thumbshots.org/image.pxf?url=' . $link_arr['url'] . '" width="120" height="90" align="middle" alt="" /></a>';
 }
 
-$link['viewdetails'] = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid='.$link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
+$link['viewdetails'] = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
+$link['visitlink']   = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '" target="_blank">' . _MD_IMLINKS_LINKNOW . '</a>';
 
 ?>
