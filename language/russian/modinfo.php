@@ -181,41 +181,6 @@ define('_MI_IMLINKS_LINK_APPROVE_NOTIFYCAP', 'Оповестить меня, к�
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYDSC', 'Получить оповещение, когда эта ссылка будет одоббрена.');
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : Ссылка одобрена');
 
-define('_MI_IMLINKS_AUTHOR_INFO', "Информация о разработчиках");
-define('_MI_IMLINKS_AUTHOR_NAME', "Разработчик");
-define('_MI_IMLINKS_AUTHOR_DEVTEAM', "Команда разработчиков");
-define('_MI_IMLINKS_AUTHOR_WEBSITE', "Вэбсайт разработчиков");
-define('_MI_IMLINKS_AUTHOR_EMAIL', "Email разработчика");
-define('_MI_IMLINKS_AUTHOR_CREDITS', "Участники");
-define('_MI_IMLINKS_MODULE_INFO', "Информация о разработке модуля");
-define('_MI_IMLINKS_MODULE_STATUS', "Статус разработки");
-define('_MI_IMLINKS_MODULE_DEMO', "Демо сайт");
-define('_MI_IMLINKS_MODULE_SUPPORT', "Сайт поддержки");
-define('_MI_IMLINKS_MODULE_BUG', "Отчет об ошибках в этом модуле");
-define('_MI_IMLINKS_MODULE_FEATURE', "Предложение новых свойств для этого модуля");
-define('_MI_IMLINKS_MODULE_DISCLAIMER', "Предупреждение об ответственности");
-define('_MI_IMLINKS_RELEASE', "Дата релиза: ");
-
-define('_MI_IMLINKS_MODULE_MAILLIST', "Список рассылки WF-Project");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTS', "Список рассылки анонсов");
-define('_MI_IMLINKS_MODULE_MAILBUGS', "Список рассылки ошибок");
-define('_MI_IMLINKS_MODULE_MAILFEATURES', "Список рассылки свойств");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTSDSC', "Возьмите последние анонсы о WF-Project.");
-define('_MI_IMLINKS_MODULE_MAILBUGSDSC', "Список рассылки отслеживания ошибок");
-define('_MI_IMLINKS_MODULE_MAILFEATURESDSC', "Список рассылки для запросов о новых свойствах.");
-
-define('_MI_IMLINKS_WARNINGTEXT', "ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ WF-PROJECTS \"КАК ЕСТЬ\" И \"ВСЕМИ ОШИБКАМИ.\"
-WF-PROJECTS MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING
-THE QUALITY, SAFETY OR SUITABILITY OF THE SOFTWARE, EITHER EXPRESS OR
-IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
-FURTHER, WF-PROJECTS MAKES NO REPRESENTATIONS OR WARRANTIES AS TO THE TRUTH,
-ACCURACY OR COMPLETENESS OF ANY STATEMENTS, INFORMATION OR MATERIALS
-CONCERNING THE SOFTWARE THAT IS CONTAINED IN WF-Project WEBSITE. IN NO
-EVENT WILL WF-PROJECTS BE LIABLE FOR ANY INDIRECT, PUNITIVE, SPECIAL,
-INCIDENTAL OR CONSEQUENTIAL DAMAGES HOWEVER THEY MAY ARISE AND EVEN IF
-WF-PROJECT HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES..");
-
 define('_MI_IMLINKS_AUTHOR_CREDITSTEXT',"The WF-Projects Team would like to thank the following people for their help and support during the development phase of this module.<br /></br />EdStacey, maumed, banned, krobi, Pnooka, MarcoFr, cosmodrum, placebo333, GibaPhp");
 define('_MI_IMLINKS_AUTHOR_BUGFIXES', "История исправления ошибок");
 
@@ -237,11 +202,9 @@ define('_MI_IMLINKS_EDITORUSER', "Редактор для пользовател
 define('_MI_IMLINKS_EDITORCHOICEUSER', "Выбор редактора, который будут использовать пользователи.");
 define("_MI_IMLINKS_FORM_DHTML", "DHTML");
 define("_MI_IMLINKS_FORM_COMPACT", "Compact");
-define("_MI_IMLINKS_FORM_SPAW", "Spaw Editor");
 define("_MI_IMLINKS_FORM_HTMLAREA", "HtmlArea Editor");
 define("_MI_IMLINKS_FORM_FCK", "FCK Editor");
 define("_MI_IMLINKS_FORM_KOIVI", "Koivi Editor");
-define("_MI_IMLINKS_FORM_INBETWEEN", "Inbetween");
 define("_MI_IMLINKS_FORM_TINYEDITOR", "TinyEditor");
 define("_MI_IMLINKS_FORM_TINYMCE", "TinyMCE");
 define("_MI_IMLINKS_FORM_DHTMLEXT", "DHTML Extended");
@@ -323,4 +286,21 @@ define( '_MI_IMLINKS_SHOWRATINGDSC', 'Выберите <em>Да</em> для от
 
 // imLinks 1.00 RC-2
 define( '_MI_IMLINKS_BNAME6', 'Случайная ссылка' );
+
+// imLinks 1.01
+define( '_MI_IMLINKS_SHOWLEGEND', 'Show category legend?' );
+define( '_MI_IMLINKS_SHOWLEGENDDSC', 'With this option you can turn on/off the legend explaining the different colours of the default category icons.' );
+define( '_MI_IMLINKS_LIGHTWINDOW', 'Select how a link should be opened?' );
+define( '_MI_IMLINKS_LIGHTWINDOWDSC', 'Select <em>Default</em> to have links opened in a new browser tab/window.<br />
+									   Select <em>LightWindow</em> to have links opened in a <a href="http://www.stickmanlabs.com/lightwindow/" target="_blank">LightWindow</a>.<br />
+									   Select <em>GreyBox</em> to have links opened in a <a href="http://orangoo.com/labs/GreyBox/" target="_blank">GreyBox</a>.' );
+define( '_MI_IMLINKS_DEFAULT', 'Default' );
+
+// imLinks 1.03
+define( '_MI_IMLINKS_NICEURL', 'Use nice urls?' );
+define( '_MI_IMLINKS_NICEURLDSC', 'Use nice urls for links.' );
+define( '_MI_IMLINKS_TOMTOMAPI', 'TomTom API key:' );
+define( '_MI_IMLINKS_TOMTOMAPIDSC', 'To have a <em>Add to TomTom</em> buttom displayed with the contact details of a link you need to enter your API key here.<br />A valid API key can be requested from add2TTsupport@tomtom.com' );
+define( '_MI_IMLINKS_TOMTOMLOGO', 'Enter url for logo to display:' );
+define( '_MI_IMLINKS_TOMTOMLOGODSC', 'Enter the url of the logo to display in the window <em>Starting TomTom Home</em>.<br />This logo will displayed together with the website name for the <em>Content provided by</em>.' );
 ?>

@@ -31,8 +31,6 @@ include 'header.php';
 $xoopsOption['template_main'] = 'imlinks_newlistindex.html';
 include ICMS_ROOT_PATH . '/header.php';
 
-global $xoopsDB, $xoopsModule, $xoopsModuleConfig;
-
 $catarray['imageheader'] = iml_imageheader();
 $catarray['letters'] = iml_letters();
 $catarray['toolbar'] = iml_toolbar();
@@ -53,8 +51,8 @@ if ( isset( $_GET['newlinkshowdays'] ) ) {
 	$duration_week = ( $time_cur - ( 86400 * 7 ) );
 	$allmonthlinks = 0;
 	$allweeklinks = 0;
-	$result = $xoopsDB -> query( "SELECT lid, cid, published, updated FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE (published >= " . $duration . " AND published <= " . $time_cur . ") OR updated >= " . $duration . " AND (expired = 0 OR expired > " . $time_cur . ") AND offline = 0" );
-	while ( $myrow = $xoopsDB -> fetcharray( $result ) ) {
+	$result = icms::$xoopsDB -> query( 'SELECT lid, cid, published, updated FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE (published >= ' . $duration . ' AND published <= ' . $time_cur . ') OR updated >= ' . $duration . ' AND (expired = 0 OR expired > ' . $time_cur . ') AND offline = 0' );
+	while ( $myrow = icms::$xoopsDB -> fetcharray( $result ) ) {
 	    $published = ( $myrow['updated'] > 0 ) ? $myrow['updated'] : $myrow['published'];
 	    $allmonthlinks++;
 	    if ( $published > $duration_week ) {
@@ -73,18 +71,18 @@ if ( isset( $_GET['newlinkshowdays'] ) ) {
 	    $key = $newlinkshowdays - $i - 1;
 	    $time = $time_cur - ( 86400 * $key );
 	    $dailylinks[$key]['newlinkdayRaw'] = $time;
-	    $dailylinks[$key]['newlinkView'] = formatTimestamp( $time, $xoopsModuleConfig['dateformat'] );
+	    $dailylinks[$key]['newlinkView'] = formatTimestamp( $time, icms::$module -> config['dateformat'] );
 	    $dailylinks[$key]['totallinks'] = 0;
 	} 
 }
 
 $duration = ( $time_cur - ( 86400 * ( intval( $newlinkshowdays ) - 1 ) ) );
-$result = $xoopsDB -> query( "SELECT lid, cid, published, updated FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE (published > " . $duration . " AND published <= " . $time_cur . ") OR (updated >= " . $duration . " AND updated <= " . $time_cur . ") AND (expired = 0 OR expired > " . $time_cur . ") AND offline = 0" );
-while ( $myrow = $xoopsDB -> fetcharray( $result ) ) {
+$result = icms::$xoopsDB -> query( 'SELECT lid, cid, published, updated FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE (published > ' . $duration . ' AND published <= ' . $time_cur . ') OR (updated >= ' . $duration . ' AND updated <= ' . $time_cur . ') AND (expired = 0 OR expired > ' . $time_cur . ') AND offline = 0' );
+while ( $myrow = icms::$xoopsDB -> fetcharray( $result ) ) {
     $published = ( $myrow['updated'] > 0 ) ? $myrow['updated'] : $myrow['published'];
-    $d = date( "j", $published );
-    $m = date( "m", $published );
-    $y = date( "Y", $published );
+    $d = date( 'j', $published );
+    $m = date( 'm', $published );
+    $y = date( 'Y', $published );
     $key = intval( ( $time_cur - mktime ( 0, 0, 0, $m, $d, $y ) ) / 86400 );
     $dailylinks[$key]['totallinks']++;
 }
@@ -92,30 +90,22 @@ ksort( $dailylinks );
 reset( $dailylinks );
 $xoopsTpl -> assign( 'dailylinks', $dailylinks );
 unset( $dailylinks );
-
-$mytree = new XoopsTree( $xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
-$sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' );
-$sql .="WHERE (published > 0 AND published <= " . $time_cur . ")
-        OR
-		(updated > 0 AND updated <= " . $time_cur . ")
-		AND
-		(expired = 0 OR expired > " . $time_cur . ")
-		AND
-		offline = 0
-		ORDER BY " . $xoopsModuleConfig['linkxorder'];
-$result = $xoopsDB -> query( $sql, 10 , 0 );
-while ( $link_arr = $xoopsDB -> fetchArray( $result ) ) {
+$moderate = 0;
+$mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
+$sql  = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' );
+$sql .= ' WHERE (published > 0 AND published <= ' . $time_cur . ') OR (updated > 0 AND updated <= ' . $time_cur . ') AND (expired = 0 OR expired > ' . $time_cur . ') AND offline = 0 ORDER BY ' . icms::$module -> config['linkxorder'];
+$result = icms::$xoopsDB -> query( $sql, 10 , 0 );
+while ( $link_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
     include ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/linkloadinfo.php';
 } 
 
 // Screenshots display
-if ( $xoopsModuleConfig['screenshot'] ) {
-    $xoopsTpl -> assign( 'shots_dir', $xoopsModuleConfig['screenshots'] );
-    $xoopsTpl -> assign( 'shotwidth', $xoopsModuleConfig['shotwidth'] );
-    $xoopsTpl -> assign( 'shotheight', $xoopsModuleConfig['shotheight'] );
+if ( icms::$module -> config['screenshot'] ) {
+    $xoopsTpl -> assign( 'shots_dir', icms::$module -> config['screenshots'] );
+    $xoopsTpl -> assign( 'shotwidth', icms::$module -> config['shotwidth'] );
+    $xoopsTpl -> assign( 'shotheight', icms::$module -> config['shotheight'] );
     $xoopsTpl -> assign( 'show_screenshot', true );
 }
 $xoopsTpl -> assign( 'module_dir', $mydirname );
 include ICMS_ROOT_PATH . '/footer.php';
-
 ?>

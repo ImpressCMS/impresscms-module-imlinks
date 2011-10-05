@@ -6,67 +6,68 @@
 *
 * File: linkloadinfo.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
 
 $module_link = '';
 
-$link['id']  = intval( $link_arr['lid'] );
-$link['cid'] = intval( $link_arr['cid'] );
-$link['published'] = intval( $link_arr['published'] ) ? true : false;
+$imlink['id']  = intval( $link_arr['lid'] );
+$imlink['cid'] = intval( $link_arr['cid'] );
+$imlink['published'] = intval( $link_arr['published'] ) ? true : false;
 
 $path = $mytree -> getPathFromId( $link_arr['cid'], 'title' );
 $path = substr( $path, 1 );
 $path = basename( $path );
 $path = str_replace( '/', '', $path );
-$link['category'] = $path;
+$imlink['category'] = $path;
 
 $rating = round( number_format( $link_arr['rating'], 0 ) / 2 );
-$link['rateimg'] = 'rate' . $rating . '.gif';
+$imlink['rateimg'] = 'rate' . $rating . '.gif';
 unset( $rating );
 
-//$link['votes'] = ( $link_arr['votes'] == 1 ) ? _MD_IMLINKS_ONEVOTE : sprintf( _MD_IMLINKS_NUMVOTES, $link_arr['votes'] );
-$link['hits']  = sprintf( _MD_IMLINKS_LINKHITS, intval( $link_arr['hits'] ) ) ;
-$xoopsTpl -> assign( 'lang_dltimes', $link['hits'] );
+$imlink['hits']  = sprintf( _MD_IMLINKS_LINKHITS, intval( $link_arr['hits'] ) ) ;
+$xoopsTpl -> assign( 'lang_dltimes', $imlink['hits'] );
 
-$link['title'] = $link_arr['title'];  // Title of link
-$link['url'] = $link_arr['url']; // url of link
-$link['pagerank'] = imlinks_pagerank( $link['url'] );  // Google Pagerank
+$imlink['title'] = $link_arr['title'];  // Title of link
+$imlink['url'] = $link_arr['url']; // url of link
+if ( icms::$module -> config['showpagerank'] ) {
+	$imlink['pagerank'] = imlinks_pagerank( $imlink['url'] );  // Google Pagerank
+}
 
 if ( isset( $link_arr['screenshot'] ) ) {
-    $link['screenshot_full'] = $immyts -> htmlSpecialCharsStrip( $link_arr['screenshot'] );
-    if ( !empty( $link_arr['screenshot'] ) && file_exists( ICMS_ROOT_PATH . '/' . $xoopsModuleConfig['screenshots'] . '/' . xoops_trim( $link_arr['screenshot'] ) ) ) {
-        if ( isset( $xoopsModuleConfig['usethumbs'] ) && $xoopsModuleConfig['usethumbs'] == 1 ) {
-            $_thumb_image = new imThumbsNails( $link['screenshot_full'], $xoopsModuleConfig['screenshots'], 'thumbs' );
+    $imlink['screenshot_full'] = $immyts -> htmlSpecialCharsStrip( $link_arr['screenshot'] );
+    if ( !empty( $link_arr['screenshot'] ) && file_exists( ICMS_ROOT_PATH . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) ) ) {
+        if ( isset( icms::$module -> config['usethumbs'] ) && icms::$module -> config['usethumbs'] == 1 ) {
+            $_thumb_image = new imThumbsNails( $imlink['screenshot_full'], icms::$module -> config['screenshots'], 'thumbs' );
             if ( $_thumb_image ) {
                 $_thumb_image -> setUseThumbs( 1 );
                 $_thumb_image -> setImageType( 'gd2' );
-                $_image = $_thumb_image -> do_thumb( $xoopsModuleConfig['shotwidth'],
-													 $xoopsModuleConfig['shotheight'],
-													 $xoopsModuleConfig['imagequality'],
-													 $xoopsModuleConfig['updatethumbs'],
-													 $xoopsModuleConfig['keepaspect'] );
+                $_image = $_thumb_image -> do_thumb( icms::$module -> config['shotwidth'],
+													 icms::$module -> config['shotheight'],
+													 icms::$module -> config['imagequality'],
+													 icms::$module -> config['updatethumbs'],
+													 icms::$module -> config['keepaspect'] );
             }
-            $link['screenshot_thumb'] = ICMS_URL . "/{$xoopsModuleConfig['screenshots']}/$_image";
+            $imlink['screenshot_thumb'] = ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $_image;
         } else {
-            $link['screenshot_thumb'] = ICMS_URL . "/{$xoopsModuleConfig['screenshots']}/" . xoops_trim( $link_arr['screenshot'] );
+            $imlink['screenshot_thumb'] = ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] );
         }
     }
 }
@@ -74,47 +75,46 @@ if ( isset( $link_arr['screenshot'] ) ) {
 if ( $moderate == 0 ) {
     $time = ( $link_arr['updated'] != 0 ) ? $link_arr['updated'] : $link_arr['published'];
     $is_updated = ( $link_arr['updated'] != 0 ) ? _MD_IMLINKS_UPDATEDON : _MD_IMLINKS_PUBLISHDATE;
-    $xoopsTpl -> assign( 'lang_subdate' , $is_updated );
+    $xoopsTpl -> assign( 'lang_subdate' ,$is_updated );
 } else {
     $time = $link_arr['date'];
     $is_updated = _MD_IMLINKS_SUBMITDATE;
-    $xoopsTpl -> assign( 'lang_subdate' , $is_updated );
+    $xoopsTpl -> assign( 'lang_subdate' ,$is_updated );
 }
  
-$link['updated'] = formatTimestamp( $time, $xoopsModuleConfig['dateformat'] );
-$description = $immyts -> displayTarea( $link_arr['description'], 1, 1, 1, 1, 1 );
-$link['description'] = icms_substr( $description, 0, $xoopsModuleConfig['totalchars'], '&#8230;' );
-
-$link['submitter'] = icms_getLinkedUnameFromId( $link_arr['submitter'] );
-$link['publisher'] = ( isset( $link_arr['publisher'] ) && !empty( $link_arr['publisher'] ) ) ? $immyts -> htmlSpecialCharsStrip( $link_arr['publisher'] ) : _MD_IMLINKS_NOTSPECIFIED;
+$imlink['updated'] = formatTimestamp( $time, icms::$module -> config['dateformat'] );
+$imlink['description'] = icms_core_DataFilter::icms_substr( $link_arr['description'], 0, icms::$module -> config['totalchars'], '&#8230;' );
+$imlink['submitter'] = icms_member_user_Handler::getUserLink( $link_arr['submitter'] );
+$imlink['publisher'] = ( isset( $link_arr['publisher'] ) && !empty( $link_arr['publisher'] ) ) ? $immyts -> htmlSpecialCharsStrip( $link_arr['publisher'] ) : _MD_IMLINKS_NOTSPECIFIED;
 
 if ( $link_arr['country'] ) {
 	$country = $link_arr['country'];
-	$link['countryflag'] = ICMS_URL . '/' . $xoopsModuleConfig['flagimage']. '/' . $country . '.gif';
-	$link['countryname'] = iml_countryname( $link_arr['country'] );
-	$link['country'] = _MD_IMLINKS_COUNTRYB . '&nbsp;<img src="' . $link['countryflag'] . '" alt="' . $link['countryname'] . '" align="absmiddle" />';
+	$imlink['countryflag'] = ICMS_URL . '/' . icms::$module -> config['flagimage']. '/' . $country . '.gif';
+	$imlink['countryname'] = iml_countryname( $link_arr['country'] );
+	$imlink['country'] = _MD_IMLINKS_COUNTRYB . '&nbsp;<img src="' . $imlink['countryflag'] . '" alt="' . $imlink['countryname'] . '" title="' . $imlink['countryname'] . '" style="vertical-align: middle;" />';
 }
 
-$mail_subject = rawurlencode( sprintf( _MD_IMLINKS_INTFILEFOUND, $xoopsConfig['sitename'] ) );
-$mail_body = rawurlencode( sprintf( _MD_IMLINKS_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] );
-$link['comments'] = $link_arr['comments'];
-$whoisurl = str_replace( 'http://', '', $link['url']);
+$mail_subject = rawurlencode( sprintf( _MD_IMLINKS_INTFILEFOUND, $icmsConfig['sitename'] ) );
+$mail_body = rawurlencode( sprintf( _MD_IMLINKS_INTFILEFOUND, $icmsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] );
+$imlink['comments'] = $link_arr['comments'];
+$whoisurl = str_replace( 'http://', '', $imlink['url'] );
 
-$link['adminlink'] = '';
+$imlink['adminlink'] = '';
 if ( icms_userIsAdmin() == true && $moderate == 0 ) {
-    $link['adminlink'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/computer.png" alt="' . _MD_IMLINKS_ADMINSECTION . '" title="' . _MD_IMLINKS_ADMINSECTION . '" align="absmiddle"/></a>&nbsp;';
-    $link['adminlink'] .=  '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=edit&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_edit.png" alt="' . _MD_IMLINKS_EDIT . '" title="' . _MD_IMLINKS_EDIT . '" align="absmiddle"/></a>&nbsp;';
-    $link['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=delete&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_delete.png" alt="' . _MD_IMLINKS_DELETE . '" title="' . _MD_IMLINKS_DELETE . '" align="absmiddle"/></a>&nbsp;';
-	$link['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=clone&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_clone.png" alt="' . _MD_IMLINKS_CLONE . '" title="' . _MD_IMLINKS_CLONE . '" align="absmiddle"/></a>&nbsp;';
-    $link['adminlink'] .= '<a href="http://whois.domaintools.com/' . $whoisurl . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" align="absmiddle"/></a>';
+    $imlink['adminlink'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/computer.png" alt="' . _MD_IMLINKS_ADMINSECTION . '" title="' . _MD_IMLINKS_ADMINSECTION . '" style="vertical-align: bottom;" /></a>&nbsp;';
+    $imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=edit&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_edit.png" alt="' . _EDIT . '" title="' . _EDIT . '" style="vertical-align: bottom;" /></a>&nbsp;';
+    $imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=delete&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_delete.png" alt="' . _DELETE . '" title="' . _DELETE . '" style="vertical-align: bottom;" /></a>&nbsp;';
+	$imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=clone&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_clone.png" alt="' . _CLONE . '" title="' . _CLONE . '" style="vertical-align: bottom;" /></a>&nbsp;';
+    $imlink['adminlink'] .= '<a href="http://whois.domaintools.com/' . $whoisurl . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" style="vertical-align: bottom;" /></a>';
 } else {
-    $link['adminlink'] = '[ <a href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?op=edit&amp;lid=' . $link_arr['lid'] . '&approve=1">' . _MD_IMLINKS_APPROVE . '</a> | ';
-    $link['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?op=delete&amp;lid=' . $link_arr['lid'] . '">' . _MD_IMLINKS_DELETE . '</a> ]';
+    $imlink['adminlink'] = '[ <a href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?op=edit&amp;lid=' . $link_arr['lid'] . '&approve=1">' . _MD_IMLINKS_APPROVE . '</a> | ';
+    $imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?op=delete&amp;lid=' . $link_arr['lid'] . '">' . _DELETE . '</a> ]';
 }
 
-//$votestring = ( $link_arr['votes'] == 1 ) ? _MD_IMLINKS_ONEVOTE : sprintf( _MD_IMLINKS_NUMVOTES, $link_arr['votes'] );
-
-switch ( $xoopsModuleConfig['selectforum'] ) {
+switch ( icms::$module -> config['selectforum'] ) {
+	case '0':
+		$forum = '';
+		$forum_path_prefix = '';
     case '1':
         $forum = 'newbb';
         $forum_path_prefix = '/modules/newbb/viewforum.php?forum=';
@@ -132,31 +132,79 @@ switch ( $xoopsModuleConfig['selectforum'] ) {
         $forum_path_prefix = '/modules/newbbex/viewforum.php?forum=';
         break;	
 } 
-$xoopsforumModule = $xoopsModule -> getByDirname( $forum );
-if ( is_object( $xoopsforumModule ) && $xoopsforumModule -> getVar( 'isactive' ) ) {
-    $link['forumid'] = ( $link_arr['forumid'] > 0 ) ? $link_arr['forumid'] : 0;
-    $link['forum_path'] = $forum_path_prefix . "{$link['forumid']}";
+$module_handler = icms::handler( 'icms_module' );
+$icmsforumModule = $module_handler -> getByDirname( $forum );
+if ( is_object( $icmsforumModule ) && $icmsforumModule -> getVar( 'isactive' ) ) {
+    $imlink['forumid'] = ( $link_arr['forumid'] > 0 ) ? $link_arr['forumid'] : 0;
+    $imlink['forum_path'] = $forum_path_prefix . "{$imlink['forumid']}";
 }
 
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/_drawrating.php';
-$link['ratingbar'] = rating_bar( $link_arr['lid'], '5', $cid );
+$imlink['ratingbar'] = rating_bar( $link_arr['lid'], '5', $link_arr['cid'] );
 
-$link['icons']         = iml_displayicons( $link_arr['published'], $link_arr['status'], $link_arr['hits'] );
-$link['module_dir']    = $mydirname;
-$link['showrating']    = $xoopsModuleConfig['showrating'];
-$link['showpagerank']  = $xoopsModuleConfig['showpagerank'];
-$link['infoblock2']    = ( $link['showrating'] || $link['showpagerank'] );
-$link['quickview']     = $xoopsModuleConfig['quickview'];
-$link['comment_rules'] = $xoopsModuleConfig['com_rule'];
-$link['autoscrshot']   = $xoopsModuleConfig['useautothumb'];
-
-if ( $xoopsModuleConfig['autothumbsrc'] == 1 ) {
-	$link['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&lid='.$link_arr['lid'] . '" target="_blank"><img src="http://mozshot.nemui.org/shot/128x128?' . $link_arr['url'] . '" align="middle" alt="" /></a>';
+$nice_link = iml_nicelink( $link_arr['title'], $link_arr['nice_url'] );
+if ( icms::$module -> config['niceurl'] ) {
+	$url = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . intval( $link_arr['lid'] ) . '&amp;page=' . $nice_link;
+	$imlink['viewdetails']   = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . $link_arr['lid'] . '&amp;page=' . $nice_link . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
+	$imlink['visit'] = ICMS_URL . '/modules/' . $mydirname . '/visit.php?lid=' . $link_arr['lid'] . '&amp;page=' . $nice_link;
 } else {
-	$link['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&lid='.$link_arr['lid'] . '" target="_blank"><img src="http://open.thumbshots.org/image.pxf?url=' . $link_arr['url'] . '" width="120" height="90" align="middle" alt="" /></a>';
+	$url = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . intval( $link_arr['lid'] );
+	$imlink['viewdetails'] = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . $link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
+	$imlink['visit'] = ICMS_URL . '/modules/' . $mydirname . '/visit.php?lid=' . $link_arr['lid'];
 }
 
-$link['viewdetails'] = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
-$link['visitlink']   = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '" target="_blank">' . _MD_IMLINKS_LINKNOW . '</a>';
+$imlink['icons']         = iml_displayicons( $link_arr['published'], $link_arr['status'], $link_arr['hits'] );
+$imlink['module_dir']    = $mydirname;
+$imlink['showrating']    = icms::$module -> config['showrating'];
+$imlink['showpagerank']  = icms::$module -> config['showpagerank'];
+$imlink['infoblock2']    = ( $imlink['showrating'] || $imlink['showpagerank'] );
+$imlink['quickview']     = icms::$module -> config['quickview'];
+$imlink['comment_rules'] = icms::$module -> config['com_rule'];
+$imlink['autoscrshot']   = icms::$module -> config['useautothumb'];
+//$imlink['viewdetails']   = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
 
+switch( icms::$module -> config['lightwindow'] ) {
+	
+	// Open link in new browser tab/window
+	case 0:
+	$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
+	$imlink['visitlink']    = '<a class="button" href="' . $imlink['visit'] . '" target="_blank">' . _MD_IMLINKS_LINKNOW . '</a>';
+	$imlink['visittitle']   = '<a href="' . $imlink['visit'] . '" target="_blank">' . $link_arr['title'] . '</a>';
+	$imlink['visitscrshot'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $link_arr['screenshot'] . '" width="' . icms::$module -> config['shotwidth'] . '" height="' . icms::$module -> config['shotheight'] . '" alt="" /></a>';
+	if ( icms::$module -> config['autothumbsrc'] ) {
+		$imlink['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" target="_blank">' . iml_mozshot( $link_arr['url'] ) . '</a>';
+	} else {
+		$imlink['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" target="_blank">' . iml_thumbshot( $link_arr['url'] ) . '</a>';
+	}
+	break;
+	
+	// Open link in LightWindow
+	case 1:
+	$lightwindow = 'params="lightwindow_width=2000,lightwindow_height=2000,lightwindow_loading_animation=false" title="' . $link_arr['title'] . '" caption="' . $imlink['hits'] . '"';
+	$imlink['visitspinner'] = '<a class="lightwindow" href="' . $imlink['visit'] . '" ' . $lightwindow . '><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
+	$imlink['visitlink']    = '<a class="lightwindow button" href="' . $imlink['visit'] . '"  ' . $lightwindow . '>' . _MD_IMLINKS_LINKNOW . '</a>';
+	$imlink['visittitle']   = '<a class="lightwindow" href="' . $imlink['visit'] . '">' . $link_arr['title'] . '</a>';
+	$imlink['visitscrshot'] = '<a class="lightwindow" style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" ' . $lightwindow . '><img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $link_arr['screenshot'] . '" width="' . icms::$module -> config['shotwidth'] . '" height="' . icms::$module -> config['shotheight'] . '" alt="" /></a>';
+	if ( icms::$module -> config['autothumbsrc'] ) {
+		$imlink['autothumbsrc'] = '<a class="lightwindow" style="padding: 0 0 5px 5px;" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&lid=' . $link_arr['lid'] . '" ' . $lightwindow . '>' . iml_mozshot( $link_arr['url'] ) . '</a>';
+	} else {
+		$imlink['autothumbsrc'] = '<a class="lightwindow" style="padding: 0 0 5px 5px;" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&lid=' . $link_arr['lid'] . '" ' . $lightwindow . '>' . iml_thumbshot( $link_arr['url'] ) . '</a>';
+	}
+	break;
+	
+	// Open link in GreyBox
+	case 2:
+	$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
+	$imlink['visitlink']    = '<a class="button" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '"  rel="gb_page_center[800, 600]">' . _MD_IMLINKS_LINKNOW . '</a>';
+	$imlink['visittitle']   = '<a href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]">' . $link_arr['title'] . '</a>';
+	$imlink['visitscrshot'] = '<a href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]">
+							<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $link_arr['screenshot'] . '" width="' . icms::$module -> config['shotwidth'] . '" height="' . icms::$module -> config['shotheight'] . '" alt="" />
+							</a>';
+	if ( icms::$module -> config['autothumbsrc'] ) {
+		$imlink['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[400, 300]">' . iml_mozshot( $link_arr['url'] ) . '</a>';
+	} else {
+		$imlink['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[400, 300]">' . iml_thumbshot( $link_arr['url'] ) . '</a>';
+	}
+	break;
+}
 ?>

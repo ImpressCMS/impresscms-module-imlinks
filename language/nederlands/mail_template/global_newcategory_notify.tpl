@@ -1,15 +1,13 @@
 Beste {X_UNAME},
 
-Een nieuwe linkcategorie "{CATEGORY_NAME}" is aangemaakt op {X_SITENAME}.
+Een nieuwe link categorie "{CATEGORY_NAME}" is aangemaakt op {X_SITENAME}.
 
 Via de onderstaande link kunt u de betreffende categorie bekijken:
-
 
 {CATEGORY_URL}
 
 
-Via de onderstaande link kunt u de gehele categorie indez bekijken:
-
+Via de onderstaande link kunt u de gehele categorie index bekijken:
 
 {X_MODULE_URL}
 

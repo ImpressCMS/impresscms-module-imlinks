@@ -23,10 +23,6 @@
 * @since			1.00
 * @author		McDonald
 * @version		$Id$
-* ----------------------------------------------------------------------------------------------------------
-* translation		sato-san & burkhard
-* language		german (deutsch)
-* format			utf-8
 */
 
 define( "_AM_IMLINKS_WARNINSTALL1", "<b>WARNUNG:</b> Verzeichnis %s existiert auf dem Server! <br />Aus Sicherheitsgründen sollte das Verzeichnis gelöscht werden." );
@@ -36,43 +32,32 @@ define( "_AM_IMLINKS_WARNINSTALL3", "<b>WARNUNG:</b> Ordner %s ist auf dem Serve
 define( "_AM_IMLINKS_MODULE_NAME", "imLinks" );
 
 define( "_AM_IMLINKS_BMODIFY", "Ändern" );
-define( "_AM_IMLINKS_BDELETE", "Löschen" );
 define( "_AM_IMLINKS_BCREATE", "Anlegen" );
-define( "_AM_IMLINKS_BADD", "Hinzufügen" );
 define( "_AM_IMLINKS_BAPPROVE", "Freigeben" );
 define( "_AM_IMLINKS_BIGNORE", "Ignorieren" );
-define( "_AM_IMLINKS_BCANCEL", "Abbrechen" );
 define( "_AM_IMLINKS_BSAVE", "Speichern" );
 define( "_AM_IMLINKS_BRESET", "Zurücksetzen" );
 define( "_AM_IMLINKS_BMOVE", "Links bewegen" );
 define( "_AM_IMLINKS_BUPLOAD", "Hochladen" );
 define( "_AM_IMLINKS_BDELETEIMAGE", "Ausgewähltes Bild löschen" );
-define( "_AM_IMLINKS_BRETURN", "Zurück zur vorherigen Seite!" );
-define( "_AM_IMLINKS_DBERROR", "Datenbank Zugriffsfehler: Bitte diesen Fehler an die WF-Project Website weiterleiten" );
+define( "_AM_IMLINKS_DBERROR", "Datenbank Zugriffsfehler: Bitte diesen Fehler an die [url=http://community.impresscms.org/modules/newbb/viewforum.php?forum=9]ImpressCMS Community Forum - Module Support[/url] weiterleiten" );
 // Other Options
 define( "_AM_IMLINKS_TEXTOPTIONS", "Text Optionen:" );
-define( "_AM_IMLINKS_DISABLEHTML", " HTML Tags abschalten" );
-define( "_AM_IMLINKS_DISABLESMILEY", " Smilies abschalten" );
 define( "_AM_IMLINKS_DISABLEXCODE", " BB-Codes abschalten" );
 define( "_AM_IMLINKS_DISABLEIMAGES", " Bilder abschalten" );
 define( "_AM_IMLINKS_DISABLEBREAK", " autom. Zeilenumbruch verwenden?" );
 define( "_AM_IMLINKS_UPLOADFILE", "Link erfolgreich hochgeladen" );
 define( "_AM_IMLINKS_NOMENUITEMS", "Keine Menueinträge innerhalb des Menüs" );
 // Admin Bread crumb
-define( "_AM_IMLINKS_PREFS", "Voreinstellungen" );
 define( "_AM_IMLINKS_BUPDATE", "Modul Update" );
 define( "_AM_IMLINKS_BINDEX", "Hauptindex" );
 define( "_AM_IMLINKS_BPERMISSIONS", "Berechtigungen" );
-// define( "_AM_IMLINKS_BLOCKADMIN", "Blocks" );
-define( "_AM_IMLINKS_BLOCKADMIN", "Blockeinstellungen" );
 define( "_AM_IMLINKS_GOMODULE", "Zum Modul" );
-define( "_AM_IMLINKS_ABOUT", "Über WF-Links" );
 // Admin Summary
 define( "_AM_IMLINKS_SCATEGORY", "Kategorie: " );
 define( "_AM_IMLINKS_SFILES", "Links: " );
 define( "_AM_IMLINKS_SNEWFILESVAL", "Eingesandt: " );
 define( "_AM_IMLINKS_SMODREQUEST", "Geändert: " );
-define( "_AM_IMLINKS_SREVIEWS", "Rezensionen: " );
 
 // Admin Main Menu
 define( "_AM_IMLINKS_MCATEGORY", "Kategorieverwaltung" );
@@ -80,8 +65,7 @@ define( "_AM_IMLINKS_MLINKS", "Linkverwaltung" );
 define( "_AM_IMLINKS_MLISTBROKEN", "Liste der defekten Links" );
 define( "_AM_IMLINKS_MLISTPINGTIMES", "Anzeige der Links Pingtime" );
 define( "_AM_IMLINKS_INDEXPAGE", "Index Seitenverwaltung" );
-define( "_AM_IMLINKS_MCOMMENTS", "Kommentare" );
-define( "_AM_IMLINKS_MVOTEDATA", "Bewertungsdaten" );
+define( "_AM_IMLINKS_MVOTEDATA", "Bewertungen" );
 define( "_AM_IMLINKS_MUPLOADS", "Bild hochladen" );
 
 // Catgeory defines
@@ -98,8 +82,8 @@ define( "_AM_IMLINKS_CCATEGORY_DELETED", "Ausgewählte Kategorie gelöscht und D
 define( "_AM_IMLINKS_CCATEGORY_AREUSURE", "WARNUNG: Soll die gewählte Kategorie mit ALLEN Dateien und Kommentaren wirklich gelöscht werden?" );
 define( "_AM_IMLINKS_CCATEGORY_NOEXISTS", "Sie müssen zuerst eine Kategorie anlegen, bevor Sie einen Link hinzufügen können" );
 define( "_AM_IMLINKS_FCATEGORY_GROUPPROMPT", "Zugriffsrechte Kategorie:<div style='padding-top: 8px;'><span style='font-weight: normal;'>Wählen Sie die Benutzergruppe, die Zugrifsrechte auf die Kategorie haben soll.</span></div>" );
-define( "_AM_IMLINKS_FCATEGORY_SUBGROUPPROMPT", "Zugriffsrechte Unterkategorie:<div style='padding-top: 8px;'><span style='font-weight: normal;'>Wählen Sie die Benutzergruppe, die Zugrifsrechte auf die Unterkategorie haben soll.</span></div>" );
-define( "_AM_IMLINKS_FCATEGORY_MODGROUPPROMPT", "Moderationsrechte für Kategorie:<div style='padding-top: 8px;'><span style='font-weight: normal;'>Wählen Sie die Benutzergruppe, die Moderationsrechte auf die Kategorie haben soll.</span></div>" );
+define( "_AM_IMLINKS_FCATEGORY_SUBGROUPPROMPT", "Zugriffsrechte Unterkategorie:<div style='padding-top: 8px;'><span style='font-weight: normal;'>Select user groups who will have permission to submit new links to this category.</span></div>" );
+define( "_AM_IMLINKS_FCATEGORY_MODGROUPPROMPT", "Zugriffsrechte Moderation:<div style='padding-top: 8px;'><span style='font-weight: normal;'>Select user groups who will have permission to moderate this category.</span></div>" );
 
 define( "_AM_IMLINKS_FCATEGORY_TITLE", "Kategorietitel:" );
 define( "_AM_IMLINKS_FCATEGORY_WEIGHT", "Kategoriegewichtung:" );
@@ -107,9 +91,8 @@ define( "_AM_IMLINKS_FCATEGORY_SUBCATEGORY", "Setze als Unterkategorie von:" );
 define( "_AM_IMLINKS_FCATEGORY_CIMAGE", "Kategoriebild auswählen:" );
 define( "_AM_IMLINKS_FCATEGORY_DESCRIPTION", "Kategoriebeschreibung:" );
 define( "_AM_IMLINKS_FCATEGORY_SUMMARY", "Kategoriezusammenfassung:" );
-/**
- * Index page Defines
- */
+
+//Index page Defines
 define( "_AM_IMLINKS_IPAGE_UPDATED", "Indexseite geändert und Datenbank erfolgreich aktualisiert!" );
 define( "_AM_IMLINKS_IPAGE_INFORMATION", "Indexseite Information" );
 define( "_AM_IMLINKS_IPAGE_MODIFY", "Indexseite ändern" );
@@ -122,20 +105,18 @@ define( "_AM_IMLINKS_IPAGE_CFOOTERA", "Ausrichtung Fußbereich Indexseite :" );
 define( "_AM_IMLINKS_IPAGE_CLEFT", "Linksbündig" );
 define( "_AM_IMLINKS_IPAGE_CCENTER", "Mittig" );
 define( "_AM_IMLINKS_IPAGE_CRIGHT", "Rechtsbündig" );
-/**
- * Permissions defines
- */
+
+//Permissions defines
 define( "_AM_IMLINKS_PERM_MANAGEMENT", "Berechtigungsverwaltung" );
 define( "_AM_IMLINKS_PERM_PERMSNOTE", "<div><b>Beachte:</b>, Bitte beachten Sie, daß obwohl die Berechtigungen hier korrekt gesetzt sein mögen, eine Gruppe dennoch keine Ansicht- und/oder Zugriffsrechte haben kann wenn entsprechende Modul-Rechte fehlen. Diese Rechte können unter <b>System > Gruppen</b> eingestellt werden. Dort die entsprechende Gruppe auswählen und die passenden Rechte setzen.</div>");
 define( "_AM_IMLINKS_PERM_CPERMISSIONS", "Kategorieberechtigungen" );
 define( "_AM_IMLINKS_PERM_CSELECTPERMISSIONS", "Kategorien auswählen, die jede Gruppe sehen kann" );
 define( "_AM_IMLINKS_PERM_CNOCATEGORY", "Berechtigungen können nicht gesetzt werden: Es sind noch keine Kategorien erstellt!" );
-define( "_AM_IMLINKS_PERM_FPERMISSIONS", "Link Berechtigungen" );
-define( "_AM_IMLINKS_PERM_FNOFILES", "Berechtigungen können nicht gesetzt werden: Es sind noch keine Links erstellt!" );
-define( "_AM_IMLINKS_PERM_FSELECTPERMISSIONS", "Links auswählen, die jede Gruppe sehen kann" );
-/**
- * Upload defines
- */
+define( "_AM_IMLINKS_PERM_FPERMISSIONS", "Linkberechtigungen" );
+define( "_AM_IMLINKS_PERM_FNOFILES", "Berechtigungen können nicht gesetzt werden: Es wurden noch keine Links erstellt!" );
+define( "_AM_IMLINKS_PERM_FSELECTPERMISSIONS", "Wählen Sie die Links für die Gruppe zum Anzeigen aus." );
+
+//Upload defines
 define( "_AM_IMLINKS_LINK_IMAGEUPLOAD", "Bild erfolgreich auf den Server hochgeladen" );
 define( "_AM_IMLINKS_LINK_NOIMAGEEXIST", "Fehler: Kein Link zum hochladen ausgewählt. Bitt versuchen Sie es noch einmal!" );
 define( "_AM_IMLINKS_LINK_IMAGEEXIST", "Bild existiert bereits im Upload-Ordner!" );
@@ -173,15 +154,15 @@ define( "_AM_IMLINKS_LINK_FUPLOADIMAGE", "Neues Bild zum gewählten Ordner hochl
 // Main Index defines
 define( "_AM_IMLINKS_MINDEX_LINKSUMMARY", "Zusammenfassung Modul Administration" );
 define( "_AM_IMLINKS_MINDEX_PUBLISHEDLINK", "Publizierte Links:" );
-define( "_AM_IMLINKS_MINDEX_AUTOPUBLISHEDLINK", "Auto - Publizierte Links:" );
-define( "_AM_IMLINKS_MINDEX_AUTOEXPIRE", "Automatisch abgelaufene Links:" );
-define( "_AM_IMLINKS_MINDEX_EXPIRED", "Abgelaufene Links:" );
+define( "_AM_IMLINKS_MINDEX_AUTOPUBLISHEDLINK", "Auto ublizierte Links:" );
+define( "_AM_IMLINKS_MINDEX_AUTOEXPIRE", "Auto auslaufende Links:" );
+define( "_AM_IMLINKS_MINDEX_EXPIRED", "Auslaufende Links:" );
 define( "_AM_IMLINKS_MINDEX_OFFLINELINK", "Offline Links:" );
 define( "_AM_IMLINKS_MINDEX_ID", "ID" );
 define( "_AM_IMLINKS_MINDEX_TITLE", "Link Titel" );
 define( "_AM_IMLINKS_MINDEX_POSTER", "Veröffentlicht von" );
 define( "_AM_IMLINKS_MINDEX_ONLINE", "Status" );
-define( "_AM_IMLINKS_MINDEX_ONLINESTATUS", "Online Status" );
+define( "_AM_IMLINKS_MINDEX_ONLINESTATUS", "Onlinestatus" );
 define( "_AM_IMLINKS_MINDEX_PUBLISH", "Erstellt" );
 define( "_AM_IMLINKS_MINDEX_PUBLISHED", "Veröffentlicht" );
 define( "_AM_IMLINKS_MINDEX_EXPIRE", "Abgelaufen" );
@@ -191,7 +172,7 @@ define( "_AM_IMLINKS_MINDEX_SUBMITTED", "Einsendedatum" );
 define( "_AM_IMLINKS_MINDEX_ACTION", "Aktion" );
 define( "_AM_IMLINKS_MINDEX_NOLINKSFOUND", "BEACHTE: Keine Links vorhanden, die diese Bedingung erfüllen" );
 define( "_AM_IMLINKS_MINDEX_PAGE", "<b>Seite:<b> " );
-define( "_AM_IMLINKS_MINDEX_PAGEINFOTXT", "<ul><li>WF-links Übersichtsseite Details.</li><li>Sie können hier das Logo, den Kopfbereich, die Hauptüberschrift und den Fußtext leicht Ihren Wünschen anpassen.</li></ul><br />Anmerkung: Das Logo wird bei jedem Seitenaufruf von WF-links angezeigt." );
+define( "_AM_IMLINKS_MINDEX_PAGEINFOTXT", "&bull;&nbsp;imLinks Übersichtsseite Details.<br />&bull;&nbsp;Sie können hier das Logo, den Kopfbereich, die Hauptüberschrift und den Fußtext leicht Ihren Wünschen anpassen.<br /><br />Anmerkung: Das Logo wird bei jedem Seitenaufruf von WF-links angezeigt." );
 define( "_AM_IMLINKS_MINDEX_RESPONSE", "Antwortzeit" );
 // Submitted Links
 define( "_AM_IMLINKS_SUB_SUBMITTEDFILES", "Eingesandte Links" );
@@ -203,34 +184,34 @@ define( "_AM_IMLINKS_SUB_DELETEWAITINGFILE", "<b>Löschen</b> Information über 
 define( "_AM_IMLINKS_SUB_NOFILESWAITING", "Keine Links vorhanden, die diese Bedingung erfüllen" );
 define( "_AM_IMLINKS_SUB_NEWFILECREATED", "Neuer Link erstellt und Datenbank erfolgreich aktualisiert" );
 // Vote Information
-define( "_AM_IMLINKS_VOTE_RATINGINFOMATION", "Bewertungsinformationen" );
-define( "_AM_IMLINKS_VOTE_TOTALVOTES", "Stimmen gesamt: " );
-define( "_AM_IMLINKS_VOTE_REGUSERVOTES", "Stimmen durch registrierte Benutzer: %s" );
-define( "_AM_IMLINKS_VOTE_ANONUSERVOTES", "Stimmen durch anonyme Benutzer: %s" );
+define( "_AM_IMLINKS_VOTE_RATINGINFOMATION", "Bewertungsinformation" );
+define( "_AM_IMLINKS_VOTE_TOTALVOTES", "Gesamtbewertung: " );
+define( "_AM_IMLINKS_VOTE_REGUSERVOTES", "Angemeldete Benutzer bewerten: %s" );
+define( "_AM_IMLINKS_VOTE_ANONUSERVOTES", "Gäste bewerten: %s" );
 define( "_AM_IMLINKS_VOTE_USER", "Benutzer" );
-define( "_AM_IMLINKS_VOTE_IP", "IP - Addresse" );
-define( "_AM_IMLINKS_VOTE_DATE", "Eingesandt" );
+define( "_AM_IMLINKS_VOTE_IP", "IP Adresse" );
+define( "_AM_IMLINKS_VOTE_DATE", "Hinzugefügt" );
 define( "_AM_IMLINKS_VOTE_RATING", "Bewertung" );
-define( "_AM_IMLINKS_VOTE_NOREGVOTES", "Keine Bewertungen durch registrierte Benutzer" );
+define( "_AM_IMLINKS_VOTE_NOREGVOTES", "Keine Bewertungen durch angemeldete Benutzer" );
 define( "_AM_IMLINKS_VOTE_NOUNREGVOTES", "Keine Bewertungen durch anonyme Benutzer" );
 define( "_AM_IMLINKS_VOTE_VOTEDELETED", "Bewertungen gelöscht." );
 define( "_AM_IMLINKS_VOTE_ID", "ID" );
 define( "_AM_IMLINKS_VOTE_FILETITLE", "Linktitel" );
-define( "_AM_IMLINKS_VOTE_DISPLAYVOTES", "Bewertungen / Abstimmungen" );
-define( "_AM_IMLINKS_VOTE_NOVOTES", "Keine Benutzerstimmen zum anzeigen vorhanden" );
-define( "_AM_IMLINKS_VOTE_DELETE", "Keine Benutzerstimmen zum anzeigen vorhanden" );
-define( "_AM_IMLINKS_VOTE_DELETEDSC", "<b>Löscht</b> die ausgewählte Abstimmung aus der Datenbank." );
-define( "_AM_IMLINKS_VOTEDELETED", "Ausgewählte Abstimmung gelöscht und Datenbank aktualisiert" );
+define( "_AM_IMLINKS_VOTE_DISPLAYVOTES", "Bewertungsinformationen" );
+define( "_AM_IMLINKS_VOTE_NOVOTES", "Keine Bewertung zum anzeigen" );
+define( "_AM_IMLINKS_VOTE_DELETE", "Keine Bewertung vorhanden" );
+define( "_AM_IMLINKS_VOTE_DELETEDSC", "<b>Löschen</b> der ausgewählten Bewertungen von der Datenbank." );
+define( "_AM_IMLINKS_VOTEDELETED", "Ausgewählte Bewertungen gelöscht" );
 
-define( "_AM_IMLINKS_VOTE_USERAVG", "Bewertungsdurchschnitt" );
-define( "_AM_IMLINKS_VOTE_TOTALRATE", "Gesamtstimmen" );
-define( "_AM_IMLINKS_VOTE_MAXRATE", "Max. Stimmen je Eintrag" );
-define( "_AM_IMLINKS_VOTE_MINRATE", "Min. Stimmen je Eintrag" );
-define( "_AM_IMLINKS_VOTE_MOSTVOTEDTITLE", "Meiste Bewertungen" );
-define( "_AM_IMLINKS_VOTE_LEASTVOTEDTITLE", "Wenigste Bewertungen" );
-define( "_AM_IMLINKS_VOTE_MOSTVOTERSUID", "Aktivster Bewerter" );
-define( "_AM_IMLINKS_VOTE_REGISTERED", "Stimmen registrierter Benutzer" );
-define( "_AM_IMLINKS_VOTE_NONREGISTERED", "Stimmen anonymer Benutzer" );
+define( "_AM_IMLINKS_VOTE_USERAVG", "Durchschnittliche Bewertung von Benutzer" );
+define( "_AM_IMLINKS_VOTE_TOTALRATE", "Gesamtbewertungen" );
+define( "_AM_IMLINKS_VOTE_MAXRATE", "Höchste Bewertung" );
+define( "_AM_IMLINKS_VOTE_MINRATE", "Kleinste Bewertung" );
+define( "_AM_IMLINKS_VOTE_MOSTVOTEDTITLE", "Oft Bewertet für" );
+define( "_AM_IMLINKS_VOTE_LEASTVOTEDTITLE", "Wenig Bewertet für" );
+define( "_AM_IMLINKS_VOTE_MOSTVOTERSUID", "Benutzer mit hohen Bewertungen" );
+define( "_AM_IMLINKS_VOTE_REGISTERED", "Angemeldete Benutzer" );
+define( "_AM_IMLINKS_VOTE_NONREGISTERED", "Anonyme Benutzer" );
 // Modifications
 define( "_AM_IMLINKS_MOD_TOTMODREQUESTS", "Gesamte Änderungsanfragen: " );
 define( "_AM_IMLINKS_MOD_MODREQUESTS", "Geänderte Links" );
@@ -243,13 +224,13 @@ define( "_AM_IMLINKS_MOD_NOMODREQUEST", "Es sind keine Anfragen vorhanden, die d
 define( "_AM_IMLINKS_MOD_TITLE", "Linktitel: " );
 define( "_AM_IMLINKS_MOD_LID", "Link ID: " );
 define( "_AM_IMLINKS_MOD_CID", "Kategorie: " );
-define( "_AM_IMLINKS_MOD_URL", "Link Url: " );
-define( "_AM_IMLINKS_MOD_PUBLISHER", "Veröffentlicht von: " );
+define( "_AM_IMLINKS_MOD_URL", "Link-URL: " );
+define( "_AM_IMLINKS_MOD_PUBLISHER", "Veröffentlicht durch: " );
 define( "_AM_IMLINKS_MOD_FORUMID", "Forum: " );
-define( "_AM_IMLINKS_MOD_SCREENSHOT", "Bildschirmfoto: " );
+define( "_AM_IMLINKS_MOD_SCREENSHOT", "Bildschirmausschnitt: " );
 define( "_AM_IMLINKS_MOD_HOMEPAGE", "Homepage: " );
-define( "_AM_IMLINKS_MOD_HOMEPAGETITLE", "Name der Homepage: " );
-define( "_AM_IMLINKS_MOD_SHOTIMAGE", "Bildschrimfoto: " );
+define( "_AM_IMLINKS_MOD_HOMEPAGETITLE", "Homepage Titel: " );
+define( "_AM_IMLINKS_MOD_SHOTIMAGE", "Bildschirmausschnitt: " );
 define( "_AM_IMLINKS_MOD_DESCRIPTION", "Beschreibung: " );
 define( "_AM_IMLINKS_MOD_MODIFYSUBMITTER", "Einsender: " );
 define( "_AM_IMLINKS_MOD_MODIFYSUBMIT", "Einsender" );
@@ -257,32 +238,31 @@ define( "_AM_IMLINKS_MOD_PROPOSED", "Vorgeschlagene Linkdetails" );
 define( "_AM_IMLINKS_MOD_ORIGINAL", "Orginal Linkdetails" );
 define( "_AM_IMLINKS_MOD_REQDELETED", "Änderungsanfrage aus Datenbank entfernt" );
 define( "_AM_IMLINKS_MOD_REQUPDATED", "Ausgewählter Link geändert und Datenbank erfolgreich aktualisiert" );
-define( "_AM_IMLINKS_MOD_VIEW", "Anzeigen" );
+define( '_AM_IMLINKS_MOD_VIEW', 'Ansicht' );
 // Link management
 define( "_AM_IMLINKS_LINK_ID", "Link ID: " );
 define( "_AM_IMLINKS_LINK_IP", "IP - Addresse des Einsenders: " );
-define( "_AM_IMLINKS_LINK_ALLOWEDAMIME", "<div style='padding-top: 4px; padding-bottom: 4px;'><b>Erlaubte Dateiendungen für den Admin Link</b>:</div>" );
+define( "_AM_IMLINKS_LINK_ALLOWEDAMIME", "<div style='padding-top: 4px; padding-bottom: 4px;'><b>Allowed Admin Link Extensions</b>:</div>" );
 define( "_AM_IMLINKS_LINK_MODIFYFILE", "Ändern der Link Information" );
 define( "_AM_IMLINKS_LINK_CREATENEWFILE", "Neuen Link erstellen" );
 define( "_AM_IMLINKS_LINK_TITLE", "Link Titel: " );
 define( "_AM_IMLINKS_LINK_DLURL", "Link URL: " );
-define( "_AM_IMLINKS_LINK_DIRCA", " Internet Inhaltsbewertung: " );
 define( "_AM_IMLINKS_LINK_DESCRIPTION", "Linkbeschreibung: " );
 define( "_AM_IMLINKS_LINK_CATEGORY", "Hauptkategorie des Links: " );
 define( "_AM_IMLINKS_LINK_FILESSTATUS", " Link offline setzen?<br /><br /><span style='font-weight: normal;'>Links ist unsichtbar für alle Benutzer.</span>" );
 define( "_AM_IMLINKS_LINK_SETASUPDATED", " Link Status setzen als Updated?<br /><br /><span style='font-weight: normal;'>Das Update-Icon wird angezeigt.</span>" );
 define( "_AM_IMLINKS_LINK_SHOTIMAGE", "Bildschirmfoto des Links: " );
 define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "Diskussion im Forum hinzufügen?" );
-define( "_AM_IMLINKS_LINK_PUBLISHDATE", "Veröffentlichungsdatum:" );
+define( "_AM_IMLINKS_LINK_PUBLISHDATE", "Link Veröffentlichungsdatum:" );
 define( "_AM_IMLINKS_LINK_EXPIREDATE", "Ablaufdatum:" );
 define( "_AM_IMLINKS_LINK_CLEARPUBLISHDATE", "<br /><br />Veröffentlichungsdatum entfernen:" );
 define( "_AM_IMLINKS_LINK_CLEAREXPIREDATE", "<br /><br />Ablaufdatum entfernen:" );
 define( "_AM_IMLINKS_LINK_PUBLISHDATESET", " Veröffentlichungsdatum setzen: " );
-define( "_AM_IMLINKS_LINK_SETDATETIMEPUBLISH", " Veröffentlichungsdatum und Zeit setzen" );
+define( "_AM_IMLINKS_LINK_SETDATETIMEPUBLISH", " Setzen von Date/Zeit des Veröffentlichungsdatum" );
 define( "_AM_IMLINKS_LINK_SETDATETIMEEXPIRE", " Ablaufdatum und Zeit setzen" );
 define( "_AM_IMLINKS_LINK_SETPUBLISHDATE", "<b>Veröffentlichungsdatum setzen: </b>" );
-define( "_AM_IMLINKS_LINK_SETNEWPUBLISHDATE", "<b>Neues Veröffentlichungsdatum setzenSet: </b><br />Veröffentlicht:" );
-define( "_AM_IMLINKS_LINK_SETPUBDATESETS", "<b>Veröffentlichungsdatum setzen: </b><br />Veröffentlicht am:" );
+define( "_AM_IMLINKS_LINK_SETNEWPUBLISHDATE", "<b>Neues Veröffentlichungsdatum setzen: </b><br />Veröffentlichung:" );
+define( "_AM_IMLINKS_LINK_SETPUBDATESETS", "<b>Veröffentlichungsdatum setzen: </b><br />Veröffentlichung am:" );
 define( "_AM_IMLINKS_LINK_EXPIREDATESET", " Ablaufdatum setzen: " );
 define( "_AM_IMLINKS_LINK_SETEXPIREDATE", "<b>Ablaufdatum setzen: </b>" );
 define( "_AM_IMLINKS_LINK_DELEDITMESS", "Bericht über defekte Links löschen?<br /><br /><span style='font-weight: normal;'>Wenn Sie <b>YES</b> wählen wird der Bericht automatisch gelöscht. Überprüfen Sie, ob der Link wieder korrekt arbeitet.</span>" );
@@ -299,9 +279,7 @@ define( "_AM_IMLINKS_LINK_NEWSCATEGORY", "Newskategorie für Artikel auswählen:
 define( "_AM_IMLINKS_LINK_NEWSTITLE", "News Titel:<div style='padding-top: 4px; padding-bottom: 4px;'><span style='font-weight: normal;'>Leer lassen, um den Linktitel zu benutzen</span></div>" );
 define( "_AM_IMLINKS_LINK_PUBLISHER", "Link veröffentlicht von: " );
 
-/**
- * Broken links defines
- */
+//Broken links defines
 define( "_AM_IMLINKS_SBROKENSUBMIT", "Defekt: " );
 define( "_AM_IMLINKS_BROKEN_FILE", "Bericht über defekte Links" );
 define( "_AM_IMLINKS_BROKEN_FILEIGNORED", "Bericht über defekte Links ignoriert und erfolgreich aus der Datenbank entfernt!" );
@@ -311,63 +289,43 @@ define( "_AM_IMLINKS_BROKEN_REPORTINFO", "Information über defekte Links-Berich
 define( "_AM_IMLINKS_BROKEN_REPORTSNO", "Wartende Berichte über defekte Links:" );
 define( "_AM_IMLINKS_BROKEN_IGNOREDESC", "<b>Ignoriere</b> den Bericht und lösche nur den Bericht." );
 define( "_AM_IMLINKS_BROKEN_DELETEDESC", "<b>Lösche</b> die betroffenen Linkdaten und den Report." );
-define( "_AM_IMLINKS_BROKEN_EDITDESC", "<b>Änere</b> den Link, um das Problem zu beseitigen." );
-define( "_AM_IMLINKS_BROKEN_ACKDESC", "<b>Quittieren</b> Setzt den Quittierungsstatus für den Bericht über defekte Links." );
-define( "_AM_IMLINKS_BROKEN_CONFIRMDESC", "<b>Bestaätigt</b> Setzt den Bestätigungsstatus für den Bericht über defekte Links." );
+define( "_AM_IMLINKS_BROKEN_EDITDESC", "<b>Ändere</b> den Link, um das Problem zu beseitigen." );
+define( "_AM_IMLINKS_BROKEN_ACKDESC", "<b>Quittiert</b> Set Acknowledged state of broken file report." );
+define( "_AM_IMLINKS_BROKEN_CONFIRMDESC", "<b>Bestätigt</b> Set confirmed state of broken link report." );
 define( "_AM_IMLINKS_BROKEN_ACKNOWLEDGED", "Quittiert" );
 define( "_AM_IMLINKS_BROKEN_DCONFIRMED", "Bestätigt" );
 
 define( "_AM_IMLINKS_BROKEN_ID", "ID" );
-define( "_AM_IMLINKS_BROKEN_TITLE", "Titel" );
 define( "_AM_IMLINKS_BROKEN_REPORTER", "Reporter" );
 define( "_AM_IMLINKS_BROKEN_FILESUBMITTER", "Einsender" );
 define( "_AM_IMLINKS_BROKEN_DATESUBMITTED", "Einsendedatum" );
 define( "_AM_IMLINKS_BROKEN_ACTION", "Aktion" );
 define( "_AM_IMLINKS_BROKEN_NOFILEMATCH", "Keine Berichte über defekte Liks vorhanden, die dieses Kriterium erfüllen" );
 define( "_AM_IMLINKS_BROKENFILEDELETED", "Link und Bericht aus der Datenbank entfernt" );
-/**
- * About defines
- */
+
+// About defines
 define( "_AM_IMLINKS_BY", "von" );
-// block defines
-define( "_AM_IMLINKS_BADMIN", "Block Administration" );
-define( "_AM_IMLINKS_BLKDESC", "Beschreibung" );
-define( "_AM_IMLINKS_TITLE", "Titel" );
-define( "_AM_IMLINKS_SIDE", "Ausrichtung" );
-define( "_AM_IMLINKS_WEIGHT", "Gewichtung" );
-define( "_AM_IMLINKS_VISIBLE", "Sichtbar" );
-define( "_AM_IMLINKS_ACTION", "Aktion" );
-define( "_AM_IMLINKS_SBLEFT", "Links" );
-define( "_AM_IMLINKS_SBRIGHT", "Rechts" );
-define( "_AM_IMLINKS_CBLEFT", "Mitte links" );
-define( "_AM_IMLINKS_CBRIGHT", "Mitte rechts" );
-define( "_AM_IMLINKS_CBCENTER", "Mitte mittig" );
-define( "_AM_IMLINKS_ACTIVERIGHTS", "Active Berechtigungen" );
-define( "_AM_IMLINKS_ACCESSRIGHTS", "Zugriffsberechtigungen" );
+
 // image admin icon
 define( "_AM_IMLINKS_ICO_EDIT", "Eintrag ändern" );
 define( "_AM_IMLINKS_ICO_DELETE", "Eintrag löschen" );
-define( "_AM_IMLINKS_ICO_RESOURCE", "Resource editieren" );
-
+define( "_AM_IMLINKS_ICO_RESOURCE", "Eintrag bearbeiten" );
 define( "_AM_IMLINKS_ICO_ONLINE", "Online" );
 define( "_AM_IMLINKS_ICO_OFFLINE", "Offline" );
 define( "_AM_IMLINKS_ICO_APPROVED", "Bestätigt" );
 define( "_AM_IMLINKS_ICO_NOTAPPROVED", "Nicht bestätigt" );
-
 define( "_AM_IMLINKS_ICO_LINK", "Verwandter link" );
 define( "_AM_IMLINKS_ICO_URL", "Verwandte URL hinzufügen" );
-define( "_AM_IMLINKS_ICO_ADD", "Hinzufügen" );
 define( "_AM_IMLINKS_ICO_APPROVE", "Bestätigen" );
 define( "_AM_IMLINKS_ICO_STATS", "Statistiken" );
 define( "_AM_IMLINKS_ICO_VIEW", "Eintrag anzeigen" );
-
-define( "_AM_IMLINKS_ICO_IGNORE", "Ignorieren" );
 define( "_AM_IMLINKS_ICO_ACK", "Bericht über defekte Links quittieren" );
 define( "_AM_IMLINKS_ICO_REPORT", "Bericht über defekte Links quittieren?" );
 define( "_AM_IMLINKS_ICO_CONFIRM", "Bericht über defekte Links bestätigen" );
 define( "_AM_IMLINKS_ICO_CONBROKEN", "Bericht über defekte Links bestätigen?" );
-define( "_AM_IMLINKS_ICO_RES", "Editieren Resourcen/Links für diesen Eintrag" );
-define( "_AM_IMLINKS_MOD_URLRATING", "Interent Content Rating:" );
+define( "_AM_IMLINKS_ICO_RES", "Edit resources/links for this item" );
+define( "_AM_IMLINKS_MOD_URLRATING", "Interent content rating:" );
+
 // Alternate category
 define( "_AM_IMLINKS_ALTCAT_CREATEF", "Alternative Kategorie hinzufügen" );
 define( "_AM_IMLINKS_MALTCAT", "Alternative Kategorieverwaltung" );
@@ -375,22 +333,22 @@ define( "_AM_IMLINKS_ALTCAT_MODIFYF", "Alternative Kategorieverwaltung" );
 define( "_AM_IMLINKS_ALTCAT_INFOTEXT", "<ul><li>Alternative Kategorien können durch Benutzung dieses Formblatts hinzugefügt oder entfernt werden.</li></ul>" );
 define( "_AM_IMLINKS_ALTCAT_CREATED", "Alternative Kategorien gespeichert!" );
 
-define( "_AM_IMLINKS_MRESOURCES", "Resourcenverwaltung" );
-define( "_AM_IMLINKS_RES_CREATED", "Resourcenverwaltung" );
+define( "_AM_IMLINKS_MRESOURCES", "Resource Management" );
+define( "_AM_IMLINKS_RES_CREATED", "Resource Management" );
 define( "_AM_IMLINKS_RES_ID", "ID" );
-define( "_AM_IMLINKS_RES_DESC", "Beschreibung" );
-define( "_AM_IMLINKS_RES_NAME", "Resourcenname" );
-define( "_AM_IMLINKS_RES_TYPE", "Resourcen Typ" );
-define( "_AM_IMLINKS_RES_USER", "Benutzer" );
-define( "_AM_IMLINKS_RES_CREATEF", "Resource hinzufügen" );
-define( "_AM_IMLINKS_RES_MODIFYF", "Resource ändern" );
-define( "_AM_IMLINKS_RES_NAMEF", "Resourcenname:" );
-define( "_AM_IMLINKS_RES_DESCF", "Resourcebeschreibung:" );
-define( "_AM_IMLINKS_RES_URLF", "Resourcen - URL:" );
-define( "_AM_IMLINKS_RES_ITEMIDF", "Resourcen Eintrag ID:" );
-define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>Neue Resourcen können durch Benutzung dieses Formblatts hinzugefügt oder entfernt werden.</li>
-	<li>Auflisten aller verlinkten Resourcen</li>
-	<li>Resourcenname und Beschreibung ändern</li></ul>
+define( "_AM_IMLINKS_RES_DESC", "Description" );
+define( "_AM_IMLINKS_RES_NAME", "Resource Name" );
+define( "_AM_IMLINKS_RES_TYPE", "Resource Type" );
+define( "_AM_IMLINKS_RES_USER", "User" );
+define( "_AM_IMLINKS_RES_CREATEF", "Add Resource" );
+define( "_AM_IMLINKS_RES_MODIFYF", "Modify Resource" );
+define( "_AM_IMLINKS_RES_NAMEF", "Resource name:" );
+define( "_AM_IMLINKS_RES_DESCF", "Resource description:" );
+define( "_AM_IMLINKS_RES_URLF", "Resource URL:" );
+define( "_AM_IMLINKS_RES_ITEMIDF", "Resource Item ID:" );
+define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>New resources can be added, edited or removed easily via this form.</li>
+	<li>List all resources linked to a link</li>
+	<li>Modify resource name and description</li></ul>
 	" );
 define( "_AM_IMLINKS_LISTBROKEN", "Möglicherweise defekte Links anzeigen. PS: Die Resultate sind eventuell nicht genau und sollten nur als grober Anhalt dienen.<br /><br />Überprüfen Sie zuerst die existierenden Links bevor Sie weiter Aktionen durchführen." );
 define( "_AM_IMLINKS_PINGTIMES", "Zeigt die erste geschätzte Pingzeit für jeden Link.<br /><br />PS: Die Resultate sind eventuell nicht genau und sollten nur als grober Anhalt dienen." );
@@ -417,7 +375,7 @@ define( "_AM_IMLINKS_CHECKURL", "URL überprüfen" );
 define( "_AM_IMLINKS_CATTITLE", "Kategorie" );
 define( "_AM_IMLINKS_LINK_GOOGLEMAP", "Google Landkarte" );
 define( "_AM_IMLINKS_LINK_YAHOOMAP", "Yahoo Landkarte" );
-define( "_AM_IMLINKS_LINK_MULTIMAP", "Multimap Landkarte" );
+define( "_AM_IMLINKS_LINK_BINGMAP", "Bing Landkarte" );
 define( "_AM_IMLINKS_LINK_CHECKMAP", "Check Landkarte" );
 define( "_AM_IMLINKS_STREET1", "Anschrift" );
 define( "_AM_IMLINKS_STREET2", "Anschrift2 (optional)" );
@@ -429,14 +387,13 @@ define( "_AM_IMLINKS_FAX", "Fax" );
 
 // Version 1.05 RC2
 define( "_AM_IMLINKS_WARNINSTALL4", "<b>WARNUNG:</b> Ordner %s besitzt keine Schreibrechte (chmod 0777). <br />Dieser Ordner wird von WF-Links benötigt." );
+
 // Version 1.05 RC5
 define( "_AM_IMLINKS_VOIP", "VoIP" );
 define( "_AM_IMLINKS_LINK_SUBMITTER", "Link Submitter Name: " );
 define( "_AM_IMLINKS_MOBILE", "Handy" );
 define( "_AM_IMLINKS_CATSPONSOR", "Sponsorenkategorie wählen:" );
 define( "_AM_IMLINKS_CATSPONSORDSC", "If you select a Client the banner id from the form below will not be saved!" );
-define( "_AM_IMLINKS_BANNER", "Banner" );
-define( "_AM_IMLINKS_FBANNER", "Banner" );
 define( "_AM_IMLINKS_BANNERID", "Banner-ID wählen:" );
 define( "_AM_IMLINKS_BANNERIDDSC", "If you have selected a Client in the form above the banner id will not be saved!" );
 
@@ -474,10 +431,10 @@ define( "_AM_IMLINKS_ERRORSRETURNUPLOAD", "<h4>Fehler während des Datentransfer
 define( "_AM_IMLINKS_DOESNOTEXIST", " existiert nicht!" );
 define( "_AM_IMLINKS_INFORMATION", "Link Information" );
 define( "_AM_IMLINKS_HITS", "Hits: " );
-define( "_AM_IMLINKS_PAGERANK", "PageRank&trade;: ");
+define( "_AM_IMLINKS_PAGERANK", "PageRank™: ");
 define( "_AM_IMLINKS_ERROR_CATISCAT", "Es ist natürlich nicht möglich eine Kategorie als Untergaterie auf sich selbst zu setzen!" );
 define( "_AM_IMLINKS_MOD_COUNTRY", "Land:" );
-define( "_AM_IMLINKS_MOD_KEYWORDS", "Schlüsselwörter:" );
+define( "_AM_IMLINKS_MOD_KEYWORDS", "Keywords:" );
 define( "_AM_IMLINKS_MOD_ITEM_TAG", "Tags:" );
 define( "_AM_IMLINKS_MOD_GOOGLEMAP", "Google Maps:" );
 define( "_AM_IMLINKS_MOD_YAHOOMAP", "Yahoo Maps:" );
@@ -486,13 +443,13 @@ define( "_AM_IMLINKS_MOD_STREET1", "Anschrift 1:" );
 define( "_AM_IMLINKS_MOD_STREET2", "Anschrift 2 (optional):" );
 define( "_AM_IMLINKS_MOD_TOWN", "Ort:" );
 define( "_AM_IMLINKS_MOD_STATE", "Bundesland:" );
-define( "_AM_IMLINKS_MOD_ZIP", "Postleitzahl:" );
-define( "_AM_IMLINKS_MOD_TEL", "Festnetz:" );
+define( "_AM_IMLINKS_MOD_ZIP", "PLZ:" );
+define( "_AM_IMLINKS_MOD_TEL", "Telefon:" );
 define( "_AM_IMLINKS_MOD_FAX", "Fax:" );
 define( "_AM_IMLINKS_MOD_VOIP", "VoIP:" );
-define( "_AM_IMLINKS_MOD_MOBILE", "Handy:" );
+define( "_AM_IMLINKS_MOD_MOBILE", "Mobil:" );
 define( "_AM_IMLINKS_MOD_EMAIL", "E-Mail:" );
-define( "_AM_IMLINKS_MOD_VAT", "USt-IdNr:" );
+define( "_AM_IMLINKS_MOD_VAT", "USt-IdNr.:" );
 
 // version 1.06 RC-2
 define( "_AM_IMLINKS_IPAGE_SHOWLATEST", "Zeige letzte Einträge?" );
@@ -514,51 +471,63 @@ define( '_AM_IMLINKS_LINKURLDSC', 'Bildzeichen anklicken zum Öffnen in einem ne
 define( '_AM_IMLINKS_STREETTWODSC', 'Dieses Feld ist optional. Wird es leer gelassen, wird es nicht benutzt.' );
 define( '_AM_IMLINKS_STATEDSC', 'Geben Sie den Landkreis, Bezirk, Provinz, Staat... ein. Wird es leer gelassen, wird es nicht benutzt.' );
 define( '_AM_IMLINKS_EMAILDSC', 'Email Adresse im Format:<br />- name@domain.com<br />- mailto:name@domain.com eingeben' );
-define( '_AM_IMLINKS_CLONE', '**KLONEN**' );
 define( '_AM_IMLINKS_CLONELINK', 'Link klonen' );
 define( '_AM_IMLINKS_ICO_CLONE', 'Diesen Eintrag klonen' );
-define( '_AM_IMLINKS_RSSFEED', 'RSS Feed' );
-define( '_AM_IMLINKS_RSSFEEDCFG', 'RSS Feed Konfiguration' );
-define( '_AM_IMLINKS_RSSFEEDDSC', 'Hier kann der RSS feed für das Modul eingestellt werden.<br />Für weitere Infos bitte die Webseite <a href="http://www.rssboard.org/" target="_blank">RSS Advisory Board</a> besuchen.' );
-define( '_AM_IMLINKS_RSSACTIVE', 'RSS feed aktivieren' );
-define( '_AM_IMLINKS_RSSACTIVEDSC', 'Wählen Sie <em>Ja</em> um den RSS feed für imLinks einzuschalten, oder <em>Nein</em> zum Ausschalten.' );
-define( '_AM_IMLINKS_RSSTITLE', 'RSS feed Titel' );
+define( '_AM_IMLINKS_RSSFEED', 'RSS-Feed' );
+define( '_AM_IMLINKS_RSSFEEDCFG', 'RSS-Feed Konfiguration' );
+define( '_AM_IMLINKS_RSSFEEDDSC', 'Hier kann der RSS-Feed für das Modul eingestellt werden.<br />Für weitere Infos bitte die Webseite <a href="http://www.rssboard.org/" target="_blank">RSS Advisory Board</a> besuchen.' );
+define( '_AM_IMLINKS_RSSACTIVE', 'RSS-Feed aktivieren' );
+define( '_AM_IMLINKS_RSSACTIVEDSC', 'Wählen Sie <em>Ja</em> um den RSS-Feed für imLinks einzuschalten, oder <em>Nein</em> zum Ausschalten.' );
+define( '_AM_IMLINKS_RSSTITLE', 'RSS-Feed Titel' );
 define( '_AM_IMLINKS_RSSTITLEDSC', 'Der Name des Kanals. It\'s how people refer to your service. If you have a website that contains the same information as your RSS file, the title of your channel should be the same as the title of your website.' );
-define( '_AM_IMLINKS_RSSLINKS', 'RSS feed Link' );
+define( '_AM_IMLINKS_RSSLINKS', 'RSS-Feed Link' );
 define( '_AM_IMLINKS_RSSLINKSDSC', 'Die URL der Website, gemäß dem Kanal.' );
-define( '_AM_IMLINKS_RSSDESCRIPTION', 'RSS feed Beschreibung' );
-define( '_AM_IMLINKS_RSSDESCRIPTIONDSC', 'Phrase oder Satz beschreibt den Kanal.' );
-define( '_AM_IMLINKS_RSSIMAGE', 'RSS feed Bild' );
+define( '_AM_IMLINKS_RSSDESCRIPTION', 'RSS-Feed Beschreibung' );
+define( '_AM_IMLINKS_RSSDESCRIPTIONDSC', 'Suchwörter oder ein Satz beschreibt den Kanal.' );
+define( '_AM_IMLINKS_RSSIMAGE', 'RSS-Feed Bild' );
 define( '_AM_IMLINKS_RSSIMAGEDSC', 'Ein besonders GIF, JPEG oder PNG Bild welches im Kanal angezeigt wird.' );
-define( '_AM_IMLINKS_RSSWIDTH', 'RSS feed Bildbreite' );
+define( '_AM_IMLINKS_RSSWIDTH', 'RSS-Feed Bildbreite' );
 define( '_AM_IMLINKS_RSSWIDTHDSC', 'Die Breite des Bildes in Pixel.<br />Maximaler Wert für die Breite ist 144.' );
-define( '_AM_IMLINKS_RSSHEIGHT', 'RSS feed Bildhöhe' );
+define( '_AM_IMLINKS_RSSHEIGHT', 'RSS-Feed Bildhöhe' );
 define( '_AM_IMLINKS_RSSHEIGHTDSC', 'Die Höhe des Bildes in Pixel.<br />Maximler Wert für die Höhe ist 400.' );
-define( '_AM_IMLINKS_RSSIMGTITLE', 'RSS feed Bildtitel' );
+define( '_AM_IMLINKS_RSSIMGTITLE', 'RSS-Feed Bildtitel' );
 define( '_AM_IMLINKS_RSSIMGTITLEDSC', 'Beschreibung des Bildes, wird benutzt für das HTML Attribut ALT &#60;img&#62; tag when the channel is rendered in HTML.' );
-define( '_AM_IMLINKS_RSSIMGLINK', 'RSS feed Bildlink' );
+define( '_AM_IMLINKS_RSSIMGLINK', 'RSS-Feed Bildlink' );
 define( '_AM_IMLINKS_RSSIMGLINKDSC', 'This is the URL of the site, when the channel is rendered, the image is a link to the site. (Note, in practice the image &#60;title&#62; and &#60;link&#62; should have the same value as the channel\'s &#60;title&#62; and &#60;link&#62;).' );
-define( '_AM_IMLINKS_RSSTTL', 'RSS feed ttl' );
+define( '_AM_IMLINKS_RSSTTL', 'RSS-Feed ttl' );
 define( '_AM_IMLINKS_RSSTTLDSC', 'ttl stands for time to live. It\'s a number of minutes that indicates how long a channel can be cached before refreshing from the source.' );
-define( '_AM_IMLINKS_RSSWEBMASTER', 'RSS feed webmaster' );
+define( '_AM_IMLINKS_RSSWEBMASTER', 'RSS-Feed Webmaster' );
 define( '_AM_IMLINKS_RSSWEBMASTERDSC', 'Email address for person responsible for technical issues relating to channel.' );
-define( '_AM_IMLINKS_RSSEDITOR', 'RSS feed channel editor' );
+define( '_AM_IMLINKS_RSSEDITOR', 'RSS-Feed Kanaleditor' );
 define( '_AM_IMLINKS_RSSEDITORDSC', 'Email address for person responsible for editorial content.' );
-define( '_AM_IMLINKS_RSSCATEGORY', 'RSS feed Kategorie' );
+define( '_AM_IMLINKS_RSSCATEGORY', 'RSS-Feed Kategorie' );
 define( '_AM_IMLINKS_RSSCATEGORYDSC', 'Specify one or more categories that the channel belongs to. Follows the same rules as the &#60;item&#62;-level category element.' );
-define( '_AM_IMLINKS_RSSGENERATOR', 'RSS feed generator' );
+define( '_AM_IMLINKS_RSSGENERATOR', 'RSS-Feed Generator' );
 define( '_AM_IMLINKS_RSSGENERATORDSC', 'String indicating the program used to generate the channel.' );
-define( '_AM_IMLINKS_RSSCOPYRIGHT', 'RSS feed Urheberschutz' );
-define( '_AM_IMLINKS_RSSCOPYRIGHTDSC', 'Copyright notice for content in the channel.' );
-define( '_AM_IMLINKS_RSSTOTAL', 'RSS feed total links' );
-define( '_AM_IMLINKS_RSSTOTALDSC', 'Give the total number of links to display in RSS feed.' );
+define( '_AM_IMLINKS_RSSCOPYRIGHT', 'RSS-Feed Urheberschutz' );
+define( '_AM_IMLINKS_RSSCOPYRIGHTDSC', 'Notiz zum Content im Kanal über den Urheber.' );
+define( '_AM_IMLINKS_RSSTOTAL', 'RSS-Feed Gesamtlinks' );
+define( '_AM_IMLINKS_RSSTOTALDSC', 'Give the total number of links to display in RSS-Feed.' );
 define( '_AM_IMLINKS_RSSDBUPDATED', 'Database has been updated successfully' );
-define( '_AM_IMLINKS_RSSOFFLINE', 'RSS feed offline message title' );
-define( '_AM_IMLINKS_RSSOFFLINEDSC', 'Enter the title for the message when RSS feed is deactived.' );
-define( '_AM_IMLINKS_RSSOFFMSG', 'RSS feed offline message' );
+define( '_AM_IMLINKS_RSSOFFLINE', 'RSS-Feed offline Nachrichtentitel' );
+define( '_AM_IMLINKS_RSSOFFLINEDSC', 'Enter the title for the message when RSS-Feed is deactived.' );
+define( '_AM_IMLINKS_RSSOFFMSG', 'RSS-Feed offline Nachricht' );
 define( '_AM_IMLINKS_RSSOFFMSGDSC', 'Enter here an explanation for why the RSS feed has been deactivated.' );
-define( '_AM_IMLINKS_RSSOFFTITLE', 'RSS feed has been deactivated.' );
-define( '_AM_IMLINKS_RSSOFFMSGDEF', 'Der RSS feed wurde vorübergehend wegen Wartungsarbeiten ausgeschaltet.' );
-define( '_AM_IMLINKS_RSSCLICKSUBMIT', 'Please click Submit to store all form values in the database!' );
-define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' );
+define( '_AM_IMLINKS_RSSOFFTITLE', 'RSS-Feed wurde deaktiviert.' );
+define( '_AM_IMLINKS_RSSOFFMSGDEF', 'Der RSS-Feed wurde vorübergehend wegen Wartungsarbeiten ausgeschaltet.' );
+define( '_AM_IMLINKS_RSSCLICKSUBMIT', 'Bitte klicken Sie auf Absenden, um alle Werte aus der Form in die Datenbank zu schreiben!' );
+define( '_AM_IMLINKS_COPYRIGHT', 'Urheberschutz' );
+
+// Version 1.01 RC-1
+define( '_AM_IMLINKS_NOREPLY', 'Keine Antwort' );
+
+// imLinks 1.03
+define( '_AM_IMLINKS_NICEURL', 'Alternative title for url:' );
+define( '_AM_IMLINKS_NICEURLDSC', 'Enter an alternative title for the link to be used in the url. When the option <em>Use nice urls</em> from Preferences is selected and this field is left empty, than the title of the link will be used.' );
+define( '_AM_IMLINKS_TOMTOM', 'Add to TomTom' );
+define( '_AM_IMLINKS_TOMTOMDSC', 'Enter the latitude and longitude of the address entered above.<br />You can find the geographic position of the address by using the website <a href="http://itouchmap.com/latlong.html" target="_blank">iTouchMap.com</a><br />Geographic latitude/longitude of the location should be in decimal degrees. May be negative; "N"/"S"/"W"/"E" suffix is not accepted. Default geodetic datum is WGS-84.<br />The geographic position should be entered as follows:<br />- Latitude: 57.2355591<br />- Longitude: -2.3535921' );
+define( '_AM_IMLINKS_TOMTOMLONG', 'Enter longitude:' );
+define( '_AM_IMLINKS_TOMTOMLAT', 'Enter latitude:' );
+define( '_AM_IMLINKS_MOD_TTLAT', 'TomTom Latitude:' );
+define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Longitude:' );
 ?>

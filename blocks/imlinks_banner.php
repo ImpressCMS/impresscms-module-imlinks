@@ -26,41 +26,30 @@
 * @version		$Id$
 */
  
-function b_imlinks_banner_show( $options ) {
-    
+function b_imlinks_banner_show( $options ) { 
 	$mydirname = basename( dirname(  dirname( __FILE__ ) ) ) ;
-    
-	global $xoopsDB;
-
     $block = array();
     $time = time();
-    $modhandler = &xoops_gethandler( 'module' );
+    $modhandler = icms::handler( 'icms_module' );
     $imlModule = &$modhandler -> getByDirname( $mydirname );
-
-    $result = $xoopsDB -> query( 'SELECT a.cid as acid, a.title, a.client_id, a.banner_id, b.bid, b.cid, b.imptotal, b.impmade, b.clicks FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' a, ' . $xoopsDB -> prefix( 'banner' ) . ' b WHERE (b.cid = a.client_id) OR (b.bid = a.banner_id) ORDER BY b.cid, b.bid, a.title ASC' );
-
-    while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
-
+    $result = icms::$xoopsDB -> query( 'SELECT a.cid as acid, a.title, a.client_id, a.banner_id, b.bid, b.cid, b.imptotal, b.impmade, b.clicks FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' a, ' . icms::$xoopsDB -> prefix( 'banner' ) . ' b WHERE (b.cid = a.client_id) OR (b.bid = a.banner_id) ORDER BY b.cid, b.bid, a.title ASC' );
+    while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
         $impmade = $myrow['impmade'];
         $clicks = $myrow['clicks'];
         $imptotal = $myrow['imptotal'];
         $bannerload = array();
-		
-        $result2 = $xoopsDB -> query( 'SELECT name FROM ' . $xoopsDB -> prefix( 'bannerclient' ) . ' WHERE cid=' . intval( $myrow['cid'] ) );
-        $myclient = $xoopsDB -> fetchArray( $result2 );
-		
+        $result2 = icms::$xoopsDB -> query( 'SELECT name FROM ' . icms::$xoopsDB -> prefix( 'bannerclient' ) . ' WHERE cid=' . intval( $myrow['cid'] ) );
+        $myclient = icms::$xoopsDB -> fetchArray( $result2 );
         if ( $impmade == 0 ) {
             $percent = 0;
         } else {
             $percent = substr( 100 * $clicks / $impmade, 0, 5 );
         }
-		
         if ( $imptotal == 0 ) {
             $left = _MB_IMLINKS_UNLIMIT;
         } else {
             $left = intval( $imptotal - $impmade );
         }
-		
         $bannerload['cat'] 		= intval( $myrow['acid'] );
         $bannerload['bid'] 		= intval( $myrow['bid'] );
         $bannerload['cid'] 		= intval( $myrow['cid'] );
@@ -82,5 +71,4 @@ function b_imlinks_banner_edit( $options ) {
     $form = '';
     return $form;
 } 
-
 ?>

@@ -1,15 +1,15 @@
 Saludos {X_UNAME},
 
-El envÌo del enlace "{LINK_NAME}" ha sido aprobado en {X_SITENAME}.
+El env√≠o del enlace "{LINK_NAME}" ha sido aprobado en {X_SITENAME}.
 
-Puede ver este enlace aquÌ:
+Puede ver este enlace aqu√≠:
 {LINK_URL}
 
 -----------
 
-Est· recibiendo este mensaje porque solicitÛ ser notificado cuando este enlace sea aprobado.
+Est√° recibiendo este mensaje porque solicit√≥ ser notificado cuando este enlace sea aprobado.
 
-Si esto es un error o no quiere seguir recibiendo futuras notificaciones actualice su suscripciÛn visitando el siguiente enlace:
+Si esto es un error o no quiere seguir recibiendo futuras notificaciones actualice su suscripci√≥n visitando el siguiente enlace:
 {X_UNSUBSCRIBE_URL}
 
 Por favor no responda este mensaje.

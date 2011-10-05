@@ -185,41 +185,6 @@ define('_MI_IMLINKS_LINK_APPROVE_NOTIFYCAP', 'Informeer mij wanneer deze link is
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYDSC', 'Ontvang informatie wanneer deze link is goedgekeurd.');
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-informatie : Link goedgekeurd');
 
-define('_MI_IMLINKS_AUTHOR_INFO', "Ontwikkelaarsinformatie");
-define('_MI_IMLINKS_AUTHOR_NAME', "Ontwikkelaar");
-define('_MI_IMLINKS_AUTHOR_DEVTEAM', "Ontwikkelingsteam");
-define('_MI_IMLINKS_AUTHOR_WEBSITE', "Ontwikkelaarswebsite");
-define('_MI_IMLINKS_AUTHOR_EMAIL', "Ontwikkelaarsemail");
-define('_MI_IMLINKS_AUTHOR_CREDITS', "Credits");
-define('_MI_IMLINKS_MODULE_INFO', "Module ontwikkelingsinformation");
-define('_MI_IMLINKS_MODULE_STATUS', "Ontwikkelingsstatus");
-define('_MI_IMLINKS_MODULE_DEMO', "Demo Site");
-define('_MI_IMLINKS_MODULE_SUPPORT', "Officiele support site");
-define('_MI_IMLINKS_MODULE_BUG', "Rapporteer een bug in deze module");
-define('_MI_IMLINKS_MODULE_FEATURE', "Suggesties voor nieuwe opties in deze module");
-define('_MI_IMLINKS_MODULE_DISCLAIMER', "Disclaimer");
-define('_MI_IMLINKS_RELEASE', "Vrijgave datum: ");
-
-define('_MI_IMLINKS_MODULE_MAILLIST', "WF-Project Mailinglijst");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTS', "Aankondigingen mailinglijst");
-define('_MI_IMLINKS_MODULE_MAILBUGS', "Bug mailinglijst");
-define('_MI_IMLINKS_MODULE_MAILFEATURES', "Nieuwe opties mailinglijst");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTSDSC', "Ontvang de laatste aankondigingen van het WF-Project.");
-define('_MI_IMLINKS_MODULE_MAILBUGSDSC', "Bug Tracking en inzendingen mailinglijst");
-define('_MI_IMLINKS_MODULE_MAILFEATURESDSC', "Verzoek nieuwe opties mailinglijst.");
-
-define('_MI_IMLINKS_WARNINGTEXT', "THE SOFTWARE IS PROVIDED BY WF-PROJECTS \"AS IS\" AND \"WITH ALL FAULTS.\"
-WF-PROJECTS MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING
-THE QUALITY, SAFETY OR SUITABILITY OF THE SOFTWARE, EITHER EXPRESS OR
-IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
-FURTHER, WF-PROJECTS MAKES NO REPRESENTATIONS OR WARRANTIES AS TO THE TRUTH,
-ACCURACY OR COMPLETENESS OF ANY STATEMENTS, INFORMATION OR MATERIALS
-CONCERNING THE SOFTWARE THAT IS CONTAINED IN WF-Project WEBSITE. IN NO
-EVENT WILL WF-PROJECTS BE LIABLE FOR ANY INDIRECT, PUNITIVE, SPECIAL,
-INCIDENTAL OR CONSEQUENTIAL DAMAGES HOWEVER THEY MAY ARISE AND EVEN IF
-WF-PROJECT HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.");
-
 define('_MI_IMLINKS_AUTHOR_CREDITSTEXT',"Het WF-Projects Team wil de volgende mensen bedanken voor hun hulp en ondersteuning gedurende de ontwikkelingsfase van deze module.<br /></br />EdStacey, maumed, banned, krobi, Pnooka, MarcoFr, cosmodrum, placebo333");
 define('_MI_IMLINKS_AUTHOR_BUGFIXES', "Bug Fix geschiedenis");
 
@@ -236,16 +201,14 @@ define('_MI_IMLINKS_DISPLAYFORUM3', "PHPBB2 Module");
 // added by McDonald
 define("_MI_IMLINKS_COUNTRY", "Land:" );
 define("_MI_IMLINKS_EDITOR", "Te gebruiken editor (admin):");
-define("_MI_IMLINKS_EDITORCHOICE", "Selekteer de te gebruiken editor voor admins. Als u een eenvoudige installatie heeft (bijv. u gebruikt alleen de Xoops core editors), dan kunt u gewoon DHTML en Compact kiezen.");
+define("_MI_IMLINKS_EDITORCHOICE", "Selekteer de te gebruiken editor voor admins.");
 define("_MI_IMLINKS_EDITORUSER", "Te gebruiken editor (gebruiker):");
-define("_MI_IMLINKS_EDITORCHOICEUSER", "Selekteer de te gebruiken editor voor gebruikers. Als u een eenvoudige installatie heeft (bijv. u gebruikt alleen de Xoops core editors), dan kunt u gewoon DHTML en Compact kiezen.");
+define("_MI_IMLINKS_EDITORCHOICEUSER", "Selekteer de te gebruiken editor voor gebruikers.");
 define("_MI_IMLINKS_FORM_DHTML","DHTML");
 define("_MI_IMLINKS_FORM_COMPACT","Compact");
-define("_MI_IMLINKS_FORM_SPAW","Spaw Editor");
 define("_MI_IMLINKS_FORM_HTMLAREA","HtmlArea Editor");
 define("_MI_IMLINKS_FORM_FCK","FCK Editor");
 define("_MI_IMLINKS_FORM_KOIVI","Koivi Editor");
-define("_MI_IMLINKS_FORM_INBETWEEN","Inbetween");
 define("_MI_IMLINKS_FORM_TINYEDITOR","TinyEditor");
 define("_MI_IMLINKS_FORM_TINYMCE", "TinyMCE");
 define("_MI_IMLINKS_FORM_DHTMLEXT", "DHTML Extended");
@@ -329,4 +292,21 @@ define( '_MI_IMLINKS_SHOWRATINGDSC', 'Kies <em>Ja</em> om alle stem opties te la
 
 // imLinks 1.00 RC-2
 define( '_MI_IMLINKS_BNAME6', 'Willekeurige link' );
+
+// imLinks 1.01
+define( '_MI_IMLINKS_SHOWLEGEND', 'Laat categorie legenda zien?' );
+define( '_MI_IMLINKS_SHOWLEGENDDSC', 'Met deze optie kunt u de legenda welke de verschillende kleuren van de standaard categorie iconen uitlegt wel/niet laten zien.' );
+define( '_MI_IMLINKS_LIGHTWINDOW', 'Kies hoe een link geopend moet worden:' );
+define( '_MI_IMLINKS_LIGHTWINDOWDSC', 'Kies <em>Standaard</em> om linken in een nieuw browser tab/venster te openen.<br />
+									   Kies <em>LightWindow</em> om linken te openen in een <a href="http://www.stickmanlabs.com/lightwindow/" target="_blank">LightWindow</a>.<br />
+									   Kies <em>GreyBox</em> om linken te openen in een <a href="http://orangoo.com/labs/GreyBox/" target="_blank">GreyBox</a>.' );
+define( '_MI_IMLINKS_DEFAULT', 'Standaard' );
+
+// imLinks 1.03
+define( '_MI_IMLINKS_NICEURL', 'Gebruik nette urls?' );
+define( '_MI_IMLINKS_NICEURLDSC', 'Gebruik nette urls voor de linken.' );
+define( '_MI_IMLINKS_TOMTOMAPI', 'TomTom API key:' );
+define( '_MI_IMLINKS_TOMTOMAPIDSC', 'Om een <em>Add to TomTom</em> knop zichtbaar te hebben met de contact gegevens van een link dient hier uw API key opgegeven te worden.<br />Een geldige API key kan opgevraagd worden bij add2TTsupport@tomtom.com' );
+define( '_MI_IMLINKS_TOMTOMLOGO', 'Geef url van logo om weer te geven:' );
+define( '_MI_IMLINKS_TOMTOMLOGODSC', 'Geef de url van het logo dat dient te worden weergegeven in het scherm<em>TomTom Home Starten</em>.<br />Dit logo wordt samen met de naam van de website weergegeven voor <em>Inhoud geleverd door</em>.' );
 ?>

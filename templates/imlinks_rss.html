@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title><{$channel_title}></title>
     <link><{$channel_link}></link>
@@ -22,6 +22,7 @@
       <height><{$channel_height}></height>
     </image>
     <{/if}>
+	<atom:link href="<{$channel_link}>/modules/<{$channel_folder}>/feed.php" rel="self" type="application/rss+xml" />
     <{foreach item=item from=$items}>
     <item>
       <title><{$item.title}></title>
@@ -30,7 +31,6 @@
       <pubDate><{$item.pubdate}></pubDate>
       <guid><{$item.guid}></guid>
 	  <category><{$item.category}></category>
-	  <author><{$item.author}></author>
     </item>
     <{/foreach}>
   </channel>

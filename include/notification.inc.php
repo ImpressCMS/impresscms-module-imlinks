@@ -26,48 +26,46 @@
 * @version		$Id$
 */
 
-function imlinks_notify_iteminfo($category, $item_id) {
-        $mydirname = basename( dirname( __FILE__ ) );
-	global $xoopsModule, $xoopsModuleConfig, $xoopsConfig;
+function imlinks_notify_iteminfo( $category, $item_id ) {
+	$mydirname = basename( dirname(  dirname( __FILE__ ) ) );
 
-	if (empty($xoopsModule) || $xoopsModule -> getVar('dirname') != $mydirname) {
-		$module_handler =& xoops_gethandler('module');
-		$module =& $module_handler -> getByDirname($mydirname);
-		$config_handler =& xoops_gethandler('config');
-		$config =& $config_handler -> getConfigsByCat(0, $module -> getVar('mid'));
+	if ( empty( icms::$module ) || icms::$module -> getVar('dirname') != $mydirname ) {
+		$module_handler = icms::handler( 'icms_module' );
+		$module =& $module_handler -> getByDirname( $mydirname );
+		$config_handler = icms::$config;
+		$config =& $config_handler -> getConfigsByCat( 0, $module -> getVar('mid') );
 	} else {
-		$module =& $xoopsModule;
-		$config =& $xoopsModuleConfig;
+		$module = icms::$module;
+		$config = icms::$config;
 	}
 
-	if ($category == 'global') {
+	if ( $category == 'global' ) {
 		$item['name'] = '';
 		$item['url'] = '';
 		return $item;
 	}
 
-	global $xoopsDB;
-	if ($category == 'category') {
+	if ( $category == 'category' ) {
 		// Assume we have a valid category id
-		$sql="SELECT title FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE cid=" . $item_id;
-		if (!$result = $xoopsDB -> query($sql)) {
+		$sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $item_id;
+		if ( !$result = icms::$xoopsDB -> query($sql) ) {
 		    return false;
 		}
-		$result_array = $xoopsDB -> fetchArray($result);
+		$result_array = icms::$xoopsDB -> fetchArray( $result );
 		$item['name'] = $result_array['title'];
 		$item['url'] = ICMS_URL . '/modules/' . $mydirname . '/viewcat.php?cid=' . $item_id;
 		return $item;
 	}
 
-	if ($category == 'link') {
+	if ( $category == 'link' ) {
 		// Assume we have a valid file id
-		$sql="SELECT cid,title FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE lid=" . $item_id;
-		if (!$result = $xoopsDB -> query($sql)) {
+		$sql = 'SELECT cid,title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $item_id;
+		if ( !$result = icms::$xoopsDB -> query($sql) ) {
 		    return false;
 		}
-		$result_array = $xoopsDB -> fetchArray($result);
+		$result_array = icms::$xoopsDB -> fetchArray( $result );
 		$item['name'] = $result_array['title'];
-		$item['url'] = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $result_array['cid'] . '&amp;lid=' . $item_id;
+		$item['url'] = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . $item_id;
 		return $item;
 	}
 }

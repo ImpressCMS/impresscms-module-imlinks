@@ -323,4 +323,21 @@ define( '_MI_IMLINKS_SHOWRATINGDSC', '<em>はい</em> で評価を表示しま�
 
 // imLinks 1.00 RC-2
 define("_MI_IMLINKS_BNAME6", "ランダムリンク");
+
+// imLinks 1.01
+define( '_MI_IMLINKS_SHOWLEGEND', 'カテゴリの説明が必要' );
+define( '_MI_IMLINKS_SHOWLEGENDDSC', 'このオプションでカテゴリアイコンの詳しい説明を表示します' );
+define( '_MI_IMLINKS_LIGHTWINDOW', 'リンクをどうやってひらく？:' );
+define( '_MI_IMLINKS_LIGHTWINDOWDSC', 'Select <em>Default</em> では新しいウインドウを開きます<br />
+									   Select <em>LightWindow</em> では<a href="http://www.stickmanlabs.com/lightwindow/" target="_blank">LightWindow</a>を使って表示.<br />
+									   Select <em>GreyBox</em> では<a href="http://orangoo.com/labs/GreyBox/" target="_blank">GreyBox</a>を使って表示.' );
+define( '_MI_IMLINKS_DEFAULT', 'デフォルト' );
+
+// imLinks 1.03
+define( '_MI_IMLINKS_NICEURL', 'Use nice urls?' );
+define( '_MI_IMLINKS_NICEURLDSC', 'Use nice urls for links.' );
+define( '_MI_IMLINKS_TOMTOMAPI', 'TomTom API key:' );
+define( '_MI_IMLINKS_TOMTOMAPIDSC', 'To have a <em>Add to TomTom</em> buttom displayed with the contact details of a link you need to enter your API key here.<br />A valid API key can be requested from add2TTsupport@tomtom.com' );
+define( '_MI_IMLINKS_TOMTOMLOGO', 'Enter url for logo to display:' );
+define( '_MI_IMLINKS_TOMTOMLOGODSC', 'Enter the url of the logo to display in the window <em>Starting TomTom Home</em>.<br />This logo will displayed together with the website name for the <em>Content provided by</em>.' );
 ?>

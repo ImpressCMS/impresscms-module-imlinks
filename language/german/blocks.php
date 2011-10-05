@@ -23,12 +23,8 @@
 * @since			1.00
 * @author		McDonald
 * @version		$Id$
-* ----------------------------------------------------------------------------------------------------------
-* translation		sato-san & burkhard
-* language		german (deutsch)
-* format			utf-8
 */
- 
+
 // Blocks
 define( "_MB_IMLINKS_DISP", "Anzeige" );
 define( "_MB_IMLINKS_FILES", "Links" );

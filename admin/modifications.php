@@ -28,128 +28,132 @@
 
 include 'admin_header.php';
 
-global $mytree, $xoopsModuleConfig;
-
 $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
-$requestid = iml_cleanRequestVars( $_REQUEST, 'requestid', 0 );
+$requestid = intval( iml_cleanRequestVars( $_REQUEST, 'requestid', 0 ) );
 
 switch ( strtolower( $op ) ) {
     case 'listmodreqshow':
 
-        xoops_cp_header();
+        icms_cp_header();
         iml_adminmenu( '', _AM_IMLINKS_MOD_MODREQUESTS );
 
-        $sql = "SELECT modifysubmitter, requestid, lid, cid, title, url, description, screenshot, forumid, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat FROM " . $xoopsDB -> prefix( 'imlinks_mod' ) . " WHERE requestid=" . $requestid;
-        $mod_array = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+        $sql = 'SELECT modifysubmitter, requestid, lid, cid, title, url, description, screenshot, forumid, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, ttlat, ttlong FROM ' . icms::$xoopsDB -> prefix( 'imlinks_mod' ) . ' WHERE requestid=' . $requestid;
+        $mod_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
         unset( $sql );
 
-        $sql = "SELECT submitter, lid, cid, title, url, description, screenshot, forumid, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE lid=" . $mod_array['lid'] ;
-        $orig_array = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+        $sql = 'SELECT submitter, lid, cid, title, url, description, screenshot, forumid, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, ttlat, ttlong FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $mod_array['lid'];
+        $orig_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
         unset( $sql );
 
-        $orig_user = new XoopsUser( $orig_array['submitter'] );
-        $submittername = xoops_getLinkedUnameFromId( $orig_array['submitter'] );
+        $orig_user = new icmsUser( $orig_array['submitter'] );
+        $submittername = icms_member_user_Handler::getUserLink( $orig_array['submitter'] );
         $submitteremail = $orig_user -> getUnameFromId( 'email' );
 
-        echo "<div><b>" . _AM_IMLINKS_MOD_MODPOSTER . "</b> $submittername</div>";
+        echo '<div><b>' . _AM_IMLINKS_MOD_MODPOSTER . '</b> ' . $submittername . '</div>';
+		
         $not_allowed = array( 'lid', 'submitter', 'requestid', 'modifysubmitter' );
-        $sform = new XoopsThemeForm( _AM_IMLINKS_MOD_ORIGINAL, 'storyform', 'index.php' );
+		
+        $sform = new icms_form_Theme( _AM_IMLINKS_MOD_ORIGINAL, 'storyform', 'index.php' );
+		$sform -> setExtra( 'enctype="multipart/form-data"' );
+		
         foreach ( $orig_array as $key => $content ) {
-            if ( in_array( $key , $not_allowed ) ) {
+            if ( in_array( $key, $not_allowed ) ) {
                 continue;
             } 
-            $lang_def = constant( _AM_IMLINKS_MOD_ . strtoupper( $key ) );
-
+            $lang_def = constant( '_AM_IMLINKS_MOD_' . strtoupper( $key ) );
             if ( $key == 'cid' ) {
-                $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE cid=" . $content;
-                $row = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+                $sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $content;
+                $row = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
                 $content = $row['title'];
             } 
             if ( $key == 'forumid' ) {
                 $content = '';
-                $modhandler = &xoops_gethandler( 'module' );
-                $xoopsforumModule = &$modhandler -> getByDirname( 'newbb' );
-                $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'bb_categories' ) . " WHERE cid=" . $content;
-                if ( $xoopsforumModule && $content > 0 ) {
-                    $content = "<a href='" . ICMS_URL . "/modules/newbb/viewforum.php?forum=" . $content . "'>Forumid</a>";
+                $modhandler = icms::handler( 'icms_module' );
+                $icmsforumModule = &$modhandler -> getByDirname( 'newbb' );
+                $sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'bb_categories' ) . ' WHERE cid=' . $content;
+                if ( $icmsforumModule && $content > 0 ) {
+                    $content = '<a href="' . ICMS_URL . '/modules/newbb/viewforum.php?forum=' . $content . '">Forumid</a>';
                 } 
             } 
             if ( $key == 'screenshot' ) {
                 $content = '';
                 if ( $content > 0 )
-                    $content = "<img src='" . ICMS_URL . "/" . $xoopsModuleConfig['screenshots'] . "/" . $logourl . "' width='" . $xoopsModuleConfig['shotwidth'] . "' alt='' />";
+                    $content = '<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $logourl . '" width="' . icms::$module -> config['shotwidth'] . '" alt="" />';
             } 
             if ( $key == 'country' ) {
               $content = iml_countryname( $mod_array['country'] );
             }
-            $sform -> addElement( new XoopsFormLabel( $lang_def, $content ) );
+            $sform -> addElement( new icms_form_elements_Label( $lang_def, $content ) );
         } 
         $sform -> display();
 
-        $orig_user = new XoopsUser( $mod_array['modifysubmitter'] );
-        $submittername = xoops_getLinkedUnameFromId( $mod_array['modifysubmitter'] );
+        $orig_user = new icmsUser( $mod_array['modifysubmitter'] );
+        $submittername = icms_member_user_Handler::getUserLink( $mod_array['modifysubmitter'] );
         $submitteremail = $orig_user -> getUnameFromId( 'email' );
 
-        echo "<div><b>" . _AM_IMLINKS_MOD_MODIFYSUBMITTER . "</b> $submittername</div>";
-        $sform = new XoopsThemeForm( _AM_IMLINKS_MOD_PROPOSED, 'storyform', 'modifications.php' );
+        echo '<br /><div><b>' . _AM_IMLINKS_MOD_MODIFYSUBMITTER . '</b> ' . $submittername . '</div>';
+		
+        $sform = new icms_form_Theme( _AM_IMLINKS_MOD_PROPOSED, 'storyform', 'modifications.php' );
+		$sform -> setExtra( 'enctype="multipart/form-data"' );
+		
         foreach ( $mod_array as $key => $content ) {
             if ( in_array( $key, $not_allowed ) ) {
                 continue;
             } 
-            $lang_def = constant( _AM_IMLINKS_MOD_ . strtoupper( $key ) );
+            $lang_def = constant( '_AM_IMLINKS_MOD_' . strtoupper( $key ) );
 
             if ( $key == 'cid' ) {
-                $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'imlinks_cat' ) . " WHERE cid=" . $content;
-                $row = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+                $sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $content;
+                $row = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
                 $content = $row['title'];
             } 
             if ( $key == 'forumid' ) {
                 $content = '';
-                $modhandler = &xoops_gethandler( 'module' );
-                $xoopsforumModule = &$modhandler -> getByDirname( 'newbb' );
-                $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'bb_categories' ) . " WHERE cid=" . $content;
+                $modhandler = icms::handler( 'icms_module' );
+                $icmsforumModule = &$modhandler -> getByDirname( 'newbb' );
+                $sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'bb_categories' ) . ' WHERE cid=' . $content;
                 $content = '';
-                if ( $xoopsforumModule && $content > 0 ) {
-                    $content = "<a href='" . ICMS_URL . "/modules/newbb/viewforum.php?forum=" . $content . "'>Forumid</a>";
+                if ( $icmsforumModule && $content > 0 ) {
+                    $content = '<a href="' . ICMS_URL . '/modules/newbb/viewforum.php?forum=' . $content . '">Forumid</a>';
                 } 
             } 
             if ( $key == 'screenshot' ) {
                 $content = '';
                 if ( $content > 0 )
-                    $content = "<img src='" . ICMS_URL . "/" . $xoopsModuleConfig['screenshots'] . "/" . $logourl . "' width='" . $xoopsModuleConfig['shotwidth'] . "' alt='' />";
+                    $content = '<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $logourl . '" width="' . icms::$module -> config['shotwidth'] . '" alt="" />';
             } 
             if ( $key == 'country' ) {
               $content = iml_countryname( $mod_array['country'] );
             }
-            $sform -> addElement( new XoopsFormLabel( $lang_def, $content ) );
+            $sform -> addElement( new icms_form_elements_Label( $lang_def, $content ) );
         } 
-        $button_tray = new XoopsFormElementTray( '', '' );
-        $button_tray -> addElement( new XoopsFormHidden( 'requestid', $requestid ) );
-        $button_tray -> addElement( new XoopsFormHidden( 'lid', $mod_array['requestid'] ) );
-        $hidden = new XoopsFormHidden( 'op', 'changemodreq' );
+        $button_tray = new icms_form_elements_Tray( '', '' );
+        $button_tray -> addElement( new icms_form_elements_Hidden( 'requestid', $requestid ) );
+        $button_tray -> addElement( new icms_form_elements_Hidden( 'lid', $mod_array['requestid'] ) );
+        $hidden = new icms_form_elements_Hidden( 'op', 'changemodreq' );
         $button_tray -> addElement( $hidden );
         if ( $mod_array ) {
-            $butt_dup = new XoopsFormButton( '', '', _AM_IMLINKS_BAPPROVE, 'submit' );
+            $butt_dup = new icms_form_elements_Button( '', '', _AM_IMLINKS_BAPPROVE, 'submit' );
             $butt_dup -> setExtra( 'onclick="this.form.elements.op.value=\'changemodreq\'"' );
             $button_tray -> addElement( $butt_dup );
         } 
-        $butt_dupct2 = new XoopsFormButton( '', '', _AM_IMLINKS_BIGNORE, 'submit' );
+        $butt_dupct2 = new icms_form_elements_Button( '', '', _AM_IMLINKS_BIGNORE, 'submit' );
         $butt_dupct2 -> setExtra( 'onclick="this.form.elements.op.value=\'ignoremodreq\'"' );
         $button_tray -> addElement( $butt_dupct2 );
         $sform -> addElement( $button_tray );
         $sform -> display();
-        xoops_cp_footer();
+        icms_cp_footer();
         break;
 
     case 'changemodreq':
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_mod' ) . " WHERE requestid=" . $requestid;
-        $link_array = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+        $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_mod' ) . ' WHERE requestid=' . $requestid;
+        $link_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
         $lid = $link_array['lid'];
         $cid = $link_array['cid'];
         $title = $link_array['title'];
         $url = $link_array['url'];
-        $publisher = $xoopsUser -> uname();
+        $publisher = $icmsUser -> uname();
         $screenshot = $link_array['screenshot'];
         $description = $link_array['description'];
         $submitter = $link_array['modifysubmitter'];
@@ -170,17 +174,21 @@ switch ( strtolower( $op ) ) {
         $mobile = $link_array['mobile'];
         $email = $link_array['email'];
         $vat = $link_array['vat'];
+		$ttlat = $link_array['ttlat'];
+		$ttlong = $link_array['ttlong'];
         $updated = time();
 
-        $xoopsDB -> query( "UPDATE " . $xoopsDB -> prefix( 'imlinks_links' ) . " SET cid = $cid, title='$title', url='$url', submitter='$submitter', screenshot='$screenshot', publisher='$publisher', status='2', updated='$updated', description='$description', country='$country', keywords='$keywords', item_tag='$item_tag', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state',  zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat' WHERE lid = " . $lid );
-        $sql = "DELETE FROM " . $xoopsDB -> prefix( 'imlinks_mod' ) . " WHERE requestid=" . $requestid;
-        $result = $xoopsDB -> query( $sql );
+        icms::$xoopsDB -> query( "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET cid='$cid', title='$title', url='$url', submitter='$submitter', screenshot='$screenshot', publisher='$publisher', status='2', updated='$updated', description='$description', country='$country', keywords='$keywords', item_tag='$item_tag', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state', zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat', ttlat='$ttlat', ttlong='$ttlong' WHERE lid=" . $lid );
+		
+        $sql = 'DELETE FROM ' . icms::$xoopsDB -> prefix( 'imlinks_mod' ) . ' WHERE requestid=' . $requestid;
+		
+        $result = icms::$xoopsDB -> query( $sql );
         redirect_header( 'index.php', 1, _AM_IMLINKS_MOD_REQUPDATED );
         break;
 
-    case "ignoremodreq":
-        $sql = sprintf( "DELETE FROM " . $xoopsDB -> prefix( 'imlinks_mod' ) . " WHERE requestid=" . $requestid );
-        $xoopsDB -> query( $sql );
+    case 'ignoremodreq':
+        $sql = sprintf( 'DELETE FROM ' . icms::$xoopsDB -> prefix( 'imlinks_mod' ) . ' WHERE requestid=' . $requestid );
+        icms::$xoopsDB -> query( $sql );
         redirect_header( 'index.php', 1, _AM_IMLINKS_MOD_REQDELETED );
         break;
 
@@ -188,52 +196,56 @@ switch ( strtolower( $op ) ) {
     default:
 
         $start = isset( $_GET['start'] ) ? intval( $_GET['start'] ) : 0;
-        $mytree = new XoopsTree( $xoopsDB -> prefix( 'imlinks_mod' ), "requestid", 0 );
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_mod' ) . " ORDER BY requestdate DESC" ;
-        $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['admin_perpage'] , $start );
-        $totalmodrequests = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
+        $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'imlinks_mod' ), 'requestid', 0 );
+        $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_mod' ) . ' ORDER BY requestdate DESC';
+        $result = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'] , $start );
+        $totalmodrequests = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
 
-        xoops_cp_header();
+        icms_cp_header();
         iml_adminmenu( '', _AM_IMLINKS_MOD_MODREQUESTS );
-        echo "<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_MOD_MODREQUESTSINFO . "</legend>\n";
-        echo "<div style='padding: 8px;'>" . _AM_IMLINKS_MOD_TOTMODREQUESTS . " <b>$totalmodrequests</></div>\n";
-        echo "</fieldset>\n";
+		
+		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . $mydirname . '/style.css" />';
+		
+        echo '<fieldset style="border: #E8E8E8 1px solid;">
+		      <legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MOD_MODREQUESTSINFO . '</legend>';
+        echo '<div style="padding: 8px;">' . _AM_IMLINKS_MOD_TOTMODREQUESTS . ' <b>' . $totalmodrequests . '</b></div>';
+        echo '</fieldset>';
 
-        echo "<table width='100%' cellspacing='1' class='outer'>\n";
-        echo "<tr style='text-align: center;'>\n";
-        echo "<th>" . _AM_IMLINKS_MOD_MODID . "</th>\n";
-        echo "<th style='text-align: left;'>" . _AM_IMLINKS_MOD_MODTITLE . "</th>\n";
-        echo "<th>" . _AM_IMLINKS_MOD_MODIFYSUBMIT . "</th>\n";
-        echo "<th>" . _AM_IMLINKS_MOD_DATE . "</th>\n";
-        echo "<th>" . _AM_IMLINKS_MINDEX_ACTION . "</th>\n";
-        echo "</tr>\n";
+        echo '<table width="100%" cellspacing="1" class="outer">';
+        echo '<tr style="text-align: center; font-size: smaller;">';
+        echo '<th>' . _AM_IMLINKS_MOD_MODID . '</th>';
+        echo '<th style="text-align: left;">&nbsp;' . _AM_IMLINKS_MOD_MODTITLE . '</th>';
+        echo '<th>' . _AM_IMLINKS_MOD_MODIFYSUBMIT . '</th>';
+        echo '<th>' . _AM_IMLINKS_MOD_DATE . '</th>';
+        echo '<th>' . _AM_IMLINKS_MINDEX_ACTION . '</th>';
+        echo '</tr>';
         if ( $totalmodrequests > 0 ) {
-            while ( $link_arr = $xoopsDB -> fetchArray( $result ) ) {
+            while ( $link_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
                 $path = $mytree -> getNicePathFromId( $link_arr['requestid'], 'title', 'modifications.php?op=listmodreqshow&requestid' );
                 $path = str_replace( '/', '', $path );
                 $path = str_replace( ':', '', trim( $path ) );
                 $title = trim( $path );
-                $submitter = xoops_getLinkedUnameFromId( $link_arr['modifysubmitter'] );;
-                $requestdate = formatTimestamp( $link_arr['requestdate'], $xoopsModuleConfig['dateformatadmin'] );
+                $submitter = icms_member_user_Handler::getUserLink( $link_arr['modifysubmitter'] );;
+                $requestdate = formatTimestamp( $link_arr['requestdate'], icms::$module -> config['dateformatadmin'] );
 
-                echo "<tr style='text-align: center;'>\n";
-                echo "<td class='head'>" . $link_arr['requestid'] . "</td>\n";
-                echo "<td class='even' style='text-align: left;'>" . $title . "</td>\n";
-                echo "<td class='even'>" . $submitter . "</td>\n";
-                echo "<td class='even'>" . $requestdate . "</td>\n";
-                echo "<td class='even'> <a href='modifications.php?op=listmodreqshow&amp;requestid=" . $link_arr['requestid'] . "'>" . $imagearray['view'] . "</a></td>\n";
-                echo "</tr>\n";
+                echo '<tr style="text-align: center; height: 18px;">';
+                echo '<td class="head" style="font-size: smaller;">' . $link_arr['requestid'] . '</td>';
+                echo '<td class="even" style="text-align: left; font-size: smaller;">' . $title . '</td>';
+                echo '<td class="even" style="font-size: smaller;">' . $submitter . '</td>';
+                echo '<td class="even" style="font-size: smaller;">' . $requestdate . '</td>';
+                echo '<td class="even">
+						<a href="modifications.php?op=listmodreqshow&amp;requestid=' . $link_arr['requestid'] . '">' . $imagearray['view'] . '</a>
+					  </td>';
+                echo '</tr>';
             } 
         } else {
-            echo "<tr style='text-align: center;'><td class='head' colspan='7'>" . _AM_IMLINKS_MOD_NOMODREQUEST . "</td></tr>";
+            echo '<tr style="text-align: center;"><td class="head" colspan="7">' . _AM_IMLINKS_MOD_NOMODREQUEST . '</td></tr>';
         } 
-        echo "</table>\n";
+        echo '</table>';
 
         include_once ICMS_ROOT_PATH . '/class/pagenav.php';
-//        $page = ( $totalmodrequests > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMLINKS_MINDEX_PAGE : '';
-        $pagenav = new XoopsPageNav( $totalmodrequests, $xoopsModuleConfig['admin_perpage'], $start, 'start' );
-        echo "<div style='text-align: right; padding: 8px;'>" . $pagenav -> renderNav() . '</div>';
-        xoops_cp_footer();
+        $pagenav = new icms_view_PageNav( $totalmodrequests, icms::$module -> config['admin_perpage'], $start, 'start' );
+        echo '<div style="text-align: right; padding: 8px;">' . $pagenav -> renderNav() . '</div>';
+        icms_cp_footer();
 } 
-
 ?>

@@ -1,5 +1,158 @@
+﻿=========================================================
+20.09.2011 - Version 1.10
 =========================================================
-10.01.2009   1.00 RC-2
+Fixed:
+- replaced Multimap with Bing Maps
+- alphabetical listing using toolbar
+- submit form not working in frontend
+- total links for sub-cats in imLinks index page
+
+Removed:
+- support for DHTML editor and bbcode
+- Simpy and Spurl from social bookmarks
+- link to Submit a Bug in About page
+
+Removed files:
+- xoops_version.php
+- images/icon/multimap.png
+- images/sbookmarks/simpy.png
+- images/sbookmarks/spurl.png
+- include/config.php
+
+Updated:
+- imLinks for ImpressCMS 1.3
+- Google and Yahoo map icons
+- Countries (../language/{language}/countries.php)
+
+=========================================================
+21.10.2010 - Version 1.04 Final
+=========================================================
+- Fixed: brokenlink-report is not deleted when link is deleted
+- Fixed: when deleting a broken link, the alt-cats and comments are not deleted
+
+=========================================================
+30.09.2010 - Version 1.04 RC-2
+=========================================================
+- Fixed: meta-tags not working
+- Fixed: filtering special characters for Nice URLS
+
+=========================================================
+21.09.2010 - Version 1.04 RC-1
+=========================================================
+- Updated: country flag icons
+
+- Fixed: submit form not working when disclaimer is active
+- Fixed: RSS feed now passes validation
+- Fixed: tag plugin
+
+=========================================================
+17.01.2010 - Version 1.03 Final
+=========================================================
+- Updated: GreyBox v5.54 
+
+=========================================================
+09.01.2010 - Version 1.03 RC-3
+=========================================================
+- Added: 'None' to selection of forums and set as default. Forum option in submit form will be visible when a forum is selected in Preferences only.
+- Added: user will be redirected to ../admin/permissions.php instead of ../admin/index.php after submitting permissions settings
+
+- Fixed: MySQL syntax typo in visit.php
+- Fixed: buttons for url and maps in submit forms not working
+- Fixed: 'Submit' button in toolbar
+- Fixed: description not displayed in singlelink when Linked Terms is selected in Preferences without having imGlossary installed
+- Fixed: Cannot redeclare class WideImage_InvalidImageHandleException [Mr. Theme]
+
+=========================================================
+01.01.2010 - Version 1.03 RC-2
+=========================================================
+- Fixed: theme shifts down due to break-tag
+- Fixed: set redirect in Permissions page to permissions.php
+
+- Modified: filter for nice urls feature
+
+=========================================================
+14.12.2009 - Version 1.03 RC-1
+=========================================================
+- Added: use of nice urls for links
+- Added: 'Add to TomTom' feature for contact details
+- Added: support for FCKeditor
+
+- Fixed: width/height setting not working for screenshots
+- Fixed: icons New, Popular, Updates & View not supporting multilanguage
+- Fixed: ping feature
+- Fixed: approve option for new links
+
+- Dropped support for following editors: Koivi and textarea
+- Removed: 'Block Setting' feature
+
+- Removed files:
+-- admin/admin.php
+-- admin/myblockform.php
+-- admin/myblocksadmin.php
+-- admin/myblocksadmin.txt
+-- admin/mygroupperm.php
+-- admin/mygrouppermform.php
+-- images/icon/new.png
+-- images/icon/popular.png
+-- images/icon/updated.png
+-- images/icon/view.png
+-- include/blocksadmin.inc.php
+-- include/gtickets.php
+-- include/updateblock.inc.php
+
+=========================================================
+17.05.2009 - Version 1.02 Final
+=========================================================
+- Fixed: alternate categories not being saved
+- Fixed: screenshots not always working
+
+=========================================================
+10.05.2009 - Version 1.01 Final
+=========================================================
+- Fixed issue with 'Aknowledge' & 'Confirmed' for brokenlinks administration
+
+=========================================================
+03.05.2009 - Version 1.01 RC-2
+=========================================================
+- Fixed: issue with standard screenshot from version 1.01 RC-1
+- Fixed: notify option in submit form visible for anonymous
+- Fixed: letter bar not utf-8 compatible
+- Fixed: typo in admin/newlinks.php
+- Fixed: multiple style issues
+- Fixed: typo in url for alternate categories
+- Fixed: issue with printing address
+
+- Cleaned up language files
+
+
+=========================================================
+04.03.2009 - Version 1.01 RC-1
+=========================================================
+- Added: option to turn on/off category legend icons
+- Added: option for opening links in LightWindow, GreyBox or default
+
+- Fixed: links accessible through search function
+- Fixed: dividing by 0 when total votes = 0
+- Fixed: normal screenshots also visible in Main Index
+- Fixed: issue with address formats and multilanguage
+- Fixed: manipulating of rating
+- Fixed: debugger line visible after voting (sourceforge #2416510)
+- Fixed: tag plugin modding when renaming install folder
+
+
+=========================================================
+31.01.2009 - Version 1.00 Final
+=========================================================
+- Changed url for Submit Bug to Trac
+
+- Fixed: new links on Index Page not showing correctly
+- Fixed: error with notifications when new category is created
+- Fixed: issue with linking terms to imGlossary
+- Fixed: blank page when deleting link
+
+
+=========================================================
+10.01.2009 - Version 1.00 RC-2
 =========================================================
 - Added: random block [hisapapa]
 
@@ -10,8 +163,9 @@
 - Fixed: date format in blocks will use default from prefs if not set
 - Fixed: category permissions will be deleted when category is deleted
 
+
 =========================================================
-13.12.2008   1.00 RC-1
+13.12.2008 - Version 1.00 RC-1
 =========================================================
 - Revamped Main Index page in Control Panel
 - Revamped buttons front page
@@ -48,7 +202,7 @@
 
 
 =========================================================
-18.10.2008   1.06 Final
+18.10.2008 - Version 1.06 Final
 =========================================================
 - Added Newbbex to list of forums
 - User gets redirected back to link after voting
@@ -75,7 +229,7 @@
 
 
 =========================================================
-18.08.2008   1.06 RC-2
+18.08.2008 - Version 1.06 RC-2
 =========================================================
 - Added noindex,nofollow meta-tag to broken- and rating pages
 - Added option to Index Page to show Latest Links [trabis & mcdonald]
@@ -88,7 +242,7 @@
 
 
 =========================================================
-26.07.2008   1.06 RC-1
+26.07.2008 - Version 1.06 RC-1
 =========================================================
 - Install folder can be renamed
 - Replaced date() by formatTimestamp()
@@ -108,13 +262,13 @@
 
 
 =========================================================
-20.05.2008   1.05 Final
+20.05.2008 - Version 1.05 Final
 =========================================================
 - Added wflinks_disclaimer.html Template for disclaimer text in submit.php & visit.php [vaughan]
 
 
 =========================================================
-19.04.2008   1.05 RC-6
+19.04.2008 - Version 1.05 RC-6
 =========================================================
 - Added screenshot to print output
 - Added module icon for impressCMS
@@ -135,7 +289,7 @@
 
 
 =========================================================
-24.03.2008   1.05 RC-5
+24.03.2008 - Version 1.05 RC-5
 =========================================================
 - Added vCard feature to address
 - Added Print feature
@@ -150,7 +304,7 @@
 
 
 =========================================================
-08.03.2008   1.05 RC-4
+08.03.2008 - Version 1.05 RC-4
 =========================================================
 - Fixed XSS vulnerabilities [Vaughan/McDonald]
 - Fixed bug in sub-cat listing
@@ -158,7 +312,7 @@
 
 
 =========================================================
-29.02.2008   1.05 RC-3
+29.02.2008 - Version 1.05 RC-3
 =========================================================
 - Added VoIP number field to submit forms
 - Corrected street 1 typo in dutch langfile
@@ -169,7 +323,7 @@
 
 
 =========================================================
-21.02.2008   1.05 RC-2
+21.02.2008 - Version 1.05 RC-2
 =========================================================
 - Added German language files [sato-san & Burkhard]
 - Added address and map features to user submit form
@@ -182,7 +336,7 @@
 
 
 =========================================================
-29.01.2008   1.05 RC-1
+29.01.2008 - Version 1.05 RC-1
 =========================================================
 - Added WHOIS icon to frontpage and Main Index for admins (www.DomainTools.com)
 - Added address feature
@@ -192,7 +346,7 @@
 
 
 =========================================================
-24.01.2008   1.04 Stable
+24.01.2008 - Version 1.04 Stable
 =========================================================
 - Changed version number to 1.04
 - Fixed search routine
@@ -214,7 +368,7 @@
 
 
 =========================================================
-20.12.2007   1.0.3c Stable
+20.12.2007 - Version 1.0.3c Stable
 =========================================================
 - Fixed bug in brokenlinks, edit option not working
 - Added Quick View option [freeop]
@@ -224,7 +378,7 @@
 
 
 =========================================================
-09.11.2007   1.0.3c Stable
+09.11.2007 - Version 1.0.3c Stable
 =========================================================
 - Added option in Prefs to turn on/off 'Other links by'
 - Amount of characters of description in category view can be set
@@ -234,13 +388,13 @@
 
 
 =========================================================
-10.09.2007   1.0.3c Stable
+10.09.2007 - Version 1.0.3c Stable
 =========================================================
 - Removed some redundant code from singlelink.html
 
 
 =========================================================
-02.09.2007   1.0.3c Stable
+02.09.2007 - Version 1.0.3c Stable
 =========================================================
 - Removed installscript.php and admin/resources.php
 - Tables wf_resources and wf_resource_types will be removed on update
@@ -249,7 +403,7 @@
 
 
 =========================================================
-03.08.2007   1.0.3c Stable
+03.08.2007 - Version 1.0.3c Stable
 =========================================================
 - Amount of characters for field length of keywords can
   be set in Preferences
@@ -257,7 +411,7 @@
 
 
 =========================================================
-03.06.2007   1.0.3c Stable
+03.06.2007 - Version 1.0.3c Stable
 =========================================================
 fixed bug: Notice from linkload.php
 fixed bug: Error displayed when updating module
@@ -266,39 +420,39 @@ fixed bug: Error displayed when updating module
 
 
 =========================================================
-25.05.2007   1.0.3c Stable
+25.05.2007 - Version 1.0.3c Stable
 =========================================================
 - Category titles visible in browser title bar
 
 
 =========================================================
-23.05.2007   1.0.3c Stable
+23.05.2007 - Version 1.0.3c Stable
 =========================================================
 - modified Latest Listings page
 - new WF-Links 1.03c icon in admin section
 
 
 =========================================================
-10.05.2007   1.0.3c Stable
+10.05.2007 - Version 1.0.3c Stable
 =========================================================
 fixed bug: Meta keywords feature not compatible with Xoops 2.0.x [peter55]
 
 
 =========================================================
-04.04.2007   1.0.3c Stable
+04.04.2007 - Version 1.0.3c Stable
 =========================================================
 fixed bug: Security hole [m0nty]
 
 
 =========================================================
-06.03.2007   1.0.3c Stable
+06.03.2007 - Version 1.0.3c Stable
 =========================================================
 - meta keywords now replaces the Xoops meta keywords
 - title of link now appears in browser title bar
 
 
 =========================================================
-04.11.2006   1.0.3c Stable
+04.11.2006 - Version 1.0.3c Stable
 =========================================================
 Added feature: Use of WYSIWYG editors.
 Added feature: Country of origin of the website.
@@ -306,7 +460,7 @@ Added feature: Meta keywords.
 
 
 =========================================================
-29.03.2006   1.0.3b Stable
+29.03.2006 - Version 1.0.3b Stable
 =========================================================
 fixed bug: Page Navigation fails in admin main index. [Bender]
 fixed bug: Modifying category fails. [Mithrandir?]
@@ -328,7 +482,7 @@ Updated: Disabled maturity rating
 
 
 =========================================================
-21.06.2005   1.0.3 Stable
+21.06.2005 - Version 1.0.3 Stable
 =========================================================
 fixed bug: Smarty error Error [Xoops]: Smarty error: [in db:wflinks_linkload.html line 41]: syntax error: unidentified token '=' (cosmodrum).
 fixed bug: SQL file seems to be for mysql 4.x (contains DEFAULT CHARSET entry), Fix for backward compat with older versions of Mysql.
@@ -344,14 +498,14 @@ Updated: cleaned some html in indexpage.php for 'Index Page Information'.
 
 
 =========================================================
-18.06.2005   1.0.2
+18.06.2005 - Version 1.0.2
 =========================================================
 fixed bug: search not working correct due to missing function.
 fixed bug: found remaining non 'group' function and used correct function.
 
 
 =========================================================
-16.06.2005   1.0.2
+16.06.2005 - Version 1.0.2
 =========================================================
 fixed bug: submit feature showing regardless of permissions
 fixed bug: wrong amount of links displayed in main index
@@ -372,7 +526,7 @@ Added feature: Moderator permissions and abilites
 
 
 =========================================================
-26.03.2005   1.0.1 RC
+26.03.2005 - Version 1.0.1 RC
 =========================================================
 Added feature: Check for Broken links and the ability to edit or delete them
 Added feature: Check ping times of links (in Admin )

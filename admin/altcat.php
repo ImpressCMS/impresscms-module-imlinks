@@ -28,77 +28,73 @@
 
 include 'admin_header.php';
 
-global $xoopsModuleConfig;
-
 $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 $lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
-function makeTreeCheckTable( $xt, $itemid, $title, $checks ) {
-    global $immyts;
+function makeTreeCheckTable( $xt, $itemid, $title, $checks, $cidd ) {
+	global $immyts;
+    echo '<div style="text-align: left;">';
+    echo '<form name="altcat" method="post" action="altcat.php">';
+    echo '<table width="100%" callspacing="1" class="outer">';
+    $sql = 'SELECT cid, ' . $title . ' FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE pid=0 ORDER BY ' . $title;
+    $result = icms::$xoopsDB -> query( $sql );
 
-    echo "<div style='text-align: left;'>\n";
-    echo "<form name='altcat' method='post' action='" . xoops_getenv( 'PHP_SELF' ) . "'>\n";
-    echo "<table width='100%' callspacing='1' class='outer'>\n";
-    $sql = "SELECT " . $xt -> id . ", " . $title . " FROM " . $xt -> table . " WHERE " . $xt -> pid . "=0 ORDER BY " . $title;
-
-    $result = $xt -> db -> query( $sql );
-
-    while ( list( $cid, $name ) = $xt -> db -> fetchRow( $result ) ) {
-        $checked = array_key_exists( $cid, $checks ) ? "checked='checked'" : "";
-        $disabled = ( $cid == intval( $_GET['cid'] ) ) ? "disabled='yes'" : "";
+    while ( list( $cid, $name ) = icms::$xoopsDB -> fetchRow( $result ) ) {
+        $checked = array_key_exists( $cid, $checks ) ? 'checked="checked"' : '';
+        $disabled = ( $cid == $cidd ) ? 'disabled="yes"' : '';
         $level = 1;
-        echo "
-		<tr style='text-align: left;'>
-		 <td width='30%' class='head'>$name</td>
-		 <td class='head'>
-		 	<input type='checkbox' name='cid-" . intval($cid) . "' value='0' " . $checked . " " . $disabled . "/>
+        echo '
+		<tr style="text-align: left;">
+		 <td width="30%" class="head">' . $name . '</td>
+		 <td class="head">
+		 	<input type="checkbox" name="cid-' . intval( $cid ) . '" value="0" ' . $checked . ' ' . $disabled . '/>
 		 </td>
-		</tr>\n";
+		</tr>';
         $arr = $xt -> getChildTreeArray( intval( $cid ), $title );
 
         foreach ( $arr as $cat ) {
             $cat['prefix'] = str_replace( '.', '-', $cat['prefix'] );
             $catpath = $cat['prefix'] . '&nbsp;' . $immyts -> htmlSpecialCharsStrip( $cat[$title] ) . '&nbsp;';
-            $checked = array_key_exists( $cat['cid'], $checks ) ? "checked='checked'" : "";
-            $disabled = ( $cat['cid'] == intval( $_GET['cid'] ) ) ? "disabled='yes'" : "";
+            $checked = array_key_exists( $cat['cid'], $checks ) ? 'checked="checked"' : '';
+            $disabled = ( $cat['cid'] == $cidd ) ? 'disabled="yes"' : '';
             $level = substr_count( $cat['prefix'], '-' ) + 1;
 //            echo "<tr><td>" . $catpath . "<input type='checkbox' name='cid-" . $cat['cid'] . "' value='0' " . $checked . " " . $disabled . "/></td></tr>\n";
-        echo "
-		<tr style='text-align: left;'>
-		 <td width='30%' class='even'>$catpath</td>
-		 <td class='even'>
-		 	<input type='checkbox' name='cid-" . $cat['cid'] . "' value='0' " . $checked . " " . $disabled . "/>
+        echo '
+		<tr style="text-align: left;">
+		 <td width="30%" class="even">' . $catpath . '</td>
+		 <td class="even">
+		 	<input type="checkbox" name="cid-' . $cat['cid'] . '" value="0" ' . $checked . ' ' . $disabled . '/>
 		 </td>
-		</tr>\n";
+		</tr>';
         }
 
     } 
-    echo "<tr>
-	       <td width='30%' class='head'></td>
-		   <td class='even' style='text-align: left;'>
-		    <input type='submit' class='mainbutton' value='save'/>
-		    <input type='hidden' name='op' value='save'/>
-		    <input type='hidden' name='lid' value='" . $itemid . "'/>
+    echo '<tr>
+	       <td width="30%" class="head"></td>
+		   <td class="even" style="text-align: left;">
+		    <input type="submit" class="mainbutton" value="save" />
+		    <input type="hidden" name="op" value="save" />
+		    <input type="hidden" name="lid" value="' . $itemid . '"/>
 		    </td>
-		  </tr>";
-    echo "</table></form></div>\n";
+		  </tr>';
+    echo '</table></form></div>';
 } 
 
 switch ( strtolower( $op ) ) {
     case 'save': 
         // first delete all alternate categories for this topic
-        $sql = "DELETE FROM " . $xoopsDB -> prefix( 'imlinks_altcat' ) . " WHERE lid=" . intval($lid);
-        if ( !$result = $xoopsDB -> query( $sql ) ) {
-            XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+        $sql = 'DELETE FROM ' . icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . ' WHERE lid=' . intval( $lid );
+        if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
+            icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
         } 
 
         $k = array_keys( $_REQUEST );
         foreach( $k as $sid ) {
             if ( preg_match( "/cid-([0-9]*)/", $sid, $cid ) ) {
-                $sql = "INSERT INTO " . $xoopsDB -> prefix( 'imlinks_altcat' ) . "(cid, lid) VALUES('" . $cid[1] . "','" . intval($lid) . "')";
-                if ( !$result = $xoopsDB -> query( $sql ) ) {
-                    XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+                $sql = 'INSERT INTO ' . icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . '(cid, lid) VALUES("' . $cid[1] . '","' . intval( $lid ) . '")';
+                if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
+                    icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                     return false;
                 } 
             } 
@@ -108,25 +104,24 @@ switch ( strtolower( $op ) ) {
 
     case 'main':
     default:
-        xoops_cp_header();
-        iml_adminmenu( _AM_IMLINKS_MALTCAT );
-        echo "
-			<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMLINKS_ALTCAT_MODIFYF . "</legend>\n
-			<div style='padding: 8px;'>" . _AM_IMLINKS_ALTCAT_INFOTEXT . "</div>\n
-			</fieldset>\n
-		";
+        icms_cp_header();
+        iml_adminmenu( '', _AM_IMLINKS_MALTCAT );
+		$sql = icms::$xoopsDB -> query( 'SELECT cid, title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid );
+		list( $cid, $title ) = icms::$xoopsDB -> fetchRow( $sql );
+        echo '<fieldset style="border: #e8e8e8 1px solid;">
+		      <legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_ALTCAT_MODIFYF . '</legend>
+			  <div style="padding: 8px;">' . _AM_IMLINKS_ALTCAT_INFOTEXT . '</div>
+			  </fieldset>';
 
-        echo "<div style='text-align: left; font-size: larger;'><h4>" . $immyts -> htmlSpecialCharsStrip( trim( $_GET['title'] ) ) . "</h4></div>"; 
+        echo '<div style="text-align: left; font-size: larger;"><h4>' . $immyts -> htmlSpecialCharsStrip( $title ) . '</h4></div>'; 
         // Get an array of all alternate categories for this topic
-        $sql = $xoopsDB -> query( "SELECT cid FROM " . $xoopsDB -> prefix( 'imlinks_altcat' ) . " WHERE lid=" . intval($lid) . " ORDER BY lid" );
+        $sql2 = icms::$xoopsDB -> query( 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . ' WHERE lid=' . intval( $lid ) . ' ORDER BY lid' );
         $altcats = array();
-        while ( $altcat = $xoopsDB -> fetchArray( $sql ) ) {
+        while ( $altcat = icms::$xoopsDB -> fetchArray( $sql2 ) ) {
             $altcats[$altcat['cid']] = true;
         } 
-        $mytree = new XoopsTree( $xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
-
-        makeTreeCheckTable( $mytree, intval( $lid ), 'title', $altcats );
-        xoops_cp_footer();
+        $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
+        makeTreeCheckTable( $mytree, intval( $lid ), 'title', $altcats, $cid );
+        icms_cp_footer();
 } 
-
 ?>

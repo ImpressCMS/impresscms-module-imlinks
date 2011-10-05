@@ -25,8 +25,7 @@
 include_once 'header.php';
 require_once ICMS_ROOT_PATH . '/class/template.php';
 
-$lid = iml_cleanRequestVars( $_REQUEST, 'lid', 0 );
-$lid = intval($lid);
+$lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
 $error_message = _MD_IMLINKS_NOITEMSELECTED;
 if ( $lid == 0 ) {
@@ -34,41 +33,38 @@ if ( $lid == 0 ) {
 	exit();
 }
 
-global $xoopsDB, $xoopsConfig, $xoopsModuleConfig, $xoopsModule, $xoopsTpl, $xoTheme;
+$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND offline = 0 AND lid=' . $lid );
+$myrow = icms::$xoopsDB -> fetchArray( $result );
 
-$result = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND offline = 0 AND lid=' . intval( $lid ) );
-$myrow = $xoopsDB -> fetchArray( $result );
+$result2 = icms::$xoopsDB -> query( 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $myrow['cid'] );
+$mycat = icms::$xoopsDB -> fetchArray( $result2 );
 
-$result2 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $myrow['cid'] );
-$mycat = $xoopsDB -> fetchArray( $result2 );
-
-$xoopsTpl = new XoopsTpl();
-$myts = MyTextSanitizer::getInstance();
+$xoopsTpl = new icms_view_Tpl();
 
 $xoopsTpl -> assign( 'printsitename', ICMS_URL );
 $xoopsTpl -> assign( 'printcategoryname', $mycat['title'] );
 
-if ( $xoopsModuleConfig['screenshot'] ) {
-	if ( $xoopsModuleConfig['useautothumb'] ) {
-		if ($xoopsModuleConfig['autothumbsrc'] == 0 ) {
+if ( icms::$module -> config['screenshot'] ) {
+	if ( icms::$module -> config['useautothumb'] ) {
+		if (icms::$module -> config['autothumbsrc'] == 0 ) {
 			$xoopsTpl -> assign( 'printscrshot', '<img src="http://open.thumbshots.org/image.pxf?url=' . $myrow['url'] . '" alt="" title="" border="0" width="120" height="90" hspace="5" />' );
 		} else {
 			$xoopsTpl -> assign( 'printscrshot', '<img src="http://mozshot.nemui.org/shot/128x128?' . $myrow['url'] . '" alt="" title="" border="0" hspace="5" />' );
 		}
 	} elseif ( !$myrow['screenshot'] == '' ) {
-		$xoopsTpl -> assign( 'printscrshot', '<img src="' . ICMS_URL . '/' . $xoopsModuleConfig['screenshots'] .'/'. $myrow['screenshot'] . '" alt="" title="" border="0" />' );
+		$xoopsTpl -> assign( 'printscrshot', '<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] .'/'. $myrow['screenshot'] . '" alt="" title="" border="0" />' );
 	}		
 }
 
-$description = $myts -> displayTarea( $myrow['description'], 1, 1, 1, 1, $myrow['nobreak'] );
+$description = $myrow['description'];
 
-$xoopsTpl -> assign( 'printtitle', $myts -> displayTarea( $myrow['title'] ) );
+$xoopsTpl -> assign( 'printtitle', $myrow['title'] );
 $xoopsTpl -> assign( 'printdescription', $description );
-$xoopsTpl -> assign( 'printfooter', $xoopsModuleConfig['footerprint'] );
+$xoopsTpl -> assign( 'printfooter', icms::$module -> config['footerprint'] );
 $xoopsTpl -> assign( 'lang_category', _MD_IMLINKS_CATEGORY );
 
-if ( $xoopsModuleConfig['printlogourl'] ) {
-  $xoopsTpl -> assign( 'printlogo', '<img src="' . $xoopsModuleConfig['printlogourl'] . '" alt="" title="" border="0" />' );
+if ( icms::$module -> config['printlogourl'] ) {
+  $xoopsTpl -> assign( 'printlogo', '<img src="' . icms::$module -> config['printlogourl'] . '" alt="" title="" border="0" />' );
 } else {
   $xoopsTpl -> assign( 'printlogo', '' );
 }
@@ -84,40 +80,38 @@ $mobile  = $myrow['mobile'];
 $voip    = $myrow['voip'];
 $fax     = $myrow['fax'];
 $url     = $myrow['url'];
-$email   = imlinks_printemailcnvrt( $myrow['email'] );
+$email   = iml_printemailcnvrt( $myrow['email'] );
 $country = iml_countryname( $myrow['country'] );
 
-if ( $street1 == '' || $town == '' || $xoopsModuleConfig['useaddress'] == 0 ) {
+if ( $street1 == '' || $town == '' || icms::$module -> config['useaddress'] == 0 ) {
   $print['addryn'] = 0;
 } else {
   $print['addryn'] = 1;
-  $address = iml_address( $street1, $town, $state, $zip, $country );
-  $print['address'] = '<b>' . _MD_IMLINKS_ADDRESS . '</b><br />' . iml_address( $street1, $street2, $town, $state, $zip, $country ) . '<br />' . $country;
-  if ( $tel == '' ) {
-    $print['tel'] = '';
-    } else {
-      $print['tel'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/telephone.png" title="" alt="" align="absmiddle" />&nbsp;' . $tel;
-    }
-  if ( $mobile == '' ) {
-    $print['mobile'] = '';
-    } else {
-      $print['mobile'] = '<br />' .'<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/phone.png" title="" alt="" align="absmiddle" />&nbsp;'  . $mobile;
-    }
-  if ( $voip == '' ) {
-    $print['voip'] = '';
-    } else {
-      $print['voip'] = '<br />' .'<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/voip.png" title="" alt="" align="absmiddle" />&nbsp;'  . $voip;
-    }
-  if ( $fax == '' ) {
-    $print['fax'] = '';
-    } else {
-      $print['fax'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/fax.png" title="" alt="" align="absmiddle" />&nbsp;' . $fax;
-    }
-  if ( $email == '' ) {
-    $print['email'] = '';
-    } else {
-      $print['email'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" title="" alt="" align="absmiddle" />&nbsp;' . $email;
-    }
+  $print['address'] = '<br />' . iml_address( $street1, $street2, $town, $state, $zip, $myrow['country'] ) . '<br />' . $country;
+  
+   if ( $myrow['tel'] == true ) {
+    $print['tel'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/telephone.png" title="'._MD_IMLINKS_TELEPHONE.'" alt="'._MD_IMLINKS_TELEPHONE.'" style="vertical-align: middle;" />&nbsp;' . $tel;
+  }
+
+  if ( $myrow['mobile'] == true ) {
+    $print['mobile'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/phone.png" title="'._MD_IMLINKS_MOBILE.'" alt="'._MD_IMLINKS_MOBILE.'" style="vertical-align: middle;" />&nbsp;' . $mobile;
+  }
+
+  if ( $myrow['voip'] == true ) {
+    $print['voip'] = '<br />' .'<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/voip.png" title="'._MD_IMLINKS_VOIP.'" alt="'._MD_IMLINKS_VOIP.'" style="vertical-align: middle;" />&nbsp;'  . $voip;
+  }
+
+  if ( $myrow['fax'] == true ) {
+    $print['fax'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/fax.png" title="'._MD_IMLINKS_FAX.'" alt="'._MD_IMLINKS_FAX.'" style="vertical-align: middle;" />&nbsp;' . $fax;
+  }
+
+  if ( $myrow['email'] == true ) {
+    $print['email'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" title="'._MD_IMLINKS_EMAIL . '" alt="' ._MD_IMLINKS_EMAIL.'" style="vertical-align: middle;" />&nbsp;' . $email;
+  }
+
+  if ( $myrow['vat'] == true ) {
+    $print['vat'] = '<br />' . _MD_IMLINKS_VAT . ':&nbsp;' . $vat;
+  }
   }
 $xoopsTpl -> assign( 'print', $print );
 
@@ -131,10 +125,10 @@ $newWords = array();
 $i = 0;
 
 while ( $i < $maxWords - 1 && $i < count( $words ) ) {
-if ( isset( $words[$i] ) ) {
-  $newWords[] = trim($words[$i]);
-  }
-$i++;
+	if ( isset( $words[$i] ) ) {
+		$newWords[] = trim( $words[$i] );
+	}
+	$i++;
 }
 
 $link_meta_description = implode( ' ', $newWords );
@@ -144,14 +138,14 @@ $link_meta_description = implode( ' ', $newWords );
 		$xoTheme -> addMeta( 'meta', 'title', $myrow['title'] );
 		$xoTheme -> addMeta( 'meta', 'description', $link_meta_description );
 	} else {
-		$xoopsTpl -> assign( 'xoops_meta_keywords', $myrow['keywords'] );
-		$xoopsTpl -> assign( 'xoops_meta_description', $link_meta_description );
+		$xoopsTpl -> assign( 'icms_meta_keywords', $myrow['keywords'] );
+		$xoopsTpl -> assign( 'icms_meta_description', $link_meta_description );
 	}
-	$xoopsTpl -> assign( 'xoops_pagetitle', $myrow['title'] );
-	$xoopsTpl -> assign( 'xoops_meta_author', $myrow['publisher'] );
-	$xoopsTpl -> assign( 'xoops_sitename', $xoopsConfig['sitename'] );
-	$xoopsTpl -> assign( 'xoops_meta_robots', 'noindex,nofollow' );
-	$xoopsTpl -> assign( 'xoops_meta_copyright', $xoopsConfig['sitename'] );
+	$xoopsTpl -> assign( 'icms_pagetitle', $myrow['title'] );
+	$xoopsTpl -> assign( 'icms_meta_author', $myrow['publisher'] );
+	$xoopsTpl -> assign( 'icms_sitename', $icmsConfig['sitename'] );
+	$xoopsTpl -> assign( 'icms_meta_copyright', $icmsConfig['sitename'] );
+	iml_noindexnofollow();
 // End of meta tags
 
 $xoopsTpl -> assign( 'module_dir', $mydirname );

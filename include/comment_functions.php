@@ -27,13 +27,12 @@
 
 // comment callback functions
 
-function wflinks_com_update($linkload_id, $total_num) {
-	$db =& XoopsDatabaseFactory::getdatabaseconnection();
-	$sql = 'UPDATE ' . $db -> prefix( 'imlinks_links' ).' SET comments=' . $total_num . ' WHERE lid=' . $linkload_id;
-	$db -> query($sql);
+function imlinks_com_update( $linkload_id, $total_num ) {
+	$sql = 'UPDATE ' . icms::$xoopsDB -> prefix( 'imlinks_links' ).' SET comments=' . $total_num . ' WHERE lid=' . $linkload_id;
+	icms::$xoopsDB -> query( $sql );
 }
 
-function wflinks_com_approve(&$comment) {
+function imlinks_com_approve( &$comment ) {
 	// notification mail here
 }
 ?>

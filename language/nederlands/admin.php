@@ -36,43 +36,31 @@ define( "_AM_IMLINKS_WARNINSTALL3", "<b>WAARSCHUWING:</b> <u>Map</u> %s bestaat 
 define( "_AM_IMLINKS_MODULE_NAME", "imLinks" );
 
 define( "_AM_IMLINKS_BMODIFY", "Aanpassen" );
-define( "_AM_IMLINKS_BDELETE", "Verwijderen" );
 define( "_AM_IMLINKS_BCREATE", "Aanmaken" );
-define( "_AM_IMLINKS_BADD", "Toevoegen" );
 define( "_AM_IMLINKS_BAPPROVE", "Goedkeuren" );
 define( "_AM_IMLINKS_BIGNORE", "Negeren" );
-define( "_AM_IMLINKS_BCANCEL", "Annuleren" );
 define( "_AM_IMLINKS_BSAVE", "Opslaan" );
 define( "_AM_IMLINKS_BRESET", "Reset" );
 define( "_AM_IMLINKS_BMOVE", "Verplaats linken" );
 define( "_AM_IMLINKS_BUPLOAD", "Uploaden" );
 define( "_AM_IMLINKS_BDELETEIMAGE", "Verwijder geselekteerde afbeelding" );
-define( "_AM_IMLINKS_BRETURN", "Ga terug naar waar u was!" );
-define( "_AM_IMLINKS_DBERROR", "Database toegang fout: Rapporteer deze fout aan de WF-Project Website" );
+define( "_AM_IMLINKS_DBERROR", "Database toegang fout: Rapporteer deze fout aan de [url=http://community.impresscms.org/modules/newbb/viewforum.php?forum=9]ImpressCMS Community Forum - Module Support[/url]." );
 // Other Options
 define( "_AM_IMLINKS_TEXTOPTIONS", "Tekst opties:" );
-define( "_AM_IMLINKS_DISABLEHTML", " Uitschakelen HTML tags" );
-define( "_AM_IMLINKS_DISABLESMILEY", " Uitschakelen Smilies" );
 define( "_AM_IMLINKS_DISABLEXCODE", " Uitschakelen ICMS codes" );
 define( "_AM_IMLINKS_DISABLEIMAGES", " Uitschakelen afbeeldingen" );
 define( "_AM_IMLINKS_DISABLEBREAK", " Gebruik ICMS linebreak omzetting?" );
 define( "_AM_IMLINKS_UPLOADFILE", "Link succesvol geupload" );
-define( "_AM_IMLINKS_NOMENUITEMS", "Geen menu items in het menu" );
 // Admin Bread crumb
-define( "_AM_IMLINKS_PREFS", "Instellingen" );
 define( "_AM_IMLINKS_BUPDATE", "Module bijwerken" );
 define( "_AM_IMLINKS_BINDEX", "Hoofd index" );
 define( "_AM_IMLINKS_BPERMISSIONS", "Rechten" );
-// define( "_AM_IMLINKS_BLOCKADMIN", "Blocks" );
-define( "_AM_IMLINKS_BLOCKADMIN", "Blokinstellingen" );
 define( "_AM_IMLINKS_GOMODULE", "Ga naar module" );
-define( "_AM_IMLINKS_ABOUT", "Informatie" );
 // Admin Summary
 define( "_AM_IMLINKS_SCATEGORY", "Categorieën: " );
 define( "_AM_IMLINKS_SFILES", "Linken: " );
 define( "_AM_IMLINKS_SNEWFILESVAL", "Ingezonden: " );
 define( "_AM_IMLINKS_SMODREQUEST", "Aangepast: " );
-define( "_AM_IMLINKS_SREVIEWS", "Beoordelingen: " );
 
 // Admin Main Menu
 define( "_AM_IMLINKS_MCATEGORY", "Categorie management" );
@@ -80,8 +68,6 @@ define( "_AM_IMLINKS_MLINKS", "Link management" );
 define( "_AM_IMLINKS_MLISTBROKEN", "Gebroken linken index" );
 define( "_AM_IMLINKS_MLISTPINGTIMES", "Linken pingtijd index" );
 define( "_AM_IMLINKS_INDEXPAGE", "Index pagina" );
-define( "_AM_IMLINKS_MCOMMENTS", "Commenta(a)r(en)" );
-define( "_AM_IMLINKS_MVOTEDATA", "Stem data" );
 define( "_AM_IMLINKS_MUPLOADS", "Afbeelding uploaden" );
 
 // Catgeory defines
@@ -97,9 +83,6 @@ define( "_AM_IMLINKS_CCATEGORY_MODIFIED", "Geselekteerde categorie aangemaakt en
 define( "_AM_IMLINKS_CCATEGORY_DELETED", "Geselekteerde categorie verwijderd en database succesvol geupdate" );
 define( "_AM_IMLINKS_CCATEGORY_AREUSURE", "Waarschuwing: Deze categorie en alle linken en inhoud verwijderen?" );
 define( "_AM_IMLINKS_CCATEGORY_NOEXISTS", "Eerst een categorie aanmaken voordat een link kan worden toegevoegd" );
-define( "_AM_IMLINKS_FCATEGORY_GROUPPROMPT", "Categorie toegangsrechten:<div style='padding-top: 8px;'><span style='font-weight: normal;'>Selekteer gebruikersgroepen die toegang hebben tot deze categorie.</span></div>" );
-define( "_AM_IMLINKS_FCATEGORY_SUBGROUPPROMPT", "Categorie inzendrechten:<div style='padding-top: 8px;'><span style='font-weight: normal;'>Selekteer gebruikersgropen die rechten hebben om nieuwe linken voor deze categorie in te zenden.</span></div>" );
-define( "_AM_IMLINKS_FCATEGORY_MODGROUPPROMPT", "Categorie aanpassingsrechten:<div style='padding-top: 8px;'><span style='font-weight: normal;'>Selekteer gebruikersgroepen die rechten hebben om deze categorie te beheren.</span></div>" );
 
 define( "_AM_IMLINKS_FCATEGORY_TITLE", "Categorie titel:" );
 define( "_AM_IMLINKS_FCATEGORY_WEIGHT", "Categorie gewicht:" );
@@ -130,9 +113,7 @@ define( "_AM_IMLINKS_PERM_PERMSNOTE", "<div><b>Opmerking:</b> Stel hier de juist
 define( "_AM_IMLINKS_PERM_CPERMISSIONS", "Categorie rechten" );
 define( "_AM_IMLINKS_PERM_CSELECTPERMISSIONS", "Selekteer categorieën die alle groepen mogen zien" );
 define( "_AM_IMLINKS_PERM_CNOCATEGORY", "Kan geen rechten instellen: Er zijn geen categorieën aangemaakt!" );
-define( "_AM_IMLINKS_PERM_FPERMISSIONS", "Link rechten" );
-define( "_AM_IMLINKS_PERM_FNOFILES", "Kan geen rechten instellen: er zijn geen linken aangemaakt!" );
-define( "_AM_IMLINKS_PERM_FSELECTPERMISSIONS", "Selekteer linken die alle groepen mogen zien" );
+
 /**
  * Upload defines
  */
@@ -173,15 +154,10 @@ define( "_AM_IMLINKS_LINK_FUPLOADIMAGE", "Upload nieuwe afbeelding naar geselekt
 // Main Index defines
 define( "_AM_IMLINKS_MINDEX_LINKSUMMARY", "Module administatie samenvatting" );
 define( "_AM_IMLINKS_MINDEX_PUBLISHEDLINK", "Gepubliceerde linken:" );
-define( "_AM_IMLINKS_MINDEX_AUTOPUBLISHEDLINK", "Automatisch gepubliseerde linken:" );
-define( "_AM_IMLINKS_MINDEX_AUTOEXPIRE", "Automatisch verlopen linken:" );
-define( "_AM_IMLINKS_MINDEX_EXPIRED", "Verlopen linken:" );
-define( "_AM_IMLINKS_MINDEX_OFFLINELINK", "Offline linken:" );
 define( "_AM_IMLINKS_MINDEX_ID", "ID" );
 define( "_AM_IMLINKS_MINDEX_TITLE", "Link titel" );
 define( "_AM_IMLINKS_MINDEX_POSTER", "Inzender" );
 define( "_AM_IMLINKS_MINDEX_ONLINE", "Status" );
-define( "_AM_IMLINKS_MINDEX_ONLINESTATUS", "Online status" );
 define( "_AM_IMLINKS_MINDEX_PUBLISH", "Publiceren" );
 define( "_AM_IMLINKS_MINDEX_PUBLISHED", "Gepubliceerd" );
 define( "_AM_IMLINKS_MINDEX_EXPIRE", "Verlopen" );
@@ -191,7 +167,7 @@ define( "_AM_IMLINKS_MINDEX_SUBMITTED", "Inzenddatum" );
 define( "_AM_IMLINKS_MINDEX_ACTION", "Aktie" );
 define( "_AM_IMLINKS_MINDEX_NOLINKSFOUND", "OPMERKING: Er zijn geen linken overeenkomend met deze criteria" );
 define( "_AM_IMLINKS_MINDEX_PAGE", "<b>Pagina:<b> " );
-define( '_AM_IMLINKS_MINDEX_PAGEINFOTXT', '<ul><li>imLinks Hoofdpagina details.</li><li>U kunt eenvoudig veranderingen aanbrengen aan het logo, de afbeelding, de kop- en voetteksten om de pagina aan uw wensen te laten voldoen.</li></ul><br />Opmerking: Het gekozen logo wordt door de gehele imLinks module toegepast.' );
+define( '_AM_IMLINKS_MINDEX_PAGEINFOTXT', '&bull;&nbsp;imLinks Hoofdpagina details.<br />&bull;&nbsp;U kunt eenvoudig veranderingen aanbrengen aan het logo, de afbeelding, de kop- en voetteksten om de pagina aan uw wensen te laten voldoen.<br /><br />Opmerking: Het gekozen logo wordt door de gehele imLinks module toegepast.' );
 define( "_AM_IMLINKS_MINDEX_RESPONSE", "Reaktietijd" );
 // Submitted Links
 define( "_AM_IMLINKS_SUB_SUBMITTEDFILES", "Ingezonden linken" );
@@ -203,34 +179,13 @@ define( "_AM_IMLINKS_SUB_DELETEWAITINGFILE", "<b>Verwijder</b> nieuwe link infor
 define( "_AM_IMLINKS_SUB_NOFILESWAITING", "Er zijn geen linken overeenkomend met deze criteria." );
 define( "_AM_IMLINKS_SUB_NEWFILECREATED", "Nieuwe link data aangemaakt en database succesvol bijgewerkt." );
 // Vote Information
-define( "_AM_IMLINKS_VOTE_RATINGINFOMATION", "Stemmen informatie" );
-define( "_AM_IMLINKS_VOTE_TOTALVOTES", "Totaal aantal stemmen: " );
-define( "_AM_IMLINKS_VOTE_REGUSERVOTES", "Stemmen van geregistreerde gebruikers: %s" );
-define( "_AM_IMLINKS_VOTE_ANONUSERVOTES", "Stemmen van anonieme gebruikers: %s" );
-define( "_AM_IMLINKS_VOTE_USER", "Gebruiker" );
-define( "_AM_IMLINKS_VOTE_IP", "IP Adres" );
-define( "_AM_IMLINKS_VOTE_DATE", "Ingezonden op" );
 define( "_AM_IMLINKS_VOTE_RATING", "Beoordeling" );
-define( "_AM_IMLINKS_VOTE_NOREGVOTES", "Geen stemmen van geregistreerde gebruikers" );
 define( "_AM_IMLINKS_VOTE_NOUNREGVOTES", "Geen stemmen van anonieme gebruikers" );
 define( "_AM_IMLINKS_VOTE_VOTEDELETED", "Stem data verwijderd." );
-define( "_AM_IMLINKS_VOTE_ID", "ID" );
 define( "_AM_IMLINKS_VOTE_FILETITLE", "Link titel" );
-define( "_AM_IMLINKS_VOTE_DISPLAYVOTES", "Stem data informatie" );
-define( "_AM_IMLINKS_VOTE_NOVOTES", "Geen te tonen stemmen van geregistreerde gebruikers" );
-define( "_AM_IMLINKS_VOTE_DELETE", "Geen te tonen stemmen van geregistreerde gebruikers" );
-define( "_AM_IMLINKS_VOTE_DELETEDSC", "<b>Verwijderd</b> de gekozen stem informatie uit de database." );
-define( "_AM_IMLINKS_VOTEDELETED", "Geselekteerde stem verwijderd, database is bijgewerkt." );
 
-define( "_AM_IMLINKS_VOTE_USERAVG", "Gemiddelde gebruikers beoordeling" );
 define( "_AM_IMLINKS_VOTE_TOTALRATE", "Totaal aantal stemmen" );
-define( "_AM_IMLINKS_VOTE_MAXRATE", "Hoogste item stem" );
-define( "_AM_IMLINKS_VOTE_MINRATE", "Laagste item stem" );
-define( "_AM_IMLINKS_VOTE_MOSTVOTEDTITLE", "Meeste gestemd op" );
-define( "_AM_IMLINKS_VOTE_LEASTVOTEDTITLE", "Minste gestemd op" );
-define( "_AM_IMLINKS_VOTE_MOSTVOTERSUID", "Aktiefste stemmer" );
-define( "_AM_IMLINKS_VOTE_REGISTERED", "Geregistreerde stemmen" );
-define( "_AM_IMLINKS_VOTE_NONREGISTERED", "Anonieme stemmen" );
+
 // Modifications
 define( "_AM_IMLINKS_MOD_TOTMODREQUESTS", "Totaal aantal wijzigingsaanvragen: " );
 define( "_AM_IMLINKS_MOD_MODREQUESTS", "Gewijzigde linken" );
@@ -240,49 +195,30 @@ define( "_AM_IMLINKS_MOD_MODTITLE", "Titel" );
 define( "_AM_IMLINKS_MOD_MODPOSTER", "Originele inzender: " );
 define( "_AM_IMLINKS_MOD_DATE", "Ingezonden op" );
 define( "_AM_IMLINKS_MOD_NOMODREQUEST", "Er zijn geen verzoeken die overeenkomen met deze criteria" );
-define( "_AM_IMLINKS_MOD_TITLE", "Link titel: " );
-define( "_AM_IMLINKS_MOD_LID", "link ID: " );
-define( "_AM_IMLINKS_MOD_CID", "categorie: " );
-define( "_AM_IMLINKS_MOD_URL", "link URL: " );
-define( "_AM_IMLINKS_MOD_PUBLISHER", "Uitgever: " );
-define( "_AM_IMLINKS_MOD_FORUMID", "Forum: " );
-define( "_AM_IMLINKS_MOD_SCREENSHOT", "Screenshot afbeelding: " );
-define( "_AM_IMLINKS_MOD_HOMEPAGE", "Website: " );
-define( "_AM_IMLINKS_MOD_HOMEPAGETITLE", "Website naam: " );
-define( "_AM_IMLINKS_MOD_SHOTIMAGE", "Screenshot afbeelding: " );
-define( "_AM_IMLINKS_MOD_DESCRIPTION", "Omschrijving: " );
 define( "_AM_IMLINKS_MOD_MODIFYSUBMITTER", "Inzender: " );
 define( "_AM_IMLINKS_MOD_MODIFYSUBMIT", "Inzender" );
 define( "_AM_IMLINKS_MOD_PROPOSED", "Voorgestelde link details" );
 define( "_AM_IMLINKS_MOD_ORIGINAL", "Orginele link details" );
 define( "_AM_IMLINKS_MOD_REQDELETED", "Verzoek om aanpassing verwijderd uit de database" );
 define( "_AM_IMLINKS_MOD_REQUPDATED", "Geselekteerde link aangepast en database succesvol bijgewerkt" );
-define( '_AM_IMLINKS_MOD_VIEW', 'Bekijken' );
+
 // Link management
 define( "_AM_IMLINKS_LINK_ID", "Link ID: " );
 define( "_AM_IMLINKS_LINK_IP", "IP Adres van uploader: " );
-define( "_AM_IMLINKS_LINK_ALLOWEDAMIME", "<div style='padding-top: 4px; padding-bottom: 4px;'><b>Toegestane beheerder link formaten</b>:</div>" );
 define( "_AM_IMLINKS_LINK_MODIFYFILE", "Aangepaste link informatie" );
 define( "_AM_IMLINKS_LINK_CREATENEWFILE", "Nieuwe link aanmaken" );
 define( "_AM_IMLINKS_LINK_TITLE", "Link titel: " );
 define( "_AM_IMLINKS_LINK_DLURL", "Link URL: " );
-define( "_AM_IMLINKS_LINK_DIRCA", " Internet inhoud beoordeling (ICR): " );
 define( "_AM_IMLINKS_LINK_DESCRIPTION", "Link omschrijving: " );
 define( "_AM_IMLINKS_LINK_CATEGORY", "Link categorie: " );
 define( "_AM_IMLINKS_LINK_FILESSTATUS", " Link offline plaatsen?<br /><br /><span style='font-weight: normal; font-size: smaller;'>Link zal niet zichbaar zijn.</span>" );
 define( "_AM_IMLINKS_LINK_SETASUPDATED", " Link Status weergeven als bijgewerkt?<br /><br /><span style='font-weight: normal; font-size: smaller;'>Link zal een 'bijgewerkt' icoon weergeven.</span>" );
 define( "_AM_IMLINKS_LINK_SHOTIMAGE", "Link screenshot afbeelding: " );
 define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "Discussieer in dit forum toevoegen?" );
-define( "_AM_IMLINKS_LINK_PUBLISHDATE", "Link publikatiedatum:" );
 define( "_AM_IMLINKS_LINK_EXPIREDATE", "Link verloopdatum:" );
-define( "_AM_IMLINKS_LINK_CLEARPUBLISHDATE", "<br /><br />Verwijder publikatiedatum:" );
 define( "_AM_IMLINKS_LINK_CLEAREXPIREDATE", "<br /><br />Verwijder verloopdatum:" );
-define( "_AM_IMLINKS_LINK_PUBLISHDATESET", " Instellen publikatiedatum: " );
-define( "_AM_IMLINKS_LINK_SETDATETIMEPUBLISH", " Stel de datum/tijd van publikatie in" );
 define( "_AM_IMLINKS_LINK_SETDATETIMEEXPIRE", " Stel de datum/tijd van verlopen in" );
 define( "_AM_IMLINKS_LINK_SETPUBLISHDATE", "<b>Stel publikatiedatum in: </b>" );
-define( "_AM_IMLINKS_LINK_SETNEWPUBLISHDATE", "<b>Stel nieuwe publikatiedatum in: </b><br />Gepubliceerd op:" );
-define( "_AM_IMLINKS_LINK_SETPUBDATESETS", "<b>Stel publikatiedatum in: </b><br />Gepubliceerd op:" );
 define( "_AM_IMLINKS_LINK_EXPIREDATESET", " Stel verloopdatum in: " );
 define( "_AM_IMLINKS_LINK_SETEXPIREDATE", "<b>Stel verloopdatum in: </b>" );
 define( "_AM_IMLINKS_LINK_DELEDITMESS", "Verwijder gebroken link rapport?<br /><br /><span style='font-weight: normal;'>Kies <b>Ja</b> en het gebroken link rapport wordt automatisch verwijderd tevens wordt bevestigd dat de link weer werkt.</span>" );
@@ -312,42 +248,20 @@ define( "_AM_IMLINKS_BROKEN_REPORTSNO", "Wachtende gebroken link rapportage:" );
 define( "_AM_IMLINKS_BROKEN_IGNOREDESC", "<b>Negeert</b> het rapport en verwijderd allen de gebroken link rapportage." );
 define( "_AM_IMLINKS_BROKEN_DELETEDESC", "<b>Verwijdert</b> de gerapporteerde linkdata en gebroken link rapportage van de link." );
 define( "_AM_IMLINKS_BROKEN_EDITDESC", "de link <b>Aanpassen</b> om het probleem te verhelpen." );
-define( "_AM_IMLINKS_BROKEN_ACKDESC", "<b>Toegekend</b> Stelt de toegekende status van de gebroken bestandsrapportage in." );
-define( "_AM_IMLINKS_BROKEN_CONFIRMDESC", "<b>Bevestigd</b> Stelt de status van de gebroken linkrapportage in als bevestigd." );
 define( "_AM_IMLINKS_BROKEN_ACKNOWLEDGED", "Toegekend" );
 define( "_AM_IMLINKS_BROKEN_DCONFIRMED", "Bevestigd" );
 
 define( "_AM_IMLINKS_BROKEN_ID", "ID" );
-define( "_AM_IMLINKS_BROKEN_TITLE", "Titel" );
 define( "_AM_IMLINKS_BROKEN_REPORTER", "Rapporteur" );
 define( "_AM_IMLINKS_BROKEN_FILESUBMITTER", "Inzender" );
 define( "_AM_IMLINKS_BROKEN_DATESUBMITTED", "Inzenddatum" );
 define( "_AM_IMLINKS_BROKEN_ACTION", "Aktie" );
 define( "_AM_IMLINKS_BROKEN_NOFILEMATCH", "Geen gebroken (link) rapportages die overeenkomen met deze criteria" );
 define( "_AM_IMLINKS_BROKENFILEDELETED", "Link verwijderd uit de database en gebroken rapportage verwijderd" );
-/**
- * About defines
- */
-define( "_AM_IMLINKS_BY", "door" );
-// block defines
-define( "_AM_IMLINKS_BADMIN", "Blok administratie" );
-define( "_AM_IMLINKS_BLKDESC", "Omschrijving" );
-define( "_AM_IMLINKS_TITLE", "Titel" );
-define( "_AM_IMLINKS_SIDE", "Uitlijning" );
-define( "_AM_IMLINKS_WEIGHT", "Gewicht" );
-define( "_AM_IMLINKS_VISIBLE", "Zichtbaar" );
-define( "_AM_IMLINKS_ACTION", "Aktie" );
-define( "_AM_IMLINKS_SBLEFT", "Links" );
-define( "_AM_IMLINKS_SBRIGHT", "Rechts" );
-define( "_AM_IMLINKS_CBLEFT", "Midden links" );
-define( "_AM_IMLINKS_CBRIGHT", "Midden rechts" );
-define( "_AM_IMLINKS_CBCENTER", "Midden midden" );
-define( "_AM_IMLINKS_ACTIVERIGHTS", "Aktieve rechten" );
-define( "_AM_IMLINKS_ACCESSRIGHTS", "Toegangsrechten" );
+
 // image admin icon
 define( "_AM_IMLINKS_ICO_EDIT", "Dit item aanpassen" );
 define( "_AM_IMLINKS_ICO_DELETE", "Dit item verwijderen" );
-define( "_AM_IMLINKS_ICO_RESOURCE", "Deze bron aanpassen" );
 
 define( "_AM_IMLINKS_ICO_ONLINE", "Online" );
 define( "_AM_IMLINKS_ICO_OFFLINE", "Offline" );
@@ -356,44 +270,24 @@ define( "_AM_IMLINKS_ICO_NOTAPPROVED", "Afgekeurd" );
 
 define( "_AM_IMLINKS_ICO_LINK", "Gerelateerde link" );
 define( "_AM_IMLINKS_ICO_URL", "Gerelateerde URL toevoegen" );
-define( "_AM_IMLINKS_ICO_ADD", "Toevoegen" );
 define( "_AM_IMLINKS_ICO_APPROVE", "Goedkeuren" );
 define( "_AM_IMLINKS_ICO_STATS", "Statistieken" );
 define( "_AM_IMLINKS_ICO_VIEW", "Bekijk dit item" );
 
-define( "_AM_IMLINKS_ICO_IGNORE", "Negeren" );
 define( "_AM_IMLINKS_ICO_ACK", "Gebroken rapportage toegekend" );
 define( "_AM_IMLINKS_ICO_REPORT", "Gebroken rapportage toekennen?" );
 define( "_AM_IMLINKS_ICO_CONFIRM", "Gebroken rapportage bevestigd" );
 define( "_AM_IMLINKS_ICO_CONBROKEN", "Gebroken rapportage bevestigen?" );
-define( "_AM_IMLINKS_ICO_RES", "Bronnen/linken bij dit item aanpassen" );
-define( "_AM_IMLINKS_MOD_URLRATING", "Webinhoud beoordeling (ICR):" );
+
 // Alternate category
 define( "_AM_IMLINKS_ALTCAT_CREATEF", "Alternatieve categorie toevoegen" );
 define( "_AM_IMLINKS_MALTCAT", "Alternatieve categorie management" );
-define( "_AM_IMLINKS_ALTCAT_MODIFYF", "Alternatieve categorie management" );
+define( "_AM_IMLINKS_ALTCAT_MODIFYF", "Alternatieve categorie informatie" );
 define( "_AM_IMLINKS_ALTCAT_INFOTEXT", "<ul><li>Alternatieve categorieën kunnen via dit formulier eenvoudig worden toegevoegd of verwijderd.</li></ul>" );
 define( '_AM_IMLINKS_ALTCAT_CREATED', 'Alternatieve categorie(ën) is(zijn) opgeslagen!' );
 
-define( "_AM_IMLINKS_MRESOURCES", "Bronnen management" );
-define( "_AM_IMLINKS_RES_CREATED", "Bronnen management" );
-define( "_AM_IMLINKS_RES_ID", "ID" );
-define( "_AM_IMLINKS_RES_DESC", "Omschrijving" );
-define( "_AM_IMLINKS_RES_NAME", "Bron Naam" );
-define( "_AM_IMLINKS_RES_TYPE", "Bron type" );
-define( "_AM_IMLINKS_RES_USER", "Gebruiker" );
-define( "_AM_IMLINKS_RES_CREATEF", "Bron toevoegen" );
-define( "_AM_IMLINKS_RES_MODIFYF", "Bron aanpassen" );
-define( "_AM_IMLINKS_RES_NAMEF", "Naam bron:" );
-define( "_AM_IMLINKS_RES_DESCF", "Omschrijving bron:" );
-define( "_AM_IMLINKS_RES_URLF", "Bron URL:" );
-define( "_AM_IMLINKS_RES_ITEMIDF", "Bron Item ID:" );
-define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>Nieuwe bronnen kunnen via dit formulier eenvoudig worden toegevoegd, aangepast of verwijderd.</li>
-	<li>Indexeer alle gelinkte bronnen bij een link</li>
-	<li>Bronnaam en omschrijving aanpassen</li></ul>
-	" );
 define( "_AM_IMLINKS_LISTBROKEN", "Toon linken die mogelijk zijn gebroken. NB: Deze gegevens zijn mogelijk niet correct/compleet en moeten worden gezien als grove handreiking.<br /><br />Controleer eerst of de link bestaat voordat aktie wordt ondernomen." );
-define( "_AM_IMLINKS_PINGTIMES", "Displays the first estimated round ping time to each link.<br /><br />NB: These results may not be accurate and should be taken as a rough guide." );
+define( "_AM_IMLINKS_PINGTIMES", "Laat de eerste geschatte ping tijd naar iedere link zien en de Google PageRank™.<br /><br />NB: Deze resultaten hoeven niet nauwkeurig te zijn en dienen gezien te worden als een indikatie." );
 
 define( "_AM_IMLINKS_NO_FORUM", "Geen forum geselekteerd" );
 
@@ -412,11 +306,10 @@ define( "_AM_IMLINKS_PERM_APERMISSIONS_TEXT", "Selekteer de groepen die beheerde
 define( "_AM_IMLINKS_COUNTRY", "Land:" );
 define( "_AM_IMLINKS_KEYWORDS", "Keywords:" );
 define( "_AM_IMLINKS_KEYWORDS_NOTE", "Keywords dienen gescheiden te worden door een komma (keyword1, keyword2, keyword3)." );
-define( "_AM_IMLINKS_CHECKURL", "Check URL" );
 define( "_AM_IMLINKS_CATTITLE", "Categorie" );
 define( "_AM_IMLINKS_LINK_GOOGLEMAP", "Google Kaarten" );
 define( "_AM_IMLINKS_LINK_YAHOOMAP", "Yahoo Kaarten" );
-define( "_AM_IMLINKS_LINK_MULTIMAP", "Multimap Kaarten" );
+define( "_AM_IMLINKS_LINK_BINGMAP", "Bing Kaarten" );
 define( "_AM_IMLINKS_LINK_CHECKMAP", "Kontrolleer kaart" );
 define( "_AM_IMLINKS_STREET1", "Straat 1" );
 define( "_AM_IMLINKS_STREET2", "Straat 2 (optioneel)" );
@@ -474,23 +367,6 @@ define( "_AM_IMLINKS_INFORMATION", "Link Informatie" );
 define( "_AM_IMLINKS_HITS", "Hits: " );
 define( "_AM_IMLINKS_PAGERANK", "PageRank™: ");
 define( "_AM_IMLINKS_ERROR_CATISCAT", "Je kan een categorie NIET als sub-categorie van zichzelf maken!" );
-define( "_AM_IMLINKS_MOD_COUNTRY", "Land:" );
-define( "_AM_IMLINKS_MOD_KEYWORDS", "Keywords:" );
-define( "_AM_IMLINKS_MOD_ITEM_TAG", "Tags:" );
-define( "_AM_IMLINKS_MOD_GOOGLEMAP", "Google Maps:" );
-define( "_AM_IMLINKS_MOD_YAHOOMAP", "Yahoo Maps:" );
-define( "_AM_IMLINKS_MOD_MULTIMAP", "Multimap:" );
-define( "_AM_IMLINKS_MOD_STREET1", "Straat 1:" );
-define( "_AM_IMLINKS_MOD_STREET2", "Straat 2 (optioneel):" );
-define( "_AM_IMLINKS_MOD_TOWN", "Plaats:" );
-define( "_AM_IMLINKS_MOD_STATE", "Provincie:" );
-define( "_AM_IMLINKS_MOD_ZIP", "Postcode:" );
-define( "_AM_IMLINKS_MOD_TEL", "Telefoon:" );
-define( "_AM_IMLINKS_MOD_FAX", "Fax:" );
-define( "_AM_IMLINKS_MOD_VOIP", "VoIP:" );
-define( "_AM_IMLINKS_MOD_MOBILE", "GSM:" );
-define( "_AM_IMLINKS_MOD_EMAIL", "E-Mail:" );
-define( "_AM_IMLINKS_MOD_VAT", "BTW nr." );
 
 // version 1.06 RC-2
 define( "_AM_IMLINKS_IPAGE_SHOWLATEST", "Laat laatste lijst zien?" );
@@ -512,7 +388,6 @@ define( '_AM_IMLINKS_LINKURLDSC', 'Klik op het icoon om de url in een nieuw brow
 define( '_AM_IMLINKS_STREETTWODSC', 'Dit veld is optioneel. Indien gewenst kan het veld leeg gelaten worden.' );
 define( '_AM_IMLINKS_STATEDSC', 'Vul hier de graafschap, district, gemeente, provincie, staat, etc. in. Indien gewenst kan het veld leeg gelaten worden.' );
 define( '_AM_IMLINKS_EMAILDSC', 'Vul het email adres in als:<br />- name@domain.com<br />- mailto:name@domain.com' );
-define( '_AM_IMLINKS_CLONE', '**KLOON**' );
 define( '_AM_IMLINKS_CLONELINK', 'Kloon Link' );
 define( '_AM_IMLINKS_ICO_CLONE', 'Kloon dit item' );
 define( '_AM_IMLINKS_RSSFEED', 'RSS Feed' );
@@ -559,4 +434,17 @@ define( '_AM_IMLINKS_RSSOFFTITLE', 'RSS feed is gedeaktiveerd' );
 define( '_AM_IMLINKS_RSSOFFMSGDEF', 'De RSS feed is tijdelijk gedeaktiveerd in verband met onderhoud aan de server.' );
 define( '_AM_IMLINKS_RSSCLICKSUBMIT', 'Klik Submit om alle weergegeven informatie in de database op te slaan!' );
 define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' );
+
+// Version 1.01 RC-1
+define( '_AM_IMLINKS_NOREPLY', 'Geen antwoord' );
+
+// imLinks 1.03
+define( '_AM_IMLINKS_NICEURL', 'Alternatieve titel voor link:' );
+define( '_AM_IMLINKS_NICEURLDSC', 'Geef een alternatieve titel voor de link om in de url te gebruiken. Als de optie <em>Gebruik nette urls</em> onder Instellingen is geselecteerd en dit veld wordt niet ingevuld, dan zal de titel van deze link gebruikt worden.' );
+define( '_AM_IMLINKS_TOMTOM', 'Voeg toe aan TomTom' );
+define( '_AM_IMLINKS_TOMTOMDSC', 'Voer de breedte- en lengtegraad van het hierboven opgegeven adres in.<br />De geografische positie van het adres kunt u vinden mbv de website <a href="http://itouchmap.com/latlong.html" target="_blank">iTouchMap.com</a><br />De breedte- en lengtegraad van de dient opgegeven te worden in decimale graden. Kan negatief zijn; "N"/"Z"/"W"/"O" achtervoegsel wordt niet geaccepteerd. De standaard geodetische datum is WGS-84.<br />De geografische positie dient als volgt opgegeven te worden:<br />- Breedtegraad: 57.2355591<br />- Lengtegraad: -2.3535921' );
+define( '_AM_IMLINKS_TOMTOMLONG', 'Geef lengtegraad:' );
+define( '_AM_IMLINKS_TOMTOMLAT', 'Geef breedtegraad:' );
+define( '_AM_IMLINKS_MOD_TTLAT', 'TomTom Breedtegraad:' );
+define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Lengtegraad:' );
 ?>

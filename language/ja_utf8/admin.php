@@ -51,7 +51,7 @@ define( "_AM_IMLINKS_DISABLEHTML", " HTMLタグ使用不可" );
 define( "_AM_IMLINKS_DISABLESMILEY", " スマイリー使用不可" );
 define( "_AM_IMLINKS_DISABLEXCODE", " BBコード使用不可" );
 define( "_AM_IMLINKS_DISABLEIMAGES", " 画像使用不可" );
-define( "_AM_IMLINKS_DISABLEBREAK", " 段落分け機能を利用しますか？" );
+define( "_AM_IMLINKS_DISABLEBREAK", " 改行を＜ｂｒ＞に変換する" );
 define( "_AM_IMLINKS_UPLOADFILE", "リンクのアップロードに成功" );
 define( "_AM_IMLINKS_NOMENUITEMS", "メニュー内に項目がありません" );
 // Admin Bread crumb
@@ -59,8 +59,6 @@ define( "_AM_IMLINKS_PREFS", "一般設定" );
 define( "_AM_IMLINKS_BUPDATE", "モジュールアップデート" );
 define( "_AM_IMLINKS_BINDEX", "メイン" );
 define( "_AM_IMLINKS_BPERMISSIONS", "権限" );
-// define( "_AM_IMLINKS_BLOCKADMIN", "Blocks" );
-define( "_AM_IMLINKS_BLOCKADMIN", "ブロック設定" );
 define( "_AM_IMLINKS_GOMODULE", "モジュールへ" );
 define( "_AM_IMLINKS_ABOUT", "情報" );
 // Admin Summary
@@ -76,8 +74,6 @@ define( "_AM_IMLINKS_MLINKS", "リンク管理" );
 define( "_AM_IMLINKS_MLISTBROKEN", "リンク切れ一覧" );
 define( "_AM_IMLINKS_MLISTPINGTIMES", "リンクへのPing時間一覧" );
 define( "_AM_IMLINKS_INDEXPAGE", "ページ管理" );
-define( "_AM_IMLINKS_MCOMMENTS", "コメント" );
-define( "_AM_IMLINKS_MVOTEDATA", "投票データ" );
 define( "_AM_IMLINKS_MUPLOADS", "画像アップロード" );
 
 // Catgeory defines
@@ -94,8 +90,6 @@ define( "_AM_IMLINKS_CCATEGORY_DELETED", "選択したカテゴリーの削除�
 define( "_AM_IMLINKS_CCATEGORY_AREUSURE", "注意: このカテゴリーを削除しますか？カテゴリーを削除するとこのカテゴリー内の全てのリンク情報とコメントが削除されます。" );
 define( "_AM_IMLINKS_CCATEGORY_NOEXISTS", "リンク作成の前にカテゴリーを作成する必要があります。" );
 define( "_AM_IMLINKS_FCATEGORY_GROUPPROMPT", "カテゴリアクセス権限:<div style='padding-top: 8px;'><span style='font-weight: normal;'>このカテゴリにアクセス出来るグループを設定してください。</span></div>" );
-define( "_AM_IMLINKS_FCATEGORY_SUBGROUPPROMPT", "リンク送信権限:<div style='padding-top: 8px;'><span style='font-weight: normal;'>リンクを登録出来るグループを設定してください。</span></div>" );
-define( "_AM_IMLINKS_FCATEGORY_MODGROUPPROMPT", "カテゴリー管理権限:<div style='padding-top: 8px;'><span style='font-weight: normal;'>カテゴリーを管理出来るグループを設定してください。</span></div>" );
 
 define( "_AM_IMLINKS_FCATEGORY_TITLE", "カテゴリー名:" );
 define( "_AM_IMLINKS_FCATEGORY_WEIGHT", "表示順:" );
@@ -126,9 +120,7 @@ define( "_AM_IMLINKS_PERM_PERMSNOTE", "<div><b>確認:</b> ここでしっかり
 define( "_AM_IMLINKS_PERM_CPERMISSIONS", "カテゴリアクセス権限" );
 define( "_AM_IMLINKS_PERM_CSELECTPERMISSIONS", "カテゴリアクセス権限を設定してください" );
 define( "_AM_IMLINKS_PERM_CNOCATEGORY", "設定不能: まだカテゴリーが作成されてません!" );
-define( "_AM_IMLINKS_PERM_FPERMISSIONS", "リンクアクセス権限" );
-define( "_AM_IMLINKS_PERM_FNOFILES", "設定不能: リンク登録がありません" );
-define( "_AM_IMLINKS_PERM_FSELECTPERMISSIONS", "グループ別のリンクに対するアクセス権を設定してください" );
+
 /**
  * Upload defines
  */
@@ -169,15 +161,10 @@ define( "_AM_IMLINKS_LINK_FUPLOADIMAGE", "新しい画像を選択したアッ�
 // Main Index defines
 define( "_AM_IMLINKS_MINDEX_LINKSUMMARY", "モジュール管理" );
 define( "_AM_IMLINKS_MINDEX_PUBLISHEDLINK", "発行済みリンク:" );
-define( "_AM_IMLINKS_MINDEX_AUTOPUBLISHEDLINK", "自動発行リンク:" );
-define( "_AM_IMLINKS_MINDEX_AUTOEXPIRE", "自動有効期限リンク:" );
-define( "_AM_IMLINKS_MINDEX_EXPIRED", "期限切れリンク:" );
-define( "_AM_IMLINKS_MINDEX_OFFLINELINK", "オフラインリンク:" );
 define( "_AM_IMLINKS_MINDEX_ID", "ID" );
 define( "_AM_IMLINKS_MINDEX_TITLE", "リンク名" );
 define( "_AM_IMLINKS_MINDEX_POSTER", "送信者" );
 define( "_AM_IMLINKS_MINDEX_ONLINE", "状態" );
-define( "_AM_IMLINKS_MINDEX_ONLINESTATUS", "オンライン状態" );
 define( "_AM_IMLINKS_MINDEX_PUBLISH", "発行日" );
 define( "_AM_IMLINKS_MINDEX_PUBLISHED", "発行日だ" );
 define( "_AM_IMLINKS_MINDEX_EXPIRE", "有効期限" );
@@ -199,34 +186,12 @@ define( "_AM_IMLINKS_SUB_DELETEWAITINGFILE", "新しいリンク情報を<b>削�
 define( "_AM_IMLINKS_SUB_NOFILESWAITING", "条件に合うリンクはありません。" );
 define( "_AM_IMLINKS_SUB_NEWFILECREATED", "新しいリンクデータが作成されました。" );
 // Vote Information
-define( "_AM_IMLINKS_VOTE_RATINGINFOMATION", "投票情報" );
-define( "_AM_IMLINKS_VOTE_TOTALVOTES", "投票総数: " );
-define( "_AM_IMLINKS_VOTE_REGUSERVOTES", "ユーザの投票: %s" );
-define( "_AM_IMLINKS_VOTE_ANONUSERVOTES", "ゲストの投票: %s" );
-define( "_AM_IMLINKS_VOTE_USER", "ユーザー" );
-define( "_AM_IMLINKS_VOTE_IP", "IPアドレス" );
-define( "_AM_IMLINKS_VOTE_DATE", "送信日" );
 define( "_AM_IMLINKS_VOTE_RATING", "レート" );
-define( "_AM_IMLINKS_VOTE_NOREGVOTES", "ユーザ以外の投票禁止" );
 define( "_AM_IMLINKS_VOTE_NOUNREGVOTES", "ユーザ以外の投票禁止" );
 define( "_AM_IMLINKS_VOTE_VOTEDELETED", "投票情報は削除されました。" );
-define( "_AM_IMLINKS_VOTE_ID", "ID" );
-define( "_AM_IMLINKS_VOTE_FILETITLE", "リンクタイトル" );
-define( "_AM_IMLINKS_VOTE_DISPLAYVOTES", "投票情報" );
-define( "_AM_IMLINKS_VOTE_NOVOTES", "投票情報を表示しない" );
-define( "_AM_IMLINKS_VOTE_DELETE", "投票情報を表示しない" );
-define( "_AM_IMLINKS_VOTE_DELETEDSC", "投票情報を<b>削除</b>します。" );
-define( "_AM_IMLINKS_VOTEDELETED", "選択された投票情報は削除されました" );
 
-define( "_AM_IMLINKS_VOTE_USERAVG", "平均レート" );
 define( "_AM_IMLINKS_VOTE_TOTALRATE", "投票総数" );
-define( "_AM_IMLINKS_VOTE_MAXRATE", "最高投票" );
-define( "_AM_IMLINKS_VOTE_MINRATE", "最低投票" );
-define( "_AM_IMLINKS_VOTE_MOSTVOTEDTITLE", "最もMost投票" );
-define( "_AM_IMLINKS_VOTE_LEASTVOTEDTITLE", "最もLeast投票" );
-define( "_AM_IMLINKS_VOTE_MOSTVOTERSUID", "最もアクティブな投票者" );
-define( "_AM_IMLINKS_VOTE_REGISTERED", "ユーザ投票" );
-define( "_AM_IMLINKS_VOTE_NONREGISTERED", "ゲスト投票" );
+
 // Modifications
 define( "_AM_IMLINKS_MOD_TOTMODREQUESTS", "修正リクエスト総数: " );
 define( "_AM_IMLINKS_MOD_MODREQUESTS", "修正済みリンク" );
@@ -236,31 +201,20 @@ define( "_AM_IMLINKS_MOD_MODTITLE", "タイトル" );
 define( "_AM_IMLINKS_MOD_MODPOSTER", "最初の投稿者: " );
 define( "_AM_IMLINKS_MOD_DATE", "修正日" );
 define( "_AM_IMLINKS_MOD_NOMODREQUEST", "この条件にあうリクエストはありません" );
-define( "_AM_IMLINKS_MOD_TITLE", "リンクタイトル: " );
-define( "_AM_IMLINKS_MOD_LID", "リンクID: " );
-define( "_AM_IMLINKS_MOD_CID", "カテゴリー: " );
-define( "_AM_IMLINKS_MOD_URL", "リンクUrl: " );
-define( "_AM_IMLINKS_MOD_PUBLISHER", "投稿者: " );
-define( "_AM_IMLINKS_MOD_FORUMID", "フォーラム: " );
-define( "_AM_IMLINKS_MOD_SCREENSHOT", "スクリーンショット: " );
-define( "_AM_IMLINKS_MOD_HOMEPAGE", "ホームページ: " );
-define( "_AM_IMLINKS_MOD_HOMEPAGETITLE", "ホームページタイトル: " );
-define( "_AM_IMLINKS_MOD_SHOTIMAGE", "スクリーンショット: " );
-define( "_AM_IMLINKS_MOD_DESCRIPTION", "説明: " );
 define( "_AM_IMLINKS_MOD_MODIFYSUBMITTER", "修正者: " );
 define( "_AM_IMLINKS_MOD_MODIFYSUBMIT", "修正者" );
 define( "_AM_IMLINKS_MOD_PROPOSED", "リンク詳細Proposed" );
 define( "_AM_IMLINKS_MOD_ORIGINAL", "リンク詳細Orginal" );
 define( "_AM_IMLINKS_MOD_REQDELETED", "修正のリクエストを削除" );
 define( "_AM_IMLINKS_MOD_REQUPDATED", "リンク修正が完了しました" );
-define( '_AM_IMLINKS_MOD_VIEW', '見る' );
+
 // Link management
 define( "_AM_IMLINKS_LINK_ID", "リンクID: " );
 define( "_AM_IMLINKS_LINK_IP", "修正者のＩＰアドレス: " );
-define( "_AM_IMLINKS_LINK_ALLOWEDAMIME", "<div style='padding-top: 4px; padding-bottom: 4px;'><b>管理者リンク拡張有効</b>:</div>" );
 define( "_AM_IMLINKS_LINK_MODIFYFILE", "リンク情報修正" );
 define( "_AM_IMLINKS_LINK_CREATENEWFILE", "新しいリンクを作成" );
 define( "_AM_IMLINKS_LINK_TITLE", "リンクタイトル: " );
+define( "_AM_IMLINKS_LINK_LETTER", "読み分類(行): " );
 define( "_AM_IMLINKS_LINK_DLURL", "リンクＵＲＬ: " );
 define( "_AM_IMLINKS_LINK_DIRCA", " インターネットコンテンツレート: " );
 define( "_AM_IMLINKS_LINK_DESCRIPTION", "説明: " );
@@ -269,16 +223,10 @@ define( "_AM_IMLINKS_LINK_FILESSTATUS", " オフラインにしますか？<br /
 define( "_AM_IMLINKS_LINK_SETASUPDATED", " リンク情報を更新しますか？<br /><br /><span style='font-weight: normal;'>リンクに更新アイコンがつきます。</span>" );
 define( "_AM_IMLINKS_LINK_SHOTIMAGE", "スクリーンショット: " );
 define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "このフォーラムに投稿しますか？" );
-define( "_AM_IMLINKS_LINK_PUBLISHDATE", "リンク発行日:" );
 define( "_AM_IMLINKS_LINK_EXPIREDATE", "リンク有効期限:" );
-define( "_AM_IMLINKS_LINK_CLEARPUBLISHDATE", "<br /><br />発行日を削除:" );
 define( "_AM_IMLINKS_LINK_CLEAREXPIREDATE", "<br /><br />有効期限を削除:" );
-define( "_AM_IMLINKS_LINK_PUBLISHDATESET", " 発行日のセット: " );
-define( "_AM_IMLINKS_LINK_SETDATETIMEPUBLISH", " 発行日／時刻のセット" );
 define( "_AM_IMLINKS_LINK_SETDATETIMEEXPIRE", " 有効期限／時刻のセット" );
 define( "_AM_IMLINKS_LINK_SETPUBLISHDATE", "<b>発行日のセット: </b>" );
-define( "_AM_IMLINKS_LINK_SETNEWPUBLISHDATE", "<b>新しい発行日: </b><br />発行済み:" );
-define( "_AM_IMLINKS_LINK_SETPUBDATESETS", "<b>発行日のセットt: </b><br />この日に発行:" );
 define( "_AM_IMLINKS_LINK_EXPIREDATESET", " 有効期限セット: " );
 define( "_AM_IMLINKS_LINK_SETEXPIREDATE", "<b>S有効期限セット: </b>" );
 define( "_AM_IMLINKS_LINK_DELEDITMESS", "Broken Reportを削除しますか？<br /><br /><span style='font-weight: normal;'><b>はい</b> を選択すると、レポートは削除され、リンク情報が再び有効になります。</span>" );
@@ -308,8 +256,6 @@ define( "_AM_IMLINKS_BROKEN_REPORTSNO", "破損レポート待ち:" );
 define( "_AM_IMLINKS_BROKEN_IGNOREDESC", "<b>無視</b> 破損レポートのみを削除します。" );
 define( "_AM_IMLINKS_BROKEN_DELETEDESC", "<b>削除</b> 破損レポートおよびレポートされたリンクを削除します。" );
 define( "_AM_IMLINKS_BROKEN_EDITDESC", "<b>編集</b> リンク情報を編集します" );
-define( "_AM_IMLINKS_BROKEN_ACKDESC", "<b>認識</b> 破損レポートを認識状態にします。" );
-define( "_AM_IMLINKS_BROKEN_CONFIRMDESC", "<b>了解</b> 破損レポートを了解状態にします。" );
 define( "_AM_IMLINKS_BROKEN_ACKNOWLEDGED", "認識" );
 define( "_AM_IMLINKS_BROKEN_DCONFIRMED", "了解" );
 
@@ -321,29 +267,10 @@ define( "_AM_IMLINKS_BROKEN_DATESUBMITTED", "送信日" );
 define( "_AM_IMLINKS_BROKEN_ACTION", "実行" );
 define( "_AM_IMLINKS_BROKEN_NOFILEMATCH", "条件に合う破損レポートはありません。" );
 define( "_AM_IMLINKS_BROKENFILEDELETED", "リンク情報及び破損レポートを削除しました。" );
-/**
- * About defines
- */
-define( "_AM_IMLINKS_BY", "によるby" );
-// block defines
-define( "_AM_IMLINKS_BADMIN", "ブロック管理" );
-define( "_AM_IMLINKS_BLKDESC", "説明" );
-define( "_AM_IMLINKS_TITLE", "タイトル" );
-define( "_AM_IMLINKS_SIDE", "配置" );
-define( "_AM_IMLINKS_WEIGHT", "表示順" );
-define( "_AM_IMLINKS_VISIBLE", "可視" );
-define( "_AM_IMLINKS_ACTION", "実行" );
-define( "_AM_IMLINKS_SBLEFT", "左ブロック" );
-define( "_AM_IMLINKS_SBRIGHT", "右ブロック" );
-define( "_AM_IMLINKS_CBLEFT", "中央左ブロック" );
-define( "_AM_IMLINKS_CBRIGHT", "中央右ブロック" );
-define( "_AM_IMLINKS_CBCENTER", "中央ブロック" );
-define( "_AM_IMLINKS_ACTIVERIGHTS", "アクティブ権" );
-define( "_AM_IMLINKS_ACCESSRIGHTS", "アクセス権" );
+
 // image admin icon
 define( "_AM_IMLINKS_ICO_EDIT", "このアイテムを修正" );
 define( "_AM_IMLINKS_ICO_DELETE", "このアイテムを削除" );
-define( "_AM_IMLINKS_ICO_RESOURCE", "このリソースを編集" );
 
 define( "_AM_IMLINKS_ICO_ONLINE", "オンライン" );
 define( "_AM_IMLINKS_ICO_OFFLINE", "オフライン" );
@@ -357,13 +284,11 @@ define( "_AM_IMLINKS_ICO_APPROVE", "認証" );
 define( "_AM_IMLINKS_ICO_STATS", "状態" );
 define( "_AM_IMLINKS_ICO_VIEW", "このアイテムを見る" );
 
-define( "_AM_IMLINKS_ICO_IGNORE", "無視" );
 define( "_AM_IMLINKS_ICO_ACK", "破損レポートを認識" );
 define( "_AM_IMLINKS_ICO_REPORT", "破損レポートを認識しますか？");
 define( "_AM_IMLINKS_ICO_CONFIRM", "破損レポート了解" );
 define( "_AM_IMLINKS_ICO_CONBROKEN", "破損レポートを了解しますか?" );
-define( "_AM_IMLINKS_ICO_RES", "このアイテムの情報／リンクを修正" );
-define( "_AM_IMLINKS_MOD_URLRATING", "インターネットコンテンツレート:" );
+
 // Alternate category
 define( "_AM_IMLINKS_ALTCAT_CREATEF", "別のカテゴリを追加" );
 define( "_AM_IMLINKS_MALTCAT", "カテゴリ交換管理" );
@@ -371,23 +296,6 @@ define( "_AM_IMLINKS_ALTCAT_MODIFYF", "カテゴリ交換管理" );
 define( "_AM_IMLINKS_ALTCAT_INFOTEXT", "<ul><li>交換するカテゴリはこのフォームから簡単追加削除ができます。</li></ul>" );
 define( '_AM_IMLINKS_ALTCAT_CREATED', '交換カテゴリが保存されました' );
 
-define( "_AM_IMLINKS_MRESOURCES", "情報管理" );
-define( "_AM_IMLINKS_RES_CREATED", "情報管理" );
-define( "_AM_IMLINKS_RES_ID", "ID" );
-define( "_AM_IMLINKS_RES_DESC", "説明" );
-define( "_AM_IMLINKS_RES_NAME", "情報名" );
-define( "_AM_IMLINKS_RES_TYPE", "情報タイプ" );
-define( "_AM_IMLINKS_RES_USER", "ユーザー" );
-define( "_AM_IMLINKS_RES_CREATEF", "情報追加" );
-define( "_AM_IMLINKS_RES_MODIFYF", "情報編集" );
-define( "_AM_IMLINKS_RES_NAMEF", "情報名:" );
-define( "_AM_IMLINKS_RES_DESCF", "情報説明:" );
-define( "_AM_IMLINKS_RES_URLF", "情報 URL:" );
-define( "_AM_IMLINKS_RES_ITEMIDF", "情報アイテムID:" );
-define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>新しい情報をこのフォームで追加・削除・編集を行うことができます。</li>
-	<li>全てのリンクにリンクしている情報を表示</li>
-	<li>情報名と内容を編集</li></ul>
-	" );
 define( "_AM_IMLINKS_LISTBROKEN", "リンク表示は壊れることがあります。NB: 結果は正確でない可能性がありラフなガイドです。<br /><br />まずリンクが存在するかどうかを確認してください。<br /><br />" );
 define( "_AM_IMLINKS_PINGTIMES", "それぞれのリンクへの最初のping時間を表示<br /><br />NB: この情報は正確ではない大体の情報として扱ってください。<br /><br />" );
 
@@ -409,11 +317,10 @@ define( "_AM_IMLINKS_PERM_APERMISSIONS_TEXT", "このカテゴリの管理権限
 define( "_AM_IMLINKS_COUNTRY", "国:" );
 define( "_AM_IMLINKS_KEYWORDS", "キーワード:" );
 define( "_AM_IMLINKS_KEYWORDS_NOTE", "キーワードは半角のコンマで分けてください (keyword1, keyword2, keyword3, ..)" );
-define( "_AM_IMLINKS_CHECKURL", "URL確認" );
 define( "_AM_IMLINKS_CATTITLE", "カテゴリー" );
 define( "_AM_IMLINKS_LINK_GOOGLEMAP", "Googleマップ" );
 define( "_AM_IMLINKS_LINK_YAHOOMAP", "Yahoomappu" );
-define( "_AM_IMLINKS_LINK_MULTIMAP", "Multimap" );
+define( "_AM_IMLINKS_LINK_BINGMAP", "Bing Maps" );
 define( "_AM_IMLINKS_LINK_CHECKMAP", "Check 確認" );
 define( "_AM_IMLINKS_STREET1", "住所 1" );
 define( "_AM_IMLINKS_STREET2", "住所 2 (optional)" );
@@ -472,23 +379,6 @@ define( "_AM_IMLINKS_INFORMATION", "リンク情報" );
 define( "_AM_IMLINKS_HITS", "ヒット: " );
 define( "_AM_IMLINKS_PAGERANK", "ページランク: ");
 define( "_AM_IMLINKS_ERROR_CATISCAT", "カテゴリそれ自身はサブカテゴリとしてセット出来ません!" );
-define( "_AM_IMLINKS_MOD_COUNTRY", "国:" );
-define( "_AM_IMLINKS_MOD_KEYWORDS", "キーワード:" );
-define( "_AM_IMLINKS_MOD_ITEM_TAG", "タグ:" );
-define( "_AM_IMLINKS_MOD_GOOGLEMAP", "Google Maps:" );
-define( "_AM_IMLINKS_MOD_YAHOOMAP", "Yahoo Maps:" );
-define( "_AM_IMLINKS_MOD_MULTIMAP", "Multimap:" );
-define( "_AM_IMLINKS_MOD_STREET1", "住所１:" );
-define( "_AM_IMLINKS_MOD_STREET2", "住所２(オプション):" );
-define( "_AM_IMLINKS_MOD_TOWN", "市区町村:" );
-define( "_AM_IMLINKS_MOD_STATE", "都道府県:" );
-define( "_AM_IMLINKS_MOD_ZIP", "郵便番号:" );
-define( "_AM_IMLINKS_MOD_TEL", "電話番号:" );
-define( "_AM_IMLINKS_MOD_FAX", "Fax:" );
-define( "_AM_IMLINKS_MOD_VOIP", "スカイプ:" );
-define( "_AM_IMLINKS_MOD_MOBILE", "携帯電話:" );
-define( "_AM_IMLINKS_MOD_EMAIL", "E-Mail:" );
-define( "_AM_IMLINKS_MOD_VAT", "VAT:" );
 
 // version 1.06 RC-2
 define( "_AM_IMLINKS_IPAGE_SHOWLATEST", "最新の情報を表示しますか?" );
@@ -557,4 +447,19 @@ define( '_AM_IMLINKS_RSSOFFTITLE', 'RSSフィードは無効になりました.'
 define( '_AM_IMLINKS_RSSOFFMSGDEF', 'RSSフィードは管理のため一時的に無効になっています.' );
 define( '_AM_IMLINKS_RSSCLICKSUBMIT', 'クリックしてデータベースに保存してください。' );
 define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' );
+
+define( '_MD_A_MYMENU_MYTPLSADMIN', 'テンプレート管理' );
+
+// Version 1.01 RC-1
+define( '_AM_IMLINKS_NOREPLY', 'No reply' );
+
+// imLinks 1.03
+define( '_AM_IMLINKS_NICEURL', 'Alternative title for url:' );
+define( '_AM_IMLINKS_NICEURLDSC', 'Enter an alternative title for the link to be used in the url. When the option <em>Use nice urls</em> from Preferences is selected and this field is left empty, than the title of the link will be used.' );
+define( '_AM_IMLINKS_TOMTOM', 'Add to TomTom' );
+define( '_AM_IMLINKS_TOMTOMDSC', 'Enter the latitude and longitude of the address entered above.<br />You can find the geographic position of the address by using the website <a href="http://itouchmap.com/latlong.html" target="_blank">iTouchMap.com</a><br />Geographic latitude/longitude of the location should be in decimal degrees. May be negative; "N"/"S"/"W"/"E" suffix is not accepted. Default geodetic datum is WGS-84.<br />The geographic position should be entered as follows:<br />- Latitude: 57.2355591<br />- Longitude: -2.3535921' );
+define( '_AM_IMLINKS_TOMTOMLONG', 'Enter longitude:' );
+define( '_AM_IMLINKS_TOMTOMLAT', 'Enter latitude:' );
+define( '_AM_IMLINKS_MOD_TTLAT', 'TomTom Latitude:' );
+define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Longitude:' );
 ?>

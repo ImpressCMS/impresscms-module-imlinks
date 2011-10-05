@@ -28,8 +28,6 @@
 
 include 'admin_header.php';
 
-global $xoopsModuleConfig;
-
 $op = ( isset( $_REQUEST['op'] ) && !empty( $_REQUEST['op'] ) ) ? $_REQUEST['op'] : '';
 $rootpath = ( isset( $_GET['rootpath'] ) ) ? intval( $_GET['rootpath'] ) : 0;
 
@@ -50,7 +48,6 @@ switch ( strtolower( $op ) ) {
         break;
 
     case 'delfile':
-
         if ( isset( $_POST['confirm'] ) && $_POST['confirm'] == 1 ) {
             $filetodelete = ICMS_ROOT_PATH . '/' . $_POST['uploadpath'] . '/' . $_POST['linkfile'];
             if ( file_exists( $filetodelete ) ) {
@@ -67,67 +64,70 @@ switch ( strtolower( $op ) ) {
                 redirect_header( 'upload.php', 1, _AM_IMLINKS_LINK_NOFILEERROR );
                 exit();
             } 
-            xoops_cp_header();
-            xoops_confirm( array( 'op' => 'delfile', 'uploadpath' => $_POST['uploadpath'], 'linkfile' => $_POST['linkfile'], 'confirm' => 1 ), 'upload.php', _AM_IMLINKS_LINK_DELETEFILE . '<br /><br />' . $_POST['linkfile'], _AM_IMLINKS_BDELETE );
+            icms_cp_header();
+            icms_core_Message::confirm( array( 'op' => 'delfile', 'uploadpath' => $_POST['uploadpath'], 'linkfile' => $_POST['linkfile'], 'confirm' => 1 ), 'upload.php', _AM_IMLINKS_LINK_DELETEFILE . '<br /><br />' . $_POST['linkfile'], _AM_IMLINKS_BDELETE );
         } 
         break;
 
     case 'default':
     default:
+	
         $displayimage = '';
-        xoops_cp_header();
+        icms_cp_header();
 
-        $dirarray = array( 1 => $xoopsModuleConfig['catimage'], 2 => $xoopsModuleConfig['screenshots'], 3 => $xoopsModuleConfig['mainimagedir'] );
+        $dirarray  = array( 1 => icms::$module -> config['catimage'], 2 => icms::$module -> config['screenshots'], 3 => icms::$module -> config['mainimagedir'] );
         $namearray = array( 1 => _AM_IMLINKS_LINK_CATIMAGE , 2 => _AM_IMLINKS_LINK_SCREENSHOTS, 3 => _AM_IMLINKS_LINK_MAINIMAGEDIR );
         $listarray = array( 1 => _AM_IMLINKS_LINK_FCATIMAGE , 2 => _AM_IMLINKS_LINK_FSCREENSHOTS, 3 => _AM_IMLINKS_LINK_FMAINIMAGEDIR );
 
         iml_adminmenu( 5, _AM_IMLINKS_MUPLOADS );
         iml_serverstats();
+		
         if ( $rootpath > 0 ) {
-            echo "<div><b>" . _AM_IMLINKS_LINK_FUPLOADPATH . "</b> " . ICMS_ROOT_PATH . "/" . $dirarray[$rootpath] . "</div>\n";
-            echo "<div><b>" . _AM_IMLINKS_LINK_FUPLOADURL . "</b> " . ICMS_URL . "/" . $dirarray[$rootpath] . "</div><br />\n";
+            echo '<div><b>' . _AM_IMLINKS_LINK_FUPLOADPATH . '</b> ' . ICMS_ROOT_PATH . '/' . $dirarray[$rootpath] . '</div>';
+            echo '<div><b>' . _AM_IMLINKS_LINK_FUPLOADURL . '</b> ' . ICMS_URL . '/' . $dirarray[$rootpath] . '</div><br />';
         } 
+		
         $pathlist = ( isset( $listarray[$rootpath] ) ) ? $namearray[$rootpath] : '';
         $namelist = ( isset( $listarray[$rootpath] ) ) ? $namearray[$rootpath] : '';
 
-        $iform = new XoopsThemeForm( _AM_IMLINKS_LINK_FUPLOADIMAGETO . $pathlist, 'op', xoops_getenv( 'PHP_SELF' ) );
+        $iform = new icms_form_Theme( _AM_IMLINKS_LINK_FUPLOADIMAGETO . $pathlist, 'op', '' );
         $iform -> setExtra( 'enctype="multipart/form-data"' );
+		
         ob_start();
-        $iform -> addElement( new XoopsFormHidden( 'dir', $rootpath ) );
+        $iform -> addElement( new icms_form_elements_Hidden( 'dir', $rootpath ) );
 			iml_getDirSelectOption( $namelist, $dirarray, $namearray );
-			$iform -> addElement( new XoopsFormLabel( _AM_IMLINKS_LINK_FOLDERSELECTION, ob_get_contents() ) );
+			$iform -> addElement( new icms_form_elements_Label( _AM_IMLINKS_LINK_FOLDERSELECTION, ob_get_contents() ) );
         ob_end_clean();
 
         if ( $rootpath > 0 ) {
             $graph_array = &imlLists :: getListTypeAsArray( ICMS_ROOT_PATH . '/' . $dirarray[$rootpath], $type = 'images' );
-            $indeximage_select = new XoopsFormSelect( '', 'linkfile', '' );
+            $indeximage_select = new icms_form_elements_Select( '', 'linkfile', '' );
             $indeximage_select -> addOptionArray( $graph_array );
             $indeximage_select -> setExtra( "onchange='showImgSelected(\"image\", \"linkfile\", \"" . $dirarray[$rootpath] . "\", \"\", \"" . ICMS_URL . "\")'" );
-            $indeximage_tray = new XoopsFormElementTray( _AM_IMLINKS_LINK_FSHOWSELECTEDIMAGE, '&nbsp;' );
+            $indeximage_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_FSHOWSELECTEDIMAGE, '&nbsp;' );
             $indeximage_tray -> addElement( $indeximage_select );
             if ( !empty( $imgurl ) ) {
-                $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . ICMS_URL . "/" . $dirarray[$rootpath] . "/" . $linkfile . "' name='image' id='image' alt='' />" ) );
+                $indeximage_tray -> addElement( new icms_form_elements_Label( '', '<br /><br /><img src="' . ICMS_URL . '/' . $dirarray[$rootpath] . '/' . $linkfile . '" name="image" id="image" alt="" />' ) );
             } else {
-                $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . ICMS_URL . "/uploads/blank.gif' name='image' id='image' alt='' />" ) );
+                $indeximage_tray -> addElement( new icms_form_elements_Label( '', '<br /><br /><img src="' . ICMS_URL . '/uploads/blank.gif" name="image" id="image" alt="" />' ) );
             } 
             $iform -> addElement( $indeximage_tray );
-            $iform -> addElement( new XoopsFormFile( _AM_IMLINKS_LINK_FUPLOADIMAGE, 'uploadfile', 0 ) );
-            $iform -> addElement( new XoopsFormHidden( 'uploadpath', $dirarray[$rootpath] ) );
-            $iform -> addElement( new XoopsFormHidden( 'rootnumber', $rootpath ) );
+            $iform -> addElement( new icms_form_elements_File( _AM_IMLINKS_LINK_FUPLOADIMAGE, 'uploadfile', 0 ) );
+            $iform -> addElement( new icms_form_elements_Hidden( 'uploadpath', $dirarray[$rootpath] ) );
+            $iform -> addElement( new icms_form_elements_Hidden( 'rootnumber', $rootpath ) );
 
-            $dup_tray = new XoopsFormElementTray( '', '' );
-            $dup_tray -> addElement( new XoopsFormHidden( 'op', 'upload' ) );
-            $butt_dup = new XoopsFormButton( '', '', _AM_IMLINKS_BUPLOAD, 'submit' );
+            $dup_tray = new icms_form_elements_Tray( '', '' );
+            $dup_tray -> addElement( new icms_form_elements_Hidden( 'op', 'upload' ) );
+            $butt_dup = new icms_form_elements_Button( '', '', _AM_IMLINKS_BUPLOAD, 'submit' );
             $butt_dup -> setExtra( 'onclick="this.form.elements.op.value=\'upload\'"' );
             $dup_tray -> addElement( $butt_dup );
 
-            $butt_dupct = new XoopsFormButton( '', '', _AM_IMLINKS_BDELETEIMAGE, 'submit' );
+            $butt_dupct = new icms_form_elements_Button( '', '', _AM_IMLINKS_BDELETEIMAGE, 'submit' );
             $butt_dupct -> setExtra( 'onclick="this.form.elements.op.value=\'delfile\'"' );
             $dup_tray -> addElement( $butt_dupct );
             $iform -> addElement( $dup_tray );
         } 
         $iform -> display();
 } 
-xoops_cp_footer();
-
+icms_cp_footer();
 ?>

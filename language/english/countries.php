@@ -50,6 +50,7 @@ define( '_IMLINKS_COUNTRY_BL', 'Saint Barthélemy' );
 define( '_IMLINKS_COUNTRY_BM', 'Bermuda' );
 define( '_IMLINKS_COUNTRY_BN', 'Brunei Darussalam' );
 define( '_IMLINKS_COUNTRY_BO', 'Bolivia' );
+define( '_IMLINKS_COUNTRY_BQ', 'Bonaire, St. Eustatius and Saba' );
 define( '_IMLINKS_COUNTRY_BR', 'Brazil' );
 define( '_IMLINKS_COUNTRY_BS', 'Bahamas' );
 define( '_IMLINKS_COUNTRY_BT', 'Bhutan' );
@@ -70,7 +71,7 @@ define( '_IMLINKS_COUNTRY_CM', 'Cameroon' );
 define( '_IMLINKS_COUNTRY_CN', 'China' );
 define( '_IMLINKS_COUNTRY_CO', 'Colombia' );
 define( '_IMLINKS_COUNTRY_CR', 'Costa Rica' );
-define( '_IMLINKS_COUNTRY_CS', 'Czechoslovakia (former)' );	//  Not listed in ISO 3166
+// define( '_IMLINKS_COUNTRY_CS', 'Czechoslovakia (former)' );	//  Not listed in ISO 3166
 define( '_IMLINKS_COUNTRY_CU', 'Cuba' );
 define( '_IMLINKS_COUNTRY_CV', 'Cape Verde' );
 define( '_IMLINKS_COUNTRY_CX', 'Christmas Island' );
@@ -95,7 +96,7 @@ define( '_IMLINKS_COUNTRY_FK', 'Falkland Islands (Malvinas)' );
 define( '_IMLINKS_COUNTRY_FM', 'Micronesia' );
 define( '_IMLINKS_COUNTRY_FO', 'Faroe Islands' );
 define( '_IMLINKS_COUNTRY_FR', 'France' );
-define( '_IMLINKS_COUNTRY_FX', 'France, Metropolitan' );	//  Not listed in ISO 3166
+// define( '_IMLINKS_COUNTRY_FX', 'France, Metropolitan' );	//  Not listed in ISO 3166
 define( '_IMLINKS_COUNTRY_GA', 'Gabon' );
 define( '_IMLINKS_COUNTRY_GB', 'Great Britain (UK)' );
 define( '_IMLINKS_COUNTRY_GD', 'Grenada' );
@@ -131,6 +132,7 @@ define( '_IMLINKS_COUNTRY_IQ', 'Iraq' );
 define( '_IMLINKS_COUNTRY_IR', 'Iran' );
 define( '_IMLINKS_COUNTRY_IS', 'Iceland' );
 define( '_IMLINKS_COUNTRY_IT', 'Italy' );
+define( '_IMLINKS_COUNTRY_JE', 'Jersey' );
 define( '_IMLINKS_COUNTRY_JM', 'Jamaica' );
 define( '_IMLINKS_COUNTRY_JO', 'Jordan' );
 define( '_IMLINKS_COUNTRY_JP', 'Japan' );
@@ -189,7 +191,7 @@ define( '_IMLINKS_COUNTRY_NL', 'Netherlands' );
 define( '_IMLINKS_COUNTRY_NO', 'Norway' );
 define( '_IMLINKS_COUNTRY_NP', 'Nepal' );
 define( '_IMLINKS_COUNTRY_NR', 'Nauru' );
-define( '_IMLINKS_COUNTRY_NT', 'Neutral Zone' );
+// define( '_IMLINKS_COUNTRY_NT', 'Neutral Zone' );
 define( '_IMLINKS_COUNTRY_NU', 'Niue' );
 define( '_IMLINKS_COUNTRY_NZ', 'New Zealand' );
 define( '_IMLINKS_COUNTRY_OM', 'Oman' );
@@ -228,9 +230,11 @@ define( '_IMLINKS_COUNTRY_SM', 'San Marino' );
 define( '_IMLINKS_COUNTRY_SN', 'Senegal' );
 define( '_IMLINKS_COUNTRY_SO', 'Somalia' );
 define( '_IMLINKS_COUNTRY_SR', 'Suriname' );
+define( '_IMLINKS_COUNTRY_SS', 'South Sudan' );
 define( '_IMLINKS_COUNTRY_ST', 'Sao Tome and Principe' );
-define( '_IMLINKS_COUNTRY_SU', 'USSR (former)' );	//  Not listed in ISO 3166
+// define( '_IMLINKS_COUNTRY_SU', 'USSR (former)' );	//  Not listed in ISO 3166
 define( '_IMLINKS_COUNTRY_SV', 'El Salvador' );
+define( '_IMLINKS_COUNTRY_SX', 'Sint Maarten' );
 define( '_IMLINKS_COUNTRY_SY', 'Syria' );
 define( '_IMLINKS_COUNTRY_SZ', 'Swaziland' );
 define( '_IMLINKS_COUNTRY_TC', 'Turks and Caicos Islands' );
@@ -244,7 +248,7 @@ define( '_IMLINKS_COUNTRY_TL', 'Timor-Leste' );
 define( '_IMLINKS_COUNTRY_TM', 'Turkmenistan' );
 define( '_IMLINKS_COUNTRY_TN', 'Tunisia' );
 define( '_IMLINKS_COUNTRY_TO', 'Tonga' );
-define( '_IMLINKS_COUNTRY_TP', 'East Timor' );	//  Not listed in ISO 3166
+// define( '_IMLINKS_COUNTRY_TP', 'East Timor' );	//  Not listed in ISO 3166
 define( '_IMLINKS_COUNTRY_TR', 'Turkey' );
 define( '_IMLINKS_COUNTRY_TT', 'Trinidad and Tobago' );
 define( '_IMLINKS_COUNTRY_TV', 'Tuvalu' );
@@ -268,9 +272,9 @@ define( '_IMLINKS_COUNTRY_WF', 'Wallis and Futuna Islands' );
 define( '_IMLINKS_COUNTRY_WS', 'Samoa' );
 define( '_IMLINKS_COUNTRY_YE', 'Yemen' );
 define( '_IMLINKS_COUNTRY_YT', 'Mayotte' );
-define( '_IMLINKS_COUNTRY_YU', 'Yugoslavia' );	//  Not listed in ISO 3166
+// define( '_IMLINKS_COUNTRY_YU', 'Yugoslavia' );	//  Not listed in ISO 3166
 define( '_IMLINKS_COUNTRY_ZA', 'South Africa' );
 define( '_IMLINKS_COUNTRY_ZM', 'Zambia' );
-define( '_IMLINKS_COUNTRY_ZR', 'Zaire' );	//  Not listed in ISO 3166
+// define( '_IMLINKS_COUNTRY_ZR', 'Zaire' );	//  Not listed in ISO 3166
 define( '_IMLINKS_COUNTRY_ZW', 'Zimbabwe' );				
 ?>
