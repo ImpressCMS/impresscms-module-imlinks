@@ -1,18 +1,18 @@
 Saludos {X_UNAME},
 
-Una nueva categorÌa "{CATEGORY_NAME}" ha sido creada en {X_SITENAME}.
+Una nueva categor√≠a "{CATEGORY_NAME}" ha sido creada en {X_SITENAME}.
 
-El siguiente enlace es para ver la categorÌa:
+El siguiente enlace es para ver la categor√≠a:
 {CATEGORY_URL}
 
-El siguiente enlace es para ver todas las categorÌas:
+El siguiente enlace es para ver todas las categor√≠as:
 {X_MODULE_URL}
 
 -----------
 
-Est· recibiendo este mensaje porque solicitÛ ser notificado cuando una nueva categorÌa sea creada en nuestro sitio.
+Est√° recibiendo este mensaje porque solicit√≥ ser notificado cuando una nueva categor√≠a sea creada en nuestro sitio.
 
-Si esto es un error o no quiere seguir recibiendo futuras notificaciones actualice su suscripciÛn visitando el siguiente enlace:
+Si esto es un error o no quiere seguir recibiendo futuras notificaciones actualice su suscripci√≥n visitando el siguiente enlace:
 {X_UNSUBSCRIBE_URL}
 
 Por favor no responda este mensaje.

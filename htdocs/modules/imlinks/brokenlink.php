@@ -28,69 +28,67 @@
 
 include 'header.php';
 
-$op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
-$lid = iml_cleanRequestVars( $_REQUEST, 'lid', 0 );
-$lid = intval( $lid );
+$op  = iml_cleanRequestVars( $_REQUEST, 'op', '' );
+$lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
  
 switch ( strtolower( $op ) ) {
-    case 'submit':
-        global $xoopsUser;
+    case strtolower( _MD_IMLINKS_SUBMITBROKEN ):
 
-        $sender = ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) ? $xoopsUser -> getVar( 'uid' ) : 0;
-        $ip = getenv( "REMOTE_ADDR" );
+        $sender = ( is_object( icms::$user ) && !empty( icms::$user ) ) ? icms::$user -> getVar( 'uid' ) : 0;
+        $ip = getenv( 'REMOTE_ADDR' );
         $title = iml_cleanRequestVars( $_REQUEST, 'title', '' );
-        $title = $immyts -> addslashes( $title );
+        $title = icms_core_DataFilter::addSlashes( $title );
         $time = time();
 
-// Check if REG user is trying to report twice.
-        $result = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'imlinks_broken' ) . " WHERE lid=" . intval($lid) );
-        list ( $count ) = $xoopsDB -> fetchRow( $result );
+		// Check if REG user is trying to report twice.
+        $result = icms::$xoopsDB -> query( 'SELECT COUNT(*) FROM ' . icms::$xoopsDB -> prefix( 'imlinks_broken' ) . ' WHERE lid=' . intval($lid) );
+        list ( $count ) = icms::$xoopsDB -> fetchRow( $result );
         if ( $count > 0 ) {
             redirect_header( 'index.php', 2, _MD_IMLINKS_ALREADYREPORTED );
             exit();
         } else {
             $reportid = 0;
-            $sql = sprintf( "INSERT INTO %s (reportid, lid, sender, ip, date, confirmed, acknowledged, title ) VALUES ( %u, %u, %u, %s, %u, %u, %u, %s)", $xoopsDB -> prefix( 'imlinks_broken' ), $reportid, $lid, $sender, $xoopsDB -> quoteString( $ip ), $time, 0, 0, $xoopsDB -> quoteString( $title ) );
-            if ( ! $result = $xoopsDB -> query( $sql ) ) {
+            $sql = sprintf( "INSERT INTO %s (reportid, lid, sender, ip, date, confirmed, acknowledged, title ) VALUES ( %u, %u, %u, %s, %u, %u, %u, %s)", icms::$xoopsDB -> prefix( 'imlinks_broken' ), $reportid, $lid, $sender, icms::$xoopsDB -> quoteString( $ip ), $time, 0, 0, icms::$xoopsDB -> quoteString( $title ) );
+            if ( ! $result = icms::$xoopsDB -> query( $sql ) ) {
                 $error[] = _MD_IMLINKS_ERROR;
             } 
-            $newid = $xoopsDB -> getInsertId();
+            $newid = icms::$xoopsDB -> getInsertId();
 
 // Send notifications
             $tags = array();
             $tags['BROKENREPORTS_URL'] = ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=listBrokenlinks';
-            $notification_handler = &xoops_gethandler( 'notification' );
+            $notification_handler = icms::handler('icms_data_notification');
             $notification_handler -> triggerEvent( 'global', 0, 'link_broken', $tags );
 
 // Send email to the owner of the linkload stating that it is broken
-            $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE lid=" . intval($lid) . " AND published > 0 AND published <= " . time() . " AND (expired = 0 OR expired > " . time() . ")";
-            $link_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+            $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid ) . ' AND published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ')';
+            $link_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
             unset( $sql );
 
-            $member_handler = &xoops_gethandler( 'member' );
+            $member_handler = icms::handler( 'icms_member' );
             $submit_user = &$member_handler -> getUser( $link_arr['submitter'] );
             if ( is_object( $submit_user ) && !empty( $submit_user ) ) {
-                $subdate = formatTimestamp( $link_arr['date'], $xoopsModuleConfig['dateformat'] );
+                $subdate = formatTimestamp( $link_arr['date'], icms::$module -> config['dateformat'] );
                 $cid = $link_arr['cid'];
                 $title = $immyts -> htmlSpecialCharsStrip( $link_arr['title'] );
                 $subject = _MD_IMLINKS_BROKENREPORTED;
 
-                $xoopsMailer = &getMailer();
+                $xoopsMailer = new icms_messaging_Handler();
                 $xoopsMailer -> useMail();
-                $template_dir = ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/' . $xoopsConfig['language'] . '/mail_template';
+                $template_dir = ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/' . $icmsConfig['language'] . '/mail_template';
 
                 $xoopsMailer -> setTemplateDir( $template_dir );
                 $xoopsMailer -> setTemplate( 'linkbroken_notify.tpl' );
                 $xoopsMailer -> setToEmails( $submit_user -> getVar( 'email' ) );
-                $xoopsMailer -> setFromEmail( $xoopsConfig['adminmail'] );
-                $xoopsMailer -> setFromName( $xoopsConfig['sitename'] );
-                $xoopsMailer -> assign( "X_UNAME", $submit_user -> getVar( 'uname' ) );
-                $xoopsMailer -> assign( "SITENAME", $xoopsConfig['sitename'] );
-                $xoopsMailer -> assign( "X_ADMINMAIL", $xoopsConfig['adminmail'] );
+                $xoopsMailer -> setFromEmail( $icmsConfig['adminmail'] );
+                $xoopsMailer -> setFromName( $icmsConfig['sitename'] );
+                $xoopsMailer -> assign( 'X_UNAME', $submit_user -> getVar( 'uname' ) );
+                $xoopsMailer -> assign( 'SITENAME', $icmsConfig['sitename'] );
+                $xoopsMailer -> assign( 'X_ADMINMAIL', $icmsConfig['adminmail'] );
                 $xoopsMailer -> assign( 'X_SITEURL', ICMS_URL . '/' );
-                $xoopsMailer -> assign( "X_TITLE", $title );
-                $xoopsMailer -> assign( "X_SUB_DATE", $subdate );
-                $xoopsMailer -> assign( 'X_LINKLOAD', ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . intval($cid) . '&amp;lid=' . intval($lid) );
+                $xoopsMailer -> assign( 'X_TITLE', $title );
+                $xoopsMailer -> assign( 'X_SUB_DATE', $subdate );
+                $xoopsMailer -> assign( 'X_LINKLOAD', ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . intval( $lid ) );
                 $xoopsMailer -> setSubject( $subject );
                 $message = ( $xoopsMailer -> send() ) ? _MD_IMLINKS_BROKENREPORTED : _MD_IMLINKS_ERRORSENDEMAIL;
             } else {
@@ -110,41 +108,40 @@ switch ( strtolower( $op ) ) {
         $catarray['toolbar'] = iml_toolbar();
         $xoopsTpl -> assign( 'catarray', $catarray );
 
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE lid=" . intval( $lid );
-        $link_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+        $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid );
+        $link_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
         unset( $sql );
 
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_broken' ) . " WHERE lid=" . intval( $lid );
-        $broke_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+        $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_broken' ) . ' WHERE lid=' . intval( $lid );
+        $broke_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
         if ( is_array( $broke_arr ) ) {
             $broken['title'] = $immyts -> htmlSpecialCharsStrip( $link_arr['title'] );
             $broken['id'] = $broke_arr['reportid'];
-            $broken['reporter'] = xoops_getLinkedUnameFromId( $broke_arr['sender'] );
-            $broken['date'] = formatTimestamp( $broke_arr['date'], $xoopsModuleConfig['dateformat'] );
+            $broken['reporter'] = icms_member_user_Handler::getUserLink( $broke_arr['sender'] );
+            $broken['date'] = formatTimestamp( $broke_arr['date'], icms::$module -> config['dateformat'] );
             $broken['acknowledged'] = ( $broke_arr['acknowledged'] == 1 ) ? _YES : _NO ;
             $broken['confirmed'] = ( $broke_arr['confirmed'] == 1 ) ? _YES : _NO ;
             $xoopsTpl -> assign( 'broken', $broken );
             $xoopsTpl -> assign( 'brokenreport', true );
         } else {
             if ( !is_array( $link_arr ) || empty( $link_arr ) ) {
-                redirect_header( 'index.php', 0 , _MD_IMLINKS_THISFILEDOESNOTEXIST );
+                redirect_header( 'index.php', 0, _MD_IMLINKS_THISFILEDOESNOTEXIST );
                 exit();
             } 
 
 // file info
             $link['title'] = $immyts -> htmlSpecialCharsStrip( $link_arr['title'] );
             $time = ( $link_arr['published'] > 0 ) ? $link_arr['published'] : $link_arr['updated'];
-            $link['updated'] = formatTimestamp( $time, $xoopsModuleConfig['dateformat'] );
+            $link['updated'] = formatTimestamp( $time, icms::$module -> config['dateformat'] );
             $is_updated = ( $link_arr['updated'] != 0 ) ? _MD_IMLINKS_UPDATEDON : _MD_IMLINKS_SUBMITDATE;
-            $link['publisher'] = xoops_getLinkedUnameFromId( $link_arr['submitter'] );
+            $link['publisher'] = icms_member_user_Handler::getUserLink( $link_arr['submitter'] );
 
             $xoopsTpl -> assign( 'link_id', intval( $lid ) );
             $xoopsTpl -> assign( 'lang_subdate' , $is_updated );
             $xoopsTpl -> assign( 'link', $link );
         } 
-	
-        imlinks_noindexnofollow();
+        iml_noindexnofollow();
         $xoopsTpl -> assign( 'module_dir', $mydirname );
         include ICMS_ROOT_PATH . '/footer.php';
         break;

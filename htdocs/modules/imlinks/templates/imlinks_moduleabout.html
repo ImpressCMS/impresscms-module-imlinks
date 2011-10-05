@@ -1,5 +1,5 @@
-<script language="javascript" src="<{$xoops_url}>/include/linkexternal.js"></script>
-
+<script language="javascript" src="<{$icms_url}>/include/linkexternal.js"></script>
+<br />
 <img src="<{$module_url}><{$module_image}>" alt="<{$module_name}>" style="float: <{$smarty.const._GLOBAL_LEFT}>; margin-right: 10px;"/></a>
 
 <div style="margin-top: 1px; color: #33538e; margin-bottom: 4px; font-size: 18px; line-height: 18px; font-weight: bold;">
@@ -7,7 +7,7 @@
 </div>
 
 <div style="line-height: 16px; font-weight: bold;">
-	<{$smarty.const._MODABOUT_IMLINKS_BY}> <{$module_author_name}>
+	&nbsp;<{$smarty.const._MODABOUT_IMLINKS_BY}> <{$module_author_name}>
 </div>
 
 <div style="line-height: 16px;">
@@ -17,7 +17,7 @@
 <{if $module_credits}>
 	<table width="100%" cellspacing="1" cellpadding="3" border="0" class="outer" style="margin-top: 15px;">
 		<tr>
-			<td class="bg3"><b><{$smarty.const._MODABOUT_IMLINKS_DEVELOPER_CREDITS}></b></td>
+			<td class="bg3">&nbsp;<b><{$smarty.const._MODABOUT_IMLINKS_DEVELOPER_CREDITS}></b></td>
 		</tr>
 
 		<tr>
@@ -28,9 +28,51 @@
 
 <table width="100%" cellspacing="1" cellpadding="3" border="0" class="outer" style="margin-top: 15px;">
 	<tr>
-		<td colspan="2" class="bg3">
-			<b><{$smarty.const._MODABOUT_IMLINKS_AUTHOR_INFO}></b>
-		</td>
+		<td colspan='2' class="bg3">&nbsp;<b><{$smarty.const._MODABOUT_IMLINKS_MODULE_INFO}></b></td>
+	</tr>
+
+	<tr>
+		<td class="head" width="250px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_RELEASE_DATE}></td>
+		<td class="even"><{$module_date}></td>
+	</tr>
+
+	<tr>
+		<td class="head" width="250px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_STATUS}></td>
+		<td class="even"><{$module_status}></td>
+	</tr>
+
+	<{if $module_demo_site_name}>
+		<tr>
+			<td class="head" width="250px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_DEMO}></td>
+			<td class="even"><a href="<{$module_developer_demo_site_url}>" rel="external"><{$module_demo_site_name}></a></td>
+		</tr>
+	<{/if}>
+
+	<{if $module_support_site_name}>
+		<tr>
+			<td class="head" width="250px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_SUPPORT}></td>
+			<td class="even"><a href="<{$module_support_site_url}>" rel="external"><{$module_support_site_name}></a></td>
+		</tr>
+	<{/if}>
+
+	<{if $module_submit_bug}>
+		<tr>
+			<td class="head" width="250px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_BUG}></td>
+			<td class="even"><a href="<{$module_submit_bug}>" rel="external"><{$smarty.const._MODABOUT_IMLINKS_MODULE_SUBMIT_BUG}></a></td>
+		</tr>
+	<{/if}>
+
+	<{if $module_submit_feature}>
+		<tr>
+			<td class="head" width="250px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_FEATURE}></td>
+			<td class="even"><a href="<{$module_submit_feature}>" rel="external"><{$smarty.const._MODABOUT_IMLINKS_MODULE_SUBMIT_FEATURE}></a></td>
+		</tr>
+	<{/if}>
+</table>
+
+<table width="100%" cellspacing="1" cellpadding="3" border="0" class="outer" style="margin-top: 15px;">
+	<tr>
+		<td colspan="2" class="bg3">&nbsp;<b><{$smarty.const._MODABOUT_IMLINKS_AUTHOR_INFO}></b></td>
 	</tr>
 
 	<{if $module_developer_lead}>
@@ -117,54 +159,10 @@
 	<{/if}>
 </table>
 
-<table width="100%" cellspacing="1" cellpadding="3" border="0" class="outer" style="margin-top: 15px;">
-	<tr>
-		<td colspan='2' class="bg3"><b><{$smarty.const._MODABOUT_IMLINKS_MODULE_INFO}></b></td>
-	</tr>
-
-	<tr>
-		<td class="head" width="200px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_RELEASE_DATE}></td>
-		<td class="even"><{$module_date}></td>
-	</tr>
-
-	<tr>
-		<td class="head" width="200px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_STATUS}></td>
-		<td class="even"><{$module_status}></td>
-	</tr>
-
-	<{if $module_demo_site_name}>
-		<tr>
-			<td class="head" width="200px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_DEMO}></td>
-			<td class="even"><a href="<{$module_developer_demo_site_url}>" rel="external"><{$module_demo_site_name}></a></td>
-		</tr>
-	<{/if}>
-
-	<{if $module_support_site_name}>
-		<tr>
-			<td class="head" width="200px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_SUPPORT}></td>
-			<td class="even"><a href="<{$module_support_site_url}>" rel="external"><{$module_support_site_name}></a></td>
-		</tr>
-	<{/if}>
-
-	<{if $module_submit_bug}>
-		<tr>
-			<td class="head" width="200px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_BUG}></td>
-			<td class="even"><a href="<{$module_submit_bug}>" rel="external"><{$smarty.const._MODABOUT_IMLINKS_MODULE_SUBMIT_BUG}></a></td>
-		</tr>
-	<{/if}>
-
-	<{if $module_submit_feature}>
-		<tr>
-			<td class="head" width="200px"><{$smarty.const._MODABOUT_IMLINKS_MODULE_FEATURE}></td>
-			<td class="even"><a href="<{$module_submit_feature}>" rel="external"><{$smarty.const._MODABOUT_IMLINKS_MODULE_SUBMIT_FEATURE}></a></td>
-		</tr>
-	<{/if}>
-</table>
-
 <{if $module_manual}>
 <table width="100%" cellspacing="1" cellpadding="3" border="0" class="outer" style="margin-top: 15px;">
 	<tr>
-		<td colspan="2" class="bg3"><b><{$smarty.const._MODABOUT_IMLINKS_MANUAL}></b></td>
+		<td colspan="2" class="bg3">&nbsp;<b><{$smarty.const._MODABOUT_IMLINKS_MANUAL}></b></td>
 	</tr>
 		<tr>
 			<td class="head" style="vertical-align: top;" width="150px"><{$smarty.const._MODABOUT_IMLINKS_MANUAL_WIKI}></td>
@@ -180,11 +178,14 @@
 <{if $module_warning}>
 	<table width="100%" cellspacing="1" cellpadding="3" border="0" class="outer" style="margin-top: 15px;">
 		<tr>
-			<td class="bg3"><b><{$smarty.const._MODABOUT_IMLINKS_MODULE_DISCLAIMER}></b></td>
+			<td class="bg3">&nbsp;<b><{$smarty.const._MODABOUT_IMLINKS_MODULE_DISCLAIMER}></b></td>
 		</tr>
 
 		<tr>
 			<td class="even"><{$module_warning}></td>
+		</tr>
+		<tr>
+			<td class="even"><{$smarty.const._MODABOUT_IMLINKS_WARNINGTEXT}></td>
 		</tr>
 	</table>
 <{/if}>
@@ -192,7 +193,7 @@
 <{if $module_author_word}>
 	<table width="100%" cellspacing="1" cellpadding="3" border="0" class="outer" style="margin-top: 15px;">
 		<tr>
-			<td class="bg3"><b><{$smarty.const._MODABOUT_IMLINKS_AUTHOR_WORD}></b></td>
+			<td class="bg3">&nbsp;<b><{$smarty.const._MODABOUT_IMLINKS_AUTHOR_WORD}></b></td>
 		</tr>
 
 		<tr>
@@ -204,7 +205,7 @@
 <{if $module_version_history}>
 	<table width="100%" cellspacing="1" cellpadding="3" border="0" class="outer" style="margin-top: 15px;">
 		<tr>
-			<td class="bg3"><b><{$smarty.const._MODABOUT_IMLINKS_VERSION_HISTORY}></b></td>
+			<td class="bg3">&nbsp;<b><{$smarty.const._MODABOUT_IMLINKS_VERSION_HISTORY}></b></td>
 		</tr>
 
 		<tr>
@@ -218,7 +219,7 @@
 <{if $module_license_txt}>
 <table width="100%" cellspacing="1" cellpadding="3" border="0" class="outer" style="margin-top: 15px;">
 	<tr>
-		<td class="bg3"><b><{$smarty.const._MODABOUT_IMLINKS_MODULE_LICENSE}></b></td>
+		<td class="bg3">&nbsp;<b><{$smarty.const._MODABOUT_IMLINKS_MODULE_LICENSE}></b></td>
 	</tr>
 
 	<tr>

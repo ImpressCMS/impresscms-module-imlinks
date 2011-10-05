@@ -2,13 +2,9 @@
 /**
  * this is the image that will be return upon error
  */
-if ( !defined( '_PATH' ) ) {
-    define( "_PATH", ICMS_ROOT_PATH );
-} 
+if ( !defined( '_PATH' ) ) { define( "_PATH", ICMS_ROOT_PATH ); } 
 
-if ( !defined( 'DEFAULT_PATH' ) ) {
-    define( "DEFAULT_PATH", XOOPS_UPLOAD_URL . "/blank.gif" );
-} 
+if ( !defined( 'DEFAULT_PATH' ) ) { define( "DEFAULT_PATH", ICMS_UPLOAD_URL . "/blank.gif" ); } 
 
 /**
 * imLinks - a multicategory links management module for ImpressCMS
@@ -17,22 +13,22 @@ if ( !defined( 'DEFAULT_PATH' ) ) {
 *
 * File: class_thumbnail.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -140,7 +136,7 @@ class imThumbsNails {
     function do_thumb( $img_width = null, $img_height = null, $img_quality = null, $img_update = null, $img_aspect = null ) { 
         $this -> _source_path = ICMS_ROOT_PATH . "/{$this->_img_path}"; 
         $this -> _save_path = ICMS_ROOT_PATH . "/{$this->_img_path}/{$this->_img_savepath}"; 
-        $this -> _source_url = XOOPS_URL . "/{$this->_img_path}"; 
+        $this -> _source_url = ICMS_URL . "/{$this->_img_path}"; 
         $this -> _source_image = "{$this->_source_path}/{$this->_img_name}"; 
 
         if ( isset( $img_width ) && !is_null( $img_width ) )
@@ -201,7 +197,6 @@ class imThumbsNails {
      * @return 
      */
     function do_resize() {
-        global $xoopsModuleConfig; 
         // $this->_img_info = info array to the image being resized
         // $this->_img_info[0] == width
         // $this->_img_info[1] == height
@@ -237,7 +232,7 @@ class imThumbsNails {
 
         switch ( $this -> _image_type ) {
             case 'im':
-                if ( !empty( $xoopsModuleConfig['path_magick'] ) && is_dir( $xoopsModuleConfig['path_magick'] ) ) {
+                if ( !empty( icms::$module -> config['path_magick'] ) && is_dir( icms::$module -> config['path_magick'] ) ) {
                     if ( preg_match( "#[A-Z]:|\\\\#Ai", __FILE__ ) ) {
                         $cur_dir = dirname( __FILE__ );
                         $src_file_im = '"' . $cur_dir . '\\' . strtr( $this -> _source_image, '/', '\\' ) . '"';
@@ -246,13 +241,12 @@ class imThumbsNails {
                         $src_file_im = escapeshellarg( $this -> _source_image );
                         $new_file_im = escapeshellarg( $this -> _save_image );
                     } 
-                    $magick_command = $xoopsModuleConfig['path_magick'] . '/convert -quality {$xoopsModuleConfig["imagequality"]} -antialias -sample {$newWidth}x{$newHeight} {$src_file_im} +profile "*" ' . str_replace( '\\', '/', $new_file_im ) . '';
+                    $magick_command = icms::$module -> config['path_magick'] . '/convert -quality {icms::$module -> config["imagequality"]} -antialias -sample {$newWidth}x{$newHeight} {$src_file_im} +profile "*" ' . str_replace( '\\', '/', $new_file_im ) . '';
                     passthru( $magick_command );
                     return $this -> _source_url . "/{$this->_img_savepath}/{$savefile}";
                 } 
                 else
-                    return false;
-
+				return false;
                 break;
 
             case 'gd1':

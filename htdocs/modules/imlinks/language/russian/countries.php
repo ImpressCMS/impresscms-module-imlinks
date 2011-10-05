@@ -131,6 +131,7 @@ define( '_IMLINKS_COUNTRY_IQ', 'Iraq' );
 define( '_IMLINKS_COUNTRY_IR', 'Iran' );
 define( '_IMLINKS_COUNTRY_IS', 'Iceland' );
 define( '_IMLINKS_COUNTRY_IT', 'Italy' );
+define( '_IMLINKS_COUNTRY_JE', 'Jersey' );
 define( '_IMLINKS_COUNTRY_JM', 'Jamaica' );
 define( '_IMLINKS_COUNTRY_JO', 'Jordan' );
 define( '_IMLINKS_COUNTRY_JP', 'Japan' );

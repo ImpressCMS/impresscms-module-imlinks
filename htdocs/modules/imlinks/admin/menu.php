@@ -28,7 +28,7 @@
 
 $admin_dirname = basename( dirname( dirname( __FILE__ ) ) );
 
-global $xoopsModule, $xoopsConfig;
+global $icmsConfig;
 
 $adminmenu[1]['title'] 	= _MI_IMLINKS_BINDEX;
 $adminmenu[1]['link']	= 'admin/index.php';
@@ -55,22 +55,17 @@ $adminmenu[5]['link']	= 'admin/upload.php';
 $adminmenu[5]['icon']	= 'images/icon/upload.png';
 $adminmenu[5]['small']	= 'images/icon/upload_small.png';
 
-$adminmenu[6]['title'] 	= _MI_IMLINKS_BLOCKADMIN;
-$adminmenu[6]['link']	= 'admin/myblocksadmin.php'; 
-$adminmenu[6]['icon']	= 'images/icon/blocks.png';
-$adminmenu[6]['small']	= 'images/icon/blocks_small.png';
+$adminmenu[6]['title'] 	= _MI_IMLINKS_RSSFEED;
+$adminmenu[6]['link']	= 'admin/feed.php?op=edit';
+$adminmenu[6]['icon']	= 'images/icon/feed32.png';
+$adminmenu[6]['small']	= 'images/icon/feed.png';                   
 
-$adminmenu[7]['title'] 	= _MI_IMLINKS_RSSFEED;
-$adminmenu[7]['link']	= 'admin/feed.php?op=edit';
-$adminmenu[7]['icon']	= 'images/icon/feed32.png';
-$adminmenu[7]['small']	= 'images/icon/feed.png';                   
-
-if ( isset( $xoopsModule ) ) {
+if ( isset( icms::$module ) ) {
 
 	icms_loadLanguageFile( $admin_dirname, 'admin' );
 	
-	if ( file_exists( '../docs/' . $xoopsConfig['language'] . '/readme.html') ) {
-		$docs = '../docs/' . $xoopsConfig['language'] . '/readme.html" target="_blank"'; 
+	if ( file_exists( '../docs/' . $icmsConfig['language'] . '/readme.html') ) {
+		$docs = '../docs/' . $icmsConfig['language'] . '/readme.html" target="_blank"'; 
 	} elseif ( file_exists( '../docs/english/readme.html') ) { 
 		$docs = '../docs/english/readme.html" target="_blank"'; 
 	} else {
@@ -78,38 +73,29 @@ if ( isset( $xoopsModule ) ) {
 	}
 
 	$i = -1;
-	
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMLINKS_GOMODULE;
 	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . $admin_dirname;
-
 	$i++;
 	$headermenu[$i]['title'] = _PREFERENCES;
-	$headermenu[$i]['link']  = '../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod=' . $xoopsModule -> getVar( 'mid' );
-
+	$headermenu[$i]['link']  = '../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod=' . icms::$module -> getVar( 'mid' );
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMLINKS_BUPDATE;
 	$headermenu[$i]['link']  = ICMS_URL . '/modules/system/admin.php?fct=modulesadmin&op=update&module=' . $admin_dirname;
-	
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMLINKS_BPERMISSIONS;
 	$headermenu[$i]['link']  = '../admin/permissions.php';
-	
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMLINKS_MLISTPINGTIMES;
 	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . $admin_dirname . '/admin/index.php?op=pingtime';
-	
 	$i++;
-	$headermenu[$i]['title'] = _AM_IMLINKS_MCOMMENTS;
-	$headermenu[$i]['link']	 = "../../system/admin.php?module=" . $xoopsModule -> getVar( 'mid' ) . "&status=0&limit=100&fct=comments&selsubmit=Go";
-	
+	$headermenu[$i]['title'] = _COMMENTS;
+	$headermenu[$i]['link']	 = "../../system/admin.php?module=" . icms::$module -> getVar( 'mid' ) . "&status=0&limit=100&fct=comments&selsubmit=Go";
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMLINKS_DOCUMENTATION;
 	$headermenu[$i]['link']  = $docs;
-
 	$i++;
-	$headermenu[$i]['title'] = _AM_IMLINKS_ABOUT;
+	$headermenu[$i]['title'] = _MODABOUT_ABOUT;
 	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . $admin_dirname . '/admin/about.php';
 }
-
 ?>

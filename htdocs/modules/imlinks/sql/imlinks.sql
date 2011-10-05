@@ -22,8 +22,8 @@ CREATE TABLE imlinks_broken (
   sender int(11) NOT NULL default '0',
   ip varchar(20) NOT NULL default '',
   `date` varchar(11) NOT NULL default '0',
-  confirmed enum('0','1') NOT NULL default '0',
-  acknowledged enum('0','1') NOT NULL default '0',
+  confirmed tinyint(1) NOT NULL default '0',
+  acknowledged tinyint(1) NOT NULL default '0',
   title varchar(255) NOT NULL default '',
   PRIMARY KEY  (reportid),
   KEY lid (lid),
@@ -41,14 +41,6 @@ CREATE TABLE imlinks_cat (
   title varchar(50) NOT NULL default '',
   imgurl varchar(150) NOT NULL default '',
   description varchar(255) NOT NULL default '',
-  total int(11) NOT NULL default '0',
-  spotlighttop int(11) NOT NULL default '0',
-  spotlighthis int(11) NOT NULL default '0',
-  nohtml int(1) NOT NULL default '0',
-  nosmiley int(1) NOT NULL default '0',
-  noxcodes int(1) NOT NULL default '0',
-  noimages int(1) NOT NULL default '0',
-  nobreak int(1) NOT NULL default '1',
   weight int(11) NOT NULL default '0',
   client_id int(5) NOT NULL default '0',
   banner_id int(5) NOT NULL default '0',
@@ -65,13 +57,8 @@ CREATE TABLE imlinks_indexpage (
   indexheading varchar(255) NOT NULL default 'imLinks',
   indexheader text NOT NULL,
   indexfooter text NOT NULL,
-  nohtml tinyint(8) NOT NULL default '1',
-  nosmiley tinyint(8) NOT NULL default '1',
-  noxcodes tinyint(8) NOT NULL default '1',
-  noimages tinyint(8) NOT NULL default '1',
-  nobreak tinyint(4) NOT NULL default '0',
   indexheaderalign varchar(25) NOT NULL default 'left',
-  indexfooteralign varchar(25) NOT NULL default 'center',
+  indexfooteralign varchar(25) NOT NULL default 'left',
   lastlinksyn tinyint(1) NOT NULL default '0',
   lastlinkstotal varchar(5) NOT NULL default '50',
   FULLTEXT KEY `indexheading` (`indexheading`),
@@ -83,7 +70,7 @@ CREATE TABLE imlinks_indexpage (
 # Dumping data for table 'imlinks_indexpage'
 #
 
-INSERT INTO imlinks_indexpage (indeximage,indexheading,indexheader,indexfooter,nohtml,nosmiley,noxcodes,noimages,nobreak,indexheaderalign,indexfooteralign,lastlinksyn,lastlinkstotal) VALUES ('logo-en.png', 'imLinks', 'Welcome to imLinks.', 'imLinks footer', 0, 0, 0, 0, 1, 'left', 'left', 0, 5);
+INSERT INTO imlinks_indexpage (indeximage,indexheading,indexheader,indexfooter,indexheaderalign,indexfooteralign,lastlinksyn,lastlinkstotal) VALUES ('logo-en.png', 'imLinks', 'Welcome to imLinks.', 'imLinks footer', 'left', 'left', 0, 50);
 
 # ############################
 
@@ -113,7 +100,6 @@ CREATE TABLE `imlinks_links` (
   `description` text NOT NULL,
   `ipaddress` varchar(120) NOT NULL default '0',
   `notifypub` int(1) NOT NULL default '0',
-  `urlrating` tinyint(1) NOT NULL default '0',
   `country` varchar(5) NOT NULL default '',
   `keywords` text NOT NULL,
   `item_tag` text NOT NULL,
@@ -131,7 +117,9 @@ CREATE TABLE `imlinks_links` (
   `mobile` varchar(25) NOT NULL,
   `email` varchar(60) NOT NULL,
   `vat` varchar(25) NOT NULL,
-  `nobreak` int(1) NOT NULL default '0',
+  `nice_url` varchar(100) NOT NULL default '',
+  `ttlat` varchar(100) NOT NULL default '',
+  `ttlong` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`lid`),
   KEY `cid` (`cid`),
   KEY `status` (`status`),
@@ -165,7 +153,6 @@ CREATE TABLE `imlinks_mod` (
   `description` text NOT NULL,
   `modifysubmitter` int(11) NOT NULL default '0',
   `requestdate` int(11) NOT NULL default '0',
-  `urlrating` tinyint(1) NOT NULL default '0',
   `country` varchar(5) NOT NULL default '',
   `keywords` text NOT NULL default '',
   `item_tag` text NOT NULL,
@@ -183,7 +170,8 @@ CREATE TABLE `imlinks_mod` (
   `mobile` varchar(25) NOT NULL default '',
   `email` varchar(60) NOT NULL default '',
   `vat` varchar(25) NOT NULL default '',
-  `nobreak` int(1) NOT NULL default '0',
+  `ttlat` varchar(100) NOT NULL default '',
+  `ttlong` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`requestid`)
 ) TYPE=MyISAM;
 

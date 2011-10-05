@@ -28,31 +28,32 @@
 
 include 'header.php';
 
-global $xoopsTpl, $xoTheme;
+//$page = iml_cleanRequestVars( $_REQUEST, 'page', '' );
+$lid  = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
-$lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
-$cid = intval( iml_cleanRequestVars( $_REQUEST, 'cid', 0 ) );
+$sql3 = 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
+list( $cid ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql3 ) );
 
-$sql2 = "SELECT count(*) FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " a LEFT JOIN "
-      . $xoopsDB -> prefix( 'imlinks_altcat' ) . " b "
-      . " ON b.lid = a.lid"
-      . " WHERE a.published > 0 AND a.published <= " . time()
-      . " AND (a.expired = 0 OR a.expired > " . time() . ") AND a.offline = 0"
-      . " AND (b.cid=a.cid OR (a.cid=" . intval( $cid ) . " OR b.cid=" . intval( $cid ) . "))";
-list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql2 ) );
+$sql2 = 'SELECT count(*) FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+      . icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . ' b'
+      . ' ON b.lid = a.lid'
+      . ' WHERE a.published > 0 AND a.published <= ' . time()
+      . ' AND (a.expired = 0 OR a.expired > ' . time() . ') AND a.offline = 0'
+      . ' AND (b.cid=a.cid OR (a.cid=' . intval( $cid ) . ' OR b.cid=' . intval( $cid ) . '))';
+list( $count ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql2 ) );
 
 if ( false == iml_checkgroups( $cid = 0 ) && $count == 0 ) {
     redirect_header( 'index.php', 1, _MD_IMLINKS_MUSTREGFIRST );
     exit();
 } 
 
-$sql = "SELECT * FROM " . $xoopsDB -> prefix( 'imlinks_links' ) . " WHERE lid=" . intval( $lid ) . "
-		AND (published > 0 AND published <= " . time() . ")
-		AND (expired = 0 OR expired > " . time() . ")
+$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid ) . '
+		AND (published > 0 AND published <= ' . time() . ')
+		AND (expired = 0 OR expired > ' . time() . ')
 		AND offline = 0 
-		AND cid > 0";
-$result = $xoopsDB -> query( $sql );
-$link_arr = $xoopsDB -> fetchArray( $result );
+		AND cid > 0';
+$result = icms::$xoopsDB -> query( $sql );
+$link_arr = icms::$xoopsDB -> fetchArray( $result );
 
 if ( !is_array( $link_arr ) ) {
     redirect_header( 'index.php', 1, _MD_IMLINKS_NOLINKLOAD );
@@ -64,30 +65,31 @@ $xoopsOption['template_main'] = 'imlinks_singlelink.html';
 include ICMS_ROOT_PATH . '/header.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/sbookmarks.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/address.php';
-//include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/_drawrating.php';
 
 // tags support
 if ( iml_tag_module_included() ) {
   include_once ICMS_ROOT_PATH . '/modules/tag/include/tagbar.php';
-  $xoopsTpl -> assign( 'tagbar', tagBar($link_arr['lid'], 0));
+  $xoopsTpl -> assign( 'tagbar', tagBar( $link_arr['lid'], 0 ) );
 }
 
 if ( iml_imageheader() != '' ) {
-$link['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>'; }
-$link['id'] = $link_arr['lid'];
-$link['cid'] = $link_arr['cid'];
+$imlink['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>'; }
+$imlink['id'] = $link_arr['lid'];
+$imlink['cid'] = $link_arr['cid'];
 
-if ( $xoopsModuleConfig['linkedterms'] ) {
-	if ( imlinks_imglossary_module_included() ) {
-		$glossaryterm = $immyts -> makeTboxData4Show( $link_arr['title'] );
-		$description = imlinks_linkterms( $link_arr['description'], $glossaryterm );
-		$link['description2'] = $immyts -> displayTarea( $description, 1, 1, 1, 1, $link_arr['nobreak'] );
-	} 
+if ( icms::$module -> config['linkedterms'] ) {
+	if ( iml_imglossary_module_included() ) {
+		$glossaryterm = $link_arr['title'];
+		$description = iml_linkterms( $link_arr['description'], $glossaryterm );
+		$imlink['description2'] = $description;
+	} else {
+		$imlink['description2'] = $link_arr['description'];
+	}
 } else {
-	$link['description2'] = $immyts -> displayTarea( $link_arr['description'], 1, 1, 1, 1, $link_arr['nobreak'] );
+	$imlink['description2'] = $link_arr['description'];
 }
 
-$link['sbmarks'] = imlinks_sbmarks( $link_arr['lid'] );
+$imlink['sbmarks'] = iml_sbmarks( $link_arr['lid'], $link_arr['title'] );
 
 // Address
 $street1 = $link_arr['street1'];
@@ -103,69 +105,79 @@ $email = $link_arr['email'];
 $vat = $link_arr['vat'];
 $country = iml_countryname( $link_arr['country'] );
 
-if ( $street1 == '' || $town == '' || $xoopsModuleConfig['useaddress'] == 0 ) {
-  $link['addryn'] = 0;
+if ( $street1 == '' || $town == '' || icms::$module -> config['useaddress'] == 0 ) {
+  $imlink['addryn'] = 0;
 } else {
-  $link['addryn'] = 1;
-  $link['address'] = '<br />' . iml_address( $street1, $street2, $town, $state, $zip, $country ) . '<br />' . $country;
+  $imlink['addryn'] = 1;
+  $imlink['address'] = '<br />' . iml_address( $street1, $street2, $town, $state, $zip, $link_arr['country'] ) . '<br />' . $country;
 }
 
-if ( $xoopsModuleConfig['useaddress'] == 1 ) {
-  $link['addryn'] = 1;
+if ( icms::$module -> config['useaddress'] == 1 ) {
+  $imlink['addryn'] = 1;
 
   if ( $link_arr['tel'] == true ) {
-    $link['tel'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/telephone.png" title="'._MD_IMLINKS_TELEPHONE.'" alt="'._MD_IMLINKS_TELEPHONE.'" align="absmiddle" />&nbsp;' . $tel;
+    $imlink['tel'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/telephone.png" title="'._MD_IMLINKS_TELEPHONE.'" alt="'._MD_IMLINKS_TELEPHONE.'" style="vertical-align: middle;" />&nbsp;' . $tel;
   }
 
   if ( $link_arr['mobile'] == true ) {
-    $link['mobile'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/phone.png" title="'._MD_IMLINKS_MOBILE.'" alt="'._MD_IMLINKS_MOBILE.'" align="absmiddle" />&nbsp;' . $mobile;
+    $imlink['mobile'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/phone.png" title="'._MD_IMLINKS_MOBILE.'" alt="'._MD_IMLINKS_MOBILE.'" style="vertical-align: middle;" />&nbsp;' . $mobile;
   }
 
   if ( $link_arr['voip'] == true ) {
-    $link['voip'] = '<br />' .'<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/voip.png" title="'._MD_IMLINKS_VOIP.'" alt="'._MD_IMLINKS_VOIP.'" align="absmiddle" />&nbsp;'  . $voip;
+    $imlink['voip'] = '<br />' .'<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/voip.png" title="'._MD_IMLINKS_VOIP.'" alt="'._MD_IMLINKS_VOIP.'" style="vertical-align: middle;" />&nbsp;'  . $voip;
   }
 
   if ( $link_arr['fax'] == true ) {
-    $link['fax'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/fax.png" title="'._MD_IMLINKS_FAX.'" alt="'._MD_IMLINKS_FAX.'" align="absmiddle" />&nbsp;' . $fax;
+    $imlink['fax'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/fax.png" title="'._MD_IMLINKS_FAX.'" alt="'._MD_IMLINKS_FAX.'" style="vertical-align: middle;" />&nbsp;' . $fax;
   }
 
   if ( $link_arr['email'] == true ) {
-    $link['email'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" title="'._MD_IMLINKS_EMAIL . '" alt="' ._MD_IMLINKS_EMAIL.'" align="absmiddle" />&nbsp;' . $email;
+    $imlink['email'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" title="'._MD_IMLINKS_EMAIL . '" alt="' ._MD_IMLINKS_EMAIL.'" style="vertical-align: middle;" />&nbsp;' . $email;
   }
 
   if ( $link_arr['vat'] == true ) {
-    $link['vat'] = '<br />' . _MD_IMLINKS_VAT . ':&nbsp;' . $vat;
+    $imlink['vat'] = '<br />' . _MD_IMLINKS_VAT . ':&nbsp;' . $vat;
   }
+}
+
+if ( icms::$module -> config['tomtom_apikey'] ) {
+	if ( $link_arr['ttlat'] == true && $link_arr['ttlong'] == true ) {
+		$tomtom_name   = $link_arr['title'];
+		$tomtom_attr   = $icmsConfig['sitename'];
+		$tomtom_source = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . intval( $lid );
+		$tomtom_logo   = icms::$module -> config['tomtom_logo'];;
+		$imlink['addtotomtom'] = '<a href="http://addto.tomtom.com/api/home/v2/georeference?action=add&amp;apikey=' . icms::$module -> config['tomtom_apikey'] . '&amp;name=' . $tomtom_name . '&amp;latitude=' . $link_arr['ttlat'] .'&amp;longitude=' . $link_arr['ttlong'] . '&amp;attribution=' . $tomtom_attr . '&amp;source=' . $tomtom_source . '&amp;logo=' . $tomtom_logo . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/add_to_tomtom.png" alt="' . _MD_IMLINKS_ADDTOTOMTOM . '" title="' . _MD_IMLINKS_ADDTOTOMTOM . '" border="0" /></a>';
+	}
 }
 
 if ( $link_arr['street1'] == true || $link_arr['tel'] == true || $link_arr['mobile'] == true || $link_arr['fax'] == true || $link_arr['email'] == true ) {
   $xoopsTpl -> assign( 'contactdetails', '<b>' . _MD_IMLINKS_ADDRESS . '</b>' );
-  $xoopsTpl -> assign( 'vcard' , '<br />' . '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/vcard.php?lid=' . $link_arr['lid'] .'"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/vcard.png" title="vCard" alt="vCard" /></a>' );
+  $xoopsTpl -> assign( 'vcard' , '<br />' . '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/vcard.php?lid=' . $link_arr['lid'] .'" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/vcard.png" title="vCard" alt="vCard" /></a>' );
 }
 
 // Maps
-if ( $xoopsModuleConfig['useaddress'] == 1 ) {
+if ( icms::$module -> config['useaddress'] == 1 ) {
   $googlemap = $link_arr['googlemap'];
   $yahoomap = $link_arr['yahoomap'];
-  $mslivemap = $link_arr['multimap'];
+  $multimap = $link_arr['multimap'];
 
-  if ( $link_arr['googlemap'] == true) {
-    $link['googlemap'] = '<a href="' . $googlemap . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/google_map.png" alt="' . _MD_IMLINKS_GETMAP . '" title="' . _MD_IMLINKS_GETMAP . '" align="absmiddle"/></a>&nbsp;';
+  if ( $link_arr['googlemap'] == true ) {
+    $imlink['googlemap'] = '<a href="' . $googlemap . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/google_map.png" alt="' . _MD_IMLINKS_GETMAP . '" title="' . _MD_IMLINKS_GETMAP . '" style="vertical-align: middle;" /></a>&nbsp;';
   }
 
-  if ( $link_arr['yahoomap'] == true) {
-    $link['yahoomap'] = '<a href="' . $yahoomap . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/yahoo_map.png" alt="' . _MD_IMLINKS_GETMAP . '" title="' . _MD_IMLINKS_GETMAP . '" align="absmiddle"/></a>&nbsp;';
+  if ( $link_arr['yahoomap'] == true ) {
+    $imlink['yahoomap'] = '<a href="' . $yahoomap . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/yahoo_map.png" alt="' . _MD_IMLINKS_GETMAP . '" title="' . _MD_IMLINKS_GETMAP . '" style="vertical-align: middle;" /></a>&nbsp;';
   }
 
-  if ( $link_arr['multimap'] == true) {
-    $link['multimap'] = '<a href="' . $multimap . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/multimap.png" alt="' . _MD_IMLINKS_GETMAP . '" title="' . _MD_IMLINKS_GETMAP . '" align="absmiddle"/></a>';
+  if ( $link_arr['multimap'] == true ) {
+    $imlink['multimap'] = '<a href="' . $multimap . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/bing_map.png" alt="' . _MD_IMLINKS_GETMAP . '" title="' . _MD_IMLINKS_GETMAP . '" style="vertical-align: middle;" /></a>';
   }
 }
 
-$mytree = new XoopsTree( $xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
-$pathstring = "<a href='index.php'>" . _MD_IMLINKS_MAIN . "</a>&nbsp;:&nbsp;";
-$pathstring .= $mytree -> getNicePathFromId( $link['cid'], 'title', 'viewcat.php?op=' );
-$link['path'] = $pathstring;
+$mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
+$pathstring = '<a href="index.php">' . _MD_IMLINKS_MAIN . '</a>&nbsp;:&nbsp;';
+$pathstring .= $mytree -> getNicePathFromId( $imlink['cid'], 'title', 'viewcat.php?op=' );
+$imlink['path'] = $pathstring;
 
 // Start of meta tags
 $maxWords = 100;
@@ -190,11 +202,11 @@ if ( is_object( $xoTheme ) ) {
 	$xoTheme -> addMeta( 'meta', 'description', $link_meta_description );
 } else {
 	if ( $link_arr['keywords'] != '' ) {
-		$xoopsTpl -> assign( 'xoops_meta_keywords', $link_arr['keywords'] );
+		$xoopsTpl -> assign( 'icms_meta_keywords', $link_arr['keywords'] );
 	}
-	$xoopsTpl -> assign( 'xoops_meta_description', $link_meta_description );
+	$xoopsTpl -> assign( 'icms_meta_description', $link_meta_description );
 }
-$xoopsTpl -> assign( 'xoops_pagetitle', $link_arr['title'] );
+$xoopsTpl -> assign( 'icms_pagetitle', $link_arr['title'] );
 // End of meta tags
 
 $moderate = 0;
@@ -202,44 +214,43 @@ $res_type = 1;
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/linkloadinfo.php';
 
 $xoopsTpl -> assign( 'show_screenshot', false );
-if ( isset( $xoopsModuleConfig['screenshot'] ) && $xoopsModuleConfig['screenshot'] == 1 ) {
-    $xoopsTpl -> assign( 'shots_dir', $xoopsModuleConfig['screenshots'] );
-    $xoopsTpl -> assign( 'shotwidth', $xoopsModuleConfig['shotwidth'] );
-    $xoopsTpl -> assign( 'shotheight', $xoopsModuleConfig['shotheight'] );
+if ( isset( icms::$module -> config['screenshot'] ) && icms::$module -> config['screenshot'] == 1 ) {
+    $xoopsTpl -> assign( 'shots_dir', icms::$module -> config['screenshots'] );
+    $xoopsTpl -> assign( 'shotwidth', icms::$module -> config['shotwidth'] );
+    $xoopsTpl -> assign( 'shotheight', icms::$module -> config['shotheight'] );
     $xoopsTpl -> assign( 'show_screenshot', true );
 }
 
 // Show other author links
-$sql = 'SELECT lid, cid, title, published FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . '
+$sql = 'SELECT lid, cid, title, published, nice_url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . '
 	WHERE submitter=' . $link_arr['submitter'] . '
 	AND published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ')
 	AND offline = 0 ORDER by published DESC';
-$result = $xoopsDB -> query( $sql, 10, 0 );
+$result = icms::$xoopsDB -> query( $sql, 10, 0 );
 
-while ( $arr = $xoopsDB -> fetchArray( $result ) ) {
+while ( $arr = icms::$xoopsDB -> fetchArray( $result ) ) {
     $linkuid['title'] = $immyts -> htmlSpecialCharsStrip( $arr['title'] );
-    $linkuid['lid'] = $arr['lid'];
-    $linkuid['cid'] = $arr['cid'];
-    $linkuid['published'] = formatTimestamp( $arr['published'], $xoopsModuleConfig['dateformat'] );
+    $linkuid['niceurl'] = iml_niceurl( $arr['lid'], $arr['title'], $arr['nice_url'] );
+    $linkuid['published'] = formatTimestamp( $arr['published'], icms::$module -> config['dateformat'] );
     $xoopsTpl -> append( 'link_uid', $linkuid );
 }
 
 // Copyright notice
-if ( isset( $xoopsModuleConfig['copyright'] ) && $xoopsModuleConfig['copyright'] == 1 ) {
-    $xoopsTpl -> assign( 'lang_copyright', $link['title'] . ' &copy; ' . _MD_IMLINKS_COPYRIGHT . ' ' . formatTimestamp( time(), 'Y' ) . ' - <a href="' . ICMS_URL . '">' . $xoopsConfig['sitename'] . '</a>' );
+if ( isset( icms::$module -> config['copyright'] ) && icms::$module -> config['copyright'] == 1 ) {
+    $xoopsTpl -> assign( 'lang_copyright', $imlink['title'] . ' &copy; ' . _MD_IMLINKS_COPYRIGHT . ' ' . formatTimestamp( time(), 'Y' ) . ' - <a href="' . ICMS_URL . '">' . $icmsConfig['sitename'] . '</a>' );
 }
 
-if ( isset( $xoopsModuleConfig['otherlinks'] ) && $xoopsModuleConfig['otherlinks'] == 1 ) {
-    $xoopsTpl -> assign( 'other_links', '<b>' ._MD_IMLINKS_OTHERBYUID . '</b>'  . $link['submitter'] . '<br />' );
+if ( isset( icms::$module -> config['otherlinks'] ) && icms::$module -> config['otherlinks'] == 1 ) {
+    $xoopsTpl -> assign( 'other_links', '<b>' ._MD_IMLINKS_OTHERBYUID . '</b>'  . $imlink['submitter'] . '<br />' );
 }
 
-$link['useradminlink'] = 0;
-if ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) {
-  $_user_submitter = ( $xoopsUser -> getvar( 'uid' ) == $link_arr['submitter'] ) ? true : false;
+$imlink['useradminlink'] = 0;
+if ( is_object( icms::$user ) && !empty( icms::$user ) ) {
+  $_user_submitter = ( icms::$user -> getVar( 'uid' ) == $link_arr['submitter'] ) ? true : false;
   if ( true == iml_checkgroups( $cid ) ) {
-    $link['useradminlink'] = 1;
-    if ( $xoopsUser -> getvar( 'uid' ) == $link_arr['submitter'] ) {
-      $link['usermodify'] = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_edit.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_MODIFY . '</a>';
+    $imlink['useradminlink'] = 1;
+    if ( icms::$user -> getVar( 'uid' ) == $link_arr['submitter'] ) {
+      $imlink['usermodify'] = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/link_edit.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_MODIFY . '</a>';
     }
   }
 }
@@ -248,21 +259,26 @@ $xoopsTpl -> assign ( 'reportbroken', '<a class="button" href="' . ICMS_URL . '/
 
 $xoopsTpl -> assign ( 'mailto', '<a class="button" href="mailto:?subject=' . $mail_subject . '&body=' . $mail_body . '" target="_top"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_TELLAFRIEND . '</a>');
 
-$xoopsTpl -> assign( 'commentz', '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/comments.png" alt="" style="vertical-align: middle;" /> ' . _COMMENTS . '&nbsp;(' . $link_arr['comments'] . ')</a>' );
+$xoopsTpl -> assign( 'commentz', '<a class="button" href="' . $url . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/comments.png" alt="" style="vertical-align: middle;" /> ' . _COMMENTS . '&nbsp;(' . $link_arr['comments'] . ')</a>' );
 
 $xoopsTpl -> assign( 'print', '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/print.php?lid=' . $link_arr['lid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/printer.png" alt="" style="vertical-align: middle;" /> ' . _MD_IMLINKS_PRINT . '</a>' );
 
-$xoopsTpl -> assign( 'back' , '<a class="button" href="javascript:history.go(-1)">&#9668; ' . _MD_IMLINKS_BACKBUTTON . '</a>' );
+$xoopsTpl -> assign( 'back' , '<a class="button" href="javascript:history.go(-1)">&#9668; ' . _BACK . '</a>' );
 
-$link['otherlinx'] = $xoopsModuleConfig['otherlinks'];
-$link['showsbookmarx'] = $xoopsModuleConfig['showsbookmarks'];
-$link['allow_rating'] = ( iml_checkgroups( $cid, 'imLinkRatePerms' ) ) ? true : false;
-$link['total_chars'] = $xoopsModuleConfig['totalchars'];
+$imlink['otherlinx'] 	 = icms::$module -> config['otherlinks'];
+$imlink['showsbookmarx'] = icms::$module -> config['showsbookmarks'];
+$imlink['total_chars'] 	 = icms::$module -> config['totalchars'];
+$imlink['allow_rating']  = ( iml_checkgroups( $cid, 'imLinkRatePerms' ) ) ? true : false;
 
-$xoopsTpl -> assign( 'imlink', $link );
+$xoopsTpl -> assign( 'lightwindow', icms::$module -> config['lightwindow'] );
+if ( icms::$module -> config['lightwindow'] == 2 ) {
+	if ( is_readable( ICMS_ROOT_PATH . '/libraries/greybox/AJS.js' ) ) {
+		$xoopsTpl -> assign( 'xoops_module_header', '<script type="text/javascript">var GB_ROOT_DIR = "' . ICMS_URL . '/libraries/greybox/";</script>' );
+	}
+}
+$xoopsTpl -> assign( 'imlink', $imlink );
 $xoopsTpl -> assign( 'module_dir', $mydirname );
 
 include ICMS_ROOT_PATH . '/include/comment_view.php';
 include ICMS_ROOT_PATH . '/footer.php';
-
 ?>

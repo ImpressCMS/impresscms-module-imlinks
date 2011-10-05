@@ -28,35 +28,32 @@
 
 include 'header.php';
 
-global $xoopsModuleConfig;
+$agreed = intval( iml_cleanRequestVars( $_REQUEST, 'agree', 0 ) );
+$lid    = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
-$agreed = iml_cleanRequestVars( $_REQUEST, 'agree', 0 );
-$cid = iml_cleanRequestVars( $_REQUEST, 'cid', 0 );
-$lid = iml_cleanRequestVars( $_REQUEST, 'lid', 0 );
-$cid = intval($cid);
-$lid = intval($lid);
-$agreed = intval($agreed);
+$sql3 = 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
+list( $cid ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql3 ) );
 
-$sql2 = 'SELECT count(*) FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN'
- . $xoopsDB -> prefix( 'imlinks_altcat' ) . " b "
+$sql2 = 'SELECT count(*) FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+ . icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . ' b'
  . ' ON b.lid = a.lid'
  . ' WHERE a.published > 0 AND a.published <= ' . time()
  . ' AND (a.expired = 0 OR a.expired > ' . time() . ') AND a.offline = 0'
- . ' AND (b.cid=a.cid OR (a.cid=' . intval($cid) . ' OR b.cid=' . intval($cid) . '))';
-list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql2 ) );
+ . ' AND (b.cid=a.cid OR (a.cid=' . intval( $cid ) . ' OR b.cid=' . intval($cid) . '))';
+list( $count ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql2 ) );
 
 if ( false == iml_checkgroups( $cid ) && $count == 0 ) {
     redirect_header( 'index.php', 1, _MD_IMLINKS_MUSTREGFIRST );
     exit();
 } 
 
-if ( $xoopsModuleConfig['showlinkdisclaimer'] && $agreed == 0 ) {
-	if ( $xoopsModuleConfig['quickview'] ) {
+if ( icms::$module -> config['showlinkdisclaimer'] && $agreed == 0 ) {
+	if ( icms::$module -> config['quickview'] ) {
 		echo "
 		<meta http-equiv='content-type' content='text/html; charset='"._CHARSET."' />\n
 		<br /><div style='text-align: center;'>" . iml_imageheader() . "</div>\n
 		<div style='font-family: Verdana, Arial, Helvetica, sans-serif;'><h4>" . _MD_IMLINKS_DISCLAIMERAGREEMENT . "</h4>\n
-		<div style='font-size: 12px;'>" . $immyts -> displayTarea( $xoopsModuleConfig['linkdisclaimer'], 1, 1, 1, 1, 1 ) . "</div><br />\n
+		<div style='font-size: 12px;'>" . icms::$module -> config['linkdisclaimer'] . "</div><br />\n
 		<form action='visit.php' method='post'>\n
 		<div style='text-align: center; font-weight: bold;'>" . _MD_IMLINKS_DOYOUAGREE . "</b><br /><br />\n
 		<input type='button' onclick='location=\"visit.php?agree=1&amp;lid=" . $lid . "&amp;cid=" . $cid . "\"' class='formButton' value='" . _MD_IMLINKS_AGREE . "' alt='" . _MD_IMLINKS_AGREE . "' />\n
@@ -70,9 +67,9 @@ if ( $xoopsModuleConfig['showlinkdisclaimer'] && $agreed == 0 ) {
 		include ICMS_ROOT_PATH . '/header.php';
 
 		$xoopsTpl -> assign( 'image_header', iml_imageheader() );
-		$xoopsTpl -> assign( 'linkdisclaimer', $immyts -> displayTarea( $xoopsModuleConfig['linkdisclaimer'], 1, 1, 1, 1, 1 ) );
+		$xoopsTpl -> assign( 'linkdisclaimer', icms::$module -> config['linkdisclaimer'] );
 		$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . $mydirname . '/index.php' );
-		$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . $mydirname . '/visit.php?agree=1&amp;lid=' . intval($lid ) . '&amp;cid=' . intval( $cid ) );
+		$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . $mydirname . '/visit.php?agree=1&amp;lid=' . intval( $lid ) );
 		$xoopsTpl -> assign( 'link_disclaimer', true );
 		$xoopsTpl -> assign( 'module_dir', $mydirname );
 
@@ -81,16 +78,16 @@ if ( $xoopsModuleConfig['showlinkdisclaimer'] && $agreed == 0 ) {
 	}
 } else {
     $url = '';
-    $sql = 'UPDATE ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' SET hits=hits+1 WHERE lid=' . intval( $lid );
-    $result = $xoopsDB -> queryF( $sql );
+    $sql = 'UPDATE ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' SET hits=hits+1 WHERE lid=' . intval( $lid );
+    $result = icms::$xoopsDB -> queryF( $sql );
 
-    $sql = 'SELECT url FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid );
-    if ( !$result = $xoopsDB -> queryF( $sql ) ) {
+    $sql = 'SELECT url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid );
+    if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
         echo '<br /><div style="text-align: center;">' . iml_imageheader() . '</div>';
         reportBroken( $lid );
     } else {
-        list( $url ) = $xoopsDB -> fetchRow( $result );
-        $url = htmlSpecialChars( preg_replace( '/javascript:/si' , 'java script:', $url ), ENT_QUOTES );
+        list( $url ) = icms::$xoopsDB -> fetchRow( $result );
+        $url = $immyts -> htmlSpecialCharsStrip( preg_replace( '/javascript:/si' , 'java script:', $url ), ENT_QUOTES );
     } 
 
     if ( !empty( $url ) ) {
@@ -102,7 +99,15 @@ if ( $xoopsModuleConfig['showlinkdisclaimer'] && $agreed == 0 ) {
         header( "Expires: Mon, 26 Jul 1997 05:00:00 GMT" ); 
         // always modified
         header( "Last-Modified: " . gmdate( "D, d M Y H:i:s" ) . " GMT" );
-        echo "<html><head><meta http-equiv=\"Refresh\" content=\"0; URL=" . $url . "\"></meta></head><body></body></html>";
+		switch( icms::$module -> config['lightwindow'] ) {
+			case 0:		// Open link in new browser tab/window
+				echo "<html><head><meta http-equiv=\"Refresh\" content=\"0; URL=" . $url . "\"></meta></head><body></body></html>";
+				break;
+			case 1:		// Open link in LightWindow
+			case 2:		// Open link in GreyBox
+				echo '<iframe src="' . $url . '" width="100%" height="100%"></iframe>';
+				break;
+		}
     } 
 } 
 ?>

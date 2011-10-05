@@ -11,11 +11,11 @@
 * @copyright		http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since			1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since			1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
 define("_MI_IMLINKS_NAME","imLinks");
 
 // A brief description of this module
-define("_MI_IMLINKS_DESC","Crea una sección de enlaces donde los usuarios pueden enlazar, enviar y calificar varios sitios web.");
+define("_MI_IMLINKS_DESC","Permite crear y gestionar una sección de enlaces donde los usuarios pueden enviarlos y calificar sitios web.");
 
 // Names of blocks for this module (Not all module has blocks)
 define("_MI_IMLINKS_BNAME1","Enlaces recientes");
@@ -48,12 +48,12 @@ define("_MI_IMLINKS_SMNAME4","Nuevos enlaces");
 
 // Names of admin menu items
 define("_MI_IMLINKS_BINDEX","Inicio");
-define("_MI_IMLINKS_INDEXPAGE","Administración de la página principal");
-define("_MI_IMLINKS_MCATEGORY","Administración de categorías");
-define("_MI_IMLINKS_MLINKS","Administración de enlaces");
+define("_MI_IMLINKS_INDEXPAGE","Página principal");
+define("_MI_IMLINKS_MCATEGORY","Categorías");
+define("_MI_IMLINKS_MLINKS","Enlaces");
 define("_MI_IMLINKS_MUPLOADS","Enviar imágenes");
-define("_MI_IMLINKS_PERMISSIONS","Configuración de permisos");
-define("_MI_IMLINKS_BLOCKADMIN","Configuración de bloques");
+define("_MI_IMLINKS_PERMISSIONS","Permisos");
+define("_MI_IMLINKS_BLOCKADMIN","Bloques");
 define("_MI_IMLINKS_MVOTEDATA","Información de los votos");
 
 // Title of config items
@@ -125,7 +125,7 @@ define("_MI_IMLINKS_ARTICLESSORT", "Ordenamiento de los enlaces:");
 define("_MI_IMLINKS_ARTICLESSORTDSC", "Seleccionar un órden por defecto para el listado de enlaces.");
 define("_MI_IMLINKS_TITLE", "Título");
 define("_MI_IMLINKS_RATING", "Valoración");
-define("_MI_IMLINKS_WEIGHT", "Peso");
+define("_MI_IMLINKS_WEIGHT", "Importancia");
 define("_MI_IMLINKS_POPULARITY", "Popularidad");
 define("_MI_IMLINKS_SUBMITTED2", "Fecha de envío");
 define('_MI_IMLINKS_COPYRIGHT', 'Anuncio de <em>Copyright</em/>:');
@@ -160,7 +160,7 @@ define('_MI_IMLINKS_GLOBAL_NEWLINK_NOTIFYCAP', 'Notificarme cuando un nuevo enla
 define('_MI_IMLINKS_GLOBAL_NEWLINK_NOTIFYDSC', 'Recibir notificación cuando un nuevo enlace es publicado.');
 define('_MI_IMLINKS_GLOBAL_NEWLINK_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevo enlace');
 define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFY', 'Enlace enviado');
-define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYCAP', 'Notificarme cuando cualquier nuevo enlace sea enviado en esta categoría y este aguardando aprobación.');   
+define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYCAP', 'Notificarme cuando cualquier nuevo enlace sea enviado en esta categoría y este aguardando aprobación.');
 define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYDSC', 'Recibir notificación de cualquier nuevo enlace enviado en esta categoría y que este aguardando aprobación.');
 define('_MI_IMLINKS_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevo enlace enviado en la nategoría');
 define('_MI_IMLINKS_CATEGORY_NEWLINK_NOTIFY', 'Nuevo enlace');
@@ -171,38 +171,7 @@ define('_MI_IMLINKS_LINK_APPROVE_NOTIFY', 'Enlace aprobado');
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYCAP', 'Notificarme cuando este enlace sea aprobado.');
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYDSC', 'Recibir notificación cuando este enlace sea aprobado.');
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : enlace aprobado');
-define('_MI_IMLINKS_AUTHOR_INFO', "Información del desarrollador");
-define('_MI_IMLINKS_AUTHOR_NAME', "Desarrollador");
-define('_MI_IMLINKS_AUTHOR_DEVTEAM', "Equipo de desarrolladores");
-define('_MI_IMLINKS_AUTHOR_WEBSITE', "Sitio web del desarrollador");
-define('_MI_IMLINKS_AUTHOR_EMAIL', "Email del desarrollador");
-define('_MI_IMLINKS_AUTHOR_CREDITS', "Créditos");
-define('_MI_IMLINKS_MODULE_INFO', "Información sobre el desarrollo del módulo");
-define('_MI_IMLINKS_MODULE_STATUS', "Estado del desarrollo");
-define('_MI_IMLINKS_MODULE_DEMO', "Sitio de demostración");
-define('_MI_IMLINKS_MODULE_SUPPORT', "Sitio oficial de soporte");
-define('_MI_IMLINKS_MODULE_BUG', "Reportar un fallo de este módulo");
-define('_MI_IMLINKS_MODULE_FEATURE', "Sugerir una nueva característica para este módulo");
-define('_MI_IMLINKS_MODULE_DISCLAIMER', "Declaración de limitación de responsabilidad");
-define('_MI_IMLINKS_RELEASE', "Fecha de realización: ");
-define('_MI_IMLINKS_MODULE_MAILLIST', "Listas de correoWF-Project");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTS', "Lista de correo de nuevas versiones");
-define('_MI_IMLINKS_MODULE_MAILBUGS', "Lista de correo sobre errores");
-define('_MI_IMLINKS_MODULE_MAILFEATURES', "Lista de correo de nuevas características");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTSDSC', "Get the latest announcements from WF-Project.");
-define('_MI_IMLINKS_MODULE_MAILBUGSDSC', "Bug Tracking and submission mailing list");
-define('_MI_IMLINKS_MODULE_MAILFEATURESDSC', "Request New Features mailing list.");
-define('_MI_IMLINKS_WARNINGTEXT', "THE SOFTWARE IS PROVIDED BY WF-PROJECTS \"AS IS\" AND \"WITH ALL FAULTS.\"
-WF-PROJECTS MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING
-THE QUALITY, SAFETY OR SUITABILITY OF THE SOFTWARE, EITHER EXPRESS OR
-IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
-FURTHER, WF-PROJECTS MAKES NO REPRESENTATIONS OR WARRANTIES AS TO THE TRUTH,
-ACCURACY OR COMPLETENESS OF ANY STATEMENTS, INFORMATION OR MATERIALS
-CONCERNING THE SOFTWARE THAT IS CONTAINED IN WF-Project WEBSITE. IN NO
-EVENT WILL WF-PROJECTS BE LIABLE FOR ANY INDIRECT, PUNITIVE, SPECIAL,
-INCIDENTAL OR CONSEQUENTIAL DAMAGES HOWEVER THEY MAY ARISE AND EVEN IF
-WF-PROJECT HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.");
+
 define('_MI_IMLINKS_AUTHOR_CREDITSTEXT',"The WF-Projects Team would like to thank the following people for their help and support during the development phase of this module.<br /></br />EdStacey, maumed, banned, krobi, Pnooka, MarcoFr, cosmodrum, placebo333");
 define('_MI_IMLINKS_AUTHOR_BUGFIXES', "Historial de solución de errores");
 define('_MI_IMLINKS_COPYRIGHT2', 'Copyright' );
@@ -220,11 +189,9 @@ define('_MI_IMLINKS_EDITORUSER', "Editor a usar (usuarios):");
 define('_MI_IMLINKS_EDITORCHOICEUSER', "Seleccione el editor que se usará en la administración. Si solo ha hecho una instalación normal de ImpressCMS (sin ningún extra), podrá seleccionar DHTML y TinyMCE");
 define("_MI_IMLINKS_FORM_DHTML", "DHTML");
 define("_MI_IMLINKS_FORM_COMPACT", "Compact");
-define("_MI_IMLINKS_FORM_SPAW", "Spaw Editor");
 define("_MI_IMLINKS_FORM_HTMLAREA", "HtmlArea Editor");
 define("_MI_IMLINKS_FORM_FCK", "FCK Editor");
 define("_MI_IMLINKS_FORM_KOIVI", "Koivi Editor");
-define("_MI_IMLINKS_FORM_INBETWEEN", "Inbetween");
 define("_MI_IMLINKS_FORM_TINYEDITOR", "TinyEditor");
 define("_MI_IMLINKS_FORM_TINYMCE", "TinyMCE");
 define("_MI_IMLINKS_FORM_DHTMLEXT", "DHTML extendido");
@@ -239,15 +206,15 @@ define("_MI_IMLINKS_TOTALCHARSDSC", "Establezca el número total de caraceres pa
 define("_MI_IMLINKS_QUICKVIEW", "¿Mostrar opción de vista rápida?");
 define("_MI_IMLINKS_QUICKVIEWDSC", "Activa/Desactiva dicha opción.");
 define('_MI_IMLINKS_ICONS_CREDITS', "Iconos por");
-define("_MI_IMLINKS_SHOWSBOOKMARKS", "¿Mostrar Marcadores Sociales?");
+define("_MI_IMLINKS_SHOWSBOOKMARKS", "¿Mostrar Marcadores sociales?");
 define("_MI_IMLINKS_SHOWSBOOKMARKSDSC", "Selecione <em>Sí</em> si desea que un bloque de Marcadores Sociales sea mostrado debajo de cada artículo.");
 define("_MI_IMLINKS_SHOWPAGERANK", "¿Mostrar Google PageRank?");
 define("_MI_IMLINKS_SHOWPAGERANKSDSC", "Selecione <em>Sí</em> si desea que sea mostrado.");
-define("_MI_IMLINKS_USERTAGDESCR", "Los usuarios pueden enviar solapas (tags):");
+define("_MI_IMLINKS_USERTAGDESCR", "Los usuarios pueden enviar etiquetas (tags):");
 define("_MI_IMLINKS_USERTAGDSC", "Selecione si los usuarios pueden o no enviar solapas.");
 
 // Version 1.05 RC5
-define('_MI_IMLINKS_DATEFORMATADMIN', 'Administración de fechas:');
+define('_MI_IMLINKS_DATEFORMATADMIN', 'Formato de fecha en la Administración:');
 define('_MI_IMLINKS_DATEFORMATADMINDSC', 'Administración predeterminada de fechas para imLinks en la sección administrativa del módulo.<br />Lea el <a href="http://jp.php.net/manual/es/function.date.php" target="_blank">Manual de PHP</a> para más información sobre la materia');
 define("_MI_IMLINKS_USEADDRESSDESCR", "¿Usar direcciones y mapas?");
 define("_MI_IMLINKS_USEADDRESSDSC","Seleccione si desea usar o no la característica de adición de direcciones y mapas.");
@@ -305,5 +272,22 @@ define( '_MI_IMLINKS_SHOWRATING', '¿Mostrar característica de valoración?' );
 define( '_MI_IMLINKS_SHOWRATINGDSC', 'Seleccione <em>Sí</em> para mostrar la posibilidad de valorar a los usuarios. Seleccione <em>No</em> para ocultarla. Nota: esta configuración es ajena al sistema de permisos.' );
 
 // imLinks 1.00 RC-2
-define( '_MI_IMLINKS_BNAME6', 'Random Link' );
+define( '_MI_IMLINKS_BNAME6', 'Enlace aleatorio' );
+
+// imLinks 1.01
+define( '_MI_IMLINKS_SHOWLEGEND', '¿Mostrar la leyenda de la categoría?' );
+define( '_MI_IMLINKS_SHOWLEGENDDSC', 'Con esta opción puede activar o no la leyenda que explica los diferentes colores de los iconos predeterminados para cada categoría.' );
+define( '_MI_IMLINKS_LIGHTWINDOW', '¿Mostrar cómo se debería abrir el enlace?' );
+define( '_MI_IMLINKS_LIGHTWINDOWDSC', 'Seleccione <em>Predeterminado</em> para que se abran en una nueva solapa del  nevegador.<br />
+									   Seleccione <em>LightWindow</em> para usar el script  <a href="http://www.stickmanlabs.com/lightwindow/" target="_blank">LightWindow</a>.<br />
+									   Seleccione <em>GreyBox</em> para usar el script <a href="http://orangoo.com/labs/GreyBox/" target="_blank">GreyBox</a>.' );
+define( '_MI_IMLINKS_DEFAULT', 'Predeterminado' );
+
+// imLinks 1.03
+define( '_MI_IMLINKS_NICEURL', '¿Usar URL abreviadas?' );
+define( '_MI_IMLINKS_NICEURLDSC', 'Esta opción permite usar URL abreviadas para los enlaces.' );
+define( '_MI_IMLINKS_TOMTOMAPI', 'TomTom API:' );
+define( '_MI_IMLINKS_TOMTOMAPIDSC', 'Para tener el botón <em>Añadir en TomTom</em> en los detalles de un contanto necesita indicar su clave API aquí.<br />Puede solicitarse en add2TTsupport@tomtom.com' );
+define( '_MI_IMLINKS_TOMTOMLOGO', 'Establezca el URL del logo que se mostrará:' );
+define( '_MI_IMLINKS_TOMTOMLOGODSC', 'El mismo aparecerá en la ventana <em>Accediendo a TomTom</em>.<br />Este logo se mostrará con el nombre del sitio como <em>Contenido porporcionado por</em>.' );
 ?>

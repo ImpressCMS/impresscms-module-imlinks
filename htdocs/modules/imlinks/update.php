@@ -30,8 +30,7 @@ include 'header.php';
 
 define ( 'IS_UPDATE_FILE', true );
 
-global $xoopsDB, $xoopsConfig, $xoopsUser, $xoopsModule;
-if ( !is_object( $xoopsUser ) || !is_object( $xoopsModule ) || !$xoopsUser -> isAdmin( $xoopsModule -> getVar( 'mid' ) ) ) {
+if ( !is_object( $icmsUser ) || !is_object( icms::$module ) || !icms::$user -> isAdmin( icms::$module -> getVar( 'mid' ) ) ) {
     exit( 'Access Denied' );
 } 
 include ICMS_ROOT_PATH . '/header.php';
@@ -51,22 +50,18 @@ include ICMS_ROOT_PATH . '/header.php';
 } */
 
 function install_footer() {
-	global $xoopsModule;
-	echo '<img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/imlinks_ilogo.png" alt="imLinks" border="0" />';
+	echo '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/imlinks_ilogo.png" alt="imLinks" border="0" />';
 } 
 // echo "Welcome to the imLinks update script";
 foreach ( $_POST as $k => $v ) {
     ${$k} = $v;
 } 
-
 foreach ( $_GET as $k => $v ) {
     ${$k} = $v;
 } 
-
 if ( !isset( $action ) || $action == '' ) {
     $action = 'message';
 } 
-
 if ( $action == 'message' ) {
  //   install_header();
 
@@ -82,7 +77,7 @@ if ( $action == 'message' ) {
 //        $weblinks_version = round( $weblinks -> getVar( 'version' ) / 100, 2 );
 //   } 
 
-    $modhandler = &xoops_gethandler( 'module' );
+    $modhandler = icms::handler( 'icms_module' );
     $wflinks = &$modhandler -> getByDirname( 'wflinks' );
     if ( $wflinks ) {
         $wflinks_version = round( $wflinks -> getVar( 'version' ) / 100, 2 );
@@ -131,6 +126,7 @@ if ( $action == 'message' ) {
         //        echo "update weblinks $link_num</b></div>";	
         //        break;
 			case '1.06':
+			case '1.07':
 				echo 'upgrade from WF-Links ' . $link_num . '</b></div>';
 				break;
         } 
@@ -165,6 +161,7 @@ if ( $action == 'upgrade' ) {
     //        include "update/weblinks_update.php";
     //        break;
 		case '1.06':
+		case '1.07':
 			echo '<div style="text-align: center; padding-bottom: 20px;"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/logo-en.png" alt="" /></div>';
             echo 'Updating from WF-Links $num';
             include 'update/wflinks_update.php';
@@ -178,5 +175,4 @@ if ( $action == 'upgrade' ) {
     echo 'Please enjoy using imLinks!';
     include ICMS_ROOT_PATH . '/footer.php';
 } 
-
 ?>

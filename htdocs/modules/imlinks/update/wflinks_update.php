@@ -44,7 +44,7 @@ if (!defined('IS_UPDATE_FILE')) {
         imlinks_mod
         );
     foreach ( $table_array as $table_arr ) {
-        $result = $xoopsDB -> queryF( "DROP TABLE " . $xoopsDB -> prefix( $table_arr ) . " " );
+        $result = icms::$xoopsDB -> queryF( "DROP TABLE " . icms::$xoopsDB -> prefix( $table_arr ) . " " );
         if ( !$result ) {
             $error[]="<b>Error:</b> Could <span style='color:#ff0000;font-weight:bold'>not delete</span> table <b>$table_arr</b> as it does not exist!";
         } else {
@@ -62,7 +62,7 @@ if (!defined('IS_UPDATE_FILE')) {
         'wflinks_mod' 		=> imlinks_mod
         ); 
     foreach ( $table_array as $table1 => $table2 ) {
-        $result = $xoopsDB -> queryF( "CREATE TABLE " . $xoopsDB -> prefix( trim( $table2 ) ) . " SELECT * FROM " . $xoopsDB -> prefix( trim( $table1 ) ) . " " );
+        $result = icms::$xoopsDB -> queryF( "CREATE TABLE " . icms::$xoopsDB -> prefix( trim( $table2 ) ) . " SELECT * FROM " . icms::$xoopsDB -> prefix( trim( $table1 ) ) . " " );
         if (!$result) {
             $error[]="<b>Error:</b> Could <span style='color: #ff0000; font-weight: bold;'>not rename</span> table $table1 to table <b>$table2</b>!";
         } else {
@@ -75,136 +75,135 @@ $i=0;
 // Make changes to table imlinks_altcat
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_altcat') . " ADD PRIMARY KEY(lid,cid)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_altcat') . " ADD PRIMARY KEY(lid,cid)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 
 // Make changes to table imlinks_broken
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_broken') . " ADD PRIMARY KEY(reportid)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_broken') . " ADD PRIMARY KEY(reportid)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_broken') . " ADD INDEX(lid)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_broken') . " ADD INDEX(lid)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_broken') . " ADD INDEX(sender)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_broken') . " ADD INDEX(sender)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_broken') . " ADD INDEX(ip)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_broken') . " ADD INDEX(ip)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_broken') . " CHANGE `reportid` `reportid` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_broken') . " CHANGE `reportid` `reportid` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 
 // Make changes to table imlinks_cat
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_cat') . " ADD PRIMARY KEY(cid)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_cat') . " ADD PRIMARY KEY(cid)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_cat') . " CHANGE `cid` `cid` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_cat') . " CHANGE `cid` `cid` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_cat') . " ADD INDEX(pid)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_cat') . " ADD INDEX(pid)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 
 // Make changes to table imlinks_indexpage
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_indexpage') . " ADD FULLTEXT(indexheading)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_indexpage') . " ADD FULLTEXT(indexheading)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_indexpage') . " ADD FULLTEXT(indexheader)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_indexpage') . " ADD FULLTEXT(indexheader)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_indexpage') . " ADD FULLTEXT(indexfooter)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_indexpage') . " ADD FULLTEXT(indexfooter)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 
 // Make changes to table imlinks_links
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD PRIMARY KEY(lid)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_links') . " ADD PRIMARY KEY(lid)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD INDEX(cid)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_links') . " ADD INDEX(cid)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD INDEX(status)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_links') . " ADD INDEX(status)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD INDEX(title)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_links') . " ADD INDEX(title)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " CHANGE `lid` `lid` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_links') . " CHANGE `lid` `lid` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 // Drop old rating system
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " DROP rating");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_links') . " DROP rating");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " DROP votes");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_links') . " DROP votes");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD COLUMN rating DOUBLE(6,4) NOT NULL default '0.0000' AFTER hits");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_links') . " ADD COLUMN rating DOUBLE(6,4) NOT NULL default '0.0000' AFTER hits");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD COLUMN votes INT(11) unsigned NOT NULL default '0' AFTER rating");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_links') . " ADD COLUMN votes INT(11) unsigned NOT NULL default '0' AFTER rating");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_links') . " ADD COLUMN nobreak INT(1) NOT NULL default '0' AFTER vat");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_links') . " ADD COLUMN nobreak INT(1) NOT NULL default '0' AFTER vat");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 
 // Make changes to table imlinks_mod
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " ADD INDEX(requestid)");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_mod') . " ADD INDEX(requestid)");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN email VARCHAR(60) NOT NULL default '' AFTER mobile");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN email VARCHAR(60) NOT NULL default '' AFTER mobile");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN vat VARCHAR(25) NOT NULL default '' AFTER email");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN vat VARCHAR(25) NOT NULL default '' AFTER email");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN nobreak INT(1) NOT NULL default '0' AFTER vat");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN nobreak INT(1) NOT NULL default '0' AFTER vat");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 $i++;
 $ret[$i] = true;
-$query[$i] = sprintf( "ALTER TABLE " . $xoopsDB -> prefix( 'imlinks_mod') . " CHANGE `requestid` `requestid` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT");
-$ret[$i] = $ret[$i] && $xoopsDB -> query( $query[$i] );
-
+$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_mod') . " CHANGE `requestid` `requestid` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT");
+$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 
     // Update comments
-    $modhandler = &xoops_gethandler( 'module' );
+    $modhandler = icms::handler( 'icms_module' );
     $imlinksModule = &$modhandler -> getByDirname( $mydirname );
     $imlinks_id = $imlinksModule -> getVar( 'mid' );
 
-    $modhandler = &xoops_gethandler( 'module' );
+    $modhandler = icms::handler( 'icms_module' );
     $wflinksModule = &$modhandler -> getByDirname( 'wflinks' );
     $wflinks_id = $wflinksModule -> getVar( 'mid' );
 
-    $sql = 'UPDATE ' . $xoopsDB -> prefix( 'xoopscomments' ) . ' SET com_modid=' . $imlinks_id. ' WHERE com_modid=' . $wflinks_id;
-    $result2 = $xoopsDB -> queryF( $sql );
+    $sql = 'UPDATE ' . icms::$xoopsDB -> prefix( 'xoopscomments' ) . ' SET com_modid=' . $imlinks_id. ' WHERE com_modid=' . $wflinks_id;
+    $result2 = icms::$xoopsDB -> queryF( $sql );
 
     echo '<p>...Updating</p>';
 	

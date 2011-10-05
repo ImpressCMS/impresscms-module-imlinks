@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$icms_langcode}>" lang="<{$icms_langcode}>">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=<{$xoops_charset}>" />
-<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta http-equiv="Content-Type" content="text/html; charset=<{$icms_charset}>" />
+<meta http-equiv="content-language" content="<{$icms_langcode}>" />
 <meta name="robots" content="noindex,nofollow" />
-<meta name="keywords" content="<{$xoops_meta_keywords}>" />
-<meta name="description" content="<{$xoops_meta_description}>" />
-<meta name="author" content="<{$xoops_meta_author}>" />
-<meta name="copyright" content="<{$xoops_meta_copyright}>" />
-<meta name="generator" content="<{$xoops_sitename}>" />
+<meta name="keywords" content="<{$icms_meta_keywords}>" />
+<meta name="description" content="<{$icms_meta_description}>" />
+<meta name="author" content="<{$icms_meta_author}>" />
+<meta name="copyright" content="<{$icms_meta_copyright}>" />
+<meta name="generator" content="<{$icms_sitename}>" />
 <title><{$printtitle}></title>
 </head>
 
@@ -32,7 +32,7 @@
   <div style="float:right;padding: 3px;"><{$printscrshot}></div><{$printdescription}></div>
   <{if $print.addryn == 1}>
   <div>&nbsp;</div>
-  <div style="text-align: left; padding: 1px;"><{$print.address}><br /><{$print.tel}><{$print.mobile}><{$print.voip}><{$print.fax}><{$print.email}></div>
+  <div style="text-align: left; padding: 1px;"><strong><{$smarty.const._MD_IMLINKS_ADDRESS}></strong><{$print.address}><{$print.tel}><{$print.mobile}><{$print.voip}><{$print.fax}><{$print.email}></div>
   <{/if}>
   <{$worldwideweb}>
   <div style="clear: both;">&nbsp;</div>

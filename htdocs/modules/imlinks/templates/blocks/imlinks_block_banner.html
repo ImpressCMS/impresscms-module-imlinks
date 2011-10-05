@@ -1,6 +1,6 @@
 <div>
 <table border="0" cellspacing="1" cellpadding="0"  class="outer">
-  <tr height="14px" class="even" style="font-weight: bold; font-size: smaller; text-align: center;">
+  <tr height="14px" class="imlinks_even" style="font-weight: bold; font-size: smaller; text-align: center;">
       <th><{$smarty.const._MB_IMLINKS_ID}></th>
       <th><{$smarty.const._MB_IMLINKS_CLIENT}></th>
       <th><{$smarty.const._MB_IMLINKS_BANNERID}></th>
@@ -13,13 +13,13 @@
   <{foreach item=bannerload from=$block.banners}>
   <tr style="font-size: smaller; text-align: left;">
     <td class="head" align="center"><{$bannerload.cid}></td>
-    <td class="even"><{$bannerload.client}></td>
-    <td class="even" align="center"><{$bannerload.bid}></td>
-    <td class="even" align="left"><a href="<{$xoops_url}>/modules/<{$bannerload.dirname}>/viewcat.php?cid=<{$bannerload.cat}>"><{$bannerload.cattitle}></a></td>
-    <td class="even" align="center"><{$bannerload.impmade}></td>
-    <td class="even" align="center"><{$bannerload.impleft}></td>
-    <td class="even" align="center"><{$bannerload.clicks}></td>
-    <td class="even" align="center"><{$bannerload.percent}></td>
+    <td class="imlinks_even"><{$bannerload.client}></td>
+    <td class="imlinks_even" align="center"><{$bannerload.bid}></td>
+    <td class="imlinks_even" align="left"><a href="<{$icms_url}>/modules/<{$bannerload.dirname}>/viewcat.php?cid=<{$bannerload.cat}>"><{$bannerload.cattitle}></a></td>
+    <td class="imlinks_even" align="center"><{$bannerload.impmade}></td>
+    <td class="imlinks_even" align="center"><{$bannerload.impleft}></td>
+    <td class="imlinks_even" align="center"><{$bannerload.clicks}></td>
+    <td class="imlinks_even" align="center"><{$bannerload.percent}></td>
   </tr>
   <{/foreach}>
 </table>

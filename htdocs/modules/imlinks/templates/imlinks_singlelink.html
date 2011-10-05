@@ -1,44 +1,59 @@
-<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$module_dir}>/style.css" />
-<script type="text/javascript" language="javascript" src="<{$xoops_url}>/modules/<{$module_dir}>/js/behavior.js"></script>
-<script type="text/javascript" language="javascript" src="<{$xoops_url}>/modules/<{$module_dir}>/js/rating.js"></script>
+<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$imlink.module_dir}>/style.css" />
+<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$imlink.module_dir}>/js/behavior.js"></script>
+<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$imlink.module_dir}>/js/rating.js"></script>
+
+<{if $lightwindow == 1}>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/prototype/prototype.js"></script> 
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/scriptaculous/src/scriptaculous.js?load=effects"></script>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/lightwindow.js"></script> 
+	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/lightwindow.css" />
+<{/if}>
+
+<{if $lightwindow == 2}>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/AJS.js"></script>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/AJS_fx.js"></script> 
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/gb_scripts.js"></script> 
+	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/greybox/gb_styles.css" />
+<{/if}>
 
 <{$imlink.imageheader}>
-<div>&nbsp;</div>
-<div style="clear: both;">
-     <div style="float: left; margin-left: 4px; font-size: smaller;"><{$imlink.path}></div>
-     <div style="float: right; padding: 2px;"><{$back}></div>
-</div>
-<div style="clear: both;">&nbsp;</div>
+
+<div style="float: right; padding: 0 2px 8px 0;"><{$back}></div>
+<br />
+<div class="imlinks_catpath" style="clear: both; font-size: smaller;"><{$imlink.path}></div>
+
+
+<br />
 
 <h4 class="outer" style="width: 100%; color: #2F5376; clear: both;">
-  <div class="even">
-    <a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>" target="_blank"><{$imlink.title}></a>&nbsp;<{$imlink.icons}><{if $xoops_isadmin}>&nbsp;<{$imlink.adminlink}><{/if}>
+  <div class="imlinks_even">
+    <{$imlink.visittitle}>&nbsp;<{$imlink.icons}><{if $icms_isadmin}>&nbsp;<{$imlink.adminlink}><{/if}>
   </div>
 </h4>
 
 <div style="width: 250px; float: right; padding-left: 10px; margin-left: 10px; margin-right: 5px;">
 	<div class="infoblock">
-		<div><b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$imlink.submitter}></div>
-		<div><b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$imlink.publisher}></div>
-		<div><b><{$lang_subdate}>:</b>&nbsp;<{$imlink.updated|wordwrap:50:"\n":true}></div>
-		<div><{$imlink.hits|wordwrap:50:"\n":true}></div>
-		<div><{$imlink.country}></div>
+		<b><{$smarty.const._MD_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$imlink.submitter}><br />
+		<b><{$smarty.const._MD_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$imlink.publisher}><br />
+		<b><{$lang_subdate}>:</b>&nbsp;<{$imlink.updated|wordwrap:50:"\n":true}><br />
+		<{$imlink.hits|wordwrap:50:"\n":true}><br />
+		<{$imlink.country}>
 	</div>
 	
 	<{if $imlink.infoblock2==1}>
 		<br />
 		<div class="infoblock2">
 		<{if $imlink.showrating > 0}>
-			<small><{$imlink.ratingbar}></small>
+			<{$imlink.ratingbar}>
 		<{/if}>
 			
 		<{if $imlink.showpagerank > 0}>
 			<{if $imlink.showrating > 0}>
 				<br />
 			<{/if}>
-			<small><b><{$smarty.const._MD_IMLINKS_PAGERANK}></b></small>&nbsp;
-			<img src="<{$xoops_url}>/modules/<{$imlink.module_dir}>/images/icon/pr<{$imlink.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" align="absmiddle" />&nbsp;
-			<small>(<{$imlink.pagerank}>/10)</small>
+			<b><{$smarty.const._MD_IMLINKS_PAGERANK}></b>&nbsp;
+			<img src="<{$icms_url}>/modules/<{$imlink.module_dir}>/images/icon/pr<{$imlink.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" style="vertical-align: middle;" />&nbsp;
+			(<{$imlink.pagerank}>/10)
 		<{/if}>
 		</div>
 	<{/if}>
@@ -54,34 +69,34 @@
 		<{if $show_screenshot == true}> 
 			<{if $imlink.screenshot_full != ''}>
 			<br />
-				<div class="infoblock2" style="text-align: center;">
-				<a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>" target="_blank"><img src="<{$imlink.screenshot_thumb}>" alt="" border="0" /></a> 
-				</div> 
+				<div class="infoblock2" style="text-align: center;"><{$imlink.visitscrshot}></div> 
 			<{/if}> 
 		<{/if}> 
 	<{/if}>
 	
 	<{if $imlink.autoscrshot == 1}>
 		<br />	
-		<div class="infoblock2" style="text-align: center;">
-		<{$imlink.autothumbsrc}>
-		</div> 
+		<div class="infoblock2" style="text-align: center;"><{$imlink.autothumbsrc}></div> 
 	<{/if}>
 	<br />
 </div> 
  
 <div style="padding-left: 6px; text-align: left;"> 
-	<a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>" target="_blank"> 
-	<img src="<{$xoops_url}>/modules/<{$imlink.module_dir}>/images/icon/spinner.gif" alt="<{$smarty.const._MD_IMLINKS_LINKNOW}>" align="absmiddle" /></a>&nbsp;
-	<{$imlink.visitlink}> 
+	<{if $lightwindow == true}>
+		<{$imlink.visitspinner}>&nbsp;
+		<{$imlink.visitlink}>
+	<{else}>
+		<a href="<{$imlink.visit}>" target="_blank"><img src="<{$icms_url}>/modules/<{$imlink.module_dir}>/images/icon/spinner.gif" alt="<{$smarty.const._MD_IMLINKS_LINKNOW}>" align="middle" /></a>&nbsp;
+		<{$imlink.visitlink}>
+	<{/if}> 
 	<{if $imlink.forumid > 0}> 
-		&nbsp;<a href="<{$xoops_url}><{$imlink.forum_path}>"><img src="<{$xoops_url}>/modules/<{$imlink.module_dir}>/images/icon/forum.png" title="<{$smarty.const._MD_IMLINKS_INFORUM}>" alt="<{$smarty.const._MD_IMLINKS_INFORUM}>" border="0" align="absmiddle" /></a> 
-		<a href="<{$xoops_url}><{$imlink.forum_path}>"><{$smarty.const._MD_IMLINKS_INFORUM}></a>
+		&nbsp;<a href="<{$icms_url}><{$imlink.forum_path}>"><img src="<{$icms_url}>/modules/<{$imlink.module_dir}>/images/icon/forum.png" title="<{$smarty.const._MD_IMLINKS_INFORUM}>" alt="<{$smarty.const._MD_IMLINKS_INFORUM}>" border="0" /></a> 
+		<a href="<{$icms_url}><{$imlink.forum_path}>"><{$smarty.const._MD_IMLINKS_INFORUM}></a>
 	<{/if}>
 	
 <div style="margin-left: 6px;">
 	<br />
-		<b><{$smarty.const._MD_IMLINKS_DESCRIPTIONC}></b>
+		<b><{$smarty.const._DESCRIPTION}>:</b>
 		<br /> 
 		<{$imlink.description2}>
 	</div>
@@ -100,6 +115,11 @@
 			<{$imlink.googlemap}><{$imlink.yahoomap}><{$imlink.multimap}>
 		</div>
 	<{/if}>
+	<{if $imlink.addtotomtom == true}>
+		<div style="margin-left: 6px; text-align: left; white-space: nowrap; padding: 3px;">
+			<{$imlink.addtotomtom}>
+		</div>
+	<{/if}>
 </div> 
  
 <{if $imlink.showsbookmarx > 0}>        
@@ -107,7 +127,7 @@
 <{/if}> 
 	
 <div class="outer" style="clear: both; text-align: center;">
-	<div class="even">
+	<div class="imlinks_even">
 		<{$reportbroken}>
 		<{if $imlink.useradminlink}>
 			<{$imlink.usermodify}>
@@ -125,7 +145,7 @@
 <{$other_links}>
 <{foreach item=link_user from=$link_uid}>
    <div style="margin-left: 10px;">
-   <a href="<{$xoops_url}>/modules/<{$imlink.module_dir}>/singlelink.php?cid=<{$link_user.cid}>&amp;lid=<{$link_user.lid}>"><{$link_user.title}></a> 
+   &bull;&nbsp;<a href="<{$link_user.niceurl}>"><{$link_user.title}></a> 
    (<{$link_user.published}>)
    </div>
 <{/foreach}>

@@ -1,21 +1,44 @@
-<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$module_dir}>/style.css" />
+<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/style.css" />
+
+<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/behavior.js"></script>
+<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/rating.js"></script>
+
+<{if $lightwindow == 1}>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/prototype/prototype.js"></script> 
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/scriptaculous/src/scriptaculous.js?load=effects"></script>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/lightwindow.js"></script>	
+	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/lightwindow.css" />
+<{/if}>
+
+<{if $lightwindow == 2}>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/AJS.js"></script>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/AJS_fx.js"></script> 
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/gb_scripts.js"></script> 
+	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/greybox/gb_styles.css" />
+<{/if}>
 
 <{$catarray.imageheader}>
 
 <{$description}>
 
-<div align="center" class="itemPermaLink"><{$catarray.letters}></div><br />
-<div align="center"><{$catarray.toolbar}></div><br />
-<div class="even" style="font-size: smaller;"><b><{$category_path}></b></div><br />
+<div align="center" class="itemPermaLink"><{$catarray.letters}></div>
+<br />
+<div align="center"><{$catarray.toolbar}></div>
+<br />
+<div class="imlinks_catpath" style="font-size: smaller; font-weight: bold;"><{$category_path}></div>
+<br />
+
 <{if $subcategories}>
-<fieldset><legend style="font-weight: bold; color: #639ACE;"><{$smarty.const._MD_IMLINKS_SUBCATLISTING}></legend>
-<div align= "left" style="margin-left: 5px; padding: 0px;">
+<fieldset><legend style="font-weight: bold;"><{$smarty.const._MD_IMLINKS_SUBCATLISTING}></legend>
+<div align= "left" style="margin-left: 5px; padding: 8px;">
  <table width="80%">
   <tr>
    <{foreach item=subcat from=$subcategories}>
-    <td><a href="viewcat.php?cid=<{$subcat.id}>"><img src="<{$subcat.image}>" alt="<{$subcat.alttext}>" title="<{$subcat.alttext}>" align="top" /></a> <a href="viewcat.php?cid=<{$subcat.id}>"><{$subcat.title}></a>&nbsp;(<{$subcat.totallinks}>)<br />
+    <td>
+	<a href="viewcat.php?cid=<{$subcat.id}>"><img src="<{$subcat.image}>" alt="<{$subcat.alttext}>" title="<{$subcat.alttext}>" align="top" /></a>
+	<a href="viewcat.php?cid=<{$subcat.id}>"><{$subcat.title}></a>&nbsp;(<{$subcat.totallinks}>)
 	 <{if $subcat.infercategories}>
-	  &nbsp;&nbsp;<{$subcat.infercategories}>
+	  <{$subcat.infercategories}>
      <{/if}>
 	 </td>
 	 <{if $subcat.count is div by $catcols}>
@@ -29,65 +52,63 @@
 <{/if}>
 
 <{if $show_links == true}> 
-<div style="text-align:center;"><small>
-<b><{$smarty.const._MD_IMLINKS_SORTBY}></b>&nbsp;<{$smarty.const._MD_IMLINKS_TITLE}> (
+<div style="text-align:center; font-size: 70%;">
+<b><{$smarty.const._MD_IMLINKS_SORTBY}></b>&nbsp;<{$smarty.const._TITLE}> (
 <a href="viewcat.php?cid=<{$category_id}>&orderby=titleA">
-<img src="images/up.png" alt="" align="absmiddle" /></a>
+<img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
 <a href="viewcat.php?cid=<{$category_id}>&orderby=titleD">
-<img src="images/down.png" alt="" align="absmiddle" /></a>
+<img src="images/down.png" alt="" style="vertical-align: bottom;" /></a>
 )
 &nbsp;
-<{$smarty.const._MD_IMLINKS_DATE}> (
+<{$smarty.const._DATE}> (
 <a href="viewcat.php?cid=<{$category_id}>&orderby=dateA">
-<img src="images/up.png" alt="" align="absmiddle" /></a>
+<img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
 <a href="viewcat.php?cid=<{$category_id}>&orderby=dateD">
-<img src="images/down.png" alt="" align="absmiddle" /></a>
+<img src="images/down.png" alt="" style="vertical-align: bottom;" /></a>
 )
 &nbsp;
  <{$smarty.const._MD_IMLINKS_RATING}> (
      <a href="viewcat.php?cid=<{$category_id}>&orderby=ratingA">
-     <img src="images/up.png" alt="" align="absmiddle" /></a>
+     <img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
      <a href="viewcat.php?cid=<{$category_id}>&orderby=ratingD">
-     <img src="images/down.png" alt="" align="absmiddle" /></a>         
+     <img src="images/down.png" alt="" style="vertical-align: bottom;" /></a>         
      )    
 &nbsp;
 <{$smarty.const._MD_IMLINKS_POPULARITY}> (
 <a href="viewcat.php?cid=<{$category_id}>&orderby=hitsA">
-<img src="images/up.png" alt="" align="absmiddle" /></a>
+<img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
 <a href="viewcat.php?cid=<{$category_id}>&orderby=hitsD">
-<img src="images/down.png" alt="" align="absmiddle" /></a>
+<img src="images/down.png" alt="" style="vertical-align: bottom;" /></a>
 )
 &nbsp;
 <{$smarty.const._MD_IMLINKS_COUNTRYSORT}> (
 <a href="viewcat.php?cid=<{$category_id}>&orderby=countryA">
-<img src="images/up.png" alt="" align="absmiddle" /></a>
+<img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
 <a href="viewcat.php?cid=<{$category_id}>&orderby=countryD">
-<img src="images/down.png" alt="" align="absmiddle" /></a>
+<img src="images/down.png" alt="" style="vertical-align: bottom;" /></a>
 )
 <br />
-<b><{$lang_cursortedby}></b><br /><br />
-</small></div>
-<br />
+<b><{$lang_cursortedby}></b><br />
+</div>
 <{/if}>
 
 <{if $page_nav == true}>
-  <div><{$pagenav}></div><br />
+  <div style="float: right;"><{$pagenav}></div>
 <{/if}>
 
-<table width="100%" cellspacing="0" cellpadding="10" border="0">
- <tr>
-  <td width="100%">
+<div style="clear: both;">
    <!-- Start link loop -->
    <{section name=i loop=$imlink}>
 	 <{include file="db:imlinks_linkload.html" imlink=$imlink[i]}>
    <{/section}>
    <!-- End link loop -->
-  </td>
- </tr>
-</table>
+</div>
 
 <{if $page_nav == true}>
-  <div align="right"><{$pagenav}></div>
+  <div class="imlinks_horline">&nbsp;</div>
+  <span style="float: right;"><{$pagenav}></span>
 <{/if}>
+
+<div style="clear: both; height: 2px;">&nbsp;</div>
 
 <{include file="db:system_notification_select.html"}>

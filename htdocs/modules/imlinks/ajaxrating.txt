@@ -148,9 +148,3 @@ it is blank (which will default to 10 units)
 If you want to change how the rating bar is rendered, you will need to edit
 the _drawrating.php file. Also, you might need to edit the bottom of the rpc.php
 file at about line 52, where the $newback variable is.
-
-
-
-
-
-

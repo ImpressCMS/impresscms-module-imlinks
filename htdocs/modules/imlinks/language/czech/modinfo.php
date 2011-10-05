@@ -181,41 +181,6 @@ define('_MI_IMLINKS_LINK_APPROVE_NOTIFYCAP', 'Upozornění při schválení odka
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYDSC', 'Zaslat upozornění, když je odkaz schválen.');
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatické-upozornění : Odkaz schválen');
 
-define('_MI_IMLINKS_AUTHOR_INFO', "Developer information");
-define('_MI_IMLINKS_AUTHOR_NAME', "Developer");
-define('_MI_IMLINKS_AUTHOR_DEVTEAM', "Development team");
-define('_MI_IMLINKS_AUTHOR_WEBSITE', "Developer website");
-define('_MI_IMLINKS_AUTHOR_EMAIL', "Developer email");
-define('_MI_IMLINKS_AUTHOR_CREDITS', "Credits");
-define('_MI_IMLINKS_MODULE_INFO', "Module development information");
-define('_MI_IMLINKS_MODULE_STATUS', "Development status");
-define('_MI_IMLINKS_MODULE_DEMO', "Demo stránka");
-define('_MI_IMLINKS_MODULE_SUPPORT', "Oficiální web podpory");
-define('_MI_IMLINKS_MODULE_BUG', "Report a bug for this module");
-define('_MI_IMLINKS_MODULE_FEATURE', "Suggest a new feature for this module");
-define('_MI_IMLINKS_MODULE_DISCLAIMER', "Prohlášení");
-define('_MI_IMLINKS_RELEASE', "Datum vydání: ");
-
-define('_MI_IMLINKS_MODULE_MAILLIST', "WF-Project mailing lists");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTS', "Announcements mailing list");
-define('_MI_IMLINKS_MODULE_MAILBUGS', "Bug mailing list");
-define('_MI_IMLINKS_MODULE_MAILFEATURES', "Features mailing list");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTSDSC', "Get the latest announcements from WF-Project.");
-define('_MI_IMLINKS_MODULE_MAILBUGSDSC', "Bug tracking and submission mailing list");
-define('_MI_IMLINKS_MODULE_MAILFEATURESDSC', "Request new features mailing list.");
-
-define('_MI_IMLINKS_WARNINGTEXT', "THE SOFTWARE IS PROVIDED BY WF-PROJECTS \"AS IS\" AND \"WITH ALL FAULTS.\"
-WF-PROJECTS MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING
-THE QUALITY, SAFETY OR SUITABILITY OF THE SOFTWARE, EITHER EXPRESS OR
-IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
-FURTHER, WF-PROJECTS MAKES NO REPRESENTATIONS OR WARRANTIES AS TO THE TRUTH,
-ACCURACY OR COMPLETENESS OF ANY STATEMENTS, INFORMATION OR MATERIALS
-CONCERNING THE SOFTWARE THAT IS CONTAINED IN WF-Project WEBSITE. IN NO
-EVENT WILL WF-PROJECTS BE LIABLE FOR ANY INDIRECT, PUNITIVE, SPECIAL,
-INCIDENTAL OR CONSEQUENTIAL DAMAGES HOWEVER THEY MAY ARISE AND EVEN IF
-WF-PROJECT HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES..");
-
 define('_MI_IMLINKS_AUTHOR_CREDITSTEXT',"The WF-Projects Team would like to thank the following people for their help and support during the development phase of this module.<br /></br />EdStacey, maumed, banned, krobi, Pnooka, MarcoFr, cosmodrum, placebo333, GibaPhp");
 define('_MI_IMLINKS_AUTHOR_BUGFIXES', "Bug Fix History");
 
@@ -237,11 +202,9 @@ define('_MI_IMLINKS_EDITORUSER', "Editor pro použití na webu:");
 define('_MI_IMLINKS_EDITORCHOICEUSER', "Vyberte editor pro uživatelskou část.");
 define("_MI_IMLINKS_FORM_DHTML", "DHTML");
 define("_MI_IMLINKS_FORM_COMPACT", "Compact");
-define("_MI_IMLINKS_FORM_SPAW", "Spaw Editor");
 define("_MI_IMLINKS_FORM_HTMLAREA", "HtmlArea Editor");
 define("_MI_IMLINKS_FORM_FCK", "FCK Editor");
 define("_MI_IMLINKS_FORM_KOIVI", "Koivi Editor");
-define("_MI_IMLINKS_FORM_INBETWEEN", "Inbetween");
 define("_MI_IMLINKS_FORM_TINYEDITOR", "TinyEditor");
 define("_MI_IMLINKS_FORM_TINYMCE", "TinyMCE");
 define("_MI_IMLINKS_FORM_DHTMLEXT", "DHTML Extended");
@@ -323,4 +286,21 @@ define( '_MI_IMLINKS_SHOWRATINGDSC', 'Výběrem <em>Ano</em> se zobrazí volby h
 
 // imLinks 1.00 RC-2
 define( '_MI_IMLINKS_BNAME6', 'Random Link' );
+
+// imLinks 1.01
+define( '_MI_IMLINKS_SHOWLEGEND', 'Show category legend?' );
+define( '_MI_IMLINKS_SHOWLEGENDDSC', 'With this option you can turn on/off the legend explaining the different colours of the default category icons.' );
+define( '_MI_IMLINKS_LIGHTWINDOW', 'Select how a link should be opened?' );
+define( '_MI_IMLINKS_LIGHTWINDOWDSC', 'Select <em>Default</em> to have links opened in a new browser tab/window.<br />
+									   Select <em>LightWindow</em> to have links opened in a <a href="http://www.stickmanlabs.com/lightwindow/" target="_blank">LightWindow</a>.<br />
+									   Select <em>GreyBox</em> to have links opened in a <a href="http://orangoo.com/labs/GreyBox/" target="_blank">GreyBox</a>.' );
+define( '_MI_IMLINKS_DEFAULT', 'Default' );
+
+// imLinks 1.03
+define( '_MI_IMLINKS_NICEURL', 'Use nice urls?' );
+define( '_MI_IMLINKS_NICEURLDSC', 'Use nice urls for links.' );
+define( '_MI_IMLINKS_TOMTOMAPI', 'TomTom API key:' );
+define( '_MI_IMLINKS_TOMTOMAPIDSC', 'To have a <em>Add to TomTom</em> buttom displayed with the contact details of a link you need to enter your API key here.<br />A valid API key can be requested from add2TTsupport@tomtom.com' );
+define( '_MI_IMLINKS_TOMTOMLOGO', 'Enter url for logo to display:' );
+define( '_MI_IMLINKS_TOMTOMLOGODSC', 'Enter the url of the logo to display in the window <em>Starting TomTom Home</em>.<br />This logo will displayed together with the website name for the <em>Content provided by</em>.' );
 ?>

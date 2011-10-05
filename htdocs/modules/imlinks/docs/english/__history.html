@@ -29,26 +29,196 @@ a:active {
 
 <body>
 <h1>imLinks History</h1>
+<p>&nbsp;</p>
+<hr />
+<h4>25.09.2011 - Version 1.10</h4>
+<hr />
+<p>
+Updated:<br />
+• imLinks for ImpressCMS 1.3<br />
+• Google and Yahoo map icons<br />
+• Countries (../language/{language}/countries.php)<br />
+<br />
+Fixed:<br />
+• replaced Multimap with Bing Maps<br />
+• alphabetical listing using toolbar<br />
+• submit form not working in frontend<br />
+• total links for sub-cats in imLinks index page<br />
+<br />
+Removed:<br />
+• support for DHTML editor and bbcode<br />
+• Simpy and Spurl from social bookmarks<br />
+• link to Submit a Bug in About page<br />
+<br />
+Removed files:<br />
+• xoops_version.php<br />
+• images/icon/multimap.png<br />
+• images/sbookmarks/simpy.png<br />
+• images/sbookmarks/spurl.png<br />
+• include/config.php<br />
+</p>
+<hr />
+<h4>21.11.2010 - &nbsp;imLinks 1.04 Final </h4>
+<hr />
+<p>
+• Fixed: brokenlink-report is not deleted when link is deleted<br />
+• Fixed: when deleting a broken link, the alt-cats and comments are not deleted
+</p>
+<hr />
+<h4>30.09.2010 - &nbsp;imLinks 1.04 RC-2 </h4>
+<hr />
+<p>
+• Fixed: meta-tags not working<br />
+• Fixed: filtering special characters for Nice URLS
+</p>
+<hr />
+<h4>21.09.2010 - &nbsp;imLinks 1.04 RC-1 </h4>
+<hr />
+<p>
+• Updated: country flag icons
+</p>
+<p>
+• Fixed: submit form not working when disclaimer is active<br />
+• Fixed: RSS feed now passes validation<br />
+• Fixed: tag plugin
+</p>
+<hr />
+<h4>09.01.2010 - &nbsp;imLinks 1.03 RC-3 </h4>
+<hr />
+<p>
+• Added: <em>None</em> to selection of forums and set as default. Forum option in submit form will be visible when a forum is selected in Preferences only.<br />
+• Added: user will be redirected to ../admin/permissions.php instead of ../admin/index.php after submitting permissions settings
+</p>
+<p>
+• Fixed: MySQL syntax typo in visit.php<br />
+• Fixed: buttons for url and maps in submit forms not working<br />
+• Fixed: <em>Submit</em> button in toolbar<br />
+• Fixed: description not displayed in singlelink when Linked Terms is selected in Preferences without having imGlossary installed.<br />
+• Fixed: Cannot redeclare class WideImage_InvalidImageHandleException [Mr. Theme]
+</p>
+<hr />
+<h4>01.01.2010 - &nbsp;imLinks 1.03 RC-2 </h4>
+<hr />
+<p>
+• Fixed: theme shifts down due to break-tag<br />
+• Fixed: set redirect in Permissions page to permissions.php
+</p>
+<p>
+• Modified: filter for nice urls feature
+</p>
+<hr />
+<h4>14.12.2009 - &nbsp;imLinks 1.03 RC-1 </h4>
+<hr />
+<p>
+• Added: use of nice urls for links<br />
+• Added: 'Add to TomTom' feature for contact details<br />
+• Added: support for FCKeditor<br />
+</p>
+<p>
+• Fixed: width/height setting not working for screenshots<br />
+• Fixed: icons New, Popular, Updates &amp; View not supporting multilanguage<br />
+• Fixed: ping feature<br />
+• Fixed: approve option for new links<br />
+</p>
+<p>
+• Dropped support for following editors: Koivi and textarea<br />
+• Removed 'Block Setting' feature<br />
+</p>
+<p>
+  • Removed files:</p>
+<blockquote>
+  <p>- admin/admin.php<br />
+    - admin/myblockform.php<br />
+    - admin/myblocksadmin.php<br />
+    - admin/myblocksadmin.txt<br />
+    - admin/mygroupperm.php<br />
+    - admin/mygrouppermform.php<br />
+    - images/icon/new.png<br />
+    - images/icon/popular.png<br />
+    - images/icon/updated.png<br />
+    - images/icon/view.png<br />
+    - include/blocksadmin.inc.php<br />
+    - include/gtickets.php<br />
+    - include/updateblock.inc.php</p>
+</blockquote>
+<hr />
+<h4>17.05.2009 - &nbsp;imLinks 1.02 Final </h4>
+<hr />
+<p>
+• Fixed: alternate categories not being saved<br />
+• Fixed: screenshots not always working
+</p>
+<hr />
+<h4>10.05.2009 - &nbsp;imLinks 1.01 Final </h4>
+<hr />
+<p>
+• Fixed issue with 'Aknowledge' &amp; 'Confirmed' for brokenlinks administration
+</p>
+<hr />
+<h4>03.05.2009 - &nbsp;imLinks 1.01 RC-2 </h4>
+<hr />
+<p>
+• Fixed: issue with standard screenshot from version 1.01 RC-1<br />
+• Fixed: notify option in submit form visible for anonymous<br />
+• Fixed: letter bar not utf-8 compatible<br />
+• Fixed: typo in admin/newlinks.php<br />
+• Fixed: multiple style issues<br />
+• Fixed: typo in url for alternate categories<br />
+• Fixed: issue with printing address<br />
+• Cleaned up language files
+</p>
+<hr />
+<h4>04.01.2009 - &nbsp;imLinks 1.01 RC-1 </h4>
+<hr />
+<p>
+• Added: option to turn on/off category legend icons<br />
+• Added: option for opening links in LightWindow, GreyBox or default<br />
+</p>
+<p>
+• Fixed: links accessible through search function<br />
+• Fixed: dividing by 0 when total votes = 0<br />
+• Fixed: normal screenshots also visible in Main Index<br />
+• Fixed: issue with address formats and multilanguage<br />
+• Fixed: manipulating of rating<br />
+• Fixed: debugger line visible after voting (sourceforge #2416510)<br />
+• Fixed: tag plugin modding when renaming install folder
+</p>
+<hr />
+<h4>31.01.2009 - &nbsp;imLinks 1.00 Final </h4>
+<hr />
+<p>
+• Changed url for Submit Bug to Trac
+</p>
+<p>
+• Fixed: new links on Index Page not showing correctly<br />
+• Fixed: error with notifications when new category is created<br />
+• Fixed: issue with linking terms to imGlossary<br />
+• Fixed: blank page when deleting link
+</p>
 <hr />
 <h4>10.01.2009 - &nbsp;imLinks 1.00 RC-2</h4>
 <hr />
-<p>• Revamped Main Index page<br />
-• Added: random block [hisapapa]
-  <br />
-  • Replaced spinner icon
-  <br />
-  • Fixed: icons and text in buttons could break
-  <br />
-  • Fixed: thumbnail class not working
-  <br />
-  • Fixed: date format in blocks will use default from prefs if not set
-  <br />
-• Fixed: category permissions will be deleted when category is deleted</p>
+<p>
+• Revamped Main Index page<br />
+</p>
+<p>
+• Added: random block [hisapapa]<br />
+• Replaced spinner icon<br />
+</p>
+<p>
+• Fixed: icons and text in buttons could break<br />
+• Fixed: thumbnail class not working<br />
+• Fixed: date format in blocks will use default from prefs if not set<br />
+• Fixed: category permissions will be deleted when category is deleted
+</p>
 <hr />
 <h4>13.12.2008 - &nbsp;imLinks 1.00 RC-1</h4>
 <hr />
-<p>• Revamped Main Index page<br />
-• Revamped buttons front page  <br />
+<p>
+• Revamped Main Index page<br />
+• Revamped buttons front page
+</p>
+<p>
 • Added: About page <br />  
 • Added: developers, testers, translators, etc for About page <br />
 • Added: option to have linked terms if imGlossary is installed <br />
@@ -62,18 +232,20 @@ a:active {
 • Added: option to clone a link<br />
 • Added: Home button<br />
 • Added: css stylesheet<br />
-• Added: AJAX rating to replace old rating feature<br />
-• Renamed: module name from 'WF-Links' into 'imLinks' <br />
-• Renamed: file 'bugfixlist.txt' into 'changelog.txt' <br />
+• Added: AJAX rating to replace old rating feature
+</p>
+<p>
+• Renamed: module name from 'WF-Links' into 'imLinks'<br />
+• Renamed: file 'bugfixlist.txt' into 'changelog.txt'
+</p>
+<p>
 • Fixed: block settings [skenow] <br />
 • Fixed: search function causing conflict with 'View profile'<br />
-• Fixed: category icons change state when a sub-category contains new link
-<br />
-• Fixed: unclosed div-tag in imlinks_viewcat.html
-<br />
-• Fixed: body-tag was declared twice in imlinks_print.html
-<br />
-• Fixed: displaying dislaimer in Quick View</p>
+• Fixed: category icons change state when a sub-category contains new link<br />
+• Fixed: unclosed div-tag in imlinks_viewcat.html<br />
+• Fixed: body-tag was declared twice in imlinks_print.html<br />
+• Fixed: displaying dislaimer in Quick View
+</p>
 <hr> 
 <h4>18.10.2008 - WF-Links 1.06 Final</h4>
 <hr>

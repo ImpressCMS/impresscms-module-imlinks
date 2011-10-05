@@ -29,244 +29,248 @@ a:active {
 
 <body>
 <h1>Preferences   </h1>
-<p>First we pay a visit to the Preferences of imLinks to configure the module.   </p>
-<p><strong>Link popular count</strong> <br />
-  Set here the amount of hits needed for a link for setting it as being a popular link. <br />
-  Default: <em>100</em> </p>
-<p><strong>Links popular and new</strong><br />
-Here you can set how a link will be displayed as popular and new. <br />
-There are the following options: </p>
-<ul>
-  <li>Display as icons  </li>
-  <li>Display as text  </li>
-  <li>Do not display </li>
-</ul>
-<p>Default: <em>Display as icons</em> </p>
-<p><strong>Links days new</strong> <br />
-The number of days a link status will be considered as new. <br />
-Default: <em>10</em> </p>
-<p><strong>Links days updated</strong> <br />
-The amount of days a link status will be considered as updated. <br />
-Default: <em>10</em> </p>
-<p><strong>Link listing count</strong> <br />
-Number of links to display in each category listing. <br />
-Default: <em>10</em> </p>
-<p><strong>Admin index links count</strong> <br />
-Number of new links to display in module admin area. <br />
-Default: <em>10</em> </p>
-<p><strong>Default link order</strong> <br />
-Select the default order for the link listings. </p>
-<ul>
-  <li>Title  </li>
-  <li>Submission date  </li>
-  <li>Rating  </li>
-  <li>Popularity  </li>
-  <li>Country </li>
-</ul>
-<p>Each option can be set to ascending (A) or descending (D). <br />
-Default: <em>Title (A)</em> </p>
-<p><strong>Sort categories by </strong><br />
-Select how categories and sub-categories are sorted. </p>
-<ul>
-  <li>Title  </li>
-  <li>Weight </li>
-</ul>
-<p>Default: <em>Title</em> </p>
-<p><strong>Sub-Categories</strong> <br />
-Select <em>Yes</em> to display sub-categories. Selecting <em>No</em> will hide sub-categories from the listings. <br />
-Default: <em>No </em></p>
-<p><strong>Number of category colums</strong><br />
-Select the number of category colums for Index Page. <br />
-Default: <em>2</em></p>
-<p><strong>Editor to use (admin) </strong><br />
-Select the editor to use for admin side. <br />
-
-When selecting DHTML than this might be overruled by the setting Default Editor in ImpressCMS Preferences. <br />
-Default: <em>DHTML</em> </p>
-<p><strong>Editor to use (user)</strong> <br />
-Select the editor to use for user side. <br />
-When selecting DHTML than this might be overruled by the setting Default Editor in ImpressCMS Preferences. <br />
-Default: <em>DHTML</em> </p>
-<p><strong>Use captcha in submit form</strong><br />
-  Select <em>Yes</em> to use captcha in the submit form. <br />
-  Default: <em>Yes</em><br />
-</p>
-<p><strong>Display screenshot images</strong> <br />
-  Select <em>Yes</em> to display screenshot images for each link item. <br />
-  Default: <em>Yes</em> </p>
-<p><strong>Use thumbnails</strong> <br />
-Supported link types: JPG, GIF, PNG. <br />
-imLinks will use thumb nails for images. Set to <em>No</em> to use orginal image if the server does not support this option. <br />
-Default: <em>No</em> </p>
-<p><strong>Update thumbnails</strong> <br />
-If selected Thumbnail images will be updated at each page render, otherwise the first thumbnail image will be used regardless. <br />
-Default: <em>Yes</em> </p>
-<p><strong>Thumbnail quality</strong> <br />
-Quality:  </p>
-<ul>
-  <li>Lowest: 0  </li>
-  <li>Highest: 100 </li>
-</ul>
-<p>Default: <em>100</em> </p>
-<p><strong>Keep image aspect ratio</strong> <br />
-Default: <em>No</em> </p>
-<p><strong>Image display width</strong> <br />
-Display width (px) for screenshot image. <br />
-Default: <em>100</em> </p>
-<p><strong>Image display height</strong> <br />
-Display height (px) for screenshot image. <br />
-Default: <em>79</em> </p>
-<p><strong>Upload size (KB)</strong> <br />
-Maximum link size permitted with link uploads. <br />
-Default: <em>200000 </em></p>
-<p><strong>Upload image width</strong> <br />
-Maximum image width (px) permitted when uploading image links <br />
-Default: <em>600</em> </p>
-<p><strong>Upload image height</strong> <br />
-Maximum image height (px) permitted when uploading image links. <br />
-Default: <em>600</em> </p>
-<p><strong>Use auto screenshot</strong> <br />
-This will automatically create a screenshot based on the url. This overrules uploaded screenshots and might not work for all websites. <br />
-Default: <em>No</em> </p>
-<p><strong>Select source for generating auto screenshot</strong> <br />
-  More info: </p>
-<ul>
-  <li> <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a></li>
-  <li><a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a></li>
-</ul>
-<p>Default: <em>Thumbshots.org</em></p>
-<p><strong>Main image directory</strong> <br />
-Enter the url without a trailing slash. <br />
-Default: <em>modules/imlinks/images</em> </p>
-<p><strong>Screenshots upload directory</strong> <br />
-Enter the url without a trailing slash. <br />
-Default: <em>uploads/images/screenshots</em> </p>
-<p><strong>Category image upload directory</strong> <br />
-Enter the url without a trailing slash. <br />
-Default: <em>uploads/images/category</em> </p>
-<p><strong>Country flag image directory</strong> <br />
-Enter the url without a trailing slash. <br />
-Default: <em>uploads/images/flags/flags_small</em> </p>
-<p><strong>Timestamp</strong> <br />
-Default timestamp for imLinks. Here you can configure how the date is formatted. <br />
-This setting is not used for the imLinks blocks. See also the <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP Manual</a>. <br />
-Default: <em>D, d-M-Y</em> </p>
-<p><strong>Timestamp administration</strong> <br />
-Default admininstration timestamp for imLinks. Here you can configure how the date is formatted for the imLinks administration. <br />
-See also the <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP Manual</a>. <br />
-Default: <em>D, d-M-Y - G:i</em> </p>
-<p><strong>Set total amount of characters for description</strong> <br />
-Set total amount of characters for description in category view. <br />
-Default: <em>200</em> </p>
-<p><strong>Enter max. characters for meta keywords</strong> <br />
-This is maximum amount of characters that can be used for meta keywords. <br />
-See <a href="http://en.wikipedia.org/wiki/Meta_element#The_keywords_attribute" target="_blank">Wikipedia</a> for more information. <br />
-Default: <em>255</em> </p>
-<p><strong>Show other links submitted by Submitter</strong> <br />
-Select <em>Yes</em> if other links of the submitter will be displayed. <br />
-Default: <em>Yes</em> </p>
-<p><strong>Show Quick View option</strong> <br />
-Select <em>Yes</em> to turn the Quick View option on. <br />
-Default: <em>No</em> </p>
-<p><strong>Show Social Bookmarks</strong> <br />
-Select <em>Yes</em> if you want Social Bookmark icons to be displayed under article. <br />
-Default: <em>Yes</em> </p>
-<p><strong>Show rating features</strong><br />
-Select <em>Yes</em> to display the rating features. Select <em>No</em> to hide the rating features. 
-  <br />
-Note: This setting has nothing to do with the permissions setting.<br />
-Default: <em>Yes</em> </p>
-<p><strong>Show Google PageRank™</strong> <br />
-Select <em>Yes</em> if you want Google PageRank™ to be displayed. <br />
-Default: <em>Yes</em> </p>
-<p><strong>User can submit Tags</strong> <br />
-Select <em>Yes</em> if user is allowed to submit tags. <br />
-Note: The Tag module needs to be installed otherwise the form doesn't show in the submit form. <br />
-Default: <em>No</em> </p>
-<p><strong>Use address and map options</strong> <br />
-Select <em>Yes</em> to use the address and maps feature in submit forms. <br />
-Default: <em>Yes</em> </p>
-<p><strong>Use ICMS RSS feed</strong><br />
-  Select <em>Yes</em> to have ImpressCMS RSS feed available.<br />
-  The RSS feed will output the latest published links.<br />
-  Default: <em>Yes</em><br />
-</p>
-<p><strong>How many links to display in RSS feed</strong><br />
-  This number only affects the ImpressCMS RSS feed. <br />
-  Default: <em>15</em><br />
-</p>
-<p><strong>Link to terms in glossary</strong><br />
-  Select <em>Yes</em> to have terms in the description linked to definitions in the glossary.<br />
-  The module imGlossary needs to be installed and active for this feature.<br />
-  Default: <em>No</em><br />
-</p>
-<p><strong>Folder name of imGlossary</strong><br />
-  The name of the folder where imGlossary is in. <br />
-  Default: <em>imglossary</em><br />
-</p>
-<p><strong>Print page footer</strong> <br />
-  Footer that will be printed for each link. <br />
-  Default: <em>&lt;website_url&gt;</em> </p>
-<p><strong>Logo print url</strong> <br />
-Url of the logo that will be printed at the top of the page. <br />
-Default: <em>&lt;website_url&gt;/modules/imlinks/images/logo-en.gif</em> </p>
-<p><strong>Show disclaimer before user submission</strong> <br />
-Before a user can submit a link show the entry regulations. <br />
-Default: <em>No</em> </p>
-<p><strong>Enter submission disclaimer text</strong> <br />
-Default: <em>We have the right, but not the obligation to monitor and review submissions submitted by users, in the forums. We shall not be responsible for any of the content of these messages. We further reserve the right, to delete, move or edit submissions that the we, in its exclusive discretion, deems abusive, defamatory, obscene or in violation of any Copyright or Trademark laws or otherwise objectionable.</em> </p>
-<p><strong>Show disclaimer before user link</strong><br />
-  Show link regulations before open a link. <br />
-Default: <em>No</em> </p>
-<p><strong>Enter link disclaimer text</strong> <br />
-Default: <em>The links on this site are provided as is without warranty either expressed or implied. linkloaded files should be checked for possible virus infection using the most up-to-date detection and security packages. If you have a question concerning a particular piece of software, feel free to contact the developer. We refuse liability for any damage or loss resulting from the use or misuse of any software offered from this site for linkloading. If you have any doubt at all about the safety and operation of software made available to you on this site, do not linkload it. Contact us if you have questions concerning this disclaimer.</em> </p>
-<p><strong>Copyright notice</strong> <br />
-Select to display a copyright notice on link page. <br />
-Default: <em>Yes</em> </p>
-<p><strong>Select forum</strong> <br />
-Select the forum you have installed and will be used by imLinks. </p>
-<ul>
-  <li>Newbb  </li>
-  <li>IPB Forum  </li>
-  <li>PHPBB Module  </li>
-  <li>Newbbex </li>
-</ul>
-<p>Default: <em>Newbb</em> </p>
-<p><strong>Comment rules </strong></p>
-<ul>
-  <li>Disable comments  </li>
-  <li>Comments are always approved  </li>
-  <li>Comments by registered users are always approved  </li>
-  <li>All comments need to be approved by administrators</li>
-</ul>
-<p>Default: <em>Comments are always approved</em> </p>
-<p><strong>Allow anonymous post in comments</strong> <br />
-Default: <em>No</em> </p>
-<p><strong>Enable notification</strong> <br />
-This module allows users to be notified when certain events occur. Select if users should be presented with notification options in a Block (Block-style), within the module (Inline-style), or both. For block-style notification, the Notification Options block must be enabled for this module. </p>
-<ul>
-  <li>Disable notification  </li>
-  <li>Enable only block-style  </li>
-  <li>Enable only inline-syle  </li>
-  <li>Enable notification (both styles)</li>
-</ul>
-<p> Default: <em>Enable notification (both styles)</em> </p>
-<p><strong>Enable specific events</strong> <br />
-Select which notification events to which your users may subscribe. </p>
-<ul>
-  <li>Global : New category  </li>
-  <li>Global : Modify link requested  </li>
-  <li>Global : Broken link submitted  </li>
-  <li>Global : Link submitted  </li>
-  <li>Global : New link  </li>
-  <li>Category : Link Submitted  </li>
-  <li>Category : New Link  </li>
-  <li>Category : Bookmark  </li>
-  <li>Link : Comment added  </li>
-  <li>Link : Comment submitted  </li>
-  <li>Link : Bookmark  </li>
-</ul>
-<p>Default: <em>All selected</em> </p>
+<p>First we visit the Preferences of imLinks where we can configure the module.   </p>
+<blockquote>
+  <p><strong>Link popular count</strong> <br />
+    Set here the amount of hits needed for a link for setting it as being a popular link. <br />
+    Default: <em>100</em> </p>
+  <p><strong>Links popular and new</strong><br />
+    Here you can set how a link will be displayed as popular and new. <br />
+    There are the following options: </p>
+  <ul>
+    <li>Display as icons </li>
+    <li>Display as text </li>
+    <li>Do not display </li>
+  </ul>
+  <p>Default: <em>Display as icons</em> </p>
+  <p><strong>Links days new</strong> <br />
+    The number of days a link status will be considered as new. <br />
+    Default: <em>10</em> </p>
+  <p><strong>Links days updated</strong> <br />
+    The amount of days a link status will be considered as updated. <br />
+    Default: <em>10</em> </p>
+  <p><strong>Link listing count</strong> <br />
+    Number of links to display in each category listing. <br />
+    Default: <em>10</em> </p>
+  <p><strong>Admin index links count</strong> <br />
+    Number of new links to display in module admin area. <br />
+    Default: <em>10</em> </p>
+  <p><strong>Default link order</strong> <br />
+    Select the default order for the link listings. </p>
+  <ul>
+    <li>Title </li>
+    <li>Submission date </li>
+    <li>Rating </li>
+    <li>Popularity </li>
+    <li>Country </li>
+  </ul>
+  <p>Each option can be set to ascending (A) or descending (D). <br />
+    Default: <em>Title (A)</em> </p>
+  <p><strong>Sort categories by </strong><br />
+    Select how categories and sub-categories are sorted. </p>
+  <ul>
+    <li>Title </li>
+    <li>Weight </li>
+  </ul>
+  <p>Default: <em>Title</em> </p>
+  <p><strong>Sub-Categories</strong> <br />
+    Select <em>Yes</em> to display sub-categories. Selecting <em>No</em> will hide sub-categories from the listings. <br />
+    Default: <em>No </em></p>
+  <p><strong>Number of category colums</strong><br />
+    Select the number of category colums for Index Page. <br />
+    Default: <em>2</em></p>
+  <p><strong>Editor to use (admin) </strong><br />
+    Select the editor to use for admin side. <br />
+    Default: <em>TinyMCE</em> </p>
+  <p><strong>Editor to use (user)</strong> <br />
+    Select the editor to use for user side. <br />
+    Default: <em>TinyMCE</em> </p>
+  <p><strong>Use captcha in submit form</strong><br />
+    Select <em>Yes</em> to use captcha in the submit form. <br />
+    Default: <em>Yes</em><br />
+  </p>
+  <p><strong>Display screenshot images</strong> <br />
+    Select <em>Yes</em> to display screenshot images for each link item. <br />
+    Default: <em>Yes</em> </p>
+  <p><strong>Use thumbnails</strong> <br />
+    Supported link types: JPG, GIF, PNG. <br />
+    imLinks will use thumb nails for images. Set to <em>No</em> to use orginal image if the server does not support this option. <br />
+    Default: <em>No</em> </p>
+  <p><strong>Update thumbnails</strong> <br />
+    If selected Thumbnail images will be updated at each page render, otherwise the first thumbnail image will be used regardless. <br />
+    Default: <em>Yes</em> </p>
+  <p><strong>Thumbnail quality</strong> <br />
+    Quality:  </p>
+  <ul>
+    <li>Lowest: 0 </li>
+    <li>Highest: 100 </li>
+  </ul>
+  <p>Default: <em>100</em> </p>
+  <p><strong>Keep image aspect ratio</strong> <br />
+    Default: <em>No</em> </p>
+  <p><strong>Image display width</strong> <br />
+    Display width (px) for screenshot image. <br />
+    Default: <em>100</em> </p>
+  <p><strong>Image display height</strong> <br />
+    Display height (px) for screenshot image. <br />
+    Default: <em>79</em> </p>
+  <p><strong>Upload size (KB)</strong> <br />
+    Maximum link size permitted with link uploads. <br />
+    Default: <em>200000 </em></p>
+  <p><strong>Upload image width</strong> <br />
+    Maximum image width (px) permitted when uploading image links <br />
+    Default: <em>600</em> </p>
+  <p><strong>Upload image height</strong> <br />
+    Maximum image height (px) permitted when uploading image links. <br />
+    Default: <em>600</em> </p>
+  <p><strong>Use auto screenshot</strong> <br />
+    This will automatically create a screenshot based on the url. This overrules uploaded screenshots and might not work for all websites. <br />
+    Default: <em>No</em> </p>
+  <p><strong>Select source for generating auto screenshot</strong> <br />
+    More info: </p>
+  <ul>
+    <li><a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a></li>
+    <li><a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a></li>
+  </ul>
+  <p>Default: <em>Thumbshots.org</em></p>
+  <p><strong>Main image directory</strong> <br />
+    Enter the url without a trailing slash. <br />
+    Default: <em>modules/imlinks/images</em> </p>
+  <p><strong>Screenshots upload directory</strong> <br />
+    Enter the url without a trailing slash. <br />
+    Default: <em>uploads/images/screenshots</em> </p>
+  <p><strong>Category image upload directory</strong> <br />
+    Enter the url without a trailing slash. <br />
+    Default: <em>uploads/images/category</em> </p>
+  <p><strong>Country flag image directory</strong> <br />
+    Enter the url without a trailing slash. <br />
+    Default: <em>uploads/images/flags/flags_small</em> </p>
+  <p><strong>Timestamp</strong> <br />
+    Default timestamp for imLinks. Here you can configure how the date is formatted. <br />
+    This setting is not used for the imLinks blocks. See also the <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP Manual</a>. <br />
+    Default: <em>D, d-M-Y</em> </p>
+  <p><strong>Timestamp administration</strong> <br />
+    Default admininstration timestamp for imLinks. Here you can configure how the date is formatted for the imLinks administration. <br />
+    See also the <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP Manual</a>. <br />
+    Default: <em>D, d-M-Y - G:i</em> </p>
+  <p><strong>Set total amount of characters for description</strong> <br />
+    Set total amount of characters for description in category view. <br />
+    Default: <em>200</em> </p>
+  <p><strong>Enter max. characters for meta keywords</strong> <br />
+    This is maximum amount of characters that can be used for meta keywords. <br />
+    See <a href="http://en.wikipedia.org/wiki/Meta_element#The_keywords_attribute" target="_blank">Wikipedia</a> for more information. <br />
+    Default: <em>255</em></p>
+  <p><strong>Select how a link should be opened</strong><br />
+    Select if you want to have links opened in a new browser tab/window, <a href="http://www.stickmanlabs.com/lightwindow/" target="_blank">LightWindow</a> or <a href="http://orangoo.com/labs/GreyBox/" target="_blank">GreyBox</a>.<br />
+    Note: Some websites might <em><u>not</u></em> be displayed correctly when using GreyBox.<br />
+  </p>
+  <p><strong>Show other links submitted by Submitter</strong> <br />
+    Select <em>Yes</em> if other links of the submitter will be displayed. <br />
+    Default: <em>Yes</em> </p>
+  <p><strong>Show Quick View option</strong> <br />
+    Select <em>Yes</em> to turn the Quick View option on. <br />
+    Default: <em>No</em> </p>
+  <p><strong>Show category legend?</strong><br />
+    With this option you can turn on/off the legend explaining the different colours of the default category icons.<br />
+    Default: <em>Yes</em></p>
+  <p><strong>Show Social Bookmarks</strong> <br />
+    Select <em>Yes</em> if you want Social Bookmark icons to be displayed under article. <br />
+    Default: <em>Yes</em> </p>
+  <p><strong>Show rating features</strong><br />
+    Select <em>Yes</em> to display the rating features. Select <em>No</em> to hide the rating features. 
+    <br />
+    Note: This setting has nothing to do with the permissions setting.<br />
+    Default: <em>Yes</em> </p>
+  <p><strong>Show Google PageRank™</strong> <br />
+    Select <em>Yes</em> if you want Google PageRank™ to be displayed. <br />
+    Default: <em>Yes</em> </p>
+  <p><strong>User can submit Tags</strong> <br />
+    Select <em>Yes</em> if user is allowed to submit tags. <br />
+    Note: The Tag module needs to be installed otherwise the form doesn't show in the submit form. <br />
+    Default: <em>No</em> </p>
+  <p><strong>Use address and map options</strong> <br />
+    Select <em>Yes</em> to use the address and maps feature in submit forms. <br />
+    Default: <em>Yes</em> </p>
+  <p><strong>Use nice urls </strong><br />
+    Select <em>Yes</em> to have the title used in the link url.<br />
+    This will option will use the title of the link in the url. In the submit form (admin) an alternative title can be entered for use in the url. <br />
+    Default: <em>Yes</em></p>
+  <p><strong>Link to terms in glossary</strong><br />
+    Select <em>Yes</em> to have terms in the description linked to definitions in the glossary.<br />
+    The module imGlossary needs to be installed and active for this feature.<br />
+    Default: <em>No</em></p>
+  <p><strong>Folder name of imGlossary</strong><br />
+    The name of the folder where imGlossary is in. <br />
+    Default: <em>imglossary</em></p>
+  <p><strong>TomTom API key</strong><br />
+    To have a Add to TomTom buttom displayed with the contact details of a link you need to enter your API key here. A valid API key can be requested from add2TTsupport@tomtom.com</p>
+  <p><strong>Enter url for logo to display</strong><br />
+    Enter the url of the logo to display in the window <em>Starting TomTom Home</em>. <br />
+    This logo will displayed together with your website name for the <em>Content provided by</em>.</p>
+  <p><strong>Print page footer</strong> <br />
+    Footer that will be printed for each link. <br />
+    Default: <em>&lt;website_url&gt;</em> </p>
+  <p><strong>Logo print url</strong> <br />
+    Url of the logo that will be printed at the top of the page. <br />
+    Default: <em>&lt;website_url&gt;/modules/imlinks/images/logo-en.gif</em> </p>
+  <p><strong>Show disclaimer before user submission</strong> <br />
+    Before a user can submit a link show the entry regulations. <br />
+    Default: <em>No</em> </p>
+  <p><strong>Enter submission disclaimer text</strong> <br />
+    Default: <em>We have the right, but not the obligation to monitor and review submissions submitted by users, in the forums. We shall not be responsible for any of the content of these messages. We further reserve the right, to delete, move or edit submissions that the we, in its exclusive discretion, deems abusive, defamatory, obscene or in violation of any Copyright or Trademark laws or otherwise objectionable.</em> </p>
+  <p><strong>Show disclaimer before user link</strong><br />
+    Show link regulations before open a link. <br />
+    Default: <em>No</em> </p>
+  <p><strong>Enter link disclaimer text</strong> <br />
+    Default: <em>The links on this site are provided as is without warranty either expressed or implied. linkloaded files should be checked for possible virus infection using the most up-to-date detection and security packages. If you have a question concerning a particular piece of software, feel free to contact the developer. We refuse liability for any damage or loss resulting from the use or misuse of any software offered from this site for linkloading. If you have any doubt at all about the safety and operation of software made available to you on this site, do not linkload it. Contact us if you have questions concerning this disclaimer.</em> </p>
+  <p><strong>Copyright notice</strong> <br />
+    Select to display a copyright notice on link page. <br />
+    Default: <em>Yes</em> </p>
+  <p><strong>Select forum</strong> <br />
+    Select the forum you have installed and will be used by imLinks. </p>
+  <ul>
+    <li>Newbb </li>
+    <li>IPB Forum </li>
+    <li>PHPBB Module </li>
+    <li>Newbbex </li>
+  </ul>
+  <p>Default: <em>None</em> </p>
+  <p><strong>Comment rules </strong></p>
+  <ul>
+    <li>Disable comments </li>
+    <li>Comments are always approved </li>
+    <li>Comments by registered users are always approved </li>
+    <li>All comments need to be approved by administrators</li>
+  </ul>
+  <p>Default: <em>Comments are always approved</em> </p>
+  <p><strong>Allow anonymous post in comments</strong> <br />
+    Default: <em>No</em> </p>
+  <p><strong>Enable notification</strong> <br />
+    This module allows users to be notified when certain events occur. Select if users should be presented with notification options in a Block (Block-style), within the module (Inline-style), or both. For block-style notification, the Notification Options block must be enabled for this module. </p>
+  <ul>
+    <li>Disable notification </li>
+    <li>Enable only block-style </li>
+    <li>Enable only inline-syle </li>
+    <li>Enable notification (both styles)</li>
+  </ul>
+  <p> Default: <em>Enable notification (both styles)</em> </p>
+  <p><strong>Enable specific events</strong> <br />
+    Select which notification events to which your users may subscribe. </p>
+  <ul>
+    <li>Global : New category </li>
+    <li>Global : Modify link requested </li>
+    <li>Global : Broken link submitted </li>
+    <li>Global : Link submitted </li>
+    <li>Global : New link </li>
+    <li>Category : Link Submitted </li>
+    <li>Category : New Link </li>
+    <li>Category : Bookmark </li>
+    <li>Link : Comment added </li>
+    <li>Link : Comment submitted </li>
+    <li>Link : Bookmark </li>
+  </ul>
+  <p>Default: <em>All selected</em> </p>
+</blockquote>
 <p>Click the <em><strong>Go!</strong></em> button to save the preferences in the database.</p>
 </body>
 </html>

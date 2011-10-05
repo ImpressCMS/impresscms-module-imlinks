@@ -185,40 +185,6 @@ define('_MI_IMLINKS_LINK_APPROVE_NOTIFYCAP', 'Avise-me quando o link for aprovad
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYDSC', 'Receber notificação quando o link for aprovado.');
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} Notificação-Automática : Link aprovado');
 
-define('_MI_IMLINKS_AUTHOR_INFO', "Info do desenvolvedor");
-define('_MI_IMLINKS_AUTHOR_NAME', "Desenvolvedor");
-define('_MI_IMLINKS_AUTHOR_DEVTEAM', "Equipe de desenvolvimento");
-define('_MI_IMLINKS_AUTHOR_WEBSITE', "Site do desenvolvedor");
-define('_MI_IMLINKS_AUTHOR_EMAIL', "E-mail do desenvolvedor");
-define('_MI_IMLINKS_AUTHOR_CREDITS', "Créditos");
-define('_MI_IMLINKS_MODULE_INFO', "Info sobre o desenvolvimento do Módulo");
-define('_MI_IMLINKS_MODULE_STATUS', "Status do Desenvolvimento");
-define('_MI_IMLINKS_MODULE_DEMO', "Site de demonstração");
-define('_MI_IMLINKS_MODULE_SUPPORT', "Site de suporte oficial");
-define('_MI_IMLINKS_MODULE_BUG', "Relatar um erro");
-define('_MI_IMLINKS_MODULE_FEATURE', "Sugerir uma nova característica para este módulo");
-define('_MI_IMLINKS_MODULE_DISCLAIMER', "Termos de uso");
-define('_MI_IMLINKS_RELEASE', "Data de lançamento: ");
-
-define('_MI_IMLINKS_MODULE_MAILLIST', "WF-Project Lista de discussão"); //Aqui deve ser modificado....
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTS', "Anúncios na lista de discussão");
-define('_MI_IMLINKS_MODULE_MAILBUGS', "Falha na lista de discussão");
-define('_MI_IMLINKS_MODULE_MAILFEATURES', "Características da lista de discussão");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTSDSC', "Pegue os últimos anuncios do WF-Project.");
-define('_MI_IMLINKS_MODULE_MAILBUGSDSC', "Enviar o erro para lista de discussão.");
-define('_MI_IMLINKS_MODULE_MAILFEATURESDSC', "Características novas do pedido da lista de discussão.");
-
-define('_MI_IMLINKS_WARNINGTEXT', "O SOFTWARE ESTÁ SENDO FORNECIDO PELO MCDONALD COMO ELE ESTÁ AGORA E COM TODAS AS FALHAS. 
- MCDONALD NÃO FORNECE SUPORTE OU GARANTIAR DE QUALQUER ESPÉCIE RELATIVAS A QUALIDADE, 
- SEGURANÇA OU ADEQUAÇÃO DESTE SOFTWARE, EXPRESSAS OU IMPLÍCITA, INCLUINDO, SEM LIMITAÇÃO, 
- QUAISQUER GARANTIAS IMPLÍCITAS DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UM DETERMINADO FIM, OU NÃO VIOLAÇÃO. 
- ADEMAIS, MCDONALD NÃO FAZ REPRESENTAÇÕES OU GARANTIAS QUANTO À VERDADE, 
- EXATIDÃO OU INTEGRIDADE DE QUAISQUER DECLARAÇÕES, INFORMAÇÕES OU MATERIAIS 
- SOBRE ESTE SOFTWARE QUE ESTÁ CONTIDO NO SISTE DA LOJA McDonalds. 
- EM NENHUM ENVENTO MCDONALD VAI SER RESPONSABILIZADO POR QUAISQUER PROBLEMAS DIRETOS OU INDIRETOS, 
- PUNIÇÕES, ESPECIAIS, INCIDENTAIS OU CONSEQUENTES, NO ENTANTO, PODEM SURGIR, E MESMO SE MCDONALD 
- TENHA SIDO PREVIAMENTE INFORMADO SOBRE A POSSIBILIDADE DE TAIS DANOS..");
-
 define('_MI_IMLINKS_AUTHOR_CREDITSTEXT',"A equipe do WF-Projects gostaria de agradecer as seguintes pessoas por sua ajuda e apoio durante a fase do desenvolvimento deste módulo.<br /></br />EdStacey, maumed, banned, krobi, Pnooka, MarcoFr, cosmodrum, placebo333, GibaPhp");
 define('_MI_IMLINKS_AUTHOR_BUGFIXES', "Historico de reparos de erro");
 
@@ -240,11 +206,9 @@ define('_MI_IMLINKS_EDITORUSER', "Usar editor (usuário):");
 define('_MI_IMLINKS_EDITORCHOICEUSER', "Selecione editor para o usuário. Se você tem uma instalação 'simples' (e.g você está usando somente a classe de editores padrão do core, fornecidos no pacote padrão core), é só selecionar o DHTML Compacto para trabalhar corretamente.");
 define("_MI_IMLINKS_FORM_DHTML","DHTML");
 define("_MI_IMLINKS_FORM_COMPACT","Compacto");
-define("_MI_IMLINKS_FORM_SPAW","Spaw Editor");
 define("_MI_IMLINKS_FORM_HTMLAREA","HtmlArea Editor");
 define("_MI_IMLINKS_FORM_FCK","FCK Editor");
 define("_MI_IMLINKS_FORM_KOIVI","Koivi Editor");
-define("_MI_IMLINKS_FORM_INBETWEEN","Inbetween");
 define("_MI_IMLINKS_FORM_TINYEDITOR","Tinyeditor");
 define("_MI_IMLINKS_FORM_TINYMCE", "TinyMCE");
 define("_MI_IMLINKS_FORM_DHTMLEXT", "DHTML Extendido");
@@ -326,4 +290,23 @@ define( '_MI_IMLINKS_SHOWRATINGDSC', 'Escolha <em><b>Sim</b></em> para mostrar a
 
 // imLinks 1.00 RC-2
 define( '_MI_IMLINKS_BNAME6', 'Random Link' );
+
+// imLinks 1.01
+define( '_MI_IMLINKS_SHOWLEGEND', 'Show category legend?' );
+define( '_MI_IMLINKS_SHOWLEGENDDSC', 'With this option you can turn on/off the legend explaining the different colours of the default category icons.' );
+define( '_MI_IMLINKS_LIGHTWINDOW', 'Open links in LightWindow?' );
+define( '_MI_IMLINKS_LIGHTWINDOWDSC', 'Select <em>Yes</em> to have links opened in a LightWindow instead of a new browser tab/window.' );
+define( '_MI_IMLINKS_LIGHTWINDOW', 'Select how a link should be opened?' );
+define( '_MI_IMLINKS_LIGHTWINDOWDSC', 'Select <em>Default</em> to have links opened in a new browser tab/window.<br />
+									   Select <em>LightWindow</em> to have links opened in a <a href="http://www.stickmanlabs.com/lightwindow/" target="_blank">LightWindow</a>.<br />
+									   Select <em>GreyBox</em> to have links opened in a <a href="http://orangoo.com/labs/GreyBox/" target="_blank">GreyBox</a>.' );
+define( '_MI_IMLINKS_DEFAULT', 'Default' );
+
+// imLinks 1.03
+define( '_MI_IMLINKS_NICEURL', 'Use nice urls?' );
+define( '_MI_IMLINKS_NICEURLDSC', 'Use nice urls for links.' );
+define( '_MI_IMLINKS_TOMTOMAPI', 'TomTom API key:' );
+define( '_MI_IMLINKS_TOMTOMAPIDSC', 'To have a <em>Add to TomTom</em> buttom displayed with the contact details of a link you need to enter your API key here.<br />A valid API key can be requested from add2TTsupport@tomtom.com' );
+define( '_MI_IMLINKS_TOMTOMLOGO', 'Enter url for logo to display:' );
+define( '_MI_IMLINKS_TOMTOMLOGODSC', 'Enter the url of the logo to display in the window <em>Starting TomTom Home</em>.<br />This logo will displayed together with the website name for the <em>Content provided by</em>.' );
 ?>

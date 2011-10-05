@@ -41,17 +41,17 @@ class imLinksModuleAbout {
 	/**
 	 * Constructor
 	 *
-	 * Initiate the object, based on $xoopsModule
+	 * Initiate the object, based on icms::$module
 	 * 
 	 * @param string $aboutTitle text used in the extreme right caption of the menu
 	 * @return IcmsModuleAbout
 	 */
 	
 	function imLinksModuleAbout( $aboutTitle='About' ) {
-		global $xoopsModule, $xoopsConfig;
+		global $icmsConfig;
 
-		icms_loadLanguageFile( $xoopsModule -> dirname(), 'modinfo' );
-		icms_loadLanguageFile( $xoopsModule -> dirname(), 'moduleabout' );
+		icms_loadLanguageFile( icms::$module -> getVar( 'dirname' ), 'modinfo' );
+		icms_loadLanguageFile( icms::$module -> getVar( 'dirname' ), 'moduleabout' );
 		
 		$this -> _aboutTitle = $aboutTitle;
 
@@ -80,8 +80,7 @@ class imLinksModuleAbout {
 	 * @return string santizied value
 	 */
 	function sanitize( $value ) {
-		$myts = MyTextSanitizer::getInstance();
-		return $myts -> displayTarea( $value, 1 );
+		return icms_core_DataFilter::checkVar( $value, 'html' );
 	}
 
 	/**
@@ -89,26 +88,20 @@ class imLinksModuleAbout {
 	 *
 	 */
 	function render() {
-		/**
-		 * @todo make the output XHTML compliant
-		 */
+		global $icmsConfig;
 
-		$myts = &MyTextSanitizer::getInstance();
+		icms_cp_header();
 
-		global $xoopsModule, $xoopsConfig;
+		$module_handler = icms::handler( 'icms_module' );
+		$versioninfo = &$module_handler -> get( icms::$module -> getVar( 'mid' ) );
 
-		xoops_cp_header();
-
-		$module_handler = &xoops_gethandler( 'module' );
-		$versioninfo = &$module_handler -> get( $xoopsModule -> getVar( 'mid' ) );
-
-		$xoopsModule -> displayAdminMenu( -1, $this -> _aboutTitle . ' ' . $versioninfo -> getInfo( 'name' ) );
+		icms::$module -> displayAdminMenu( -1, $this -> _aboutTitle . ' ' . $versioninfo -> getInfo( 'name' ) );
 
 		include_once ICMS_ROOT_PATH . '/class/template.php';
 
-		$this -> _tpl =& new XoopsTpl();
+		$this -> _tpl = new icms_view_Tpl();
 
-		$this -> _tpl -> assign( 'module_url', ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/' );
+		$this -> _tpl -> assign( 'module_url', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/' );
 		$this -> _tpl -> assign( 'module_image', $versioninfo -> getInfo( 'image' ) );
 		$this -> _tpl -> assign( 'module_name', $versioninfo -> getInfo( 'name' ) );
 		$this -> _tpl -> assign( 'module_version', $versioninfo -> getInfo( 'version' ) );
@@ -161,39 +154,38 @@ class imLinksModuleAbout {
 		}
 
 		// Warning
-		$this -> _tpl -> assign( 'module_warning', $this -> sanitize( $versioninfo -> getInfo( 'warning' ) ) );
+		$this -> _tpl -> assign( 'module_warning', icms_core_DataFilter::checkVar( $versioninfo -> getInfo( 'warning' ), 'html', 'output' ) );
 
 		// Author's note
 		$this -> _tpl -> assign( 'module_author_word', $versioninfo -> getInfo( 'author_word' ) );
 
 	    // For changelog thanks to 3Dev
-	    //global $xoopsModule;
-	    $filename = ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/changelog.txt';
+	    //global icms::$module;
+	    $filename = ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/changelog.txt';
 	    if ( is_file( $filename ) ) {
 
 	        $filesize = filesize( $filename );
 	        $handle = fopen( $filename, 'r' );
-	        $this -> _tpl -> assign( 'module_version_history', $myts -> displayTarea( fread( $handle, $filesize ), true ) );
+	        $this -> _tpl -> assign( 'module_version_history', icms_core_DataFilter::checkVar( fread( $handle, $filesize ), 'text', 'output' ) );
 	        fclose( $handle );
 	    }
 		
 		// For license thanks to 3Dev
-		if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/license/' . $xoopsConfig['language'] . '_license.txt' ) ) {
-			$filename = ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/license/' . $xoopsConfig['language'] . '_license.txt';
-		} elseif ( file_exists( ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/license.txt' ) ) {
-			$filename = ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/license.txt';
+		if ( file_exists( ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/license/' . $icmsConfig['language'] . '_license.txt' ) ) {
+			$filename = ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/license/' . $icmsConfig['language'] . '_license.txt';
+		} elseif ( file_exists( ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/license.txt' ) ) {
+			$filename = ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/license.txt';
 		}
 	    if( is_file( $filename ) ) {
 	        $filesize = filesize( $filename );
 	        $handle = fopen( $filename, 'r' );
-	        $this -> _tpl -> assign( 'module_license_txt', $myts -> displayTarea( fread( $handle, $filesize ), 0, 0, 1, 1, 1, true ) );
+	        $this -> _tpl -> assign( 'module_license_txt', icms_core_DataFilter::checkVar( fread( $handle, $filesize ), 'text', 'output' ) );
 	        fclose($handle);
 	    }
 
-		$this -> _tpl -> display( ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/templates/imlinks_moduleabout.html' );
+		$this -> _tpl -> display( ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/templates/imlinks_moduleabout.html' );
 
-		xoops_cp_footer();
+		icms_cp_footer();
 	}
 }
-
 ?>

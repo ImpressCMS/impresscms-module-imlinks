@@ -1,10 +1,7 @@
 /* imLinks stylesheet */
 
 .button {
-	padding-right: 0.5em; 
-	padding-left: 0.5em; 
-	padding-bottom: 3px; 
-	padding-top: 2px; 
+	padding: 2px .5em 4px .5em; 
 	background-image: url(images/icon/backgnd.png); 
 	background-position: center center; 
 	background-repeat: repeat-x; 
@@ -15,11 +12,29 @@
 	cursor: pointer; 
 	border: outset 1px #CCC;
 	white-space: nowrap;
+	box-shadow:1px 1px 2px #aaaaaa;
 	}
+	
+ .minibutton {
+  padding: 2px 0.5em 3px 0.5em;
+  background-image: url(images/icon/backgnd.png);
+  background-position: center center;
+  background-repeat: repeat-x;
+  color: #444;
+  font-size: .75em;
+  font-weight: normal;
+  white-space: nowrap;
+  cursor: default;
+  border: outset 1px #ccc;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;	
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  }
 	
 .letters {
 	margin-bottom: 8px; 
-	margin-top: 8px; 
+	margin-top: 8px;  
 	padding-right: 0.5em; 
 	padding-left: 0.5em; 
 	padding-bottom: 1px; 
@@ -30,30 +45,48 @@
 	color: #444; 
 	font-size: smaller; 
 	font-weight: bold; 
-	cursor: pointer; 
+	line-height: 16pt;
+	cursor: pointer;
 	border: outset 1px #CCC;
+	box-shadow:1px 1px 2px #aaaaaa;
 	}
 	
 .infoblock { 
 	padding: 4px; 
 	background-color:#E6E6E6; 
 	border: 1px solid #CCC;
-	font-size: smaller;
+	font-size: 70%;
 	-webkit-border-radius: 6px;
 	-khtml-border-radius: 6px;	
 	-moz-border-radius: 6px;
 	border-radius: 6px;
+	box-shadow:2px 2px 3px #AAAAAA;
 	}
 	
 .infoblock2 { 
 	padding: 5px; 
 	border: 1px solid #CCC;
-	font-size: smaller;
+	font-size: 70%;
 	-webkit-border-radius: 6px;
 	-khtml-border-radius: 6px;	
 	-moz-border-radius: 6px;
 	border-radius: 6px;
+	box-shadow:2px 2px 3px #AAAAAA;
 	}
+	
+.imlinks_even {
+  background-color: #E8E6E2; 
+  padding: 4px;}
+  
+.imlinks_catpath {
+  background-color: #E8E6E2; 
+  padding: 4px;
+  border: 1px solid #ccc;}
+  
+.imlinks_horline {
+  clear: both; 
+  height: 1px; 
+  border-top: 1px solid #CCC; }
 	
 fieldset {
 	border: #E8E8E8 1px solid;
@@ -69,8 +102,7 @@ legend {
 	}
 	
 div.imlinks_socbookmark {
-	clear: both; 
-	width: 70%; 
+	clear: both;  
 	vertical-align: bottom; 
 	text-align: center; 
 	margin-top: 15px; 
@@ -78,14 +110,12 @@ div.imlinks_socbookmark {
 	}
 	
 div.imlinks_socbookmark a img {
-	opacity: .4;
-	-moz-opacity: .4;
+	opacity: 0.4;
 	filter: alpha(opacity=40);
 	}
 	
 div.imlinks_socbookmark a:hover img {
 	opacity: 1;
-	-moz-opacity: 1;
 	filter: alpha(opacity=100);
 	}
 	
@@ -113,9 +143,9 @@ See readme.txt for full credit details.
 	}
 	
 .unit-rating { /* the UL */
-	list-style:none;
+	list-style: none;
 	margin: 0px;
-	padding:0px;
+	padding: 0px;
 	height: 30px;
 	position: relative;
 	background: url(images/icon/starrating.gif) top left repeat-x;		
@@ -123,15 +153,15 @@ See readme.txt for full credit details.
 
 .unit-rating div {
     text-indent: -90000px;
-	padding:0px;
-	margin:0px;
+	padding: 0px;
+	margin: 0px;
 	float: left;
 	}
 	
 .unit-rating div a {
 	outline: none;
-	display:block;
-	width:30px;
+	display: block;
+	width: 30px;
 	height: 30px;
 	text-decoration: none;
 	text-indent: -9000px;

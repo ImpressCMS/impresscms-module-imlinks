@@ -32,43 +32,32 @@ define( "_AM_IMLINKS_WARNINSTALL3", "<b>WARNING:</b> <u>Folder</u> %s does not e
 define( "_AM_IMLINKS_MODULE_NAME", "imLinks" );
 
 define( "_AM_IMLINKS_BMODIFY", "Modify" );
-define( "_AM_IMLINKS_BDELETE", "Delete" );
 define( "_AM_IMLINKS_BCREATE", "Create" );
-define( "_AM_IMLINKS_BADD", "Add" );
 define( "_AM_IMLINKS_BAPPROVE", "Approve" );
 define( "_AM_IMLINKS_BIGNORE", "Ignore" );
-define( "_AM_IMLINKS_BCANCEL", "Cancel" );
 define( "_AM_IMLINKS_BSAVE", "Save" );
 define( "_AM_IMLINKS_BRESET", "Reset" );
 define( "_AM_IMLINKS_BMOVE", "Move links" );
 define( "_AM_IMLINKS_BUPLOAD", "Upload" );
 define( "_AM_IMLINKS_BDELETEIMAGE", "Delete selected image" );
-define( "_AM_IMLINKS_BRETURN", "Return to where you where!" );
 define( "_AM_IMLINKS_DBERROR", "Database access error: Please report this error to the [url=http://community.impresscms.org/modules/newbb/viewforum.php?forum=9]ImpressCMS Community Forum - Module Support[/url] forum." );
 // Other Options
 define( "_AM_IMLINKS_TEXTOPTIONS", "Text options:" );
-define( "_AM_IMLINKS_DISABLEHTML", " Disable HTML tags" );
-define( "_AM_IMLINKS_DISABLESMILEY", " Disable smilie icons" );
 define( "_AM_IMLINKS_DISABLEXCODE", " Disable BBCodes" );
 define( "_AM_IMLINKS_DISABLEIMAGES", " Disable images" );
 define( "_AM_IMLINKS_DISABLEBREAK", " Use ICMS linebreak conversion?" );
 define( "_AM_IMLINKS_UPLOADFILE", "Link uploaded successfully" );
 define( "_AM_IMLINKS_NOMENUITEMS", "No menu items within the menu" );
 // Admin Bread crumb
-define( "_AM_IMLINKS_PREFS", "Preferences" );
 define( "_AM_IMLINKS_BUPDATE", "Module Update" );
 define( "_AM_IMLINKS_BINDEX", "Main Index" );
 define( "_AM_IMLINKS_BPERMISSIONS", "Permissions" );
-// define( "_AM_IMLINKS_BLOCKADMIN", "Blocks" );
-define( "_AM_IMLINKS_BLOCKADMIN", "Block Settings" );
 define( "_AM_IMLINKS_GOMODULE", "Go to module" );
-define( "_AM_IMLINKS_ABOUT", "About" );
 // Admin Summary
 define( "_AM_IMLINKS_SCATEGORY", "Category: " );
 define( "_AM_IMLINKS_SFILES", "Links: " );
 define( "_AM_IMLINKS_SNEWFILESVAL", "Submitted: " );
 define( "_AM_IMLINKS_SMODREQUEST", "Modified: " );
-define( "_AM_IMLINKS_SREVIEWS", "Reviews: " );
 
 // Admin Main Menu
 define( "_AM_IMLINKS_MCATEGORY", "Category Management" );
@@ -76,7 +65,6 @@ define( "_AM_IMLINKS_MLINKS", "Link Management" );
 define( "_AM_IMLINKS_MLISTBROKEN", "List Broken Links" );
 define( "_AM_IMLINKS_MLISTPINGTIMES", "List Links Pingtime" );
 define( "_AM_IMLINKS_INDEXPAGE", "Index Page" );
-define( "_AM_IMLINKS_MCOMMENTS", "Comments" );
 define( "_AM_IMLINKS_MVOTEDATA", "Vote data" );
 define( "_AM_IMLINKS_MUPLOADS", "Image upload" );
 
@@ -103,9 +91,8 @@ define( "_AM_IMLINKS_FCATEGORY_SUBCATEGORY", "Set as sub-category:" );
 define( "_AM_IMLINKS_FCATEGORY_CIMAGE", "Select category image:" );
 define( "_AM_IMLINKS_FCATEGORY_DESCRIPTION", "Set category description:" );
 define( "_AM_IMLINKS_FCATEGORY_SUMMARY", "Set category summary:" );
-/**
- * Index page Defines
- */
+
+// Index page Defines
 define( "_AM_IMLINKS_IPAGE_UPDATED", "Index page modified and database updated successfully!" );
 define( "_AM_IMLINKS_IPAGE_INFORMATION", "Index Page Information" );
 define( "_AM_IMLINKS_IPAGE_MODIFY", "Modify index page" );
@@ -118,9 +105,8 @@ define( "_AM_IMLINKS_IPAGE_CFOOTERA", "Index footer alignment:" );
 define( "_AM_IMLINKS_IPAGE_CLEFT", "Align left" );
 define( "_AM_IMLINKS_IPAGE_CCENTER", "Align center" );
 define( "_AM_IMLINKS_IPAGE_CRIGHT", "Align right" );
-/**
- * Permissions defines
- */
+
+// Permissions defines
 define( "_AM_IMLINKS_PERM_MANAGEMENT", "Permissions Management" );
 define( "_AM_IMLINKS_PERM_PERMSNOTE", "<div><b>NOTE:</b> Please be aware that even if you've set correct viewing permissions here, a group might not see the articles or blocks if you don't also grant that group permissions to access the module. To do that, go to <b>System admin > Groups</b>, choose the appropriate group and click the checkboxes to grant its members the access.</div>" );
 define( "_AM_IMLINKS_PERM_CPERMISSIONS", "Category Permissions" );
@@ -129,9 +115,8 @@ define( "_AM_IMLINKS_PERM_CNOCATEGORY", "Cannot set permission's: No categories 
 define( "_AM_IMLINKS_PERM_FPERMISSIONS", "Link Permissions" );
 define( "_AM_IMLINKS_PERM_FNOFILES", "Cannot set permission's: No links have been created yet!" );
 define( "_AM_IMLINKS_PERM_FSELECTPERMISSIONS", "Select the links that each group is allowed to view" );
-/**
- * Upload defines
- */
+
+// Upload defines
 define( "_AM_IMLINKS_LINK_IMAGEUPLOAD", "Image successfully uploaded to server destination" );
 define( "_AM_IMLINKS_LINK_NOIMAGEEXIST", "Error: No link was selected for uploading. Please try again!" );
 define( "_AM_IMLINKS_LINK_IMAGEEXIST", "Image already exists in upload area!" );
@@ -187,7 +172,7 @@ define( "_AM_IMLINKS_MINDEX_SUBMITTED", "Date submitted" );
 define( "_AM_IMLINKS_MINDEX_ACTION", "Action" );
 define( "_AM_IMLINKS_MINDEX_NOLINKSFOUND", "NOTICE: There are no links that match this criteria" );
 define( "_AM_IMLINKS_MINDEX_PAGE", "<b>Page:<b> " );
-define( '_AM_IMLINKS_MINDEX_PAGEINFOTXT', '<ul><li>imLinks main page details.</li><li>You can easily change the image logo, heading, main index header and footer text to suit your own look</li></ul><br />Note: The logo image choosen will be used throughout imLinks.' );
+define( '_AM_IMLINKS_MINDEX_PAGEINFOTXT', '&bull;&nbsp;imLinks main page details.<br />&bull;&nbsp;You can easily change the image logo, heading, main index header and footer text to suit your own look<br /><br />Note: The logo image choosen will be used throughout imLinks.' );
 define( "_AM_IMLINKS_MINDEX_RESPONSE", "Response Time" );
 // Submitted Links
 define( "_AM_IMLINKS_SUB_SUBMITTEDFILES", "Submitted links" );
@@ -262,7 +247,6 @@ define( "_AM_IMLINKS_LINK_MODIFYFILE", "Modify Link Information" );
 define( "_AM_IMLINKS_LINK_CREATENEWFILE", "Create New Link" );
 define( "_AM_IMLINKS_LINK_TITLE", "Link title: " );
 define( "_AM_IMLINKS_LINK_DLURL", "Link URL: " );
-define( "_AM_IMLINKS_LINK_DIRCA", " Internet content rating: " );
 define( "_AM_IMLINKS_LINK_DESCRIPTION", "Link description: " );
 define( "_AM_IMLINKS_LINK_CATEGORY", "Link main category: " );
 define( "_AM_IMLINKS_LINK_FILESSTATUS", " Set link offline?<br /><br /><span style='font-weight: normal;'>Link will not be viewable to all users.</span>" );
@@ -295,9 +279,7 @@ define( "_AM_IMLINKS_LINK_NEWSCATEGORY", "Select News category to submit News:" 
 define( "_AM_IMLINKS_LINK_NEWSTITLE", "News title:<div style='padding-top: 4px; padding-bottom: 4px;'><span style='font-weight: normal;'>Leave Blank to use link title</span></div>" );
 define( "_AM_IMLINKS_LINK_PUBLISHER", "Link publisher name: " );
 
-/**
- * Broken links defines
- */
+// Broken links defines
 define( "_AM_IMLINKS_SBROKENSUBMIT", "Broken: " );
 define( "_AM_IMLINKS_BROKEN_FILE", "Broken Reports" );
 define( "_AM_IMLINKS_BROKEN_FILEIGNORED", "Broken report ignored and successfully removed from the database!" );
@@ -314,59 +296,39 @@ define( "_AM_IMLINKS_BROKEN_ACKNOWLEDGED", "Acknowledged" );
 define( "_AM_IMLINKS_BROKEN_DCONFIRMED", "Confirmed" );
 
 define( "_AM_IMLINKS_BROKEN_ID", "ID" );
-define( "_AM_IMLINKS_BROKEN_TITLE", "Title" );
 define( "_AM_IMLINKS_BROKEN_REPORTER", "Reporter" );
 define( "_AM_IMLINKS_BROKEN_FILESUBMITTER", "Submitter" );
 define( "_AM_IMLINKS_BROKEN_DATESUBMITTED", "Submit date" );
 define( "_AM_IMLINKS_BROKEN_ACTION", "Action" );
 define( "_AM_IMLINKS_BROKEN_NOFILEMATCH", "There are no broken reports that match this critera" );
 define( "_AM_IMLINKS_BROKENFILEDELETED", "link removed from database and broken report removed" );
-/**
- * About defines
- */
+
+// About defines
 define( "_AM_IMLINKS_BY", "by" );
-// block defines
-define( "_AM_IMLINKS_BADMIN", "Block Administration" );
-define( "_AM_IMLINKS_BLKDESC", "Description" );
-define( "_AM_IMLINKS_TITLE", "Title" );
-define( "_AM_IMLINKS_SIDE", "Alignment" );
-define( "_AM_IMLINKS_WEIGHT", "Weight" );
-define( "_AM_IMLINKS_VISIBLE", "Visible" );
-define( "_AM_IMLINKS_ACTION", "Action" );
-define( "_AM_IMLINKS_SBLEFT", "Left" );
-define( "_AM_IMLINKS_SBRIGHT", "Right" );
-define( "_AM_IMLINKS_CBLEFT", "Center left" );
-define( "_AM_IMLINKS_CBRIGHT", "Center right" );
-define( "_AM_IMLINKS_CBCENTER", "Center middle" );
-define( "_AM_IMLINKS_ACTIVERIGHTS", "Active rights" );
-define( "_AM_IMLINKS_ACCESSRIGHTS", "Access rights" );
+
 // image admin icon
 define( "_AM_IMLINKS_ICO_EDIT", "Edit this item" );
 define( "_AM_IMLINKS_ICO_DELETE", "Delete this item" );
 define( "_AM_IMLINKS_ICO_RESOURCE", "Edit this resource" );
-
 define( "_AM_IMLINKS_ICO_ONLINE", "Online" );
 define( "_AM_IMLINKS_ICO_OFFLINE", "Offline" );
 define( "_AM_IMLINKS_ICO_APPROVED", "Approved" );
 define( "_AM_IMLINKS_ICO_NOTAPPROVED", "Not approved" );
-
 define( "_AM_IMLINKS_ICO_LINK", "Related link" );
 define( "_AM_IMLINKS_ICO_URL", "Add related URL" );
-define( "_AM_IMLINKS_ICO_ADD", "Add" );
 define( "_AM_IMLINKS_ICO_APPROVE", "Approve" );
 define( "_AM_IMLINKS_ICO_STATS", "Stats" );
 define( "_AM_IMLINKS_ICO_VIEW", "View this item" );
-
-define( "_AM_IMLINKS_ICO_IGNORE", "Ignore" );
 define( "_AM_IMLINKS_ICO_ACK", "Broken report acknowledged" );
 define( "_AM_IMLINKS_ICO_REPORT", "Acknowledge broken report?" );
 define( "_AM_IMLINKS_ICO_CONFIRM", "Broken report confirmed" );
 define( "_AM_IMLINKS_ICO_CONBROKEN", "Confirm broken report?" );
 define( "_AM_IMLINKS_ICO_RES", "Edit resources/links for this item" );
 define( "_AM_IMLINKS_MOD_URLRATING", "Interent content rating:" );
+
 // Alternate category
 define( "_AM_IMLINKS_ALTCAT_CREATEF", "Add alternate category" );
-define( "_AM_IMLINKS_MALTCAT", "Alternate Category Management" );
+define( "_AM_IMLINKS_MALTCAT", "Alternate Category Information" );
 define( "_AM_IMLINKS_ALTCAT_MODIFYF", "Alternate Category Management" );
 define( "_AM_IMLINKS_ALTCAT_INFOTEXT", "<ul><li>Alternate categories can be added or removed easily via this form.</li></ul>" );
 define( '_AM_IMLINKS_ALTCAT_CREATED', 'Alternate categories was saved!' );
@@ -389,9 +351,9 @@ define( "_AM_IMLINKS_RES_INFOTEXT", "<ul><li>New resources can be added, edited 
 	<li>Modify resource name and description</li></ul>
 	" );
 define( "_AM_IMLINKS_LISTBROKEN", "Displays links that are possibly broken. NB: These results may not be accurate and should be taken as a rough guide.<br /><br />Please check the link does exist first before any action taken." );
-define( "_AM_IMLINKS_PINGTIMES", "Displays the first estimated round ping time to each link.<br /><br />NB: These results may not be accurate and should be taken as a rough guide." );
+define( "_AM_IMLINKS_PINGTIMES", "Displays the first estimated round ping time to each link and the Google PageRank™.<br /><br />NB: These results may not be accurate and should be taken as a rough guide." );
 
-define( "_AM_IMLINKS_NO_FORUM", "No forum Selected" );
+define( "_AM_IMLINKS_NO_FORUM", "No forum selected" );
 
 define( "_AM_IMLINKS_PERM_RATEPERMISSIONS", "Rate Permissions" );
 define( "_AM_IMLINKS_PERM_RATEPERMISSIONS_TEXT", "Select the groups that can rate a link in the selected categories." );
@@ -413,7 +375,7 @@ define( "_AM_IMLINKS_CHECKURL", "Check URL" );
 define( "_AM_IMLINKS_CATTITLE", "Category" );
 define( "_AM_IMLINKS_LINK_GOOGLEMAP", "Google Maps:" );
 define( "_AM_IMLINKS_LINK_YAHOOMAP", "Yahoo Maps:" );
-define( "_AM_IMLINKS_LINK_MULTIMAP", "Multimap:" );
+define( "_AM_IMLINKS_LINK_BINGMAP", "Bing Maps:" );
 define( "_AM_IMLINKS_LINK_CHECKMAP", "Check map" );
 define( "_AM_IMLINKS_STREET1", "Street 1:" );
 define( "_AM_IMLINKS_STREET2", "Street 2 (optional):" );
@@ -425,14 +387,13 @@ define( "_AM_IMLINKS_FAX", "Fax:" );
 
 // Version 1.05 RC2
 define( "_AM_IMLINKS_WARNINSTALL4", "<b>WARNING:</b> <u>Folder</u> %s is not writeable. <br />This folder needs to be writeable (CHMOD 777) for imLinks." );
+
 // Version 1.05 RC5
 define( "_AM_IMLINKS_VOIP", "VoIP:" );
 define( "_AM_IMLINKS_LINK_SUBMITTER", "Link submitter name: " );
 define( "_AM_IMLINKS_MOBILE", "Mobile:" );
 define( "_AM_IMLINKS_CATSPONSOR", "Select category sponsor:" );
 define( "_AM_IMLINKS_CATSPONSORDSC", "If you select a client the banner id from the form below will not be saved!" );
-define( "_AM_IMLINKS_BANNER", "Banner" );
-define( "_AM_IMLINKS_FBANNER", "Banner" );
 define( "_AM_IMLINKS_BANNERID", "Select banner ID:" );
 define( "_AM_IMLINKS_BANNERIDDSC", "If you have selected a client in the form above the banner id will not be saved!" );
 
@@ -488,7 +449,7 @@ define( "_AM_IMLINKS_MOD_FAX", "Fax:" );
 define( "_AM_IMLINKS_MOD_VOIP", "VoIP:" );
 define( "_AM_IMLINKS_MOD_MOBILE", "Mobile:" );
 define( "_AM_IMLINKS_MOD_EMAIL", "E-Mail:" );
-define( "_AM_IMLINKS_MOD_VAT", "VAT:" );
+define( "_AM_IMLINKS_MOD_VAT", "VAT Reg No.:" );
 
 // version 1.06 RC-2
 define( "_AM_IMLINKS_IPAGE_SHOWLATEST", "Show latest listings?" );
@@ -510,7 +471,6 @@ define( '_AM_IMLINKS_LINKURLDSC', 'Click icon to open url in a new browser tab o
 define( '_AM_IMLINKS_STREETTWODSC', 'This field is optional. If field is left blank it will not be used.' );
 define( '_AM_IMLINKS_STATEDSC', 'Enter county, district, province, state, etc. If field is left blank it will not be used.' );
 define( '_AM_IMLINKS_EMAILDSC', 'Enter email address as:<br />- name@domain.com<br />- mailto:name@domain.com' );
-define( '_AM_IMLINKS_CLONE', '**CLONE**' );
 define( '_AM_IMLINKS_CLONELINK', 'Clone Link' );
 define( '_AM_IMLINKS_ICO_CLONE', 'Clone this item' );
 define( '_AM_IMLINKS_RSSFEED', 'RSS Feed' );
@@ -557,4 +517,17 @@ define( '_AM_IMLINKS_RSSOFFTITLE', 'RSS feed has been deactivated.' );
 define( '_AM_IMLINKS_RSSOFFMSGDEF', 'The RSS feed has been temporarily deactivated for maintenance.' );
 define( '_AM_IMLINKS_RSSCLICKSUBMIT', 'Please click Submit to store all form values in the database!' );
 define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' );
+
+// Version 1.01 RC-1
+define( '_AM_IMLINKS_NOREPLY', 'No reply' );
+
+// imLinks 1.03
+define( '_AM_IMLINKS_NICEURL', 'Alternative title for url:' );
+define( '_AM_IMLINKS_NICEURLDSC', 'Enter an alternative title for the link to be used in the url. When the option <em>Use nice urls</em> from Preferences is selected and this field is left empty, than the title of the link will be used.' );
+define( '_AM_IMLINKS_TOMTOM', 'Add to TomTom' );
+define( '_AM_IMLINKS_TOMTOMDSC', 'Enter the latitude and longitude of the address entered above.<br />You can find the geographic position of the address by using the website <a href="http://itouchmap.com/latlong.html" target="_blank">iTouchMap.com</a><br />Geographic latitude/longitude of the location should be in decimal degrees. May be negative; "N"/"S"/"W"/"E" suffix is not accepted. Default geodetic datum is WGS-84.<br />The geographic position should be entered as follows:<br />- Latitude: 57.2355591<br />- Longitude: -2.3535921' );
+define( '_AM_IMLINKS_TOMTOMLONG', 'Enter longitude:' );
+define( '_AM_IMLINKS_TOMTOMLAT', 'Enter latitude:' );
+define( '_AM_IMLINKS_MOD_TTLAT', 'TomTom Latitude:' );
+define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Longitude:' );
 ?>

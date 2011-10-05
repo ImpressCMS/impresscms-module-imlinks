@@ -1,5 +1,4 @@
 <?php
-
 function imlinks_tag_block_cloud_show( $options ) {
         $mydirname = basename( dirname( dirname( __FILE__ ) ) );
         include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
@@ -35,5 +34,4 @@ function imlinks_tag_block_top_edit( $options ) {
           return tag_block_top_edit( $options );
         }
 }
-
 ?>

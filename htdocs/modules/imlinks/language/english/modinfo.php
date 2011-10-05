@@ -84,8 +84,8 @@ define("_MI_IMLINKS_ANONPOSTDSC", "Allow anonymous users to submit or upload to 
 define('_MI_IMLINKS_AUTOAPPROVE', 'Auto approve submitted links');
 define('_MI_IMLINKS_AUTOAPPROVEDSC', 'Select to approve submitted links without moderation.');
 
-define('_MI_IMLINKS_MAXFILESIZE', 'Upload size (KB)');
-define('_MI_IMLINKS_MAXFILESIZEDSC', 'Maximum link size permitted with link uploads.');
+define('_MI_IMLINKS_MAXFILESIZE', 'Image upload size (KB)');
+define('_MI_IMLINKS_MAXFILESIZEDSC', 'Maximum image size permitted with link uploads.');
 define('_MI_IMLINKS_IMGWIDTH', 'Upload image width');
 define('_MI_IMLINKS_IMGWIDTHDSC', 'Maximum image width permitted when uploading image links');
 define('_MI_IMLINKS_IMGHEIGHT', 'Upload image height');
@@ -94,13 +94,11 @@ define('_MI_IMLINKS_IMGHEIGHTDSC', 'Maximum image height permitted when uploadin
 define('_MI_IMLINKS_UPLOADDIR', 'Upload directory (no trailing slash)');
 define('_MI_IMLINKS_ALLOWSUBMISS', 'User submissions:');
 define('_MI_IMLINKS_ALLOWSUBMISSDSC', 'Allow users to submit new links');
-define('_MI_IMLINKS_ALLOWUPLOADS', 'User uploads:');
-define('_MI_IMLINKS_ALLOWUPLOADSDSC', 'Allow users to upload links directly to your website');
 define('_MI_IMLINKS_SCREENSHOTS', 'Screenshots upload directory');
 define('_MI_IMLINKS_CATEGORYIMG', 'Category image upload directory');
 define('_MI_IMLINKS_MAINIMGDIR', 'Main image directory');
 define('_MI_IMLINKS_USETHUMBS', 'Use thumb nails:');
-define("_MI_IMLINKS_USETHUMBSDSC", "Supported link types: JPG, GIF, PNG.<div style='padding-top: 8px;'>imLinks will use thumb nails for images. Set to <em>No</em> to use orginal image if the server does not support this option.</div>");
+define("_MI_IMLINKS_USETHUMBSDSC", "Supported image types: JPG, GIF, PNG.<div style='padding-top: 8px;'>imLinks will use thumb nails for images. Set to <em>No</em> to use orginal image if the server does not support this option.</div>");
 define('_MI_IMLINKS_DATEFORMAT', 'Timestamp:');
 define('_MI_IMLINKS_DATEFORMATDSC', 'Default timestamp for imLinks.<br />See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>');
 define('_MI_IMLINKS_SHOWDISCLAIMER', 'Show disclaimer before user submission?');
@@ -181,41 +179,6 @@ define('_MI_IMLINKS_LINK_APPROVE_NOTIFYCAP', 'Notify me when this link is approv
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYDSC', 'Receive notification when this link is approved.');
 define('_MI_IMLINKS_LINK_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Link approved');
 
-define('_MI_IMLINKS_AUTHOR_INFO', "Developer information");
-define('_MI_IMLINKS_AUTHOR_NAME', "Developer");
-define('_MI_IMLINKS_AUTHOR_DEVTEAM', "Development team");
-define('_MI_IMLINKS_AUTHOR_WEBSITE', "Developer website");
-define('_MI_IMLINKS_AUTHOR_EMAIL', "Developer email");
-define('_MI_IMLINKS_AUTHOR_CREDITS', "Credits");
-define('_MI_IMLINKS_MODULE_INFO', "Module development information");
-define('_MI_IMLINKS_MODULE_STATUS', "Development status");
-define('_MI_IMLINKS_MODULE_DEMO', "Demo site");
-define('_MI_IMLINKS_MODULE_SUPPORT', "Official support site");
-define('_MI_IMLINKS_MODULE_BUG', "Report a bug for this module");
-define('_MI_IMLINKS_MODULE_FEATURE', "Suggest a new feature for this module");
-define('_MI_IMLINKS_MODULE_DISCLAIMER', "Disclaimer");
-define('_MI_IMLINKS_RELEASE', "Release date: ");
-
-define('_MI_IMLINKS_MODULE_MAILLIST', "WF-Project mailing lists");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTS', "Announcements mailing list");
-define('_MI_IMLINKS_MODULE_MAILBUGS', "Bug mailing list");
-define('_MI_IMLINKS_MODULE_MAILFEATURES', "Features mailing list");
-define('_MI_IMLINKS_MODULE_MAILANNOUNCEMENTSDSC', "Get the latest announcements from WF-Project.");
-define('_MI_IMLINKS_MODULE_MAILBUGSDSC', "Bug tracking and submission mailing list");
-define('_MI_IMLINKS_MODULE_MAILFEATURESDSC', "Request new features mailing list.");
-
-define('_MI_IMLINKS_WARNINGTEXT', "THE SOFTWARE IS PROVIDED BY WF-PROJECTS \"AS IS\" AND \"WITH ALL FAULTS.\"
-WF-PROJECTS MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING
-THE QUALITY, SAFETY OR SUITABILITY OF THE SOFTWARE, EITHER EXPRESS OR
-IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
-FURTHER, WF-PROJECTS MAKES NO REPRESENTATIONS OR WARRANTIES AS TO THE TRUTH,
-ACCURACY OR COMPLETENESS OF ANY STATEMENTS, INFORMATION OR MATERIALS
-CONCERNING THE SOFTWARE THAT IS CONTAINED IN WF-Project WEBSITE. IN NO
-EVENT WILL WF-PROJECTS BE LIABLE FOR ANY INDIRECT, PUNITIVE, SPECIAL,
-INCIDENTAL OR CONSEQUENTIAL DAMAGES HOWEVER THEY MAY ARISE AND EVEN IF
-WF-PROJECT HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES..");
-
 define('_MI_IMLINKS_AUTHOR_CREDITSTEXT',"The WF-Projects Team would like to thank the following people for their help and support during the development phase of this module.<br /></br />EdStacey, maumed, banned, krobi, Pnooka, MarcoFr, cosmodrum, placebo333, GibaPhp");
 define('_MI_IMLINKS_AUTHOR_BUGFIXES', "Bug Fix History");
 
@@ -232,16 +195,14 @@ define('_MI_IMLINKS_DISPLAYFORUM3', "PHPBB2 module");
 // added by McDonald
 define( "_MI_IMLINKS_COUNTRY", "Country:" );
 define('_MI_IMLINKS_EDITOR', "Editor to use (admin):");
-define('_MI_IMLINKS_EDITORCHOICE', "Select the editor to use for admin side. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact");
+define('_MI_IMLINKS_EDITORCHOICE', "Select the editor to use for admin side.");
 define('_MI_IMLINKS_EDITORUSER', "Editor to use (user):");
-define('_MI_IMLINKS_EDITORCHOICEUSER', "Select the editor to use for user side. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact");
+define('_MI_IMLINKS_EDITORCHOICEUSER', "Select the editor to use for user side.");
 define("_MI_IMLINKS_FORM_DHTML", "DHTML");
 define("_MI_IMLINKS_FORM_COMPACT", "Compact");
-define("_MI_IMLINKS_FORM_SPAW", "Spaw Editor");
 define("_MI_IMLINKS_FORM_HTMLAREA", "HtmlArea Editor");
 define("_MI_IMLINKS_FORM_FCK", "FCK Editor");
 define("_MI_IMLINKS_FORM_KOIVI", "Koivi Editor");
-define("_MI_IMLINKS_FORM_INBETWEEN", "Inbetween");
 define("_MI_IMLINKS_FORM_TINYEDITOR", "TinyEditor");
 define("_MI_IMLINKS_FORM_TINYMCE", "TinyMCE");
 define("_MI_IMLINKS_FORM_DHTMLEXT", "DHTML Extended");
@@ -271,7 +232,7 @@ define("_MI_IMLINKS_USEADDRESSDSC", "Select <em>Yes</em> to use the address and 
 define("_MI_IMLINKS_HEADERPRINT", "[PRINT OPTIONS] Print page header");
 define("_MI_IMLINKS_HEADERPRINTDSC", "Header that will be printed for each link");
 define("_MI_IMLINKS_LOGOURLPRINT", "[PRINT OPTIONS] Logo print url");
-define("_MI_IMLINKS_LOGOURLDSCPRINT", "Url of the logo that will be printed at the top of the page");
+define("_MI_IMLINKS_LOGOURLDSCPRINT", "Url of the logo that will be printed at the top of the page.<br />Leave empty to have no logo at the top of the page.");
 define("_MI_IMLINKS_FOOTERPRINT", "[PRINT OPTIONS] Print page footer");
 define("_MI_IMLINKS_FOOTERPRINTDSC", "Footer that will be printed for each link");
 define("_MI_IMLINKS_BNAME3", "imLinks sponsor statistics");
@@ -323,4 +284,21 @@ define( '_MI_IMLINKS_SHOWRATINGDSC', 'Select <em>Yes</em> to display the rating 
 
 // imLinks 1.00 RC-2
 define( '_MI_IMLINKS_BNAME6', 'Random Link' );
+
+// imLinks 1.01
+define( '_MI_IMLINKS_SHOWLEGEND', 'Show category legend?' );
+define( '_MI_IMLINKS_SHOWLEGENDDSC', 'With this option you can turn on/off the legend explaining the different colours of the default category icons.' );
+define( '_MI_IMLINKS_LIGHTWINDOW', 'Select how a link should be opened:' );
+define( '_MI_IMLINKS_LIGHTWINDOWDSC', 'Select <em>Default</em> to have links opened in a new browser tab/window.<br />
+									   Select <em>LightWindow</em> to have links opened in a <a href="http://www.stickmanlabs.com/lightwindow/" target="_blank">LightWindow</a>.<br />
+									   Select <em>GreyBox</em> to have links opened in a <a href="http://orangoo.com/labs/GreyBox/" target="_blank">GreyBox</a>.' );
+define( '_MI_IMLINKS_DEFAULT', 'Default' );
+
+// imLinks 1.03
+define( '_MI_IMLINKS_NICEURL', 'Use nice urls?' );
+define( '_MI_IMLINKS_NICEURLDSC', 'Use nice urls for links.' );
+define( '_MI_IMLINKS_TOMTOMAPI', 'TomTom API key:' );
+define( '_MI_IMLINKS_TOMTOMAPIDSC', 'To have a <em>Add to TomTom</em> buttom displayed with the contact details of a link you need to enter your API key here.<br />A valid API key can be requested from add2TTsupport@tomtom.com' );
+define( '_MI_IMLINKS_TOMTOMLOGO', 'Enter url for logo to display:' );
+define( '_MI_IMLINKS_TOMTOMLOGODSC', 'Enter the url of the logo to display in the window <em>Starting TomTom Home</em>.<br />This logo will displayed together with the website name for the <em>Content provided by</em>.' );
 ?>

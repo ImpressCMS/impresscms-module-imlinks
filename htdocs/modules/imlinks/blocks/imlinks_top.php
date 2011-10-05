@@ -36,14 +36,10 @@ if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 // @return
 function imlinks_checkBlockgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = false ) {
     $mydirname = basename( dirname(  dirname( __FILE__ ) ) );
-    global $xoopsUser;
-
-    $groups = is_object( $xoopsUser ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-    $gperm_handler = &xoops_gethandler( 'groupperm' );
-
-    $module_handler = &xoops_gethandler( 'module' );
+    $groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
+    $gperm_handler = icms::handler( 'icms_member_groupperm' );
+    $module_handler = icms::handler( 'icms_module' );
     $module = &$module_handler -> getByDirname( $mydirname );
-
     if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
         if ( $redirect == false ) {
             return false;
@@ -66,29 +62,29 @@ function imlinks_checkBlockgroups( $cid = 0, $permType = 'imLinkCatPerm', $redir
 // Output  : Returns the most recent or most popular links
 function b_imlinks_top_show( $options ) {
     $mydirname = basename( dirname(  dirname( __FILE__ ) ) );
-    global $xoopsDB;
-
+	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
     $block = array();
-    $time = time();
-    $modhandler = &xoops_gethandler( 'module' );
+    $modhandler = icms::handler( 'icms_module' );
     $imlModule = &$modhandler -> getByDirname( $mydirname );
-    $config_handler = &xoops_gethandler( 'config' );
+    $config_handler = icms::$config;
     $imlModuleConfig = &$config_handler -> getConfigsByCat( 0, $imlModule -> getVar( 'mid' ) );
-    $immyts = &MyTextSanitizer :: getInstance();
-
-    $result = $xoopsDB -> query( 'SELECT lid, cid, title, published, hits FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . $time . ' AND (expired = 0 OR expired > ' . $time . ') AND offline = 0 ORDER BY ' . $options[0] . ' DESC', $options[1], 0 );
-    while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
+    $result = icms::$xoopsDB -> query( 'SELECT lid, cid, title, published, hits, nice_url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0 ORDER BY ' . $options[0] . ' DESC', $options[1], 0 );
+    while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
         if ( false == imlinks_checkBlockgroups( $myrow['cid'] ) || $myrow['cid'] == 0 ) { continue; } 
         $linkload = array();
-        $title = $immyts -> htmlSpecialChars( $immyts -> stripSlashesGPC( $myrow['title'] ) );
+        $title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $myrow['title'] ) );
         if ( !XOOPS_USE_MULTIBYTES ) {
             if ( strlen( $myrow['title'] ) >= $options[2] ) {
                 $title = substr( $myrow['title'], 0, $options[2] - 1 ) . '&#8230;';
             } 
         } 
-        $linkload['id'] = intval( $myrow['lid'] );
-        $linkload['cid'] = intval( $myrow['cid'] );
         $linkload['title'] = $title;
+		$nice_link = iml_nicelink( $myrow['title'], $myrow['nice_url'] );
+		if ( $imlModuleConfig['niceurl'] ) {
+			$linkload['link'] = ICMS_URL . '/modules/' . $imlModule -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $myrow['lid'] ) . '&amp;page=' . $nice_link;
+		} else {
+			$linkload['link'] = ICMS_URL . '/modules/' . $imlModule -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $myrow['lid'] );
+		}	
         if ( $options[0] == 'published' ) {
             $linkload['date'] = formatTimestamp( $myrow['published'], $options[3] );
         } elseif ( $options[0] == 'hits' ) {
@@ -97,26 +93,27 @@ function b_imlinks_top_show( $options ) {
         $linkload['dirname'] = $imlModule -> getVar( 'dirname' );
         $block['links'][] = $linkload;
     } 
-    unset( $_block_check_array );
+    unset( $linkload );
     return $block;
 } 
 
-// b_wflinks_top_edit()
+// b_imlinks_top_edit()
 //
 // @param $options
 // @return
 function b_imlinks_top_edit( $options ) {
-    $form = _MB_IMLINKS_DISP . '&nbsp;';
-    $form .= "<input type='hidden' name='options[]' value='";
-    if ( $options[0] == "published" ) {
-        $form .= "published'";
+    $form = '<table cellspacing="5">';
+    $form .= '<tr><td width="150px"><b>' . _MB_IMLINKS_DISP . ':</b></td>';
+    $form .= '<td><input type="hidden" name="options[]" value="';
+    if ( $options[0] == 'published' ) {
+        $form .= 'published"';
     } else {
-        $form .= "hits'";
+        $form .= 'hits"';
     } 
-    $form .= " />";
-    $form .= "<input type='text' name='options[]' value='" . $options[1] . "' />&nbsp;" . _MB_IMLINKS_FILES . "";
-    $form .= "&nbsp;<br />" . _MB_IMLINKS_CHARS . "&nbsp;<input type='text' name='options[]' value='" . $options[2] . "' />&nbsp;" . _MB_IMLINKS_LENGTH . "";
-    $form .= "&nbsp;<br />" . _MB_IMLINKS_DATEFORMAT . "&nbsp;<input type='text' name='options[]' value='" . $options[3] . "' />&nbsp;" . _MB_IMLINKS_DATEFORMATMANUAL;
+    $form .= ' />';
+    $form .= '<input type="text" name="options[]" value="' . $options[1] . '" />&nbsp;' . _MB_IMLINKS_FILES . '</td></tr>';
+    $form .= '<tr><td><b>' . _MB_IMLINKS_CHARS . ':</b></td><td><input type="text" name="options[]" value="' . $options[2] . '" />&nbsp;' . _MB_IMLINKS_LENGTH . '</td></tr>';
+    $form .= '<tr><td><b>' . _MB_IMLINKS_DATEFORMAT . ':</b></td><td><input type="text" name="options[]" value="' . $options[3] . '" />&nbsp;' . _MB_IMLINKS_DATEFORMATMANUAL . '</td></tr></table>';
     return $form;
 } 
 
@@ -130,41 +127,41 @@ function b_imlinks_top_edit( $options ) {
 // Output  : Returns the most recent or most popular links
 function b_imlinks_random_show( $options ) {
     $mydirname = basename( dirname(  dirname( __FILE__ ) ) );
-    global $xoopsDB;
-
     $block = array();
-    $time = time();
-    $modhandler = &xoops_gethandler( 'module' );
+    $modhandler = icms::handler( 'icms_module' );
     $imlModule = &$modhandler -> getByDirname( $mydirname );
-    $config_handler = &xoops_gethandler( 'config' );
+    $config_handler = icms::$config;
     $imlModuleConfig = &$config_handler -> getConfigsByCat( 0, $imlModule -> getVar( 'mid' ) );
-    $immyts = &MyTextSanitizer :: getInstance();
-
-    $result = $xoopsDB -> query( 'SELECT lid FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . $time . ' AND (expired = 0 OR expired > ' . $time . ') AND offline = 0');
-
-	if ( $xoopsDB -> getRowsNum( $result ) > 0 ) {
-		while( list( $lid ) = $xoopsDB -> fetchRow( $result ) ) $lids[] = $lid;
+    $result = icms::$xoopsDB -> query( 'SELECT lid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0');
+	if ( icms::$xoopsDB -> getRowsNum( $result ) > 0 ) {
+		while( list( $lid ) = icms::$xoopsDB -> fetchRow( $result ) ) $lids[] = $lid;
 		list( $msec, $sec ) = split( ' ', microtime() );
 		srand( $msec * 123456 );
 		shuffle( $lids );
-
 		for( $i = 0; $i < $options[1]; $i++ ) {
-			$sql = 'SELECT lid, cid, title, published, hits  FROM ' . $xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE  lid=' . $lids[$i];
-			$result = $xoopsDB -> query( $sql ) ;
-			list( $lid, $cid, $title, $published, $hits ) = $xoopsDB -> fetchRow( $result );
+			$sql = 'SELECT lid, cid, title, published, hits, nice_url  FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE  lid=' . $lids[$i];
+			$result = icms::$xoopsDB -> query( $sql ) ;
+			list( $lid, $cid, $title, $published, $hits, $nice_url ) = icms::$xoopsDB -> fetchRow( $result );
 			if ( false == imlinks_checkBlockgroups( $cid ) || $cid == 0 ) {	continue; }
-
-	        $ltitle = $immyts -> htmlSpecialChars( $immyts -> stripSlashesGPC( $title ) );
+	        $ltitle = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $title ) );
     	    if ( !XOOPS_USE_MULTIBYTES ) {
     	        if ( strlen( $title ) >= $options[2] ) {
     	            $ltitle = substr( $title, 0, ( $options[2] -1 ) ) . '&#8230;';
     	        } 
     	    } 
-
         	$linkload = array();
-        	$linkload['id'] = intval($lid);
-        	$linkload['cid'] = intval($cid);
-       	 	$linkload['title'] = $ltitle;
+        	$linkload['id'] = intval( $lid );
+       	 	$linkload['title'] = $ltitle;			
+			if ( !$nice_url ) {
+				$nice_link = strtolower( str_replace( ' ', '_', $ltitle ) );
+			} else {
+				$nice_link = strtolower( str_replace( ' ', '_', $nice_url ) );
+			}
+			if ( $imlModuleConfig['niceurl'] ) {
+				$linkload['link'] = ICMS_URL . '/modules/' . $imlModule -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $lid ) . '&amp;page=' . $nice_link;
+			} else {
+				$linkload['link'] = ICMS_URL . '/modules/' . $imlModule -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $lid );
+			}			
        	 	$linkload['date'] = formatTimestamp( $published, $options[3] );
             $linkload['hits'] = $hits;
        	 	$linkload['dirname'] = $imlModule -> getVar( 'dirname' );
@@ -175,23 +172,23 @@ function b_imlinks_random_show( $options ) {
     return $block;
 } 
 
-// b_wflinks_random_edit()
+// b_imlinks_random_edit()
 //
 // @param $options
 // @return
 function b_imlinks_random_edit( $options ) {
-    $form = _MB_IMLINKS_DISP . '&nbsp;';
-    $form .= "<input type='hidden' name='options[]' value='";
-    if ( $options[0] == "published" ) {
-        $form .= "published'";
+    $form = '<table cellspacing="5">';
+    $form .= '<tr><td width="150px"><b>' . _MB_IMLINKS_DISP . ':</b></td>';
+    $form .= '<td><input type="hidden" name="options[]" value="';
+    if ( $options[0] == 'published' ) {
+        $form .= 'published"';
     } else {
-        $form .= "hits'";
+        $form .= 'hits"';
     } 
-    $form .= " />";
-    $form .= "<input type='text' name='options[]' value='" . $options[1] . "' />&nbsp;" . _MB_IMLINKS_FILES . "";
-    $form .= "&nbsp;<br />" . _MB_IMLINKS_CHARS . "&nbsp;<input type='text' name='options[]' value='" . $options[2] . "' />&nbsp;" . _MB_IMLINKS_LENGTH . "";
-    $form .= "&nbsp;<br />" . _MB_IMLINKS_DATEFORMAT . "&nbsp;<input type='text' name='options[]' value='" . $options[3] . "' />&nbsp;" . _MB_IMLINKS_DATEFORMATMANUAL;
+    $form .= ' />';
+    $form .= '<input type="text" name="options[]" value="' . $options[1] . '" />&nbsp;' . _MB_IMLINKS_FILES . '</td></tr>';
+    $form .= '<tr><td><b>' . _MB_IMLINKS_CHARS . ':</b></td><td><input type="text" name="options[]" value="' . $options[2] . '" />&nbsp;' . _MB_IMLINKS_LENGTH . '</td></tr>';
+    $form .= '<tr><td><b>' . _MB_IMLINKS_DATEFORMAT . ':</b></td><td><input type="text" name="options[]" value="' . $options[3] . '" />&nbsp;' . _MB_IMLINKS_DATEFORMATMANUAL . '</td></tr></table>';
     return $form;
 } 
-
 ?>

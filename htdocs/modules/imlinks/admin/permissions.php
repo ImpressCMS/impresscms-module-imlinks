@@ -27,64 +27,51 @@
 */
 
 include 'admin_header.php';
-include_once '../../../include/cp_header.php';
-include_once ICMS_ROOT_PATH . '/class/xoopstopic.php';
-include_once ICMS_ROOT_PATH . '/class/xoopslists.php';
-include_once ICMS_ROOT_PATH . '/class/xoopsform/grouppermform.php';
 
-xoops_cp_header();
+icms_cp_header();
 iml_adminmenu( '', _AM_IMLINKS_PERM_MANAGEMENT );
 
 $permtoset = isset( $_POST['permtoset'] ) ? intval( $_POST['permtoset'] ) : 1;
 $selected = array( '', '', '', '', '' );
 $selected[$permtoset-1] = 'selected';
-echo "<form method='post' name='fselperm' action='permissions.php'><table border=0>
-<tr><td><select name='permtoset' onChange='javascript: document.fselperm.submit()'>
+echo "<form method='post' name='fselperm' action='permissions.php'><table border=0><tr><td><select name='permtoset' onChange='javascript: document.fselperm.submit()'>
 <option value='1'" . $selected[0] . ">" . _AM_IMLINKS_PERM_CPERMISSIONS . "</option>
 <option value='2'" . $selected[1] . ">" . _AM_IMLINKS_PERM_SPERMISSIONS . "</option>
 <option value='3'" . $selected[2] . ">" . _AM_IMLINKS_PERM_APERMISSIONS . "</option>
 <option value='4'" . $selected[3] . ">" . _AM_IMLINKS_PERM_AUTOPERMISSIONS . "</option>
 <option value='5'" . $selected[4] . ">" . _AM_IMLINKS_PERM_RATEPERMISSIONS . "</option>
-</select></td></tr><tr><td><input type='submit' name='go'/></td></tr></table></form>";
-$module_id = $xoopsModule -> getVar( 'mid' );
+</select>&nbsp;<input type='submit' name='go'/></td></tr></table></form>";
+$module_id = icms::$module -> getVar( 'mid' );
+
+$icon = '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/information_big.png" alt="" style="float: left; padding-right: 10px;" />';
 
 switch( $permtoset ) {
 	case 1:
-		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">'
-		. _AM_IMLINKS_PERM_CPERMISSIONS . '</legend>';
+		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_CPERMISSIONS . '</legend><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_CSELECTPERMISSIONS . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></fieldset>';
 		$perm_name = 'imLinkCatPerm';
-		$perm_desc = _AM_IMLINKS_PERM_CSELECTPERMISSIONS . '</fieldset>';
 		break;
 	case 2:
-		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">'
-		. _AM_IMLINKS_PERM_SPERMISSIONS . '</legend>';
+		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_SPERMISSIONS . '</legend><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_SPERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></fieldset>';
 		$perm_name = 'imLinkSubPerm';
-		$perm_desc = _AM_IMLINKS_PERM_SPERMISSIONS_TEXT . '</fieldset>';
 		break;
 	case 3:
-		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">'
-		. _AM_IMLINKS_PERM_APERMISSIONS . '</legend>';
+		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_APERMISSIONS . '</legend><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_APERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></fieldset>';
 		$perm_name = 'imLinkAppPerm';
-		$perm_desc = _AM_IMLINKS_PERM_APERMISSIONS_TEXT . '</fieldset>';
 		break;
 	case 4:
-		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">'
-		. _AM_IMLINKS_PERM_AUTOPERMISSIONS . '</legend>';
+		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_AUTOPERMISSIONS . '</legend><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_AUTOPERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></fieldset>';
 		$perm_name = 'imLinkAutoApp';
-		$perm_desc = _AM_IMLINKS_PERM_AUTOPERMISSIONS_TEXT . '</fieldset>';
 		break;
 	case 5:
-		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">'
-		. _AM_IMLINKS_PERM_RATEPERMISSIONS . '</legend>';
+		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_RATEPERMISSIONS . '</legend><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_RATEPERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></fieldset>';
 		$perm_name = 'imLinkRatePerms';
-		$perm_desc = _AM_IMLINKS_PERM_RATEPERMISSIONS_TEXT . '</fieldset>';
 		break;
 }
 
-$permform = new XoopsGroupPermForm( $title_of_form, $module_id, $perm_name, $perm_desc );
-$result = $xoopsDB -> query( 'SELECT cid, pid, title FROM ' . $xoopsDB -> prefix( 'imlinks_cat' ) . ' ORDER BY title ASC' );
-if ( $xoopsDB -> getRowsNum( $result ) ) {
-    while ( $perm_row = $xoopsDB -> fetcharray( $result ) ) {
+$permform = new icms_form_Groupperm( $title_of_form, $module_id, $perm_name, '', 'admin/permissions.php' );
+$result = icms::$xoopsDB -> query( 'SELECT cid, pid, title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' ORDER BY title ASC' );
+if ( icms::$xoopsDB -> getRowsNum( $result ) ) {
+    while ( $perm_row = icms::$xoopsDB -> fetcharray( $result ) ) {
         $permform -> addItem( $perm_row['cid'], '&nbsp;' . $perm_row['title'], $perm_row['pid'] );
     }	
     echo $permform -> render();
@@ -93,8 +80,6 @@ if ( $xoopsDB -> getRowsNum( $result ) ) {
     echo '<div><b>' . _AM_IMLINKS_PERM_CNOCATEGORY . '</b></div>';
 } 
 unset ( $permform );
-
-echo _AM_IMLINKS_PERM_PERMSNOTE . '<br />';
-
-xoops_cp_footer();
+//redirect_header( 'permissions.php', 1, '' );
+icms_cp_footer();
 ?>
