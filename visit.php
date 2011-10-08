@@ -34,6 +34,11 @@ $lid    = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 $sql3 = 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
 list( $cid ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql3 ) );
 
+if ( $cid == '' ) {
+    redirect_header( 'index.php', 1, '' );
+    exit();
+} 
+
 $sql2 = 'SELECT count(*) FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
  . icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . ' b'
  . ' ON b.lid = a.lid'
