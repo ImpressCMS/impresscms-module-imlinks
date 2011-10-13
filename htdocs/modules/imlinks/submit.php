@@ -43,8 +43,8 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		
 		// Verify captcha code
 		if ( $icmsConfigUser['use_captcha'] == true ) {
-			$icmsCaptcha = IcmsCaptcha::instance(); 
-			if ( ! $icmsCaptcha -> verify( true ) ) { 
+			$icmsCaptcha = icms_form_elements_captcha_Object::instance(); 
+			if ( !$icmsCaptcha -> verify( true ) ) { 
 				redirect_header( 'submit.php', 2, $icmsCaptcha -> getMessage() ); 
 			} 
 		}
