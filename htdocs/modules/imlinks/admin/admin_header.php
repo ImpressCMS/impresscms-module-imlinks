@@ -30,6 +30,7 @@ $mydirname = basename( dirname( dirname( __FILE__ ) ) );
 
 include '../../../include/cp_header.php';
 
+include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/admin/functions.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/iml_lists.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/myts_extended.php';
