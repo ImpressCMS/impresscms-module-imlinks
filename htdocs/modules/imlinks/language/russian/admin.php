@@ -446,4 +446,8 @@ define( '_AM_IMLINKS_TOMTOMLONG', 'Enter longitude:' );
 define( '_AM_IMLINKS_TOMTOMLAT', 'Enter latitude:' );
 define( '_AM_IMLINKS_MOD_TTLAT', 'TomTom Latitude:' );
 define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Longitude:' );
+
+// Version 1.1
+define( '_AM_IMLINKS_MSG_OFFLINE', 'Link was set Offline successfully.' );
+define( '_AM_IMLINKS_MSG_ONLINE', 'Link was set Online successfully.' );
 ?>
