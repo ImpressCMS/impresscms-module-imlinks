@@ -197,13 +197,15 @@ function iml_linklistbody( $published ) {
     $submitted = formatTimestamp( $published['date'], icms::$module -> config['dateformat'] );
     $publish = ( $published['published'] > 0 ) ? formatTimestamp( $published['published'], icms::$module -> config['dateformatadmin'] ): 'Not Published';
     $expires = $published['expired'] ? formatTimestamp( $published['expired'], icms::$module -> config['dateformatadmin'] ): _AM_IMLINKS_MINDEX_NOTSET;
+	
     if ( ( ( $published['expired'] && $published['expired'] > time() ) OR  $published['expired']==0)&& ( $published['published'] && $published['published'] < time() ) && $published['offline'] == 0 ) {
-        $published_status = $imagearray['online'];
+        $published_status = '<a href="index.php?op=status_off&amp;lid=' . $lid . '">' . $imagearray['online'] . '</a>';
     } elseif ( ( $published['expired'] && $published['expired'] < time() )  && $published['offline'] == 0 ) {
         $published_status = $imagearray['expired'];
     } else {
-        $published_status = ( $published['published'] == 0 ) ? "<a href='newlinks.php'>" . $imagearray['offline'] . "</a>" : $imagearray['offline'];
+        $published_status = ( $published['published'] == 0 ) ? "<a href='newlinks.php'>" . $imagearray['offline'] . "</a>" : '<a href="index.php?op=status_on&amp;lid=' . $lid . '">' . $imagearray['offline'] . '</a>';
     }
+	
     $icon = '<a href="index.php?op=edit&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_EDIT . '">' . $imagearray['editimg'] . '</a>&nbsp;';
     $icon .= '<a href="index.php?op=delete&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_DELETE . '">' . $imagearray['deleteimg'] . '</a>&nbsp;';
 	$icon .= '<a href="index.php?op=clone&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_CLONE . '">' . $imagearray['clone'] . '</a>&nbsp;';

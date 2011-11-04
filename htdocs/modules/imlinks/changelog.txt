@@ -4,6 +4,9 @@ xx.xx.2011 - Version 1.1x
 Fixed:
 - replaced Google Pagerank function
 
+Added:
+- links can be set online/offline by clicking icon in index
+
 =========================================================
 20.09.2011 - Version 1.10
 =========================================================
