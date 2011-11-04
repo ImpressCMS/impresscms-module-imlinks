@@ -447,4 +447,8 @@ define( '_AM_IMLINKS_TOMTOMLONG', 'Geef lengtegraad:' );
 define( '_AM_IMLINKS_TOMTOMLAT', 'Geef breedtegraad:' );
 define( '_AM_IMLINKS_MOD_TTLAT', 'TomTom Breedtegraad:' );
 define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Lengtegraad:' );
+
+// Version 1.1
+define( '_AM_IMLINKS_MSG_OFFLINE', 'Link is succesvol Offline geplaatst.' );
+define( '_AM_IMLINKS_MSG_ONLINE', 'Link is succesvol Online geplaatst.' );
 ?>
