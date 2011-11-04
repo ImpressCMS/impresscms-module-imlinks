@@ -444,8 +444,8 @@ switch ( strtolower( $op ) ) {
             icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
         } 
-        $broken_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
-		//$broken_array = icms::$xoopsDB -> query( $sql, 25, $start );
+ //       $broken_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
+		$broken_array = icms::$xoopsDB -> query( $sql, 10, $start );
         $broken_array_count = icms::$xoopsDB -> getRowsNum( $result );
 
         icms_cp_header();  
@@ -525,6 +525,24 @@ switch ( strtolower( $op ) ) {
         iml_linklistpagenav( $broken_array_count, $start, 'art', 'op=' . $op, 'right' );
         icms_cp_footer();
         break;
+		
+	case 'status_off':
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET offline='1' WHERE lid=" . $lid;
+		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
+            icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+            return false;
+        }
+		redirect_header( 'index.php', 1, _AM_IMLINKS_MSG_OFFLINE );
+		break;
+		
+	case 'status_on':
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET offline='0' WHERE lid=" . $lid;
+		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
+            icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+            return false;
+        }
+		redirect_header( 'index.php', 1, _AM_IMLINKS_MSG_ONLINE );
+		break;
 
     case 'edit':
         edit( intval( $lid ), 0 );
