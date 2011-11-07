@@ -181,7 +181,7 @@ define( "_AM_IMLINKS_SUB_FILESWAITINGVALIDATION", "Links waiting validation: " )
 define( "_AM_IMLINKS_SUB_APPROVEWAITINGFILE", "<b>Approve</b> new link information without validation." );
 define( "_AM_IMLINKS_SUB_EDITWAITINGFILE", "<b>Edit</b> new link information and then approve." );
 define( "_AM_IMLINKS_SUB_DELETEWAITINGFILE", "<b>Delete</b> the new link information." );
-define( "_AM_IMLINKS_SUB_NOFILESWAITING", "There are no links that match this critera" );
+define( "_AM_IMLINKS_SUB_NOFILESWAITING", "There are no links that match this criteria" );
 define( "_AM_IMLINKS_SUB_NEWFILECREATED", "New link data created and database updated successfully" );
 // Vote Information
 define( "_AM_IMLINKS_VOTE_RATINGINFOMATION", "Voting Information" );
