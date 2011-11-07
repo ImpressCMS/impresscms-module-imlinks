@@ -164,34 +164,18 @@ function iml_uploading( $_FILES, $uploaddir = 'uploads', $allowed_mimetypes = ''
     } 
 }
 
-function iml_linklistheader( $heading ) {
-    echo '<br />
-		  <div style="font-weight: bold; color: #0A3760;">' . $heading . '</div>
-		  <table width="100%" cellspacing="1" class="outer" summary>
-		  <tr>
-		    <th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_ID . '</th>
-		    <th style="text-align: left; font-size: smaller;">' . _AM_IMLINKS_MINDEX_TITLE . '</th>
-		    <th style="text-align: left; font-size: smaller;">' . _AM_IMLINKS_CATTITLE . '</th>
-		    <th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_POSTER . '</th>
-		    <th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_PUBLISH . '</th>
-		    <th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_EXPIRE . '</th>
-		    <th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_ONLINE . '</th>
-		    <th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_ACTION . '</th>
-		  </tr>';
-} 
-
 function iml_linklistbody( $published ) {
     global $immyts, $imagearray;
     $lid = $published['lid'];
     $cid = $published['cid'];
 	$nice_link = iml_nicelink( $published['title'], $published['nice_url'] );
     if ( icms::$module -> config['niceurl'] ) {
-    $title = '<a href="../singlelink.php?lid=' . $published['lid'] . '&amp;page=' . $nice_link . '">' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
+    $title = '<a href="../singlelink.php?lid=' . $lid . '&amp;page=' . $nice_link . '">' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
 	} else {
-	$title = '<a href="../singlelink.php?lid=' . $published['lid'] . '">' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
+	$title = '<a href="../singlelink.php?lid=' . $lid . '">' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
 	}
     $maintitle = urlencode( $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) );
-    $cattitle = '<a href="../viewcat.php?cid=' . $published['cid'] . '">' . iml_cattitle( $published['cid'] ) . '</a>';
+    $cattitle = '<a href="../viewcat.php?cid=' . $cid . '">' . iml_cattitle( $cid ) . '</a>';
     $submitter = icms_member_user_Handler::getUserLink( $published['submitter'] );
     $hwhoisurl = str_replace( 'http://', '', $published['url']);
     $submitted = formatTimestamp( $published['date'], icms::$module -> config['dateformat'] );
@@ -219,15 +203,9 @@ function iml_linklistbody( $published ) {
 			<td class="even">' . $publish . '</td>
 			<td class="even">' . $expires . '</td>
 			<td class="even">' . $published_status . '</td>
-			<td class="even" style="text-align: center; width: 6%; white-space: nowrap;">' . $icon . '</td>
+			<td class="even" style="white-space: nowrap;">' . $icon . '</td>
 		  </tr>';
     unset( $published );
-} 
-
-function iml_linklistfooter() {
-    echo '<tr style="text-align: center;">
-			<td class="head" colspan="7">' . _AM_IMLINKS_MINDEX_NOLINKSFOUND . '</td>
-		  </tr>';
 }
 
 ?>
