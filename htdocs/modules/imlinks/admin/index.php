@@ -462,7 +462,7 @@ switch ( strtolower( $op ) ) {
 				  </fieldset>';
 		}
 		
-		iml_linklistpagenav( $broken_array_count, $start, 'art', 'op=' . $op, 'left' );	
+		iml_linklistpagenav( $broken_array_count, $start, 'art', 'op=' . $op, 'right' );	
         echo '
 			<table width="100%" cellspacing="1" cellpadding="2" border="0" class="outer">
 			<tr style="font-size: smaller;">
@@ -513,13 +513,13 @@ switch ( strtolower( $op ) ) {
 						<td class="even">' . $publish . '</td>
 						<td class="even">' . $_ping_results . '</td>
 						<td class="even">' . $pagerank . '</td>
-						<td class="even">' . $icon . '</td>
+						<td class="even" style="white-space: nowrap;">' . $icon . '</td>
 						</tr>';
                 unset( $published );
 				usleep( 100000 ); // Pause 0.1 sec
             } 
         } else {
-            iml_linklistfooter();
+            echo '<tr style="text-align: center;"><td class="head" colspan="7">' . _AM_IMLINKS_MINDEX_NOLINKSFOUND . '</td></tr>';
         }
 		echo '</table>';
         iml_linklistpagenav( $broken_array_count, $start, 'art', 'op=' . $op, 'right' );
@@ -837,17 +837,27 @@ switch ( strtolower( $op ) ) {
             $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' ORDER BY lid DESC';
             $published_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
             $published_array_count = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
-            iml_linklistheader( _AM_IMLINKS_MINDEX_PUBLISHEDLINK );
-            iml_linklistpagenav( $published_array_count, $start, 'art', '', 'left' );
+			echo '<br /><div><span style="float: left; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_PUBLISHEDLINK . '</span>' . iml_linklistpagenav( $published_array_count, $start, 'art', '', 'right' ) . '</div>';
+			echo '<table width="100%" cellspacing="1" class="outer" summary>
+					<tr>
+						<th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_ID . '</th>
+						<th style="text-align: left; font-size: smaller;">' . _AM_IMLINKS_MINDEX_TITLE . '</th>
+						<th style="text-align: left; font-size: smaller;">' . _AM_IMLINKS_CATTITLE . '</th>
+						<th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_POSTER . '</th>
+						<th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_PUBLISH . '</th>
+						<th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_EXPIRE . '</th>
+						<th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_ONLINE . '</th>
+						<th style="text-align: center; font-size: smaller;">' . _AM_IMLINKS_MINDEX_ACTION . '</th>
+					</tr>';
             if ( $published_array_count > 0 ) {
                 while ( $published = icms::$xoopsDB -> fetchArray( $published_array ) ) {
                     iml_linklistbody( $published );
-                } 
+                }
 				echo '</table>';
+				iml_linklistpagenav( $published_array_count, $start, 'art', '', 'right' );
             } else {
-                iml_linklistfooter();
-            } 
-            iml_linklistpagenav( $published_array_count, $start, 'art', '', 'right' );           
+                echo '<tr style="text-align: center;"><td class="head" colspan="7">' . _AM_IMLINKS_MINDEX_NOLINKSFOUND . '</td></tr>';
+            }                
         }
         icms_cp_footer();
         break;
