@@ -42,7 +42,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
     if ( iml_cleanRequestVars( $_REQUEST, 'submit', 0 ) ) {
 		
 		// Verify captcha code
-		if ( $icmsConfigUser['use_captcha'] == true ) {
+		if ( icms::$module -> config['captcha'] == true ) {
 			$icmsCaptcha = icms_form_elements_captcha_Object::instance(); 
 			if ( !$icmsCaptcha -> verify( true ) ) { 
 				redirect_header( 'submit.php', 2, $icmsCaptcha -> getMessage() ); 
@@ -421,7 +421,7 @@ if ( icms::$module -> config['tomtom_apikey'] ) {
         $sform -> addElement( $option_tray );
 		
 		// Captcha form
-		if ( $icmsConfigUser['use_captcha'] == true ) {
+		if ( icms::$module -> config['captcha'] == true ) {
 			$sform -> addElement( new icms_form_elements_Captcha( _SECURITYIMAGE_GETCODE, 'scode' ), true ); 
 		}
 		
