@@ -448,4 +448,5 @@ define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Longitude:' );
 // Version 1.1
 define( '_AM_IMLINKS_MSG_OFFLINE', 'Link was set Offline successfully.' );
 define( '_AM_IMLINKS_MSG_ONLINE', 'Link was set Online successfully.' );
+define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
 ?>
