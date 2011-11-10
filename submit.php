@@ -28,6 +28,8 @@
 
 include 'header.php';
 
+global $icmsConfigUser;
+
 $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
 
 $cid = intval( iml_cleanRequestVars( $_REQUEST, 'cid', 0 ) );
@@ -42,11 +44,11 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
     if ( iml_cleanRequestVars( $_REQUEST, 'submit', 0 ) ) {
 		
 		// Verify captcha code
-		if ( icms::$module -> config['captcha'] == true ) {
+		if ( icms::$module -> config['captcha'] == true && $icmsConfigUser['use_captcha'] == true ) {
 			$icmsCaptcha = icms_form_elements_captcha_Object::instance(); 
 			if ( !$icmsCaptcha -> verify( true ) ) { 
 				redirect_header( 'submit.php', 2, $icmsCaptcha -> getMessage() ); 
-			} 
+			}
 		}
 		
         if ( false == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
@@ -421,7 +423,7 @@ if ( icms::$module -> config['tomtom_apikey'] ) {
         $sform -> addElement( $option_tray );
 		
 		// Captcha form
-		if ( icms::$module -> config['captcha'] == true ) {
+		if ( icms::$module -> config['captcha'] == true && $icmsConfigUser['use_captcha'] == true ) {
 			$sform -> addElement( new icms_form_elements_Captcha( _SECURITYIMAGE_GETCODE, 'scode' ), true ); 
 		}
 		

@@ -1,11 +1,14 @@
 ﻿=========================================================
-xx.xx.2011 - Version 1.1x
+xx.xx.2011 - Version 1.11
 =========================================================
 Fixed:
 - replaced Google Pagerank function
+- typos in captcha causing submit form not to work in frontend
 
 Added:
 - links can be set online/offline by clicking icon in index
+- submitted links indicaed with hourglass icon in Status column
+- updated flag of Georgia
 
 =========================================================
 20.09.2011 - Version 1.10
