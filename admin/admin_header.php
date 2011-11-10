@@ -56,7 +56,8 @@ $imagearray = array(
 	'con_yes' 		=> '<img src="../images/icon/on.png" alt="' . _AM_IMLINKS_ICO_CONFIRM . '" title="' . _AM_IMLINKS_ICO_CONFIRM . '" style="vertical-align: middle;" />',
 	'con_no' 		=> '<img src="../images/icon/off.png" alt="' . _AM_IMLINKS_ICO_CONBROKEN . '" title="' . _AM_IMLINKS_ICO_CONBROKEN . '" style="vertical-align: middle;" />',
 	'view' 			=> '<span class="button"><img src="../images/icon/find.png" alt="' . _AM_IMLINKS_ICO_VIEW . '" title="' . _AM_IMLINKS_ICO_VIEW . '" style="vertical-align: middle;" /> ' . _AM_IMLINKS_ICO_VIEW . '</span>',
-	'clone'			=> '<img src="../images/icon/world_clone.png" alt="' . _AM_IMLINKS_ICO_CLONE . '" title="' . _AM_IMLINKS_ICO_CLONE . '" style="vertical-align: middle;" />'
+	'clone'			=> '<img src="../images/icon/world_clone.png" alt="' . _AM_IMLINKS_ICO_CLONE . '" title="' . _AM_IMLINKS_ICO_CLONE . '" style="vertical-align: middle;" />',
+	'waiting'		=> '<img src="../images/icon/hourglass.png" alt="' . _AM_IMLINKS_ICO_WAITING . '" title="' . _AM_IMLINKS_ICO_WAITING . '" style="vertical-align: middle;" />'
 	);
 	
 global $immyts, $imagearray, $icmsConfig, $mytree;
