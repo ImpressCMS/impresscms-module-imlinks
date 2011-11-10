@@ -451,4 +451,5 @@ define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Lengtegraad:' );
 // Version 1.1
 define( '_AM_IMLINKS_MSG_OFFLINE', 'Link is succesvol Offline geplaatst.' );
 define( '_AM_IMLINKS_MSG_ONLINE', 'Link is succesvol Online geplaatst.' );
+define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
 ?>
