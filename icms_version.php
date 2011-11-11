@@ -37,10 +37,10 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/'. $icm
 } else { include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/english/moduleabout.php'; }
 
 $modversion['name'] 			= _MI_IMLINKS_NAME;
-$modversion['version'] 			= '1.10';
-$modversion['date'] 			= 'xx xxxxx 2011';
-$modversion['status'] 			= '';
-$modversion['status_version'] 	= '';
+$modversion['version'] 			= '1.11';
+$modversion['date'] 			= '11 November 2011';
+$modversion['status'] 			= 'RC-1';
+$modversion['status_version'] 	= 'RC-1';
 $modversion['description'] 		= _MI_IMLINKS_DESC;
 $modversion['license'] 			= _MI_IMLINKS_ABOUTLICENSE;
 $modversion['image'] 			= 'images/imlinks_ilogo.png'; 		// standard XOOPS icon, 92x52 px  
