@@ -42,8 +42,6 @@ CREATE TABLE imlinks_cat (
   imgurl varchar(150) NOT NULL default '',
   description varchar(255) NOT NULL default '',
   weight int(11) NOT NULL default '0',
-  client_id int(5) NOT NULL default '0',
-  banner_id int(5) NOT NULL default '0',
   PRIMARY KEY  (cid),
   KEY pid (pid)
 ) TYPE=MyISAM;
