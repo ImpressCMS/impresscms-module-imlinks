@@ -7,8 +7,11 @@ Fixed:
 
 Added:
 - links can be set online/offline by clicking icon in index
-- submitted links indicaed with hourglass icon in Status column
+- submitted links indicated with hourglass icon in Status column
 - updated flag of Georgia
+
+Removed:
+- banner option for categories
 
 =========================================================
 20.09.2011 - Version 1.10
