@@ -52,8 +52,6 @@ function createcat($cid = 0) {
     $description = '';
     $pid = '';
     $weight = 0;
-    $client_id = 0;
-    $banner_id = 0;
     $heading = _AM_IMLINKS_CCATEGORY_CREATENEW;
     $totalcats = iml_totalcategory();
 
@@ -64,8 +62,6 @@ function createcat($cid = 0) {
         $imgurl = $immyts -> htmlSpecialCharsStrip( $cat_arr['imgurl'] );
         $description = $immyts -> htmlSpecialCharsStrip( $cat_arr['description'] );
         $weight = $cat_arr['weight'];
-        $client_id = $cat_arr['client_id'];
-        $banner_id = $cat_arr['banner_id'];
         $heading = _AM_IMLINKS_CCATEGORY_MODIFY;
 
         $gperm_handler = icms::handler( 'icms_member_groupperm' );
@@ -112,32 +108,6 @@ function createcat($cid = 0) {
 
     $editor = iml_editorform( _AM_IMLINKS_FCATEGORY_DESCRIPTION, 'description', $description ); // Category description
     $sform -> addElement( $editor, false );
-
-// Select Client/Sponsor
-    $client_select = new icms_form_elements_Select( _AM_IMLINKS_CATSPONSOR, 'client_id', $client_id, false );
-    $sql = 'SELECT cid, name FROM ' . icms::$xoopsDB -> prefix( 'bannerclient' ) . ' ORDER BY name ASC';
-    $result = icms::$xoopsDB -> query( $sql );
-    $client_array = array();
-    $client_array[0] = '&nbsp;';
-    while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
-		$client_array[$myrow['cid']] = $myrow['name'];
-	}
-    $client_select -> addOptionArray( $client_array );
-    $client_select -> setDescription( _AM_IMLINKS_CATSPONSORDSC );
-    $sform -> addElement( $client_select );
-    
-// Select Banner
-    $banner_select = new icms_form_elements_Select( _AM_IMLINKS_BANNERID, 'banner_id', $banner_id, false );
-    $sql = 'SELECT bid, cid FROM ' . icms::$xoopsDB -> prefix( 'banner' ) . ' ORDER BY bid ASC';
-    $result = icms::$xoopsDB -> query( $sql );
-    $banner_array = array();
-    $banner_array[0] = '&nbsp;';
-    while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
-		$banner_array[$myrow['bid']] = $myrow['bid'];
-	}
-    $banner_select -> addOptionArray( $banner_array );
-    $banner_select -> setDescription(_AM_IMLINKS_BANNERIDDSC);
-    $sform -> addElement( $banner_select );
     
 //    $sform -> addElement(new icms_form_elements_SelectGroup(_AM_IMLINKS_FCATEGORY_GROUPPROMPT, "groups", true, $groups, 5, true));
 
@@ -241,16 +211,10 @@ switch ( $op ) {
         $title = icms_core_DataFilter::addSlashes( $_REQUEST['title'] );
         $descriptionb = icms_core_DataFilter::addSlashes( $_REQUEST['description'] );
         $imgurl = ( $_REQUEST['imgurl'] && $_REQUEST['imgurl'] != 'blank.gif' ) ? icms_core_DataFilter::addSlashes( $_REQUEST['imgurl'] ) : '';
-        $client_id = ( isset( $_REQUEST['client_id'] ) ) ? $_REQUEST['client_id'] : 0;
-        if ($client_id > 0) {
-          $banner_id = 0;
-        } else {
-          $banner_id = ( isset( $_REQUEST['banner_id'] ) ) ? $_REQUEST['banner_id'] : 0;
-        }  
 
         if ( !$cid ) {
             $cid = 0;
-            $sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . " (cid, pid, title, imgurl, description, weight, client_id, banner_id ) VALUES ('', $pid, '$title', '$imgurl', '$descriptionb', '$weight', '$client_id', '$banner_id' )";
+            $sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . " (cid, pid, title, imgurl, description, weight, client_id, banner_id ) VALUES ('', $pid, '$title', '$imgurl', '$descriptionb', '$weight' )";
             if ( $cid == 0 ) {
                 $newid = icms::$xoopsDB -> getInsertId();
             }
@@ -267,7 +231,7 @@ switch ( $op ) {
 				redirect_header( 'category.php', 1, _AM_IMLINKS_ERROR_CATISCAT );
 				exit();
             }
-            $sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . " SET title ='$title', imgurl='$imgurl', pid =$pid, description='$descriptionb', weight='$weight', client_id='$client_id', banner_id='$banner_id' WHERE cid=" . $cid;
+            $sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . " SET title ='$title', imgurl='$imgurl', pid =$pid, description='$descriptionb', weight='$weight' WHERE cid=" . $cid;
             $database_mess = _AM_IMLINKS_CCATEGORY_MODIFIED;
         } 
         if ( !$result = icms::$xoopsDB -> query( $sql ) ) {

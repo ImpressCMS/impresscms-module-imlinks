@@ -411,15 +411,7 @@ function iml_getforum( $forumid ) {
     } 
     echo '</select></div>';
     return $forumid;
-} 
-
-function iml_cattitle( $catt ) {
-  $sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $catt;
-  $result = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
-  return $result['title'];
-} 
-
- 
+}
 
 function iml_editorform( $caption, $name, $value ) {
 	$isadmin = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( icms::$module -> getVar( 'mid' ) ) ) ? true : false;
@@ -802,104 +794,6 @@ function iml_news_module_included() {
     }
   }
   return $iml_news_module_included;
-}
-
-function iml_getbanner_from_id_banner( $banner_id ) {
-###### Hack by www.stefanosilvestrini.com ######
-global $icmsConfig;
-$db =& Database::getInstance();
-$bresult = $db -> query( 'SELECT COUNT(*) FROM ' . $db -> prefix( 'banner' ) . ' WHERE bid=' . $banner_id );
-list ( $numrows ) = $db -> fetchRow( $bresult );
-if ( $numrows > 1 ) {
-    $numrows = $numrows - 1;
-    mt_srand( ( double )microtime() * 1000000 );
-    $bannum = mt_rand( 0, $numrows );
-} else {
-    $bannum = 0;
-}
-if ( $numrows > 0 ) {
-  $bresult = $db -> query( 'SELECT * FROM ' . $db -> prefix( 'banner' ). ' WHERE bid=' . $banner_id, 1, $bannum );
-  list ( $bid, $cid, $imptotal, $impmade, $clicks, $imageurl, $clickurl, $date, $htmlbanner, $htmlcode ) = $db -> fetchRow( $bresult );
-  if ($icmsConfig['my_ip'] == xoops_getenv( 'REMOTE_ADDR' ) ) {
-    // EMPTY
-    } else {
-      $db -> queryF( sprintf( 'UPDATE %s SET impmade = impmade+1 WHERE bid = %u', $db -> prefix( 'banner' ), $bid ) );
-  }
-  /* Check if this impression is the last one and print the banner */
-  if ( $imptotal == $impmade ) {
-    $newid = $db -> genId( $db -> prefix( 'bannerfinish' ) . '_bid_seq' );
-    $sql = sprintf( 'INSERT INTO %s (bid, cid, impressions, clicks, datestart, dateend) VALUES (%u, %u, %u, %u, %u, %u)', $db -> prefix( 'bannerfinish' ), $newid, $cid, $impmade, $clicks, $date, time() );
-    $db -> queryF( $sql );
-    $db -> queryF( sprintf( 'DELETE FROM %s WHERE bid = %u', $db -> prefix( 'banner' ), $bid ) );
-  }
-  if ( $htmlbanner ) {
-    $bannerobject = $htmlcode;
-    } else {
-      $bannerobject = '<div align="center"><a href="' . ICMS_URL . '/banners.php?op=click&bid=' . $bid . '" target="_blank">';
-      if ( stristr( $imageurl, '.swf' ) ) {
-        $bannerobject = $bannerobject
-        . '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="468" height="60">'
-        . '<param name="movie" value="' . $imageurl . '"></param>'
-        . '<param name="quality" value="high"></param>'
-        . '<embed src="' . $imageurl . '" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="468" height="60">'
-        . '</embed>'
-        .'</object>';
-        } else {
-          $bannerobject = $bannerobject . '<img src="' . $imageurl . '" alt="" />';
-        }
-        $bannerobject = $bannerobject . '</a></div>';
-      }
-    return $bannerobject;
-  }
-}
-
-function iml_getbanner_from_id_client( $client_id ) {
-###### Hack by www.stefanosilvestrini.com ######
-global $icmsConfig;
-$db =& Database::getInstance();
-$bresult = $db -> query( 'SELECT COUNT(*) FROM ' . $db -> prefix('banner') . ' WHERE cid=' . $client_id );
-list ( $numrows ) = $db -> fetchRow( $bresult );
-if ( $numrows > 1 ) {
-  $numrows = $numrows - 1;
-  mt_srand( ( double )microtime() * 1000000 );
-  $bannum = mt_rand( 0, $numrows );
-} else {
-  $bannum = 0;
-}
-if ( $numrows > 0 ) {
-$bresult = $db -> query( 'SELECT * FROM ' . $db -> prefix( 'banner' ) . ' WHERE cid=' . $client_id . ' ORDER BY rand()', 1, $bannum );
-list ( $bid, $cid, $imptotal, $impmade, $clicks, $imageurl, $clickurl, $date, $htmlbanner, $htmlcode ) = $db -> fetchRow( $bresult );
-if ($icmsConfig['my_ip'] == xoops_getenv('REMOTE_ADDR')) {
-  // EMPTY
-  } else {
-    $db -> queryF( sprintf( 'UPDATE %s SET impmade = impmade+1 WHERE bid = %u', $db -> prefix( 'banner' ), $bid ) );
-}
-/* Check if this impression is the last one and print the banner */
-if ( $imptotal == $impmade ) {
-  $newid = $db -> genId( $db -> prefix( 'bannerfinish' ) . '_bid_seq' );
-  $sql = sprintf( 'INSERT INTO %s (bid, cid, impressions, clicks, datestart, dateend) VALUES (%u, %u, %u, %u, %u, %u)', $db -> prefix( 'bannerfinish' ), $newid, $cid, $impmade, $clicks, $date, time() );
-  $db -> queryF( $sql );
-  $db -> queryF( sprintf( 'DELETE FROM %s WHERE bid = %u', $db -> prefix( 'banner' ), $bid ) );
-}
-if ( $htmlbanner ) {
-  $bannerobject = $htmlcode;
-  } else {
-    $bannerobject = '<div align="center"><a href="' . ICMS_URL . '/banners.php?op=click&bid=' . $bid . '" target="_blank">';
-    if ( stristr( $imageurl, '.swf' ) ) {
-      $bannerobject = $bannerobject
-      . '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="468" height="60">'
-      . '<param name="movie" value="' . $imageurl . '"></param>'
-      . '<param name="quality" value="high"></param>'
-      . '<embed src="' . $imageurl . '" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="468" height="60">'
-      . '</embed>'
-      . '</object>';
-      } else {
-        $bannerobject = $bannerobject . '<img src="' . $imageurl . '" alt="" />';
-    }
-    $bannerobject = $bannerobject . '</a></div>';
-   }
-  return $bannerobject;
-  }
 }
 
 function iml_emailcnvrt( $email ) {

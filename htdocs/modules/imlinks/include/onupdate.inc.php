@@ -138,5 +138,15 @@ if( $ref == '' || strpos( $ref , ICMS_URL . '/modules/system/admin.php' ) === 0 
 	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_cat') . " DROP total" );
 	$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 	
+	// imLinks 1.11
+	$i++;
+	$ret[$i] = true;
+	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_cat') . " DROP client_id" );
+	$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
+	$i++;
+	$ret[$i] = true;
+	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_cat') . " DROP banner_id" );
+	$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
+	
 }
 ?>
