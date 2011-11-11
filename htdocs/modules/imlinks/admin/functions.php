@@ -164,6 +164,12 @@ function iml_uploading( $_FILES, $uploaddir = 'uploads', $allowed_mimetypes = ''
     } 
 }
 
+function iml_cattitle( $catt ) {
+  $sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $catt;
+  $result = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
+  return $result['title'];
+}
+
 function iml_linklistbody( $published ) {
     global $immyts, $imagearray;
     $lid = $published['lid'];
@@ -213,5 +219,4 @@ function iml_linklistbody( $published ) {
 		  </tr>';
     unset( $published );
 }
-
 ?>
