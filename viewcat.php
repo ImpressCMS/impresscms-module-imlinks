@@ -131,11 +131,7 @@ if ( $head_arr['description'] != '' ) {
 }
 $xoopsTpl -> assign( 'icms_pagetitle', $head_arr['title'] );
 
-if ($head_arr['client_id'] > 0){
-	$catarray['imageheader'] = iml_getbanner_from_id_client( $head_arr['client_id'] );
-} elseif ($head_arr['banner_id'] > 0) {
-	$catarray['imageheader'] = iml_getbanner_from_id_banner( $head_arr['banner_id'] );
-} elseif ( iml_imageheader() != '' ) {
+if ( iml_imageheader() != '' ) {
 	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';
 } else { 
 	$catarray['imageheader'] = ''; 
