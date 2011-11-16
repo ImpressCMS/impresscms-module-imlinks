@@ -115,7 +115,7 @@ if ( $street1 == '' || $town == '' || icms::$module -> config['useaddress'] == 0
   }
 $xoopsTpl -> assign( 'print', $print );
 
-$xoopsTpl -> assign( 'worldwideweb', '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world.png" title="" alt="" align="absmiddle" />&nbsp;' . $url );
+$xoopsTpl -> assign( 'worldwideweb', $url );
 
 // Start of meta tags
 $maxWords=100;
