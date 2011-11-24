@@ -507,11 +507,11 @@ define( '_AM_IMLINKS_RSSGENERATORDSC', 'String indicating the program used to ge
 define( '_AM_IMLINKS_RSSCOPYRIGHT', 'RSS-Feed Urheberschutz' );
 define( '_AM_IMLINKS_RSSCOPYRIGHTDSC', 'Notiz zum Content im Kanal über den Urheber.' );
 define( '_AM_IMLINKS_RSSTOTAL', 'RSS-Feed Gesamtlinks' );
-define( '_AM_IMLINKS_RSSTOTALDSC', 'Give the total number of links to display in RSS-Feed.' );
+define( '_AM_IMLINKS_RSSTOTALDSC', 'Anzahl der Links zum Anzeigen im RSS Feed.' );
 define( '_AM_IMLINKS_RSSDBUPDATED', 'Database has been updated successfully' );
-define( '_AM_IMLINKS_RSSOFFLINE', 'RSS-Feed offline Nachrichtentitel' );
+define( '_AM_IMLINKS_RSSOFFLINE', 'RSS-Feed Offline Nachrichtentitel' );
 define( '_AM_IMLINKS_RSSOFFLINEDSC', 'Enter the title for the message when RSS-Feed is deactived.' );
-define( '_AM_IMLINKS_RSSOFFMSG', 'RSS-Feed offline Nachricht' );
+define( '_AM_IMLINKS_RSSOFFMSG', 'RSS-Feed Offline Nachricht' );
 define( '_AM_IMLINKS_RSSOFFMSGDSC', 'Enter here an explanation for why the RSS feed has been deactivated.' );
 define( '_AM_IMLINKS_RSSOFFTITLE', 'RSS-Feed wurde deaktiviert.' );
 define( '_AM_IMLINKS_RSSOFFMSGDEF', 'Der RSS-Feed wurde vorübergehend wegen Wartungsarbeiten ausgeschaltet.' );
@@ -522,17 +522,17 @@ define( '_AM_IMLINKS_COPYRIGHT', 'Urheberschutz' );
 define( '_AM_IMLINKS_NOREPLY', 'Keine Antwort' );
 
 // imLinks 1.03
-define( '_AM_IMLINKS_NICEURL', 'Alternative title for url:' );
+define( '_AM_IMLINKS_NICEURL', 'Alternativen Titel zur URL:' );
 define( '_AM_IMLINKS_NICEURLDSC', 'Enter an alternative title for the link to be used in the url. When the option <em>Use nice urls</em> from Preferences is selected and this field is left empty, than the title of the link will be used.' );
 define( '_AM_IMLINKS_TOMTOM', 'Add to TomTom' );
 define( '_AM_IMLINKS_TOMTOMDSC', 'Enter the latitude and longitude of the address entered above.<br />You can find the geographic position of the address by using the website <a href="http://itouchmap.com/latlong.html" target="_blank">iTouchMap.com</a><br />Geographic latitude/longitude of the location should be in decimal degrees. May be negative; "N"/"S"/"W"/"E" suffix is not accepted. Default geodetic datum is WGS-84.<br />The geographic position should be entered as follows:<br />- Latitude: 57.2355591<br />- Longitude: -2.3535921' );
-define( '_AM_IMLINKS_TOMTOMLONG', 'Enter longitude:' );
-define( '_AM_IMLINKS_TOMTOMLAT', 'Enter latitude:' );
-define( '_AM_IMLINKS_MOD_TTLAT', 'TomTom Latitude:' );
-define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Longitude:' );
+define( '_AM_IMLINKS_TOMTOMLONG', 'Längengrad eingeben:' );
+define( '_AM_IMLINKS_TOMTOMLAT', 'Breitengrad eingeben:' );
+define( '_AM_IMLINKS_MOD_TTLAT', 'TomTom Breitengrad:' );
+define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Längengrad:' );
 
 // Version 1.1
-define( '_AM_IMLINKS_MSG_OFFLINE', 'Link was set Offline successfully.' );
-define( '_AM_IMLINKS_MSG_ONLINE', 'Link was set Online successfully.' );
-define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
+define( '_AM_IMLINKS_MSG_OFFLINE', 'Link wurde Offline gesetzt.' );
+define( '_AM_IMLINKS_MSG_ONLINE', 'Link wurde Online gesetzt.' );
+define( '_AM_IMLINKS_ICO_WAITING','Hinzugefügt, warten auf Freigabe' );
 ?>
