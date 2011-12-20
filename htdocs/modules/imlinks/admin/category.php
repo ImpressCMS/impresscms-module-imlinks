@@ -65,7 +65,6 @@ function createcat($cid = 0) {
 
 		$gperm_handler = icms::handler( 'icms_member_groupperm' );
 		$groups = $gperm_handler -> getGroupIds( 'imLinkCatPerm', $cid, icms::$module -> getVar( 'mid' ) );
-		$groups = $groups;
 	} else {
 		$groups = true;
 	}
@@ -200,13 +199,13 @@ switch ( $op ) {
 		break;
 
 	case 'addCat':
-		$groups = isset( $_REQUEST['groups'] ) ? $_REQUEST['groups'] : array();
-		$cid = ( isset( $_REQUEST['cid'] ) ) ? $_REQUEST['cid'] : 0;
-		$pid = ( isset( $_REQUEST['pid'] ) ) ? $_REQUEST['pid'] : 0;
-		$weight = ( isset( $_REQUEST['weight'] ) && $_REQUEST['weight'] > 0 ) ? $_REQUEST['weight'] : 0;
-		$title = icms_core_DataFilter::addSlashes( $_REQUEST['title'] );
-		$descriptionb = icms_core_DataFilter::addSlashes( $_REQUEST['description'] );
-		$imgurl = ( $_REQUEST['imgurl'] && $_REQUEST['imgurl'] != 'blank.gif' ) ? icms_core_DataFilter::addSlashes( $_REQUEST['imgurl'] ) : '';
+		$groups = isset( $_POST['groups'] ) ? $_POST['groups'] : array();
+		$cid = ( isset( $_POST['cid'] ) ) ? $_POST['cid'] : 0;
+		$pid = ( isset( $_POST['pid'] ) ) ? $_POST['pid'] : 0;
+		$weight = ( isset( $_POST['weight'] ) && $_POST['weight'] > 0 ) ? $_POST['weight'] : 0;
+		$title = icms_core_DataFilter::addSlashes( $_POST['title'] );
+		$descriptionb = icms_core_DataFilter::addSlashes( $_POST['description'] );
+		$imgurl = ( $_POST['imgurl'] && $_POST['imgurl'] != 'blank.gif' ) ? icms_core_DataFilter::addSlashes( $_POST['imgurl'] ) : '';
 
 		if ( !$cid ) {
 			$cid = 0;
