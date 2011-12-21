@@ -37,32 +37,32 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/'. $icm
 } else { include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/english/moduleabout.php'; }
 
 $modversion['name'] 			= _MI_IMLINKS_NAME;
-$modversion['version'] 			= '1.11';
+$modversion['version']			= '1.11';
 $modversion['date'] 			= '23 November 2011';
-$modversion['status'] 			= 'Final';
-$modversion['status_version'] 	= 'Final';
+$modversion['status']			= 'Final';
+$modversion['status_version']	= 'Final';
 $modversion['description'] 		= _MI_IMLINKS_DESC;
-$modversion['license'] 			= _MI_IMLINKS_ABOUTLICENSE;
-$modversion['image'] 			= 'images/imlinks_ilogo.png'; 		// standard XOOPS icon, 92x52 px  
-$modversion['iconsmall'] 		= 'images/imlinks_iconsmall.png'; 	// small icon for ImpressCMS, 16x16 px 
-$modversion['iconbig'] 			= 'images/imlinks_iconbig.png'; 	// big icon for ImpressCMS, 37x35 px
-$modversion['dirname'] 			= $mydirname;
+$modversion['license']			= _MI_IMLINKS_ABOUTLICENSE;
+$modversion['image']			= 'images/imlinks_ilogo.png'; 		// standard XOOPS icon, 92x52 px  
+$modversion['iconsmall']		= 'images/imlinks_iconsmall.png'; 	// small icon for ImpressCMS, 16x16 px 
+$modversion['iconbig']			= 'images/imlinks_iconbig.png'; 	// big icon for ImpressCMS, 37x35 px
+$modversion['dirname']			= $mydirname;
 
-$modversion['author'] 			= 'Version developer: John N';
-$modversion['credits'] 			= '<b>WF-Projects Team:</b> Based on WF-Links, thanks to the dream-team for some code snippits. Team members: amayer, bender, david, dqflyer, draven, frankblack, gladiac, hervet, jackj, mercibe, John N, phppp, predator, reliableSol, tom, xpider, xtheme.';
-$modversion['author_website_url'] 	= 'http://code.google.com/p/mcdonaldsstore/downloads/list';
-$modversion['author_website_name'] 	= 'McDonalds Store';
+$modversion['author']			= 'Version developer: John N';
+$modversion['credits']			= '<b>WF-Projects Team:</b> Based on WF-Links, thanks to the dream-team for some code snippits. Team members: amayer, bender, david, dqflyer, draven, frankblack, gladiac, hervet, jackj, mercibe, John N, phppp, predator, reliableSol, tom, xpider, xtheme.';
+$modversion['author_website_url']	= 'http://code.google.com/p/mcdonaldsstore/downloads/list';
+$modversion['author_website_name']	= 'McDonalds Store';
 
 $modversion['support_site_url'] = 'http://community.impresscms.org/modules/newbb/viewforum.php?forum=9';
 $modversion['support_site_name']= 'ImpressCMS Community Forum - Modules Support';
 
-// 	** Contributors **
+// ** Contributors **
 $modversion['people']['developers'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a>&nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
 $modversion['people']['testers'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a>';
 $modversion['people']['testers'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>';
 $modversion['people']['testers'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=480" target="_blank">algalochkin</a>';
 
-//   ** Translators **
+// ** Translators **
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a> (German)';
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>  (Portuguese-Brazil)';
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=97" target="_blank">debianus</a> (Spanish)';
@@ -73,17 +73,17 @@ $modversion['people']['translators'][] = '&middot; <a href="http://community.imp
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=953" target="_blank">hisapapa</a> (Japanese)';
 $modversion['people']['translators'][] = '&middot; <a href="http://www.frxoops.org/userinfo.php?uid=18073" target="_blank">Burning</a> (French)';
 
-//   ** Other contributors **
+// ** Other contributors **
 $modversion['people']['other'][] = '&middot; <a href="http://www.bitfolge.de" target="_blank">Kai Blankenhorn</a> (vCard script)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.masugadesign.com" target="_blank">Ryan Masuga</a> (AJAX Rating Bars)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.p51labs.com/lightwindow/" target="_blank">Kevin Miller</a> (LightWindow)';
 $modversion['people']['other'][] = '&middot; <a href="http://orangoo.com/labs/GreyBox/" target="_blank">Orangoo Labs</a> (GreyBox)';
 
-//	** If Release Candidate **
+// ** If Release Candidate **
 // $modversion['warning'] = _MODABOUT_IMLINKS_WARNING_RC;
 
-//	** If Final  **
+// ** If Final  **
 $modversion['warning'] = _MODABOUT_IMLINKS_WARNING_FINAL;
 
 // Sql file (must contain sql generated by phpMyAdmin or phpPgAdmin)
@@ -178,15 +178,15 @@ $module_handler = icms::handler( 'icms_module' );
 $module = &$module_handler -> getByDirname( $modversion['dirname'] );
 $cansubmit = 0;
 if ( is_object( $module ) ) {
-    $groups = ( is_object( icms::$user ) ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-    $gperm_handler = icms::handler('icms_member_groupperm');
-    if ( $gperm_handler -> checkRight( 'imLinkSubPerm', 0, $groups, $module -> getVar( 'mid' ) ) ) {
-        $cansubmit = 1;
-    } 
+	$groups = ( is_object( icms::$user ) ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
+	$gperm_handler = icms::handler('icms_member_groupperm');
+	if ( $gperm_handler -> checkRight( 'imLinkSubPerm', 0, $groups, $module -> getVar( 'mid' ) ) ) {
+		$cansubmit = 1;
+	}
 } 
 if ( $cansubmit == 1 ) {
-    $modversion['sub'][0]['name'] = _MI_IMLINKS_SMNAME1;
-    $modversion['sub'][0]['url'] = 'submit.php';
+	$modversion['sub'][0]['name'] = _MI_IMLINKS_SMNAME1;
+	$modversion['sub'][0]['url'] = 'submit.php';
 } 
 unset( $cansubmit );
 
@@ -255,13 +255,13 @@ $modversion['templates'][] = array(
 
 // Module config setting
 $modversion['config'][] = array(
-	'name' 			=> 'popular',
+	'name'			=> 'popular',
 	'title' 		=> '_MI_IMLINKS_POPULAR',
-	'description' 	=> '_MI_IMLINKS_POPULARDSC',
-	'formtype' 		=> 'select',
+	'description'	=> '_MI_IMLINKS_POPULARDSC',
+	'formtype'		=> 'select',
 	'valuetype' 	=> 'int',
-	'default' 		=> 100,
-	'options' 		=> array( '5' => 5, '10' => 10, '50' => 50, '100' => 100, '200' => 200, '500' => 500, '1000' => 1000, '1500' => 1500, '2000' => 2000 ) );
+	'default'		=> 100,
+	'options'		=> array( '5' => 5, '10' => 10, '50' => 50, '100' => 100, '200' => 200, '500' => 500, '1000' => 1000, '1500' => 1500, '2000' => 2000 ) );
 
 $modversion['config'][] = array(
 	'name'			=> 'displayicons',
@@ -313,16 +313,16 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
 	'default'		=> 'title ASC',
-	'options'		=> array( '_MI_IMLINKS_TITLE_A' => 'title ASC',
-                             '_MI_IMLINKS_TITLE_D' => 'title DESC',
-                             '_MI_IMLINKS_SUBMITTED_A' => 'published ASC',
-                             '_MI_IMLINKS_SUBMITTED_D' => 'published DESC',
-                             '_MI_IMLINKS_RATING_A' => 'rating ASC',
-                             '_MI_IMLINKS_RATING_D' => 'rating DESC',
-                             '_MI_IMLINKS_POPULARITY_A' => 'hits ASC',
-                             '_MI_IMLINKS_POPULARITY_D' => 'hits DESC',
-                             '_MI_IMLINKS_COUNTRY_A' => 'country ASC',
-                             '_MI_IMLINKS_COUNTRY_D' => 'country DESC' ) );
+	'options'		=> array(	'_MI_IMLINKS_TITLE_A' => 'title ASC',
+								'_MI_IMLINKS_TITLE_D' => 'title DESC',
+								'_MI_IMLINKS_SUBMITTED_A' => 'published ASC',
+								'_MI_IMLINKS_SUBMITTED_D' => 'published DESC',
+								'_MI_IMLINKS_RATING_A' => 'rating ASC',
+								'_MI_IMLINKS_RATING_D' => 'rating DESC',
+								'_MI_IMLINKS_POPULARITY_A' => 'hits ASC',
+								'_MI_IMLINKS_POPULARITY_D' => 'hits DESC',
+								'_MI_IMLINKS_COUNTRY_A' => 'country ASC',
+								'_MI_IMLINKS_COUNTRY_D' => 'country DESC' ) );
 
 $modversion['config'][] = array(
 	'name'			=> 'sortcats',
@@ -475,8 +475,8 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'int',
 	'default'		=> 0,
-	'options'		=> array( 'Thumbshots.org'  => 0,
-							  'Mozshot' 		=> 1 ) );
+	'options'		=> array(	'Thumbshots.org'	=> 0,
+								'Mozshot'			=> 1 ) );
 
 $modversion['config'][] = array(
 	'name'			=> 'mainimagedir',
@@ -551,8 +551,8 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'int',
 	'default'		=> 0,
 	'options'		=> array(	_MI_IMLINKS_DEFAULT => 0,
-								'LightWindow' 		=> 1,
-								'GreyBox' 			=> 2 ) );
+								'LightWindow'		=> 1,
+								'GreyBox'			=> 2 ) );
 
 $modversion['config'][] = array(
 	'name'			=> 'otherlinks',

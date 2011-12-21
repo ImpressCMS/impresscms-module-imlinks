@@ -28,11 +28,11 @@
 include '../../mainfile.php';
 $com_itemid = isset( $_GET['com_itemid'] ) ? intval( $_GET['com_itemid'] ) : 0;
 if ( $com_itemid > 0 ) {
-    // Get file title
-    $sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $com_itemid;
-    $result = icms::$xoopsDB -> query( $sql );
-    $row = icms::$xoopsDB -> fetchArray( $result );
-    $com_replytitle = $row['title'];
-    include ICMS_ROOT_PATH . '/include/comment_new.php';
+	// Get file title
+	$sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $com_itemid;
+	$result = icms::$xoopsDB -> query( $sql );
+	$row = icms::$xoopsDB -> fetchArray( $result );
+	$com_replytitle = $row['title'];
+	include ICMS_ROOT_PATH . '/include/comment_new.php';
 }
 ?>

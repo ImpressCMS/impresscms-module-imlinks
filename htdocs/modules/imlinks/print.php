@@ -6,18 +6,18 @@
 *
 * File: print.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -53,7 +53,7 @@ if ( icms::$module -> config['screenshot'] ) {
 		}
 	} elseif ( !$myrow['screenshot'] == '' ) {
 		$xoopsTpl -> assign( 'printscrshot', '<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] .'/'. $myrow['screenshot'] . '" alt="" title="" border="0" />' );
-	}		
+	}
 }
 
 $description = $myrow['description'];
@@ -64,55 +64,55 @@ $xoopsTpl -> assign( 'printfooter', icms::$module -> config['footerprint'] );
 $xoopsTpl -> assign( 'lang_category', _MD_IMLINKS_CATEGORY );
 
 if ( icms::$module -> config['printlogourl'] ) {
-  $xoopsTpl -> assign( 'printlogo', '<img src="' . icms::$module -> config['printlogourl'] . '" alt="" title="" border="0" />' );
+	$xoopsTpl -> assign( 'printlogo', '<img src="' . icms::$module -> config['printlogourl'] . '" alt="" title="" border="0" />' );
 } else {
-  $xoopsTpl -> assign( 'printlogo', '' );
+	$xoopsTpl -> assign( 'printlogo', '' );
 }
 
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/address.php';
-$street1 = $myrow['street1'];
-$street2 = $myrow['street2'];
-$town    = $myrow['town'];
-$state   = $myrow['state'];
-$zip     = $myrow['zip'];
-$tel     = $myrow['tel'];
-$mobile  = $myrow['mobile'];
-$voip    = $myrow['voip'];
-$fax     = $myrow['fax'];
-$url     = $myrow['url'];
-$email   = iml_printemailcnvrt( $myrow['email'] );
-$country = iml_countryname( $myrow['country'] );
+$street1	= $myrow['street1'];
+$street2	= $myrow['street2'];
+$town		= $myrow['town'];
+$state		= $myrow['state'];
+$zip		= $myrow['zip'];
+$tel		= $myrow['tel'];
+$mobile		= $myrow['mobile'];
+$voip		= $myrow['voip'];
+$fax		= $myrow['fax'];
+$url		= $myrow['url'];
+$email		= iml_printemailcnvrt( $myrow['email'] );
+$country	= iml_countryname( $myrow['country'] );
 
 if ( $street1 == '' || $town == '' || icms::$module -> config['useaddress'] == 0 ) {
-  $print['addryn'] = 0;
+	$print['addryn'] = 0;
 } else {
-  $print['addryn'] = 1;
-  $print['address'] = '<br />' . iml_address( $street1, $street2, $town, $state, $zip, $myrow['country'] ) . '<br />' . $country;
-  
-   if ( $myrow['tel'] == true ) {
-    $print['tel'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/telephone.png" title="'._MD_IMLINKS_TELEPHONE.'" alt="'._MD_IMLINKS_TELEPHONE.'" style="vertical-align: middle;" />&nbsp;' . $tel;
-  }
+	$print['addryn'] = 1;
+	$print['address'] = '<br />' . iml_address( $street1, $street2, $town, $state, $zip, $myrow['country'] ) . '<br />' . $country;
 
-  if ( $myrow['mobile'] == true ) {
-    $print['mobile'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/phone.png" title="'._MD_IMLINKS_MOBILE.'" alt="'._MD_IMLINKS_MOBILE.'" style="vertical-align: middle;" />&nbsp;' . $mobile;
-  }
+	if ( $myrow['tel'] == true ) {
+		$print['tel'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/telephone.png" title="'._MD_IMLINKS_TELEPHONE.'" alt="'._MD_IMLINKS_TELEPHONE.'" style="vertical-align: middle;" />&nbsp;' . $tel;
+	}
 
-  if ( $myrow['voip'] == true ) {
-    $print['voip'] = '<br />' .'<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/voip.png" title="'._MD_IMLINKS_VOIP.'" alt="'._MD_IMLINKS_VOIP.'" style="vertical-align: middle;" />&nbsp;'  . $voip;
-  }
+	if ( $myrow['mobile'] == true ) {
+		$print['mobile'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/phone.png" title="'._MD_IMLINKS_MOBILE.'" alt="'._MD_IMLINKS_MOBILE.'" style="vertical-align: middle;" />&nbsp;' . $mobile;
+	}
 
-  if ( $myrow['fax'] == true ) {
-    $print['fax'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/fax.png" title="'._MD_IMLINKS_FAX.'" alt="'._MD_IMLINKS_FAX.'" style="vertical-align: middle;" />&nbsp;' . $fax;
-  }
+	if ( $myrow['voip'] == true ) {
+		$print['voip'] = '<br />' .'<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/voip.png" title="'._MD_IMLINKS_VOIP.'" alt="'._MD_IMLINKS_VOIP.'" style="vertical-align: middle;" />&nbsp;'  . $voip;
+	}
 
-  if ( $myrow['email'] == true ) {
-    $print['email'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" title="'._MD_IMLINKS_EMAIL . '" alt="' ._MD_IMLINKS_EMAIL.'" style="vertical-align: middle;" />&nbsp;' . $email;
-  }
+	if ( $myrow['fax'] == true ) {
+		$print['fax'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/fax.png" title="'._MD_IMLINKS_FAX.'" alt="'._MD_IMLINKS_FAX.'" style="vertical-align: middle;" />&nbsp;' . $fax;
+	}
 
-  if ( $myrow['vat'] == true ) {
-    $print['vat'] = '<br />' . _MD_IMLINKS_VAT . ':&nbsp;' . $vat;
-  }
-  }
+	if ( $myrow['email'] == true ) {
+		$print['email'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" title="'._MD_IMLINKS_EMAIL . '" alt="' ._MD_IMLINKS_EMAIL.'" style="vertical-align: middle;" />&nbsp;' . $email;
+	}
+
+	if ( $myrow['vat'] == true ) {
+		$print['vat'] = '<br />' . _MD_IMLINKS_VAT . ':&nbsp;' . $vat;
+	}
+}
 $xoopsTpl -> assign( 'print', $print );
 
 $xoopsTpl -> assign( 'worldwideweb', $url );

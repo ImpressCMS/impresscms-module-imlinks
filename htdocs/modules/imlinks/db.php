@@ -1,10 +1,10 @@
 <?php
 /*
-Page:           db.php
-Created:        Aug 2006
-Last Mod:       Mar 18 2007
+Page:			db.php
+Created:		Aug 2006
+Last Mod:		Mar 18 2007
 This page handles the database update if the user
-does NOT have Javascript enabled.	
+does NOT have Javascript enabled.
 --------------------------------------------------------- 
 ryan masuga, masugadesign.com
 ryan@masugadesign.com 
@@ -21,7 +21,7 @@ $id_sent = preg_replace( "/[^0-9a-zA-Z]/", '', $_REQUEST['q'] );
 $ip_num = preg_replace( "/[^0-9\.]/", '', $_REQUEST['t'] );
 $units = 5;
 $ip = getenv( 'REMOTE_ADDR' );
-$referer  = $_SERVER['HTTP_REFERER'];
+$referer = $_SERVER['HTTP_REFERER'];
 
 if ( $vote_sent > $units ) die( _MD_IMLINKS_INVALIDVOTE ); // kill the script because normal users will never see this.
 

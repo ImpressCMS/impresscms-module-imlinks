@@ -6,37 +6,37 @@
 *
 * File: visit.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
 
 include 'header.php';
 
-$agreed = intval( iml_cleanRequestVars( $_REQUEST, 'agree', 0 ) );
-$lid    = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
+$agreed	= intval( iml_cleanRequestVars( $_REQUEST, 'agree', 0 ) );
+$lid	= intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
 $sql3 = 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
 list( $cid ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql3 ) );
 
 if ( $cid == '' ) {
-    redirect_header( 'index.php', 1, '' );
-    exit();
+	redirect_header( 'index.php', 1, '' );
+	exit();
 } 
 
 $sql2 = 'SELECT count(*) FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
@@ -48,9 +48,9 @@ $sql2 = 'SELECT count(*) FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . 
 list( $count ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql2 ) );
 
 if ( false == iml_checkgroups( $cid ) && $count == 0 ) {
-    redirect_header( 'index.php', 1, _MD_IMLINKS_MUSTREGFIRST );
-    exit();
-} 
+	redirect_header( 'index.php', 1, _MD_IMLINKS_MUSTREGFIRST );
+	exit();
+}
 
 if ( icms::$module -> config['showlinkdisclaimer'] && $agreed == 0 ) {
 	if ( icms::$module -> config['quickview'] ) {
@@ -82,37 +82,37 @@ if ( icms::$module -> config['showlinkdisclaimer'] && $agreed == 0 ) {
 		exit();
 	}
 } else {
-    $url = '';
-    $sql = 'UPDATE ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' SET hits=hits+1 WHERE lid=' . intval( $lid );
-    $result = icms::$xoopsDB -> queryF( $sql );
+	$url = '';
+	$sql = 'UPDATE ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' SET hits=hits+1 WHERE lid=' . intval( $lid );
+	$result = icms::$xoopsDB -> queryF( $sql );
 
-    $sql = 'SELECT url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid );
-    if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
-        echo '<br /><div style="text-align: center;">' . iml_imageheader() . '</div>';
-        reportBroken( $lid );
-    } else {
-        list( $url ) = icms::$xoopsDB -> fetchRow( $result );
-        $url = $immyts -> htmlSpecialCharsStrip( preg_replace( '/javascript:/si' , 'java script:', $url ), ENT_QUOTES );
-    } 
+	$sql = 'SELECT url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid );
+	if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
+		echo '<br /><div style="text-align: center;">' . iml_imageheader() . '</div>';
+		reportBroken( $lid );
+	} else {
+		list( $url ) = icms::$xoopsDB -> fetchRow( $result );
+		$url = $immyts -> htmlSpecialCharsStrip( preg_replace( '/javascript:/si' , 'java script:', $url ), ENT_QUOTES );
+	}
 
-    if ( !empty( $url ) ) {
-        header( "Cache-Control: no-store, no-cache, must-revalidate" );
-        header( "Cache-Control: post-check=0, pre-check=0", false ); 
-        // HTTP/1.0
-        header( "Pragma: no-cache" ); 
-        // Date in the past
-        header( "Expires: Mon, 26 Jul 1997 05:00:00 GMT" ); 
-        // always modified
-        header( "Last-Modified: " . gmdate( "D, d M Y H:i:s" ) . " GMT" );
+	if ( !empty( $url ) ) {
+		header( "Cache-Control: no-store, no-cache, must-revalidate" );
+		header( "Cache-Control: post-check=0, pre-check=0", false );
+		// HTTP/1.0
+		header( "Pragma: no-cache" );
+		// Date in the past
+		header( "Expires: Mon, 26 Jul 1997 05:00:00 GMT" );
+		// always modified
+		header( "Last-Modified: " . gmdate( "D, d M Y H:i:s" ) . " GMT" );
 		switch( icms::$module -> config['lightwindow'] ) {
-			case 0:		// Open link in new browser tab/window
+			case 0: // Open link in new browser tab/window
 				echo "<html><head><meta http-equiv=\"Refresh\" content=\"0; URL=" . $url . "\"></meta></head><body></body></html>";
 				break;
-			case 1:		// Open link in LightWindow
-			case 2:		// Open link in GreyBox
+			case 1: // Open link in LightWindow
+			case 2: // Open link in GreyBox
 				echo '<iframe src="' . $url . '" width="100%" height="100%"></iframe>';
 				break;
 		}
-    } 
-} 
+	}
+}
 ?>
