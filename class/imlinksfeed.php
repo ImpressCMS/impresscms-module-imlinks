@@ -3,10 +3,10 @@
 *
 * Module RSS Feed Class 
 *
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project 
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project 
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * @package		core
-* @since			1.1
+* @since		1.1
 * @author		Ignacio Segura, "Nachenko"
 * @version		$Id: icmsfeed.php 6991 2008-11-16 20:37:32Z mcdonald3072 $
 */
@@ -60,7 +60,7 @@ class imLinksFeed {
 		icms::$logger->disableLogger();
 
 		$xoopsOption['template_main'] = "db:imlinks_rss.html";
-		
+
 		$tpl = new icms_view_Tpl();
 		$tpl -> assign( 'channel_title', $this -> title );
 		$tpl -> assign( 'channel_link', $this -> url );

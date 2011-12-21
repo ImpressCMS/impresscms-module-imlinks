@@ -12,11 +12,11 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
+* 				WF-Links
 * @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
@@ -27,10 +27,10 @@
 */
 
 class imlTextSanitizer extends MyTextSanitizer {
-    function imlTextSanitizer() {} 
+	function imlTextSanitizer() {}
 
 	function htmlSpecialCharsStrip( $text ) {
 		return icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $text) );
-    } 
-} 
+	}
+}
 ?>

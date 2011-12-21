@@ -12,7 +12,7 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
@@ -26,86 +26,80 @@
 * @version		$Id$
 */
 
-if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); } 
+if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 
 function iml_checkgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = false ) {
-    $groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-    $gperm_handler = icms::handler('icms_member_groupperm');
-    if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, icms::$module -> getVar( 'mid' ) ) ) {
-        if ( $redirect == false ) {
-            return false;
-        } else {
-            redirect_header( 'index.php', 3, _NOPERM );
-            exit();
-        } 
-    } 
-    return true;
+	$groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
+	$gperm_handler = icms::handler('icms_member_groupperm');
+	if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, icms::$module -> getVar( 'mid' ) ) ) {
+		if ( $redirect == false ) {
+			return false;
+		} else {
+			redirect_header( 'index.php', 3, _NOPERM );
+			exit();
+		}
+	}
+	return true;
 } 
 
 function iml_getVoteDetails( $lid = 0 ) {
-    $sql = 'SELECT total_votes AS total_votes, total_value AS total_value FROM ' . icms::$xoopsDB -> prefix( 'imlinks_ratings' );
-    if ( $lid > 0 ) {
-        $sql .= ' WHERE id=' . $lid;
-    } 
-    if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
-        return false;
-    } 
-    $ret = icms::$xoopsDB -> fetchArray( $result );
-    return $ret;
-} 
+	$sql = 'SELECT total_votes AS total_votes, total_value AS total_value FROM ' . icms::$xoopsDB -> prefix( 'imlinks_ratings' );
+	if ( $lid > 0 ) { $sql .= ' WHERE id=' . $lid; }
+	if ( !$result = icms::$xoopsDB -> query( $sql ) ) { return false; }
+	$ret = icms::$xoopsDB -> fetchArray( $result );
+	return $ret;
+}
 
 function iml_cleanRequestVars( &$array, $name = null, $def = null, $strict = false, $lengthcheck = 15 ) {
 	// Sanitise $_request for further use.  This method gives more control and security.
 	// Method is more for functionality rather than beauty at the moment, will correct later.
-    unset( $array['usercookie'] );
-    unset( $array['PHPSESSID'] );
-    if ( is_array( $array ) && $name == null ) {
-        $globals = array();
-        foreach ( array_keys( $array ) as $k ) {
-            $value = strip_tags( trim( $array[$k] ) );
-            if ( strlen( $value >= $lengthcheck ) ) {
-                return null;
-            } 
-            if ( ctype_digit( $value ) ) {
-                $value = intval( $value );
-            } else  {
-                if ( $strict == true ) {
-                    $value = preg_replace( '/\W/', '', trim( $value ) );
-                } 
-                $value = strtolower( strval( $value ) );
-            } 
-            $globals[$k] = $value;
-        } 
-        return $globals;
-    } 
-    if ( !isset( $array[$name] ) || !array_key_exists( $name, $array ) ) {
-        return $def;
-    } else {
-        $value = strip_tags( trim( $array[$name] ) );
-    } 
-    if ( ctype_digit( $value ) ) {
-        $value = intval( $value );
-    } else {
-        if ( $strict == true ) {
-            $value = preg_replace( '/\W/', '', trim( $value ) );
-        } 
-        $value = strtolower( strval( $value ) );
-    } 
-    return $value;
-} 
+	unset( $array['usercookie'] );
+	unset( $array['PHPSESSID'] );
+	if ( is_array( $array ) && $name == null ) {
+		$globals = array();
+		foreach ( array_keys( $array ) as $k ) {
+			$value = strip_tags( trim( $array[$k] ) );
+			if ( strlen( $value >= $lengthcheck ) ) { return null; }
+			if ( ctype_digit( $value ) ) {
+				$value = intval( $value );
+			} else  {
+				if ( $strict == true ) {
+					$value = preg_replace( '/\W/', '', trim( $value ) );
+				}
+				$value = strtolower( strval( $value ) );
+			}
+			$globals[$k] = $value;
+		}
+		return $globals;
+	}
+	if ( !isset( $array[$name] ) || !array_key_exists( $name, $array ) ) {
+		return $def;
+	} else {
+		$value = strip_tags( trim( $array[$name] ) );
+	}
+	if ( ctype_digit( $value ) ) {
+		$value = intval( $value );
+	} else {
+		if ( $strict == true ) {
+			$value = preg_replace( '/\W/', '', trim( $value ) );
+		}
+		$value = strtolower( strval( $value ) );
+	}
+	return $value;
+}
 
 // toolbar()
 // @return
 function iml_toolbar( $cid = 0 ) {
 	$toolbar = '<a class="button" href="index.php">' . _MD_IMLINKS_MAIN . '</a> ';
-    if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
-        $toolbar .= '<a class="button" href="submit.php">' . _MD_IMLINKS_SUBMITLINK . '</a> ';
-    }
-    $toolbar .= '<a class="button" href="newlist.php?newlinkshowdays=7">' . _MD_IMLINKS_LATESTLIST . '</a> ';
+	if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
+		$toolbar .= '<a class="button" href="submit.php">' . _MD_IMLINKS_SUBMITLINK . '</a> ';
+	}
+	$toolbar .= '<a class="button" href="newlist.php?newlinkshowdays=7">' . _MD_IMLINKS_LATESTLIST . '</a> ';
 	$toolbar .= '<a class="button" href="topten.php?list=hit">' . _MD_IMLINKS_POPULARITY . '</a> ';
 	$toolbar .= '<a class="button" href="topten.php?list=rate">' . _MD_IMLINKS_TOPRATEDBUTT . '</a>';
-    return $toolbar;
-}  
+	return $toolbar;
+}
 
 // iml_displayicons()
 // @param  $time
@@ -113,36 +107,36 @@ function iml_toolbar( $cid = 0 ) {
 // @param integer $counter
 // @return
 function iml_displayicons( $time, $status = 0, $counter = 0 ) {
-    $new = '';
-    $pop = '';
-    $newdate = ( time() - ( 86400 * intval( icms::$module -> config['daysnew'] ) ) );
-    $popdate = ( time() - ( 86400 * intval( icms::$module -> config['daysupdated'] ) ) ) ;
-    if ( icms::$module -> config['displayicons'] != 3 ) {
-        if ( $newdate < $time ) {
-            if ( intval( $status ) > 1 ) {
-                if ( icms::$module -> config['displayicons'] == 1 )
-                    $new = '&nbsp;<span class="minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/error.png" alt="" style="vertical-align: middle; padding-bottom: 2px;" />&nbsp;' . _MD_IMLINKS_UPDATED . "</span>";
-                if ( icms::$module -> config['displayicons'] == 2 )
-                    $new = '<i>' . _MD_IMLINKS_UPDATED . '</i>';
-            } else {
-                if ( icms::$module -> config['displayicons'] == 1 )
-                    $new = '&nbsp;<span class="minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/flag_blue.png" alt="" style="vertical-align: middle; padding-bottom: 2px;" />&nbsp;' . _MD_IMLINKS_NEW . "</span>";
-                if ( icms::$module -> config['displayicons'] == 2 )
-                    $new = '<i>' . _MD_IMLINKS_NEW . '</i>';
-            }
-        } 
-        if ( $popdate > $time ) {
-            if ( $counter >= icms::$module -> config['popular'] ) {
-                if ( icms::$module -> config['displayicons'] == 1 )
-                    $pop = '&nbsp;<span class="minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/star.png" alt="" style="vertical-align: middle; padding-bottom: 2px;" />&nbsp;' . _MD_IMLINKS_POPULAR2 . "</span>";
-                if ( icms::$module -> config['displayicons'] == 2 )
-                    $pop = '<i>' . _MD_IMLINKS_POPULAR2 . '</i>';
-            } 
-        } 
-    } 
-    $icons = $new . ' ' . $pop;
-    return $icons;
-} 
+	$new = '';
+	$pop = '';
+	$newdate = ( time() - ( 86400 * intval( icms::$module -> config['daysnew'] ) ) );
+	$popdate = ( time() - ( 86400 * intval( icms::$module -> config['daysupdated'] ) ) ) ;
+	if ( icms::$module -> config['displayicons'] != 3 ) {
+		if ( $newdate < $time ) {
+			if ( intval( $status ) > 1 ) {
+				if ( icms::$module -> config['displayicons'] == 1 )
+					$new = '&nbsp;<span class="minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/error.png" alt="" style="vertical-align: middle; padding-bottom: 2px;" />&nbsp;' . _MD_IMLINKS_UPDATED . "</span>";
+				if ( icms::$module -> config['displayicons'] == 2 )
+					$new = '<i>' . _MD_IMLINKS_UPDATED . '</i>';
+			} else {
+				if ( icms::$module -> config['displayicons'] == 1 )
+					$new = '&nbsp;<span class="minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/flag_blue.png" alt="" style="vertical-align: middle; padding-bottom: 2px;" />&nbsp;' . _MD_IMLINKS_NEW . "</span>";
+				if ( icms::$module -> config['displayicons'] == 2 )
+					$new = '<i>' . _MD_IMLINKS_NEW . '</i>';
+			}
+		}
+		if ( $popdate > $time ) {
+			if ( $counter >= icms::$module -> config['popular'] ) {
+				if ( icms::$module -> config['displayicons'] == 1 )
+					$pop = '&nbsp;<span class="minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/star.png" alt="" style="vertical-align: middle; padding-bottom: 2px;" />&nbsp;' . _MD_IMLINKS_POPULAR2 . "</span>";
+				if ( icms::$module -> config['displayicons'] == 2 )
+					$pop = '<i>' . _MD_IMLINKS_POPULAR2 . '</i>';
+			}
+		}
+	}
+	$icons = $new . ' ' . $pop;
+	return $icons;
+}
 
 // Reusable Link Sorting Functions
 // iml_convertorderbyin()
@@ -217,36 +211,36 @@ function iml_convertorderbyout( $orderby ) {
 // @param  $sel_id
 // @return updates rating data in itemtable for a given item
 function iml_updaterating( $sel_id ) {
-    $query = 'SELECT rating FROM ' . icms::$xoopsDB -> prefix( 'imlinks_votedata' ) . ' WHERE lid=' . $sel_id;
-    $voteresult = icms::$xoopsDB -> query( $query );
-    $votesDB = icms::$xoopsDB -> getRowsNum( $voteresult );
-    $totalrating = 0;
-    while ( list( $rating ) = icms::$xoopsDB -> fetchRow( $voteresult ) ) {
-        $totalrating += $rating;
-    } 
-    $finalrating = $totalrating / $votesDB;
-    $finalrating = number_format( $finalrating, 4 );
-    $sql = sprintf( 'UPDATE %s SET rating = %u, votes = %u WHERE lid = %u', icms::$xoopsDB -> prefix( 'imlinks_links' ), $finalrating, $votesDB, $sel_id );
-    icms::$xoopsDB -> query( $sql );
-} 
+	$query = 'SELECT rating FROM ' . icms::$xoopsDB -> prefix( 'imlinks_votedata' ) . ' WHERE lid=' . $sel_id;
+	$voteresult = icms::$xoopsDB -> query( $query );
+	$votesDB = icms::$xoopsDB -> getRowsNum( $voteresult );
+	$totalrating = 0;
+	while ( list( $rating ) = icms::$xoopsDB -> fetchRow( $voteresult ) ) {
+		$totalrating += $rating;
+	}
+	$finalrating = $totalrating / $votesDB;
+	$finalrating = number_format( $finalrating, 4 );
+	$sql = sprintf( 'UPDATE %s SET rating = %u, votes = %u WHERE lid = %u', icms::$xoopsDB -> prefix( 'imlinks_links' ), $finalrating, $votesDB, $sel_id );
+	icms::$xoopsDB -> query( $sql );
+}
 
 // totalcategory()
 // @param integer $pid
 // @return
 function iml_totalcategory( $pid = 0 ) {
-    $sql = 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' );
-    if ( $pid > 0 ) {
-        $sql .= ' WHERE pid=0';
-    } 
-    $result = icms::$xoopsDB -> query( $sql );
-    $catlisting = 0;
-    while ( list( $cid ) = icms::$xoopsDB -> fetchRow( $result ) ) {
-        if ( iml_checkgroups( $cid ) ) {
-            $catlisting++;
-        } 
-    } 
-    return $catlisting;
-} 
+	$sql = 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' );
+	if ( $pid > 0 ) {
+	$sql .= ' WHERE pid=0';
+	}
+	$result = icms::$xoopsDB -> query( $sql );
+	$catlisting = 0;
+	while ( list( $cid ) = icms::$xoopsDB -> fetchRow( $result ) ) {
+		if ( iml_checkgroups( $cid ) ) {
+			$catlisting++;
+		} 
+	}
+	return $catlisting;
+}
 
 // iml_getTotalItems()
 // @param integer $sel_id
@@ -254,163 +248,163 @@ function iml_totalcategory( $pid = 0 ) {
 // @param integer $return_sql
 // @return
 function iml_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 ) {
-   global $mytree;
-    if ( $sel_id > 0 ) {
-        $sql = 'SELECT a.lid, a.cid, a.published FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
-         . icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . ' b ON b.lid=a.lid'
-         . ' WHERE a.published>0 AND a.published<=' . time()
-         . ' AND (a.expired=0 OR a.expired>' . time() . ') AND offline=0'
-         . ' AND (b.cid=a.cid OR (a.cid=' . $sel_id . ' OR b.cid=' . $sel_id . '))'
-		 . ' GROUP BY a.lid, a.cid, a.published';
-    } else {
-        $sql = 'SELECT lid, cid, published FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE offline=0 AND published>0 AND published<=' . time() . ' AND (expired=0 OR expired>' . time() . ')';
-    } 
-    if ( $return_sql == 1 ) {
-        return $sql;
-    } 
-    $count = 0;
-    $published_date = 0;
-    $arr = array();
-    $result = icms::$xoopsDB -> query( $sql );
-    while ( list( $lid, $cid, $published ) = icms::$xoopsDB -> fetchRow( $result ) ) {
-        if ( true == iml_checkgroups() ) {
-            $count++;
-            $published_date = ( $published > $published_date ) ? $published : $published_date;
-        } 
-    } 
-    $child_count = 0;
-    if ( $get_child == 1 ) {
-        $arr = $mytree -> getAllChildId( $sel_id );
-        $size = count( $arr );
-        for( $i = 0; $i < count( $arr ); $i++ ) {
-            $query2 = 'SELECT a.lid, a.published, a.cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
-             . icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . ' b ON b.lid=a.lid'
-             . ' WHERE a.published>0 AND a.published<=' . time()
-             . ' AND (a.expired=0 OR a.expired>' . time() . ') AND offline=0'
-             . ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . ')) GROUP BY a.lid, a.published, a.cid';
-            $result2 = icms::$xoopsDB -> query( $query2 );
-            while ( list( $lid, $published ) = icms::$xoopsDB -> fetchRow( $result2 ) ) {
-                if ( $published == 0 ) {
-                    continue;
-                } 
-                $published_date = ( $published > $published_date ) ? $published : $published_date;
-                $child_count++;
-            } 
-        } 
-    } 
-    $info['count'] = $count + $child_count;
-    $info['published'] = $published_date;
-    return $info;
-} 
+	global $mytree;
+	if ( $sel_id > 0 ) {
+		$sql = 'SELECT a.lid, a.cid, a.published FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+			. icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . ' b ON b.lid=a.lid'
+			. ' WHERE a.published>0 AND a.published<=' . time()
+			. ' AND (a.expired=0 OR a.expired>' . time() . ') AND offline=0'
+			. ' AND (b.cid=a.cid OR (a.cid=' . $sel_id . ' OR b.cid=' . $sel_id . '))'
+			. ' GROUP BY a.lid, a.cid, a.published';
+	} else {
+		$sql = 'SELECT lid, cid, published FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE offline=0 AND published>0 AND published<=' . time() . ' AND (expired=0 OR expired>' . time() . ')';
+	}
+	if ( $return_sql == 1 ) {
+		return $sql;
+	}
+	$count = 0;
+	$published_date = 0;
+	$arr = array();
+	$result = icms::$xoopsDB -> query( $sql );
+	while ( list( $lid, $cid, $published ) = icms::$xoopsDB -> fetchRow( $result ) ) {
+		if ( true == iml_checkgroups() ) {
+			$count++;
+			$published_date = ( $published > $published_date ) ? $published : $published_date;
+		}
+	}
+	$child_count = 0;
+	if ( $get_child == 1 ) {
+		$arr = $mytree -> getAllChildId( $sel_id );
+		$size = count( $arr );
+		for( $i = 0; $i < count( $arr ); $i++ ) {
+			$query2 = 'SELECT a.lid, a.published, a.cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' a LEFT JOIN '
+				. icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . ' b ON b.lid=a.lid'
+				. ' WHERE a.published>0 AND a.published<=' . time()
+				. ' AND (a.expired=0 OR a.expired>' . time() . ') AND offline=0'
+				. ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . ')) GROUP BY a.lid, a.published, a.cid';
+			$result2 = icms::$xoopsDB -> query( $query2 );
+			while ( list( $lid, $published ) = icms::$xoopsDB -> fetchRow( $result2 ) ) {
+				if ( $published == 0 ) {
+					continue;
+				}
+				$published_date = ( $published > $published_date ) ? $published : $published_date;
+				$child_count++;
+			}
+		}
+	}
+	$info['count'] = $count + $child_count;
+	$info['published'] = $published_date;
+	return $info;
+}
 
 function iml_imageheader( $indeximage = '', $indexheading = '' ) {
-    if ( $indeximage == '' ) {
-        $result = icms::$xoopsDB -> query( 'SELECT indeximage, indexheading FROM ' . icms::$xoopsDB -> prefix( 'imlinks_indexpage' ) );
-        list( $indeximage, $indexheading ) = icms::$xoopsDB -> fetchrow( $result );
-    } 
-    $image = '';
-    if ( !empty( $indeximage ) ) {
-        $image = iml_displayimage( $indeximage, 'index.php', icms::$module -> config['mainimagedir'], $indexheading );
-    } 
-    return $image;
-} 
+	if ( $indeximage == '' ) {
+		$result = icms::$xoopsDB -> query( 'SELECT indeximage, indexheading FROM ' . icms::$xoopsDB -> prefix( 'imlinks_indexpage' ) );
+		list( $indeximage, $indexheading ) = icms::$xoopsDB -> fetchrow( $result );
+	}
+	$image = '';
+	if ( !empty( $indeximage ) ) {
+		$image = iml_displayimage( $indeximage, 'index.php', icms::$module -> config['mainimagedir'], $indexheading );
+	}
+	return $image;
+}
 
 function iml_displayimage( $image = '', $path = '', $imgsource = '', $alttext = '' ) {
-    $showimage = '';
-    // Check to see if link is given
-    if ( $path ) {
-        $showimage = '<a href=' . $path . '>';
-    } 
-    // checks to see if the file is valid else displays default blank image
-    if ( !is_dir( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) && file_exists( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) ) {
-        $showimage .= "<img src='" . ICMS_URL . "/{$imgsource}/{$image}' border='0' alt='" . $alttext . "' /></a>";
-    } else {
-        if ( icms::$user && icms::$user -> isAdmin( icms::$module -> getVar( 'mid' ) ) ) {
-            $showimage .= "<img src='" . ICMS_URL . "/modules/" . icms::$module -> getVar( 'dirname' ) . "/images/brokenimg.gif' alt='" . _MD_IMLINKS_ISADMINNOTICE . "' /></a>";
-        } else {
-            $showimage .= "<img src='" . ICMS_URL . "/modules/" . icms::$module -> getVar( 'dirname' ) . "/images/blank.gif' alt='" . $alttext . "' /></a>";
-        } 
-    } 
-    clearstatcache();
-    return $showimage;
-} 
+	$showimage = '';
+	// Check to see if link is given
+	if ( $path ) {
+		$showimage = '<a href=' . $path . '>';
+	}
+	// checks to see if the file is valid else displays default blank image
+	if ( !is_dir( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) && file_exists( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) ) {
+		$showimage .= "<img src='" . ICMS_URL . "/{$imgsource}/{$image}' border='0' alt='" . $alttext . "' /></a>";
+	} else {
+		if ( icms::$user && icms::$user -> isAdmin( icms::$module -> getVar( 'mid' ) ) ) {
+			$showimage .= "<img src='" . ICMS_URL . "/modules/" . icms::$module -> getVar( 'dirname' ) . "/images/brokenimg.gif' alt='" . _MD_IMLINKS_ISADMINNOTICE . "' /></a>";
+		} else {
+			$showimage .= "<img src='" . ICMS_URL . "/modules/" . icms::$module -> getVar( 'dirname' ) . "/images/blank.gif' alt='" . $alttext . "' /></a>";
+		}
+	}
+	clearstatcache();
+	return $showimage;
+}
 
 function iml_letters() {
-    $letterchoice = '<div style="padding: 2px; font-size: smaller;">' . _MD_IMLINKS_BROWSETOTOPIC . '</div>';
-    $alphabet = alfabet();
-    $num = count( $alphabet ) - 1;
-    $counter = 0;
-    while ( list( , $ltr ) = each( $alphabet ) ) {
-        $letterchoice .= '<a class="letters" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/viewcat.php?list=' . $ltr .'">' .$ltr . '</a>';
-        if ( $counter == round( $num / 2 ) )
-            $letterchoice .= '<br />';
-        elseif ( $counter != $num )
-            $letterchoice .= '&nbsp;';
-        $counter++;
-    } 
-    return $letterchoice;
+	$letterchoice = '<div style="padding: 2px; font-size: smaller;">' . _MD_IMLINKS_BROWSETOTOPIC . '</div>';
+	$alphabet = alfabet();
+	$num = count( $alphabet ) - 1;
+	$counter = 0;
+	while ( list( , $ltr ) = each( $alphabet ) ) {
+		$letterchoice .= '<a class="letters" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/viewcat.php?list=' . $ltr .'">' .$ltr . '</a>';
+		if ( $counter == round( $num / 2 ) )
+			$letterchoice .= '<br />';
+		elseif ( $counter != $num )
+			$letterchoice .= '&nbsp;';
+		$counter++;
+	}
+	return $letterchoice;
 }
 
 function iml_isnewimage( $published ) {
-    $oneday = ( time() - ( 86400 * 1 ) );
-    $threedays = ( time() - ( 86400 * 3 ) );
-    $week = ( time() - ( 86400 * 7 ) );
-    $path = 'modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon';
-    if ( $published > 0 && $published < $week ) {
-        $indicator['image'] = "$path/linkload4.png";
-        $indicator['alttext'] = _MD_IMLINKS_NEWLAST;
-    } elseif ( $published >= $week && $published < $threedays ) {
-        $indicator['image'] = "$path/linkload3.png";
-        $indicator['alttext'] = _MD_IMLINKS_NEWTHIS;
-    } elseif ( $published >= $threedays && $published < $oneday ) {
-        $indicator['image'] = "$path/linkload2.png";
-        $indicator['alttext'] = _MD_IMLINKS_THREE;
-    } elseif ( $published >= $oneday ) {
-        $indicator['image'] = "$path/linkload1.png";
-        $indicator['alttext'] = _MD_IMLINKS_TODAY;
-    } else {
-        $indicator['image'] = "$path/linkload.png";
-        $indicator['alttext'] = _MD_IMLINKS_NO_FILES;
-    } 
-    return $indicator;
-}  
+	$oneday = ( time() - ( 86400 * 1 ) );
+	$threedays = ( time() - ( 86400 * 3 ) );
+	$week = ( time() - ( 86400 * 7 ) );
+	$path = 'modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon';
+	if ( $published > 0 && $published < $week ) {
+		$indicator['image'] = "$path/linkload4.png";
+		$indicator['alttext'] = _MD_IMLINKS_NEWLAST;
+	} elseif ( $published >= $week && $published < $threedays ) {
+		$indicator['image'] = "$path/linkload3.png";
+		$indicator['alttext'] = _MD_IMLINKS_NEWTHIS;
+	} elseif ( $published >= $threedays && $published < $oneday ) {
+		$indicator['image'] = "$path/linkload2.png";
+		$indicator['alttext'] = _MD_IMLINKS_THREE;
+	} elseif ( $published >= $oneday ) {
+		$indicator['image'] = "$path/linkload1.png";
+		$indicator['alttext'] = _MD_IMLINKS_TODAY;
+	} else {
+		$indicator['image'] = "$path/linkload.png";
+		$indicator['alttext'] = _MD_IMLINKS_NO_FILES;
+	}
+	return $indicator;
+}
 
 function iml_strrrchr( $haystack, $needle ) {
-    return substr( $haystack, 0, strpos( $haystack, $needle ) + 1 );
-}  
+	return substr( $haystack, 0, strpos( $haystack, $needle ) + 1 );
+}
 
 function iml_getDirSelectOption( $selected, $dirarray, $namearray ) {
-    echo "<select size='1' name='workd' onchange='location.href=\"upload.php?rootpath=\"+this.options[this.selectedIndex].value'>";
-    echo '<option value="">--------------------------------------</option>';
-    foreach( $namearray as $namearray => $workd ) {
-        if ( $workd === $selected ) {
-            $opt_selected = 'selected';
-        } else {
-            $opt_selected = '';
-        } 
-        echo '<option value="' . htmlspecialchars( $namearray, ENT_QUOTES ) . '" $opt_selected>' . $workd . '</option>';
-    } 
-    echo '</select>';
-} 
+	echo "<select size='1' name='workd' onchange='location.href=\"upload.php?rootpath=\"+this.options[this.selectedIndex].value'>";
+	echo '<option value="">--------------------------------------</option>';
+	foreach( $namearray as $namearray => $workd ) {
+		if ( $workd === $selected ) {
+			$opt_selected = 'selected';
+		} else {
+			$opt_selected = '';
+		}
+	echo '<option value="' . htmlspecialchars( $namearray, ENT_QUOTES ) . '" $opt_selected>' . $workd . '</option>';
+	}
+	echo '</select>';
+}
 
 function iml_getforum( $forumid ) {
-    echo '<select name="forumid">';
-    echo '<option value="0">----------------------</option>';
+	echo '<select name="forumid">';
+	echo '<option value="0">----------------------</option>';
 	if ($forumid < 4) {
 		$result = icms::$xoopsDB -> query( 'SELECT forum_name, forum_id FROM ' . icms::$xoopsDB -> prefix( 'bb_forums' ) . ' ORDER BY forum_id' );
 	} else {
 		$result = icms::$xoopsDB -> query( 'SELECT forum_name, forum_id FROM ' . icms::$xoopsDB -> prefix( 'bbex_forums' ) . ' ORDER BY forum_id' );
-	}	
-    while ( list( $forum_name, $forum_id ) = icms::$xoopsDB -> fetchRow( $result ) ) {
-        if ( $forum_id == $forumid ) {
-            $opt_selected = 'selected="selected"';
-        } else {
-            $opt_selected = '';
-        } 
-        echo '<option value="' . $forum_id . '" $opt_selected>' . $forum_name . '</option>';
-    } 
-    echo '</select></div>';
-    return $forumid;
+	}
+	while ( list( $forum_name, $forum_id ) = icms::$xoopsDB -> fetchRow( $result ) ) {
+		if ( $forum_id == $forumid ) {
+			$opt_selected = 'selected="selected"';
+		} else {
+			$opt_selected = '';
+		}
+		echo '<option value="' . $forum_id . '" $opt_selected>' . $forum_name . '</option>';
+	}
+	echo '</select></div>';
+	return $forumid;
 }
 
 function iml_editorform( $caption, $name, $value ) {
@@ -429,7 +423,7 @@ function iml_editorform( $caption, $name, $value ) {
 		break;
 	case 'tinymce' :
 		$editor = iml_tinymce( $caption, $name, $value );    
-        break;
+		break;
 	}
 	return $editor;
 }
@@ -545,7 +539,7 @@ function iml_countryname( $countryn ) {
 				'FM' => _IMLINKS_COUNTRY_FM,
 				'FO' => _IMLINKS_COUNTRY_FO,
 				'FR' => _IMLINKS_COUNTRY_FR,
-			//	'FX' => _IMLINKS_COUNTRY_FX,	//  Not listed in ISO 3166
+				// 'FX' => _IMLINKS_COUNTRY_FX,	//  Not listed in ISO 3166
 				'GA' => _IMLINKS_COUNTRY_GA,
 				'GB' => _IMLINKS_COUNTRY_GB,
 				'GD' => _IMLINKS_COUNTRY_GD,
@@ -640,7 +634,7 @@ function iml_countryname( $countryn ) {
 				'NO' => _IMLINKS_COUNTRY_NO,
 				'NP' => _IMLINKS_COUNTRY_NP,
 				'NR' => _IMLINKS_COUNTRY_NR,
-			//	'NT' => _IMLINKS_COUNTRY_NT,	//  Not listed in ISO 3166
+				// 'NT' => _IMLINKS_COUNTRY_NT,	//  Not listed in ISO 3166
 				'NU' => _IMLINKS_COUNTRY_NU,
 				'NZ' => _IMLINKS_COUNTRY_NZ,
 				'OM' => _IMLINKS_COUNTRY_OM,
@@ -681,7 +675,7 @@ function iml_countryname( $countryn ) {
 				'SR' => _IMLINKS_COUNTRY_SR,
 				'SS' => _IMLINKS_COUNTRY_SS,
 				'ST' => _IMLINKS_COUNTRY_ST,
-			//	'SU' => _IMLINKS_COUNTRY_SU,	//  Not listed in ISO 3166
+				// 'SU' => _IMLINKS_COUNTRY_SU,	//  Not listed in ISO 3166
 				'SV' => _IMLINKS_COUNTRY_SV,
 				'SX' => _IMLINKS_COUNTRY_SX,
 				'SY' => _IMLINKS_COUNTRY_SY,
@@ -697,7 +691,7 @@ function iml_countryname( $countryn ) {
 				'TM' => _IMLINKS_COUNTRY_TM,
 				'TN' => _IMLINKS_COUNTRY_TN,
 				'TO' => _IMLINKS_COUNTRY_TO,
-			//	'TP' => _IMLINKS_COUNTRY_TP,	//  Not listed in ISO 3166
+				// 'TP' => _IMLINKS_COUNTRY_TP,	//  Not listed in ISO 3166
 				'TR' => _IMLINKS_COUNTRY_TR,
 				'TT' => _IMLINKS_COUNTRY_TT,
 				'TV' => _IMLINKS_COUNTRY_TV,
@@ -721,13 +715,13 @@ function iml_countryname( $countryn ) {
 				'WS' => _IMLINKS_COUNTRY_WS,
 				'YE' => _IMLINKS_COUNTRY_YE,
 				'YT' => _IMLINKS_COUNTRY_YT,
-			//	'YU' => _IMLINKS_COUNTRY_YU,	//  Not listed in ISO 3166
+				// 'YU' => _IMLINKS_COUNTRY_YU,	//  Not listed in ISO 3166
 				'ZA' => _IMLINKS_COUNTRY_ZA,
 				'ZM' => _IMLINKS_COUNTRY_ZM,
-			//	'ZR' => _IMLINKS_COUNTRY_ZR,	//  Not listed in ISO 3166
+				// 'ZR' => _IMLINKS_COUNTRY_ZR,	//  Not listed in ISO 3166
 				'ZW' => _IMLINKS_COUNTRY_ZW
 			);
-     return $country_array[$countryn];
+	return $country_array[$countryn];
 }
 
 /** 
@@ -742,144 +736,144 @@ function iml_countryname( $countryn ) {
  */ 
 
 function imlinks_pagerank( $q, $host = 'toolbarqueries.google.com', $context = NULL ) { 
-    $seed = "Mining PageRank is AGAINST GOOGLE'S TERMS OF SERVICE. Yes, I'm talking to you, scammer."; 
-    $result = 0x01020345; 
-    $len = strlen( $q ); 
-    for ( $i=0; $i<$len; $i++ ) { 
-        $result ^= ord( $seed{$i%strlen( $seed )} ) ^ ord( $q{$i} ); 
-        $result = ( ( $result >> 23 ) & 0x1ff ) | $result << 9; 
-    } 
-    $ch = sprintf( '8%x', $result ); 
-    $url = 'http://%s/tbr?client=navclient-auto&ch=%s&features=Rank&q=info:%s'; 
-    $url = sprintf( $url, $host, $ch, $q ); 
-    @$pr = file_get_contents( $url, false, $context ); 
-    return $pr?substr( strrchr( $pr, ':' ), 1 ):false; 
-} 
+	$seed = "Mining PageRank is AGAINST GOOGLE'S TERMS OF SERVICE. Yes, I'm talking to you, scammer."; 
+	$result = 0x01020345;
+	$len = strlen( $q );
+	for ( $i=0; $i<$len; $i++ ) {
+		$result ^= ord( $seed{$i%strlen( $seed )} ) ^ ord( $q{$i} );
+		$result = ( ( $result >> 23 ) & 0x1ff ) | $result << 9;
+	}
+	$ch = sprintf( '8%x', $result );
+	$url = 'http://%s/tbr?client=navclient-auto&ch=%s&features=Rank&q=info:%s';
+	$url = sprintf( $url, $host, $ch, $q );
+	@$pr = file_get_contents( $url, false, $context );
+	return $pr?substr( strrchr( $pr, ':' ), 1 ):false;
+}
 // End Google Pagerank function
 
 // Check if Tag module is installed
 function iml_tag_module_included() {
-  static $iml_tag_module_included;
-  if ( !isset( $iml_tag_module_included ) ) {
-    $modules_handler = icms::handler( 'icms_module' );
-    $tag_mod = $modules_handler -> getByDirName( 'tag' );
-    if ( !$tag_mod ) {
-      $tag_mod = false;
-    } else {
-      $iml_tag_module_included = $tag_mod -> getVar( 'isactive' ) == 1;
-    }
-  }
-  return $iml_tag_module_included;
+	static $iml_tag_module_included;
+	if ( !isset( $iml_tag_module_included ) ) {
+		$modules_handler = icms::handler( 'icms_module' );
+		$tag_mod = $modules_handler -> getByDirName( 'tag' );
+		if ( !$tag_mod ) {
+			$tag_mod = false;
+		} else {
+			$iml_tag_module_included = $tag_mod -> getVar( 'isactive' ) == 1;
+		}
+	}
+	return $iml_tag_module_included;
 }
 
 // Add item_tag to Tag-module
 function iml_tagupdate( $lid, $item_tag ) {
-  if ( iml_tag_module_included() ) {
-    include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
-    $tag_handler = icms_getModuleHandler( 'tag', 'tag' );
-    $tag_handler -> updateByItem( $item_tag, $lid, icms::$module -> getVar( 'dirname' ), 0 );
-  }
+	if ( iml_tag_module_included() ) {
+		include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
+		$tag_handler = icms_getModuleHandler( 'tag', 'tag' );
+		$tag_handler -> updateByItem( $item_tag, $lid, icms::$module -> getVar( 'dirname' ), 0 );
+	}
 }
 
 // Check if News module is installed
 function iml_news_module_included() {
-  static $iml_news_module_included;
-  if ( !isset( $iml_news_module_included ) ) {
-    $modules_handler = icms::handler( 'icms_module' );
-    $news_mod = $modules_handler -> getByDirName( 'news' );
-    if ( !$news_mod ) {
-      $news_mod = false;
-    } else {
-      $iml_news_module_included = $news_mod -> getVar( 'isactive' ) == 1;
-    }
-  }
-  return $iml_news_module_included;
+	static $iml_news_module_included;
+	if ( !isset( $iml_news_module_included ) ) {
+		$modules_handler = icms::handler( 'icms_module' );
+		$news_mod = $modules_handler -> getByDirName( 'news' );
+		if ( !$news_mod ) {
+			$news_mod = false;
+		} else {
+			$iml_news_module_included = $news_mod -> getVar( 'isactive' ) == 1;
+		}
+	}
+	return $iml_news_module_included;
 }
 
 function iml_emailcnvrt( $email ) {
-     $search = array(
-         "/\@/",
-         "/\./",
-         "/\mailto:/"
+	$search = array(
+			"/\@/",
+			"/\./",
+			"/\mailto:/"
 		);
-	 $replace = array(
-         " [at] ",
-         " [dot] ",
-         ""
+	$replace = array(
+			" [at] ",
+			" [dot] ",
+			""
 		);
 	$text = preg_replace( $search, $replace, $email );
 	return $text;
 }
 
 function iml_printemailcnvrt( $email ) {
-    $search = array (
-				"/\ [at] /",
-				"/\ [dot] /"
-				);
-	 $replace = array (
-				"@",
-				"."
-				);
+	$search = array (
+			"/\ [at] /",
+			"/\ [dot] /"
+		);
+	$replace = array (
+			"@",
+			"."
+		);
 	$text = preg_replace( $search, $replace, $email );
-    return $text;
+	return $text;
 }
 
 // Check if imGlossary module is installed
 function iml_imglossary_module_included() {
-  static $imlinks_imglossary_module_included;
-  if ( !isset( $imlinks_imglossary_module_included ) ) {
-    $modules_handler = icms::handler( 'icms_module' );
-    $imglossary_mod = $modules_handler -> getByDirName( icms::$module -> config['imglossarydir'] );
-    if ( !$imglossary_mod ) {
-      $imglossary_mod = false;
-    } else {
-      $imlinks_imglossary_module_included = $imglossary_mod -> getVar( 'isactive' ) == 1;
-    }
-  }
-  return $imlinks_imglossary_module_included;
+	static $imlinks_imglossary_module_included;
+	if ( !isset( $imlinks_imglossary_module_included ) ) {
+		$modules_handler = icms::handler( 'icms_module' );
+		$imglossary_mod = $modules_handler -> getByDirName( icms::$module -> config['imglossarydir'] );
+		if ( !$imglossary_mod ) {
+			$imglossary_mod = false;
+		} else {
+			$imlinks_imglossary_module_included = $imglossary_mod -> getVar( 'isactive' ) == 1;
+		}
+	}
+	return $imlinks_imglossary_module_included;
 }
 
 function iml_linkterms( $definition, $glossaryterm ) {
 	// Code to make links out of glossary terms
-		$parts = explode( '¤', $definition );
-		// First, retrieve all terms from the glossary...
-		$allterms = icms::$xoopsDB -> query( 'SELECT entryID, term FROM ' . icms::$xoopsDB -> prefix( 'imglossary_entries' ) . ' WHERE submit=0 AND offline=0' );
-		while ( list( $entryID, $term ) = icms::$xoopsDB -> fetchrow( $allterms ) ) {
-			foreach( $parts as $key => $part ) {
-				if ( $term != $glossaryterm ) {
-					// singular
-					$term_q = preg_quote( $term, '/' );
-					$search_term = "/\b$term_q\b/i";
-					$replace_term = '<span><a style="cursor: help; font-weight: bold;" href="' . ICMS_URL . '/modules/' . icms::$module -> config['imglossarydir'] . '/entry.php?entryID=' . intval( $entryID ) . '">' . $term . '</a></span>';
-					$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
+	$parts = explode( '¤', $definition );
+	// First, retrieve all terms from the glossary...
+	$allterms = icms::$xoopsDB -> query( 'SELECT entryID, term FROM ' . icms::$xoopsDB -> prefix( 'imglossary_entries' ) . ' WHERE submit=0 AND offline=0' );
+	while ( list( $entryID, $term ) = icms::$xoopsDB -> fetchrow( $allterms ) ) {
+		foreach( $parts as $key => $part ) {
+			if ( $term != $glossaryterm ) {
+				// singular
+				$term_q = preg_quote( $term, '/' );
+				$search_term = "/\b$term_q\b/i";
+				$replace_term = '<span><a style="cursor: help; font-weight: bold;" href="' . ICMS_URL . '/modules/' . icms::$module -> config['imglossarydir'] . '/entry.php?entryID=' . intval( $entryID ) . '">' . $term . '</a></span>';
+				$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
 
-					// plural
-					$term = $term . 's';
-					$term_q = preg_quote( $term, '/' );
-					$search_term = "/\b$term_q\b/i";
-					$replace_term = '<span><a style="cursor: help; font-weight: bold;" style="color: #2F5376;" href="' . ICMS_URL . '/modules/' . icms::$module -> config['imglossarydir'] . '/entry.php?entryID=' . intval( $entryID ) . '">' . $term . '</a></span>';
-					$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
+				// plural
+				$term = $term . 's';
+				$term_q = preg_quote( $term, '/' );
+				$search_term = "/\b$term_q\b/i";
+				$replace_term = '<span><a style="cursor: help; font-weight: bold;" style="color: #2F5376;" href="' . ICMS_URL . '/modules/' . icms::$module -> config['imglossarydir'] . '/entry.php?entryID=' . intval( $entryID ) . '">' . $term . '</a></span>';
+				$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
 
-					// plural with e
-					$term = $term . 'es';
-					$term_q = preg_quote( $term, '/' );
-					$search_term = "/\b$term_q\b/i";
-					$replace_term = '<span><a style="cursor: help; font-weight: bold;" style="color: #2F5376;" href="' . ICMS_URL . '/modules/' . icms::$module -> config['imglossarydir'] . '/entry.php?entryID=' . intval( $entryID ) . '">' . $term . '</a></span>';
-					$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
-				}
+				// plural with e
+				$term = $term . 'es';
+				$term_q = preg_quote( $term, '/' );
+				$search_term = "/\b$term_q\b/i";
+				$replace_term = '<span><a style="cursor: help; font-weight: bold;" style="color: #2F5376;" href="' . ICMS_URL . '/modules/' . icms::$module -> config['imglossarydir'] . '/entry.php?entryID=' . intval( $entryID ) . '">' . $term . '</a></span>';
+				$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
 			}
 		}
+	}
 	$definition = implode( '¤', $parts );
 	return $definition;
 }
 
-function iml_noindexnofollow() { 
-    global $xoopsTpl, $xoTheme; 
-    if ( is_object( $xoTheme ) ) { 
-        $xoTheme -> addMeta( 'meta', 'robots', 'noindex,nofollow' ); 
-    } else { 
-        $xoopsTpl -> assign( 'icms_meta_robots', 'noindex,nofollow' ); 
-    } 
+function iml_noindexnofollow() {
+	global $xoopsTpl, $xoTheme;
+	if ( is_object( $xoTheme ) ) {
+		$xoTheme -> addMeta( 'meta', 'robots', 'noindex,nofollow' );
+	} else {
+		$xoopsTpl -> assign( 'icms_meta_robots', 'noindex,nofollow' );
+	}
 }
 
 function iml_nicelink( $title, $niceurl ) {
@@ -903,60 +897,60 @@ function iml_niceurl( $lid, $title, $niceurl ) {
 }
 
 function iml_charrepl( $string ) {
-    $find = array( 'À','Á','Â','Ã','Ä','Å','Ā','Ă','Ą','Æ','Ç','Ć','Ĉ','Ċ','Č','È','É','Ê','Ë','Ì','Í','Î','Ï','Ð','Ñ','Ń','Ņ','Ň','Ò','Ó','Ô','Õ','Ö','Œ','Ø','Ŕ','Ŗ','Ř','Ś','Ŝ','Ş','Š','Ù','Ú','Û','Ü','Ũ','Ů','Ű','Ý','Ŷ','Ÿ','à','á','â','ã','ä','å','ā','ă','ą','æ','ç','ć','ĉ','ċ','č','è','é','ê','ë','ì','í','î','ï','ð','ñ','ń','ŉ','ņ','ň','ò','ó','ô','õ','ö','œ','ø','ŕ','ŗ','ř','ś','ŝ','ş','š','ũ','ú','û','ü','ů','ű','ß','ý','ŷ','ÿ' );
+	$find = array( 'À','Á','Â','Ã','Ä','Å','Ā','Ă','Ą','Æ','Ç','Ć','Ĉ','Ċ','Č','È','É','Ê','Ë','Ì','Í','Î','Ï','Ð','Ñ','Ń','Ņ','Ň','Ò','Ó','Ô','Õ','Ö','Œ','Ø','Ŕ','Ŗ','Ř','Ś','Ŝ','Ş','Š','Ù','Ú','Û','Ü','Ũ','Ů','Ű','Ý','Ŷ','Ÿ','à','á','â','ã','ä','å','ā','ă','ą','æ','ç','ć','ĉ','ċ','č','è','é','ê','ë','ì','í','î','ï','ð','ñ','ń','ŉ','ņ','ň','ò','ó','ô','õ','ö','œ','ø','ŕ','ŗ','ř','ś','ŝ','ş','š','ũ','ú','û','ü','ů','ű','ß','ý','ŷ','ÿ' );
 	$repl = array( 'A','A','A','A','A','A','A','A','A','AE','C','C','C','C','C','E','E','E','E','I','I','I','I','D','N','N','N','N','O','O','O','O','O','O','O','R','R','R','S','S','S','S','U','U','U','U','U','U','U','Y','Y','Y','a','a','a','a','a','a','a','a','a','ae','c','c','c','c','c','e','e','e','e','i','i','i','i','d','n','n','n','n','n','o','o','o','o','o','o','o','o','r','r','r','s','s','s','s','u','u','u','u','u','u','s','y','y','y' );
 	$text1 = str_replace( $find, $repl, $string );
 	// Now remove unwanted characters from the title
 	$search = array (
-         '/\'/',
-		 '/\"/',
-         '/\$/',
-		 '/\£/',
-		 '/\¥/',
-		 '/\¢/',
-		 '/\¤/',
-		 '/\%/',
-         '/\@/',
-		 '/\&/',
-		 '/\#/',
-		 '/\*/',
-		 '/\~/',
-		 '/\^/',
-		 '/\`/',
-		 '/\´/',
-		 '/\,/',
-		 '/\./',
-		 '/\(/',
-		 '/\)/',
-		 '/\[/',
-		 '/\]/',
-		 '/\{/',
-		 '/\}/',
-		 '/\|/',
-		 '/\</',
-		 '/\>/',
-		 '/\?/',
-		 '/\!/',
-		 '/\//',
-		 '/\;/',
-		 '/\:/',
-		 '/\©/',
-		 '/\®/',
-		 '/\¼/',
-		 '/\½/',
-		 '/\¾/',
-		 '/\¹/',
-		 '/\²/',
-		 '/\³/',
-		 '/\¿/',
-		 '/\×/',
-		 '/\¡/',
-		 '/\°/',
-		 '/\µ/',
-		 '/\÷/',
-		 '/\+/' );
+		'/\'/',
+		'/\"/',
+		'/\$/',
+		'/\£/',
+		'/\¥/',
+		'/\¢/',
+		'/\¤/',
+		'/\%/',
+		'/\@/',
+		'/\&/',
+		'/\#/',
+		'/\*/',
+		'/\~/',
+		'/\^/',
+		'/\`/',
+		'/\´/',
+		'/\,/',
+		'/\./',
+		'/\(/',
+		'/\)/',
+		'/\[/',
+		'/\]/',
+		'/\{/',
+		'/\}/',
+		'/\|/',
+		'/\</',
+		'/\>/',
+		'/\?/',
+		'/\!/',
+		'/\//',
+		'/\;/',
+		'/\:/',
+		'/\©/',
+		'/\®/',
+		'/\¼/',
+		'/\½/',
+		'/\¾/',
+		'/\¹/',
+		'/\²/',
+		'/\³/',
+		'/\¿/',
+		'/\×/',
+		'/\¡/',
+		'/\°/',
+		'/\µ/',
+		'/\÷/',
+		'/\+/' );
 	$text = preg_replace( $search, '', $text1 );
-    return $text;
+	return $text;
 }
 
 function iml_mozshot( $url ) {

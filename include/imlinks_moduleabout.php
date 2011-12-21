@@ -159,29 +159,28 @@ class imLinksModuleAbout {
 		// Author's note
 		$this -> _tpl -> assign( 'module_author_word', $versioninfo -> getInfo( 'author_word' ) );
 
-	    // For changelog thanks to 3Dev
-	    //global icms::$module;
-	    $filename = ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/changelog.txt';
-	    if ( is_file( $filename ) ) {
+		// For changelog thanks to 3Dev
+		//global icms::$module;
+		$filename = ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/changelog.txt';
+		if ( is_file( $filename ) ) {
+			$filesize = filesize( $filename );
+			$handle = fopen( $filename, 'r' );
+			$this -> _tpl -> assign( 'module_version_history', icms_core_DataFilter::checkVar( fread( $handle, $filesize ), 'text', 'output' ) );
+			fclose( $handle );
+		}
 
-	        $filesize = filesize( $filename );
-	        $handle = fopen( $filename, 'r' );
-	        $this -> _tpl -> assign( 'module_version_history', icms_core_DataFilter::checkVar( fread( $handle, $filesize ), 'text', 'output' ) );
-	        fclose( $handle );
-	    }
-		
 		// For license thanks to 3Dev
 		if ( file_exists( ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/license/' . $icmsConfig['language'] . '_license.txt' ) ) {
 			$filename = ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/license/' . $icmsConfig['language'] . '_license.txt';
 		} elseif ( file_exists( ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/license.txt' ) ) {
 			$filename = ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/license.txt';
 		}
-	    if( is_file( $filename ) ) {
-	        $filesize = filesize( $filename );
-	        $handle = fopen( $filename, 'r' );
-	        $this -> _tpl -> assign( 'module_license_txt', icms_core_DataFilter::checkVar( fread( $handle, $filesize ), 'text', 'output' ) );
-	        fclose($handle);
-	    }
+		if( is_file( $filename ) ) {
+			$filesize = filesize( $filename );
+			$handle = fopen( $filename, 'r' );
+			$this -> _tpl -> assign( 'module_license_txt', icms_core_DataFilter::checkVar( fread( $handle, $filesize ), 'text', 'output' ) );
+			fclose($handle);
+		}
 
 		$this -> _tpl -> display( ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/templates/imlinks_moduleabout.html' );
 

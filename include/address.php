@@ -6,26 +6,26 @@
 *
 * File: address.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
 
 /**
  *
- * International Address Formats: 	http://www.bitboost.com/ref/international-address-formats.html#Formats
- *								http://www.upu.int/post_code/en/postal_addressing_systems_member_countries.shtml
+ * International Address Formats:	http://www.bitboost.com/ref/international-address-formats.html#Formats
+ *									http://www.upu.int/post_code/en/postal_addressing_systems_member_countries.shtml
  */
 
 function iml_address( $street1, $street2, $town, $state, $zip, $country='' ) {

@@ -40,22 +40,22 @@ function vcard_escape( $string ) {
 
 function vcardemailcnvrt( $email ) {
 	
-    $search = array (
-         '/\ AT /',
-         '/\ DOT /',
-		 '/ \[at] /',
-         '/ \[dot] /',
+	$search = array (
+		'/\ AT /',
+		'/\ DOT /',
+		'/ \[at] /',
+		'/ \[dot] /',
 	);
 
 	$replace = array (
-         "@",
-         ".",
-		 "@",
-         ".",
+		"@",
+		".",
+		"@",
+		".",
 	);
 
 	$text = preg_replace( $search, $replace, $email );
-        return $text;
+		return $text;
 }
 // taken from PHP documentation comments
 function vcard_quoted_printable_encode( $input, $line_max = 76 ) {
@@ -163,7 +163,7 @@ class vCard {
 	}
 	
 	function setCOMP( $comp ) {
-        $this -> filename = "$comp.vcf";
+		$this -> filename = "$comp.vcf";
 		$this -> properties["ORG"] = $comp;
 	}
 
@@ -178,13 +178,13 @@ class vCard {
 		$text .= "END:VCARD\r\n";
 		return $text;
 	}
-	
+
 	function getFileName() {
 		return $this -> filename;
 	}
 	// NOT TESTED -- McDONALD
 	function setADR( $charset ) {
-                $this -> properties["ADR;CHARSET"] = $charset;
+		$this -> properties["ADR;CHARSET"] = $charset;
 	}
 
 }
@@ -197,65 +197,65 @@ $lid = intval( $lid );
 $result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid ) );
 $vcard_arr = icms::$xoopsDB -> fetchArray( $result );
 
-$title 		= $vcard_arr['title'];
-$street1 	= $vcard_arr['street1'];
-$street2 	= $vcard_arr['street2'];
-$town 		= $vcard_arr['town'];
-$zip 		= $vcard_arr['zip'];
-$state 		= $vcard_arr['state'];
-$country 	= iml_countryname( $vcard_arr['country'] );
-$tel 		= $vcard_arr['tel'];
-$mobile 	= $vcard_arr['mobile'];
-$fax 		= $vcard_arr['fax'];
-$voip 		= $vcard_arr['voip'];
-$url 		= $vcard_arr['url'];
-$email 		= $vcard_arr['email'];
-$vat 		= $vcard_arr['vat'];
-$charset 	= _CHARSET;
+$title		= $vcard_arr['title'];
+$street1	= $vcard_arr['street1'];
+$street2	= $vcard_arr['street2'];
+$town		= $vcard_arr['town'];
+$zip		= $vcard_arr['zip'];
+$state		= $vcard_arr['state'];
+$country	= iml_countryname( $vcard_arr['country'] );
+$tel		= $vcard_arr['tel'];
+$mobile		= $vcard_arr['mobile'];
+$fax		= $vcard_arr['fax'];
+$voip		= $vcard_arr['voip'];
+$url		= $vcard_arr['url'];
+$email		= $vcard_arr['email'];
+$vat		= $vcard_arr['vat'];
+$charset	= _CHARSET;
 
 $v = new vCard();
 
-   // Set Xoops Character set
-   $v -> setADR( $charset );
+	// Set Xoops Character set
+	$v -> setADR( $charset );
 
-   // Phone number(s)
-   $v -> setPhoneNumber( $tel, "WORK;VOICE;PREF" );
-   $v -> setPhoneNumber( $mobile, "WORK;CELL" );
-   $v -> setPhoneNumber( $fax, "WORK;FAX" );
-   $v -> setPhoneNumber( $voip, "WORK;PCS" );
+	// Phone number(s)
+	$v -> setPhoneNumber( $tel, "WORK;VOICE;PREF" );
+	$v -> setPhoneNumber( $mobile, "WORK;CELL" );
+	$v -> setPhoneNumber( $fax, "WORK;FAX" );
+	$v -> setPhoneNumber( $voip, "WORK;PCS" );
 
-   // Name
-   $v -> setName( '', '', '', '' );
-   
-   // Birthday
-   // $v -> setBirthday("1960-07-31");
-   
-   // Address
-   if ( $street2 ){
-	 $street = $street1 . ', ' . $street2;
-   } else {
-	 $street = $street1;
-   }
-   $v -> setAddress( '', '', $street, $town, $state, $zip, $country, "WORK" );
-   
-   // Email
-    $emailaddr = vcardemailcnvrt( $email );
-    $v -> setEmail( $emailaddr );
+	// Name
+	$v -> setName( '', '', '', '' );
 
-   // Note
-   // $v -> setNote("You can take some notes here.\r\nMultiple lines are supported via \\r\\n.");
-   if ($voip){
-     $v -> setNote( 'VoIP: ' . $voip );
-   }
-   if ($vat){
-     $v -> setNote( _MD_IMLINKS_VAT . $vat );
-   }
-   
-   // Website
-   $v -> setURL( $url, "WORK" );
-   
-   // Company name
-   $v -> setCOMP( $title );
+	// Birthday
+	// $v -> setBirthday("1960-07-31");
+
+	// Address
+	if ( $street2 ){
+		$street = $street1 . ', ' . $street2;
+	} else {
+		$street = $street1;
+	}
+	$v -> setAddress( '', '', $street, $town, $state, $zip, $country, "WORK" );
+
+	// Email
+	$emailaddr = vcardemailcnvrt( $email );
+	$v -> setEmail( $emailaddr );
+
+	// Note
+	// $v -> setNote("You can take some notes here.\r\nMultiple lines are supported via \\r\\n.");
+	if ($voip){
+		$v -> setNote( 'VoIP: ' . $voip );
+	}
+	if ($vat){
+		$v -> setNote( _MD_IMLINKS_VAT . $vat );
+	}
+
+	// Website
+	$v -> setURL( $url, "WORK" );
+
+	// Company name
+	$v -> setCOMP( $title );
 
 $output = $v -> getVCard();
 $filename = $v -> getFileName();

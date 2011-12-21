@@ -1,8 +1,8 @@
 <?php
 /*
-Page:           _drawrating.php
-Created:        Aug 2006
-Last Mod:       Mar 18 2007
+Page:			_drawrating.php
+Created:		Aug 2006
+Last Mod:		Mar 18 2007
 The function that draws the rating bar.
 --------------------------------------------------------- 
 ryan masuga, masugadesign.com
@@ -12,7 +12,7 @@ http://creativecommons.org/licenses/by/3.0/
 See ajaxrating.txt for full credit details.
 --------------------------------------------------------- */
 
-function rating_bar( $id, $units='', $cid ) { 
+function rating_bar( $id, $units='', $cid ) {
 
 $rating_unitwidth = 30;
 
@@ -69,15 +69,14 @@ if ( !$static ) {
 
 	$rater  = '';
 	$rater .= '<div class="ratingblock">';
-
 	$rater .= '<div id="unit_long' . $id . '">';
 	$rater .= '<div id="unit_ul' . $id . '" class="unit-rating" style="width:' . $rating_unitwidth*$units . 'px;">';
 	$rater .= '<div class="current-rating" style="width:' . $rating_width . 'px;">' . _MD_IMLINKS_CURRATING . ' ' . $rating2 . '/' . $units . '</div>';
 
 	for ( $ncount = 1; $ncount <= $units; $ncount++ ) { // loop from 1 to the number of units
 		if ( !$voted ) { // if the user hasn't yet voted, draw the voting stars
-            $rater .= '<div><a href="db.php?j=' . $ncount . '&amp;q=' . $id . '&amp;t=' . $ip . '&amp;c=' . $units . '" title="' . $ncount . _MD_IMLINKS_OUTOF . $units . '" class="r' . $ncount . '-unit rater" rel="nofollow">' . $ncount . '</a></div>';
-        }
+			$rater .= '<div><a href="db.php?j=' . $ncount . '&amp;q=' . $id . '&amp;t=' . $ip . '&amp;c=' . $units . '" title="' . $ncount . _MD_IMLINKS_OUTOF . $units . '" class="r' . $ncount . '-unit rater" rel="nofollow">' . $ncount . '</a></div>';
+		}
 	}
 	$ncount = 0; // resets the count
 
