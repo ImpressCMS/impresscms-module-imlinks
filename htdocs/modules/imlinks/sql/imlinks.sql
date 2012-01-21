@@ -10,7 +10,7 @@ CREATE TABLE imlinks_altcat (
 	lid int(11) unsigned NOT NULL default '0',
 	cid int(5) unsigned NOT NULL default '0',
 	PRIMARY KEY  (lid,cid)
-) TYPE=MyISAM;
+);
 
 #
 # Table structure for table 'imlinks_broken'
@@ -29,7 +29,7 @@ CREATE TABLE imlinks_broken (
 	KEY lid (lid),
 	KEY sender (sender),
 	KEY ip (ip)
-) TYPE=MyISAM;
+);
 
 #
 # Table structure for table 'imlinks_cat'
@@ -42,9 +42,9 @@ CREATE TABLE imlinks_cat (
 	imgurl varchar(150) NOT NULL default '',
 	description varchar(255) NOT NULL default '',
 	weight int(11) NOT NULL default '0',
-	PRIMARY KEY  (cid),
+	PRIMARY KEY (cid),
 	KEY pid (pid)
-) TYPE=MyISAM;
+);
 
 #
 # Table structure for table 'imlinks_indexpage'
@@ -58,11 +58,8 @@ CREATE TABLE imlinks_indexpage (
 	indexheaderalign varchar(25) NOT NULL default 'left',
 	indexfooteralign varchar(25) NOT NULL default 'left',
 	lastlinksyn tinyint(1) NOT NULL default '0',
-	lastlinkstotal varchar(5) NOT NULL default '50',
-	FULLTEXT KEY `indexheading` (`indexheading`),
-	FULLTEXT KEY `indexheader` (`indexheader`),
-	FULLTEXT KEY `indexfooter` (`indexfooter`)
-) TYPE=MyISAM;
+	lastlinkstotal varchar(5) NOT NULL default '50'
+);
 
 #
 # Dumping data for table 'imlinks_indexpage'
@@ -122,7 +119,7 @@ CREATE TABLE `imlinks_links` (
 	KEY `cid` (`cid`),
 	KEY `status` (`status`),
 	KEY `title` (`title`(40))
-) TYPE=MyISAM;
+);
 
 #
 # Table structure for table 'imlinks_mod'
@@ -171,7 +168,7 @@ CREATE TABLE `imlinks_mod` (
 	`ttlat` varchar(100) NOT NULL default '',
 	`ttlong` varchar(100) NOT NULL default '',
 	PRIMARY KEY  (`requestid`)
-) TYPE=MyISAM;
+);
 
 #
 # Table structure for table 'imlinks_ratings'
@@ -183,7 +180,7 @@ CREATE TABLE imlinks_ratings (
 	total_value int(11) NOT NULL default '0',
 	used_ips longtext,
 	PRIMARY KEY  (id)
-) TYPE=MyISAM;
+);
 
 #
 # Table structure for table 'imlinks_configs'
@@ -208,6 +205,6 @@ CREATE TABLE imlinks_configs (
 	rsstotal TINYINT(8) NOT NULL DEFAULT '0',
 	rssofftitle VARCHAR(128) NOT NULL DEFAULT '',
 	rssoffdsc VARCHAR(255) NOT NULL DEFAULT ''
-) TYPE=MYISAM;
+);
 
 INSERT INTO imlinks_configs (rssactive,rsstitle,rsslink,rssdsc,rssimgurl,rsswidth,rssheight,rssimgtitle,rssimglink,rssttl,rsswebmaster,rsseditor,rsscategory,rssgenerator,rsscopyright,rsstotal,rssofftitle,rssoffdsc) VALUES ('1', '', '', '', '', '', '', '', '', '60', '', '', '', '', '', '15', '', '');
