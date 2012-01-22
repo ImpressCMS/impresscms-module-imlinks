@@ -104,10 +104,10 @@ switch ( strtolower( $op ) ) {
 		iml_adminmenu( '', _AM_IMLINKS_MALTCAT );
 		$sql = icms::$xoopsDB -> query( 'SELECT cid, title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid );
 		list( $cid, $title ) = icms::$xoopsDB -> fetchRow( $sql );
-		echo '<fieldset style="border: #e8e8e8 1px solid;">
-				<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_ALTCAT_MODIFYF . '</legend>
+		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
+				<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_ALTCAT_MODIFYF . '</div>
 				<div style="padding: 8px;">' . _AM_IMLINKS_ALTCAT_INFOTEXT . '</div>
-				</fieldset>';
+				</div>';
 		echo '<div style="text-align: left; font-size: larger;"><h4>' . $immyts -> htmlSpecialCharsStrip( $title ) . '</h4></div>';
 		// Get an array of all alternate categories for this topic
 		$sql2 = icms::$xoopsDB -> query( 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . ' WHERE lid=' . intval( $lid ) . ' ORDER BY lid' );

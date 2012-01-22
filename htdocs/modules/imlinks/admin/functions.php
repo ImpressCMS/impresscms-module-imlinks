@@ -30,9 +30,8 @@
 // iml_serverstats()
 // @return
 function iml_serverstats() {
-	echo '<fieldset style="border: #e8e8e8 1px solid;">
-			<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_LINK_IMAGEINFO . '</legend>
-			<div style="padding: 8px;">
+	echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
+			<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_LINK_IMAGEINFO . '</div>
 			<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/server.png" alt="" style="float: left; padding-right: 10px;" />
 			<div>' . _AM_IMLINKS_LINK_SPHPINI . '</div>';
 	$safemode = ( ini_get( 'safe_mode' ) ) ? _AM_IMLINKS_LINK_ON . _AM_IMLINKS_LINK_SAFEMODEPROBLEMS : _AM_IMLINKS_LINK_OFF;
@@ -49,7 +48,7 @@ function iml_serverstats() {
 	echo '&bull;&nbsp;' . _AM_IMLINKS_LINK_SAFEMODESTATUS . $safemode . '<br />';
 	echo '&bull;&nbsp;' . _AM_IMLINKS_LINK_REGISTERGLOBALS . $registerglobals . '<br />';
 	echo '&bull;&nbsp;' . _AM_IMLINKS_LINK_SERVERUPLOADSTATUS . $links;
-	echo '</div></div></fieldset>';
+	echo '</div></div><br />';
 }
 
 function iml_adminmenu( $currentoption = 0, $header = '', $menu = '', $extra = '', $scount = 4 ) {

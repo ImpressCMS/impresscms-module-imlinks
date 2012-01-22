@@ -206,10 +206,10 @@ switch ( strtolower( $op ) ) {
 
 		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . $mydirname . '/style.css" />';
 
-		echo '<fieldset style="border: #E8E8E8 1px solid;">
-				<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MOD_MODREQUESTSINFO . '</legend>
+		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
+				<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MOD_MODREQUESTSINFO . '</div>
 				<div style="padding: 8px;">' . _AM_IMLINKS_MOD_TOTMODREQUESTS . ' <b>' . $totalmodrequests . '</b></div>
-			</fieldset>';
+			</div><br />';
 
 		echo '<table width="100%" cellspacing="1" class="outer">';
 		echo '<tr style="text-align: center; font-size: smaller;">';

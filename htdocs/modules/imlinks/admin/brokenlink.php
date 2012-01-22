@@ -107,27 +107,24 @@ switch ( strtolower( $op ) ) {
 
 		icms_cp_header();
 		iml_adminmenu( '', _AM_IMLINKS_BROKEN_FILE );
-		echo '
-		<fieldset style="border: #E8E8E8 1px solid;">
-			<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_BROKEN_REPORTINFO . '</legend>
-			<div style="padding: 8px;">' . _AM_IMLINKS_BROKEN_REPORTSNO . '&nbsp;<b>' . $totalbrokenlinks . '</b><div>
-			<div style="padding-left: 8px; line-height: 120%;"><br />
-				' . $imagearray['ignore'] . '&nbsp;&nbsp;' . _AM_IMLINKS_BROKEN_IGNOREDESC . '<br />
-				' . $imagearray['editimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_BROKEN_EDITDESC . '<br />
-				' . $imagearray['deleteimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_BROKEN_DELETEDESC . '
-				</ul>
-			</div>
-		</fieldset>
-		<table width="100%" border="0" cellspacing="1" cellpadding="2" class="outer" style="font-size: smaller;">
-			<tr style="text-align: center;">
-				<th width="7%" style="text-align: center;">' . _AM_IMLINKS_BROKEN_ID . '</th>
+		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
+				<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_BROKEN_REPORTINFO . '</div>
+				<div style="padding: 8px;">' . _AM_IMLINKS_BROKEN_REPORTSNO . '&nbsp;<b>' . $totalbrokenlinks . '</b><div><br />
+				<div style="padding-left: 10px;">
+					' . $imagearray['ignore'] . '&nbsp;&nbsp;' . _AM_IMLINKS_BROKEN_IGNOREDESC . '<br />
+					' . $imagearray['editimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_BROKEN_EDITDESC . '<br />
+					' . $imagearray['deleteimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_BROKEN_DELETEDESC . '</div>
+			</div></div></div><br />';
+		echo '<table width="100%" border="0" cellspacing="1" cellpadding="2" class="outer">
+			<tr style="text-align: center; font-size: smaller;">
+				<th style="text-align: center;">' . _AM_IMLINKS_BROKEN_ID . '</th>
 				<th style="text-align: left;">' . _TITLE . '</th>
 				<th>' . _AM_IMLINKS_BROKEN_REPORTER . '</th>
 				<th>' . _AM_IMLINKS_BROKEN_FILESUBMITTER . '</th>
 				<th>' . _AM_IMLINKS_BROKEN_DATESUBMITTED . '</th>
 				<th>' . _AM_IMLINKS_BROKEN_ACKNOWLEDGED . '</th>
 				<th>' . _AM_IMLINKS_BROKEN_DCONFIRMED . '</th>		
-				<th style="text-align: center; width: 7%; white-space: nowrap;">' . _AM_IMLINKS_BROKEN_ACTION . '</th>
+				<th style="text-align: center; white-space: nowrap;">' . _AM_IMLINKS_BROKEN_ACTION . '</th>
 			</tr>';
 
 		if ( $totalbrokenlinks == 0 ) {
@@ -170,14 +167,14 @@ switch ( strtolower( $op ) ) {
 				} else {
 					echo '<td class="even"><a href="mailto:' . $owneremail . '">' . $ownername . '</a></td>';
 				}
-				echo '<td class="even" style="text-align: center;">' . formatTimestamp( $date, icms::$module -> config['dateformatadmin'] ) . '</td>';
-				echo '<td class="even"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&ack=' . intval( $acknowledged ) . '">' . $ack_image . ' </a></td>';
-				echo '<td class="even"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&con=' . intval( $confirmed ) . '">' . $con_image . '</a></td>';
-				echo '<td class="even" style="text-align: center;" nowrap>';
-				echo '<a href="brokenlink.php?op=ignoreBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['ignore'] . '</a>&nbsp;';
-				echo '<a href="index.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>&nbsp;';
-				echo '<a href="brokenlink.php?op=delBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>&nbsp;';
-				echo '</td></tr>';
+				echo '<td class="even" style="text-align: center;">' . formatTimestamp( $date, icms::$module -> config['dateformatadmin'] ) . '</td>
+						<td class="even"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&ack=' . intval( $acknowledged ) . '">' . $ack_image . ' </a></td>
+						<td class="even"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&con=' . intval( $confirmed ) . '">' . $con_image . '</a></td>
+						<td class="even" style="text-align: center;" nowrap>
+							<a href="brokenlink.php?op=ignoreBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['ignore'] . '</a>&nbsp;
+							<a href="index.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>&nbsp;
+							<a href="brokenlink.php?op=delBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>&nbsp;
+						</td></tr>';
 			}
 		}
 		echo '</table>';
