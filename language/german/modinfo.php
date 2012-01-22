@@ -301,4 +301,21 @@ define( '_MI_IMLINKS_TOMTOMAPI', 'TomTom API Schlüssel:' );
 define( '_MI_IMLINKS_TOMTOMAPIDSC', 'To have a <em>Add to TomTom</em> buttom displayed with the contact details of a link you need to enter your API key here.<br />A valid API key can be requested from add2TTsupport@tomtom.com' );
 define( '_MI_IMLINKS_TOMTOMLOGO', 'Enter url for logo to display:' );
 define( '_MI_IMLINKS_TOMTOMLOGODSC', 'Enter the url of the logo to display in the window <em>Starting TomTom Home</em>.<br />This logo will displayed together with the website name for the <em>Content provided by</em>.' );
+
+// imLinks 1.12
+define( '_MI_IMLINKS_SOCIALBTTNS', 'Show Social Media buttons' );
+define( '_MI_IMLINKS_SOCIALBTTNSDSC', 'Select if you want to have Social Bookmarks (old style), Social Media buttons or Social Media buttons with privacy switch (German only). If you select <i>Social Share Privacy</i> the type of button is not taken into account.' );
+define( '_IM_IMLINKS_SOCBOOK', 'Social Bookmarks' );
+define( '_IM_IMLINKS_SOCMEDIA', 'Social Media' );
+define( '_IM_IMLINKS_SOCMEDIAPRIVE', 'Social Share Privacy' );
+define( '_MI_IMLINKS_HORICNT', 'Hor. counter' );
+define( '_MI_IMLINKS_VERTCNT', 'Vert. counter' );
+define( '_MI_IMLINKS_TWITTER', 'Twitter' );
+define( '_MI_IMLINKS_TWEET', 'Tweet' );
+define( '_MI_IMLINKS_TWITTERBTTN', 'Twitter button' );
+define( '_MI_IMLINKS_TWITTERBTTNDSC', 'Choose a Twitter button style.' );
+define( '_MI_IMLINKS_FACEBOOKBTTN', 'Facebook "I Like" button' );
+define( '_MI_IMLINKS_FACEBOOKBTTNDSC', 'Choose a Facebook button style.' );
+define( '_MI_IMLINKS_PLUSONEBTTN', 'Google +1 button' );
+define( '_MI_IMLINKS_PLUSONEBTTNDSC', 'Choose a Google +1 button style.' );
 ?>
