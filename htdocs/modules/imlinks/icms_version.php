@@ -132,16 +132,6 @@ $modversion['blocks'][] = array(
 	'can_clone'		=> true );
 
 $modversion['blocks'][] = array(
-	'file'			=> 'imlinks_banner.php',
-	'name'			=> _MI_IMLINKS_BNAME3,
-	'description'	=> 'Shows top clicked banners',
-	'show_func'		=> 'b_imlinks_banner_show',
-	'edit_func'		=> 'b_imlinks_banner_edit',
-	'options'		=> 'hits|10|19',
-	'template'		=> 'imlinks_block_banner.html',
-	'can_clone'		=> true );
-
-$modversion['blocks'][] = array(
 	'file'			=> 'imlinks_block_tag.php',
 	'name'			=> _MI_IMLINKS_BNAME4,
 	'description'	=> 'Show tag cloud',
