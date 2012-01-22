@@ -56,11 +56,9 @@
 
 <br />
 
-<h4 class="outer" style="width: 100%; color: #2F5376; clear: both;">
-  <div class="imlinks_even">
-    <{$imlink.visittitle}>&nbsp;<{$imlink.icons}><{if $icms_isadmin}>&nbsp;<{$imlink.adminlink}><{/if}>
-  </div>
-</h4>
+<div class="imlinks_even" style="clear: both; margin-bottom: 5px;">
+	<{$imlink.visittitle}>&nbsp;<{$imlink.icons}><{if $icms_isadmin}>&nbsp;<{$imlink.adminlink}> <{/if}>
+</div>
 
 <div style="width: 250px; float: right; padding-left: 10px; margin-left: 10px; margin-right: 5px;">
 	<div class="infoblock">
@@ -72,8 +70,7 @@
 	</div>
 	
 	<{if $imlink.infoblock2==1}>
-		<br />
-		<div class="infoblock2">
+		<div class="infoblock2" style="margin-top: 10px;">
 		<{if $imlink.showrating > 0}>
 			<{$imlink.ratingbar}>
 		<{/if}>
@@ -90,8 +87,7 @@
 	<{/if}>
 	
 	<{if $tagbar}>
-		<br />
-		<div class="infoblock2">
+		<div class="infoblock2" style="margin-top: 10px;">
 			<{include file="db:tag_bar.html"}>               
 		</div>
 	<{/if}>
@@ -99,15 +95,13 @@
 	<{if $imlink.autoscrshot == 0}> 
 		<{if $show_screenshot == true}> 
 			<{if $imlink.screenshot_full != ''}>
-			<br />
-				<div class="infoblock2" style="text-align: center;"><{$imlink.visitscrshot}></div> 
+				<div class="infoblock2" style="text-align: center; margin-top: 10px;"><{$imlink.visitscrshot}></div> 
 			<{/if}> 
 		<{/if}> 
 	<{/if}>
 	
 	<{if $imlink.autoscrshot == 1}>
-		<br />	
-		<div class="infoblock2" style="text-align: center;"><{$imlink.autothumbsrc}></div> 
+		<div class="infoblock2" style="text-align: center; margin-top: 10px;"><{$imlink.autothumbsrc}></div> 
 	<{/if}>
 	<br />
 </div> 
@@ -125,8 +119,7 @@
 		<a href="<{$icms_url}><{$imlink.forum_path}>"><{$smarty.const._MD_IMLINKS_INFORUM}></a>
 	<{/if}>
 	
-<div style="margin-left: 6px;">
-	<br />
+<div style="margin-left: 6px; margin-top: 10px;">
 		<b><{$smarty.const._DESCRIPTION}>:</b>
 		<br /> 
 		<{$imlink.description2}>

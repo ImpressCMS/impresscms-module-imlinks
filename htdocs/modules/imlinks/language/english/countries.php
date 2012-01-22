@@ -8,16 +8,16 @@
 *
 * File: language/english/countries.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
-* ----------------------------------------------------------------------------------------------------------
+* ----------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
-*/ 
+*/
 
 define( '_IMLINKS_COUNTRY_UNKNOWN', 'Unknown' );
 define( '_IMLINKS_COUNTRY_AD', 'Andorra' );
@@ -276,5 +276,5 @@ define( '_IMLINKS_COUNTRY_YT', 'Mayotte' );
 define( '_IMLINKS_COUNTRY_ZA', 'South Africa' );
 define( '_IMLINKS_COUNTRY_ZM', 'Zambia' );
 // define( '_IMLINKS_COUNTRY_ZR', 'Zaire' );	//  Not listed in ISO 3166
-define( '_IMLINKS_COUNTRY_ZW', 'Zimbabwe' );				
+define( '_IMLINKS_COUNTRY_ZW', 'Zimbabwe' );
 ?>

@@ -230,7 +230,7 @@ function iml_updaterating( $sel_id ) {
 function iml_totalcategory( $pid = 0 ) {
 	$sql = 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' );
 	if ( $pid > 0 ) {
-	$sql .= ' WHERE pid=0';
+		$sql .= ' WHERE pid=0';
 	}
 	$result = icms::$xoopsDB -> query( $sql );
 	$catlisting = 0;
@@ -259,9 +259,7 @@ function iml_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 ) {
 	} else {
 		$sql = 'SELECT lid, cid, published FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE offline=0 AND published>0 AND published<=' . time() . ' AND (expired=0 OR expired>' . time() . ')';
 	}
-	if ( $return_sql == 1 ) {
-		return $sql;
-	}
+	if ( $return_sql == 1 ) { return $sql; }
 	$count = 0;
 	$published_date = 0;
 	$arr = array();
@@ -284,9 +282,7 @@ function iml_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 ) {
 				. ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . ')) GROUP BY a.lid, a.published, a.cid';
 			$result2 = icms::$xoopsDB -> query( $query2 );
 			while ( list( $lid, $published ) = icms::$xoopsDB -> fetchRow( $result2 ) ) {
-				if ( $published == 0 ) {
-					continue;
-				}
+				if ( $published == 0 ) { continue; }
 				$published_date = ( $published > $published_date ) ? $published : $published_date;
 				$child_count++;
 			}
