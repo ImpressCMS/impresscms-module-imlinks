@@ -26,11 +26,8 @@
 
 <{if count($categories) gt 0}> 
 	<div class="imlinks_catpath" style="font-weight: bold;"><{$smarty.const._MD_IMLINKS_MAINLISTING}></div>
-	
-<table width="100%" cellspacing="1" cellpadding="3" summary="" style="text-align: center;"> 
-	<tr>
-		<td colspan="2">&nbsp;</td>
-	</tr>
+
+<table width="100%" cellspacing="1" cellpadding="3" summary="" style="text-align: center; padding-top: 8px;"> 
 	<tr> 
 		<!-- Start category loop --> 
 		<{foreach item=category from=$categories}>
@@ -50,21 +47,18 @@
 		<{/foreach}> 
 		<!-- End category loop --> 
 	</tr> 
-	<tr>
-		<td colspan="2">&nbsp;</td>
-	</tr>
 </table>
 <div class="odd" style="text-align: left; font-size: smaller;"><{$lang_thereare}></div>
-<div style="padding-bottom: 12px; padding-top: 12px;">
-<div style="float: left;">&nbsp;<{$imlinks_feed}></div>
-<{if $showlegend}>
-	<div style="float: right; font-size: smaller;">
-		<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload1_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEW}>" alt=""  style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEW}> 
-		<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload2_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWTHREE}>" alt="" style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWTHREE}> 
-		<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload3_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTTHISWEEK}>" alt="" style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTTHISWEEK}> 
-		<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload4_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWLAST}>"  alt="" style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWLAST}>
-		&nbsp;
-	</div>
+<div style="padding-bottom: 12px; padding-top: 8px;">
+	<div style="float: left;">&nbsp;<{$imlinks_feed}></div>
+	<{if $showlegend}>
+		<div style="float: right; font-size: smaller;">
+			<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload1_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEW}>" alt=""  style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEW}> 
+			<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload2_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWTHREE}>" alt="" style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWTHREE}> 
+			<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload3_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTTHISWEEK}>" alt="" style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTTHISWEEK}> 
+			<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload4_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWLAST}>"  alt="" style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWLAST}>
+			&nbsp;
+		</div>
 <{/if}>
 </div>
 <{/if}>

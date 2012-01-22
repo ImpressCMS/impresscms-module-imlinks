@@ -56,15 +56,13 @@ function imlinks_rss_edit() {
 	icms_cp_header();
 	iml_adminmenu( 7, _AM_IMLINKS_RSSFEED );
 
-	echo '	<fieldset style="border: #E8E8E8 1px solid;">
-			<div style="padding: 8px;">
+	echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 			<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
 			' . _AM_IMLINKS_RSSFEEDDSC . '';
 			if ( $feed_array['rsstitle'] == '' ) {
 				echo '<br /><br /><span style="text-decoration: blink; font-weight: bold; color: red;">' . _AM_IMLINKS_RSSCLICKSUBMIT . '</span>';
 			}
-	echo '	</div>
-			</fieldset>';
+	echo '</div><br />';
 
 	$sform = new icms_form_Theme( _AM_IMLINKS_RSSFEEDCFG, 'storyform', '' );
 	$sform -> setExtra( 'enctype="multipart / form - data"' );

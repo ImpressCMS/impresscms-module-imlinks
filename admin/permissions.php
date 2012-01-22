@@ -47,23 +47,23 @@ $icon = '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirnam
 
 switch( $permtoset ) {
 	case 1:
-		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_CPERMISSIONS . '</legend><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_CSELECTPERMISSIONS . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></fieldset>';
+		$title_of_form = '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;"><div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_CPERMISSIONS . '</div><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_CSELECTPERMISSIONS . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></div>';
 		$perm_name = 'imLinkCatPerm';
 		break;
 	case 2:
-		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_SPERMISSIONS . '</legend><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_SPERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></fieldset>';
+		$title_of_form = '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;"><div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_SPERMISSIONS . '</div><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_SPERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></div>';
 		$perm_name = 'imLinkSubPerm';
 		break;
 	case 3:
-		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_APERMISSIONS . '</legend><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_APERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></fieldset>';
+		$title_of_form = '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;"><div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_APERMISSIONS . '</div><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_APERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></div>';
 		$perm_name = 'imLinkAppPerm';
 		break;
 	case 4:
-		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_AUTOPERMISSIONS . '</legend><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_AUTOPERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></fieldset>';
+		$title_of_form = '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;"><div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_AUTOPERMISSIONS . '</div><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_AUTOPERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></div>';
 		$perm_name = 'imLinkAutoApp';
 		break;
 	case 5:
-		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_RATEPERMISSIONS . '</legend><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_RATEPERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></fieldset>';
+		$title_of_form = '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;"><div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_PERM_RATEPERMISSIONS . '</div><div style="padding: 8px; font-weight: normal;">' . $icon . _AM_IMLINKS_PERM_RATEPERMISSIONS_TEXT . '<br /><br /><br /><small>' . _AM_IMLINKS_PERM_PERMSNOTE . '</small></div></div>';
 		$perm_name = 'imLinkRatePerms';
 		break;
 }
@@ -71,15 +71,14 @@ switch( $permtoset ) {
 $permform = new icms_form_Groupperm( $title_of_form, $module_id, $perm_name, '', 'admin/permissions.php' );
 $result = icms::$xoopsDB -> query( 'SELECT cid, pid, title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' ORDER BY title ASC' );
 if ( icms::$xoopsDB -> getRowsNum( $result ) ) {
-    while ( $perm_row = icms::$xoopsDB -> fetcharray( $result ) ) {
-        $permform -> addItem( $perm_row['cid'], '&nbsp;' . $perm_row['title'], $perm_row['pid'] );
-    }	
-    echo $permform -> render();
-    echo '';
+	while ( $perm_row = icms::$xoopsDB -> fetcharray( $result ) ) {
+		$permform -> addItem( $perm_row['cid'], '&nbsp;' . $perm_row['title'], $perm_row['pid'] );
+	}
+	echo $permform -> render();
+	echo '';
 } else {
-    echo '<div><b>' . _AM_IMLINKS_PERM_CNOCATEGORY . '</b></div>';
+	echo '<div><b>' . _AM_IMLINKS_PERM_CNOCATEGORY . '</b></div>';
 } 
 unset ( $permform );
-//redirect_header( 'permissions.php', 1, '' );
 icms_cp_footer();
 ?>

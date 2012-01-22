@@ -90,7 +90,6 @@ function edit( $lid = 0, $doclone = 0 ) {
 
 	if ( $lid > 0 ) {
 		$_vote_data = iml_getVoteDetails( $lid );
-		
 		$thumbnail = '';
 		if ( icms::$module -> config['useautothumb'] ) {
 			if ( icms::$module -> config['autothumbsrc'] == 1 ) {
@@ -110,28 +109,27 @@ function edit( $lid = 0, $doclone = 0 ) {
 
 		$text_info = '<table width="100%">
 			<tr>
-				<td width="33%" valign="top">
+				<td style="width: 35%;">
 					<div><b>' . _AM_IMLINKS_LINK_ID . ' </b>' . $lid . '</div>
 					<div><b>' . _AM_IMLINKS_MINDEX_SUBMITTED . ': </b>' . formatTimestamp( $link_array['date'], icms::$module -> config['dateformat'] ) . '</div>
 					<div><b>' . _AM_IMLINKS_LINK_SUBMITTER . ' </b>' . icms_member_user_Handler::getUserLink( $submitter ) . '</div>
 					<div><b>' . _AM_IMLINKS_LINK_IP . ' </b>' . $ipaddress . '</div>
 				</td>
-				<td valign="top">
+				<td style="width: 35%;">
 					<div><b>' . _AM_IMLINKS_HITS . ' </b>' . $link_array['hits'] . '</div>
 					<div><b>' . _AM_IMLINKS_PAGERANK . ' </b>' . imlinks_pagerank( $link_array['url'] ) . '</div>
 					<div><b>' . _AM_IMLINKS_VOTE_RATING . ': </b>' . $vote_rating . '</div>
 					<div><b>' . _AM_IMLINKS_VOTE_TOTALRATE . ': </b>' . $_vote_data['total_votes'] . '</div>
 				</td>
-				<td valign="top">
+				<td style="width: 30%; vertical-align: top; text-align: center;">
 					<div>' . $thumbnail . '</div>
 				</td>
 			</tr>
 			</table>';
-		echo '<fieldset style="border: #E8E8E8 1px solid;">
-				<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_INFORMATION . '</legend>
+		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
+				<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_INFORMATION . '</div>
 				 <div style="padding: 8px;">' . $text_info . '</div>
-			</fieldset>
-			<br />';
+			</div><br />';
 	}
 	unset( $_vote_data );
 
@@ -157,7 +155,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 
 	// Link title form
 	$sform -> addElement( new icms_form_elements_Text( _AM_IMLINKS_LINK_TITLE, 'title', 70, 100, $title ), true );
-	
+
 	// Link nice url
 	if ( icms::$module -> config['niceurl'] ) {
 		$niceform = new icms_form_elements_Text( _AM_IMLINKS_NICEURL, 'nice_url', 70, 100, $nice_url );
@@ -171,7 +169,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 	$url_text = new icms_form_elements_Text( '', 'url', 70, 255, $url );
 	$url_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_DLURL, '' );
 	$url_tray -> SetDescription( _AM_IMLINKS_LINKURLDSC );
-	$url_tray -> addElement( $url_text, true) ;
+	$url_tray -> addElement( $url_text, true);
 	$url_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/world.png' onClick=\"window.open(storyform.url.value,'','');return(false);\" alt='Check URL' title='Check URL' />" ) );
 	$sform -> addElement( $url_tray );
 
@@ -214,27 +212,27 @@ function edit( $lid = 0, $doclone = 0 ) {
 	}
 	$sform -> addElement( $indeximage_tray );
 
-if ( icms::$module -> config['useaddress'] ){
+if ( icms::$module -> config['useaddress'] ) {
 	$sform -> insertBreak( _AM_IMLINKS_LINK_CREATEADDRESS, 'bg3' );
 	// Google Maps
 	$googlemap_text = new icms_form_elements_Text( '', 'googlemap', 70, 1024, $googlemap );
 	$googlemap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_GOOGLEMAP, '' );
 	$googlemap_tray -> SetDescription( sprintf( _AM_IMLINKS_MAPDSC, '<em>http://maps.google.com</em>' ) );
-	$googlemap_tray -> addElement( $googlemap_text , false ) ;
+	$googlemap_tray -> addElement( $googlemap_text , false );
 	$googlemap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/google_map.png' onClick=\"window.open(storyform.googlemap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' title='"._AM_IMLINKS_LINK_CHECKMAP."' />" ) );
 	$sform -> addElement( $googlemap_tray );
 	// Yahoo Maps
 	$yahoomap_text = new icms_form_elements_Text( '', 'yahoomap', 70, 1024, $yahoomap );
 	$yahoomap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_YAHOOMAP, '' );
 	$yahoomap_tray -> SetDescription( sprintf( _AM_IMLINKS_MAPDSC, '<em>http://maps.yahoo.com</em>' ) );
-	$yahoomap_tray -> addElement( $yahoomap_text , false ) ;
+	$yahoomap_tray -> addElement( $yahoomap_text , false );
 	$yahoomap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/yahoo_map.png' onClick=\"window.open(storyform.yahoomap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' title='"._AM_IMLINKS_LINK_CHECKMAP."' />" ) );
 	$sform -> addElement( $yahoomap_tray );
 	// Bing Maps
 	$multimap_text = new icms_form_elements_Text( '', 'multimap', 70, 1024, $multimap );
 	$multimap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_BINGMAP, '' );
 	$multimap_tray -> SetDescription( sprintf( _AM_IMLINKS_MAPDSC, '<em>http://www.bing.com/maps/</em>' ) );
-	$multimap_tray -> addElement( $multimap_text , false ) ;
+	$multimap_tray -> addElement( $multimap_text , false );
 	$multimap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/bing_map.png' onClick=\"window.open(storyform.multimap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' title='"._AM_IMLINKS_LINK_CHECKMAP."' />" ) );
 	$sform -> addElement( $multimap_tray );
 
@@ -274,14 +272,14 @@ if ( icms::$module -> config['useaddress'] ){
 	$country_select -> SetDescription( _AM_IMLINKS_COUNTRYDSC );
 	$sform -> addElement( $country_select, false );
 
-	// TomTom form	
+	// TomTom form
 	if ( icms::$module -> config['tomtom_apikey'] ) {
 		$sform -> insertBreak( '&nbsp;<b>' . _AM_IMLINKS_TOMTOM . '</b>', 'bg3' );
 		$sform -> insertBreak(  '<div style="padding: 4px;">' . _AM_IMLINKS_TOMTOMDSC . '</div>', 'bg1' );
 		$ttlat = new icms_form_elements_Text( _AM_IMLINKS_TOMTOMLAT, 'ttlat', 40, 25, $ttlat );
 		$sform -> addElement( $ttlat, false );
 		$ttlong = new icms_form_elements_Text( _AM_IMLINKS_TOMTOMLONG, 'ttlong', 40, 25, $ttlong );
-		$sform -> addElement( $ttlong, false );	
+		$sform -> addElement( $ttlong, false );
 	}
 
 	// Miscellaneous Link settings
@@ -378,7 +376,7 @@ if ( icms::$module -> config['useaddress'] ){
 		$sform -> addElement( $button_tray );
 	}
 	$sform -> display();
-	unset( $hidden ); 
+	unset( $hidden );
 	icms_cp_footer();
 }
 
@@ -402,7 +400,7 @@ function fetchURL( $url, $timeout = 2 ) {
 		for( $i = 0; $i < 1; $i++ ) {
 			// Time the responce
 			// list( $usec, $sec ) = explode( ' ', microtime( true ) );
-			$start = microtime( true ); 
+			$start = microtime( true );
 			// send somthing
 			$write = fwrite( $handle, 'return ping\n' );
 			if ( !$write ) {
@@ -432,16 +430,11 @@ switch ( strtolower( $op ) ) {
 		$ping  = iml_cleanRequestVars( $_REQUEST, 'ping', 0 );
 		$cid   = iml_cleanRequestVars( $_REQUEST, 'cid', 0 );
 
-		$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' );
-		// if ( $cid > 0 ) {
-		// $sql .= ' WHERE cid=' . $cid;
-		// }
-		$sql .= ' ORDER BY lid DESC';
+		$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' ORDER BY lid DESC';
 		if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
 			return false;
-		} 
-		// $broken_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
+		}
 		$broken_array = icms::$xoopsDB -> query( $sql, 10, $start );
 		$broken_array_count = icms::$xoopsDB -> getRowsNum( $result );
 
@@ -449,16 +442,16 @@ switch ( strtolower( $op ) ) {
 
 		if ( $op == 'pingtime' ) {
 			iml_adminmenu( '', _AM_IMLINKS_MLISTPINGTIMES );
-			echo '<fieldset style="border: #E8E8E8 1px solid;">
-				  <div style="padding: 8px;"><img src="' . ICMS_URL . '/modules/' . $icmsModule -> getVar( 'dirname' ) . '/images/icon/ping.png" alt="" style="float: left; padding-right: 10px;" />' . _AM_IMLINKS_PINGTIMES . '</div>
-				  </fieldset>';
+			echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
+				  <img src="' . ICMS_URL . '/modules/' . $icmsModule -> getVar( 'dirname' ) . '/images/icon/ping.png" alt="" style="float: left;" /><div style="margin-left: 50px;">' . _AM_IMLINKS_PINGTIMES . '</div>
+				  </div>';
 		} else {
 			iml_adminmenu( '', _AM_IMLINKS_MLISTBROKEN );
-			echo '<fieldset style="border: #E8E8E8 1px solid;">
+			echo '<div style="border: #E8E8E8 1px solid;">
 				  <div style="padding: 8px;">' . _AM_IMLINKS_LISTBROKEN . '</div>
-				  </fieldset>';
+				  </div>';
 		}
-		
+
 		iml_linklistpagenav( $broken_array_count, $start, 'art', 'op=' . $op, 'right' );	
 		echo '
 			<table width="100%" cellspacing="1" cellpadding="2" border="0" class="outer">
@@ -531,7 +524,7 @@ switch ( strtolower( $op ) ) {
 		}
 		redirect_header( 'index.php', 1, _AM_IMLINKS_MSG_OFFLINE );
 		break;
-		
+
 	case 'status_on':
 		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET offline='0' WHERE lid=" . $lid;
 		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
@@ -678,9 +671,9 @@ switch ( strtolower( $op ) ) {
 			$notification_handler = icms::handler('icms_data_notification');
 			$notification_handler -> triggerEvent( 'global', 0, 'new_link', $tags );
 			$notification_handler -> triggerEvent( 'category', $cid, 'new_link', $tags );
-		$notification_handler -> triggerEvent( 'link', $lid, 'approve', $tags );
+			$notification_handler -> triggerEvent( 'link', $lid, 'approve', $tags );
 		}
-		$message = ( !$lid ) ? _AM_IMLINKS_LINK_NEWFILEUPLOAD : _AM_IMLINKS_LINK_FILEMODIFIEDUPDATE ;
+		$message = ( !$lid ) ? _AM_IMLINKS_LINK_NEWFILEUPLOAD : _AM_IMLINKS_LINK_FILEMODIFIEDUPDATE;
 		$message = ( $lid && !$_POST['was_published'] && $approved ) ? _AM_IMLINKS_LINK_FILEAPPROVED : $message;
 
 		if ( iml_cleanRequestVars( $_REQUEST, 'delbroken', 0 ) ) {
@@ -787,28 +780,18 @@ switch ( strtolower( $op ) ) {
 		
 		// Module admin summary
 		iml_adminmenu( 1, _AM_IMLINKS_BINDEX );
-		$style = 'border: #CCCCCC 1px solid; padding: 4px; background-color: #E8E8E8; font-weight: bold; margin: 1px; font-size: smaller;';
+		$style = 'border: #CCCCCC 1px solid; padding: 4px; background-color: #E8E8E8; font-weight: bold; margin: 2px; font-size: smaller; border-radius: 5px; box-shadow:1px 1px 2px #aaaaaa;';
 		echo '
-			<fieldset style="border: #E8E8E8 1px solid;">
-			<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_LINKSUMMARY . '</legend>
+			<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
+			<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_LINKSUMMARY . '</div>
 			<div style="padding: 10px;">
-				<span style="' . $style . '">
-					<a href="category.php">' . _AM_IMLINKS_SCATEGORY . '</a>' . $totalcats . '
-				</span> 
-				<span style="' . $style . '">
-					<a href="index.php">' . _AM_IMLINKS_SFILES . '</a>' . $totallinks . '
-				</span> 
-				<span style="' . $style . '">
-					<a href="newlinks.php">' . _AM_IMLINKS_SNEWFILESVAL . '</a>' . $totalnewlinks . '
-				</span> 
-				<span style="' . $style . '">
-					<a href="modifications.php">' . _AM_IMLINKS_SMODREQUEST . '</a>' . $totalmodrequests . '
-				</span> 
-				<span style="' . $style . '">
-					<a href="brokenlink.php">' . _AM_IMLINKS_SBROKENSUBMIT . '</a>' . $totalbrokenlinks . '
-				</span>
+				<a href="category.php"><span style="' . $style . '">' . _AM_IMLINKS_SCATEGORY . $totalcats . '</span></a>
+				<a href="index.php"><span style="' . $style . '">' . _AM_IMLINKS_SFILES . $totallinks . '</span></a>
+				<a href="newlinks.php"><span style="' . $style . '">' . _AM_IMLINKS_SNEWFILESVAL . $totalnewlinks . '</span></a>
+				<a href="modifications.php"><span style="' . $style . '">' . _AM_IMLINKS_SMODREQUEST . $totalmodrequests . '</span></a>
+				<a href="brokenlink.php"><span style="' . $style . '">' . _AM_IMLINKS_SBROKENSUBMIT . $totalbrokenlinks . '</span></a>
 			</div>
-			</fieldset>';
+			</div><br />';
 
 		// Modify category
 		if ( $totalcats > 0 ) {

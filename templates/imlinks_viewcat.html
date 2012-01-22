@@ -25,68 +25,52 @@
 <br />
 <div align="center"><{$catarray.toolbar}></div>
 <br />
-<div class="imlinks_catpath" style="font-size: smaller; font-weight: bold;"><{$category_path}></div>
-<br />
+<div class="imlinks_catpath" style="font-size: smaller; font-weight: bold; margin-bottom: 10px;"><{$category_path}></div>
 
 <{if $subcategories}>
-<fieldset><legend style="font-weight: bold;"><{$smarty.const._MD_IMLINKS_SUBCATLISTING}></legend>
-<div align= "left" style="margin-left: 5px; padding: 8px;">
- <table width="80%">
-  <tr>
-   <{foreach item=subcat from=$subcategories}>
-    <td>
-	<a href="viewcat.php?cid=<{$subcat.id}>"><img src="<{$subcat.image}>" alt="<{$subcat.alttext}>" title="<{$subcat.alttext}>" align="top" /></a>
-	<a href="viewcat.php?cid=<{$subcat.id}>"><{$subcat.title}></a>&nbsp;(<{$subcat.totallinks}>)
-	 <{if $subcat.infercategories}>
-	  <{$subcat.infercategories}>
-     <{/if}>
-	 </td>
-	 <{if $subcat.count is div by $catcols}>
-    </tr><tr>
-     <{/if}>
-   <{/foreach}>
-   </tr>
- </table>    
-</div></fieldset>
-<br />
+	<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
+		<div style="font-weight: bold; padding-bottom: 8px;"><{$smarty.const._MD_IMLINKS_SUBCATLISTING}></div>
+		<table width="80%">
+			<tr>
+				<{foreach item=subcat from=$subcategories}>
+					<td>
+						<a href="viewcat.php?cid=<{$subcat.id}>"><img src="<{$subcat.image}>" alt="<{$subcat.alttext}>" title="<{$subcat.alttext}>" align="top" /></a>
+						<a href="viewcat.php?cid=<{$subcat.id}>"><{$subcat.title}></a>&nbsp;(<{$subcat.totallinks}>)
+						<{if $subcat.infercategories}>
+							<{$subcat.infercategories}>
+						<{/if}>
+					</td>
+					<{if $subcat.count is div by $catcols}>
+						</tr><tr>
+					<{/if}>
+				<{/foreach}>
+			</tr>
+		</table>    
+	</div>
+	<br />
 <{/if}>
 
 <{if $show_links == true}> 
-<div style="text-align:center; font-size: 70%;">
-<b><{$smarty.const._MD_IMLINKS_SORTBY}></b>&nbsp;<{$smarty.const._TITLE}> (
-<a href="viewcat.php?cid=<{$category_id}>&orderby=titleA">
-<img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
-<a href="viewcat.php?cid=<{$category_id}>&orderby=titleD">
-<img src="images/down.png" alt="" style="vertical-align: bottom;" /></a>
-)
-&nbsp;
-<{$smarty.const._DATE}> (
-<a href="viewcat.php?cid=<{$category_id}>&orderby=dateA">
-<img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
-<a href="viewcat.php?cid=<{$category_id}>&orderby=dateD">
-<img src="images/down.png" alt="" style="vertical-align: bottom;" /></a>
-)
-&nbsp;
- <{$smarty.const._MD_IMLINKS_RATING}> (
-     <a href="viewcat.php?cid=<{$category_id}>&orderby=ratingA">
-     <img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
-     <a href="viewcat.php?cid=<{$category_id}>&orderby=ratingD">
-     <img src="images/down.png" alt="" style="vertical-align: bottom;" /></a>         
-     )    
-&nbsp;
-<{$smarty.const._MD_IMLINKS_POPULARITY}> (
-<a href="viewcat.php?cid=<{$category_id}>&orderby=hitsA">
-<img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
-<a href="viewcat.php?cid=<{$category_id}>&orderby=hitsD">
-<img src="images/down.png" alt="" style="vertical-align: bottom;" /></a>
-)
-&nbsp;
-<{$smarty.const._MD_IMLINKS_COUNTRYSORT}> (
-<a href="viewcat.php?cid=<{$category_id}>&orderby=countryA">
-<img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
-<a href="viewcat.php?cid=<{$category_id}>&orderby=countryD">
-<img src="images/down.png" alt="" style="vertical-align: bottom;" /></a>
-)
+	<div style="text-align:center; font-size: 70%; margin-bottom: 20px;">
+		<b><{$smarty.const._MD_IMLINKS_SORTBY}></b>&nbsp;<{$smarty.const._TITLE}> (
+			<a href="viewcat.php?cid=<{$category_id}>&orderby=titleA"><img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
+			<a href="viewcat.php?cid=<{$category_id}>&orderby=titleD"><img src="images/down.png" alt="" style="vertical-align: bottom;" /></a> )
+		&nbsp;
+		<{$smarty.const._DATE}> (
+			<a href="viewcat.php?cid=<{$category_id}>&orderby=dateA"><img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
+			<a href="viewcat.php?cid=<{$category_id}>&orderby=dateD"><img src="images/down.png" alt="" style="vertical-align: bottom;" /></a> )
+		&nbsp;
+		<{$smarty.const._MD_IMLINKS_RATING}> (
+			<a href="viewcat.php?cid=<{$category_id}>&orderby=ratingA"><img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
+			<a href="viewcat.php?cid=<{$category_id}>&orderby=ratingD"><img src="images/down.png" alt="" style="vertical-align: bottom;" /></a> )    
+		&nbsp;
+		<{$smarty.const._MD_IMLINKS_POPULARITY}> (
+			<a href="viewcat.php?cid=<{$category_id}>&orderby=hitsA"><img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
+			<a href="viewcat.php?cid=<{$category_id}>&orderby=hitsD"><img src="images/down.png" alt="" style="vertical-align: bottom;" /></a> )
+		&nbsp;
+		<{$smarty.const._MD_IMLINKS_COUNTRYSORT}> (
+			<a href="viewcat.php?cid=<{$category_id}>&orderby=countryA"><img src="images/up.png" alt="" style="vertical-align: bottom;" /></a>
+			<a href="viewcat.php?cid=<{$category_id}>&orderby=countryD"><img src="images/down.png" alt="" style="vertical-align: bottom;" /></a> )
 <br />
 <b><{$lang_cursortedby}></b><br />
 </div>
