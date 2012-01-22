@@ -352,6 +352,13 @@ switch ( icms::$module -> config['showsbookmarks'] ) {
 $xoopsTpl -> assign( 'imlink', $imlink );
 $xoopsTpl -> assign( 'module_dir', $mydirname );
 
+if ( iml_imageheader() != '' ) {
+	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';
+}
+$catarray['letters'] = '<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink">' . iml_letters() . '</div>';
+$catarray['toolbar'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_toolbar() . '</div>';
+$xoopsTpl -> assign( 'catarray', $catarray );
+
 include ICMS_ROOT_PATH . '/include/comment_view.php';
 include ICMS_ROOT_PATH . '/footer.php';
 ?>

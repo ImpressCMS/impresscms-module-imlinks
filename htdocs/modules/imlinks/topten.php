@@ -43,10 +43,11 @@ $sort_arr	= $action_array[$sort];
 $sortDB		= $list_array[$sort_arr];
 
 if ( iml_imageheader() != '' ) {
-	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>'; }
-	$catarray['letters'] 	 = iml_letters();
-	$catarray['toolbar'] 	 = iml_toolbar();
-	$xoopsTpl -> assign( 'catarray', $catarray );
+	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';
+}
+$catarray['letters'] = '<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink">' . iml_letters() . '</div>';
+$catarray['toolbar'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_toolbar() . '</div>';
+$xoopsTpl -> assign( 'catarray', $catarray );
 
 	$arr = array();
 	$result = icms::$xoopsDB -> query( 'SELECT cid, title, pid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE pid=0 ORDER BY ' . icms::$module -> config['sortcats'] );
