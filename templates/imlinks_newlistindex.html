@@ -1,67 +1,55 @@
 <link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/style.css" />
 
-<{if $catarray.imageheader != ""}> <br />
-	<div style="padding-bottom: 12px; text-align: center;"><{$catarray.imageheader}></div>
-	<br />
-<{/if}>
-<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink"><{$catarray.letters}></div>
-<div style="padding-bottom: 12px; text-align: center;"><{$catarray.toolbar}></div>
-<div style="clear: both;">&nbsp;</div>
-<div class="imlinks_catpath" style="font-size: bigger; font-weight: bold;"><{$smarty.const._MD_IMLINKS_NEWLINKS}></div>
-<div style="clear: both;">&nbsp;</div>
-<table class="outer" style="width: 400px; margin-left: 8px;" border="0" cellspacing="2" cellpadding="0">
-  <tr>
-    <th height="5" colspan="2"><b><{$smarty.const._MD_IMLINKS_TOTALNEWLINKS}>:</b></th>
-  </tr>
-  <tr>
-    <td class="odd"><{$smarty.const._MD_IMLINKS_LASTWEEK}></td>
-    <td width="5%" class="odd" align="center"><{$allweeklinks}></td>
-  </tr>
-  <tr>
-    <td class="odd"><{$smarty.const._MD_IMLINKS_LAST30DAYS}></td>
-    <td width="15%" class="odd" align="center"><{$allmonthlinks}></td>
-  </tr>
-</table>
+<{$catarray.imageheader}>
+<{$catarray.letters}>
+<{$catarray.toolbar}>
 
-<br /><br />
+<div class="imlinks_catpath" style="font-size: bigger; font-weight: bold; margin-bottom: 20px; margin-top: 10px;"><{$smarty.const._MD_IMLINKS_NEWLINKS}></div>
 
-<div style="float: left; margin-left: 8px; margin-right: 8px;">
-	<b><{$smarty.const._MD_IMLINKS_SHOW}>:</b>
-</div>
-<div style="float: left; margin-right: 3px;">
-	<a class="button" href="<{$icms_url}>/modules/<{$module_dir}>/newlist.php?newlinkshowdays=7"><{$smarty.const._MD_IMLINKS_1WEEK}></a>
-	<a class="button" href="<{$icms_url}>/modules/<{$module_dir}>/newlist.php?newlinkshowdays=14"><{$smarty.const._MD_IMLINKS_2WEEKS}></a>
-	<a class="button" href="<{$icms_url}>/modules/<{$module_dir}>/newlist.php?newlinkshowdays=30"><{$smarty.const._MD_IMLINKS_30DAYS}></a>
+<div class="imlinks_table" style=" margin-left: 10px; margin-bottom: 25px; width: 400px;">
+	<div class="imlinks_tblhdrrow">
+		<div style="display: table-cell; padding: 3px; font-weight; bold;"><{$smarty.const._MD_IMLINKS_TOTALNEWLINKS}>:</div>
+		<div style="display: table-cell; padding: 3px;"> </div>
+	</div>
+	<div class="imlinks_tblrow">
+		<div class="imlinks_tblcell"><{$smarty.const._MD_IMLINKS_LASTWEEK}></div>
+		<div class="imlinks_tblcell" style="text-align: center; width: 15%;"><{$allweeklinks}></div>
+	</div>
+	<div class="imlinks_tblrow">
+		<div class="imlinks_tblcell"><{$smarty.const._MD_IMLINKS_LAST30DAYS}></div>
+		<div class="imlinks_tblcell" style="text-align: center; width: 15%;"><{$allmonthlinks}></div>
+	</div>
 </div>
 
+<div style="float: left; margin-right: 10px; margin-bottom: 20px; margin-left: 10px; clear: both;">
+	<span style="margin-right: 8px; font-weight: bold;"><{$smarty.const._MD_IMLINKS_SHOW}>:</span>
+	<a href="<{$icms_url}>/modules/<{$module_dir}>/newlist.php?newlinkshowdays=7"><span  class="button"><{$smarty.const._MD_IMLINKS_1WEEK}></span></a>
+	<a href="<{$icms_url}>/modules/<{$module_dir}>/newlist.php?newlinkshowdays=14"><span  class="button"><{$smarty.const._MD_IMLINKS_2WEEKS}></span></a>
+	<a href="<{$icms_url}>/modules/<{$module_dir}>/newlist.php?newlinkshowdays=30"><span  class="button"><{$smarty.const._MD_IMLINKS_30DAYS}></span></a>
+</div>
 
-<br /><br /><br />
-
-<table class="outer" style="width: 400px; margin-left: 8px;" border="0" cellspacing="2" cellpadding="0">
-  <tr>
-    <th colspan="2"><b><{$smarty.const._MD_IMLINKS_DTOTALFORLAST}> <{$newlinkshowdays}> <{$smarty.const._MD_IMLINKS_DAYS}></b></th>
-  </tr>
-
+<div class="imlinks_table" style=" margin-left: 10px; margin-bottom: 20px; width: 400px; float: left; clear: both;">
+	<div class="imlinks_tblhdrrow">
+		<div style="display: table-cell; padding: 3px; font-weight; bold;"><{$smarty.const._MD_IMLINKS_DTOTALFORLAST}> <{$newlinkshowdays}> <{$smarty.const._MD_IMLINKS_DAYS}></div>
+		<div style="display: table-cell; padding: 3px;"> </div>
+	</div>
 
 <{if count($dailylinks) gt 0}>
-  <!-- Start day loop -->
-<{foreach item=dailylink from=$dailylinks}>
-  <tr>
-    <td class="odd"><a href="<{$icms_url}>/modules/<{$module_dir}>/viewcat.php?selectdate=<{$dailylink.newlinkdayRaw}>"><{$dailylink.newlinkView}></a></td>
-    <td width="15%" class="odd" align="center"><{$dailylink.totallinks}></td>
-  </tr>
-<{/foreach}></table>
-<!-- End day loop -->
+	<!-- Start day loop -->
+	<{foreach item=dailylink from=$dailylinks}>
+		<div class="imlinks_tblrow">
+			<div class="imlinks_tblcell"><a href="<{$icms_url}>/modules/<{$module_dir}>/viewcat.php?selectdate=<{$dailylink.newlinkdayRaw}>"><{$dailylink.newlinkView}></a></div>
+			<div class="imlinks_tblcell" style="text-align: center; width: 15%;"><{$dailylink.totallinks}></div>
+		</div>
+	<{/foreach}>
+	</div>
+	<!-- End day loop -->
 
-<!-- <h4><{$smarty.const._MD_IMLINKS_LATESTLIST}></h4> -->
-<table width="100%" cellspacing="0" cellpadding="2" border="0">
-<tr>
-<td width="100%">
-  <!-- Start link loop -->
-   <{section name=i loop=$link}>
-	 <{include file="db:imlinks_linkload.html" link=$link[i]}>
-   <{/section}>
-  <!-- End link loop -->
-</td></tr>
-</table>
+	<div>
+		<!-- Start link loop -->
+		<{section name=i loop=$link}>
+			<{include file="db:imlinks_linkload.html" link=$link[i]}>
+		<{/section}>
+		<!-- End link loop -->
+	</div>
 <{/if}>
