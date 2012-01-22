@@ -38,7 +38,7 @@ $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_indexpage' );
 $head_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
 if ( $head_arr['indeximage'] != '' ) {
-$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader( $head_arr['indeximage'], '' ) . '</div>'; }
+$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>'; }
 
 if ( $head_arr['indexheading'] != '' ) {
 $catarray['indexheading'] = '<h4 style="text-align: center;">' . $head_arr['indexheading'] . '</h4>'; }
