@@ -1,47 +1,39 @@
 <link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/style.css" />
 <{$catarray.imageheader}>
-
 <div align="center" class="itemPermaLink"><{$catarray.letters}></div><br />
 <div align="center"><{$catarray.toolbar}></div><br />
-
 <div>
 	<span style="float: left; margin-left: 4px;"><h5><{$smarty.const._MD_IMLINKS_DISPLAYING}><{$lang_sortby}></h5></span>
 	<span style="float: right; margin-right: 2px; padding: 6px;"><{$back}></span>
 </div>
-
-<div style="clear: both; height: 5px;">&nbsp;</div>
-
 <!-- Start ranking loop --> 
 <{foreach item=ranking from=$rankings}>
-<div style="clear: both; margin-bottom: 5px; text-align: left; padding: 2px; margin-left: 2px;">
-  <b><{$smarty.const._MD_IMLINKS_CATEGORY}>:</b> <{$ranking.title}>
-</div>
-<table cellpadding="0" cellspacing="1" width="100%" class="outer"> 
-  <tr> 
-    <th align="center" width="5%"><{$smarty.const._MD_IMLINKS_RANK}></th> 
-    <th><{$smarty.const._TITLE}></th> 
-    <th width="25%"><{$smarty.const._MD_IMLINKS_CATEGORY}></th>
-    <th align="center" width="5%"><{$smarty.const._MD_IMLINKS_HITS}></th> 
-    <th align="center" width="5%"><{$smarty.const._MD_IMLINKS_RATING}></th> 
-    <th align="center" width="5%"><{$smarty.const._MD_IMLINKS_VOTES}></th> 
-  </tr> 
-  <!-- Start files loop --> 
-<{foreach item=file from=$ranking.file}>
-  <tr> 
-    <td align="center" class="head"><b><{$file.rank}></b></td> 
-    <{if $nice_url}>
-		<td class="imlinks_even"><a href="singlelink.php?lid=<{$file.id}>&amp;page=<{$file.nice_link}>"><{$file.title}></a></td>
-	<{else}>
-		<td class="imlinks_even"><a href="singlelink.php?lid=<{$file.id}>"><{$file.title}></a></td>
-	<{/if}>
-    <td class="imlinks_even"><a href="viewcat.php?cid=<{$file.cid}>"><{$file.category}></a></td>
-    <td class="imlinks_even" align="center"><{$file.hits}></td> 
-    <td class="imlinks_even" align="center"><{$file.rating}></td> 
-    <td align="center" class="imlinks_even"><{$file.votes}></td> 
-  </tr> 
-<{/foreach}> 
-  <!-- End links loop--> 
-</table>
-<br /> 
-<{/foreach}> 
-<!-- End ranking loop --> 
+	<div style="clear: both; margin-bottom: 5px; text-align: left; padding: 2px; margin-left: 2px;"><b><{$smarty.const._MD_IMLINKS_CATEGORY}>:</b> <{$ranking.title}></div>
+	<div class="imlinks_table" style="margin-bottom: 20px;">
+		<div class="imlinks_tblhdrrow">
+			<div class="imlinks_tblcell" style="text-align: center;"><{$smarty.const._MD_IMLINKS_RANK}></div> 
+			<div class="imlinks_tblcell"><{$smarty.const._TITLE}></div>
+			<div class="imlinks_tblcell"><{$smarty.const._MD_IMLINKS_CATEGORY}></div>
+			<div class="imlinks_tblcell" style="text-align: center;"><{$smarty.const._MD_IMLINKS_HITS}></div>
+			<div class="imlinks_tblcell" style="text-align: center;"><{$smarty.const._MD_IMLINKS_RATING}></div>
+			<div class="imlinks_tblcell" style="text-align: center;"><{$smarty.const._MD_IMLINKS_VOTES}></div>
+		</div>
+		<!-- Start files loop -->
+		<{foreach item=file from=$ranking.file}>
+			<div class="imlinks_tblrow" style="font-size: .9em;">
+				<div class="imlinks_tblhdrcell" style="text-align: center;"><{$file.rank}></div>
+				<{if $nice_url}>
+					<div class="imlinks_tblcell"><a href="singlelink.php?lid=<{$file.id}>&amp;page=<{$file.nice_link}>"><{$file.title}></a></div>
+				<{else}>
+					<div class="imlinks_tblcell"><a href="singlelink.php?lid=<{$file.id}>"><{$file.title}></a></div>
+				<{/if}>
+				<div class="imlinks_tblcell"><a href="viewcat.php?cid=<{$file.cid}>"><{$file.category}></a></div>
+				<div class="imlinks_tblcell" style="text-align: center;"><{$file.hits}></div>
+				<div class="imlinks_tblcell" style="text-align: center;"><{$file.rating}></div>
+				<div class="imlinks_tblcell" style="text-align: center;"><{$file.votes}></div>
+			</div>
+		<{/foreach}>
+		<!-- End links loop-->
+	</div>
+<{/foreach}>
+<!-- End ranking loop -->
