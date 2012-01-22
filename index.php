@@ -117,12 +117,12 @@ while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
 	// End
 
 		$xoopsTpl -> append( 'categories', array(	'image' 			=> ICMS_URL . "/$imgurl",
-													'id' 				=> $myrow['cid'],
+													'id'				=> $myrow['cid'],
 													'title' 			=> $title,
 													'subcategories' 	=> $subcategories,
-													'totallinks' 		=> $totallinkload['count'],
+													'totallinks'		=> $totallinkload['count'],
 													'count' 			=> $count,
-													'alttext' 		=> $myrow['description'] ) );
+													'alttext'			=> $myrow['description'] ) );
 		$count++;
 	}
 }
