@@ -785,11 +785,11 @@ switch ( strtolower( $op ) ) {
 			<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 			<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_LINKSUMMARY . '</div>
 			<div style="padding: 10px;">
-				<a href="category.php"><span style="' . $style . '">' . _AM_IMLINKS_SCATEGORY . $totalcats . '</span></a>
-				<a href="index.php"><span style="' . $style . '">' . _AM_IMLINKS_SFILES . $totallinks . '</span></a>
-				<a href="newlinks.php"><span style="' . $style . '">' . _AM_IMLINKS_SNEWFILESVAL . $totalnewlinks . '</span></a>
-				<a href="modifications.php"><span style="' . $style . '">' . _AM_IMLINKS_SMODREQUEST . $totalmodrequests . '</span></a>
-				<a href="brokenlink.php"><span style="' . $style . '">' . _AM_IMLINKS_SBROKENSUBMIT . $totalbrokenlinks . '</span></a>
+				<a style="' . $style . '" href="category.php">' . _AM_IMLINKS_SCATEGORY . $totalcats . '</a>
+				<a style="' . $style . '" href="index.php">' . _AM_IMLINKS_SFILES . $totallinks . '</a>
+				<a style="' . $style . '" href="newlinks.php">' . _AM_IMLINKS_SNEWFILESVAL . $totalnewlinks . '</a>
+				<a style="' . $style . '" href="modifications.php">' . _AM_IMLINKS_SMODREQUEST . $totalmodrequests . '</a>
+				<a style="' . $style . '" href="brokenlink.php">' . _AM_IMLINKS_SBROKENSUBMIT . $totalbrokenlinks . '</a>
 			</div>
 			</div><br />';
 
