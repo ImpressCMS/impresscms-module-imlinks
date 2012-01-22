@@ -179,6 +179,8 @@ $pathstring = '<a href="index.php">' . _MD_IMLINKS_MAIN . '</a>&nbsp;:&nbsp;';
 $pathstring .= $mytree -> getNicePathFromId( $imlink['cid'], 'title', 'viewcat.php?op=' );
 $imlink['path'] = $pathstring;
 
+$link_url = iml_niceurl( $link_arr['lid'], $link_arr['title'], $link_arr['nice_url'] );
+
 // Start of meta tags
 $maxWords = 100;
 $words = array();
@@ -206,7 +208,10 @@ if ( is_object( $xoTheme ) ) {
 	}
 	$xoopsTpl -> assign( 'icms_meta_description', $link_meta_description );
 }
-$xoopsTpl -> assign( 'icms_pagetitle', $link_arr['title'] );
+	$xoopsTpl -> assign( 'icms_pagetitle', $link_arr['title'] );
+	// Open Graph tags
+	$xoopsTpl -> assign( 'og_url', $link_url );
+	$xoopsTpl -> assign( 'og_image', ICMS_URL . '/modules/' . $mydirname . '/images/imlinks_ilogo.png' );
 // End of meta tags
 
 $moderate = 0;
@@ -265,10 +270,9 @@ $xoopsTpl -> assign( 'print', '<a class="button" href="' . ICMS_URL . '/modules/
 
 $xoopsTpl -> assign( 'back' , '<a class="button" href="javascript:history.go(-1)">&#9668; ' . _BACK . '</a>' );
 
-$imlink['otherlinx'] 	 = icms::$module -> config['otherlinks'];
-$imlink['showsbookmarx'] = icms::$module -> config['showsbookmarks'];
-$imlink['total_chars'] 	 = icms::$module -> config['totalchars'];
-$imlink['allow_rating']  = ( iml_checkgroups( $cid, 'imLinkRatePerms' ) ) ? true : false;
+$imlink['otherlinx']	= icms::$module -> config['otherlinks'];
+$imlink['total_chars']	= icms::$module -> config['totalchars'];
+$imlink['allow_rating'] = ( iml_checkgroups( $cid, 'imLinkRatePerms' ) ) ? true : false;
 
 $xoopsTpl -> assign( 'lightwindow', icms::$module -> config['lightwindow'] );
 if ( icms::$module -> config['lightwindow'] == 2 ) {
@@ -276,6 +280,75 @@ if ( icms::$module -> config['lightwindow'] == 2 ) {
 		$xoopsTpl -> assign( 'xoops_module_header', '<script type="text/javascript">var GB_ROOT_DIR = "' . ICMS_URL . '/libraries/greybox/";</script>' );
 	}
 }
+
+//Twitter button
+switch ( icms::$module -> config['twitt_bttn'] ) {
+	case 1:
+		$twcount = 'none';
+		break;
+	case 2:
+		$twcount = 'horizontal';
+		break;
+	case 3:
+		$twcount = 'vertical';
+		break;
+}
+
+if ( icms::$module -> config['twitt_bttn'] > 0 ) {
+	$twitter = '<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+				<span style="margin-right: 10px;"><a href="https://twitter.com/share" class="twitter-share-button" data-count="' . $twcount . '">' . _MI_IMPRESSION_TWEET . '</a></span>';
+}
+
+//Facebook button
+switch ( icms::$module -> config['faceb_bttn'] ) {
+	case 1:
+		$fbcount = 'button_count';
+		break;
+	case 2:
+		$fbcount = 'box_count';
+		break;
+}
+
+if ( icms::$module -> config['faceb_bttn'] > 0 ) {
+	$facebook = '<div data-href="' . $link_url . '" class="fb-like" data-send="false" data-layout="' . $fbcount . '" data-show-faces="false"></div>';
+}
+
+//Google +1 button
+switch ( icms::$module -> config['plusone_bttn'] ) {
+	case 0:
+		$plusone = '';
+		break;
+	case 1:
+		$plusone = '<g:plusone size="medium" annotation="none"></g:plusone>';
+		break;
+	case 2:
+		$plusone = '<span style="margin: 0; padding: 0;"><g:plusone size="medium" annotation="bubble"></g:plusone></span>';
+		break;
+	case 3:
+		$plusone = '<span style="margin: 0; padding: 0;"><g:plusone size="tall" annotation="bubble"></g:plusone></span>';
+		break;
+}
+
+//Social bookmarks
+$imlink['showsbookmarks'] = icms::$module -> config['showsbookmarks'];
+
+switch ( icms::$module -> config['showsbookmarks'] ) {
+	case 0:
+		$imlink['socialbutton'] = '';
+		break;
+	case 1:
+		include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/sbookmarks.php';
+		$imlink['socialbutton'] = '<div class="imlinks_socbookmark">' . iml_sbmarks( $link_arr['lid'], $link_arr['title'] ) . '</div>';
+		break;
+	case 2:
+		$imlink['socialbutton'] = '<br /><div style="text-align: center; padding: 10px 0 5px 0;">' . $twitter . $facebook . $plusone . '</div>';
+		break;
+	case 3:
+		$imlink['socialbutton'] = '<br /><div style="text-align: center; padding: 10px 0 5px 0;" id="socialshareprivacy"></div>';
+		break;
+}
+//End Social buttons
+
 $xoopsTpl -> assign( 'imlink', $imlink );
 $xoopsTpl -> assign( 'module_dir', $mydirname );
 
