@@ -31,9 +31,11 @@ include 'header.php';
 $xoopsOption['template_main'] = 'imlinks_newlistindex.html';
 include ICMS_ROOT_PATH . '/header.php';
 
-$catarray['imageheader'] = iml_imageheader();
-$catarray['letters'] = iml_letters();
-$catarray['toolbar'] = iml_toolbar();
+if ( iml_imageheader() != '' ) {
+	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';
+}
+$catarray['letters'] = '<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink">' . iml_letters() . '</div>';
+$catarray['toolbar'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_toolbar() . '</div>';
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 if ( isset( $_GET['newlinkshowdays'] ) ) {
