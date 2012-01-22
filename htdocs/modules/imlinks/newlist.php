@@ -92,22 +92,7 @@ ksort( $dailylinks );
 reset( $dailylinks );
 $xoopsTpl -> assign( 'dailylinks', $dailylinks );
 unset( $dailylinks );
-$moderate = 0;
-$mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
-$sql  = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' );
-$sql .= ' WHERE (published > 0 AND published <= ' . $time_cur . ') OR (updated > 0 AND updated <= ' . $time_cur . ') AND (expired = 0 OR expired > ' . $time_cur . ') AND offline = 0 ORDER BY ' . icms::$module -> config['linkxorder'];
-$result = icms::$xoopsDB -> query( $sql, 10 , 0 );
-while ( $link_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
-	include ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/linkloadinfo.php';
-} 
 
-// Screenshots display
-if ( icms::$module -> config['screenshot'] ) {
-	$xoopsTpl -> assign( 'shots_dir', icms::$module -> config['screenshots'] );
-	$xoopsTpl -> assign( 'shotwidth', icms::$module -> config['shotwidth'] );
-	$xoopsTpl -> assign( 'shotheight', icms::$module -> config['shotheight'] );
-	$xoopsTpl -> assign( 'show_screenshot', true );
-}
 $xoopsTpl -> assign( 'module_dir', $mydirname );
 include ICMS_ROOT_PATH . '/footer.php';
 ?>

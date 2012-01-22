@@ -1,19 +1,18 @@
 /* imLinks stylesheet */
 
 .button {
-	padding: 2px .5em 4px .5em; 
-	background-image: url(images/icon/backgnd.png); 
-	background-position: center center; 
-	background-repeat: repeat-x; 
-	color: #444; 
-	font-size: smaller; 
+	padding: 2px .5em 4px .5em;
+	background-image: url(images/icon/backgnd.png);
+	background-position: center center;
+	background-repeat: repeat-x;
+	color: #444;
+	font-size: smaller;
 	font-weight: bold;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	cursor: pointer; 
+	cursor: pointer;
 	border: outset 1px #CCC;
 	white-space: nowrap;
-	box-shadow:1px 1px 2px #aaaaaa;
-}
+	box-shadow:1px 1px 2px #AAAAAA; }
 
  .minibutton {
 	padding: 2px 0.5em 3px 0.5em;
@@ -25,84 +24,75 @@
 	font-weight: normal;
 	white-space: nowrap;
 	cursor: default;
-	border: outset 1px #ccc;
+	border: outset 1px #CCC;
 	-webkit-border-radius: 4px;
-	-khtml-border-radius: 4px;	
+	-khtml-border-radius: 4px;
 	-moz-border-radius: 4px;
-	border-radius: 4px;
-}
+	border-radius: 4px; }
 
 .letters {
-	margin-bottom: 8px; 
-	margin-top: 8px;  
-	padding-right: 0.5em; 
-	padding-left: 0.5em; 
-	padding-bottom: 1px; 
-	padding-top: 1px; 
-	background-image: url(images/icon/backgnd.png); 
-	background-position: center center; 
-	background-repeat: repeat-x; 
-	color: #444; 
-	font-size: smaller; 
-	font-weight: bold; 
+	margin-bottom: 8px;
+	margin-top: 8px;
+	padding-right: 0.5em;
+	padding-left: 0.5em;
+	padding-bottom: 1px;
+	padding-top: 1px;
+	background-image: url(images/icon/backgnd.png);
+	background-position: center center;
+	background-repeat: repeat-x;
+	color: #444;
+	font-size: smaller;
+	font-weight: bold;
 	line-height: 16pt;
 	cursor: pointer;
 	border: outset 1px #CCC;
-	box-shadow:1px 1px 2px #aaaaaa;
-}
+	box-shadow:1px 1px 2px #AAAAAA; }
 
-.infoblock { 
-	padding: 4px; 
-	background-color:#E6E6E6; 
+.infoblock {
+	padding: 4px;
+	background-color:#E6E6E6;
 	border: 1px solid #CCC;
 	font-size: 70%;
 	-webkit-border-radius: 6px;
-	-khtml-border-radius: 6px;	
+	-khtml-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
-	box-shadow:2px 2px 3px #AAAAAA;
-}
+	box-shadow:2px 2px 3px #AAAAAA; }
 
-.infoblock2 { 
-	padding: 5px; 
+.infoblock2 {
+	padding: 5px;
 	border: 1px solid #CCC;
 	font-size: 70%;
 	-webkit-border-radius: 6px;
-	-khtml-border-radius: 6px;	
+	-khtml-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
-	box-shadow:2px 2px 3px #AAAAAA;
-}
+	box-shadow:2px 2px 3px #AAAAAA; }
 
 .imlinks_even {
-	background-color: #E8E6E2; 
-	padding: 4px;
-}
+	background-color: #E8E6E2;
+	padding: 4px; }
 
 .imlinks_catpath {
-	background-color: #E8E6E2; 
+	background-color: #E8E6E2;
 	padding: 4px;
-	border: 1px solid #ccc;
-}
+	border: 1px solid #ccc; }
 
 .imlinks_horline {
-	clear: both; 
-	height: 1px; 
-	border-top: 1px solid #CCC;
-}
+	clear: both;
+	height: 1px;
+	border-top: 1px solid #CCC; }
 
 fieldset {
 	border: #E8E8E8 1px solid;
 	-webkit-border-radius: 6px;
 	-khtml-border-radius: 6px;
 	-moz-border-radius: 6px;
-	border-radius: 6px;
-}
+	border-radius: 6px; }
 
 legend {
 	display: inline;
-	font-weight: bold;
-}
+	font-weight: bold; }
 
 .imlinks_table {
 	display: table;
@@ -118,6 +108,19 @@ legend {
 	background-image: url(images/icon/backgnd.png);
 	background-position: center center;
 	background-size: contain; }
+	
+.imlinks_tblhdr {
+	display: table-block;
+	font-weight: bold;
+	padding: 3px;
+	background-repeat: repeat-x;
+	background-image: url(images/icon/backgnd.png);
+	background-position: center center;
+	background-size: contain;
+	margin-right: -1px;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc; }
 
 .imlinks_tblrow {
 	display: table-row;
@@ -138,11 +141,11 @@ legend {
 	padding: 3px; }
 
 div.imlinks_socbookmark {
-	clear: both;  
-	vertical-align: bottom; 
-	text-align: center; 
-	margin-top: 15px; 
-	margin-bottom: 5px;	}
+	clear: both;
+	vertical-align: bottom;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 5px; }
 
 div.imlinks_socbookmark a img {
 	opacity: 0.4;
@@ -235,5 +238,5 @@ See readme.txt for full credit details.
 
 .thanks {
 	color:#36AA3D; }
-	
+
 .static {}
