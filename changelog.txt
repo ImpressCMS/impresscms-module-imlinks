@@ -8,6 +8,10 @@ Fixed:
 Added:
 - social media buttons
 
+Removed:
+- blocks/imlinks_banner.php
+- templates/blocks/imlinks_block_banner.html
+
 =========================================================
 23.11.2011 - Version 1.11
 =========================================================
