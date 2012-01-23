@@ -93,16 +93,16 @@ switch ( strtolower( $op ) ) {
 					' . $imagearray['editimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_SUB_EDITWAITINGFILE . '<br />
 					' . $imagearray['deleteimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_SUB_DELETEWAITINGFILE . '</div>
 				</div><br />';
-
-		echo '<table width="100%" cellspacing="1" class="outer">
-				<tr style="text-align: center; font-size: smaller;">
-					<th>' . _AM_IMLINKS_MINDEX_ID . '</th>
-					<th style="text-align: left;">' . _AM_IMLINKS_MINDEX_TITLE . '</th>
-					<th>' . _AM_IMLINKS_MINDEX_POSTER . '</th>
-					<th>' . _AM_IMLINKS_MINDEX_SUBMITTED . '</th>
-					<th>' . _AM_IMLINKS_MINDEX_ACTION . '</th>
-				</tr>';
+		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
 		if ( $new_array_count > 0 ) {
+			echo '<div class="imlinks_table" style="font-size: 10px;">
+					<div class="imlinks_tblhdrrow">
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_ID . '</div>
+						<div class="imlinks_tblcell">' . _AM_IMLINKS_MINDEX_TITLE . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_POSTER . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_SUBMITTED . '</div>
+						<div class="imlinks_tblcell" style="text-align: center; width: 60px;">' . _AM_IMLINKS_MINDEX_ACTION . '</div>
+					</div>';
 			while ( $new = icms::$xoopsDB -> fetchArray( $new_array ) ) {
 				$lid = intval( $new['lid'] );
 				$rating = number_format( $new['rating'], 2 );
@@ -116,18 +116,18 @@ switch ( strtolower( $op ) ) {
 				$icon .= '<a href="index.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>&nbsp;';
 				$icon .= '<a href="index.php?op=delete&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>';
 
-				echo '<tr style="font-size: smaller;">
-						<td class="head" style="text-align: center;">' . $lid . '</td>
-						<td class="even" nowrap><a href="newlinks.php?op=edit&amp;lid=' . $lid . '">' . $title . '</a></td>
-						<td class="even" style="text-align: center;" nowrap>'. $submitter . '</td>
-						<td class="even" style="text-align: center;">' . $datetime . '</td>
-						<td class="even" style="text-align: center; white-space: nowrap;">' . $icon . '</td>
-					</tr>';
+				echo '<div class="imlinks_tblrow">
+						<div class="imlinks_tblcell" style="text-align: center;">' . $lid . '</div>
+						<div class="imlinks_tblcell"><a href="newlinks.php?op=edit&amp;lid=' . $lid . '">' . $title . '</a></div>
+						<div class="imlinks_tblcell" style="text-align: center;">'. $submitter . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . $datetime . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . $icon . '</div>
+					</div>';
 			}
+			echo '</div>';
 		} else {
-			echo '<tr><td style="text-align: center;" class="head" colspan="6">' . _AM_IMLINKS_SUB_NOFILESWAITING . '</td></tr>';
+			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px;">' . _AM_IMLINKS_SUB_NOFILESWAITING . '</div>';
 		}
-		echo '</table>';
 
 		include_once ICMS_ROOT_PATH . '/class/pagenav.php';
 		$pagenav = new icms_view_PageNav( $new_array_count, icms::$module -> config['admin_perpage'], $start, 'start' );

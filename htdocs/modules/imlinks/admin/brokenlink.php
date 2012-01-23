@@ -115,21 +115,23 @@ switch ( strtolower( $op ) ) {
 					' . $imagearray['editimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_BROKEN_EDITDESC . '<br />
 					' . $imagearray['deleteimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_BROKEN_DELETEDESC . '</div>
 			</div></div></div><br />';
-		echo '<table width="100%" border="0" cellspacing="1" cellpadding="2" class="outer">
-			<tr style="text-align: center; font-size: smaller;">
-				<th style="text-align: center;">' . _AM_IMLINKS_BROKEN_ID . '</th>
-				<th style="text-align: left;">' . _TITLE . '</th>
-				<th>' . _AM_IMLINKS_BROKEN_REPORTER . '</th>
-				<th>' . _AM_IMLINKS_BROKEN_FILESUBMITTER . '</th>
-				<th>' . _AM_IMLINKS_BROKEN_DATESUBMITTED . '</th>
-				<th>' . _AM_IMLINKS_BROKEN_ACKNOWLEDGED . '</th>
-				<th>' . _AM_IMLINKS_BROKEN_DCONFIRMED . '</th>		
-				<th style="text-align: center; white-space: nowrap;">' . _AM_IMLINKS_BROKEN_ACTION . '</th>
-			</tr>';
+		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
+		
 
 		if ( $totalbrokenlinks == 0 ) {
-			echo '<tr style="text-align: center;"><td style="text-align: center;" class="head" colspan="8">' . _AM_IMLINKS_BROKEN_NOFILEMATCH . '</td></tr>';
+			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px;">' . _AM_IMLINKS_BROKEN_NOFILEMATCH . '</div>';
 		} else {
+			echo '<div class="imlinks_table" style="font-size: 10px;">
+					<div class="imlinks_tblhdrrow">
+					<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_ID . '</div>
+					<div class="imlinks_tblcell">' . _TITLE . '</div>
+					<div class="imlinks_tblcell">' . _AM_IMLINKS_BROKEN_REPORTER . '</div>
+					<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_FILESUBMITTER . '</div>
+					<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_DATESUBMITTED . '</div>
+					<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_ACKNOWLEDGED . '</div>
+					<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_DCONFIRMED . '</div>
+					<div class="imlinks_tblcell" style="text-align: center; white-space: nowrap;">' . _AM_IMLINKS_BROKEN_ACTION . '</div>
+				</div>';
 			while ( list( $reportid, $lid, $sender, $ip, $date, $confirmed, $acknowledged ) = icms::$xoopsDB -> fetchRow( $result ) ) {
 				$result2 = icms::$xoopsDB -> query( 'SELECT cid, title, url, submitter, nice_url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid );
 				list( $cid, $linkshowname, $url, $submitter, $niceurl ) = icms::$xoopsDB -> fetchRow( $result2 );
@@ -147,37 +149,37 @@ switch ( strtolower( $op ) ) {
 
 				if ( $ownername == '' ) { $ownername = '&nbsp;'; }
 
-				echo '<tr style="text-align: center;">';
-				echo '<td class="head">' . $lid . '</td>';
+				echo '<div class="imlinks_tblrow">';
+				echo '<div class="imlinks_tblcell" style="text-align: center;">' . $lid . '</div>';
 
 				$nice_link = iml_nicelink( $linkshowname, $niceurl );
 				if ( icms::$module -> config['niceurl'] ) {
-				echo '<td class="even" style="text-align: left;"><a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $lid . '&amp;page=' . $nice_link . '" target="_blank">' . $linkshowname . '</a></td>';
+				echo '<div class="imlinks_tblcell"><a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $lid . '&amp;page=' . $nice_link . '" target="_blank">' . $linkshowname . '</a></div>';
 				} else {
-				echo '<td class="even" style="text-align: left;"><a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $lid . '" target="_blank">' . $linkshowname . '</a></td>';
+				echo '<div class="imlinks_tblcell"><a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $lid . '" target="_blank">' . $linkshowname . '</a></div>';
 				}
 
 				if ( $email == '' ) {
-					echo '<td class="even">' . icms_member_user_Handler::getUserLink( $sender ) . ' (' . $ip . ')</td>';
+					echo '<div class="imlinks_tblcell">' . icms_member_user_Handler::getUserLink( $sender ) . ' (' . $ip . ')</div>';
 				} else {
-					echo '<td class="even"><a href="mailto:' . $email . '">' . icms_member_user_Handler::getUserLink( $sender ). '</a> (' . $ip . ')</td>';
+					echo '<div class="imlinks_tblcell"><a href="mailto:' . $email . '">' . icms_member_user_Handler::getUserLink( $sender ). '</a> (' . $ip . ')</div>';
 				}
 				if ( $owneremail == '' ) {
-					echo '<td class="even">' . $ownername . '</td>';
+					echo '<div class="imlinks_tblcell">' . $ownername . '</div>';
 				} else {
-					echo '<td class="even"><a href="mailto:' . $owneremail . '">' . $ownername . '</a></td>';
+					echo '<div class="imlinks_tblcell" style="text-align: center;"><a href="mailto:' . $owneremail . '">' . $ownername . '</a></div>';
 				}
-				echo '<td class="even" style="text-align: center;">' . formatTimestamp( $date, icms::$module -> config['dateformatadmin'] ) . '</td>
-						<td class="even"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&ack=' . intval( $acknowledged ) . '">' . $ack_image . ' </a></td>
-						<td class="even"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&con=' . intval( $confirmed ) . '">' . $con_image . '</a></td>
-						<td class="even" style="text-align: center;" nowrap>
+				echo '<div class="imlinks_tblcell" style="text-align: center;">' . formatTimestamp( $date, icms::$module -> config['dateformatadmin'] ) . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&ack=' . intval( $acknowledged ) . '">' . $ack_image . ' </a></div>
+						<div class="imlinks_tblcell" style="text-align: center;"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&con=' . intval( $confirmed ) . '">' . $con_image . '</a></div>
+						<div class="imlinks_tblcell" style="text-align: center; width: 70px;">
 							<a href="brokenlink.php?op=ignoreBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['ignore'] . '</a>&nbsp;
 							<a href="index.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>&nbsp;
-							<a href="brokenlink.php?op=delBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>&nbsp;
-						</td></tr>';
+							<a href="brokenlink.php?op=delBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>
+						</div></div>';
 			}
 		}
-		echo '</table>';
+		echo '</div>';
 }
 icms_cp_footer();
 ?>
