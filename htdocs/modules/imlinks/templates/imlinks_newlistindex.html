@@ -38,8 +38,13 @@
 	<!-- Start day loop -->
 	<{foreach item=dailylink from=$dailylinks}>
 		<div class="imlinks_tblrow">
-			<div class="imlinks_tblcell"><a href="<{$icms_url}>/modules/<{$module_dir}>/viewcat.php?selectdate=<{$dailylink.newlinkdayRaw}>"><{$dailylink.newlinkView}></a></div>
-			<div class="imlinks_tblcell" style="text-align: center; width: 15%;"><{$dailylink.totallinks}></div>
+			<{if $dailylink.totallinks > 0}>
+				<div class="imlinks_tblcell"><a href="<{$icms_url}>/modules/<{$module_dir}>/viewcat.php?selectdate=<{$dailylink.newlinkdayRaw}>"><{$dailylink.newlinkView}></a></div>
+				<div class="imlinks_tblcell" style="text-align: center; width: 15%;"><{$dailylink.totallinks}></div>
+			<{else}>
+				<div class="imlinks_tblcell"><{$dailylink.newlinkView}></div>
+				<div class="imlinks_tblcell" style="text-align: center; width: 15%;"><{$dailylink.totallinks}></div>
+			<{/if}>
 		</div>
 	<{/foreach}>
 	</div>
