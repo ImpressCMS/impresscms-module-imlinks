@@ -206,16 +206,16 @@ function iml_linklistbody( $published ) {
 	$icon .= '<a href="index.php?op=clone&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_CLONE . '">' . $imagearray['clone'] . '</a>&nbsp;';
 	$icon .= '<a href="altcat.php?op=main&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ALTCAT_CREATEF . '">' . $imagearray['altcat'] . '</a>&nbsp;';
 	$icon .= '<a href="http://whois.domaintools.com/' . $hwhoisurl . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" align="absmiddle"/></a>';
-	echo '<tr style="text-align: center; font-size: smaller;">
-			<td class="head">' . $lid . '</td>
-			<td class="even" style="text-align: left;">' . $title . '</td>
-			<td class="even" style="text-align: left;">' . $cattitle . '</td>
-			<td class="even">' . $submitter . '</td>
-			<td class="even">' . $publish . '</td>
-			<td class="even">' . $expires . '</td>
-			<td class="even">' . $published_status . '</td>
-			<td class="even" style="white-space: nowrap;">' . $icon . '</td>
-		  </tr>';
+	echo '<div class="imlinks_tblrow">
+			<div class="imlinks_tblcell" style="text-align: center;">' . $lid . '</div>
+			<div class="imlinks_tblcell">' . $title . '</div>
+			<div class="imlinks_tblcell">' . $cattitle . '</div>
+			<div class="imlinks_tblcell" style="text-align: center;">' . $submitter . '</div>
+			<div class="imlinks_tblcell" style="text-align: center;">' . $publish . '</div>
+			<div class="imlinks_tblcell" style="text-align: center;">' . $expires . '</div>
+			<div class="imlinks_tblcell" style="text-align: center;">' . $published_status . '</div>
+			<div class="imlinks_tblcell" style="width: 100px; white-space: nowrap;text-align: center;">' . $icon . '</div>
+		  </div>';
 	unset( $published );
 }
 ?>
