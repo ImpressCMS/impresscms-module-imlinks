@@ -411,7 +411,7 @@ function fetchURL( $url, $timeout = 2 ) {
 			// list( $usec, $sec ) = explode( ' ', microtime( true ) );
 			$laptime = microtime( true ) - $start;
 			if ( $laptime > $timeout ) {
-				return _AM_IMLINKS_NOREPLY;
+				return;
 			} else {
 				return round( $laptime, 3 );
 			}
@@ -442,7 +442,7 @@ switch ( strtolower( $op ) ) {
 
 		if ( $op == 'pingtime' ) {
 			iml_adminmenu( '', _AM_IMLINKS_MLISTPINGTIMES );
-			echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
+			echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px; margin-bottom: 15px;">
 				  <img src="' . ICMS_URL . '/modules/' . $icmsModule -> getVar( 'dirname' ) . '/images/icon/ping.png" alt="" style="float: left;" /><div style="margin-left: 50px;">' . _AM_IMLINKS_PINGTIMES . '</div>
 				  </div>';
 		} else {
@@ -454,7 +454,6 @@ switch ( strtolower( $op ) ) {
 
 		iml_linklistpagenav( $broken_array_count, $start, 'art', 'op=' . $op, 'right' );
 		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
-		
 
 		if ( $broken_array_count > 0 ) {
 		echo '<div class="imlinks_table" style="font-size: 10px;">
@@ -472,9 +471,9 @@ switch ( strtolower( $op ) ) {
 				$_ping_results = fetchURL( $published['url'] );
 
 				if ( !$_ping_results ) {
-					$_ping_results = _AM_IMLINKS_LINK_NORESPONSE;
+					$_ping_results = '<div class="imlinks_tblcell" style="text-align: center; background-color: #FF0033; color: #FFF;">' . _AM_IMLINKS_LINK_NORESPONSE . '</div>';
 				} else {
-					$_ping_results = $_ping_results . '(s)';
+					$_ping_results = '<div class="imlinks_tblcell" style="text-align: center; background-color: #66FF66;">' . $_ping_results . 's</div>';
 				}
 
 				$lid = $published['lid'];
@@ -501,9 +500,9 @@ switch ( strtolower( $op ) ) {
 						<div class="imlinks_tblcell">' . $title . '</div>
 						<div class="imlinks_tblcell">' . $cattitle . '</div>
 						<div class="imlinks_tblcell" style="text-align: center;">' . $submitter . '</div>
-						<div class="imlinks_tblcell" style="text-align: center;">' . $publish . '</div>
-						<div class="imlinks_tblcell" style="text-align: center;">' . $_ping_results . '</div>
-						<div class="imlinks_tblcell" style="text-align: center;">' . $pagerank . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . $publish . '</div>';
+				echo $_ping_results;
+				echo '	<div class="imlinks_tblcell" style="text-align: center;">' . $pagerank . '</div>
 						<div class="imlinks_tblcell" style="text-align: center; white-space: nowrap;">' . $icon . '</div>
 					  </div>';
 				unset( $published );
