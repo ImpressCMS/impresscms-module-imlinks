@@ -777,20 +777,20 @@ switch ( strtolower( $op ) ) {
 		list( $totallinks ) = icms::$xoopsDB -> fetchRow( $result4 );
 
 		icms_cp_header();
-		
+
 		// Module admin summary
 		iml_adminmenu( 1, _AM_IMLINKS_BINDEX );
-		$style = 'border: #CCCCCC 1px solid; padding: 4px; background-color: #E8E8E8; font-weight: bold; margin: 2px; font-size: smaller; border-radius: 5px; box-shadow:1px 1px 2px #aaaaaa;';
+		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
 		echo '
 			<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
-			<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_LINKSUMMARY . '</div>
-			<div style="padding: 10px;">
-				<a style="' . $style . '" href="category.php">' . _AM_IMLINKS_SCATEGORY . $totalcats . '</a>
-				<a style="' . $style . '" href="index.php">' . _AM_IMLINKS_SFILES . $totallinks . '</a>
-				<a style="' . $style . '" href="newlinks.php">' . _AM_IMLINKS_SNEWFILESVAL . $totalnewlinks . '</a>
-				<a style="' . $style . '" href="modifications.php">' . _AM_IMLINKS_SMODREQUEST . $totalmodrequests . '</a>
-				<a style="' . $style . '" href="brokenlink.php">' . _AM_IMLINKS_SBROKENSUBMIT . $totalbrokenlinks . '</a>
-			</div>
+				<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_LINKSUMMARY . '</div>
+				<div style="padding: 10px;">
+					<a class="button" href="category.php">' . _AM_IMLINKS_SCATEGORY . $totalcats . '</a>
+					<a class="button" href="index.php">' . _AM_IMLINKS_SFILES . $totallinks . '</a>
+					<a class="button" href="newlinks.php">' . _AM_IMLINKS_SNEWFILESVAL . $totalnewlinks . '</a>
+					<a class="button" href="modifications.php">' . _AM_IMLINKS_SMODREQUEST . $totalmodrequests . '</a>
+					<a class="button" href="brokenlink.php">' . _AM_IMLINKS_SBROKENSUBMIT . $totalbrokenlinks . '</a>
+				</div>
 			</div><br />';
 
 		// Modify category
@@ -818,7 +818,6 @@ switch ( strtolower( $op ) ) {
 			$published_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
 			$published_array_count = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
 			echo '<br /><div><span style="float: left; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_PUBLISHEDLINK . '</span>' . iml_linklistpagenav( $published_array_count, $start, 'art', '', 'right' ) . '</div>';
-			echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
 			if ( $published_array_count > 0 ) {
 			echo '<div class="imlinks_table" style="font-size: 10px;">
 					<div class="imlinks_tblhdrrow">
@@ -831,7 +830,6 @@ switch ( strtolower( $op ) ) {
 						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_ONLINE . '</div>
 						<div class="imlinks_tblcell">' . _AM_IMLINKS_MINDEX_ACTION . '</div>
 					</div>';
-			
 				while ( $published = icms::$xoopsDB -> fetchArray( $published_array ) ) {
 					iml_linklistbody( $published );
 				}
