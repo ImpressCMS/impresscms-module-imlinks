@@ -232,7 +232,7 @@ switch ( strtolower( $op ) ) {
 				$requestdate = formatTimestamp( $link_arr['requestdate'], icms::$module -> config['dateformatadmin'] );
 
 				echo '<div class="imlinks_tblrow">
-						<div class="imlinks_tblcell" style="text-align: center;">' . $link_arr['requestid'] . '</div>
+						<div class="imlinks_tblhdrcell" style="text-align: center;">' . $link_arr['requestid'] . '</div>
 						<div class="imlinks_tblcell">' . $title . '</div>
 						<div class="imlinks_tblcell" style="text-align: center;">' . $submitter . '</div>
 						<div class="imlinks_tblcell" style="text-align: center;">' . $requestdate . '</div>

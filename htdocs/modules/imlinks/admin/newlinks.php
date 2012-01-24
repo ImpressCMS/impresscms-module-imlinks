@@ -117,7 +117,7 @@ switch ( strtolower( $op ) ) {
 				$icon .= '<a href="index.php?op=delete&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>';
 
 				echo '<div class="imlinks_tblrow">
-						<div class="imlinks_tblcell" style="text-align: center;">' . $lid . '</div>
+						<div class="imlinks_tblhdrcell" style="text-align: center;">' . $lid . '</div>
 						<div class="imlinks_tblcell"><a href="newlinks.php?op=edit&amp;lid=' . $lid . '">' . $title . '</a></div>
 						<div class="imlinks_tblcell" style="text-align: center;">'. $submitter . '</div>
 						<div class="imlinks_tblcell" style="text-align: center;">' . $datetime . '</div>
