@@ -220,7 +220,7 @@ define('_MI_IMLINKS_ICONS_CREDITS', "Icons by");
 define("_MI_IMLINKS_SHOWSBOOKMARKS", "Show Social Bookmarks?");
 define("_MI_IMLINKS_SHOWSBOOKMARKSDSC", "Select <em>Yes</em> if you want Social Bookmark icons to be displayed under article.");
 define("_MI_IMLINKS_SHOWPAGERANK", "Show Google PageRank™?");
-define("_MI_IMLINKS_SHOWPAGERANKSDSC", "Select <em>Yes</em> if you want Google PageRank™ to be displayed.");
+define("_MI_IMLINKS_SHOWPAGERANKSDSC", "Select <em>Yes</em> if you want Google PageRank™ to be displayed. This option can slow down access to frontend pages of imLinks.");
 define("_MI_IMLINKS_USERTAGDESCR", "User can submit Tags:");
 define("_MI_IMLINKS_USERTAGDSC", "Select <em>Yes</em> if user is allowed to submit tags.");
 
