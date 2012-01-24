@@ -174,7 +174,7 @@ if ( is_object( $module ) ) {
 	if ( $gperm_handler -> checkRight( 'imLinkSubPerm', 0, $groups, $module -> getVar( 'mid' ) ) ) {
 		$cansubmit = 1;
 	}
-} 
+}
 if ( $cansubmit == 1 ) {
 	$modversion['sub'][0]['name'] = _MI_IMLINKS_SMNAME1;
 	$modversion['sub'][0]['url'] = 'submit.php';
