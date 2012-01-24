@@ -207,7 +207,7 @@ function iml_linklistbody( $published ) {
 	$icon .= '<a href="altcat.php?op=main&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ALTCAT_CREATEF . '">' . $imagearray['altcat'] . '</a>&nbsp;';
 	$icon .= '<a href="http://whois.domaintools.com/' . $hwhoisurl . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" align="absmiddle"/></a>';
 	echo '<div class="imlinks_tblrow">
-			<div class="imlinks_tblcell" style="text-align: center;">' . $lid . '</div>
+			<div class="imlinks_tblhdrcell" style="text-align: center;">' . $lid . '</div>
 			<div class="imlinks_tblcell">' . $title . '</div>
 			<div class="imlinks_tblcell">' . $cattitle . '</div>
 			<div class="imlinks_tblcell" style="text-align: center;">' . $submitter . '</div>

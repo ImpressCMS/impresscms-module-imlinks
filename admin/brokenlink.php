@@ -150,7 +150,7 @@ switch ( strtolower( $op ) ) {
 				if ( $ownername == '' ) { $ownername = '&nbsp;'; }
 
 				echo '<div class="imlinks_tblrow">';
-				echo '<div class="imlinks_tblcell" style="text-align: center;">' . $lid . '</div>';
+				echo '<div class="imlinks_tblhdrcell" style="text-align: center;">' . $lid . '</div>';
 
 				$nice_link = iml_nicelink( $linkshowname, $niceurl );
 				if ( icms::$module -> config['niceurl'] ) {
