@@ -53,7 +53,6 @@
 <br />
 <div class="imlinks_catpath" style="clear: both; font-size: smaller;"><{$imlink.path}></div>
 
-
 <br />
 
 <div class="imlinks_even" style="clear: both; margin-bottom: 5px;">
@@ -124,32 +123,26 @@
 		<br /> 
 		<{$imlink.description2}>
 	</div>
-			
-	<br />
-			
+
 	<{if $imlink.addryn == 1}>
-		<div style="margin-left: 6px; text-align: left; padding: 1px;">
+		<div style="margin-left: 6px; text-align: left; padding: 1px; margin-top: 20px;">
 			<div><{$contactdetails}><{$imlink.address}>
 				<{$imlink.tel}><{$imlink.mobile}><{$imlink.voip}><{$imlink.fax}><{$imlink.email}><{$vcard}><{$imlink.vat}>
 			</div>
 		</div>
 	<{/if}>
 	<{if $imlink.googlemap || $imlink.yahoomap || $imlink.multimap == true}>
-		<div style="margin-left: 6px; text-align: left; white-space: nowrap; padding: 3px;">
+		<div style="margin-left: 6px; text-align: left; white-space: nowrap; padding: 3px; margin-bottom: 5px;">
 			<{$imlink.googlemap}><{$imlink.yahoomap}><{$imlink.multimap}>
-		</div>
-	<{/if}>
-	<{if $imlink.addtotomtom == true}>
-		<div style="margin-left: 6px; text-align: left; white-space: nowrap; padding: 3px;">
-			<{$imlink.addtotomtom}>
+			<{if $imlink.addtotomtom == true}>
+				<div style="text-align: left; padding-top: 3px;"><{$imlink.addtotomtom}></div>
+			<{/if}>
 		</div>
 	<{/if}>
 
 	<{$imlink.socialbutton}>
 </div> 
- 
 
-	
 <div class="outer" style="clear: both; text-align: center;">
 	<div class="imlinks_even">
 		<{$reportbroken}>
@@ -165,22 +158,20 @@
 </div>
 
 <{if $imlink.otherlinx > 0}>
-<br />
-<{$other_links}>
-<{foreach item=link_user from=$link_uid}>
-   <div style="margin-left: 10px;">
-   &bull;&nbsp;<a href="<{$link_user.niceurl}>"><{$link_user.title}></a> 
-   (<{$link_user.published}>)
-   </div>
-<{/foreach}>
+	<br />
+	<{$other_links}>
+	<{foreach item=link_user from=$link_uid}>
+		<div style="margin-left: 10px;">
+			&bull;&nbsp;<a href="<{$link_user.niceurl}>"><{$link_user.title}></a>
+			(<{$link_user.published}>)
+		</div>
+	<{/foreach}>
 <{/if}>
 
 <br />
- 
+
 <div align="center"><{$lang_copyright}></div>
-<div style="text-align: center; padding: 3px; margin:3px;">
- <{$commentsnav}> <{$lang_notice}> 
-</div>
+<div style="text-align: center; padding: 3px; margin:3px;"><{$commentsnav}> <{$lang_notice}></div>
 
 <!-- start comments loop -->
 <{if $comment_mode == "flat"}> 
