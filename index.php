@@ -193,7 +193,8 @@ if ( is_dir( $greybox_dir ) ) {
 
 // RSS feed
 $rsssql = 'SELECT rssactive FROM ' . icms::$xoopsDB -> prefix( 'imlinks_configs' );
-list( $rssactive ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $rsssql ) );
+$result = icms::$xoopsDB -> query( $rsssql );
+list( $rssactive ) = icms::$xoopsDB -> fetchRow( $result );
 if ( $rssactive == 1 ) {
 	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="' . _MD_IMLINKS_FEED . '" title="' . _MD_IMLINKS_FEED . '" /></a>' );
 	$xoopsTpl -> assign( 'icmss_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MD_IMLINKS_FEED . '" href="feed.php">' . $greybox_dir ); 

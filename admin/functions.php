@@ -214,7 +214,7 @@ function iml_linklistbody( $published ) {
 			<div class="imlinks_tblcell" style="text-align: center;">' . $publish . '</div>
 			<div class="imlinks_tblcell" style="text-align: center;">' . $expires . '</div>
 			<div class="imlinks_tblcell" style="text-align: center;">' . $published_status . '</div>
-			<div class="imlinks_tblcell" style="width: 100px; white-space: nowrap;text-align: center;">' . $icon . '</div>
+			<div class="imlinks_tblcell" style="white-space: nowrap; text-align: center;">' . $icon . '</div>
 		  </div>';
 	unset( $published );
 }

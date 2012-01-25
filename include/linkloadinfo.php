@@ -12,11 +12,11 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
+* 				WF-Links
 * @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
@@ -42,13 +42,13 @@ $rating = round( number_format( $link_arr['rating'], 0 ) / 2 );
 $imlink['rateimg'] = 'rate' . $rating . '.gif';
 unset( $rating );
 
-$imlink['hits']  = sprintf( _MD_IMLINKS_LINKHITS, intval( $link_arr['hits'] ) ) ;
+$imlink['hits']  = sprintf( _MD_IMLINKS_LINKHITS, intval( $link_arr['hits'] ) );
 $xoopsTpl -> assign( 'lang_dltimes', $imlink['hits'] );
 
-$imlink['title'] = $link_arr['title'];  // Title of link
+$imlink['title'] = $link_arr['title']; // Title of link
 $imlink['url'] = $link_arr['url']; // url of link
 if ( icms::$module -> config['showpagerank'] ) {
-	$imlink['pagerank'] = imlinks_pagerank( $imlink['url'] );  // Google Pagerank
+	$imlink['pagerank'] = imlinks_pagerank( $imlink['url'] ); // Google Pagerank
 }
 
 if ( isset( $link_arr['screenshot'] ) ) {
@@ -88,10 +88,7 @@ $imlink['submitter'] = icms_member_user_Handler::getUserLink( $link_arr['submitt
 $imlink['publisher'] = ( isset( $link_arr['publisher'] ) && !empty( $link_arr['publisher'] ) ) ? $immyts -> htmlSpecialCharsStrip( $link_arr['publisher'] ) : _MD_IMLINKS_NOTSPECIFIED;
 
 if ( $link_arr['country'] ) {
-	$country = $link_arr['country'];
-	$imlink['countryflag'] = ICMS_URL . '/' . icms::$module -> config['flagimage']. '/' . $country . '.gif';
-	$imlink['countryname'] = iml_countryname( $link_arr['country'] );
-	$imlink['country'] = _MD_IMLINKS_COUNTRYB . '&nbsp;<img src="' . $imlink['countryflag'] . '" alt="' . $imlink['countryname'] . '" title="' . $imlink['countryname'] . '" style="vertical-align: middle;" />';
+	$imlink['country'] = _MD_IMLINKS_COUNTRYB . '&nbsp;<img src="' . ICMS_URL . '/' . icms::$module -> config['flagimage']. '/' . $link_arr['country'] . '.gif" alt="" title="' . iml_countryname( $link_arr['country'] ) . '" style="vertical-align: middle;" />';
 }
 
 $mail_subject = rawurlencode( sprintf( _MD_IMLINKS_INTFILEFOUND, $icmsConfig['sitename'] ) );
@@ -163,7 +160,7 @@ $imlink['comment_rules']	= icms::$module -> config['com_rule'];
 $imlink['autoscrshot']		= icms::$module -> config['useautothumb'];
 
 switch( icms::$module -> config['lightwindow'] ) {
-	
+
 	// Open link in new browser tab/window
 	case 0:
 		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
