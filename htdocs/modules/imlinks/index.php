@@ -152,10 +152,7 @@ if ( isset( icms::$module -> config['screenshot'] ) && icms::$module -> config['
 }
 
 // Show Latest Listings on Index Page
-$sql = icms::$xoopsDB -> query( 'SELECT lastlinksyn, lastlinkstotal FROM ' . icms::$xoopsDB -> prefix( 'imlinks_indexpage' ) );
-$lastlinks = icms::$xoopsDB -> fetchArray( $sql );
-
-if ( $lastlinks['lastlinksyn'] == 1 && $lastlinks['lastlinkstotal'] > 0 ) {
+if ( $head_arr['lastlinksyn'] == 1 && $head_arr['lastlinkstotal'] > 0 ) {
 
 	$result = icms::$xoopsDB -> query( 'SELECT COUNT(*) FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 
 		AND published <= ' . time() . ' 
@@ -164,7 +161,7 @@ if ( $lastlinks['lastlinksyn'] == 1 && $lastlinks['lastlinkstotal'] > 0 ) {
 		ORDER BY published DESC', 0, 0 );
 	list( $count ) = icms::$xoopsDB -> fetchRow( $result );
 
-	$count = ( ( $count > $lastlinks['lastlinkstotal'] ) && ( $lastlinks['lastlinkstotal'] != 0 ) ) ? $lastlinks['lastlinkstotal'] : $count;
+	$count = ( ( $count > $head_arr['lastlinkstotal'] ) && ( $head_arr['lastlinkstotal'] != 0 ) ) ? $head_arr['lastlinkstotal'] : $count;
 	$limit = ( ( $start + icms::$module -> config['perpage'] ) > $count ) ? ( $count - $start ) : icms::$module -> config['perpage'];
 
 	$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 
@@ -183,13 +180,13 @@ if ( $lastlinks['lastlinksyn'] == 1 && $lastlinks['lastlinkstotal'] > 0 ) {
 
 	$pagenav = new icms_view_PageNav( $count, icms::$module -> config['perpage'], $start, 'start' );
 	$xoopsTpl -> assign( 'pagenav', $pagenav -> renderNav() );
-	$xoopsTpl -> assign( 'showlatest', $lastlinks['lastlinksyn'] );  
+	$xoopsTpl -> assign( 'showlatest', $head_arr['lastlinksyn'] );  
 }
 
 $greybox_dir = '<script type="text/javascript">var GB_ROOT_DIR = "' . ICMS_URL . '/libraries/greybox/";</script>';
 if ( is_dir( $greybox_dir ) ) {
 	$greybox_dir = '';
-	}
+}
 
 // RSS feed
 $rsssql = 'SELECT rssactive FROM ' . icms::$xoopsDB -> prefix( 'imlinks_configs' );
