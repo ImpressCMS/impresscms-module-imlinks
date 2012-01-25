@@ -40,7 +40,7 @@ function iml_checkgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = fal
 		}
 	}
 	return true;
-} 
+}
 
 function iml_getVoteDetails( $lid = 0 ) {
 	$sql = 'SELECT total_votes AS total_votes, total_value AS total_value FROM ' . icms::$xoopsDB -> prefix( 'imlinks_ratings' );
@@ -237,7 +237,7 @@ function iml_totalcategory( $pid = 0 ) {
 	while ( list( $cid ) = icms::$xoopsDB -> fetchRow( $result ) ) {
 		if ( iml_checkgroups( $cid ) ) {
 			$catlisting++;
-		} 
+		}
 	}
 	return $catlisting;
 }
@@ -833,7 +833,8 @@ function iml_linkterms( $definition, $glossaryterm ) {
 	// Code to make links out of glossary terms
 	$parts = explode( '¤', $definition );
 	// First, retrieve all terms from the glossary...
-	$allterms = icms::$xoopsDB -> query( 'SELECT entryID, term FROM ' . icms::$xoopsDB -> prefix( 'imglossary_entries' ) . ' WHERE submit=0 AND offline=0' );
+	$sql = icms::$xoopsDB -> query( 'SELECT entryID, term FROM ' . icms::$xoopsDB -> prefix( 'imglossary_entries' ) . ' WHERE submit=0 AND offline=0' );
+	$allterms = icms::$xoopsDB -> query( $sql );
 	while ( list( $entryID, $term ) = icms::$xoopsDB -> fetchrow( $allterms ) ) {
 		foreach( $parts as $key => $part ) {
 			if ( $term != $glossaryterm ) {
