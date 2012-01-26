@@ -47,10 +47,10 @@ $catarray['indexheaderalign'] = $immyts -> htmlSpecialCharsStrip( $head_arr['ind
 $catarray['indexfooteralign'] = $immyts -> htmlSpecialCharsStrip( $head_arr['indexfooteralign'] );
 
 if ( $head_arr['indexheader'] != '' ) {
-$catarray['indexheader'] = '<div style="text-align: ' . $head_arr['indexheaderalign'] . ';">' . $head_arr['indexheader'] . '</div>'; }
+$catarray['indexheader'] = '<div style="margin-bottom: 10px; text-align: ' . $head_arr['indexheaderalign'] . ';">' . $head_arr['indexheader'] . '</div>'; }
 
 if ( $head_arr['indexfooter'] != '' ) {
-$catarray['indexfooter'] = '<div style="padding 12px; text-align: ' . $head_arr['indexfooteralign'] . ';">' . $head_arr['indexfooter'] . '</div>'; }
+$catarray['indexfooter'] = '<div style="margin-top: 15px; padding 12px; text-align: ' . $head_arr['indexfooteralign'] . ';">' . $head_arr['indexfooter'] . '</div>'; }
 
 $catarray['letters'] = iml_letters();
 $catarray['toolbar'] = iml_toolbar();
