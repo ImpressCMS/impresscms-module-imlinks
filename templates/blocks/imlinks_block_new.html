@@ -1,5 +1,3 @@
-<ul>
-  <{foreach item=linkload from=$block.links}>
-    <li><a href="<{$linkload.link}>"><{$linkload.title}></a> (<{$linkload.date}>)</li>
-  <{/foreach}>
-</ul>
+<{foreach item=linkload from=$block.links}>
+	<div style="font-size: .9em;">-&nbsp;<a href="<{$linkload.link}>"><{$linkload.title}></a> (<{$linkload.date}>)</div>
+<{/foreach}>
