@@ -154,6 +154,35 @@ div.imlinks_socbookmark a:hover img {
 	opacity: 1;
 	filter: alpha(opacity=100); }
 
+/* Tooltip box */
+.caption-text img {
+	float: right;
+	padding-top: 2px; }
+
+span.helptext {
+	position: absolute;
+	right: 50px;
+	z-index: 9000;
+	background-color: #000;
+	outline: 1px solid #669;
+	border: 2px solid #FFF;
+	padding: 5px 10px;
+	width: 200px;
+	display: none;
+	color: #FFF;
+	text-align: left;
+	font-size: 11px;
+	font-weight: normal;
+	/* outline radius for mozilla/firefox only */
+	outline-radius: 4px;
+	-moz-outline-radius: 4px;
+	-webkit-outline-radius: 4px;
+	/* opacity for tooltip box */
+	filter: alpha(opacity=70);
+	-moz-opacity: 0.75;
+	-khtml-opacity: 0.75;
+	opacity: 0.75; }
+
 /*  styles for the unit rater
 --------------------------------------------------------- 
 ryan masuga, masugadesign.com

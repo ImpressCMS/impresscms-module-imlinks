@@ -182,7 +182,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 	$sform -> addElement( $editor, false );
 
 	// Meta keywords form
-	$keywords = new icms_form_elements_Textarea( _AM_IMLINKS_KEYWORDS . helptip( _AM_IMLINKS_KEYWORDS_NOTE ), 'keywords', $keywords );
+	$keywords = new icms_form_elements_Textarea( _AM_IMLINKS_KEYWORDS . helptip( _AM_IMLINKS_KEYWORDS_NOTE ), 'keywords', $keywords, 5, 50 );
 	$sform -> addElement( $keywords, false );
 
 	// Insert tags if Tag-module is installed

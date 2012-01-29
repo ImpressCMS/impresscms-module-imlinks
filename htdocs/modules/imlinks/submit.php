@@ -273,6 +273,8 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		$ttlong = $link_array['ttlong'] ? $immyts -> htmlSpecialCharsStrip( $link_array['ttlong'] ) : '';
 		$ttlat = $link_array['ttlat'] ? $immyts -> htmlSpecialCharsStrip( $link_array['ttlat'] ) : '';
 
+		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
+
 		$sform = new icms_form_Theme( _MD_IMLINKS_SUBMITCATHEAD, 'storyform', '' );
 		$sform -> setExtra( 'enctype="multipart/form-data"' );
 
@@ -281,8 +283,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 
 		// Link url form
 		$url_text = new icms_form_elements_Text( '', 'url', 70, 255, $url );
-		$url_tray = new icms_form_elements_Tray( _MD_IMLINKS_DLURL, '' );
-		$url_tray -> SetDescription( '<small>' . _MD_IMLINKS_LINKURLDSC . '</small>' );
+		$url_tray = new icms_form_elements_Tray( _MD_IMLINKS_DLURL . helptip( _MD_IMLINKS_LINKURLDSC ), '' );
 		$url_tray -> addElement( $url_text , true ) ;
 		$url_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/world.png' onClick=\"window.open(storyform.url.value,'','');return(false);\" alt='Check URL' title='Check URL' />" ));
 		$sform -> addElement( $url_tray );
@@ -307,8 +308,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 	$sform -> addElement( $editor, false );
 
 	// Keywords form
-	$keywords = new icms_form_elements_Textarea( _MD_IMLINKS_KEYWORDS, 'keywords', $keywords, 7, 60 );
-	$keywords -> setDescription( '<small>' . _MD_IMLINKS_KEYWORDS_NOTE . '</small>' );
+	$keywords = new icms_form_elements_Textarea( _MD_IMLINKS_KEYWORDS . helptip( _MD_IMLINKS_KEYWORDS_NOTE ), 'keywords', $keywords, 5, 50 );
 	$sform -> addElement( $keywords, false );
 
 	// Insert tags if Tag-module is installed and if user is allowed
@@ -325,24 +325,21 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		$sform -> insertBreak( '&#9658; ' . _MD_IMLINKS_LINK_CREATEADDRESS, 'even' );
 		// Google Maps
 		$googlemap_text = new icms_form_elements_Text( '', 'googlemap', 70, 1024, $googlemap );
-		$googlemap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_GOOGLEMAP, '' );
-		$googlemap_tray -> SetDescription( sprintf( '<small>' . _MD_IMLINKS_MAPDSC . '</small>', '<em>http://maps.google.com</em>' ) );
+		$googlemap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_GOOGLEMAP . helptip( sprintf( _MD_IMLINKS_MAPDSC, '<em>http://maps.google.com</em>' ) ), '' );
 		$googlemap_tray -> addElement( $googlemap_text , false ) ;
 		$googlemap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/google_map.png' onClick=\"window.open(storyform.googlemap.value,'','');\" alt='" . _MD_IMLINKS_LINK_CHECKMAP . "' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' />" ) );
 		$sform -> addElement( $googlemap_tray );
 
 		// Yahoo Maps
 		$yahoomap_text = new icms_form_elements_Text( '', 'yahoomap', 70, 1024, $yahoomap );
-		$yahoomap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_YAHOOMAP, '' );
-		$yahoomap_tray -> SetDescription( sprintf( '<small>' . _MD_IMLINKS_MAPDSC . '</small>', '<em>http://maps.yahoo.com</em>' ) );
+		$yahoomap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_YAHOOMAP . helptip( sprintf( _MD_IMLINKS_MAPDSC, '<em>http://maps.yahoo.com</em>' ) ), '' );
 		$yahoomap_tray -> addElement( $yahoomap_text , false ) ;
 		$yahoomap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/yahoo_map.png' onClick=\"window.open(storyform.yahoomap.value,'','');return(false);\" alt='" . _MD_IMLINKS_LINK_CHECKMAP . "' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' />" ) );
 		$sform -> addElement( $yahoomap_tray );
 
 		// Bing Maps
 		$multimap_text = new icms_form_elements_Text( '', 'multimap', 70, 1024, $multimap );
-		$multimap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_BINGMAP, '' );
-		$multimap_tray -> SetDescription( sprintf( '<small>' . _MD_IMLINKS_MAPDSC . '</small>', '<em>http://www.bing.com/maps/</em>' ) );
+		$multimap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_BINGMAP . helptip( sprintf( _MD_IMLINKS_MAPDSC, '<em>http://www.bing.com/maps/</em>' ) ), '' );
 		$multimap_tray -> addElement( $multimap_text , false ) ;
 		$multimap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/bing_map.png' onClick=\"window.open(storyform.multimap.value,'','');return(false);\" alt='" . _MD_IMLINKS_LINK_CHECKMAP . "' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' />" ));
 		$sform -> addElement( $multimap_tray );
@@ -350,13 +347,11 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		// Address forms
 		$street1 = new icms_form_elements_Text( _MD_IMLINKS_STREET1, 'street1', 70, 255, $street1 );
 		$sform -> addElement( $street1, false );
-		$street2 = new icms_form_elements_Text( _MD_IMLINKS_STREET2, 'street2', 70, 255, $street2 );
-		$street2 -> SetDescription( '<small>' . _MD_IMLINKS_STREETTWODSC . '</small>' );
+		$street2 = new icms_form_elements_Text( _MD_IMLINKS_STREET2 . helptip( _MD_IMLINKS_STREETTWODSC ), 'street2', 70, 255, $street2 );
 		$sform -> addElement( $street2, false );
 		$town = new icms_form_elements_Text( _MD_IMLINKS_TOWN, 'town', 70, 255, $town );
 		$sform -> addElement( $town, false );
-		$state = new icms_form_elements_Text( _MD_IMLINKS_STATE, 'state', 70, 255, $state );
-		$state -> SetDescription( '<small>' . _MD_IMLINKS_STATEDSC . '</small>' );
+		$state = new icms_form_elements_Text( _MD_IMLINKS_STATE . helptip( _MD_IMLINKS_STATEDSC ), 'state', 70, 255, $state );
 		$sform -> addElement( $state, false );
 		$zip = new icms_form_elements_Text( _MD_IMLINKS_ZIPCODE, 'zip', 25, 25, $zip );
 		$sform -> addElement( $zip, false );
@@ -368,19 +363,16 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		$sform -> addElement( $voip, false );
 		$fax = new icms_form_elements_Text( _MD_IMLINKS_FAX, 'fax', 25, 25, $fax );
 		$sform -> addElement( $fax, false );
-		$email = new icms_form_elements_Text( _MD_IMLINKS_EMAIL, 'email', 25, 25, $email );
-		$email -> SetDescription( '<small>' . _MD_IMLINKS_EMAILDSC . '</small>' );
+		$email = new icms_form_elements_Text( _MD_IMLINKS_EMAIL . helptip( _MD_IMLINKS_EMAILDSC ), 'email', 25, 25, $email );
 		$sform -> addElement( $email, false );
-		$vat = new icms_form_elements_Text( _MD_IMLINKS_VAT, 'vat', 25, 25, $vat );
-		$vat -> setDescription( '<small>' . _MD_IMLINKS_VATWIKI . '</small>' );
+		$vat = new icms_form_elements_Text( _MD_IMLINKS_VAT . helptip( _MD_IMLINKS_VATWIKI ), 'vat', 25, 25, $vat );
 		$sform -> addElement( $vat, false );
 		// $sform -> addElement( new icms_form_elements_Hidden( 'vat', $link_array['vat'] ) );	/* If you don't want to use the VAT form,  */
 																								/* use this line and comment-out the 3 lines above  */
 	}
 
 	// Country form
-	$countryform = new icms_form_elements_select_Country( _MD_IMLINKS_COUNTRY, 'country', $country );
-	$countryform -> SetDescription( '<small>' . _MD_IMLINKS_COUNTRYDSC . '</small>' );
+	$countryform = new icms_form_elements_select_Country( _MD_IMLINKS_COUNTRY . helptip( _MD_IMLINKS_COUNTRYDSC ), 'country', $country );
 	$sform -> addElement( $countryform, false );
 
 	// TomTom form	
