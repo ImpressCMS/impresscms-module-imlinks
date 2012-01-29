@@ -218,4 +218,9 @@ function iml_linklistbody( $published ) {
 		  </div>';
 	unset( $published );
 }
+
+function helptip( $description ) {
+	$helptip = '<img class="helptip" style="float: right; padding-top: 2px;" src="'. ICMS_IMAGES_SET_URL . '/actions/acp_help.png" alt="View help text" title="View help text" /><span class="helptext">' . $description . '</span>';
+	return $helptip;
+}
 ?>
