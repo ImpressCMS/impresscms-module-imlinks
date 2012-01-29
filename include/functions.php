@@ -959,4 +959,9 @@ function iml_thumbshot( $url ) {
 	$thumbshot = '<img src="http://open.thumbshots.org/image.pxf?url=' . $url . '" width="120" height="90" style="vertical-align: middle;" alt="" />';
 	return $thumbshot;
 }
+
+function helptip( $description ) {
+	$helptip = '<img class="helptip" src="'. ICMS_IMAGES_SET_URL . '/actions/acp_help.png" alt="View help text" title="View help text" /><span class="helptext">' . $description . '</span>';
+	return $helptip;
+}
 ?>
