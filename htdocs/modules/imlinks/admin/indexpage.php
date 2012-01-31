@@ -94,10 +94,9 @@ switch ( strtolower( $op ) ) {
 		$footeralign_select -> addOptionArray( array( 'left' => _AM_IMLINKS_IPAGE_CLEFT, 'right' => _AM_IMLINKS_IPAGE_CRIGHT, 'center' => _AM_IMLINKS_IPAGE_CCENTER ) );
 		$sform -> addElement( $footeralign_select );
 
-		$sform -> addElement(  new icms_form_elements_Radioyn( _AM_IMLINKS_IPAGE_SHOWLATEST, 'lastlinksyn', $lastlinksyn, ' ' . _YES . '', ' ' . _NO . '' ) );
+		$sform -> addElement(  new icms_form_elements_Radioyn( _AM_IMLINKS_IPAGE_SHOWLATEST, 'lastlinksyn', $lastlinksyn, ' ' . _YES . ' ', ' ' . _NO ) );
 
-		$lastlinkstotalform = new icms_form_elements_Text( _AM_IMLINKS_IPAGE_LATESTTOTAL, 'lastlinkstotal', 2, 2, $lastlinkstotal );
-		$lastlinkstotalform -> setDescription( '<small>' . _AM_IMLINKS_IPAGE_LATESTTOTAL_DSC . '</small>');
+		$lastlinkstotalform = new icms_form_elements_Text( _AM_IMLINKS_IPAGE_LATESTTOTAL . imlinks_helptip( _AM_IMLINKS_IPAGE_LATESTTOTAL_DSC ), 'lastlinkstotal', 2, 2, $lastlinkstotal );
 		$sform -> addElement( $lastlinkstotalform, false );
 
 		$button_tray = new icms_form_elements_Tray( '', '' );
