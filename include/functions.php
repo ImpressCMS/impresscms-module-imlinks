@@ -960,7 +960,7 @@ function iml_thumbshot( $url ) {
 	return $thumbshot;
 }
 
-function helptip( $description ) {
+function imlinks_helptip( $description ) {
 	$helptip = '<img class="helptip" src="'. ICMS_IMAGES_SET_URL . '/actions/acp_help.png" alt="View help text" title="View help text" /><span class="helptext">' . $description . '</span>';
 	return $helptip;
 }
