@@ -103,8 +103,10 @@ function b_imlinks_top_show( $options ) {
 		} else {
 			$linkload['autothumbsrc'] = iml_thumbshot( $myrow['url'] );
 		}
+		
+		$isAdmin = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( $imlModule -> getVar( 'mid' ) ) ) ? true : false;
 
-		if ( icms::$user -> IsAdmin() == true ) {
+		if ( $isAdmin == true ) {
 			$linkload['adminlink'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/computer.png" alt="" title="' . _MB_IMLINKS_ADMINSECTION . '" style="vertical-align: bottom;" /></a>&nbsp;';
 			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=edit&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_edit.png" alt="' . _EDIT . '" title="' . _EDIT . '" style="vertical-align: bottom;" /></a>&nbsp;';
 			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=delete&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_delete.png" alt="' . _DELETE . '" title="' . _DELETE . '" style="vertical-align: bottom;" /></a>&nbsp;';
