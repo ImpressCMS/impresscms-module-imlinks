@@ -103,7 +103,7 @@ function b_imlinks_top_show( $options ) {
 		} else {
 			$linkload['autothumbsrc'] = iml_thumbshot( $myrow['url'] );
 		}
-		
+
 		$isAdmin = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( $imlModule -> getVar( 'mid' ) ) ) ? true : false;
 
 		if ( $isAdmin == true ) {
