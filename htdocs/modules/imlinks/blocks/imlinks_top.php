@@ -6,22 +6,22 @@
 *
 * File: wflinks_top.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -61,14 +61,17 @@ function imlinks_checkBlockgroups( $cid = 0, $permType = 'imLinkCatPerm', $redir
 //			 $block['content'] = The optional above content
 // Output  : Returns the most recent or most popular links
 function b_imlinks_top_show( $options ) {
+	global $xoopsTpl;
 	$mydirname = basename( dirname(  dirname( __FILE__ ) ) );
 	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
+	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/myts_extended.php';
+	$immyts = new imlTextSanitizer();
 	$block = array();
 	$modhandler = icms::handler( 'icms_module' );
 	$imlModule = &$modhandler -> getByDirname( $mydirname );
 	$config_handler = icms::$config;
 	$imlModuleConfig = &$config_handler -> getConfigsByCat( 0, $imlModule -> getVar( 'mid' ) );
-	$result = icms::$xoopsDB -> query( 'SELECT lid, cid, title, published, hits, nice_url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0 ORDER BY ' . $options[0] . ' DESC', $options[1], 0 );
+	$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0 ORDER BY ' . $options[0] . ' DESC', $options[1], 0 );
 	while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
 		if ( false == imlinks_checkBlockgroups( $myrow['cid'] ) || $myrow['cid'] == 0 ) { continue; }
 		$linkload = array();
@@ -79,18 +82,37 @@ function b_imlinks_top_show( $options ) {
 			}
 		}
 		$linkload['title'] = $title;
+		$linkload['title_long'] = $myrow['title'];
 		$nice_link = iml_nicelink( $myrow['title'], $myrow['nice_url'] );
 		if ( $imlModuleConfig['niceurl'] ) {
 			$linkload['link'] = ICMS_URL . '/modules/' . $imlModule -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $myrow['lid'] ) . '&amp;page=' . $nice_link;
 		} else {
 			$linkload['link'] = ICMS_URL . '/modules/' . $imlModule -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $myrow['lid'] );
 		}
-		if ( $options[0] == 'published' ) {
-			$linkload['date'] = formatTimestamp( $myrow['published'], $options[3] );
-		} elseif ( $options[0] == 'hits' ) {
-			$linkload['hits'] = $myrow['hits'];
+		$linkload['date'] = formatTimestamp( $myrow['published'], $options[3] );
+		$linkload['submitter'] = icms_member_user_Handler::getUserLink( $myrow['submitter'] );
+		$linkload['publisher'] = ( isset( $myrow['publisher'] ) && !empty( $myrow['publisher'] ) ) ? $immyts -> htmlSpecialCharsStrip( $myrow['publisher'] ) : _MB_IMLINKS_NOTSPECIFIED;
+		$linkload['hits'] = $myrow['hits'];
+		$linkload['description'] = icms_core_DataFilter::icms_substr( $myrow['description'], 0, $imlModuleConfig['totalchars'], '&#8230;' );
+		if ( $myrow['country'] ) {
+			$linkload['country'] = '<b>' . _MB_IMLINKS_COUNTRY . ':</b>&nbsp;<img src="' . ICMS_URL . '/' . $imlModuleConfig['flagimage']. '/' . $myrow['country'] . '.gif" alt="" title="' . iml_countryname( $myrow['country'] ) . '" style="vertical-align: middle;" />';
 		}
-		$linkload['dirname'] = $imlModule -> getVar( 'dirname' );
+
+		if ( $imlModuleConfig['autothumbsrc'] ) {
+			$linkload['autothumbsrc'] = iml_mozshot( $myrow['url'] );
+		} else {
+			$linkload['autothumbsrc'] = iml_thumbshot( $myrow['url'] );
+		}
+
+		if ( icms::$user -> IsAdmin() == true ) {
+			$linkload['adminlink'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/computer.png" alt="" title="' . _MB_IMLINKS_ADMINSECTION . '" style="vertical-align: bottom;" /></a>&nbsp;';
+			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=edit&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_edit.png" alt="' . _EDIT . '" title="' . _EDIT . '" style="vertical-align: bottom;" /></a>&nbsp;';
+			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=delete&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_delete.png" alt="' . _DELETE . '" title="' . _DELETE . '" style="vertical-align: bottom;" /></a>&nbsp;';
+			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=clone&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_clone.png" alt="' . _CLONE . '" title="' . _CLONE . '" style="vertical-align: bottom;" /></a>&nbsp;';
+			$linkload['adminlink'] .= '<a href="http://whois.domaintools.com/' . str_replace( 'http://', '', $myrow['url'] ) . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" style="vertical-align: bottom;" /></a>';
+		}
+
+		$xoopsTpl -> assign( 'dirname', basename( dirname(  dirname( __FILE__ ) ) ) );
 		$block['links'][] = $linkload;
 	}
 	unset( $linkload );

@@ -161,6 +161,16 @@ $modversion['blocks'][] = array(
 	'template'		=> 'imlinks_block_random.html',
 	'can_clone'		=> true );
 
+$modversion['blocks'][] = array(
+	'file'			=> 'imlinks_top.php',
+	'name'			=> _MI_IMLINKS_BNAME7,
+	'description'	=> 'Shows Recent Links',
+	'show_func'		=> 'b_imlinks_top_show',
+	'edit_func'		=> 'b_imlinks_top_edit',
+	'options'		=> 'published|10|19|d/m/Y',
+	'template'		=> 'imlinks_block_new_full.html',
+	'can_clone'		=> true );
+
 // Menu
 $modversion['hasMain'] = 1;
 
