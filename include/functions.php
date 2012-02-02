@@ -455,7 +455,7 @@ function iml_tinymce( $caption, $name, $value ) {
 }
 
 function iml_countryname( $countryn ) {
-			icms_loadLanguageFile( icms::$module -> getVar( 'dirname' ), 'countries' );
+			icms_loadLanguageFile( basename( dirname(  dirname( __FILE__ ) ) ), 'countries' );
 			$country_array = array (
 				''   => _IMLINKS_COUNTRY_UNKNOWN,
 				'-'  => _IMLINKS_COUNTRY_UNKNOWN,

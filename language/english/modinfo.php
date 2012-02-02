@@ -318,4 +318,5 @@ define( '_MI_IMLINKS_FACEBOOKBTTN', 'Facebook "I Like" button' );
 define( '_MI_IMLINKS_FACEBOOKBTTNDSC', 'Choose a Facebook button style.' );
 define( '_MI_IMLINKS_PLUSONEBTTN', 'Google +1 button' );
 define( '_MI_IMLINKS_PLUSONEBTTNDSC', 'Choose a Google +1 button style.' );
+define( '_MI_IMLINKS_BNAME7', 'Recent links - extended' );
 ?>

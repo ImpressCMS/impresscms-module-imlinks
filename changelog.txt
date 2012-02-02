@@ -8,6 +8,7 @@ Fixed:
 Added:
 - social media buttons
 - help tips to forms
+- extended version of the Recent Links block
 
 Removed:
 - blocks/imlinks_banner.php
