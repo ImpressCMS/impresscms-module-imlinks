@@ -951,7 +951,7 @@ function iml_charrepl( $string ) {
 }
 
 function iml_mozshot( $url ) {
-	$mozshot = '<img src="http://mozshot.nemui.org/shot/128x128?' . $url . '" style="vertical-align: middle;" alt="" />';
+	$mozshot = '<img src="http://mozshot.nemui.org/shot?' . $url . '" style="vertical-align: middle;" alt="" />';
 	return $mozshot;
 }
 
