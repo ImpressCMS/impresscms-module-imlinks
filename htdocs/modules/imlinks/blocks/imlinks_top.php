@@ -64,8 +64,6 @@ function b_imlinks_top_show( $options ) {
 	global $xoopsTpl;
 	$mydirname = basename( dirname(  dirname( __FILE__ ) ) );
 	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
-	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/myts_extended.php';
-	$immyts = new imlTextSanitizer();
 	$block = array();
 	$modhandler = icms::handler( 'icms_module' );
 	$imlModule = &$modhandler -> getByDirname( $mydirname );
@@ -82,7 +80,6 @@ function b_imlinks_top_show( $options ) {
 			}
 		}
 		$linkload['title'] = $title;
-		$linkload['title_long'] = $myrow['title'];
 		$nice_link = iml_nicelink( $myrow['title'], $myrow['nice_url'] );
 		if ( $imlModuleConfig['niceurl'] ) {
 			$linkload['link'] = ICMS_URL . '/modules/' . $imlModule -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $myrow['lid'] ) . '&amp;page=' . $nice_link;
@@ -90,29 +87,7 @@ function b_imlinks_top_show( $options ) {
 			$linkload['link'] = ICMS_URL . '/modules/' . $imlModule -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $myrow['lid'] );
 		}
 		$linkload['date'] = formatTimestamp( $myrow['published'], $options[3] );
-		$linkload['submitter'] = icms_member_user_Handler::getUserLink( $myrow['submitter'] );
-		$linkload['publisher'] = ( isset( $myrow['publisher'] ) && !empty( $myrow['publisher'] ) ) ? $immyts -> htmlSpecialCharsStrip( $myrow['publisher'] ) : _MB_IMLINKS_NOTSPECIFIED;
 		$linkload['hits'] = $myrow['hits'];
-		$linkload['description'] = icms_core_DataFilter::icms_substr( $myrow['description'], 0, $imlModuleConfig['totalchars'], '&#8230;' );
-		if ( $myrow['country'] ) {
-			$linkload['country'] = '<b>' . _MB_IMLINKS_COUNTRY . ':</b>&nbsp;<img src="' . ICMS_URL . '/' . $imlModuleConfig['flagimage']. '/' . $myrow['country'] . '.gif" alt="" title="' . iml_countryname( $myrow['country'] ) . '" style="vertical-align: middle;" />';
-		}
-
-		if ( $imlModuleConfig['autothumbsrc'] ) {
-			$linkload['autothumbsrc'] = iml_mozshot( $myrow['url'] );
-		} else {
-			$linkload['autothumbsrc'] = iml_thumbshot( $myrow['url'] );
-		}
-
-		$isAdmin = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( $imlModule -> getVar( 'mid' ) ) ) ? true : false;
-
-		if ( $isAdmin == true ) {
-			$linkload['adminlink'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/computer.png" alt="" title="' . _MB_IMLINKS_ADMINSECTION . '" style="vertical-align: bottom;" /></a>&nbsp;';
-			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=edit&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_edit.png" alt="' . _EDIT . '" title="' . _EDIT . '" style="vertical-align: bottom;" /></a>&nbsp;';
-			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=delete&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_delete.png" alt="' . _DELETE . '" title="' . _DELETE . '" style="vertical-align: bottom;" /></a>&nbsp;';
-			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=clone&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_clone.png" alt="' . _CLONE . '" title="' . _CLONE . '" style="vertical-align: bottom;" /></a>&nbsp;';
-			$linkload['adminlink'] .= '<a href="http://whois.domaintools.com/' . str_replace( 'http://', '', $myrow['url'] ) . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" style="vertical-align: bottom;" /></a>';
-		}
 
 		$xoopsTpl -> assign( 'dirname', basename( dirname(  dirname( __FILE__ ) ) ) );
 		$block['links'][] = $linkload;
@@ -138,6 +113,86 @@ function b_imlinks_top_edit( $options ) {
 	$form .= '<input type="text" name="options[]" value="' . $options[1] . '" />&nbsp;' . _MB_IMLINKS_FILES . '</td></tr>';
 	$form .= '<tr><td><b>' . _MB_IMLINKS_CHARS . ':</b></td><td><input type="text" name="options[]" value="' . $options[2] . '" />&nbsp;' . _MB_IMLINKS_LENGTH . '</td></tr>';
 	$form .= '<tr><td><b>' . _MB_IMLINKS_DATEFORMAT . ':</b></td><td><input type="text" name="options[]" value="' . $options[3] . '" />&nbsp;' . _MB_IMLINKS_DATEFORMATMANUAL . '</td></tr></table>';
+	return $form;
+}
+
+// Function: b_imlinks_recent_show
+// Input   : $options[0] = date for the most recent links
+//						   hits for the most popular links
+//			 $options[1] = How many links are displayes
+//			 $options[2] = Length of title
+//			 $options[3] = Date format
+//			 $block['content'] = The optional above content
+// Output  : Returns the most recent or most popular links
+function b_imlinks_recent_show( $options ) {
+	global $xoopsTpl;
+	$mydirname = basename( dirname(  dirname( __FILE__ ) ) );
+	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
+	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/class_thumbnail.php';
+	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/myts_extended.php';
+	$immyts = new imlTextSanitizer();
+	$block = array();
+	$modhandler = icms::handler( 'icms_module' );
+	$imlModule = &$modhandler -> getByDirname( $mydirname );
+	$config_handler = icms::$config;
+	$imlModuleConfig = &$config_handler -> getConfigsByCat( 0, $imlModule -> getVar( 'mid' ) );
+	$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0 ORDER BY published DESC', $options[0], 0 );
+	while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
+		if ( false == imlinks_checkBlockgroups( $myrow['cid'] ) || $myrow['cid'] == 0 ) { continue; }
+		$linkload = array();
+		$linkload['title_long'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $myrow['title'] ) );
+		$nice_link = iml_nicelink( $myrow['title'], $myrow['nice_url'] );
+		if ( $imlModuleConfig['niceurl'] ) {
+			$linkload['link'] = ICMS_URL . '/modules/' . $imlModule -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $myrow['lid'] ) . '&amp;page=' . $nice_link;
+		} else {
+			$linkload['link'] = ICMS_URL . '/modules/' . $imlModule -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $myrow['lid'] );
+		}
+		$linkload['date'] = formatTimestamp( $myrow['published'], $options[1] );
+		$linkload['submitter'] = icms_member_user_Handler::getUserLink( $myrow['submitter'] );
+		$linkload['publisher'] = ( isset( $myrow['publisher'] ) && !empty( $myrow['publisher'] ) ) ? $immyts -> htmlSpecialCharsStrip( $myrow['publisher'] ) : _MB_IMLINKS_NOTSPECIFIED;
+		$linkload['hits'] = $myrow['hits'];
+		$linkload['description'] = icms_core_DataFilter::icms_substr( $myrow['description'], 0, $imlModuleConfig['totalchars'], '&#8230;' );
+		if ( $myrow['country'] ) {
+			$linkload['country'] = '<b>' . _MB_IMLINKS_COUNTRY . ':</b>&nbsp;<img src="' . ICMS_URL . '/' . $imlModuleConfig['flagimage']. '/' . $myrow['country'] . '.gif" alt="" title="' . iml_countryname( $myrow['country'] ) . '" style="vertical-align: middle;" />';
+		}
+
+		if ( $imlModuleConfig['autothumbsrc'] ) {
+			$linkload['autothumbsrc'] = iml_mozshot( $myrow['url'] );
+		} else {
+			$linkload['autothumbsrc'] = iml_thumbshot( $myrow['url'] );
+		}
+
+		$isAdmin = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( $imlModule -> getVar( 'mid' ) ) ) ? true : false;
+		if ( $isAdmin == true ) {
+			$linkload['adminlink'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/computer.png" alt="" title="' . _MB_IMLINKS_ADMINSECTION . '" style="vertical-align: bottom;" /></a>&nbsp;';
+			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=edit&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_edit.png" alt="' . _EDIT . '" title="' . _EDIT . '" style="vertical-align: bottom;" /></a>&nbsp;';
+			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=delete&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_delete.png" alt="' . _DELETE . '" title="' . _DELETE . '" style="vertical-align: bottom;" /></a>&nbsp;';
+			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=clone&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_clone.png" alt="' . _CLONE . '" title="' . _CLONE . '" style="vertical-align: bottom;" /></a>&nbsp;';
+			$linkload['adminlink'] .= '<a href="http://whois.domaintools.com/' . str_replace( 'http://', '', $myrow['url'] ) . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" style="vertical-align: bottom;" /></a>';
+		}
+
+		$xoopsTpl -> assign( 'dirname', basename( dirname(  dirname( __FILE__ ) ) ) );
+		$block['links'][] = $linkload;
+	}
+	unset( $linkload );
+	return $block;
+}
+
+// b_imlinks_recent_edit()
+//
+// @param $options
+// @return
+function b_imlinks_recent_edit( $options ) {
+	$form = '<table cellspacing="5">';
+	$form .= '<tr>
+				<td width="150px"><b>' . _MB_IMLINKS_DISP . ':</b></td>
+				<td><input type="text" name="options[]" value="' . $options[0] . '" />&nbsp;' . _MB_IMLINKS_FILES . '</td>
+			  </tr>';
+	$form .= '<tr>
+				<td><b>' . _MB_IMLINKS_DATEFORMAT . ':</b></td>
+				<td><input type="text" name="options[]" value="' . $options[1] . '" />&nbsp;' . _MB_IMLINKS_DATEFORMATMANUAL . '</td>
+			  </tr>';
+	$form .= '</table>';
 	return $form;
 }
 
