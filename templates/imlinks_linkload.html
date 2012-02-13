@@ -31,17 +31,7 @@
 	<{/if}>
 </div>
 
-<{if $imlink.autoscrshot == 0}>
-	<{if $show_screenshot == true}>
-		<{if $imlink.screenshot_full != ''}>
-			<div style="float:right;"><{$imlink.visitscrshot}></div>
-		<{/if}>
-	<{/if}>
-<{/if}>
-
-<{if $imlink.autoscrshot == 1}>
-	<div style="float:right;"><{$imlink.autothumbsrc}></div>
-<{/if}>
+<span style="float: right; padding: 0 0 4px 4px;"><{$imlink.screenshot}></span>
 
 <div style="margin-left: 6px;">
 	<{if $lightwindow == true}>

@@ -156,10 +156,30 @@ function b_imlinks_recent_show( $options ) {
 			$linkload['country'] = '<b>' . _MB_IMLINKS_COUNTRY . ':</b>&nbsp;<img src="' . ICMS_URL . '/' . $imlModuleConfig['flagimage']. '/' . $myrow['country'] . '.gif" alt="" title="' . iml_countryname( $myrow['country'] ) . '" style="vertical-align: middle;" />';
 		}
 
-		if ( $imlModuleConfig['autothumbsrc'] ) {
+		if ( $imlModuleConfig['useautothumb'] == 1 && $imlModuleConfig['autothumbsrc'] == 1 ) {
 			$linkload['autothumbsrc'] = iml_mozshot( $myrow['url'] );
-		} else {
+		} elseif ( $imlModuleConfig['useautothumb'] == 1 && $imlModuleConfig['autothumbsrc'] == 0 ) {
 			$linkload['autothumbsrc'] = iml_thumbshot( $myrow['url'] );
+		} else {
+			if ( isset( $myrow['screenshot'] ) ) {
+				if ( !empty( $myrow['screenshot'] ) && file_exists( ICMS_ROOT_PATH . '/' . $imlModuleConfig['screenshots'] . '/' . trim( $myrow['screenshot'] ) ) ) {
+					if ( isset( $imlModuleConfig['usethumbs'] ) && $imlModuleConfig['usethumbs'] == 1 ) {
+						$_thumb_image = new imThumbsNails( $myrow['screenshot'], $imlModuleConfig['screenshots'], 'thumbs' );
+						if ( $_thumb_image ) {
+							 $_thumb_image -> setUseThumbs( 1 );
+							 $_thumb_image -> setImageType( 'gd2' );
+							 $_image = $_thumb_image -> do_thumb( $imlModuleConfig['shotwidth'],
+																  $imlModuleConfig['shotheight'],
+																  $imlModuleConfig['imagequality'],
+																  $imlModuleConfig['updatethumbs'],
+																  $imlModuleConfig['keepaspect'] );
+						}
+						$linkload['autothumbsrc'] = '<img src="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . $_image . '" alt="" />';
+					} else {
+						$linkload['autothumbsrc'] = '<img src="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . trim( $myrow['screenshot'] ) . '" alt="" />';
+					}
+				}
+			}
 		}
 
 		$isAdmin = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( $imlModule -> getVar( 'mid' ) ) ) ? true : false;
