@@ -23,10 +23,6 @@
 
 <div class="imlinks_tblhdr"><{$smarty.const._MODABOUT_IMLINKS_MODULE_INFO}></div>
 <div class="imlinks_table">
-	<div class="imlinks_tblrow">
-		<div class="imlinks_tblhdrcell" style="width: 300px;"><{$smarty.const._MODABOUT_IMLINKS_MODULE_RELEASE_DATE}></div>
-		<div class="imlinks_tblcell"><{$module_date}></div>
-	</div>
 
 	<div class="imlinks_tblrow">
 		<div class="imlinks_tblhdrcell"><{$smarty.const._MODABOUT_IMLINKS_VERSION}></div>
@@ -36,6 +32,11 @@
 	<div class="imlinks_tblrow">
 		<div class="imlinks_tblhdrcell"><{$smarty.const._MODABOUT_IMLINKS_MODULE_STATUS}></div>
 		<div class="imlinks_tblcell"><{$module_status}></div>
+	</div>
+
+	<div class="imlinks_tblrow">
+		<div class="imlinks_tblhdrcell" style="width: 300px;"><{$smarty.const._MODABOUT_IMLINKS_MODULE_RELEASE_DATE}></div>
+		<div class="imlinks_tblcell"><{$module_date}></div>
 	</div>
 
 	<{if $module_demo_site_name}>
