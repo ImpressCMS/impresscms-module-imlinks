@@ -24,7 +24,7 @@
 * @author		McDonald
 * @version		$Id$
 */
- 
+
 // Blocks
 define( '_MB_IMLINKS_DISP', 'Display' );
 define( '_MB_IMLINKS_FILES', 'Links' );
