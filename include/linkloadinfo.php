@@ -166,7 +166,7 @@ switch( icms::$module -> config['lightwindow'] ) {
 		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
 		$imlink['visitlink']    = '<a class="button" href="' . $imlink['visit'] . '" target="_blank">' . _MD_IMLINKS_LINKNOW . '</a>';
 		$imlink['visittitle']   = '<a href="' . $imlink['visit'] . '" target="_blank">' . $link_arr['title'] . '</a>';
-		$imlink['visitscrshot'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $link_arr['screenshot'] . '" width="' . icms::$module -> config['shotwidth'] . '" height="' . icms::$module -> config['shotheight'] . '" alt="" /></a>';
+		$imlink['visitscrshot'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . $imlink['screenshot_thumb'] . '" alt="" /></a>';
 		if ( icms::$module -> config['autothumbsrc'] ) {
 			$imlink['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" target="_blank">' . iml_mozshot( $link_arr['url'] ) . '</a>';
 		} else {
@@ -180,7 +180,7 @@ switch( icms::$module -> config['lightwindow'] ) {
 		$imlink['visitspinner'] = '<a class="lightwindow" href="' . $imlink['visit'] . '" ' . $lightwindow . '><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
 		$imlink['visitlink']    = '<a class="lightwindow button" href="' . $imlink['visit'] . '"  ' . $lightwindow . '>' . _MD_IMLINKS_LINKNOW . '</a>';
 		$imlink['visittitle']   = '<a class="lightwindow" href="' . $imlink['visit'] . '">' . $link_arr['title'] . '</a>';
-		$imlink['visitscrshot'] = '<a class="lightwindow" style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" ' . $lightwindow . '><img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $link_arr['screenshot'] . '" width="' . icms::$module -> config['shotwidth'] . '" height="' . icms::$module -> config['shotheight'] . '" alt="" /></a>';
+		$imlink['visitscrshot'] = '<a class="lightwindow" style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" ' . $lightwindow . '><img src="' . $imlink['screenshot_thumb'] . '" alt="" /></a>';
 		if ( icms::$module -> config['autothumbsrc'] ) {
 			$imlink['autothumbsrc'] = '<a class="lightwindow" style="padding: 0 0 5px 5px;" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&lid=' . $link_arr['lid'] . '" ' . $lightwindow . '>' . iml_mozshot( $link_arr['url'] ) . '</a>';
 		} else {
@@ -193,7 +193,7 @@ switch( icms::$module -> config['lightwindow'] ) {
 		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
 		$imlink['visitlink']    = '<a class="button" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '"  rel="gb_page_center[800, 600]">' . _MD_IMLINKS_LINKNOW . '</a>';
 		$imlink['visittitle']   = '<a href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]">' . $link_arr['title'] . '</a>';
-		$imlink['visitscrshot'] = '<a href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]"><img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $link_arr['screenshot'] . '" width="' . icms::$module -> config['shotwidth'] . '" height="' . icms::$module -> config['shotheight'] . '" alt="" /></a>';
+		$imlink['visitscrshot'] = '<a href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]"><img src="' . $imlink['screenshot_thumb'] . '" alt="" /></a>';
 		if ( icms::$module -> config['autothumbsrc'] ) {
 			$imlink['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[400, 300]">' . iml_mozshot( $link_arr['url'] ) . '</a>';
 		} else {
