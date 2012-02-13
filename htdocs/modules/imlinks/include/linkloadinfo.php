@@ -51,27 +51,6 @@ if ( icms::$module -> config['showpagerank'] ) {
 	$imlink['pagerank'] = imlinks_pagerank( $imlink['url'] ); // Google Pagerank
 }
 
-if ( isset( $link_arr['screenshot'] ) ) {
-	$imlink['screenshot_full'] = $immyts -> htmlSpecialCharsStrip( $link_arr['screenshot'] );
-	if ( !empty( $link_arr['screenshot'] ) && file_exists( ICMS_ROOT_PATH . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) ) ) {
-		if ( isset( icms::$module -> config['usethumbs'] ) && icms::$module -> config['usethumbs'] == 1 ) {
-			$_thumb_image = new imThumbsNails( $imlink['screenshot_full'], icms::$module -> config['screenshots'], 'thumbs' );
-			if ( $_thumb_image ) {
-				$_thumb_image -> setUseThumbs( 1 );
-				$_thumb_image -> setImageType( 'gd2' );
-				$_image = $_thumb_image -> do_thumb( icms::$module -> config['shotwidth'],
-													 icms::$module -> config['shotheight'],
-													 icms::$module -> config['imagequality'],
-													 icms::$module -> config['updatethumbs'],
-													 icms::$module -> config['keepaspect'] );
-			}
-			$imlink['screenshot_thumb'] = ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $_image;
-		} else {
-			$imlink['screenshot_thumb'] = ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] );
-		}
-	}
-}
-
 if ( $moderate == 0 ) {
 	$time = ( $link_arr['updated'] != 0 ) ? $link_arr['updated'] : $link_arr['published'];
 	$is_updated = ( $link_arr['updated'] != 0 ) ? _MD_IMLINKS_UPDATEDON : _MD_IMLINKS_PUBLISHDATE;
@@ -159,6 +138,34 @@ $imlink['quickview']		= icms::$module -> config['quickview'];
 $imlink['comment_rules']	= icms::$module -> config['com_rule'];
 $imlink['autoscrshot']		= icms::$module -> config['useautothumb'];
 
+$imlink['screenshot'] = '';
+if ( icms::$module -> config['useautothumb'] == 1 && icms::$module -> config['autothumbsrc'] == 1 ) {
+	$imlink['screenshot'] = iml_mozshot( $link_arr['url'] );
+} elseif ( icms::$module -> config['useautothumb'] == 1 && icms::$module -> config['autothumbsrc'] == 0 ) {
+	$imlink['screenshot'] = iml_thumbshot( $link_arr['url'] );
+} else {
+	if ( isset( $link_arr['screenshot'] ) ) {
+		$imlink['screenshot_full'] = $immyts -> htmlSpecialCharsStrip( $link_arr['screenshot'] );
+		if ( !empty( $link_arr['screenshot'] ) && file_exists( ICMS_ROOT_PATH . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) ) ) {
+			if ( isset( icms::$module -> config['usethumbs'] ) && icms::$module -> config['usethumbs'] == 1 ) {
+				$_thumb_image = new imThumbsNails( $imlink['screenshot_full'], icms::$module -> config['screenshots'], 'thumbs' );
+				if ( $_thumb_image ) {
+						$_thumb_image -> setUseThumbs( 1 );
+						$_thumb_image -> setImageType( 'gd2' );
+						$_image = $_thumb_image -> do_thumb( icms::$module -> config['shotwidth'],
+															 icms::$module -> config['shotheight'],
+															 icms::$module -> config['imagequality'],
+															 icms::$module -> config['updatethumbs'],
+															 icms::$module -> config['keepaspect'] );
+				}
+				$imlink['screenshot'] = '<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $_image . '" alt="" />';
+			} else {
+				$imlink['screenshot'] = '<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) . '" alt="" />';
+			}
+		}
+	}
+}
+
 switch( icms::$module -> config['lightwindow'] ) {
 
 	// Open link in new browser tab/window
@@ -166,12 +173,6 @@ switch( icms::$module -> config['lightwindow'] ) {
 		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
 		$imlink['visitlink']    = '<a class="button" href="' . $imlink['visit'] . '" target="_blank">' . _MD_IMLINKS_LINKNOW . '</a>';
 		$imlink['visittitle']   = '<a href="' . $imlink['visit'] . '" target="_blank">' . $link_arr['title'] . '</a>';
-		$imlink['visitscrshot'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . $imlink['screenshot_thumb'] . '" alt="" /></a>';
-		if ( icms::$module -> config['autothumbsrc'] ) {
-			$imlink['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" target="_blank">' . iml_mozshot( $link_arr['url'] ) . '</a>';
-		} else {
-			$imlink['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" target="_blank">' . iml_thumbshot( $link_arr['url'] ) . '</a>';
-		}
 		break;
 
 	// Open link in LightWindow
@@ -180,12 +181,6 @@ switch( icms::$module -> config['lightwindow'] ) {
 		$imlink['visitspinner'] = '<a class="lightwindow" href="' . $imlink['visit'] . '" ' . $lightwindow . '><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
 		$imlink['visitlink']    = '<a class="lightwindow button" href="' . $imlink['visit'] . '"  ' . $lightwindow . '>' . _MD_IMLINKS_LINKNOW . '</a>';
 		$imlink['visittitle']   = '<a class="lightwindow" href="' . $imlink['visit'] . '">' . $link_arr['title'] . '</a>';
-		$imlink['visitscrshot'] = '<a class="lightwindow" style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" ' . $lightwindow . '><img src="' . $imlink['screenshot_thumb'] . '" alt="" /></a>';
-		if ( icms::$module -> config['autothumbsrc'] ) {
-			$imlink['autothumbsrc'] = '<a class="lightwindow" style="padding: 0 0 5px 5px;" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&lid=' . $link_arr['lid'] . '" ' . $lightwindow . '>' . iml_mozshot( $link_arr['url'] ) . '</a>';
-		} else {
-			$imlink['autothumbsrc'] = '<a class="lightwindow" style="padding: 0 0 5px 5px;" href="' . ICMS_URL . '/modules/' . $mydirname . '/visit.php?cid=' . $link_arr['cid'] . '&lid=' . $link_arr['lid'] . '" ' . $lightwindow . '>' . iml_thumbshot( $link_arr['url'] ) . '</a>';
-		}
 		break;
 
 	// Open link in GreyBox
@@ -193,12 +188,6 @@ switch( icms::$module -> config['lightwindow'] ) {
 		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
 		$imlink['visitlink']    = '<a class="button" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '"  rel="gb_page_center[800, 600]">' . _MD_IMLINKS_LINKNOW . '</a>';
 		$imlink['visittitle']   = '<a href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]">' . $link_arr['title'] . '</a>';
-		$imlink['visitscrshot'] = '<a href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]"><img src="' . $imlink['screenshot_thumb'] . '" alt="" /></a>';
-		if ( icms::$module -> config['autothumbsrc'] ) {
-			$imlink['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[400, 300]">' . iml_mozshot( $link_arr['url'] ) . '</a>';
-		} else {
-			$imlink['autothumbsrc'] = '<a style="padding: 0 0 5px 5px;" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[400, 300]">' . iml_thumbshot( $link_arr['url'] ) . '</a>';
-		}
 		break;
 }
 ?>

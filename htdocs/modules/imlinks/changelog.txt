@@ -3,6 +3,8 @@ xx.xx.2012 - Version 1.12
 =========================================================
 Fixed:
 - categories couldn't be saved [#345]
+- screenshot thumbnails were not used
+- Mozshot auto screenshot function
 - sql-file
 
 Added:

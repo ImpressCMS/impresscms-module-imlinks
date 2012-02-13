@@ -87,21 +87,15 @@
 	
 	<{if $tagbar}>
 		<div class="infoblock2" style="margin-top: 10px;">
-			<{include file="db:tag_bar.html"}>               
+			<{include file="db:tag_bar.html"}>
 		</div>
 	<{/if}>
 	
-	<{if $imlink.autoscrshot == 0}> 
-		<{if $show_screenshot == true}> 
-			<{if $imlink.screenshot_full != ''}>
-				<div class="infoblock2" style="text-align: center; margin-top: 10px;"><{$imlink.visitscrshot}></div> 
-			<{/if}> 
-		<{/if}> 
+
+	<{if $imlink.screenshot}>
+		<div class="infoblock2" style="text-align: center; margin-top: 10px;"><{$imlink.screenshot}></div>
 	<{/if}>
-	
-	<{if $imlink.autoscrshot == 1}>
-		<div class="infoblock2" style="text-align: center; margin-top: 10px;"><{$imlink.autothumbsrc}></div> 
-	<{/if}>
+
 	<br />
 </div> 
  
