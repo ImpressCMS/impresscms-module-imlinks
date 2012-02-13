@@ -6,29 +6,29 @@
 *
 * File: language/nederlands/blocks.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
-* translation		McDonald
+* translation	McDonald
 * language		dutch (nederlands)
-* format			utf-8
+* format		utf-8
 */
- 
+
 // Blocks
 define( '_MB_IMLINKS_DISP', 'Tonen' );
 define( '_MB_IMLINKS_FILES', 'Links' );
@@ -46,4 +46,14 @@ define( '_MB_IMLINKS_CATTITLE', 'Categorie' );
 define( '_MB_IMLINKS_UNLIMIT', 'Ongelimiteerd' );
 define( '_MB_IMLINKS_DATEFORMAT', 'Datum weergave');
 define( '_MB_IMLINKS_DATEFORMATMANUAL', 'Zie <a href="http://docs.php.net/manual/nl/function.date.php" target="_blank">PHP handleiding</a>' );
+
+// Version 1.12
+define( '_MB_IMLINKS_SUBMITTER', 'Inzender' );
+define( '_MB_IMLINKS_PUBLISHER', 'Uitgever' );
+define( '_MB_IMLINKS_DATE', 'Datum' );
+define( '_MB_IMLINKS_COUNTRY', 'Land' );
+define( '_MB_IMLINKS_HITS', 'Hits' );
+define( '_MB_IMLINKS_NOTSPECIFIED', 'Niet gespecificeerd' );
+define( '_MB_IMLINKS_VIEWDETAILS', 'Toon volledige details' );
+define( '_MB_IMLINKS_ADMINSECTION', 'Administratie' );
 ?>

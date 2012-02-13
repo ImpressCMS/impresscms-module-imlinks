@@ -326,4 +326,5 @@ define( '_MI_IMLINKS_FACEBOOKBTTN', 'Facebook "I Like" knop' );
 define( '_MI_IMLINKS_FACEBOOKBTTNDSC', 'Kies een Facebook knop stijl.' );
 define( '_MI_IMLINKS_PLUSONEBTTN', 'Google +1 knop' );
 define( '_MI_IMLINKS_PLUSONEBTTNDSC', 'Kies een Google +1 knop stijl.' );
+define( '_MI_IMLINKS_BNAME7', 'Recent links - extended' );
 ?>
