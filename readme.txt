@@ -33,6 +33,13 @@ To use this option the folder 'libraries/greybox' needs to be copied to your ser
 
 
 
+**Lightwindow**
+---------------
+imLinks can have links opened in a so called LightWindow. This can be set in the Preferences.
+To use this option the folders 'libraries/prototype' and 'libraries/scriptaculous' need to be copied to your server.
+
+
+
 **imGlossary**
 --------------
 To have words linked to imGlossary this module has to be installed.
