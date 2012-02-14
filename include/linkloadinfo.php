@@ -177,7 +177,7 @@ switch( icms::$module -> config['lightwindow'] ) {
 
 	// Open link in LightWindow
 	case 1:
-		$lightwindow = 'params="lightwindow_width=2000,lightwindow_height=2000,lightwindow_loading_animation=false" title="' . $link_arr['title'] . '" caption="' . $imlink['hits'] . '"';
+		$lightwindow = 'params="lightwindow_width=800,lightwindow_height=600,lightwindow_loading_animation=true" title="' . $link_arr['title'] . '" caption="' . $imlink['hits'] . '"';
 		$imlink['visitspinner'] = '<a class="lightwindow" href="' . $imlink['visit'] . '" ' . $lightwindow . '><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
 		$imlink['visitlink']    = '<a class="lightwindow button" href="' . $imlink['visit'] . '"  ' . $lightwindow . '>' . _MD_IMLINKS_LINKNOW . '</a>';
 		$imlink['visittitle']   = '<a class="lightwindow" href="' . $imlink['visit'] . '">' . $link_arr['title'] . '</a>';
