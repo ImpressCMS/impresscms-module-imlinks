@@ -38,18 +38,18 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/'. $icm
 
 $modversion['name'] 			= _MI_IMLINKS_NAME;
 $modversion['version']			= '1.12';
-$modversion['date'] 			= 'xx xxxx 2012';
-$modversion['status']			= 'Trunk';
-$modversion['status_version']	= 'Trunk';
+$modversion['date'] 			= '14 February 2012';
+$modversion['status']			= 'RC-1';
+$modversion['status_version']	= 'RC-1';
 $modversion['description'] 		= _MI_IMLINKS_DESC;
 $modversion['license']			= _MI_IMLINKS_ABOUTLICENSE;
-$modversion['image']			= 'images/imlinks_ilogo.png'; 		// standard XOOPS icon, 92x52 px  
-$modversion['iconsmall']		= 'images/imlinks_iconsmall.png'; 	// small icon for ImpressCMS, 16x16 px 
-$modversion['iconbig']			= 'images/imlinks_iconbig.png'; 	// big icon for ImpressCMS, 37x35 px
+$modversion['image']			= 'images/imlinks_ilogo.png';		// standard XOOPS icon, 92x52 px  
+$modversion['iconsmall']		= 'images/imlinks_iconsmall.png';	// small icon for ImpressCMS, 16x16 px 
+$modversion['iconbig']			= 'images/imlinks_iconbig.png';	// big icon for ImpressCMS, 37x35 px
 $modversion['dirname']			= $mydirname;
 
 $modversion['author']			= 'Version developer: John N';
-$modversion['credits']			= '<b>WF-Projects Team:</b> Based on WF-Links, thanks to the dream-team for some code snippits. Team members: amayer, bender, david, dqflyer, draven, frankblack, gladiac, hervet, jackj, mercibe, John N, phppp, predator, reliableSol, tom, xpider, xtheme.';
+$modversion['credits']			= 'WF-Projects Team: Based on WF-Links, thanks to the dream-team for some code snippits. Team members: amayer, bender, david, dqflyer, draven, frankblack, gladiac, hervet, jackj, mercibe, John N, phppp, predator, reliableSol, tom, xpider, xtheme.';
 $modversion['author_website_url']	= 'http://code.google.com/p/mcdonaldsstore/downloads/list';
 $modversion['author_website_name']	= 'McDonalds Store';
 
