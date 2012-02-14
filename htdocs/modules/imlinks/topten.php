@@ -45,8 +45,8 @@ $sortDB		= $list_array[$sort_arr];
 if ( iml_imageheader() != '' ) {
 	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';
 }
-$catarray['letters'] = '<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink">' . iml_letters() . '</div>';
-$catarray['toolbar'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_toolbar() . '</div>';
+$catarray['letters'] = iml_letters();
+$catarray['toolbar'] = iml_toolbar();
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 	$arr = array();
