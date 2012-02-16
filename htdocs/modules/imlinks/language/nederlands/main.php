@@ -6,27 +6,27 @@
 *
 * File: language/nederlands/main.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
-* translation		mcdonald
+* translation	mcdonald
 * language		dutch (nederlands)
-* format			utf-8
+* format		utf-8
 */
 
 define( "_MD_IMLINKS_SUBCATLISTING", "Categorie index" );
@@ -75,7 +75,7 @@ define( "_MD_IMLINKS_CURSORTBY", "Links zijn gesorteerd op: %s" );
 define( "_MD_IMLINKS_ALREADYREPORTED", "U heeft reeds een rapport verzonden met betrekking tot deze gebroken link." );
 define( "_MD_IMLINKS_MUSTREGFIRST", "Voor deze actie dient u in te loggen of zich te registreren." );
 define( "_MD_IMLINKS_SUBMITLINK", "Link inzenden" );
-define( "_MD_IMLINKS_SUB_SNEWMNAMEDESC", "<ul><li>Alle nieuwe inzendingen zijn onderwerp van beoordeling. Er kan enige tijd overheen gaan voordat ze in de index worden opgenomen.</li><li>Wij behouden ons het recht voor om ingezonden linken te weigeren of de inhoud te wijzigen zonder overleg of goedkeuring.</li></ul>" );
+define( "_MD_IMLINKS_SUB_SNEWMNAMEDESC", "- Alle nieuwe inzendingen zijn onderwerp van beoordeling. Er kan enige tijd overheen gaan voordat ze in de index worden opgenomen.<br />- Wij behouden ons het recht voor om ingezonden linken te weigeren of de inhoud te wijzigen zonder overleg of goedkeuring." );
 define( "_MD_IMLINKS_MAINLISTING", "Categorie index" );
 define( "_MD_IMLINKS_LASTWEEK", "Afgelopen week" );
 define( "_MD_IMLINKS_LAST30DAYS", "Afgelopen 30 dagen" );
@@ -162,7 +162,7 @@ define( "_MD_IMLINKS_MOBILE", "Mobiel" );
 
 // Version 1.05 RC6
 define( "_MD_IMLINKS_VAT", "KvK nr." );
-define( "_MD_IMLINKS_VATWIKI", 'Voor meer informatie zie <a href="http://en.wikipedia.org/wiki/Value_added_tax_identification_number" target="_blank">Wikipedia</a> (engels)' );
+define( "_MD_IMLINKS_VATWIKI", "Voor meer informatie zie <a href='http://en.wikipedia.org/wiki/Value_added_tax_identification_number' target='_blank'>Wikipedia</a> (engels)" );
 define( "_MD_IMLINKS_EMAIL", "Email" );
 define( "_MD_IMLINKS_LINK_CREATEADDRESS", '<b>Adres formulier</b>' );
 
@@ -206,4 +206,7 @@ define( '_MD_IMLINKS_ADDTOTOMTOM', 'Voeg toe aan TomTom' );
 define( '_MD_IMLINKS_TOMTOMDSC', 'Voer de breedte- en lengtegraad van het hierboven opgegeven adres in.<br />De geografische positie van het adres kunt u vinden mbv de website <a href="http://itouchmap.com/latlong.html" target="_blank">iTouchMap.com</a><br />De breedte- en lengtegraad van de dient opgegeven te worden in decimale graden. Kan negatief zijn; "N"/"Z"/"W"/"O" achtervoegsel wordt niet geaccepteerd. De standaard geodetische datum is WGS-84.<br />De geografische positie dient als volgt opgegeven te worden:<br />- Breedtegraad: 57.2355591<br />- Lengtegraad: -2.3535921' );
 define( '_MD_IMLINKS_TOMTOMLONG', 'Geef lengtegraad:' );
 define( '_MD_IMLINKS_TOMTOMLAT', 'Geef breedtegraad:' );
+
+// version 1.12
+define( '_MD_IMLINKS_SCRSHOTENLARGE', 'Klik op afbeelding voor uitvergroting' );
 ?>

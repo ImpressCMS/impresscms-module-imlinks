@@ -6,27 +6,27 @@
 *
 * File: language/spanish/main.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
-* translation		debianus (Sugerencias y reporte de errores en http://es.impresscms.org)
+* translation	debianus (Sugerencias y reporte de errores en http://es.impresscms.org)
 * language		spanish (español)
-* format			utf-8
+* format		utf-8
 */
 
 define( "_MD_IMLINKS_SUBCATLISTING", "Lista de categorías" );
@@ -198,4 +198,7 @@ define( '_MD_IMLINKS_ADDTOTOMTOM', 'Añadir a TomTom' );
 define( '_MD_IMLINKS_TOMTOMDSC', 'Establezca la latitud de la dirección.<br />Puede encontrar la posición geográfica de la misma en el sitio <a href="http://itouchmap.com/latlong.html" target="_blank">iTouchMap.com</a><br />La latitud y la longitud deberían estar en decimales, pero pueden ser negativos; "N"/"S"/"W"/"E" no son sufijos aceptados. El dato geodético predeterminado es WGS-84.<br />La posición geográfica debería ser establecida así:<br />- Latitud: 57.2355591<br />- Longitud: -2.3535921' );
 define( '_MD_IMLINKS_TOMTOMLONG', 'Establecer longitud:' );
 define( '_MD_IMLINKS_TOMTOMLAT', 'Establecer latitud:' );
+
+// version 1.12
+define( '_MD_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
 ?>

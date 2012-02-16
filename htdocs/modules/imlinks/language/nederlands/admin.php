@@ -6,27 +6,27 @@
 *
 * File: language/nederlands/admin.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
-* translation		mcdonald
+* translation	mcdonald
 * language		dutch (nederlands)
-* format			utf-8
+* format		utf-8
 */
  
 define( "_AM_IMLINKS_WARNINSTALL1", "<b>WAARSCHUWING:</b> <u>Map</u> %s bestaat op uw server. <br />Verwijder deze map uit veiligheids overwegingen." );
@@ -90,9 +90,8 @@ define( "_AM_IMLINKS_FCATEGORY_SUBCATEGORY", "Instellen als sub-categorie van:" 
 define( "_AM_IMLINKS_FCATEGORY_CIMAGE", "Selekteer categorie afbeelding:" );
 define( "_AM_IMLINKS_FCATEGORY_DESCRIPTION", "Categorie omschrijving:" );
 define( "_AM_IMLINKS_FCATEGORY_SUMMARY", "Categorie samenvatting:" );
-/**
- * Index page Defines
- */
+
+// Index page Defines
 define( "_AM_IMLINKS_IPAGE_UPDATED", "Indexpagina aangepast en database succelvol geupdate!" );
 define( "_AM_IMLINKS_IPAGE_INFORMATION", "Indexpagina informatie" );
 define( "_AM_IMLINKS_IPAGE_MODIFY", "Indexpagina aanpassen" );
@@ -105,18 +104,15 @@ define( "_AM_IMLINKS_IPAGE_CFOOTERA", "Voettekst uitlijning:" );
 define( "_AM_IMLINKS_IPAGE_CLEFT", "Uitlijnen links" );
 define( "_AM_IMLINKS_IPAGE_CCENTER", "Uitlijnen midden" );
 define( "_AM_IMLINKS_IPAGE_CRIGHT", "Uitlijnen rechts" );
-/**
- * Permissions defines
- */
+
+// Permissions defines
 define( "_AM_IMLINKS_PERM_MANAGEMENT", "Rechten instellingen" );
 define( "_AM_IMLINKS_PERM_PERMSNOTE", "<div><b>Opmerking:</b> Stel hier de juiste rechten in, anders kunnen gebruikersgroepen mogelijk bepaalde artikelen en blokken niet of juist wel zien. Let tevens op de module toegangsrechten! Om deze in te stellen ga naar <b>System admin > Groepen</b>, kies de gewenste groep en selekteer de checkboxen om de toegang toe te wijzen.</div>" );
 define( "_AM_IMLINKS_PERM_CPERMISSIONS", "Categorie rechten" );
 define( "_AM_IMLINKS_PERM_CSELECTPERMISSIONS", "Selekteer categorieën die alle groepen mogen zien" );
 define( "_AM_IMLINKS_PERM_CNOCATEGORY", "Kan geen rechten instellen: Er zijn geen categorieën aangemaakt!" );
 
-/**
- * Upload defines
- */
+// Upload defines
 define( "_AM_IMLINKS_LINK_IMAGEUPLOAD", "Afbeelding succesvol geupload" );
 define( "_AM_IMLINKS_LINK_NOIMAGEEXIST", "FOUT: geen link geselekteerd om te uploaden. Probeer het nogmaals!" );
 define( "_AM_IMLINKS_LINK_IMAGEEXIST", "Afbeelding bestaat al in he uploadgedeelte!" );
@@ -211,8 +207,8 @@ define( "_AM_IMLINKS_LINK_TITLE", "Link titel: " );
 define( "_AM_IMLINKS_LINK_DLURL", "Link URL: " );
 define( "_AM_IMLINKS_LINK_DESCRIPTION", "Link omschrijving: " );
 define( "_AM_IMLINKS_LINK_CATEGORY", "Link categorie: " );
-define( "_AM_IMLINKS_LINK_FILESSTATUS", " Link offline plaatsen?<br /><br /><span style='font-weight: normal; font-size: smaller;'>Link zal niet zichbaar zijn.</span>" );
-define( "_AM_IMLINKS_LINK_SETASUPDATED", " Link Status weergeven als bijgewerkt?<br /><br /><span style='font-weight: normal; font-size: smaller;'>Link zal een 'bijgewerkt' icoon weergeven.</span>" );
+define( "_AM_IMLINKS_LINK_FILESSTATUS", "Link offline plaatsen?" );
+define( "_AM_IMLINKS_LINK_SETASUPDATED", " Link Status weergeven als bijgewerkt?" );
 define( "_AM_IMLINKS_LINK_SHOTIMAGE", "Link screenshot afbeelding: " );
 define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "Discussieer in dit forum toevoegen?" );
 define( "_AM_IMLINKS_LINK_EXPIREDATE", "Link verloopdatum:" );
@@ -235,9 +231,7 @@ define( "_AM_IMLINKS_LINK_NEWSCATEGORY", "Selekteer nieuwscategorie om nieuwsber
 define( "_AM_IMLINKS_LINK_NEWSTITLE", "Nieuwstitel:<div style='padding-top: 4px; padding-bottom: 4px;'><span style='font-weight: normal;'>Leeg laten om de linknaam te gebruiken</span></div>" );
 define( "_AM_IMLINKS_LINK_PUBLISHER", "Link inzender: " );
 
-/**
- * Broken links defines
- */
+// Broken links defines
 define( "_AM_IMLINKS_SBROKENSUBMIT", "Gebroken: " );
 define( "_AM_IMLINKS_BROKEN_FILE", "Gebroken rapportage(s)" );
 define( "_AM_IMLINKS_BROKEN_FILEIGNORED", "Gebroken link rapportage genegeerd en succesval verwijderd uit de database!" );
@@ -394,7 +388,7 @@ define( '_AM_IMLINKS_RSSFEED', 'RSS Feed' );
 define( '_AM_IMLINKS_RSSFEEDCFG', 'RSS Feed Configuratie' );
 define( '_AM_IMLINKS_RSSFEEDDSC', 'Hier kunt u de RSS feed voor imLinks configureren.<br />Voor meer informatie over RSS kunt u zich wenden tot de <a href="http://www.rssboard.org/" target="_blank">RSS Advisory Board</a> website.' );
 define( '_AM_IMLINKS_RSSACTIVE', 'RSS feed geaktiveerd' );
-define( '_AM_IMLINKS_RSSACTIVEDSC', 'Selekteer <em>Ja</em> om RSS feed voor imLinks te gebruiken, kies <em>Nee</em> om RSS feed te deaktiveren.' );
+define( '_AM_IMLINKS_RSSACTIVEDSC', 'Selekteer <i>Ja</i> om RSS feed voor imLinks te gebruiken, kies <i>Nee</i> om RSS feed te deaktiveren.' );
 define( '_AM_IMLINKS_RSSTITLE', 'RSS feed titel' );
 define( '_AM_IMLINKS_RSSTITLEDSC', 'De naam van het RSS kanaal. Dit is hoe mensen naar uw website refereren. Indien u een website heeft dat dezelfde informatie bevat als de RSS feed, dan dient de titel van het RSS kanaal hetzelfde te zijn als van uw website.' );
 define( '_AM_IMLINKS_RSSLINKS', 'RSS feed link' );
@@ -412,7 +406,7 @@ define( '_AM_IMLINKS_RSSIMGTITLEDSC', 'Omschrijft de afbeelding, het wordt gebru
 define( '_AM_IMLINKS_RSSIMGLINK', 'RSS feed afbeelding link' );
 define( '_AM_IMLINKS_RSSIMGLINKDSC', 'Dit is de URL van de website, wanneer het kanaal afgebeeld wordt. De afbeelding funktioneert als link naar de website. (Opgelet, in de praktijk dienen de afbeelding &#60;title&#62; en &#60;link&#62; dezelfde waarde te hebben als &#60;title&#62; en &#60;link&#62; van het kanaal).' );
 define( '_AM_IMLINKS_RSSTTL', 'RSS feed ttl' );
-define( '_AM_IMLINKS_RSSTTLDSC', 'ttl staat voor <em>time to live</em>. Het is het aantal minuten dat aangeeft hoe lang een kanaal in het tijdelijk geheugen gehouden wordt, voordat dit vanuit de bron bijgewerkt wordt.' );
+define( '_AM_IMLINKS_RSSTTLDSC', 'ttl staat voor <i>time to live</i>. Het is het aantal minuten dat aangeeft hoe lang een kanaal in het tijdelijk geheugen gehouden wordt, voordat dit vanuit de bron bijgewerkt wordt.' );
 define( '_AM_IMLINKS_RSSWEBMASTER', 'RSS feed webmaster' );
 define( '_AM_IMLINKS_RSSWEBMASTERDSC', 'Email adres van de persoon verantwoordelijk voor technische zaken aangaande het RSS kanaal.' );
 define( '_AM_IMLINKS_RSSEDITOR', 'RSS feed kanaal editor' );
@@ -440,7 +434,7 @@ define( '_AM_IMLINKS_NOREPLY', 'Geen antwoord' );
 
 // imLinks 1.03
 define( '_AM_IMLINKS_NICEURL', 'Alternatieve titel voor link:' );
-define( '_AM_IMLINKS_NICEURLDSC', 'Geef een alternatieve titel voor de link om in de url te gebruiken. Als de optie <em>Gebruik nette urls</em> onder Instellingen is geselecteerd en dit veld wordt niet ingevuld, dan zal de titel van deze link gebruikt worden.' );
+define( '_AM_IMLINKS_NICEURLDSC', 'Geef een alternatieve titel voor de link om in de url te gebruiken. Als de optie <i>Gebruik nette urls</i> onder Instellingen is geselecteerd en dit veld wordt niet ingevuld, dan zal de titel van deze link gebruikt worden.' );
 define( '_AM_IMLINKS_TOMTOM', 'Voeg toe aan TomTom' );
 define( '_AM_IMLINKS_TOMTOMDSC', 'Voer de breedte- en lengtegraad van het hierboven opgegeven adres in.<br />De geografische positie van het adres kunt u vinden mbv de website <a href="http://itouchmap.com/latlong.html" target="_blank">iTouchMap.com</a><br />De breedte- en lengtegraad van de dient opgegeven te worden in decimale graden. Kan negatief zijn; "N"/"Z"/"W"/"O" achtervoegsel wordt niet geaccepteerd. De standaard geodetische datum is WGS-84.<br />De geografische positie dient als volgt opgegeven te worden:<br />- Breedtegraad: 57.2355591<br />- Lengtegraad: -2.3535921' );
 define( '_AM_IMLINKS_TOMTOMLONG', 'Geef lengtegraad:' );
@@ -452,4 +446,8 @@ define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Lengtegraad:' );
 define( '_AM_IMLINKS_MSG_OFFLINE', 'Link is succesvol Offline geplaatst.' );
 define( '_AM_IMLINKS_MSG_ONLINE', 'Link is succesvol Online geplaatst.' );
 define( '_AM_IMLINKS_ICO_WAITING','Ingediend, wachtend goedkeuring' );
+
+// Version 1.12
+define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "Link zal niet zichbaar zijn." );
+define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "Link zal een 'bijgewerkt' icoon weergeven." );
 ?>
