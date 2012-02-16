@@ -161,7 +161,7 @@ lightwindow.prototype = {
 							'<div id="lightwindow_title_bar" >'+
 								'<div id="lightwindow_title_bar_inner" >'+
 									'<span id="lightwindow_title_bar_title"></span>'+
-									'<a id="lightwindow_title_bar_close_link" >close</a>'+
+									'<a id="lightwindow_title_bar_close_link" ><img src="images/lightwindow/close.png" alt="" /></a>'+
 								'</div>'+
 							'</div>'+
 							'<div id="lightwindow_stage" >'+
