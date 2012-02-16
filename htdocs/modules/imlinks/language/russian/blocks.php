@@ -52,4 +52,5 @@ define( '_MB_IMLINKS_HITS', 'Hits' );
 define( '_MB_IMLINKS_NOTSPECIFIED', 'Not specified' );
 define( '_MB_IMLINKS_VIEWDETAILS', 'View Full Details' );
 define( '_MB_IMLINKS_ADMINSECTION', 'Administration' );
+define( '_MB_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
 ?>
