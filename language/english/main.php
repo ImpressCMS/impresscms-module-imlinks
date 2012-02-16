@@ -80,7 +80,7 @@ define( "_MD_IMLINKS_CURSORTBY", "Links currently sorted by: %s" );
 define( "_MD_IMLINKS_ALREADYREPORTED", "You have already submitted a broken report for this resource." );
 define( "_MD_IMLINKS_MUSTREGFIRST", "Sorry, you don't have the permission to perform this action.<br />Please register or login first!" );
 define( "_MD_IMLINKS_SUBMITLINK", "Submit Link" );
-define( "_MD_IMLINKS_SUB_SNEWMNAMEDESC", "<ul><li>All new links's are subject to validation and may take up to 24 hours before they appear in our listing.</li><li>We reserve the rights to refuse any submitted link or change the content without approval.</li></ul>" );
+define( "_MD_IMLINKS_SUB_SNEWMNAMEDESC", "- All new links's are subject to validation and may take up to 24 hours before they appear in our listing.<br />- We reserve the rights to refuse any submitted link or change the content without approval." );
 define( "_MD_IMLINKS_MAINLISTING", "Main Category Listings" );
 define( "_MD_IMLINKS_LASTWEEK", "Last week" );
 define( "_MD_IMLINKS_LAST30DAYS", "Last 30 days" );
@@ -179,7 +179,7 @@ define( "_MD_IMLINKS_MOBILE", "Mobile" );
 
 // Version 1.05 RC6
 define( "_MD_IMLINKS_VAT", "VAT" );
-define( "_MD_IMLINKS_VATWIKI", 'For more information see <a href="http://en.wikipedia.org/wiki/Value_added_tax_identification_number" target="_blank">Wikipedia</a>' );
+define( "_MD_IMLINKS_VATWIKI", "For more information see <a href='http://en.wikipedia.org/wiki/Value_added_tax_identification_number' target='_blank'>Wikipedia</a>" );
 define( "_MD_IMLINKS_EMAIL", "Email" );
 define( "_MD_IMLINKS_LINK_CREATEADDRESS", '<b>Address form</b>' );
 
@@ -223,4 +223,7 @@ define( '_MD_IMLINKS_ADDTOTOMTOM', 'Add to TomTom' );
 define( '_MD_IMLINKS_TOMTOMDSC', 'Enter the latitude and longitude of the address entered above.<br />You can find the geographic position of the address by using the website <a href="http://itouchmap.com/latlong.html" target="_blank">iTouchMap.com</a><br />Geographic latitude/longitude of the location should be in decimal degrees. May be negative; "N"/"S"/"W"/"E" suffix is not accepted. Default geodetic datum is WGS-84.<br />The geographic position should be entered as follows:<br />- Latitude: 57.2355591<br />- Longitude: -2.3535921' );
 define( '_MD_IMLINKS_TOMTOMLONG', 'Enter longitude:' );
 define( '_MD_IMLINKS_TOMTOMLAT', 'Enter latitude:' );
+
+// version 1.12
+define( '_MD_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
 ?>
