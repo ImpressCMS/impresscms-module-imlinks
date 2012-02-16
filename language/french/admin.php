@@ -6,27 +6,27 @@
 *
 * File: language/french/admin.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
-* translation		cpascal
+* translation	cpascal
 * language		french (français)
-* format			ansi
+* format		ansi
 */
 
 //avertissement
@@ -232,8 +232,8 @@ define("_AM_IMLINKS_LINK_DLURL", "URL du site:");
 define('_AM_IMLINKS_LINKURLDSC', "Cliquez sur l'ic&ocirc;ne afin de v&eacute;rifier l'url du site.");
 define("_AM_IMLINKS_LINK_DESCRIPTION", "Description du site:");
 define("_AM_IMLINKS_LINK_CATEGORY", "Cat&eacute;gorie du site:");
-define("_AM_IMLINKS_LINK_FILESSTATUS", "Mettre le site hors ligne ?<br /><span style='font-weight :normal;'>Le site ne sera plus visible dans l'annuaire.</span>");
-define("_AM_IMLINKS_LINK_SETASUPDATED", "Signaler que le site &agrave; &eacute;t&eacute; mis &agrave; jour ?<br /><span style='font-weight :normal;'>Une ic&ocirc;ne de mise &agrave; jour appara&icirc;tra.</span>");
+define("_AM_IMLINKS_LINK_FILESSTATUS", "Mettre le site hors ligne ?");
+define("_AM_IMLINKS_LINK_SETASUPDATED", "Signaler que le site &agrave; &eacute;t&eacute; mis &agrave; jour ?");
 define("_AM_IMLINKS_LINK_SHOTIMAGE", "Capture d'&eacute;cran du site:");
 define("_AM_IMLINKS_LINK_CLEAREXPIREDATE", "<br />Annuler la date d'expiration:");
 define("_AM_IMLINKS_LINK_EXPIREDATE", "D&eacute;finir une date d'expiration ?");
@@ -451,4 +451,8 @@ define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Longitude:' );
 define( '_AM_IMLINKS_MSG_OFFLINE', 'Link was set Offline successfully.' );
 define( '_AM_IMLINKS_MSG_ONLINE', 'Link was set Online successfully.' );
 define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
+
+// Version 1.12
+define("_AM_IMLINKS_LINK_FILESSTATUSDSC", "Le site ne sera plus visible dans l'annuaire.");
+define("_AM_IMLINKS_LINK_SETASUPDATEDDSC", "Une ic&ocirc;ne de mise &agrave; jour appara&icirc;tra.");
 ?>

@@ -6,17 +6,17 @@
 *
 * File: language/english/admin.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
@@ -24,7 +24,7 @@
 * @author		McDonald
 * @version		$Id$
 */
- 
+
 define( "_AM_IMLINKS_WARNINSTALL1", "<b>WARNING:</b> <u>Directory</u> %s exists on your server. <br />Please remove this directory for security reasons." );
 define( "_AM_IMLINKS_WARNINSTALL2", "<b>WARNING:</b> <u>File</u> %s exists on your server. <br />Please remove this directory for security reasons." );
 define( "_AM_IMLINKS_WARNINSTALL3", "<b>WARNING:</b> <u>Folder</u> %s does not exists on your server. <br />This folder is required by imLinks." );
@@ -249,8 +249,8 @@ define( "_AM_IMLINKS_LINK_TITLE", "Link title: " );
 define( "_AM_IMLINKS_LINK_DLURL", "Link URL: " );
 define( "_AM_IMLINKS_LINK_DESCRIPTION", "Link description: " );
 define( "_AM_IMLINKS_LINK_CATEGORY", "Link main category: " );
-define( "_AM_IMLINKS_LINK_FILESSTATUS", " Set link offline?<br /><br /><span style='font-weight: normal;'>Link will not be viewable to all users.</span>" );
-define( "_AM_IMLINKS_LINK_SETASUPDATED", " Set link status as updated?<br /><br /><span style='font-weight: normal;'>Link will display updated icon.</span>" );
+define( "_AM_IMLINKS_LINK_FILESSTATUS", "Set link offline?" );
+define( "_AM_IMLINKS_LINK_SETASUPDATED", "Set link status as updated?" );
 define( "_AM_IMLINKS_LINK_SHOTIMAGE", "Link screenshot image: " );
 define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "Add <em>Discuss in this Forum</em>?" );
 define( "_AM_IMLINKS_LINK_PUBLISHDATE", "Link publish date:" );
@@ -386,7 +386,7 @@ define( "_AM_IMLINKS_TELEPHONE", "Telephone:" );
 define( "_AM_IMLINKS_FAX", "Fax:" );
 
 // Version 1.05 RC2
-define( "_AM_IMLINKS_WARNINSTALL4", "<b>WARNING:</b> <u>Folder</u> %s is not writeable. <br />This folder needs to be writeable (CHMOD 777) for imLinks." );
+define( "_AM_IMLINKS_WARNINSTALL4", "<b>WARNING:</b> <u>Folder</u> %s is not writeable.<br />This folder needs to be writeable (CHMOD 777) for imLinks." );
 
 // Version 1.05 RC5
 define( "_AM_IMLINKS_VOIP", "VoIP:" );
@@ -477,7 +477,7 @@ define( '_AM_IMLINKS_RSSFEED', 'RSS Feed' );
 define( '_AM_IMLINKS_RSSFEEDCFG', 'RSS Feed Configuration' );
 define( '_AM_IMLINKS_RSSFEEDDSC', 'Here you can configure the RSS feed for imLinks.<br />For more information visit the <a href="http://www.rssboard.org/" target="_blank">RSS Advisory Board</a> website.' );
 define( '_AM_IMLINKS_RSSACTIVE', 'RSS feed activated' );
-define( '_AM_IMLINKS_RSSACTIVEDSC', 'Select <em>Yes</em> to turn RSS feed for imLinks on, select <em>No</em> to turn it off.' );
+define( '_AM_IMLINKS_RSSACTIVEDSC', 'Select <i>Yes</i> to turn RSS feed for imLinks on, select <i>No</i> to turn it off.' );
 define( '_AM_IMLINKS_RSSTITLE', 'RSS feed title' );
 define( '_AM_IMLINKS_RSSTITLEDSC', 'The name of the channel. It\'s how people refer to your service. If you have a website that contains the same information as your RSS file, the title of your channel should be the same as the title of your website.' );
 define( '_AM_IMLINKS_RSSLINKS', 'RSS feed link' );
@@ -491,9 +491,9 @@ define( '_AM_IMLINKS_RSSWIDTHDSC', 'Indicates the width of the image in pixels.<
 define( '_AM_IMLINKS_RSSHEIGHT', 'RSS feed image height' );
 define( '_AM_IMLINKS_RSSHEIGHTDSC', 'Indicates the height of the image in pixels.<br />Maximum value for height is 400.' );
 define( '_AM_IMLINKS_RSSIMGTITLE', 'RSS feed image title' );
-define( '_AM_IMLINKS_RSSIMGTITLEDSC', 'Describes the image, it\'s used in the ALT attribute of the HTML &#60;img&#62; tag when the channel is rendered in HTML.' );
+define( '_AM_IMLINKS_RSSIMGTITLEDSC', 'Describes the image, it\'s used in the ALT attribute of the HTML img tag when the channel is rendered in HTML.' );
 define( '_AM_IMLINKS_RSSIMGLINK', 'RSS feed image link' );
-define( '_AM_IMLINKS_RSSIMGLINKDSC', 'This is the URL of the site, when the channel is rendered, the image is a link to the site. (Note, in practice the image &#60;title&#62; and &#60;link&#62; should have the same value as the channel\'s &#60;title&#62; and &#60;link&#62;).' );
+define( '_AM_IMLINKS_RSSIMGLINKDSC', 'This is the URL of the site, when the channel is rendered, the image is a link to the site. (Note, in practice the image &#60;title&#62; and &#60;link&#62; should have the same value as the channel\'s title and link).' );
 define( '_AM_IMLINKS_RSSTTL', 'RSS feed ttl' );
 define( '_AM_IMLINKS_RSSTTLDSC', 'ttl stands for time to live. It\'s a number of minutes that indicates how long a channel can be cached before refreshing from the source.' );
 define( '_AM_IMLINKS_RSSWEBMASTER', 'RSS feed webmaster' );
@@ -501,7 +501,7 @@ define( '_AM_IMLINKS_RSSWEBMASTERDSC', 'Email address for person responsible for
 define( '_AM_IMLINKS_RSSEDITOR', 'RSS feed channel editor' );
 define( '_AM_IMLINKS_RSSEDITORDSC', 'Email address for person responsible for editorial content.' );
 define( '_AM_IMLINKS_RSSCATEGORY', 'RSS feed category' );
-define( '_AM_IMLINKS_RSSCATEGORYDSC', 'Specify one or more categories that the channel belongs to. Follows the same rules as the &#60;item&#62;-level category element.' );
+define( '_AM_IMLINKS_RSSCATEGORYDSC', 'Specify one or more categories that the channel belongs to. Follows the same rules as the item-level category element.' );
 define( '_AM_IMLINKS_RSSGENERATOR', 'RSS feed generator' );
 define( '_AM_IMLINKS_RSSGENERATORDSC', 'String indicating the program used to generate the channel.' );
 define( '_AM_IMLINKS_RSSCOPYRIGHT', 'RSS feed copyright' );
@@ -523,7 +523,7 @@ define( '_AM_IMLINKS_NOREPLY', 'No reply' );
 
 // imLinks 1.03
 define( '_AM_IMLINKS_NICEURL', 'Alternative title for url:' );
-define( '_AM_IMLINKS_NICEURLDSC', 'Enter an alternative title for the link to be used in the url. When the option <em>Use nice urls</em> from Preferences is selected and this field is left empty, than the title of the link will be used.' );
+define( '_AM_IMLINKS_NICEURLDSC', 'Enter an alternative title for the link to be used in the url. When the option <i>Use nice urls</i> from Preferences is selected and this field is left empty, than the title of the link will be used.' );
 define( '_AM_IMLINKS_TOMTOM', 'Add to TomTom' );
 define( '_AM_IMLINKS_TOMTOMDSC', 'Enter the latitude and longitude of the address entered above.<br />You can find the geographic position of the address by using the website <a href="http://itouchmap.com/latlong.html" target="_blank">iTouchMap.com</a><br />Geographic latitude/longitude of the location should be in decimal degrees. May be negative; "N"/"S"/"W"/"E" suffix is not accepted. Default geodetic datum is WGS-84.<br />The geographic position should be entered as follows:<br />- Latitude: 57.2355591<br />- Longitude: -2.3535921' );
 define( '_AM_IMLINKS_TOMTOMLONG', 'Enter longitude:' );
@@ -535,4 +535,8 @@ define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Longitude:' );
 define( '_AM_IMLINKS_MSG_OFFLINE', 'Link was set Offline successfully.' );
 define( '_AM_IMLINKS_MSG_ONLINE', 'Link was set Online successfully.' );
 define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
+
+// Version 1.12
+define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "Link will not be viewable to all users." );
+define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "Link will display updated icon." );
 ?>
