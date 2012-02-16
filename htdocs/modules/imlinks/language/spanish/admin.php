@@ -6,27 +6,27 @@
 *
 * File: language/spanish/admin.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
-* translation		debianus (Sugerencias y reporte de errores en http://es.impresscms.org)
+* translation	debianus (Sugerencias y reporte de errores en http://es.impresscms.org)
 * language		spanish (español)
-* format			utf-8
+* format		utf-8
 */
 
 define( "_AM_IMLINKS_WARNINSTALL1", "Aviso: el directorio %s existe en su servidor. <br />Por favor, por razones de seguridad elimine este directorio." );
@@ -206,8 +206,8 @@ define( "_AM_IMLINKS_LINK_TITLE", "Título: " );
 define( "_AM_IMLINKS_LINK_DLURL", "URL: " );
 define( "_AM_IMLINKS_LINK_DESCRIPTION", "Descripción: " );
 define( "_AM_IMLINKS_LINK_CATEGORY", "Categoría: " );
-define( "_AM_IMLINKS_LINK_FILESSTATUS", "¿Enlace no activo?<br /><br /><span style='font-weight: normal;'>El enlace no estará visible para los usuarios.</span>" );
-define( "_AM_IMLINKS_LINK_SETASUPDATED", " ¿Estado actualizado?<br /><br /><span style='font-weight: normal;'>El enlace mostrará un ícono de actualizado.</span>" );
+define( "_AM_IMLINKS_LINK_FILESSTATUS", "¿Enlace no activo?" );
+define( "_AM_IMLINKS_LINK_SETASUPDATED", " ¿Estado actualizado?" );
 define( "_AM_IMLINKS_LINK_SHOTIMAGE", "Captura: " );
 define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "¿Agregar discusión en este foro?" );
 define( "_AM_IMLINKS_LINK_EXPIREDATE", "Fecha de expiración:" );
@@ -432,4 +432,8 @@ define( '_AM_IMLINKS_MOD_TTLONG', 'Longitud para TomTom:' );
 define( '_AM_IMLINKS_MSG_OFFLINE', 'Link was set Offline successfully.' );
 define( '_AM_IMLINKS_MSG_ONLINE', 'Link was set Online successfully.' );
 define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
+
+// Version 1.12
+define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "El enlace no estará visible para los usuarios." );
+define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "El enlace mostrará un ícono de actualizado." );
 ?>

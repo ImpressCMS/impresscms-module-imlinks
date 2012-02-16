@@ -6,21 +6,21 @@
 *
 * File: language/portuguesebr/admin.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
@@ -211,8 +211,8 @@ define( "_AM_IMLINKS_LINK_TITLE", "Título do link: " );
 define( "_AM_IMLINKS_LINK_DLURL", "URL do Link: " );
 define( "_AM_IMLINKS_LINK_DESCRIPTION", "Descrição do link: " );
 define( "_AM_IMLINKS_LINK_CATEGORY", "Categoria principal do link: " );
-define( "_AM_IMLINKS_LINK_FILESSTATUS", " colocar link como offline?<br /><br /><span style='font-weight: normal;'>o link não será visto pelos usuários.</span>" );
-define( "_AM_IMLINKS_LINK_SETASUPDATED", " Colocar link como atualizado?<br /><br /><span style='font-weight: normal;'>o link ficará com o ícone de atualizado</span>" );
+define( "_AM_IMLINKS_LINK_FILESSTATUS", " colocar link como offline?" );
+define( "_AM_IMLINKS_LINK_SETASUPDATED", " Colocar link como atualizado?" );
 define( "_AM_IMLINKS_LINK_SHOTIMAGE", "ScreenShot do Link: " );
 define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "Discutir link no fórum?" );
 define( "_AM_IMLINKS_LINK_EXPIREDATE", "Data de expiração do link:" );
@@ -452,4 +452,8 @@ define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Longitude:' );
 define( '_AM_IMLINKS_MSG_OFFLINE', 'Link was set Offline successfully.' );
 define( '_AM_IMLINKS_MSG_ONLINE', 'Link was set Online successfully.' );
 define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
+
+// Version 1.12
+define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "o link não será visto pelos usuários." );
+define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "o link ficará com o ícone de atualizado" );
 ?>

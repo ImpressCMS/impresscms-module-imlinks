@@ -208,8 +208,8 @@ define( "_AM_IMLINKS_LINK_TITLE", "Název odkazu: " );
 define( "_AM_IMLINKS_LINK_DLURL", "URL odkazu: " );
 define( "_AM_IMLINKS_LINK_DESCRIPTION", "Popis odkazu: " );
 define( "_AM_IMLINKS_LINK_CATEGORY", "Kategorie odkazu: " );
-define( "_AM_IMLINKS_LINK_FILESSTATUS", " Nastavit odkaz na offline?<br /><br /><span style='font-weight: normal;'>Odkaz nebude pro uživatele viditelný.</span>" );
-define( "_AM_IMLINKS_LINK_SETASUPDATED", " Nastavit stav odkazu na aktualizovaný?<br /><br /><span style='font-weight: normal;'>U odkazu bude zobrazena ikona aktualizovaný.</span>" );
+define( "_AM_IMLINKS_LINK_FILESSTATUS", "Nastavit odkaz na offline?" );
+define( "_AM_IMLINKS_LINK_SETASUPDATED", "Nastavit stav odkazu na aktualizovaný?" );
 define( "_AM_IMLINKS_LINK_SHOTIMAGE", "Odkaz na screenshot: " );
 define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "Přidat <em>diskuzi ve fóru</em>?" );
 define( "_AM_IMLINKS_LINK_EXPIREDATE", "Datum ukončení odkazu:" );
@@ -449,4 +449,8 @@ define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Longitude:' );
 define( '_AM_IMLINKS_MSG_OFFLINE', 'Link was set Offline successfully.' );
 define( '_AM_IMLINKS_MSG_ONLINE', 'Link was set Online successfully.' );
 define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
+
+// Version 1.12
+define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "Odkaz nebude pro uživatele viditelný." );
+define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "U odkazu bude zobrazena ikona aktualizovaný." );
 ?>

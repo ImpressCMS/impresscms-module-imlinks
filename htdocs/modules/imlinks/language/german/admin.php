@@ -6,21 +6,21 @@
 *
 * File: language/german/admin.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -249,8 +249,8 @@ define( "_AM_IMLINKS_LINK_TITLE", "Link Titel: " );
 define( "_AM_IMLINKS_LINK_DLURL", "Link URL: " );
 define( "_AM_IMLINKS_LINK_DESCRIPTION", "Linkbeschreibung: " );
 define( "_AM_IMLINKS_LINK_CATEGORY", "Hauptkategorie des Links: " );
-define( "_AM_IMLINKS_LINK_FILESSTATUS", " Link offline setzen?<br /><br /><span style='font-weight: normal;'>Links ist unsichtbar für alle Benutzer.</span>" );
-define( "_AM_IMLINKS_LINK_SETASUPDATED", " Link Status setzen als Updated?<br /><br /><span style='font-weight: normal;'>Das Update-Icon wird angezeigt.</span>" );
+define( "_AM_IMLINKS_LINK_FILESSTATUS", " Link offline setzen?" );
+define( "_AM_IMLINKS_LINK_SETASUPDATED", " Link Status setzen als Updated?" );
 define( "_AM_IMLINKS_LINK_SHOTIMAGE", "Bildschirmfoto des Links: " );
 define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "Diskussion im Forum hinzufügen?" );
 define( "_AM_IMLINKS_LINK_PUBLISHDATE", "Link Veröffentlichungsdatum:" );
@@ -535,4 +535,8 @@ define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Längengrad:' );
 define( '_AM_IMLINKS_MSG_OFFLINE', 'Link wurde Offline gesetzt.' );
 define( '_AM_IMLINKS_MSG_ONLINE', 'Link wurde Online gesetzt.' );
 define( '_AM_IMLINKS_ICO_WAITING','Hinzugefügt, warten auf Freigabe' );
+
+// Version 1.12
+define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "Links ist unsichtbar für alle Benutzer." );
+define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "Das Update-Icon wird angezeigt." );
 ?>

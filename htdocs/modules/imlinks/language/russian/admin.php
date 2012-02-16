@@ -6,21 +6,21 @@
 *
 * File: language/russian/admin.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$ Russian translation. Charset: utf-8 (without BOM)
 */
@@ -210,8 +210,8 @@ define( "_AM_IMLINKS_LINK_TITLE", "Заголовок ссылки: " );
 define( "_AM_IMLINKS_LINK_DLURL", "URL ссылки: " );
 define( "_AM_IMLINKS_LINK_DESCRIPTION", "Описание ссылки: " );
 define( "_AM_IMLINKS_LINK_CATEGORY", "Основная категория ссылки: " );
-define( "_AM_IMLINKS_LINK_FILESSTATUS", " Перевести ссылку в автономный режим?<br /><br /><span style='font-weight: normal;'>ссылка не будет видна всем пользователям.</span>" );
-define( "_AM_IMLINKS_LINK_SETASUPDATED", " Установить статус ссылки как обновленный?<br /><br /><span style='font-weight: normal;'>будет показана иконка обновления.</span>" );
+define( "_AM_IMLINKS_LINK_FILESSTATUS", " Перевести ссылку в автономный режим?" );
+define( "_AM_IMLINKS_LINK_SETASUPDATED", " Установить статус ссылки как обновленный?" );
 define( "_AM_IMLINKS_LINK_SHOTIMAGE", "Образ экрана ссылки: " );
 define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "Добавить дискуссию на этом форуме?" );
 define( "_AM_IMLINKS_LINK_EXPIREDATE", "Дата устаревания ссылки:" );
@@ -451,4 +451,8 @@ define( '_AM_IMLINKS_MOD_TTLONG', 'TomTom Longitude:' );
 define( '_AM_IMLINKS_MSG_OFFLINE', 'Link was set Offline successfully.' );
 define( '_AM_IMLINKS_MSG_ONLINE', 'Link was set Online successfully.' );
 define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
+
+// Version 1.12
+define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "ссылка не будет видна всем пользователям." );
+define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "будет показана иконка обновления." );
 ?>
