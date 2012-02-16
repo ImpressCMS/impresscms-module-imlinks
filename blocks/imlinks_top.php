@@ -174,7 +174,7 @@ function b_imlinks_recent_show( $options ) {
 																  $imlModuleConfig['updatethumbs'],
 																  $imlModuleConfig['keepaspect'] );
 						}
-						$linkload['autothumbsrc'] = '<img src="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . $_image . '" alt="" />';
+						$linkload['autothumbsrc'] = '<img src="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . $_image . '" alt=""  />';
 					} else {
 						$linkload['autothumbsrc'] = '<img src="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . trim( $myrow['screenshot'] ) . '" alt="" />';
 					}

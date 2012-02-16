@@ -80,6 +80,7 @@ $modversion['people']['other'][] = '&middot; <a href="http://www.masugadesign.co
 $modversion['people']['other'][] = '&middot; <a href="http://www.p51labs.com/lightwindow/" target="_blank">Kevin Miller</a> (LightWindow)';
 $modversion['people']['other'][] = '&middot; <a href="http://orangoo.com/labs/GreyBox/" target="_blank">Orangoo Labs</a> (GreyBox)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.heise.de/extras/socialshareprivacy/" target="_blank">Social Share Privacy</a>';
+$modversion['people']['other'][] = '&middot; <a href="http://lytebox.com" target="_blank">Lytebox</a>';
 
 // ** If Release Candidate **
 $modversion['warning'] = _MODABOUT_IMLINKS_WARNING_RC;
@@ -552,7 +553,7 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'int',
 	'default'		=> 0,
 	'options'		=> array(	_MI_IMLINKS_DEFAULT => 0,
-								'LightWindow'		=> 1,
+								'Lytebox'			=> 1,
 								'GreyBox'			=> 2 ) );
 
 $modversion['config'][] = array(

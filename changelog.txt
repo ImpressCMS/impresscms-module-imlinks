@@ -1,5 +1,5 @@
 ﻿=========================================================
-xx.xx.2012 - Version 1.12
+14.01.2012 - Version 1.12
 =========================================================
 Fixed:
 - categories couldn't be saved [#345]
@@ -9,8 +9,11 @@ Fixed:
 
 Added:
 - social media buttons
-- help tips to forms
+- help tips to forms, uses Lytebox
 - extended version of the Recent Links block
+- screenshots can be enlarged with LightWindow
+- replaced 'Close' tag in LightWindow with close icon
+- Lytebox, Scriptaculous and Prototype
 
 Removed:
 - blocks/imlinks_banner.php
