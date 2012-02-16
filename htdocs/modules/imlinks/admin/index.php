@@ -133,6 +133,9 @@ function edit( $lid = 0, $doclone = 0 ) {
 	}
 	unset( $_vote_data );
 
+	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.js"></script>
+		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.css" />';
+
 	if ( $doclone == 0 ) {
 		$caption = ( $lid ) ? _AM_IMLINKS_LINK_MODIFYFILE : _AM_IMLINKS_LINK_CREATENEWFILE;
 	} else {
@@ -212,19 +215,19 @@ if ( icms::$module -> config['useaddress'] ) {
 	$sform -> insertBreak( _AM_IMLINKS_LINK_CREATEADDRESS, 'bg3' );
 	// Google Maps
 	$googlemap_text = new icms_form_elements_Text( '', 'googlemap', 70, 1024, $googlemap );
-	$googlemap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_GOOGLEMAP . imlinks_helptip( sprintf( _AM_IMLINKS_MAPDSC, '<em>http://maps.google.com</em>' ) ), '' );
+	$googlemap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_GOOGLEMAP . imlinks_helptip( sprintf( _AM_IMLINKS_MAPDSC, '<i>http://maps.google.com</i>' ) ), '' );
 	$googlemap_tray -> addElement( $googlemap_text , false );
 	$googlemap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/google_map.png' onClick=\"window.open(storyform.googlemap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' title='"._AM_IMLINKS_LINK_CHECKMAP."' />" ) );
 	$sform -> addElement( $googlemap_tray );
 	// Yahoo Maps
 	$yahoomap_text = new icms_form_elements_Text( '', 'yahoomap', 70, 1024, $yahoomap );
-	$yahoomap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_YAHOOMAP . imlinks_helptip( sprintf( _AM_IMLINKS_MAPDSC, '<em>http://maps.yahoo.com</em>' ) ), '' );
+	$yahoomap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_YAHOOMAP . imlinks_helptip( sprintf( _AM_IMLINKS_MAPDSC, '<i>http://maps.yahoo.com</i>' ) ), '' );
 	$yahoomap_tray -> addElement( $yahoomap_text , false );
 	$yahoomap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/yahoo_map.png' onClick=\"window.open(storyform.yahoomap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' title='"._AM_IMLINKS_LINK_CHECKMAP."' />" ) );
 	$sform -> addElement( $yahoomap_tray );
 	// Bing Maps
 	$multimap_text = new icms_form_elements_Text( '', 'multimap', 70, 1024, $multimap );
-	$multimap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_BINGMAP . imlinks_helptip( sprintf( _AM_IMLINKS_MAPDSC, '<em>http://www.bing.com/maps/</em>' ) ), '' );
+	$multimap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_BINGMAP . imlinks_helptip( sprintf( _AM_IMLINKS_MAPDSC, '<i>http://www.bing.com/maps/</i>' ) ), '' );
 	$multimap_tray -> addElement( $multimap_text , false );
 	$multimap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/bing_map.png' onClick=\"window.open(storyform.multimap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' title='"._AM_IMLINKS_LINK_CHECKMAP."' />" ) );
 	$sform -> addElement( $multimap_tray );
@@ -294,12 +297,12 @@ if ( icms::$module -> config['useaddress'] ) {
 	$sform -> addElement( $expiredate_tray );
 
 	// Set Link offline
-	$linkstatus_radio = new icms_form_elements_Radioyn( _AM_IMLINKS_LINK_FILESSTATUS, 'offline', $offline, ' ' . _YES . ' ', ' ' . _NO );
+	$linkstatus_radio = new icms_form_elements_Radioyn( _AM_IMLINKS_LINK_FILESSTATUS . imlinks_helptip( _AM_IMLINKS_LINK_FILESSTATUSDSC ), 'offline', $offline, ' ' . _YES . ' ', ' ' . _NO );
 	$sform -> addElement( $linkstatus_radio );
 
 	// Set Link updated
 	$up_dated = ( $updated == 0 ) ? 0 : 1;
-	$link_updated_radio = new icms_form_elements_Radioyn( _AM_IMLINKS_LINK_SETASUPDATED, 'up_dated', $up_dated, ' ' . _YES . ' ', ' ' . _NO );
+	$link_updated_radio = new icms_form_elements_Radioyn( _AM_IMLINKS_LINK_SETASUPDATED . imlinks_helptip( _AM_IMLINKS_LINK_SETASUPDATEDDSC ), 'up_dated', $up_dated, ' ' . _YES . ' ', ' ' . _NO );
 	$sform -> addElement( $link_updated_radio );
 
 	$result = icms::$xoopsDB -> query( 'SELECT COUNT(*) FROM ' . icms::$xoopsDB -> prefix( 'imlinks_broken' ) . ' WHERE lid=' . $lid );

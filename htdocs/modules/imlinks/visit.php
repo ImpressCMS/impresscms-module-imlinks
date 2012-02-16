@@ -83,10 +83,10 @@ if ( icms::$module -> config['showlinkdisclaimer'] && $agreed == 0 ) {
 	}
 } else {
 	$url = '';
-	$sql = 'UPDATE ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' SET hits=hits+1 WHERE lid=' . intval( $lid );
+	$sql = 'UPDATE ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' SET hits=hits+1 WHERE lid=' . $lid;
 	$result = icms::$xoopsDB -> queryF( $sql );
 
-	$sql = 'SELECT url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid );
+	$sql = 'SELECT url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
 	if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
 		echo '<br /><div style="text-align: center;">' . iml_imageheader() . '</div>';
 		reportBroken( $lid );
@@ -96,16 +96,17 @@ if ( icms::$module -> config['showlinkdisclaimer'] && $agreed == 0 ) {
 	}
 
 	if ( !empty( $url ) ) {
-		header( "Cache-Control: no-store, no-cache, must-revalidate" );
-		header( "Cache-Control: post-check=0, pre-check=0", false );
-		// HTTP/1.0
-		header( "Pragma: no-cache" );
-		// Date in the past
-		header( "Expires: Mon, 26 Jul 1997 05:00:00 GMT" );
-		// always modified
-		header( "Last-Modified: " . gmdate( "D, d M Y H:i:s" ) . " GMT" );
+
 		switch( icms::$module -> config['lightwindow'] ) {
 			case 0: // Open link in new browser tab/window
+				header( "Cache-Control: no-store, no-cache, must-revalidate" );
+				header( "Cache-Control: post-check=0, pre-check=0", false );
+				// HTTP/1.0
+				header( "Pragma: no-cache" );
+				// Date in the past
+				header( "Expires: Mon, 26 Jul 1997 05:00:00 GMT" );
+				// always modified
+				header( "Last-Modified: " . gmdate( "D, d M Y H:i:s" ) . " GMT" );
 				echo "<html><head><meta http-equiv=\"Refresh\" content=\"0; URL=" . $url . "\"></meta></head><body></body></html>";
 				break;
 			case 1: // Open link in LightWindow
