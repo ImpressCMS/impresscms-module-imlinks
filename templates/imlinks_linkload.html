@@ -31,7 +31,9 @@
 	<{/if}>
 </div>
 
-<span style="float: right; padding: 0 0 4px 4px;"><{$imlink.screenshot}></span>
+<{if $imlink.screenshot}>
+	<span style="float: right; padding: 0 0 4px 4px;"><{$imlink.screenshot}></span>
+<{/if}>
 
 <div style="margin-left: 6px;">
 	<{if $lightwindow == true}>
@@ -54,14 +56,13 @@
 </div>
 
 <{if $imlink.quickview}>
-	<div style="width: 99%;">&nbsp;</div>
+	<div style="clear: both; width: 99%;">&nbsp;</div>
 	<script language="javascript" src="<{$icms_url}>/modules/<{$imlink.module_dir}>/js/quickview.js"></script>
-		<br />
-		<div class="imlinks_even" style="clear: both; text-align: center; width: 99%; border-bottom: 2px solid #AAAAAA;">
-			<i><small><script>
-			ppreview("<{$icms_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>",<{$imlink.id}>);
-			potherfunctions("<{$icms_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>",<{$imlink.id}>, '');
-			</script></small></i>
+		<div class="imlinks_even" style="clear: both; font-style: italic; font-size: 10px; text-align: center; width: 99%; border-bottom: 2px solid #AAAAAA;">
+			<script>
+				ppreview("<{$icms_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>",<{$imlink.id}>);
+				potherfunctions("<{$icms_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>",<{$imlink.id}>, '');
+			</script>
 		</div>
 <{/if}>
 
