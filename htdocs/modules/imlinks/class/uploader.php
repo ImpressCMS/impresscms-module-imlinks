@@ -230,31 +230,38 @@ class imLinksMediaUploader {
 
 		if ( !is_dir( $this -> uploadDir ) ) {
 			$this -> setErrors( _AM_IMLINKS_FAILOPENDIR . $this -> uploadDir );
+			return false;
 		}
 
 		if ( !is_writeable( $this -> uploadDir ) ) {
 			$this -> setErrors( _AM_IMLINKS_FAILOPENDIRWRITEPERM . $this -> uploadDir );
+			return false;
 		}
 
 		if ( !$this -> checkMaxFileSize() ) {
 			$this -> setErrors( sprintf( _AM_IMLINKS_FILESIZEMAXSIZE , $this -> mediaSize, $this -> maxFileSize ) );
+			return false;
 		}
 
 		if ( is_array( $this -> dimension ) ) {
 			if ( !$this -> checkMaxWidth( $this -> dimension[0] ) ) {
 				$this -> setErrors( sprintf( _AM_IMLINKS_FILESIZEMAXWIDTH, $this -> dimension[0], $this -> maxWidth ) );
+				return false;
 			}
 			if ( !$this -> checkMaxHeight($this -> dimension[1])) {
 				$this -> setErrors( sprintf( _AM_IMLINKS_FILESIZEMAXHEIGHT, $this -> dimension[1], $this -> maxHeight ) );
+				return false;
 			}
 		}
 
 		if ( !$this -> checkMimeType() ) {
 			$this -> setErrors( _AM_IMLINKS_MIMENOTALLOW . $this -> mediaType );
+			return false;
 		}
 
 		if ( !$this -> _copyFile( $chmod ) ) {
 			$this -> setErrors( _AM_IMLINKS_FAILEDUPLOADING . $this -> mediaName );
+			return false;
 		}
 
 		if ( count( $this -> errors ) > 0 ) {
