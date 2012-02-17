@@ -1,11 +1,12 @@
 ﻿=========================================================
-14.01.2012 - Version 1.12
+xx.xx.2012 - Version 1.12
 =========================================================
 Fixed:
 - categories couldn't be saved [#345]
 - screenshot thumbnails were not used
 - Mozshot auto screenshot function
 - sql-file
+- uploader class; uploading images was possible regardless errors
 
 Added:
 - social media buttons
@@ -13,7 +14,9 @@ Added:
 - extended version of the Recent Links block
 - screenshots can be enlarged with LightWindow
 - replaced 'Close' tag in LightWindow with close icon
-- Lytebox, Scriptaculous and Prototype
+- Lytebox version 5.5
+- Prototype version 1.7
+- Scriptaculous version 1.9.0
 
 Removed:
 - blocks/imlinks_banner.php
