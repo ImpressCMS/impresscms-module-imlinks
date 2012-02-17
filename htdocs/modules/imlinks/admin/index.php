@@ -88,24 +88,45 @@ function edit( $lid = 0, $doclone = 0 ) {
 	icms_cp_header();
 	iml_adminmenu( 2, _AM_IMLINKS_MLINKS );
 
+	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.js"></script>
+		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.css" />';
+
 	if ( $lid > 0 ) {
 		$_vote_data = iml_getVoteDetails( $lid );
-		$thumbnail = '';
-		if ( icms::$module -> config['useautothumb'] ) {
-			if ( icms::$module -> config['autothumbsrc'] == 1 ) {
-				$thumbnail = '<img src="http://mozshot.nemui.org/shot/128x128?' . $link_array['url'] . '" alt="" />';
-			} else {
-				$thumbnail = '<img src="http://open.thumbshots.org/image.pxf?url=' . $link_array['url'] . '" width="120" height="90" alt="" />';
-			}
-		} elseif ( !$screenshot == '' ) {
-			$thumbnail = '<img src="' . ICMS_URL . '/' . $directory . '/' . $screenshot . '" width="' . icms::$module -> config['shotwidth'] . '" height="' . icms::$module -> config['shotheight'] . '" alt="" />';
-		}
 
 		if ( $_vote_data['total_votes'] > 0 ) {
 			$vote_rating = round( $_vote_data['total_value']/$_vote_data['total_votes'], 1 );
 		} else {
 			$vote_rating = 0;
 		}
+
+		$index_screenshot = '';
+		if ( icms::$module -> config['useautothumb'] == 1 && icms::$module -> config['autothumbsrc'] == 1 ) {
+			$index_screenshot = iml_mozshot( $link_array['url'] );
+		} elseif ( icms::$module -> config['useautothumb'] == 1 && icms::$module -> config['autothumbsrc'] == 0 ) {
+			$index_screenshot = iml_thumbshot( $link_array['url'] );
+		} else {
+			if ( isset( $link_array['screenshot'] ) ) {
+				if ( !empty( $link_array['screenshot'] ) && file_exists( ICMS_ROOT_PATH . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_array['screenshot'] ) ) ) {
+				if ( isset( icms::$module -> config['usethumbs'] ) && icms::$module -> config['usethumbs'] == 1 ) {
+					include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/class/class_thumbnail.php';
+					$_thumb_image = new imThumbsNails( $immyts -> htmlSpecialCharsStrip( $link_array['screenshot'] ), icms::$module -> config['screenshots'], 'thumbs' );
+					if ( $_thumb_image ) {
+						$_thumb_image -> setUseThumbs( 1 );
+						$_thumb_image -> setImageType( 'gd2' );
+						$_image = $_thumb_image -> do_thumb( icms::$module -> config['shotwidth'],
+															 icms::$module -> config['shotheight'],
+															 icms::$module -> config['imagequality'],
+															 icms::$module -> config['updatethumbs'],
+															 icms::$module -> config['keepaspect'] );
+				}
+				$index_screenshot = '<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $_image . '" alt="" />';
+			} else {
+				$index_screenshot = '<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_array['screenshot'] ) . '" alt="" />';
+			}
+		}
+	}
+}
 
 		$text_info = '<table width="100%">
 			<tr>
@@ -122,7 +143,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 					<div><b>' . _AM_IMLINKS_VOTE_TOTALRATE . ': </b>' . $_vote_data['total_votes'] . '</div>
 				</td>
 				<td style="width: 30%; vertical-align: top; text-align: center;">
-					<div>' . $thumbnail . '</div>
+					<div>' . $index_screenshot . '</div>
 				</td>
 			</tr>
 			</table>';
@@ -132,9 +153,6 @@ function edit( $lid = 0, $doclone = 0 ) {
 			</div><br />';
 	}
 	unset( $_vote_data );
-
-	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.js"></script>
-		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.css" />';
 
 	if ( $doclone == 0 ) {
 		$caption = ( $lid ) ? _AM_IMLINKS_LINK_MODIFYFILE : _AM_IMLINKS_LINK_CREATENEWFILE;
