@@ -6,22 +6,22 @@
 *
 * File: upload.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -65,7 +65,7 @@ switch ( strtolower( $op ) ) {
 				exit();
 			}
 			icms_cp_header();
-			icms_core_Message::confirm( array( 'op' => 'delfile', 'uploadpath' => $_POST['uploadpath'], 'linkfile' => $_POST['linkfile'], 'confirm' => 1 ), 'upload.php', _AM_IMLINKS_LINK_DELETEFILE . '<br /><br />' . $_POST['linkfile'], _AM_IMLINKS_BDELETE );
+			icms_core_Message::confirm( array( 'op' => 'delfile', 'uploadpath' => $_POST['uploadpath'], 'linkfile' => $_POST['linkfile'], 'confirm' => 1 ), 'upload.php', _AM_IMLINKS_LINK_DELETEFILE . '<br /><br />' . $_POST['linkfile'], _AM_IMLINKS_BDELETEIMAGE );
 		}
 		break;
 
