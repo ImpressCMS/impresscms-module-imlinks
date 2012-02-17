@@ -10,9 +10,15 @@ provides you with some great additional ingredients to mix in.
 
 For more information, see http://script.aculo.us/
 
+Looking for documentation?
+http://madrobby.github.com/scriptaculous/
+
 == What's new in this release?
 
 See the CHANGELOG file for information on what's new.
+
+You can follow http://twitter.com/scriptaculous if you want
+to be updated as we fix bugs and add new features.
 
 == Installation/Usage
 
@@ -36,7 +42,7 @@ scriptaculous.js will automatically load the other files of the
 script.aculo.us distribution in, provided they are accessible 
 via the same path.
 
-See http://wiki.script.aculo.us/scriptaculous/show/Usage for detailed
+See http://madrobby.github.com/scriptaculous/ for detailed
 usage instructions.
 
 == The distribution
