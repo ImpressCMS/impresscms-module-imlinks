@@ -38,9 +38,9 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/'. $icm
 
 $modversion['name'] 			= _MI_IMLINKS_NAME;
 $modversion['version']			= '1.12';
-$modversion['date'] 			= '14 February 2012';
-$modversion['status']			= 'RC-1';
-$modversion['status_version']	= 'RC-1';
+$modversion['date'] 			= 'xx xxxxxx 2012';
+$modversion['status']			= 'Trunk';
+$modversion['status_version']	= 'Trunk';
 $modversion['description'] 		= _MI_IMLINKS_DESC;
 $modversion['license']			= _MI_IMLINKS_ABOUTLICENSE;
 $modversion['image']			= 'images/imlinks_ilogo.png';		// standard XOOPS icon, 92x52 px  
@@ -81,6 +81,8 @@ $modversion['people']['other'][] = '&middot; <a href="http://www.p51labs.com/lig
 $modversion['people']['other'][] = '&middot; <a href="http://orangoo.com/labs/GreyBox/" target="_blank">Orangoo Labs</a> (GreyBox)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.heise.de/extras/socialshareprivacy/" target="_blank">Social Share Privacy</a>';
 $modversion['people']['other'][] = '&middot; <a href="http://lytebox.com" target="_blank">Lytebox</a>';
+$modversion['people']['other'][] = '&middot; <a href="http://prototypejs.org" target="_blank">Prototype</a>';
+$modversion['people']['other'][] = '&middot; <a href="http://script.aculo.us" target="_blank">script.aculo.us</a>';
 
 // ** If Release Candidate **
 $modversion['warning'] = _MODABOUT_IMLINKS_WARNING_RC;
