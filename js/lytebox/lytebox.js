@@ -41,7 +41,7 @@ function Lytebox(bInitialize, aHttp) {
 		this.__animateOverlay	= false;		// controls ONLY the overlay (background darkening) effects, and whether or not to fade in/out
 		this.__forceCloseClick 	= false;		// if true, users are forced to click on the "Close" button when viewing content
 		this.__refreshPage		= false;		// force page refresh after closing Lytebox
-		this.__showPrint		= true;		// true to show print button, false to hide
+		this.__showPrint		= false;		// true to show print button, false to hide
 		this.__navType			= 3;			// 1 = "Prev/Next" buttons on top left and left
 												// 2 = "Prev/Next" buttons in navigation bar
 												// 3 = navType_1 + navType_2 (show both)
