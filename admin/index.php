@@ -88,8 +88,8 @@ function edit( $lid = 0, $doclone = 0 ) {
 	icms_cp_header();
 	iml_adminmenu( 2, _AM_IMLINKS_MLINKS );
 
-	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.js"></script>
-		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.css" />';
+	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
 
 	if ( $lid > 0 ) {
 		$_vote_data = iml_getVoteDetails( $lid );

@@ -2,10 +2,15 @@
 <script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/behavior.js"></script>
 <script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/rating.js"></script>
 
-<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/prototype/prototype.js"></script> 
-<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/scriptaculous/src/scriptaculous.js?load=effects"></script>
-<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/lightwindow.js"></script> 
-<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/lightwindow.css" />
+<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lytebox/lytebox.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="<{$icms_url}>/libraries/lytebox/lytebox.css" />
+
+<{if $lightwindow == 1}>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/prototype/prototype.js"></script>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/scriptaculous/src/scriptaculous.js?load=effects"></script>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lightwindow/lightwindow.js"></script>
+	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/lightwindow/lightwindow.css" />
+<{/if}>
 
 <{if $lightwindow == 2}>
 	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/AJS.js"></script>
@@ -37,10 +42,10 @@
 	(document, 'script', 'facebook-jssdk'));
 </script>
 <{elseif $imlink.showsbookmarks == 3}>
-<!-- Social Share Privacy -->
-<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/socialshareprivacy.css" />
-<script type="text/javascript" src="<{$icms_url}>/modules/<{$module_dir}>/include/jquery.socialshareprivacy.js"></script>
-<script type="text/javascript"> jQuery(document).ready(function($){ if($('#socialshareprivacy').length > 0){ $('#socialshareprivacy').socialSharePrivacy(); } }); </script>
+	<!-- Social Share Privacy -->
+	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/socialshareprivacy/socialshareprivacy.css" />
+	<script type="text/javascript" src="<{$icms_url}>/libraries/socialshareprivacy/jquery.socialshareprivacy.js"></script>
+	<script type="text/javascript"> jQuery(document).ready(function($){ if($('#socialshareprivacy').length > 0){ $('#socialshareprivacy').socialSharePrivacy(); } }); </script>
 <{/if}>
 
 <{$catarray.imageheader}>

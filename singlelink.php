@@ -63,7 +63,6 @@ if ( !is_array( $link_arr ) ) {
 $xoopsOption['template_main'] = 'imlinks_singlelink.html';
 
 include ICMS_ROOT_PATH . '/header.php';
-include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/sbookmarks.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/address.php';
 
 // tags support
@@ -88,8 +87,6 @@ if ( icms::$module -> config['linkedterms'] ) {
 } else {
 	$imlink['description2'] = $link_arr['description'];
 }
-
-$imlink['sbmarks'] = iml_sbmarks( $link_arr['lid'], $link_arr['title'] );
 
 // Address
 $street1 = $link_arr['street1'];
@@ -246,7 +243,7 @@ if ( isset( icms::$module -> config['copyright'] ) && icms::$module -> config['c
 }
 
 if ( isset( icms::$module -> config['otherlinks'] ) && icms::$module -> config['otherlinks'] == 1 ) {
-	$xoopsTpl -> assign( 'other_links', '<b>' ._MD_IMLINKS_OTHERBYUID . '</b>'  . $imlink['submitter'] . '<br />' );
+	$xoopsTpl -> assign( 'other_links', "<b>" ._MD_IMLINKS_OTHERBYUID . "</b>"  . icms_member_user_Handler::getUserLink( $link_arr['submitter'] ) . "<br />" );
 }
 
 $imlink['useradminlink'] = 0;
