@@ -103,18 +103,18 @@ legend {
 	display: table-header-group;
 	font-weight: bold;
 	padding: 3px;
-	background-repeat: repeat-x;
 	background-image: url(images/icon/backgnd.png);
-	background-position: center center;
+	background-position: center bottom;
+	background-repeat: repeat-x;
 	background-size: contain; }
 	
 .imlinks_tblhdr {
 	display: table-block;
 	font-weight: bold;
 	padding: 3px;
-	background-repeat: repeat-x;
 	background-image: url(images/icon/backgnd.png);
-	background-position: center center;
+	background-position: center bottom;
+	background-repeat: repeat-x;
 	background-size: contain;
 	margin-right: -1px;
 	border-top: 1px solid #ccc;
