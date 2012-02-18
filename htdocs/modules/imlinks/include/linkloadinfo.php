@@ -158,7 +158,7 @@ if ( icms::$module -> config['useautothumb'] == 1 && icms::$module -> config['au
 															 icms::$module -> config['updatethumbs'],
 															 icms::$module -> config['keepaspect'] );
 				}
-				$imlink['screenshot'] = '<a class="lightwindow" href="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) . '">
+				$imlink['screenshot'] = '<a class="lytebox" href="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) . '">
 											<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $_image . '" alt="" title="' . _MD_IMLINKS_SCRSHOTENLARGE . '" />
 										 </a>';
 			} else {

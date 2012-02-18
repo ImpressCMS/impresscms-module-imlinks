@@ -273,8 +273,8 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		$ttlong = $link_array['ttlong'] ? $immyts -> htmlSpecialCharsStrip( $link_array['ttlong'] ) : '';
 		$ttlat = $link_array['ttlat'] ? $immyts -> htmlSpecialCharsStrip( $link_array['ttlat'] ) : '';
 
-	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.js"></script>
-		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.css" />';
+	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
 
 		$sform = new icms_form_Theme( _MD_IMLINKS_SUBMITCATHEAD, 'storyform', '' );
 		$sform -> setExtra( 'enctype="multipart/form-data"' );

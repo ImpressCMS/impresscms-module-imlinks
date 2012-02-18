@@ -62,7 +62,7 @@ function imlinks_checkBlockgroups( $cid = 0, $permType = 'imLinkCatPerm', $redir
 // Output  : Returns the most recent or most popular links
 function b_imlinks_top_show( $options ) {
 	global $xoopsTpl;
-	$mydirname = basename( dirname(  dirname( __FILE__ ) ) );
+	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
 	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
 	$block = array();
 	$modhandler = icms::handler( 'icms_module' );
@@ -89,7 +89,7 @@ function b_imlinks_top_show( $options ) {
 		$linkload['date'] = formatTimestamp( $myrow['published'], $options[3] );
 		$linkload['hits'] = $myrow['hits'];
 
-		$xoopsTpl -> assign( 'dirname', basename( dirname(  dirname( __FILE__ ) ) ) );
+		$xoopsTpl -> assign( 'dirname', basename( dirname( dirname( __FILE__ ) ) ) );
 		$block['links'][] = $linkload;
 	}
 	unset( $linkload );
@@ -126,7 +126,7 @@ function b_imlinks_top_edit( $options ) {
 // Output  : Returns the most recent or most popular links
 function b_imlinks_recent_show( $options ) {
 	global $xoopsTpl;
-	$mydirname = basename( dirname(  dirname( __FILE__ ) ) );
+	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
 	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
 	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/class_thumbnail.php';
 	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/myts_extended.php';
@@ -155,7 +155,6 @@ function b_imlinks_recent_show( $options ) {
 		if ( $myrow['country'] ) {
 			$linkload['country'] = '<b>' . _MB_IMLINKS_COUNTRY . ':</b>&nbsp;<img src="' . ICMS_URL . '/' . $imlModuleConfig['flagimage']. '/' . $myrow['country'] . '.gif" alt="" title="' . iml_countryname( $myrow['country'] ) . '" style="vertical-align: middle;" />';
 		}
-
 		if ( $imlModuleConfig['useautothumb'] == 1 && $imlModuleConfig['autothumbsrc'] == 1 ) {
 			$linkload['autothumbsrc'] = iml_mozshot( $myrow['url'] );
 		} elseif ( $imlModuleConfig['useautothumb'] == 1 && $imlModuleConfig['autothumbsrc'] == 0 ) {
@@ -174,14 +173,13 @@ function b_imlinks_recent_show( $options ) {
 																  $imlModuleConfig['updatethumbs'],
 																  $imlModuleConfig['keepaspect'] );
 						}
-						$linkload['autothumbsrc'] = '<img src="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . $_image . '" alt=""  />';
+						$linkload['autothumbsrc'] = '<a class="lytebox" href="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . trim( $myrow['screenshot'] ) . '"><img src="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . $_image . '" alt="" title="' . _MB_IMLINKS_SCRSHOTENLARGE . '"  /></a>';
 					} else {
 						$linkload['autothumbsrc'] = '<img src="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . trim( $myrow['screenshot'] ) . '" alt="" />';
 					}
 				}
 			}
 		}
-
 		$isAdmin = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( $imlModule -> getVar( 'mid' ) ) ) ? true : false;
 		if ( $isAdmin == true ) {
 			$linkload['adminlink'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/computer.png" alt="" title="' . _MB_IMLINKS_ADMINSECTION . '" style="vertical-align: bottom;" /></a>&nbsp;';
@@ -191,7 +189,7 @@ function b_imlinks_recent_show( $options ) {
 			$linkload['adminlink'] .= '<a href="http://whois.domaintools.com/' . str_replace( 'http://', '', $myrow['url'] ) . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" style="vertical-align: bottom;" /></a>';
 		}
 
-		$xoopsTpl -> assign( 'dirname', basename( dirname(  dirname( __FILE__ ) ) ) );
+		$xoopsTpl -> assign( 'dirname', basename( dirname( dirname( __FILE__ ) ) ) );
 		$block['links'][] = $linkload;
 	}
 	unset( $linkload );
@@ -225,7 +223,7 @@ function b_imlinks_recent_edit( $options ) {
 //			 $block['content'] = The optional above content
 // Output  : Returns the most recent or most popular links
 function b_imlinks_random_show( $options ) {
-	$mydirname = basename( dirname(  dirname( __FILE__ ) ) );
+	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
 	$block = array();
 	$modhandler = icms::handler( 'icms_module' );
 	$imlModule = &$modhandler -> getByDirname( $mydirname );
@@ -241,7 +239,7 @@ function b_imlinks_random_show( $options ) {
 			$sql = 'SELECT lid, cid, title, published, hits, nice_url  FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE  lid=' . $lids[$i];
 			$result = icms::$xoopsDB -> query( $sql ) ;
 			list( $lid, $cid, $title, $published, $hits, $nice_url ) = icms::$xoopsDB -> fetchRow( $result );
-			if ( false == imlinks_checkBlockgroups( $cid ) || $cid == 0 ) {	continue; }
+			if ( false == imlinks_checkBlockgroups( $cid ) || $cid == 0 ) { continue; }
 			$ltitle = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $title ) );
 			if ( !XOOPS_USE_MULTIBYTES ) {
 				if ( strlen( $title ) >= $options[2] ) {

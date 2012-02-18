@@ -64,8 +64,8 @@ function imlinks_rss_edit() {
 			}
 	echo '</div><br />';
 
-	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.js"></script>
-		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/lytebox/lytebox.css" />';
+	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
 
 	$sform = new icms_form_Theme( _AM_IMLINKS_RSSFEEDCFG, 'storyform', '' );
 	$sform -> setExtra( 'enctype="multipart / form - data"' );

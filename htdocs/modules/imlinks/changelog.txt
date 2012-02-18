@@ -9,7 +9,7 @@ Fixed:
 - uploader class; uploading images was possible regardless errors
 
 Added:
-- social media buttons
+- social media buttons with Open Graph support
 - help tips to forms, uses Lytebox
 - extended version of the Recent Links block
 - screenshots can be enlarged with LightWindow
