@@ -455,4 +455,5 @@ define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
 // Version 1.12
 define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "ссылка не будет видна всем пользователям." );
 define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "будет показана иконка обновления." );
+define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
 ?>

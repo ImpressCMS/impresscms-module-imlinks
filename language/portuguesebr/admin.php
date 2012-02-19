@@ -456,4 +456,5 @@ define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
 // Version 1.12
 define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "o link não será visto pelos usuários." );
 define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "o link ficará com o ícone de atualizado" );
+define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
 ?>

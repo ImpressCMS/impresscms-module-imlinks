@@ -539,4 +539,5 @@ define( '_AM_IMLINKS_ICO_WAITING','Hinzugefügt, warten auf Freigabe' );
 // Version 1.12
 define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "Links ist unsichtbar für alle Benutzer." );
 define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "Das Update-Icon wird angezeigt." );
+define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
 ?>

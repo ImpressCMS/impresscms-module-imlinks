@@ -453,4 +453,5 @@ define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
 // Version 1.12
 define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "Odkaz nebude pro uživatele viditelný." );
 define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "U odkazu bude zobrazena ikona aktualizovaný." );
+define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
 ?>

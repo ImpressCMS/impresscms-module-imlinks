@@ -455,4 +455,5 @@ define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
 // Version 1.12
 define("_AM_IMLINKS_LINK_FILESSTATUSDSC", "Le site ne sera plus visible dans l'annuaire.");
 define("_AM_IMLINKS_LINK_SETASUPDATEDDSC", "Une ic&ocirc;ne de mise &agrave; jour appara&icirc;tra.");
+define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
 ?>

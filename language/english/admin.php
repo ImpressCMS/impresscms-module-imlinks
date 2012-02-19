@@ -537,6 +537,7 @@ define( '_AM_IMLINKS_MSG_ONLINE', 'Link was set Online successfully.' );
 define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
 
 // Version 1.12
-define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "Link will not be viewable to all users." );
-define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "Link will display updated icon." );
+define( '_AM_IMLINKS_LINK_FILESSTATUSDSC', 'Link will not be viewable to all users.' );
+define( '_AM_IMLINKS_LINK_SETASUPDATEDDSC', 'Link will display updated icon.' );
+define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
 ?>
