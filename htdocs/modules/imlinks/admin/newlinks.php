@@ -6,22 +6,22 @@
 *
 * File: newlinks.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -112,21 +112,21 @@ switch ( strtolower( $op ) ) {
 				$submitter = icms_member_user_Handler::getUserLink( $new['submitter'] );
 				$datetime = formatTimestamp( $new['date'], icms::$module -> config['dateformatadmin'] );
 
-				$icon = ( $new['published'] ) ? $approved : '<a href="newlinks.php?op=approve&amp;lid=' . $lid . '">' . $imagearray['approve'] . '</a>&nbsp;';
-				$icon .= '<a href="index.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>&nbsp;';
-				$icon .= '<a href="index.php?op=delete&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>';
+				$icon = ( $new['published'] ) ? $approved : '<a href="newlinks.php?op=approve&amp;lid=' . $lid . '">' . $imagearray['approve'] . '</a>';
+				$icon .= '<a style="padding-left: 5px;" href="index.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>';
+				$icon .= '<a style="padding-left: 5px;" href="index.php?op=delete&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>';
 
 				echo '<div class="imlinks_tblrow">
 						<div class="imlinks_tblhdrcell" style="text-align: center;">' . $lid . '</div>
 						<div class="imlinks_tblcell"><a href="newlinks.php?op=edit&amp;lid=' . $lid . '">' . $title . '</a></div>
 						<div class="imlinks_tblcell" style="text-align: center;">'. $submitter . '</div>
 						<div class="imlinks_tblcell" style="text-align: center;">' . $datetime . '</div>
-						<div class="imlinks_tblcell" style="text-align: center;">' . $icon . '</div>
+						<div class="imlinks_tblcell" style="text-align: center; width: 70px;">' . $icon . '</div>
 					</div>';
 			}
 			echo '</div>';
 		} else {
-			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px;">' . _AM_IMLINKS_SUB_NOFILESWAITING . '</div>';
+			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMLINKS_SUB_NOFILESWAITING . '</div>';
 		}
 
 		include_once ICMS_ROOT_PATH . '/class/pagenav.php';

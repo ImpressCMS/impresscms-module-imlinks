@@ -107,7 +107,7 @@ if ( icms::$xoopsDB -> getRowsNum( $result ) ) {
 	}
 	echo $permform -> render();
 } else {
-	echo '<div><b>' . _AM_IMLINKS_PERM_CNOCATEGORY . '</b></div>';
+	echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;>' . _AM_IMLINKS_PERM_CNOCATEGORY . '</div>';
 } 
 unset ( $permform );
 icms_cp_footer();
