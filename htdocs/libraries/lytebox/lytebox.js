@@ -86,7 +86,7 @@ function Lytebox(bInitialize, aHttp) {
 		
 	/*** Configure Lytetip (tooltips) Options ***/
 		this.__changeTipCursor 	= true; 		// true to change the cursor to 'help', false to leave default (inhereted)
-		this.__tipDecoration	= 'dotted';		// controls the text-decoration (underline) of the tip link (dotted|solid|none)
+		this.__tipDecoration	= 'none';		// controls the text-decoration (underline) of the tip link (dotted|solid|none)
 		this.__tipStyle 		= 'classic';	// sets the default tip style if none is specified via data-lyte-options. Possible values are classic, info, help, warning, error
 		this.__tipRelative		= true;			// if true, tips will be positioned relative to the element. if false, tips will be absolutely positioned on the page.
 												// if you are having issues with tooltips not being properly positioned, then set this to false
