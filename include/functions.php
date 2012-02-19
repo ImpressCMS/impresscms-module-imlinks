@@ -964,4 +964,9 @@ function imlinks_helptip( $description ) {
 	$helptip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:help tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/help.png" alt="" /></a>';
 	return $helptip;
 }
+
+function imlinks_warningtip( $description ) {
+	$warningtip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:warning tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/error.png" alt="" /></a>';
+	return $warningtip;
+}
 ?>

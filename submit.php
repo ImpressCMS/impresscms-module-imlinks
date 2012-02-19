@@ -373,7 +373,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 	}
 
 	// Country form
-	$countryform = new icms_form_elements_select_Country( _MD_IMLINKS_COUNTRY . imlinks_helptip( _MD_IMLINKS_COUNTRYDSC ), 'country', $country );
+	$countryform = new icms_form_elements_select_Country( _MD_IMLINKS_COUNTRY . imlinks_warningtip( _MD_IMLINKS_COUNTRYDSC ), 'country', $country );
 	$sform -> addElement( $countryform, false );
 
 	// TomTom form	
