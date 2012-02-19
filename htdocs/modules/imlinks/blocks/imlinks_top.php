@@ -173,7 +173,7 @@ function b_imlinks_recent_show( $options ) {
 																  $imlModuleConfig['updatethumbs'],
 																  $imlModuleConfig['keepaspect'] );
 						}
-						$linkload['autothumbsrc'] = '<a class="lytebox" href="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . trim( $myrow['screenshot'] ) . '"><img src="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . $_image . '" alt="" title="' . _MB_IMLINKS_SCRSHOTENLARGE . '"  /></a>';
+						$linkload['autothumbsrc'] = '<a class="lytebox" title="' . $myrow['title'] . '" href="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . trim( $myrow['screenshot'] ) . '"><img src="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . $_image . '" alt="" title="' . _MB_IMLINKS_SCRSHOTENLARGE . '"  /></a>';
 					} else {
 						$linkload['autothumbsrc'] = '<img src="' . ICMS_URL . '/' . $imlModuleConfig['screenshots'] . '/' . trim( $myrow['screenshot'] ) . '" alt="" />';
 					}
