@@ -278,7 +278,7 @@ if ( icms::$module -> config['useaddress'] ) {
 }
 
 	// Country form
-	$country_select = new icms_form_elements_select_Country( _AM_IMLINKS_COUNTRY . imlinks_helptip( _AM_IMLINKS_COUNTRYDSC ), 'country', $country );
+	$country_select = new icms_form_elements_select_Country( _AM_IMLINKS_COUNTRY . imlinks_warningtip( _AM_IMLINKS_COUNTRYDSC ), 'country', $country );
 	$sform -> addElement( $country_select, false );
 
 	// TomTom form
