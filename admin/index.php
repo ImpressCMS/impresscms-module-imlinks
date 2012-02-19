@@ -518,7 +518,7 @@ switch ( strtolower( $op ) ) {
 				usleep( 100000 ); // Pause 0.1 sec
 			}
 		} else {
-			echo '<div style="border: 1px solid #ccc; text-align: center; width: 100%; clear: both; margin-top: 20px; font-weight: bold;">' . _AM_IMLINKS_MINDEX_NOLINKSFOUND . '</div>';
+			echo '<div style="border: 1px solid #ccc; text-align: center; width: 100%; clear: both; margin-top: 20px; font-weight: bold; background-color: #FFFF99;">' . _AM_IMLINKS_MINDEX_NOLINKSFOUND . '</div>';
 		}
 		echo '</div>';
 		iml_linklistpagenav( $broken_array_count, $start, 'art', 'op=' . $op, 'right' );
@@ -845,7 +845,7 @@ switch ( strtolower( $op ) ) {
 				echo '</div>';
 				iml_linklistpagenav( $published_array_count, $start, 'art', '', 'right' );
 			} else {
-				echo '<br /><div style="border: 1px solid #ccc; text-align: center; width: 100%; font-weight: bold;">' . _AM_IMLINKS_MINDEX_NOLINKSFOUND . '</div>';
+				echo '<br /><div style="border: 1px solid #ccc; text-align: center; width: 100%; font-weight: bold; background-color: #FFFF99;">' . _AM_IMLINKS_MINDEX_NOLINKSFOUND . '</div>';
 			}
 //		}
 		icms_cp_footer();

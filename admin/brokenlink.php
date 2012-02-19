@@ -119,7 +119,7 @@ switch ( strtolower( $op ) ) {
 		
 
 		if ( $totalbrokenlinks == 0 ) {
-			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px;">' . _AM_IMLINKS_BROKEN_NOFILEMATCH . '</div>';
+			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMLINKS_BROKEN_NOFILEMATCH . '</div>';
 		} else {
 			echo '<div class="imlinks_table" style="font-size: 10px;">
 					<div class="imlinks_tblhdrrow">
@@ -173,9 +173,9 @@ switch ( strtolower( $op ) ) {
 						<div class="imlinks_tblcell" style="text-align: center;"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&ack=' . intval( $acknowledged ) . '">' . $ack_image . ' </a></div>
 						<div class="imlinks_tblcell" style="text-align: center;"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&con=' . intval( $confirmed ) . '">' . $con_image . '</a></div>
 						<div class="imlinks_tblcell" style="text-align: center; width: 70px;">
-							<a href="brokenlink.php?op=ignoreBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['ignore'] . '</a>&nbsp;
-							<a href="index.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>&nbsp;
-							<a href="brokenlink.php?op=delBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>
+							<a href="brokenlink.php?op=ignoreBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['ignore'] . '</a>
+							<a style="padding-left: 5px;" href="index.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>
+							<a style="padding-left: 5px;" href="brokenlink.php?op=delBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>
 						</div></div>';
 			}
 		}

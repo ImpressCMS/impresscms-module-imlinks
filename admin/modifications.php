@@ -242,7 +242,7 @@ switch ( strtolower( $op ) ) {
 					</div>';
 			}
 		} else {
-			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px;">' . _AM_IMLINKS_MOD_NOMODREQUEST . '</div>';
+			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMLINKS_MOD_NOMODREQUEST . '</div>';
 		}
 		echo '</div>';
 
