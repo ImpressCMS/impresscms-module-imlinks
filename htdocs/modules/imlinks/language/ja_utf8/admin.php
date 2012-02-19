@@ -471,4 +471,5 @@ define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
 // Version 1.12
 define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "オフラインにするとユーザから見れなくなります。" );
 define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "リンクに更新アイコンがつきます。" );
+define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
 ?>

@@ -450,4 +450,5 @@ define( '_AM_IMLINKS_ICO_WAITING','Ingediend, wachtend goedkeuring' );
 // Version 1.12
 define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "Link zal niet zichbaar zijn." );
 define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "Link zal een 'bijgewerkt' icoon weergeven." );
+define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Klik op afbeelding voor uitvergroting' );
 ?>
