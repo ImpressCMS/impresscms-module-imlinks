@@ -120,7 +120,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 															 icms::$module -> config['updatethumbs'],
 															 icms::$module -> config['keepaspect'] );
 				}
-				$index_screenshot = '<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $_image . '" alt="" />';
+				$index_screenshot = '<a class="lytebox" title="' . $link_array['title'] . '" href="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_array['screenshot'] ) . '"><img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $_image . '" alt="" title="' . _AM_IMLINKS_SCRSHOTENLARGE . '" /></a>';
 			} else {
 				$index_screenshot = '<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_array['screenshot'] ) . '" alt="" />';
 			}

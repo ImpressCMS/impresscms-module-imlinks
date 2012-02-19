@@ -3,10 +3,15 @@
 <script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/behavior.js"></script>
 <script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/rating.js"></script>
 
-<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/prototype/prototype.js"></script>
-<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/scriptaculous/src/scriptaculous.js?load=effects"></script>
-<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lightwindow/lightwindow.js"></script>
-<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/lightwindow/lightwindow.css" />
+<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lytebox/lytebox.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="<{$icms_url}>/libraries/lytebox/lytebox.css" />
+
+<{if $lightwindow == 1}>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/prototype/prototype.js"></script>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/scriptaculous/src/scriptaculous.js?load=effects"></script>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lightwindow/lightwindow.js"></script>
+	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/lightwindow/lightwindow.css" />
+<{/if}>
 
 <{if $lightwindow == 2}>
 	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/AJS.js"></script>
