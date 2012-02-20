@@ -71,8 +71,9 @@ switch ( strtolower( $op ) ) {
 			  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
 
 		$sform = new icms_form_Theme( _AM_IMLINKS_IPAGE_MODIFY, 'op', '' );
-		
+
 		$sform -> addElement( new icms_form_elements_Text( _AM_IMLINKS_IPAGE_CTITLE, 'indexheading', 60, 60, $indexheading ), false );
+
 		$graph_array = &imlLists :: getListTypeAsArray( ICMS_ROOT_PATH . "/" . icms::$module -> config['mainimagedir'], $type = "images" );
 		$indeximage_select = new icms_form_elements_Select( '', 'indeximage', $indeximage );
 		$indeximage_select -> addOptionArray( $graph_array );
@@ -86,13 +87,15 @@ switch ( strtolower( $op ) ) {
 		}
 		$sform -> addElement( $indeximage_tray );
 
-		$editor = iml_editorform( _AM_IMLINKS_IPAGE_CHEADING, 'indexheader', $indexheader );
+		$editor = iml_editorform( _AM_IMLINKS_IPAGE_CHEADING, 'indexheader', $indexheader, '100%', '300px' );
 		$sform -> addElement( $editor, false );
 
 		$headeralign_select = new icms_form_elements_Select( _AM_IMLINKS_IPAGE_CHEADINGA, 'indexheaderalign', $indexheaderalign );
 		$headeralign_select -> addOptionArray( array( 'left' => _AM_IMLINKS_IPAGE_CLEFT, 'right' => _AM_IMLINKS_IPAGE_CRIGHT, 'center' => _AM_IMLINKS_IPAGE_CCENTER ) );
 		$sform -> addElement( $headeralign_select );
-		$sform -> addElement( new icms_form_elements_Textarea( _AM_IMLINKS_IPAGE_CFOOTER, 'indexfooter', $indexfooter, 10, 60 ) );
+
+		$sform -> addElement( new icms_form_elements_Textarea( _AM_IMLINKS_IPAGE_CFOOTER, 'indexfooter', $indexfooter, 5, 60 ) );
+
 		$footeralign_select = new icms_form_elements_Select( _AM_IMLINKS_IPAGE_CFOOTERA, 'indexfooteralign', $indexfooteralign );
 		$footeralign_select -> addOptionArray( array( 'left' => _AM_IMLINKS_IPAGE_CLEFT, 'right' => _AM_IMLINKS_IPAGE_CRIGHT, 'center' => _AM_IMLINKS_IPAGE_CCENTER ) );
 		$sform -> addElement( $footeralign_select );
