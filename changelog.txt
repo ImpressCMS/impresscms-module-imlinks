@@ -10,7 +10,7 @@ Fixed:
 
 Added:
 - social media buttons with Open Graph support
-- help tips to forms, uses Lytebox
+- help and warning tips to forms, uses Lytebox
 - extended version of the Recent Links block
 - screenshots can be enlarged with LightWindow
 - replaced 'Close' tag in LightWindow with close icon
@@ -19,8 +19,11 @@ Added:
 - Scriptaculous version 1.9.0
 
 Removed:
+- docs
 - lightwindow.css
 - blocks/imlinks_banner.php
+- images/icon/blocks.png
+- images/icon/blocks_small.png
 - images/lightwindow/
 - js/lightwindow.js
 - templates/blocks/imlinks_block_banner.html
