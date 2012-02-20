@@ -6,17 +6,17 @@
 *
 * File: language/english/modinfo.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
@@ -33,8 +33,8 @@ define("_MI_IMLINKS_NAME", "imLinks");
 define("_MI_IMLINKS_DESC", "Creates a links section where users can link/submit/rate various links.");
 
 // Names of blocks for this module (Not all module has blocks)
-define("_MI_IMLINKS_BNAME1", "Recent imLinks");
-define("_MI_IMLINKS_BNAME2", "Top imLinks");
+define("_MI_IMLINKS_BNAME1", "Recent Links");
+define("_MI_IMLINKS_BNAME2", "Top Links");
 
 // Sub menu titles
 define("_MI_IMLINKS_SMNAME1", "Submit");
@@ -72,7 +72,7 @@ define('_MI_IMLINKS_PERPAGE', 'Link listing count:');
 define('_MI_IMLINKS_PERPAGEDSC', 'Number of links to display in each category listing.');
 
 define('_MI_IMLINKS_USESHOTS', 'Display screenshot images?');
-define('_MI_IMLINKS_USESHOTSDSC', 'Select <em>Yes</em> to display screenshot images for each link item');
+define('_MI_IMLINKS_USESHOTSDSC', 'Select <i>Yes</i> to display screenshot images for each link item');
 define('_MI_IMLINKS_SHOTWIDTH', 'Image display width');
 define('_MI_IMLINKS_SHOTWIDTHDSC', 'Display width for screenshot image');
 define('_MI_IMLINKS_SHOTHEIGHT', 'Image display height');
@@ -98,7 +98,7 @@ define('_MI_IMLINKS_SCREENSHOTS', 'Screenshots upload directory');
 define('_MI_IMLINKS_CATEGORYIMG', 'Category image upload directory');
 define('_MI_IMLINKS_MAINIMGDIR', 'Main image directory');
 define('_MI_IMLINKS_USETHUMBS', 'Use thumb nails:');
-define("_MI_IMLINKS_USETHUMBSDSC", "Supported image types: JPG, GIF, PNG.<div style='padding-top: 8px;'>imLinks will use thumb nails for images. Set to <em>No</em> to use orginal image if the server does not support this option.</div>");
+define("_MI_IMLINKS_USETHUMBSDSC", "Supported image types: JPG, GIF, PNG.<div style='padding-top: 8px;'>imLinks will use thumb nails for images. Set to <i>No</i> to use orginal image if the server does not support this option.</div>");
 define('_MI_IMLINKS_DATEFORMAT', 'Timestamp:');
 define('_MI_IMLINKS_DATEFORMATDSC', 'Default timestamp for imLinks.<br />See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>');
 define('_MI_IMLINKS_SHOWDISCLAIMER', 'Show disclaimer before user submission?');
@@ -130,7 +130,7 @@ define("_MI_IMLINKS_SUBMITTED2", "Submission date");
 define('_MI_IMLINKS_COPYRIGHT', 'Copyright notice:');
 define('_MI_IMLINKS_COPYRIGHTDSC', 'Select to display a copyright notice on link page.');
 // Description of each config items
-define('_MI_IMLINKS_SUBCATSDSC', 'Select <em>Yes</em> to display sub-categories. Selecting <em>No</em> will hide sub-categories from the listings');
+define('_MI_IMLINKS_SUBCATSDSC', 'Select <i>Yes</i> to display sub-categories. Selecting <i>No</i> will hide sub-categories from the listings');
 
 // Text for notifications
 define('_MI_IMLINKS_GLOBAL_NOTIFY', 'Global');
@@ -218,17 +218,17 @@ define("_MI_IMLINKS_QUICKVIEW", "Show Quick View option?");
 define("_MI_IMLINKS_QUICKVIEWDSC", "This turns on/off the Quick View option.");
 define('_MI_IMLINKS_ICONS_CREDITS', "Icons by");
 define("_MI_IMLINKS_SHOWSBOOKMARKS", "Show Social Bookmarks?");
-define("_MI_IMLINKS_SHOWSBOOKMARKSDSC", "Select <em>Yes</em> if you want Social Bookmark icons to be displayed under article.");
+define("_MI_IMLINKS_SHOWSBOOKMARKSDSC", "Select <i>Yes</i> if you want Social Bookmark icons to be displayed under article.");
 define("_MI_IMLINKS_SHOWPAGERANK", "Show Google PageRank™?");
-define("_MI_IMLINKS_SHOWPAGERANKSDSC", "Select <em>Yes</em> if you want Google PageRank™ to be displayed. This option can slow down access to frontend pages of imLinks.");
+define("_MI_IMLINKS_SHOWPAGERANKSDSC", "Select <i>Yes</i> if you want Google PageRank™ to be displayed. This option can slow down access to frontend pages of imLinks.");
 define("_MI_IMLINKS_USERTAGDESCR", "User can submit Tags:");
-define("_MI_IMLINKS_USERTAGDSC", "Select <em>Yes</em> if user is allowed to submit tags.");
+define("_MI_IMLINKS_USERTAGDSC", "Select <i>Yes</i> if user is allowed to submit tags.");
 
 // Version 1.05 RC5
 define('_MI_IMLINKS_DATEFORMATADMIN', 'Timestamp administration:');
 define('_MI_IMLINKS_DATEFORMATADMINDSC', 'Default admininstration timestamp for imLinks<br />See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>');
 define("_MI_IMLINKS_USEADDRESSDESCR", "Use address and map options?");
-define("_MI_IMLINKS_USEADDRESSDSC", "Select <em>Yes</em> to use the address and maps feature.");
+define("_MI_IMLINKS_USEADDRESSDSC", "Select <i>Yes</i> to use the address and maps feature.");
 define("_MI_IMLINKS_HEADERPRINT", "[PRINT OPTIONS] Print page header");
 define("_MI_IMLINKS_HEADERPRINTDSC", "Header that will be printed for each link");
 define("_MI_IMLINKS_LOGOURLPRINT", "[PRINT OPTIONS] Logo print url");
@@ -268,19 +268,19 @@ define("_MI_IMLINKS_COUNTRY_D", "Country (D)");
 
 // imLinks 1.00 RC-1
 define( "_MI_IMLINKS_CAPTCHA", "Use captcha in submit form?" );
-define( "_MI_IMLINKS_CAPTCHADSC", "Select <em>Yes</em> to use captcha in the submit form.<br />Default: <em>Yes</em>" );
-define( "_MI_IMLINKS_LINKEDTERMS", "Link to terms glossary?" );
+define( "_MI_IMLINKS_CAPTCHADSC", "Select <i>Yes</i> to use captcha in the submit form.<br />Default: <i>Yes</i>" );
+define( "_MI_IMLINKS_LINKEDTERMS", "Link to terms in imGlossary?" );
 define( "_MI_IMLINKS_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
 define( "_MI_IMLINKS_IMGLOSSARYDIR", "Folder name of imGlossary:" );
-define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
+define( "_MI_IMLINKS_IMGLOSSARYDIRDSC", "The name of the folder that contains the module imGlossary. <br />Default: <i>imglossary</i>" );
 define( '_MI_IMLINKS_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 define( '_MI_IMLINKS_AUTOTHUMBSRC', 'Select source for generating auto screenshot:' );
 define( '_MI_IMLINKS_AUTOTHUMBSRCDSC', 'More info:<br />- <a href="http://www.thumbshots.org/" target="_blank">Thumbshots.org</a><br />- <a href="http://mozshot.nemui.org/" target="_blank">Mozshot</a>' );
 define( '_MI_IMLINKS_CATCOLS', 'Number of category colums:' );
-define( '_MI_IMLINKS_CATCOLSDSC', 'Select the number of category colums for Index Page.<br />Default: <em>2</em>' );
+define( '_MI_IMLINKS_CATCOLSDSC', 'Select the number of category colums for Index Page.<br />Default: <i>2</i>' );
 define( '_MI_IMLINKS_RSSFEED', 'RSS Feed' );
 define( '_MI_IMLINKS_SHOWRATING', 'Show rating features?' );
-define( '_MI_IMLINKS_SHOWRATINGDSC', 'Select <em>Yes</em> to display the rating features. Select <em>No</em> to hide the rating features. Note: This setting has nothing to do with the permissions setting.' );
+define( '_MI_IMLINKS_SHOWRATINGDSC', 'Select <i>Yes</i> to display the rating features. Select <i>No</i> to hide the rating features. Note: This setting has nothing to do with the permissions setting.' );
 
 // imLinks 1.00 RC-2
 define( '_MI_IMLINKS_BNAME6', 'Random Link' );
@@ -289,18 +289,18 @@ define( '_MI_IMLINKS_BNAME6', 'Random Link' );
 define( '_MI_IMLINKS_SHOWLEGEND', 'Show category legend?' );
 define( '_MI_IMLINKS_SHOWLEGENDDSC', 'With this option you can turn on/off the legend explaining the different colours of the default category icons.' );
 define( '_MI_IMLINKS_LIGHTWINDOW', 'Select how a link should be opened:' );
-define( '_MI_IMLINKS_LIGHTWINDOWDSC', 'Select <em>Default</em> to have links opened in a new browser tab/window.<br />
-									   Select <em>LightWindow</em> to have links opened in a <a href="http://www.stickmanlabs.com/lightwindow/" target="_blank">LightWindow</a>.<br />
-									   Select <em>GreyBox</em> to have links opened in a <a href="http://orangoo.com/labs/GreyBox/" target="_blank">GreyBox</a>.' );
+define( '_MI_IMLINKS_LIGHTWINDOWDSC', 'Select <i>Default</i> to have links opened in a new browser tab/window.<br />
+									   Select <i>LightWindow</i> to have links opened in a <a href="http://www.stickmanlabs.com/lightwindow/" target="_blank">LightWindow</a>.<br />
+									   Select <i>GreyBox</i> to have links opened in a <a href="http://orangoo.com/labs/GreyBox/" target="_blank">GreyBox</a>.' );
 define( '_MI_IMLINKS_DEFAULT', 'Default' );
 
 // imLinks 1.03
 define( '_MI_IMLINKS_NICEURL', 'Use nice urls?' );
 define( '_MI_IMLINKS_NICEURLDSC', 'Use nice urls for links.' );
 define( '_MI_IMLINKS_TOMTOMAPI', 'TomTom API key:' );
-define( '_MI_IMLINKS_TOMTOMAPIDSC', 'To have a <em>Add to TomTom</em> buttom displayed with the contact details of a link you need to enter your API key here.<br />A valid API key can be requested from add2TTsupport@tomtom.com' );
+define( '_MI_IMLINKS_TOMTOMAPIDSC', 'To have a <i>Add to TomTom</i> buttom displayed with the contact details of a link you need to enter your API key here.<br />A valid API key can be requested from add2TTsupport@tomtom.com' );
 define( '_MI_IMLINKS_TOMTOMLOGO', 'Enter url for logo to display:' );
-define( '_MI_IMLINKS_TOMTOMLOGODSC', 'Enter the url of the logo to display in the window <em>Starting TomTom Home</em>.<br />This logo will displayed together with the website name for the <em>Content provided by</em>.' );
+define( '_MI_IMLINKS_TOMTOMLOGODSC', 'Enter the url of the logo to display in the window <i>Starting TomTom Home</i>.<br />This logo will displayed together with the website name for the <i>Content provided by</i>.' );
 
 // imLinks 1.12
 define( '_MI_IMLINKS_SOCIALBTTNS', 'Show Social Media buttons' );
@@ -318,5 +318,5 @@ define( '_MI_IMLINKS_FACEBOOKBTTN', 'Facebook "I Like" button' );
 define( '_MI_IMLINKS_FACEBOOKBTTNDSC', 'Choose a Facebook button style.' );
 define( '_MI_IMLINKS_PLUSONEBTTN', 'Google +1 button' );
 define( '_MI_IMLINKS_PLUSONEBTTNDSC', 'Choose a Google +1 button style.' );
-define( '_MI_IMLINKS_BNAME7', 'Recent links - extended' );
+define( '_MI_IMLINKS_BNAME7', 'Recent Links - Extended' );
 ?>
