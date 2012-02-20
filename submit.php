@@ -125,11 +125,11 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 			$newid = mysql_insert_id();
 
 			// Add item_tag to Tag-module
-			if ( $lid == 0 ) {
-				$tagupdate = iml_tagupdate( $newid, $item_tag );
-			} else {
-				$tagupdate = iml_tagupdate( $lid, $item_tag );
-			}
+//			if ( $lid == 0 ) {
+//				$tagupdate = iml_tagupdate( $newid, $item_tag );
+//			} else {
+//				$tagupdate = iml_tagupdate( $lid, $item_tag );
+//			}
 
 			// Notify of new link (anywhere) and new link in category
 			$notification_handler = icms::handler( 'icms_data_notification' );
