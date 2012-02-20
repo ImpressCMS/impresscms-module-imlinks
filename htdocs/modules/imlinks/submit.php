@@ -313,8 +313,8 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 	$sform -> addElement( $keywords, false );
 
 	// Insert tags if Tag-module is installed and if user is allowed
-	if ( icms::$module -> config['usercantag'] ) {
-		if ( iml_tag_module_included() ) {
+	if ( iml_tag_module_included() ) {
+		if ( icms::$module -> config['usercantag'] ) {
 			include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
 			$text_tags = new XoopsFormTag( 'item_tag', 70, 255, $link_array['item_tag'], 0 );
 			$sform -> addElement( $text_tags );
