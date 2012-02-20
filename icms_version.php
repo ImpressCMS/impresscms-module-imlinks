@@ -634,13 +634,13 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'int',
 	'default'		=> 1 );
 
-$modversion['config'][] = array(
-	'name'			=> 'usercantag',
-	'title'			=> '_MI_IMLINKS_USERTAGDESCR',
-	'description'	=> '_MI_IMLINKS_USERTAGDSC',
-	'formtype'		=> 'yesno',
-	'valuetype'		=> 'int',
-	'default'		=> 0 );
+//$modversion['config'][] = array(
+//	'name'			=> 'usercantag',
+//	'title'			=> '_MI_IMLINKS_USERTAGDESCR',
+//	'description'	=> '_MI_IMLINKS_USERTAGDSC',
+//	'formtype'		=> 'yesno',
+//	'valuetype'		=> 'int',
+//	'default'		=> 0 );
 
 $modversion['config'][] = array(
 	'name'			=> 'useaddress',

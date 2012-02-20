@@ -64,8 +64,8 @@ if ( isset( icms::$module ) ) {
 
 	icms_loadLanguageFile( $admin_dirname, 'admin' );
 
-//	if ( file_exists( '../docs/' . $icmsConfig['language'] . '/readme.html') ) {
-//		$docs = '../docs/' . $icmsConfig['language'] . '/readme.html" target="_blank"'; 
+//	if ( file_exists( "http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual.pdf") ) {
+		$docs = 'http://mcdonaldsstore.googlecode.com/files/imlinks_manual.pdf" target="_blank"'; 
 //	} elseif ( file_exists( '../docs/english/readme.html') ) { 
 //		$docs = '../docs/english/readme.html" target="_blank"'; 
 //	} else {
@@ -91,9 +91,9 @@ if ( isset( icms::$module ) ) {
 	$i++;
 	$headermenu[$i]['title'] = _COMMENTS;
 	$headermenu[$i]['link']	 = "../../system/admin.php?module=" . icms::$module -> getVar( 'mid' ) . "&status=0&limit=100&fct=comments&selsubmit=Go";
-//	$i++;
-//	$headermenu[$i]['title'] = _AM_IMLINKS_DOCUMENTATION;
-//	$headermenu[$i]['link']  = $docs;
+	$i++;
+	$headermenu[$i]['title'] = _AM_IMLINKS_DOCUMENTATION;
+	$headermenu[$i]['link']  = $docs;
 	$i++;
 	$headermenu[$i]['title'] = _MODABOUT_ABOUT;
 	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . $admin_dirname . '/admin/about.php';
