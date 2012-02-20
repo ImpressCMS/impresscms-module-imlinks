@@ -63,14 +63,14 @@ $adminmenu[6]['small']	= 'images/icon/feed.png';
 if ( isset( icms::$module ) ) {
 
 	icms_loadLanguageFile( $admin_dirname, 'admin' );
-	
-	if ( file_exists( '../docs/' . $icmsConfig['language'] . '/readme.html') ) {
-		$docs = '../docs/' . $icmsConfig['language'] . '/readme.html" target="_blank"'; 
-	} elseif ( file_exists( '../docs/english/readme.html') ) { 
-		$docs = '../docs/english/readme.html" target="_blank"'; 
-	} else {
-		$docs = '';
-	}
+
+//	if ( file_exists( '../docs/' . $icmsConfig['language'] . '/readme.html') ) {
+//		$docs = '../docs/' . $icmsConfig['language'] . '/readme.html" target="_blank"'; 
+//	} elseif ( file_exists( '../docs/english/readme.html') ) { 
+//		$docs = '../docs/english/readme.html" target="_blank"'; 
+//	} else {
+//		$docs = '';
+//	}
 
 	$i = -1;
 	$i++;
@@ -91,9 +91,9 @@ if ( isset( icms::$module ) ) {
 	$i++;
 	$headermenu[$i]['title'] = _COMMENTS;
 	$headermenu[$i]['link']	 = "../../system/admin.php?module=" . icms::$module -> getVar( 'mid' ) . "&status=0&limit=100&fct=comments&selsubmit=Go";
-	$i++;
-	$headermenu[$i]['title'] = _AM_IMLINKS_DOCUMENTATION;
-	$headermenu[$i]['link']  = $docs;
+//	$i++;
+//	$headermenu[$i]['title'] = _AM_IMLINKS_DOCUMENTATION;
+//	$headermenu[$i]['link']  = $docs;
 	$i++;
 	$headermenu[$i]['title'] = _MODABOUT_ABOUT;
 	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . $admin_dirname . '/admin/about.php';
