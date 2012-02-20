@@ -42,7 +42,7 @@ $rating = round( number_format( $link_arr['rating'], 0 ) / 2 );
 $imlink['rateimg'] = 'rate' . $rating . '.gif';
 unset( $rating );
 
-$imlink['hits']  = sprintf( _MD_IMLINKS_LINKHITS, intval( $link_arr['hits'] ) );
+$imlink['hits'] = sprintf( _MD_IMLINKS_LINKHITS, intval( $link_arr['hits'] ) );
 $xoopsTpl -> assign( 'lang_dltimes', $imlink['hits'] );
 
 $imlink['title'] = $link_arr['title']; // Title of link
@@ -62,7 +62,7 @@ if ( $moderate == 0 ) {
 }
 
 $imlink['updated'] = formatTimestamp( $time, icms::$module -> config['dateformat'] );
-$imlink['description'] = icms_core_DataFilter::icms_substr( $link_arr['description'], 0, icms::$module -> config['totalchars'], '&#8230;' );
+$imlink['description'] = icms_core_DataFilter::icms_substr( strip_tags( $link_arr['description'] ), 0, icms::$module -> config['totalchars'], '&#8230;' );
 $imlink['submitter'] = icms_member_user_Handler::getUserLink( $link_arr['submitter'] );
 $imlink['publisher'] = ( isset( $link_arr['publisher'] ) && !empty( $link_arr['publisher'] ) ) ? $immyts -> htmlSpecialCharsStrip( $link_arr['publisher'] ) : _MD_IMLINKS_NOTSPECIFIED;
 
