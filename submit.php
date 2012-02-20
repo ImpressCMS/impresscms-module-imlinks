@@ -66,11 +66,11 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		$descriptionb = ltrim( $_REQUEST['descriptionb'] );
 		$keywords = icms_core_DataFilter::addSlashes( trim(substr($_POST['keywords'], 0, icms::$module -> config['keywordlength']) ) );
 
-		if ( icms::$module -> config['usercantag'] ) {
-			$item_tag = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['item_tag'] ) );
-		} else {
-			$item_tag = '';
-		}
+//		if ( icms::$module -> config['usercantag'] ) {
+//			$item_tag = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['item_tag'] ) );
+//		} else {
+//			$item_tag = '';
+//		}
 
 		if ( icms::$module -> config['useaddress'] ) {
 			$googlemap = ( $_POST['googlemap'] != 'http://maps.google.com' ) ? icms_core_DataFilter::addSlashes( $_POST['googlemap'] ) : '';
@@ -114,9 +114,9 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 				$message = _MD_IMLINKS_ISAPPROVED;
 			}
 
-			$sql = 'INSERT INTO ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . '	(lid, cid, title, url, submitter, status, date, hits, rating, votes, comments, forumid, published, expired, offline, description, ipaddress, notifypub, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, ttlat, ttlong )';
+			$sql = 'INSERT INTO ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' (lid, cid, title, url, submitter, status, date, hits, rating, votes, comments, forumid, published, expired, offline, description, ipaddress, notifypub, country, keywords, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, ttlat, ttlong )';
 
-			$sql .= " VALUES ('', $cid, '$title', '$url', '$submitter', '$status', '$date', 0, 0, 0, 0, '$forumid', '$publishdate', 0, '$offline', '$descriptionb', '$ipaddress', '$notifypub', '$country', '$keywords', '$item_tag', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat', '$ttlat', '$ttlong' )";
+			$sql .= " VALUES ('', $cid, '$title', '$url', '$submitter', '$status', '$date', 0, 0, 0, 0, '$forumid', '$publishdate', 0, '$offline', '$descriptionb', '$ipaddress', '$notifypub', '$country', '$keywords', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat', '$ttlat', '$ttlong' )";
 
 			if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 				$_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
@@ -160,7 +160,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		} else {
 			if ( true == iml_checkgroups( $cid, 'imLinkAutoApp' ) || $approve == 1 ) {
 				$updated = time();
-				$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET cid=$cid, title='$title', url='$url', updated='$updated', offline='$offline', description='$descriptionb', ipaddress='$ipaddress', notifypub='$notifypub', country='$country', keywords='$keywords', item_tag='$item_tag', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state',  zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat', ttlat='$ttlat', ttlong='$ttlong' WHERE lid=" . intval( $lid );
+				$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET cid=$cid, title='$title', url='$url', updated='$updated', offline='$offline', description='$descriptionb', ipaddress='$ipaddress', notifypub='$notifypub', country='$country', keywords='$keywords', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state',  zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat', ttlat='$ttlat', ttlong='$ttlong' WHERE lid=" . intval( $lid );
 				if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 					$_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
 					icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
