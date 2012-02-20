@@ -207,13 +207,13 @@ function edit( $lid = 0, $doclone = 0 ) {
 	$sform -> addElement( $keywords, false );
 
 	// Insert tags if Tag-module is installed
-	if ( iml_tag_module_included() ) {
-		include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
-		$text_tags = new XoopsFormTag( 'item_tag', 70, 255, $link_array['item_tag'], 0 );
-		$sform -> addElement( $text_tags );
-	} else {
-		$sform -> addElement( new icms_form_elements_Hidden( 'item_tag', $link_array['item_tag'] ) );
-	}
+//	if ( iml_tag_module_included() ) {
+//		include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
+//		$text_tags = new XoopsFormTag( 'item_tag', 70, 255, $link_array['item_tag'], 0 );
+//		$sform -> addElement( $text_tags );
+//	} else {
+//		$sform -> addElement( new icms_form_elements_Hidden( 'item_tag', $link_array['item_tag'] ) );
+//	}
 
 	// Screenshot
 	$graph_array = &imlLists :: getListTypeAsArray( ICMS_ROOT_PATH . '/' . icms::$module -> config['screenshots'], $type='images' );
@@ -565,7 +565,7 @@ switch ( strtolower( $op ) ) {
 		$descriptionb = icms_core_DataFilter::addSlashes( trim( $_POST['descriptionb'] ) );
 		$country = icms_core_DataFilter::addSlashes( trim( $_POST['country'] ) );
 		$keywords = icms_core_DataFilter::addSlashes( trim(substr($_POST['keywords'], 0, icms::$module -> config['keywordlength']) ) );
-		$item_tag = icms_core_DataFilter::addSlashes( trim( $_POST['item_tag'] ) );
+//		$item_tag = icms_core_DataFilter::addSlashes( trim( $_POST['item_tag'] ) );
 		$forumid = ( isset( $_POST['forumid'] ) && $_POST['forumid'] > 0 ) ? intval( $_POST['forumid'] ) : 0;
 
 		if ( icms::$module -> config['useaddress'] ) {
@@ -630,13 +630,13 @@ switch ( strtolower( $op ) ) {
 			$publishdate = time();
 			$ipaddress = $_SERVER['REMOTE_ADDR'];
 
-			$sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " (lid, cid, title, url, screenshot, submitter, publisher, status, date, hits, rating, votes, comments, forumid, published, expired, updated, offline, description, ipaddress, notifypub, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, nice_url, ttlat, ttlong)";
+			$sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " (lid, cid, title, url, screenshot, submitter, publisher, status, date, hits, rating, votes, comments, forumid, published, expired, updated, offline, description, ipaddress, notifypub, country, keywords, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, nice_url, ttlat, ttlong)";
 
-			$sql .= " VALUES 	('', $cid, '$title', '$url', '$screenshot', '$submitter', '$publisher','$status', '$date', 0, 0, 0, 0, '$forumid', '$published', '$expiredate', '$updated', '$offline', '$descriptionb', '$ipaddress', '0', '$country', '$keywords', '$item_tag', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat', '$nice_url', '$ttlat', '$ttlong')";
+			$sql .= " VALUES 	('', $cid, '$title', '$url', '$screenshot', '$submitter', '$publisher','$status', '$date', 0, 0, 0, 0, '$forumid', '$published', '$expiredate', '$updated', '$offline', '$descriptionb', '$ipaddress', '0', '$country', '$keywords', '$googlemap', '$yahoomap', '$multimap', '$street1', '$street2', '$town', '$state', '$zip', '$tel', '$fax', '$voip', '$mobile', '$email', '$vat', '$nice_url', '$ttlat', '$ttlong')";
 
 		} else {
 
-			$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET cid = $cid, title='$title', url='$url', screenshot='$screenshot', publisher='$publisher', status='$status', forumid='$forumid', published='$published', expired='$expiredate', updated='$updated', offline='$offline', description='$descriptionb', country='$country', keywords='$keywords', item_tag='$item_tag', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state',  zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat', nice_url='$nice_url', ttlat='$ttlat', ttlong='$ttlong' WHERE lid='$lid'";
+			$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET cid = $cid, title='$title', url='$url', screenshot='$screenshot', publisher='$publisher', status='$status', forumid='$forumid', published='$published', expired='$expiredate', updated='$updated', offline='$offline', description='$descriptionb', country='$country', keywords='$keywords', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state',  zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat', nice_url='$nice_url', ttlat='$ttlat', ttlong='$ttlong' WHERE lid='$lid'";
 
 		} 
 
@@ -647,12 +647,12 @@ switch ( strtolower( $op ) ) {
 
 		$newid = mysql_insert_id();
 
-		// Add item_tag to Tag-module
-		if ( !$lid ) {
-			$tagupdate = iml_tagupdate( $newid, $item_tag );
-		} else {
-			$tagupdate = iml_tagupdate( $lid, $item_tag );
-		}
+//		// Add item_tag to Tag-module
+//		if ( !$lid ) {
+//			$tagupdate = iml_tagupdate( $newid, $item_tag );
+//		} else {
+//			$tagupdate = iml_tagupdate( $lid, $item_tag );
+//		}
 
 		// Send notifications
 		if ( !$lid ) {
