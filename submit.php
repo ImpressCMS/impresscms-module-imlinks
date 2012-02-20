@@ -305,7 +305,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		ob_end_clean();
 
 	// Link description form
-	$editor = iml_editorform( _DESCRIPTION . ':', 'descriptionb', $descriptionb );
+	$editor = iml_editorform( _DESCRIPTION . ':', 'descriptionb', $descriptionb, '100%', '500px' );
 	$sform -> addElement( $editor, false );
 
 	// Keywords form

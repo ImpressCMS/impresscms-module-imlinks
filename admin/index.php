@@ -199,7 +199,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 	ob_end_clean();
 
 	// Link description form
-	$editor = iml_editorform( _AM_IMLINKS_LINK_DESCRIPTION, 'descriptionb', $descriptionb );
+	$editor = iml_editorform( _AM_IMLINKS_LINK_DESCRIPTION, 'descriptionb', $descriptionb, '100%', '500px' );
 	$sform -> addElement( $editor, false );
 
 	// Meta keywords form

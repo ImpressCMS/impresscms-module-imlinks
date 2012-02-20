@@ -403,7 +403,7 @@ function iml_getforum( $forumid ) {
 	return $forumid;
 }
 
-function iml_editorform( $caption, $name, $value ) {
+function iml_editorform( $caption, $name, $value, $width, $height ) {
 	$isadmin = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( icms::$module -> getVar( 'mid' ) ) ) ? true : false;
 	if ( $isadmin == true ) {
 		$formuser = icms::$module -> config['form_options'];
@@ -412,19 +412,19 @@ function iml_editorform( $caption, $name, $value ) {
 	}
 	switch( $formuser ) {	
 	case 'fck':
-		$editor = iml_fckeditor( $caption, $name, $value );
+		$editor = iml_fckeditor( $caption, $name, $value, $width, $height );
 		break;
 	case 'tinyeditor':
-		$editor = iml_tinyeditor( $caption, $name, $value );
+		$editor = iml_tinyeditor( $caption, $name, $value, $width, $height );
 		break;
 	case 'tinymce' :
-		$editor = iml_tinymce( $caption, $name, $value );    
+		$editor = iml_tinymce( $caption, $name, $value, $width, $height );    
 		break;
 	}
 	return $editor;
 }
 
-function iml_fckeditor( $caption, $name, $value ) {
+function iml_fckeditor( $caption, $name, $value, $width = '100%', $height = '500px' ) {
 	if ( file_exists( ICMS_ROOT_PATH . '/editors/FCKeditor/formfckeditor.php' ) )	{
 		include_once( ICMS_ROOT_PATH . '/editors/FCKeditor/formfckeditor.php' );
 		$imlinks_editor = new XoopsFormFckeditor( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => '100%', 'height' => '500px' ), true );
@@ -434,7 +434,7 @@ function iml_fckeditor( $caption, $name, $value ) {
 	return $imlinks_editor;
 }
 
-function iml_tinyeditor( $caption, $name, $value ) {
+function iml_tinyeditor( $caption, $name, $value, $width = '100%', $height = '500px' ) {
 	if ( file_exists( ICMS_ROOT_PATH . '/class/xoopseditor/tinyeditor/formtinyeditortextarea.php' ) ) {
 		include_once( ICMS_ROOT_PATH . '/class/xoopseditor/tinyeditor/formtinyeditortextarea.php' );
 		$imlinks_editor = new XoopsFormTinyeditorTextArea( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => '100%', 'height' => '500px' ) );
@@ -444,10 +444,10 @@ function iml_tinyeditor( $caption, $name, $value ) {
 	return $imlinks_editor;
 }	
 
-function iml_tinymce( $caption, $name, $value ) {
+function iml_tinymce( $caption, $name, $value, $width = '100%', $height = '500px' ) {
 	if ( file_exists( ICMS_ROOT_PATH . '/editors/tinymce/formtinymce.php' ) ) {
 		include_once( ICMS_ROOT_PATH . '/editors/tinymce/formtinymce.php' );
-		$imlinks_editor = new XoopsFormTinymce( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => '100%', 'height' => '500px', 0 ) );
+		$imlinks_editor = new XoopsFormTinymce( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => $width, 'height' => $height, 0 ) );
 	} else {
 		$imlinks_editor = new icms_form_elements_Dhtmltextarea( $caption, $name, $value, $editor_configs['rows'], $editor_configs['cols'] );
 	}
