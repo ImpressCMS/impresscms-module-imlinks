@@ -130,7 +130,7 @@ $modversion['blocks'][] = array(
 	'description'	=> 'Shows top clicked links',
 	'show_func'		=> 'b_imlinks_top_show',
 	'edit_func'		=> 'b_imlinks_top_edit',
-	'options'		=> 'hits|10|19|d/m/Y',
+	'options'		=> 'hits|10|19',
 	'template'		=> 'imlinks_block_top.html',
 	'can_clone'		=> true );
 
@@ -372,9 +372,9 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
 	'default'		=> 'tinymce',
-	'options'		=>  array(  _MI_IMLINKS_FORM_FCK => 'fck',
-							    _MI_IMLINKS_FORM_TINYEDITOR => 'tinyeditor',
-								_MI_IMLINKS_FORM_TINYMCE => 'tinymce' ) );
+	'options'		=>  array(	_MI_IMLINKS_FORM_FCK => 'fck',
+								_MI_IMLINKS_FORM_TINYEDITOR => 'tinyeditor',
+								_MI_IMLINKS_FORM_TINYMCE => 'tinymce') );
 
 $modversion['config'][] = array(
 	'name'			=> 'captcha',
@@ -555,7 +555,7 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'int',
 	'default'		=> 0,
 	'options'		=> array(	_MI_IMLINKS_DEFAULT => 0,
-								'Lytebox'			=> 1,
+								'LightWindow'		=> 1,
 								'GreyBox'			=> 2 ) );
 
 $modversion['config'][] = array(
