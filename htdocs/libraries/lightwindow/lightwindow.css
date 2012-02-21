@@ -134,7 +134,7 @@
 	#lightwindow_next {
 		width: 49%;
 		height: 100%;
-		background: transparent url(../images/blank.gif) no-repeat; /* Trick IE into showing hover */
+		background: transparent url(images/blank.gif) no-repeat; /* Trick IE into showing hover */
 		display: block;
 	}
 	
@@ -150,12 +150,12 @@
 
 	#lightwindow_previous:hover, 
 	#lightwindow_previous:active { 
-		background: url(../images/prevlabel.gif) left 15% no-repeat; 
+		background: url(images/prevlabel.gif) left 15% no-repeat; 
 	}
 
 	#lightwindow_next:hover, 
 	#lightwindow_next:active { 
-		background: url(../images/nextlabel.gif) right 15% no-repeat; 
+		background: url(images/nextlabel.gif) right 15% no-repeat; 
 	}
 	
 	#lightwindow_previous_title,
@@ -180,7 +180,7 @@
 		overflow: hidden;
 	}
 
-	a#lightwindow_galleries_tab,		
+	a#lightwindow_galleries_tab,
 	a:link#lightwindow_galleries_tab,
 	a:visited#lightwindow_galleries_tab {
 		display: block;
@@ -194,7 +194,7 @@
 		cursor: pointer;
 		font-size: 11px;
 		color: #ffffbe;
-		background: url(../images/black-70.png) repeat 0 0 transparent;
+		background: url(images/black-70.png) repeat 0 0 transparent;
 	}
 	
 	* html a#lightwindow_galleries_tab,		
@@ -220,15 +220,15 @@
 	}
 	
 	#lightwindow_galleries_tab .up	{
-		background: url(../images/arrow-up.gif) no-repeat 60px 5px transparent;
+		background: url(images/arrow-up.gif) no-repeat 60px 5px transparent;
 	}
 
 	#lightwindow_galleries_tab .down {
-		background: url(../images/arrow-down.gif) no-repeat 60px 6px transparent;
+		background: url(images/arrow-down.gif) no-repeat 60px 6px transparent;
 	}
 
 	#lightwindow_galleries_list {
-		background: url(../images/black-70.png) repeat 0 0 transparent;
+		background: url(images/black-70.png) repeat 0 0 transparent;
 		overflow: hidden;
 		height: 0px;
 	}
@@ -351,7 +351,7 @@
 	a:link#lightwindow_title_bar_close_link,
 	a:visited#lightwindow_title_bar_close_link {
 		float: right;
-		text-align: right;		
+		text-align: right;
 		cursor: pointer;
 		color: #ffffbe;
 		line-height: 25px;
@@ -372,5 +372,3 @@
 	color: #000000;
 	padding-right: 10px;
 }
-
-

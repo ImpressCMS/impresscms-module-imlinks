@@ -153,8 +153,8 @@ lightwindow.prototype = {
 			EOLASFix : 'swf,wmv,fla,flv',
 			overlay : {
 				opacity : 0.7,
-				image : 'images/lightwindow/black.png',
-				presetImage : 'images/lightwindow/black-70.png'
+				image : '../../libraries/lightwindow/images/black.png',
+				presetImage : '../../libraries/lightwindow/images/black-70.png'
 			},
 			skin : 	{
 				main : 	'<div id="lightwindow_container" >'+
