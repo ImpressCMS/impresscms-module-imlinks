@@ -70,58 +70,58 @@ function imlinks_rss_edit() {
 	$sform = new icms_form_Theme( _AM_IMLINKS_RSSFEEDCFG, 'storyform', '' );
 	$sform -> setExtra( 'enctype="multipart / form - data"' );
 
-	$rssstatus_radio = new icms_form_elements_Radioyn( _AM_IMLINKS_RSSACTIVE . imlinks_helptip( _AM_IMLINKS_RSSACTIVEDSC ), 'rssactive', $rssactive, ' ' . _YES . ' ', ' ' . _NO . '' );
+	$rssstatus_radio = new icms_form_elements_Radioyn( _AM_IMLINKS_RSSACTIVE . imlinks_tooltip( _AM_IMLINKS_RSSACTIVEDSC, 'help' ), 'rssactive', $rssactive, ' ' . _YES . ' ', ' ' . _NO . '' );
 	$sform -> addElement( $rssstatus_radio );
 
-	$formtitle = new icms_form_elements_Text( _AM_IMLINKS_RSSTITLE . imlinks_helptip( _AM_IMLINKS_RSSTITLEDSC ), 'rsstitle', 90, 128, $rsstitle );
+	$formtitle = new icms_form_elements_Text( _AM_IMLINKS_RSSTITLE . imlinks_tooltip( _AM_IMLINKS_RSSTITLEDSC, 'help' ), 'rsstitle', 90, 128, $rsstitle );
 	$sform -> addElement( $formtitle, false );
 
-	$formlink = new icms_form_elements_Text( _AM_IMLINKS_RSSLINKS . imlinks_helptip( _AM_IMLINKS_RSSLINKSDSC ), 'rsslink', 90, 255, $rsslink );
+	$formlink = new icms_form_elements_Text( _AM_IMLINKS_RSSLINKS . imlinks_tooltip( _AM_IMLINKS_RSSLINKSDSC, 'help' ), 'rsslink', 90, 255, $rsslink );
 	$sform -> addElement( $formlink, false );
 
-	$formdsc = new icms_form_elements_Textarea( _AM_IMLINKS_RSSDESCRIPTION . imlinks_helptip( _AM_IMLINKS_RSSDESCRIPTIONDSC ), 'rssdsc', $rssdsc, 4, 50 );
+	$formdsc = new icms_form_elements_Textarea( _AM_IMLINKS_RSSDESCRIPTION . imlinks_tooltip( _AM_IMLINKS_RSSDESCRIPTIONDSC, 'help' ), 'rssdsc', $rssdsc, 4, 50 );
 	$sform -> addElement( $formdsc, false );
 
-	$formimage = new icms_form_elements_Text( _AM_IMLINKS_RSSIMAGE . imlinks_helptip( _AM_IMLINKS_RSSIMAGEDSC ), 'rssimgurl', 90, 255, $rssimgurl );
+	$formimage = new icms_form_elements_Text( _AM_IMLINKS_RSSIMAGE . imlinks_tooltip( _AM_IMLINKS_RSSIMAGEDSC, 'help' ), 'rssimgurl', 90, 255, $rssimgurl );
 	$sform -> addElement( $formimage, false );
 
-	$formwidth = new icms_form_elements_Text( _AM_IMLINKS_RSSWIDTH . imlinks_helptip( _AM_IMLINKS_RSSWIDTHDSC ), 'rsswidth', 3, 8, $rsswidth );
+	$formwidth = new icms_form_elements_Text( _AM_IMLINKS_RSSWIDTH . imlinks_tooltip( _AM_IMLINKS_RSSWIDTHDSC, 'help' ), 'rsswidth', 3, 8, $rsswidth );
 	$sform -> addElement( $formwidth, false );
 
-	$formheight = new icms_form_elements_Text( _AM_IMLINKS_RSSHEIGHT . imlinks_helptip( _AM_IMLINKS_RSSHEIGHTDSC ), 'rssheight', 3, 8, $rssheight );
+	$formheight = new icms_form_elements_Text( _AM_IMLINKS_RSSHEIGHT . imlinks_tooltip( _AM_IMLINKS_RSSHEIGHTDSC, 'help' ), 'rssheight', 3, 8, $rssheight );
 	$sform -> addElement( $formheight, false );
 
-	$formimgtitle = new icms_form_elements_Text( _AM_IMLINKS_RSSIMGTITLE . imlinks_helptip( _AM_IMLINKS_RSSIMGTITLEDSC ), 'rssimgtitle', 90, 128, $rssimgtitle );
+	$formimgtitle = new icms_form_elements_Text( _AM_IMLINKS_RSSIMGTITLE . imlinks_tooltip( _AM_IMLINKS_RSSIMGTITLEDSC, 'help' ), 'rssimgtitle', 90, 128, $rssimgtitle );
 	$sform -> addElement( $formimgtitle, false );
 
-	$formimglink = new icms_form_elements_Text( _AM_IMLINKS_RSSIMGLINK . imlinks_helptip( _AM_IMLINKS_RSSIMGLINKDSC ), 'rssimglink', 90, 255, $rssimglink );
+	$formimglink = new icms_form_elements_Text( _AM_IMLINKS_RSSIMGLINK . imlinks_tooltip( _AM_IMLINKS_RSSIMGLINKDSC, 'help' ), 'rssimglink', 90, 255, $rssimglink );
 	$sform -> addElement( $formimglink, false );
 
-	$formttl = new icms_form_elements_Text( _AM_IMLINKS_RSSTTL . imlinks_helptip( _AM_IMLINKS_RSSTTLDSC ), 'rssttl', 3, 128, $rssttl );
+	$formttl = new icms_form_elements_Text( _AM_IMLINKS_RSSTTL . imlinks_tooltip( _AM_IMLINKS_RSSTTLDSC, 'help' ), 'rssttl', 3, 128, $rssttl );
 	$sform -> addElement( $formttl, false );
 
-	$formwebmaster = new icms_form_elements_Text( _AM_IMLINKS_RSSWEBMASTER . imlinks_helptip( _AM_IMLINKS_RSSWEBMASTERDSC ), 'rsswebmaster', 90, 255, $rsswebmaster );
+	$formwebmaster = new icms_form_elements_Text( _AM_IMLINKS_RSSWEBMASTER . imlinks_tooltip( _AM_IMLINKS_RSSWEBMASTERDSC, 'help' ), 'rsswebmaster', 90, 255, $rsswebmaster );
 	$sform -> addElement( $formwebmaster, false );
 
-	$formeditor = new icms_form_elements_Text( _AM_IMLINKS_RSSEDITOR . imlinks_helptip( _AM_IMLINKS_RSSEDITORDSC ), 'rsseditor', 90, 255, $rsseditor );
+	$formeditor = new icms_form_elements_Text( _AM_IMLINKS_RSSEDITOR . imlinks_tooltip( _AM_IMLINKS_RSSEDITORDSC, 'help' ), 'rsseditor', 90, 255, $rsseditor );
 	$sform -> addElement( $formeditor, false );
 
-	$formcategory = new icms_form_elements_Text( _AM_IMLINKS_RSSCATEGORY . imlinks_helptip( _AM_IMLINKS_RSSCATEGORYDSC ), 'rsscategory', 90, 128, $rsscategory );
+	$formcategory = new icms_form_elements_Text( _AM_IMLINKS_RSSCATEGORY . imlinks_tooltip( _AM_IMLINKS_RSSCATEGORYDSC, 'help' ), 'rsscategory', 90, 128, $rsscategory );
 	$sform -> addElement( $formcategory, false );
 
-	$formgenerator = new icms_form_elements_Text( _AM_IMLINKS_RSSGENERATOR . imlinks_helptip( _AM_IMLINKS_RSSGENERATORDSC ), 'rssgenerator', 90, 128, $rssgenerator );
+	$formgenerator = new icms_form_elements_Text( _AM_IMLINKS_RSSGENERATOR . imlinks_tooltip( _AM_IMLINKS_RSSGENERATORDSC, 'help' ), 'rssgenerator', 90, 128, $rssgenerator );
 	$sform -> addElement( $formgenerator, false );
 
-	$formcopyright = new icms_form_elements_Text( _AM_IMLINKS_RSSCOPYRIGHT . imlinks_helptip( _AM_IMLINKS_RSSCOPYRIGHTDSC ), 'rsscopyright', 90, 128, $rsscopyright );
+	$formcopyright = new icms_form_elements_Text( _AM_IMLINKS_RSSCOPYRIGHT . imlinks_tooltip( _AM_IMLINKS_RSSCOPYRIGHTDSC, 'help' ), 'rsscopyright', 90, 128, $rsscopyright );
 	$sform -> addElement( $formcopyright, false );
 
-	$formtotal = new icms_form_elements_Text( _AM_IMLINKS_RSSTOTAL . imlinks_helptip( _AM_IMLINKS_RSSTOTALDSC ), 'rsstotal', 3, 8, $rsstotal );
+	$formtotal = new icms_form_elements_Text( _AM_IMLINKS_RSSTOTAL . imlinks_tooltip( _AM_IMLINKS_RSSTOTALDSC, 'help' ), 'rsstotal', 3, 8, $rsstotal );
 	$sform -> addElement( $formtotal, false );
 
-	$formofftitle = new icms_form_elements_Text( _AM_IMLINKS_RSSOFFLINE . imlinks_helptip( _AM_IMLINKS_RSSOFFLINEDSC ), 'rssofftitle', 90, 128, $rssofftitle );
+	$formofftitle = new icms_form_elements_Text( _AM_IMLINKS_RSSOFFLINE . imlinks_tooltip( _AM_IMLINKS_RSSOFFLINEDSC, 'help' ), 'rssofftitle', 90, 128, $rssofftitle );
 	$sform -> addElement( $formofftitle, false );
 
-	$formoffmsg = new icms_form_elements_Textarea( _AM_IMLINKS_RSSOFFMSG . imlinks_helptip( _AM_IMLINKS_RSSOFFMSGDSC ), 'rssoffdsc', $rssoffdsc, 4, 50 );
+	$formoffmsg = new icms_form_elements_Textarea( _AM_IMLINKS_RSSOFFMSG . imlinks_tooltip( _AM_IMLINKS_RSSOFFMSGDSC, 'help' ), 'rssoffdsc', $rssoffdsc, 4, 50 );
 	$sform -> addElement( $formoffmsg, false );
 
 	$button_tray = new icms_form_elements_Tray( '', '' );

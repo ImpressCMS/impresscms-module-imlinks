@@ -102,7 +102,7 @@ switch ( strtolower( $op ) ) {
 
 		$sform -> addElement(  new icms_form_elements_Radioyn( _AM_IMLINKS_IPAGE_SHOWLATEST, 'lastlinksyn', $lastlinksyn, ' ' . _YES . ' ', ' ' . _NO ) );
 
-		$lastlinkstotalform = new icms_form_elements_Text( _AM_IMLINKS_IPAGE_LATESTTOTAL . imlinks_helptip( _AM_IMLINKS_IPAGE_LATESTTOTAL_DSC ), 'lastlinkstotal', 2, 2, $lastlinkstotal );
+		$lastlinkstotalform = new icms_form_elements_Text( _AM_IMLINKS_IPAGE_LATESTTOTAL . imlinks_tooltip( _AM_IMLINKS_IPAGE_LATESTTOTAL_DSC, 'help' ), 'lastlinkstotal', 2, 2, $lastlinkstotal );
 		$sform -> addElement( $lastlinkstotalform, false );
 
 		$button_tray = new icms_form_elements_Tray( '', '' );
