@@ -224,7 +224,7 @@ define( "_AM_IMLINKS_MOD_NOMODREQUEST", "There are no requests that match this c
 define( "_AM_IMLINKS_MOD_TITLE", "Link title: " );
 define( "_AM_IMLINKS_MOD_LID", "Link ID: " );
 define( "_AM_IMLINKS_MOD_CID", "Category: " );
-define( "_AM_IMLINKS_MOD_URL", "Link Url: " );
+define( "_AM_IMLINKS_MOD_URL", "Link URL: " );
 define( "_AM_IMLINKS_MOD_PUBLISHER", "Publisher: " );
 define( "_AM_IMLINKS_MOD_FORUMID", "Forum: " );
 define( "_AM_IMLINKS_MOD_SCREENSHOT", "Screenshot image: " );
@@ -252,7 +252,7 @@ define( "_AM_IMLINKS_LINK_CATEGORY", "Link main category: " );
 define( "_AM_IMLINKS_LINK_FILESSTATUS", "Set link offline?" );
 define( "_AM_IMLINKS_LINK_SETASUPDATED", "Set link status as updated?" );
 define( "_AM_IMLINKS_LINK_SHOTIMAGE", "Link screenshot image: " );
-define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "Add <em>Discuss in this Forum</em>?" );
+define( "_AM_IMLINKS_LINK_DISCUSSINFORUM", "Add <i>Discuss in this Forum</i>?" );
 define( "_AM_IMLINKS_LINK_PUBLISHDATE", "Link publish date:" );
 define( "_AM_IMLINKS_LINK_EXPIREDATE", "Link expire date:" );
 define( "_AM_IMLINKS_LINK_CLEARPUBLISHDATE", "<br /><br />Remove publish date:" );
@@ -265,7 +265,7 @@ define( "_AM_IMLINKS_LINK_SETNEWPUBLISHDATE", "<b>Set new publish date: </b><br 
 define( "_AM_IMLINKS_LINK_SETPUBDATESETS", "<b>Publish date set: </b><br />Publishes on date:" );
 define( "_AM_IMLINKS_LINK_EXPIREDATESET", " Expire date set: " );
 define( "_AM_IMLINKS_LINK_SETEXPIREDATE", "<b>Set expire date: </b>" );
-define( "_AM_IMLINKS_LINK_DELEDITMESS", "Delete broken report?<br /><br /><span style='font-weight: normal;'>When you choose <em>Yes</em> the broken report will automatically deleted and you confirm that the link now works again.</span>" );
+define( "_AM_IMLINKS_LINK_DELEDITMESS", "Delete broken report?<br /><br /><span style='font-weight: normal;'>When you choose <i>Yes</i> the broken report will automatically deleted and you confirm that the link now works again.</span>" );
 define( "_AM_IMLINKS_LINK_MUSTBEVALID", "Screenshot image must be a valid image link under %s directory (ex. shot.gif). Leave it blank if there is no image link." );
 define( "_AM_IMLINKS_LINK_EDITAPPROVE", "Approve link:" );
 define( "_AM_IMLINKS_LINK_NEWFILEUPLOAD", "New link created and database updated successfully" );
@@ -467,7 +467,7 @@ define( "_AM_IMLINKS_NOFILESELECT", "No selected file" );
 //version 1.00 RC-1
 define( '_AM_IMLINKS_COUNTRYDSC', 'If no country is selected the address can not be formatted and will not be displayed.' );
 define( '_AM_IMLINKS_MAPDSC', 'Click icon to open a new browser tab or window showing the map.<br />Default: %s' );
-define( '_AM_IMLINKS_LINKURLDSC', 'Click icon to open url in a new browser tab or window.<br />You can use this to check the url.' );
+define( '_AM_IMLINKS_LINKURLDSC', 'Click icon to open URL in a new browser tab or window.<br />You can use this to check the URL.' );
 define( '_AM_IMLINKS_STREETTWODSC', 'This field is optional. If field is left blank it will not be used.' );
 define( '_AM_IMLINKS_STATEDSC', 'Enter county, district, province, state, etc. If field is left blank it will not be used.' );
 define( '_AM_IMLINKS_EMAILDSC', 'Enter email address as:<br />- name@domain.com<br />- mailto:name@domain.com' );
@@ -522,8 +522,8 @@ define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' );
 define( '_AM_IMLINKS_NOREPLY', 'No reply' );
 
 // imLinks 1.03
-define( '_AM_IMLINKS_NICEURL', 'Alternative title for url:' );
-define( '_AM_IMLINKS_NICEURLDSC', 'Enter an alternative title for the link to be used in the url. When the option <i>Use nice urls</i> from Preferences is selected and this field is left empty, than the title of the link will be used.' );
+define( '_AM_IMLINKS_NICEURL', 'Alternative title for URL:' );
+define( '_AM_IMLINKS_NICEURLDSC', 'Enter an alternative title for the link to be used in the URL. When the option <i>Use nice urls</i> from Preferences is selected and this field is left empty, than the title of the link will be used.' );
 define( '_AM_IMLINKS_TOMTOM', 'Add to TomTom' );
 define( '_AM_IMLINKS_TOMTOMDSC', 'Enter the latitude and longitude of the address entered above.<br />You can find the geographic position of the address by using the website <a href="http://itouchmap.com/latlong.html" target="_blank">iTouchMap.com</a><br />Geographic latitude/longitude of the location should be in decimal degrees. May be negative; "N"/"S"/"W"/"E" suffix is not accepted. Default geodetic datum is WGS-84.<br />The geographic position should be entered as follows:<br />- Latitude: 57.2355591<br />- Longitude: -2.3535921' );
 define( '_AM_IMLINKS_TOMTOMLONG', 'Enter longitude:' );
