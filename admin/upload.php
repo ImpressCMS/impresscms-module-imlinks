@@ -94,12 +94,14 @@ switch ( strtolower( $op ) ) {
 		$iform = new icms_form_Theme( _AM_IMLINKS_LINK_FUPLOADIMAGETO . $pathlist, 'op', '' );
 		$iform -> setExtra( 'enctype="multipart/form-data"' );
 
+		// Select upload destination
 		ob_start();
 			$iform -> addElement( new icms_form_elements_Hidden( 'dir', $rootpath ) );
 			iml_getDirSelectOption( $namelist, $dirarray, $namearray );
 			$iform -> addElement( new icms_form_elements_Label( _AM_IMLINKS_LINK_FOLDERSELECTION, ob_get_contents() ) );
 		ob_end_clean();
 
+		// Display selected image
 		if ( $rootpath > 0 ) {
 			$graph_array = &imlLists :: getListTypeAsArray( ICMS_ROOT_PATH . '/' . $dirarray[$rootpath], $type = 'images' );
 			$indeximage_select = new icms_form_elements_Select( '', 'linkfile', '' );
@@ -113,6 +115,8 @@ switch ( strtolower( $op ) ) {
 				$indeximage_tray -> addElement( new icms_form_elements_Label( '', '<br /><br /><img src="' . ICMS_URL . '/uploads/blank.gif" name="image" id="image" alt="" />' ) );
 			}
 			$iform -> addElement( $indeximage_tray );
+
+			// Upload new image to selected destination
 			$iform -> addElement( new icms_form_elements_File( _AM_IMLINKS_LINK_FUPLOADIMAGE, 'uploadfile', 0 ) );
 			$iform -> addElement( new icms_form_elements_Hidden( 'uploadpath', $dirarray[$rootpath] ) );
 			$iform -> addElement( new icms_form_elements_Hidden( 'rootnumber', $rootpath ) );
