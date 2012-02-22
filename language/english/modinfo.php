@@ -84,7 +84,7 @@ define("_MI_IMLINKS_ANONPOSTDSC", "Allow anonymous users to submit or upload to 
 define('_MI_IMLINKS_AUTOAPPROVE', 'Auto approve submitted links');
 define('_MI_IMLINKS_AUTOAPPROVEDSC', 'Select to approve submitted links without moderation.');
 
-define('_MI_IMLINKS_MAXFILESIZE', 'Image upload size (KB)');
+define('_MI_IMLINKS_MAXFILESIZE', 'Image upload size (kB)');
 define('_MI_IMLINKS_MAXFILESIZEDSC', 'Maximum image size permitted with link uploads.');
 define('_MI_IMLINKS_IMGWIDTH', 'Upload image width');
 define('_MI_IMLINKS_IMGWIDTHDSC', 'Maximum image width permitted when uploading image links');
@@ -199,13 +199,9 @@ define('_MI_IMLINKS_EDITORCHOICE', "Select the editor to use for admin side.");
 define('_MI_IMLINKS_EDITORUSER', "Editor to use (user):");
 define('_MI_IMLINKS_EDITORCHOICEUSER', "Select the editor to use for user side.");
 define("_MI_IMLINKS_FORM_DHTML", "DHTML");
-define("_MI_IMLINKS_FORM_COMPACT", "Compact");
-define("_MI_IMLINKS_FORM_HTMLAREA", "HtmlArea Editor");
 define("_MI_IMLINKS_FORM_FCK", "FCK Editor");
-define("_MI_IMLINKS_FORM_KOIVI", "Koivi Editor");
 define("_MI_IMLINKS_FORM_TINYEDITOR", "TinyEditor");
 define("_MI_IMLINKS_FORM_TINYMCE", "TinyMCE");
-define("_MI_IMLINKS_FORM_DHTMLEXT", "DHTML Extended");
 define("_MI_IMLINKS_SORTCATS", "Sort categories by:");
 define("_MI_IMLINKS_SORTCATSDSC", "Select how categories and sub-categories are sorted.");
 define("_MI_IMLINKS_KEYLENGTH", "Enter max. characters for meta keywords:");
@@ -240,12 +236,12 @@ define("_MI_IMLINKS_VCARD_CREDITS", "vCard script by");
 
 // Version 1.05 RC6
 define("_MI_IMLINKS_FLAGIMG", "Country flag image directory");
-define("_MI_IMLINKS_FLAGIMGDSC", "Enter the url without a trailing slash");
-define("_MI_IMLINKS_CATEGORYIMGDSC", "Enter the url without a trailing slash");
-define("_MI_IMLINKS_SCREENSHOTSDSC", "Enter the url without a trailing slash");
-define("_MI_IMLINKS_MAINIMGDIRDSC", "Enter the url without a trailing slash");
+define("_MI_IMLINKS_FLAGIMGDSC", "Enter the URL without a trailing slash");
+define("_MI_IMLINKS_CATEGORYIMGDSC", "Enter the URL without a trailing slash");
+define("_MI_IMLINKS_SCREENSHOTSDSC", "Enter the URL without a trailing slash");
+define("_MI_IMLINKS_MAINIMGDIRDSC", "Enter the URL without a trailing slash");
 define("_MI_IMLINKS_USEAUTOSCRSHOT", "Use auto screenshot");
-define("_MI_IMLINKS_USEAUTOSCRSHOTDSC", "This will automatically create a screenshot based on the url. This overrules uploaded screenshots and might not work for all websites.");
+define("_MI_IMLINKS_USEAUTOSCRSHOTDSC", "This will automatically create a screenshot based on the URL. This overrules uploaded screenshots and might not work for all websites.");
 define("_MI_IMLINKS_MOZSHOT_CREDITS", "Auto screenshot by");
 define("_MI_IMLINKS_MOZSHOT_CREDITSTXT", '<a href="http://mozshot.nemui.org" target=_blank>Mozshot</a> (all source code provided under <a href="http://www.ruby-lang.org/en/" target=_blank>Ruby</a> lisence)');
 
@@ -299,8 +295,8 @@ define( '_MI_IMLINKS_NICEURL', 'Use nice urls?' );
 define( '_MI_IMLINKS_NICEURLDSC', 'Use nice urls for links.' );
 define( '_MI_IMLINKS_TOMTOMAPI', 'TomTom API key:' );
 define( '_MI_IMLINKS_TOMTOMAPIDSC', 'To have a <i>Add to TomTom</i> buttom displayed with the contact details of a link you need to enter your API key here.<br />A valid API key can be requested from add2TTsupport@tomtom.com' );
-define( '_MI_IMLINKS_TOMTOMLOGO', 'Enter url for logo to display:' );
-define( '_MI_IMLINKS_TOMTOMLOGODSC', 'Enter the url of the logo to display in the window <i>Starting TomTom Home</i>.<br />This logo will displayed together with the website name for the <i>Content provided by</i>.' );
+define( '_MI_IMLINKS_TOMTOMLOGO', 'Enter URL for logo to display:' );
+define( '_MI_IMLINKS_TOMTOMLOGODSC', 'Enter the URL of the logo to display in the window <i>Starting TomTom Home</i>.<br />This logo will displayed together with the website name for the <i>Content provided by</i>.' );
 
 // imLinks 1.12
 define( '_MI_IMLINKS_SOCIALBTTNS', 'Show Social Media buttons' );
@@ -314,7 +310,7 @@ define( '_MI_IMLINKS_TWITTER', 'Twitter' );
 define( '_MI_IMLINKS_TWEET', 'Tweet' );
 define( '_MI_IMLINKS_TWITTERBTTN', 'Twitter button' );
 define( '_MI_IMLINKS_TWITTERBTTNDSC', 'Choose a Twitter button style.' );
-define( '_MI_IMLINKS_FACEBOOKBTTN', 'Facebook "I Like" button' );
+define( '_MI_IMLINKS_FACEBOOKBTTN', 'Facebook "Like" button' );
 define( '_MI_IMLINKS_FACEBOOKBTTNDSC', 'Choose a Facebook button style.' );
 define( '_MI_IMLINKS_PLUSONEBTTN', 'Google +1 button' );
 define( '_MI_IMLINKS_PLUSONEBTTNDSC', 'Choose a Google +1 button style.' );

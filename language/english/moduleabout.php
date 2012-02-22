@@ -19,7 +19,7 @@ define('_MODABOUT_IMLINKS_VERSION_HISTORY', 'Version History');
 define('_MODABOUT_IMLINKS_WARNING_ALPHA', "This module comes as is, without any guarantees whatsoever. This module is ALPHA, meaning it is still under active development. This release is meant for <b>development and testing purposes only</b>, and we <b>strongly</b> recommend that you do not use it on a live website or in a production environment.");
 define('_MODABOUT_IMLINKS_WARNING_BETA', "This module comes as is, without any guarantees whatsoever. This module is BETA, meaning it is still under active development. This release is meant for <b>testing purposes only</b> and we <b>strongly</b> recommend that you do not use it on a live website or in a production environment.");
 define('_MODABOUT_IMLINKS_WARNING_FINAL', "This module comes as is, without any guarantees whatsoever. Although this module is not beta, it is still under active development. This release can be used in a live website or a production environment, but its use is under your own responsibility, which means the author is not responsible.");
-define('_MODABOUT_IMLINKS_WARNING_RC', "This module comes as is, without any guarantees whatsoever. This module is a <em>Release Candidate</em> and should <u>NOT</u> be used on a production web site. The module is still under active development and its use is under your own responsibility, which means the author is not responsible.");
+define('_MODABOUT_IMLINKS_WARNING_RC', "This module comes as is, without any guarantees whatsoever. This module is a <i>Release Candidate</i> and should <u>NOT</u> be used on a production web site. The module is still under active development and its use is under your own responsibility, which means the author is not responsible.");
 define('_MODABOUT_IMLINKS_BY', 'By');
 define('_MODABOUT_IMLINKS_PEOPLE_DEVELOPERS', 'Developers');
 define('_MODABOUT_IMLINKS_PEOPLE_TESTERS', 'Testers');
@@ -44,5 +44,7 @@ CONCERNING THE SOFTWARE THAT IS CONTAINED WEBSITES. IN NO
 EVENT WILL WE BE LIABLE FOR ANY INDIRECT, PUNITIVE, SPECIAL,
 INCIDENTAL OR CONSEQUENTIAL DAMAGES HOWEVER THEY MAY ARISE AND EVEN IF
 WE HAVE BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.");
+
+// Version 1.12
 define('_MODABOUT_IMLINKS_VERSION', 'Version');
 ?>

@@ -6,21 +6,21 @@
 *
 * File: language/english/main.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -192,7 +192,7 @@ define( '_MD_IMLINKS_STOPIT', 'STOP IT YOU FOOL!!' );
 define( '_MD_IMLINKS_FEED', 'RSS feed' );
 define( '_MD_IMLINKS_COUNTRYDSC', 'If no country is selected the address can not be formatted and will not be displayed.' );
 define( '_MD_IMLINKS_MAPDSC', 'Click icon to open a new browser tab or window showing the map.<br />Default: %s' );
-define( '_MD_IMLINKS_LINKURLDSC', 'Click icon to open url in a new browser tab or window.<br />You can use this to check the url.' );
+define( '_MD_IMLINKS_LINKURLDSC', 'Click icon to open URL in a new browser tab or window.<br />You can use this to check the URL.' );
 define( '_MD_IMLINKS_STREETTWODSC', 'This field is optional. If field is left blank it will not be used.' );
 define( '_MD_IMLINKS_STATEDSC', 'Enter county, district, province, state, etc. If field is left blank it will not be used.' );
 define( '_MD_IMLINKS_EMAILDSC', 'Enter email address as:<br />- name@domain.com<br />- mailto:name@domain.com' );
