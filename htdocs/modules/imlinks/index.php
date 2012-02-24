@@ -128,7 +128,7 @@ while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
 }
 
 $listings  = iml_getTotalItems(); // get total amount of links
-$total_cat = iml_totalcategory(); // get total amount of categories 
+$total_cat = iml_totalcategory(); // get total amount of categories
 switch ( $total_cat ) {
 	case '1':
 		$lang_thereare = _MD_IMLINKS_THEREIS;
@@ -142,14 +142,6 @@ $xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 $xoopsTpl -> assign( 'catcols', icms::$module -> config['catcols'] );
 $xoopsTpl -> assign( 'showlegend', icms::$module -> config['showlegend'] );
 $xoopsTpl -> assign( 'lightwindow', icms::$module -> config['lightwindow'] );
-
-// Screenshots display
-if ( isset( icms::$module -> config['screenshot'] ) && icms::$module -> config['screenshot'] == 1 ) {
-	$xoopsTpl -> assign( 'shots_dir', icms::$module -> config['screenshots'] );
-	$xoopsTpl -> assign( 'shotwidth', icms::$module -> config['shotwidth'] );
-	$xoopsTpl -> assign( 'shotheight', icms::$module -> config['shotheight'] );
-	$xoopsTpl -> assign( 'show_screenshot', true );
-}
 
 // Show Latest Listings on Index Page
 if ( $head_arr['lastlinksyn'] == 1 && $head_arr['lastlinkstotal'] > 0 ) {
@@ -180,12 +172,7 @@ if ( $head_arr['lastlinksyn'] == 1 && $head_arr['lastlinkstotal'] > 0 ) {
 
 	$pagenav = new icms_view_PageNav( $count, icms::$module -> config['perpage'], $start, 'start' );
 	$xoopsTpl -> assign( 'pagenav', $pagenav -> renderNav() );
-	$xoopsTpl -> assign( 'showlatest', $head_arr['lastlinksyn'] );  
-}
-
-$greybox_dir = '<script type="text/javascript">var GB_ROOT_DIR = "' . ICMS_URL . '/libraries/greybox/";</script>';
-if ( is_dir( $greybox_dir ) ) {
-	$greybox_dir = '';
+	$xoopsTpl -> assign( 'showlatest', $head_arr['lastlinksyn'] );
 }
 
 // RSS feed
@@ -193,10 +180,8 @@ $rsssql = 'SELECT rssactive FROM ' . icms::$xoopsDB -> prefix( 'imlinks_configs'
 $result = icms::$xoopsDB -> query( $rsssql );
 list( $rssactive ) = icms::$xoopsDB -> fetchRow( $result );
 if ( $rssactive == 1 ) {
-	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="' . _MD_IMLINKS_FEED . '" title="' . _MD_IMLINKS_FEED . '" /></a>' );
-	$xoopsTpl -> assign( 'icmss_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MD_IMLINKS_FEED . '" href="feed.php">' . $greybox_dir ); 
-} elseif ( icms::$module -> config['lightwindow'] == 2 ) {
-	$xoopsTpl -> assign( 'icms_module_header', $greybox_dir );
+	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="" title="' . _MD_IMLINKS_FEED . '" /></a>' );
+	$xoopsTpl -> assign( 'icms_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MD_IMLINKS_FEED . '" href="feed.php">' . $greybox_dir );
 }
 
 include ICMS_ROOT_PATH . '/footer.php';
