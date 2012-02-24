@@ -11,9 +11,8 @@
 	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/scriptaculous/src/scriptaculous.js?load=effects"></script>
 	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lightwindow/lightwindow.js"></script>
 	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/lightwindow/lightwindow.css" />
-<{/if}>
-
-<{if $lightwindow == 2}>
+<{elseif $lightwindow == 2}>
+	<script type="text/javascript">var GB_ROOT_DIR = "<{$icms_url}>/libraries/greybox/";</script>
 	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/AJS.js"></script>
 	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/gb_scripts.js"></script> 
 	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/greybox/gb_styles.css" />
@@ -82,16 +81,16 @@
 <{/if}>
 
 <div style="clear: both;">
-   <!-- Start link loop -->
-   <{section name=i loop=$imlink}>
-	 <{include file="db:imlinks_linkload.html" imlink=$imlink[i]}>
-   <{/section}>
-   <!-- End link loop -->
+	<!-- Start link loop -->
+	<{section name=i loop=$imlink}>
+		<{include file="db:imlinks_linkload.html" imlink=$imlink[i]}>
+	<{/section}>
+	<!-- End link loop -->
 </div>
 
 <{if $page_nav == true}>
-  <div class="imlinks_horline">&nbsp;</div>
-  <span style="float: right;"><{$pagenav}></span>
+	<div class="imlinks_horline">&nbsp;</div>
+	<span style="float: right;"><{$pagenav}></span>
 <{/if}>
 
 <div style="clear: both; height: 2px;">&nbsp;</div>

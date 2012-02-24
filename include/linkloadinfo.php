@@ -185,8 +185,8 @@ switch( icms::$module -> config['lightwindow'] ) {
 
 	// Open link in GreyBox
 	case 2:
-		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
-		$imlink['visitlink']    = '<a class="button" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '"  rel="gb_page_center[800, 600]">' . _MD_IMLINKS_LINKNOW . '</a>';
+		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" rel="gb_page_center[800, 600]"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
+		$imlink['visitlink']    = '<a class="button" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]">' . _MD_IMLINKS_LINKNOW . '</a>';
 		$imlink['visittitle']   = '<a href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]">' . $link_arr['title'] . '</a>';
 		break;
 }

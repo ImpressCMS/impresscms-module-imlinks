@@ -3,17 +3,20 @@
 <script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/behavior.js"></script>
 <script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/rating.js"></script>
 
-<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/prototype/prototype.js"></script> 
-<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/scriptaculous/src/scriptaculous.js?load=effects"></script>
-<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/lightwindow.js"></script>	
-<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/lightwindow.css" />
+<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lytebox/lytebox.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="<{$icms_url}>/libraries/lytebox/lytebox.css" />
 
-<{if $lightwindow == 2}>
-	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/AJS.js"></script>
-	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/AJS_fx.js"></script> 
-	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/gb_scripts.js"></script> 
-	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/greybox/gb_styles.css" />
-<{/if}>
+	<{if $lightwindow == 1}>
+		<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/prototype/prototype.js"></script>
+		<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/scriptaculous/src/scriptaculous.js?load=effects"></script>
+		<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lightwindow/lightwindow.js"></script>
+		<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/lightwindow/lightwindow.css" />
+	<{elseif $lightwindow == 2}>
+		<script type="text/javascript">var GB_ROOT_DIR = "<{$icms_url}>/libraries/greybox/";</script>
+		<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/AJS.js"></script>
+		<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/gb_scripts.js"></script> 
+		<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/greybox/gb_styles.css" />
+	<{/if}>
 
 <{$catarray.imageheader}>
 <{$catarray.indexheading}>
@@ -63,6 +66,7 @@
 <{$catarray.indexfooter}>
 
 <{if $showlatest}>
+
 	<br /><br />
 	<div class="imlinks_catpath" style="font-size: bigger; font-weight: bold;"><{$smarty.const._MD_IMLINKS_LATESTLIST}></div>
 
@@ -72,7 +76,7 @@
 	<div style="clear: both;">
 		<!-- Start link loop -->
 		<{section name=i loop=$imlink}>
-		  <{include file="db:imlinks_linkload.html" imlink=$imlink[i]}>
+			<{include file="db:imlinks_linkload.html" imlink=$imlink[i]}>
 		<{/section}>
 		<!-- End link loop -->
 	</div>
