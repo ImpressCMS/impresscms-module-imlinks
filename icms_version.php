@@ -38,9 +38,9 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/'. $icm
 
 $modversion['name'] 			= _MI_IMLINKS_NAME;
 $modversion['version']			= '1.12';
-$modversion['date'] 			= 'xx xxxxxx 2012';
-$modversion['status']			= 'Trunk';
-$modversion['status_version']	= 'Trunk';
+$modversion['date'] 			= '25 February 2012';
+$modversion['status']			= 'RC-2';
+$modversion['status_version']	= 'RC-2';
 $modversion['description'] 		= _MI_IMLINKS_DESC;
 $modversion['license']			= _MI_IMLINKS_ABOUTLICENSE;
 $modversion['image']			= 'images/imlinks_ilogo.png';		// standard XOOPS icon, 92x52 px  
