@@ -26,40 +26,10 @@ Note:	It's possible to give the installation folder of the module another name t
 
 
 
-**GreyBox**
------------
-imLinks can have links opened in a so called GreyBox. This can be set in the Preferences.
-To use this option the folder 'libraries/greybox' needs to be copied to your server.
-
-
-
-**Lightwindow**
----------------
-imLinks can have links opened in a so called LightWindow. This can be set in the Preferences.
-To use this option the folders 'libraries/prototype' and 'libraries/scriptaculous' need to be copied to your server.
-
-
-
 **imGlossary**
 --------------
 To have words linked to imGlossary this module has to be installed.
 You can download the latest version from the ImpressCMS Addons website or McDonalds Store.
-
-
-
-**Tags**
---------
-To use the tag feature with imLinks your installation needs the following:
-- Frameworks library installed
-	http://addons.impresscms.org/modules/wfdownloads/singlefile.php?lid=170
-- Xoops Tag module installed and active, for example version 1.6. 
-	http://addons.impresscms.org/modules/wfdownloads/singlefile.php?cid=8&lid=1333
-
-Make sure that you use versions for Xoops 2.0.18 and not for Xoops 2.3!
-If the Tag module is installed and active, an extra form for entering the tags will be visible in the submit forms.
-For users the tag form can be enabled/disabled from the Preferences, for admins this form will always be visible.
-
-Note: Do NOT use the blocks Top Tag and Tag Cloud when the Tag module is not installed.
 
 
 
