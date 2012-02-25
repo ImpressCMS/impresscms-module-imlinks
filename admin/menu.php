@@ -65,7 +65,7 @@ if ( isset( icms::$module ) ) {
 	icms_loadLanguageFile( $admin_dirname, 'admin' );
 
 //	if ( file_exists( "http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual.pdf") ) {
-		$docs = 'http://mcdonaldsstore.googlecode.com/files/imlinks_manual.pdf" target="_blank"'; 
+		$docs = 'http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual.pdf" target="_blank"'; 
 //	} elseif ( file_exists( '../docs/english/readme.html') ) { 
 //		$docs = '../docs/english/readme.html" target="_blank"'; 
 //	} else {
