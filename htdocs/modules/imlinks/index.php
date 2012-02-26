@@ -179,9 +179,15 @@ if ( $head_arr['lastlinkstotal'] > 0 ) {
 $rsssql = 'SELECT rssactive FROM ' . icms::$xoopsDB -> prefix( 'imlinks_configs' );
 $result = icms::$xoopsDB -> query( $rsssql );
 list( $rssactive ) = icms::$xoopsDB -> fetchRow( $result );
-if ( $rssactive == 1 ) {
+if ( $rssactive == 1 && icms::$module -> config['lightwindow'] < 2 ) {
 	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="" title="' . _MD_IMLINKS_FEED . '" /></a>' );
-	$xoopsTpl -> assign( 'icms_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MD_IMLINKS_FEED . '" href="feed.php">' );
+	$xoopsTpl -> assign( 'xoops_module_header', '<atom:link rel="alternate" type="application/rss+xml" title="' . _MD_IMLINKS_FEED . '" href="feed.php">' );
+} elseif ( $rssactive == 1 && icms::$module -> config['lightwindow'] == 2 ) {
+	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="" title="' . _MD_IMLINKS_FEED . '" /></a>' );
+	$xoopsTpl -> assign( 'xoops_module_header', '<atom:link rel="alternate" type="application/rss+xml" title="' . _MD_IMLINKS_FEED . '" href="feed.php">
+	<script type="text/javascript">var GB_ROOT_DIR = "' . ICMS_URL . '/libraries/greybox/";</script>' );
+} elseif ( $rssactive == 0 &&  icms::$module -> config['lightwindow'] == 2 ) {
+	$xoopsTpl -> assign( 'xoops_module_header', '<script type="text/javascript">var GB_ROOT_DIR = "' . ICMS_URL . '/libraries/greybox/";</script>' );
 }
 
 include ICMS_ROOT_PATH . '/footer.php';

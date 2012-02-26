@@ -356,6 +356,10 @@ $catarray['letters'] = '<div style="padding-bottom: 12px; text-align: center;" c
 $catarray['toolbar'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_toolbar() . '</div>';
 $xoopsTpl -> assign( 'catarray', $catarray );
 
+if ( icms::$module -> config['lightwindow'] == 2 ) {
+	$xoopsTpl -> assign( 'xoops_module_header', '<script type="text/javascript">var GB_ROOT_DIR = "' . ICMS_URL . '/libraries/greybox/";</script>' );
+}
+
 include ICMS_ROOT_PATH . '/include/comment_view.php';
 include ICMS_ROOT_PATH . '/footer.php';
 ?>
