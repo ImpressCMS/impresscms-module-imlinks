@@ -38,9 +38,8 @@ switch ( strtolower( $op ) ) {
 		$indeximage = icms_core_DataFilter::addSlashes( $_REQUEST['indeximage'] );
 		$indexheaderalign = icms_core_DataFilter::addSlashes( $_REQUEST['indexheaderalign'] );
 		$indexfooteralign = icms_core_DataFilter::addSlashes( $_REQUEST['indexfooteralign'] );
-		$lastlinksyn = $_REQUEST['lastlinksyn'];
 		$lastlinkstotal = icms_core_DataFilter::addSlashes( $_REQUEST['lastlinkstotal'] );
-		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_indexpage' ) . " SET indexheading='$indexheading', indexheader='$indexheader', indexfooter='$indexfooter', indeximage='$indeximage', indexheaderalign='$indexheaderalign ', indexfooteralign='$indexfooteralign', lastlinksyn='$lastlinksyn', lastlinkstotal='$lastlinkstotal'";
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_indexpage' ) . " SET indexheading='$indexheading', indexheader='$indexheader', indexfooter='$indexfooter', indeximage='$indeximage', indexheaderalign='$indexheaderalign ', indexfooteralign='$indexfooteralign', lastlinkstotal='$lastlinkstotal'";
 		if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
 			return false;
@@ -49,12 +48,12 @@ switch ( strtolower( $op ) ) {
 			break;
 
 	default:
-		$sql = 'SELECT indeximage, indexheading, indexheader, indexfooter, indexheaderalign, indexfooteralign, lastlinksyn, lastlinkstotal FROM ' . icms::$xoopsDB -> prefix( 'imlinks_indexpage' );
+		$sql = 'SELECT indeximage, indexheading, indexheader, indexfooter, indexheaderalign, indexfooteralign, lastlinkstotal FROM ' . icms::$xoopsDB -> prefix( 'imlinks_indexpage' );
 		if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
 			return false;
 		}
-		list( $indeximage, $indexheading, $indexheader, $indexfooter, $indexheaderalign, $indexfooteralign, $lastlinksyn, $lastlinkstotal ) = icms::$xoopsDB -> fetchrow( $result );
+		list( $indeximage, $indexheading, $indexheader, $indexfooter, $indexheaderalign, $indexfooteralign, $lastlinkstotal ) = icms::$xoopsDB -> fetchrow( $result );
 
 		icms_cp_header();
 		iml_adminmenu( 4, _AM_IMLINKS_INDEXPAGE );
@@ -94,13 +93,11 @@ switch ( strtolower( $op ) ) {
 		$headeralign_select -> addOptionArray( array( 'left' => _AM_IMLINKS_IPAGE_CLEFT, 'right' => _AM_IMLINKS_IPAGE_CRIGHT, 'center' => _AM_IMLINKS_IPAGE_CCENTER ) );
 		$sform -> addElement( $headeralign_select );
 
-		$sform -> addElement( new icms_form_elements_Textarea( _AM_IMLINKS_IPAGE_CFOOTER, 'indexfooter', $indexfooter, 5, 60 ) );
+		$sform -> addElement( new icms_form_elements_Textarea( _AM_IMLINKS_IPAGE_CFOOTER, 'indexfooter', $indexfooter, 4, 60 ) );
 
 		$footeralign_select = new icms_form_elements_Select( _AM_IMLINKS_IPAGE_CFOOTERA, 'indexfooteralign', $indexfooteralign );
 		$footeralign_select -> addOptionArray( array( 'left' => _AM_IMLINKS_IPAGE_CLEFT, 'right' => _AM_IMLINKS_IPAGE_CRIGHT, 'center' => _AM_IMLINKS_IPAGE_CCENTER ) );
 		$sform -> addElement( $footeralign_select );
-
-		$sform -> addElement(  new icms_form_elements_Radioyn( _AM_IMLINKS_IPAGE_SHOWLATEST, 'lastlinksyn', $lastlinksyn, ' ' . _YES . ' ', ' ' . _NO ) );
 
 		$lastlinkstotalform = new icms_form_elements_Text( _AM_IMLINKS_IPAGE_LATESTTOTAL . imlinks_tooltip( _AM_IMLINKS_IPAGE_LATESTTOTAL_DSC, 'help' ), 'lastlinkstotal', 2, 2, $lastlinkstotal );
 		$sform -> addElement( $lastlinkstotalform, false );

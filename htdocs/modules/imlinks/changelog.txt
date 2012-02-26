@@ -8,8 +8,7 @@ Fixed:
 - Sql-file
 - Uploader class; uploading images was possible regardless errors
 - Selected destination folder not visible as selected (Image Upload)
-- Links could’t be opened in Greybox or LightWindow from Index Page
-
+- Links could't be opened in Greybox or LightWindow from Index Page
 
 Added:
 - Social media buttons with Open Graph support
@@ -22,7 +21,14 @@ Added:
 - Prototype version 1.7
 - Scriptaculous version 1.9.0
 
+Other:
+- Disabled Tag field in submit form and preferences
+- Disabled Tag blocks
+
 Removed:
+- Option to turn on/off latest links in Index Page
+
+Removed files and folders:
 - docs
 - lightwindow.css
 - blocks/imlinks_banner.php
@@ -31,10 +37,6 @@ Removed:
 - images/lightwindow/
 - js/lightwindow.js
 - templates/blocks/imlinks_block_banner.html
-
-Other:
-- Disabled Tag field in submit form and preferences
-- Disabled Tag blocks
 
 =========================================================
 23.11.2011 - Version 1.11

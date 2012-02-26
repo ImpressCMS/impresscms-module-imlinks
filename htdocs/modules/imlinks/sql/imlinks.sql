@@ -57,7 +57,6 @@ CREATE TABLE imlinks_indexpage (
 	indexfooter text NOT NULL,
 	indexheaderalign varchar(25) NOT NULL default 'left',
 	indexfooteralign varchar(25) NOT NULL default 'left',
-	lastlinksyn tinyint(1) NOT NULL default '0',
 	lastlinkstotal varchar(5) NOT NULL default '50'
 ) ENGINE = MYISAM;
 
@@ -65,7 +64,7 @@ CREATE TABLE imlinks_indexpage (
 # Dumping data for table 'imlinks_indexpage'
 #
 
-INSERT INTO imlinks_indexpage (indeximage,indexheading,indexheader,indexfooter,indexheaderalign,indexfooteralign,lastlinksyn,lastlinkstotal) VALUES ('logo-en.png', 'imLinks', 'Welcome to imLinks.', 'imLinks footer', 'left', 'left', 0, 50);
+INSERT INTO imlinks_indexpage (indeximage,indexheading,indexheader,indexfooter,indexheaderalign,indexfooteralign,lastlinkstotal) VALUES ('logo-en.png', 'imLinks', 'Welcome to imLinks.', 'imLinks footer', 'left', 'left', 50);
 
 # ############################
 

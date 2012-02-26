@@ -42,7 +42,7 @@ if( $ref == '' || strpos( $ref , ICMS_URL . '/modules/system/admin.php' ) === 0 
 	$ret[$i] = true;
 	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_broken') . " MODIFY acknowledged TINYINT(1) NOT NULL default '0'" );
 	$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
-	
+
 	// imLinks 1.03
 	$i++;
 	$ret[$i] = true;
@@ -64,7 +64,7 @@ if( $ref == '' || strpos( $ref , ICMS_URL . '/modules/system/admin.php' ) === 0 
 	$ret[$i] = true;
 	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_mod') . " ADD COLUMN ttlong VARCHAR(100) NOT NULL default ''" );
 	$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
-	
+
 	// imLinks 1.05
 	$i++;
 	$ret[$i] = true;
@@ -74,7 +74,7 @@ if( $ref == '' || strpos( $ref , ICMS_URL . '/modules/system/admin.php' ) === 0 
 	$ret[$i] = true;
 	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_links') . " DROP nobreak" );
 	$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
-	
+
 	$i++;
 	$ret[$i] = true;
 	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_mod') . " DROP urlrating" );
@@ -83,7 +83,7 @@ if( $ref == '' || strpos( $ref , ICMS_URL . '/modules/system/admin.php' ) === 0 
 	$ret[$i] = true;
 	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_mod') . " DROP nobreak" );
 	$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
-	
+
 	$i++;
 	$ret[$i] = true;
 	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_indexpage') . " DROP nohtml" );
@@ -104,7 +104,7 @@ if( $ref == '' || strpos( $ref , ICMS_URL . '/modules/system/admin.php' ) === 0 
 	$ret[$i] = true;
 	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_indexpage') . " DROP nobreak" );
 	$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
-	
+
 	$i++;
 	$ret[$i] = true;
 	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_cat') . " DROP nohtml" );
@@ -137,7 +137,7 @@ if( $ref == '' || strpos( $ref , ICMS_URL . '/modules/system/admin.php' ) === 0 
 	$ret[$i] = true;
 	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_cat') . " DROP total" );
 	$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
-	
+
 	// imLinks 1.11
 	$i++;
 	$ret[$i] = true;
@@ -147,6 +147,11 @@ if( $ref == '' || strpos( $ref , ICMS_URL . '/modules/system/admin.php' ) === 0 
 	$ret[$i] = true;
 	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_cat') . " DROP banner_id" );
 	$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
-	
+
+	// imLinks 1.12
+	$i++;
+	$ret[$i] = true;
+	$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_indexpage') . " DROP lastlinksyn" );
+	$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 }
 ?>
