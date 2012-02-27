@@ -9,6 +9,7 @@ Fixed:
 - Uploader class; uploading images was possible regardless errors
 - Selected destination folder not visible as selected (Image Upload)
 - Links could't be opened in Greybox or LightWindow from Index Page
+- MySQL errors when updating
 
 Added:
 - Social media buttons with Open Graph support
