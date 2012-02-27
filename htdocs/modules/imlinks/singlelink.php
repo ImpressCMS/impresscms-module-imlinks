@@ -352,8 +352,8 @@ $xoopsTpl -> assign( 'module_dir', $mydirname );
 if ( iml_imageheader() != '' ) {
 	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';
 }
-$catarray['letters'] = '<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink">' . iml_letters() . '</div>';
-$catarray['toolbar'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_toolbar() . '</div>';
+$catarray['letters'] = '<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink" id="button">' . iml_letters() . '</div>';
+$catarray['toolbar'] = '<div style="padding-bottom: 12px; text-align: center;" id="button">' . iml_toolbar() . '</div>';
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 if ( icms::$module -> config['lightwindow'] == 2 ) {

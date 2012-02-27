@@ -793,7 +793,7 @@ switch ( strtolower( $op ) ) {
 		echo '
 			<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_LINKSUMMARY . '</div>
-				<div style="padding: 10px;">
+				<div style="padding: 10px;" id="button">
 					<a class="button" href="category.php">' . _AM_IMLINKS_SCATEGORY . $totalcats . '</a>
 					<a class="button" href="index.php">' . _AM_IMLINKS_SFILES . $totallinks . '</a>
 					<a class="button" href="newlinks.php">' . _AM_IMLINKS_SNEWFILESVAL . $totalnewlinks . '</a>

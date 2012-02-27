@@ -1,17 +1,20 @@
 /* imLinks stylesheet */
 
-.button {
+#button .button {
 	padding: 2px .5em 4px .5em;
 	background-image: url(images/icon/backgnd.png);
 	background-position: center center;
 	background-repeat: repeat-x;
-	color: #444;
 	font-size: smaller;
 	font-weight: bold;
 	cursor: pointer;
 	border: outset 1px #CCC;
 	white-space: nowrap;
 	box-shadow:1px 1px 2px #AAAAAA; }
+
+#button a:link { background-color: transparent; color: #444; font-weight: bold; text-decoration: none;}
+#button a:visited { background-color: transparent; color: #666; font-weight: bold; text-decoration: none;}
+#button a:hover { background-color: transparent; font-weight: bold; text-decoration: none; border: 1px solid #000;}
 
 .minibutton {
 	padding: 2px 0.5em 3px 0.5em;
@@ -39,7 +42,6 @@
 	background-image: url(images/icon/backgnd.png);
 	background-position: center center;
 	background-repeat: repeat-x;
-	color: #444;
 	font-size: smaller;
 	font-weight: bold;
 	line-height: 16pt;
