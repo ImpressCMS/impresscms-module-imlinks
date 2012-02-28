@@ -828,7 +828,7 @@ switch ( strtolower( $op ) ) {
 			$published_array_count = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
 			echo '<br /><div><span style="float: left; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_PUBLISHEDLINK . '</span>' . iml_linklistpagenav( $published_array_count, $start, 'art', '', 'right' ) . '</div>';
 			if ( $published_array_count > 0 ) {
-			echo '<div class="imlinks_table" style="font-size: 10px;">
+				echo '<div class="imlinks_table" style="font-size: 10px;">
 					<div class="imlinks_tblhdrrow">
 						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_ID . '</div>
 						<div class="imlinks_tblcell">' . _AM_IMLINKS_MINDEX_TITLE . '</div>
