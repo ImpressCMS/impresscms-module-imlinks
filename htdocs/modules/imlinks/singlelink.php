@@ -278,6 +278,8 @@ if ( icms::$module -> config['lightwindow'] == 2 ) {
 	}
 }
 
+$twitter = $facebook = $plusone = '';
+
 //Twitter button
 switch ( icms::$module -> config['twitt_bttn'] ) {
 	case 1:
@@ -328,6 +330,9 @@ switch ( icms::$module -> config['plusone_bttn'] ) {
 
 //Social bookmarks
 $imlink['showsbookmarks'] = icms::$module -> config['showsbookmarks'];
+
+$imlink['google'] = icms::$module -> config['plusone_bttn'];
+$imlink['facebk'] = icms::$module -> config['faceb_bttn'];
 
 switch ( icms::$module -> config['showsbookmarks'] ) {
 	case 0:
