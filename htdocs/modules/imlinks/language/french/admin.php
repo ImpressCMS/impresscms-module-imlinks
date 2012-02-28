@@ -456,4 +456,10 @@ define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
 define("_AM_IMLINKS_LINK_FILESSTATUSDSC", "Le site ne sera plus visible dans l'annuaire.");
 define("_AM_IMLINKS_LINK_SETASUPDATEDDSC", "Une ic&ocirc;ne de mise &agrave; jour appara&icirc;tra.");
 define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
+define( '_AM_IMLINKS_WARNLIB1', 'WARNING: The library <u>Greybox</u> is missing.' );
+define( '_AM_IMLINKS_WARNLIB2', 'WARNING: The library <u>Lightwindow</u> is missing.' );
+define( '_AM_IMLINKS_WARNLIB3', 'WARNING: The library <u>Lytebox</u> is missing.' );
+define( '_AM_IMLINKS_WARNLIB4', 'WARNING: The library <u>Prototype</u> is missing.' );
+define( '_AM_IMLINKS_WARNLIB5', 'WARNING: The library <u>Scriptaculous</u> is missing.' );
+define( '_AM_IMLINKS_WARNLIB6', 'WARNING: The library <u>Social Share Privacy</u> is missing.' );
 ?>

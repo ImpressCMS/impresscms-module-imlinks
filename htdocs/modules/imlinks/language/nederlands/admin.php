@@ -448,7 +448,13 @@ define( '_AM_IMLINKS_MSG_ONLINE', 'Link is succesvol Online geplaatst.' );
 define( '_AM_IMLINKS_ICO_WAITING','Ingediend, wachtend goedkeuring' );
 
 // Version 1.12
-define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "Link zal niet zichbaar zijn." );
-define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "Link zal een 'bijgewerkt' icoon weergeven." );
+define( '_AM_IMLINKS_LINK_FILESSTATUSDSC', 'Link zal niet zichbaar zijn.' );
+define( '_AM_IMLINKS_LINK_SETASUPDATEDDSC', 'Link zal een <i>bijgewerkt</i> icoon weergeven.' );
 define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Klik op afbeelding voor uitvergroting' );
+define( '_AM_IMLINKS_WARNLIB1', 'WAARSCHUWING: De library <u>Greybox</u> is niet aanwezig.' );
+define( '_AM_IMLINKS_WARNLIB2', 'WAARSCHUWING: De library <u>Lightwindow</u> is niet aanwezig.' );
+define( '_AM_IMLINKS_WARNLIB3', 'WAARSCHUWING: De library <u>Lytebox</u> is niet aanwezig.' );
+define( '_AM_IMLINKS_WARNLIB4', 'WAARSCHUWING: De library <u>Prototype</u> is niet aanwezig.' );
+define( '_AM_IMLINKS_WARNLIB5', 'WAARSCHUWING: De library <u>Scriptaculous</u> is niet aanwezig.' );
+define( '_AM_IMLINKS_WARNLIB6', 'WAARSCHUWING: De library <u>Social Share Privacy</u> is niet aanwezig.' );
 ?>

@@ -53,74 +53,51 @@ function iml_serverstats() {
 
 function iml_adminmenu( $currentoption = 0, $header = '', $menu = '', $extra = '', $scount = 4 ) {
 	icms::$module -> displayAdminMenu( $currentoption, icms::$module -> getVar( 'name' ) . ' | ' . $header );
+
 	// ###### Output warn messages for security ######
 	if ( is_dir( ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/update/' ) ) {
 		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL1, ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/update/' ) );
-		echo '<br />';
 	}
+
 	$_file = ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/update.php';
 	if ( file_exists( $_file ) ) {
 		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL2, ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/update.php' ) );
-		echo '<br />';
 	}
+
 	$path1 = ICMS_ROOT_PATH . '/' . icms::$module -> config['mainimagedir'];
-	if ( !is_dir( $path1 ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path1 ) );
-		echo '<br />';
-	}
-	if ( !is_writable( $path1 ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path1 ) );
-		echo '<br />';
-	}
+	if ( !is_dir( $path1 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path1 ) ); }
+	if ( !is_writable( $path1 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path1 ) ); }
+
 	$path1_t = ICMS_ROOT_PATH . '/' . icms::$module -> config['mainimagedir'] . '/thumbs';
-	if ( !is_dir( $path1_t ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path1_t ) );
-		echo '<br />';
-	}
-	if ( !is_writable( $path1_t ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path1_t ) );
-		echo '<br />';
-	}
+	if ( !is_dir( $path1_t ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path1_t ) ); }
+	if ( !is_writable( $path1_t ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path1_t ) ); }
+
 	$path2 = ICMS_ROOT_PATH . '/' . icms::$module -> config['screenshots'];
-	if ( !is_dir( $path2 ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path2 ) );
-		echo '<br />';
-	}
-	if ( !is_writable( $path2 ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path2 ) );
-		echo '<br />';
-	}
+	if ( !is_dir( $path2 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path2 ) ); }
+	if ( !is_writable( $path2 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path2 ) ); }
+
 	$path2_t = ICMS_ROOT_PATH . '/' . icms::$module -> config['screenshots'] . '/thumbs';
-	if ( !is_dir( $path2_t ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path2_t ) );
-		echo '<br />';
-	}
-	if ( !is_writable( $path2_t ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path2_t ) );
-		echo '<br />';
-	}
+	if ( !is_dir( $path2_t ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path2_t ) ); }
+	if ( !is_writable( $path2_t ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path2_t ) ); }
+
 	$path3 = ICMS_ROOT_PATH . '/' . icms::$module -> config['catimage'];
-	if ( !is_dir( $path3 ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path3 ) );
-		echo '<br />';
-	}
-	if ( !is_writable( $path3 ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path3 ) );
-		echo '<br />';
-	}
+	if ( !is_dir( $path3 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path3 ) ); }
+	if ( !is_writable( $path3 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path3 ) ); }
+
 	$path3_t = ICMS_ROOT_PATH . '/' . icms::$module -> config['catimage'] . '/thumbs';
-	if ( !is_dir( $path3_t ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path3_t ) );
-		echo '<br />';
-	}
-	if ( !is_writable( $path3_t ) ) {
-		icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path3_t ) );
-		echo '<br />';
-	}
+	if ( !is_dir( $path3_t ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path3_t ) ); }
+	if ( !is_writable( $path3_t ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path3_t ) ); }
+
+	// Check if library folders are there
+	if ( !is_dir( ICMS_LIBRARIES_PATH . '/greybox' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB1, $pathlib ) ); }
+	if ( !is_dir( ICMS_LIBRARIES_PATH . '/lightwindow' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB2, $pathlib ) ); }
+	if ( !is_dir( ICMS_LIBRARIES_PATH . '/lytebox' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB3, $pathlib ) ); }
+	if ( !is_dir( ICMS_LIBRARIES_PATH . '/prototype' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB4, $pathlib ) ); }
+	if ( !is_dir( ICMS_LIBRARIES_PATH . '/scriptaculous' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB5, $pathlib ) ); }
+	if ( !is_dir( ICMS_LIBRARIES_PATH . '/socialshareprivacy' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB6, $pathlib ) ); }
+
 	echo '<h3 style="color: #2F5376;">' . $header . '</h3>';
-	if ( $extra ) {
-		echo '<div>$extra</div>';
-	}
+	if ( $extra ) { echo '<div>$extra</div>'; }
 }
 
 function iml_linklistpagenav( $pubrowamount, $start, $art = 'art', $_this = '', $align = 'left' ) {
