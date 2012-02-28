@@ -171,7 +171,7 @@ switch( icms::$module -> config['lightwindow'] ) {
 	// Open link in new browser tab/window
 	case 0:
 		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
-		$imlink['visitlink']    = '<span  id="button"><a class="button" href="' . $imlink['visit'] . '" target="_blank">' . _MD_IMLINKS_LINKNOW . '</a></span>';
+		$imlink['visitlink']    = '<span id="button"><a class="button" href="' . $imlink['visit'] . '" target="_blank">' . _MD_IMLINKS_LINKNOW . '</a></span>';
 		$imlink['visittitle']   = '<a href="' . $imlink['visit'] . '" target="_blank">' . $link_arr['title'] . '</a>';
 		break;
 
@@ -179,14 +179,14 @@ switch( icms::$module -> config['lightwindow'] ) {
 	case 1:
 		$lightwindow = 'params="lightwindow_width=800,lightwindow_height=600,lightwindow_loading_animation=true" title="' . $link_arr['title'] . '" caption="' . $imlink['hits'] . '"';
 		$imlink['visitspinner'] = '<a class="lightwindow" href="' . $imlink['visit'] . '" ' . $lightwindow . '><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
-		$imlink['visitlink']    = '<span  id="button"><a class="lightwindow button" href="' . $imlink['visit'] . '"  ' . $lightwindow . '>' . _MD_IMLINKS_LINKNOW . '</a></span>';
+		$imlink['visitlink']    = '<span id="button"><a class="lightwindow button" href="' . $imlink['visit'] . '"  ' . $lightwindow . '>' . _MD_IMLINKS_LINKNOW . '</a></span>';
 		$imlink['visittitle']   = '<a class="lightwindow" href="' . $imlink['visit'] . '">' . $link_arr['title'] . '</a>';
 		break;
 
 	// Open link in GreyBox
 	case 2:
 		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" rel="gb_page_center[800, 600]"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
-		$imlink['visitlink']    = '<span  id="button"><a class="button" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]">' . _MD_IMLINKS_LINKNOW . '</a></span>';
+		$imlink['visitlink']    = '<span id="button"><a class="button" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]">' . _MD_IMLINKS_LINKNOW . '</a></span>';
 		$imlink['visittitle']   = '<a href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]">' . $link_arr['title'] . '</a>';
 		break;
 }
