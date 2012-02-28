@@ -963,16 +963,16 @@ function iml_thumbshot( $url ) {
 function imlinks_tooltip( $description, $tip = 'help' ) {
 	switch ( $tip ) {
 		case 'help':
-			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:help tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/help.png" alt="" /></a>';
+			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:help tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_LIBRARIES_URL . '/lytebox/images/help_small.png" alt="" /></a>';
 			break;
 		case 'info':
-			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:info tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/information.png" alt="" /></a>';
+			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:info tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_LIBRARIES_URL . '/lytebox/images/information_small.png" alt="" /></a>';
 			break;
 		case 'warning':
-			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:warning tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/error.png" alt="" /></a>';
+			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:warning tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_LIBRARIES_URL . '/lytebox/images/error_small.png" alt="" /></a>';
 			break;
 		case 'error':
-			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:error tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/exclamation.png" alt="" /></a>';
+			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:error tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_LIBRARIES_URL . '/lytebox/images/exclamation_small.png" alt="" /></a>';
 			break;
 	}
 	return $tooltip;
