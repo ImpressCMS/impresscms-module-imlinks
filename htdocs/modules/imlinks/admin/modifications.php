@@ -37,11 +37,11 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		iml_adminmenu( '', _AM_IMLINKS_MOD_MODREQUESTS );
 
-		$sql = 'SELECT modifysubmitter, requestid, lid, cid, title, url, description, screenshot, forumid, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, ttlat, ttlong FROM ' . icms::$xoopsDB -> prefix( 'imlinks_mod' ) . ' WHERE requestid=' . $requestid;
+		$sql = 'SELECT modifysubmitter, requestid, lid, cid, title, url, description, screenshot, forumid, country, keywords, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, ttlat, ttlong FROM ' . icms::$xoopsDB -> prefix( 'imlinks_mod' ) . ' WHERE requestid=' . $requestid;
 		$mod_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 		unset( $sql );
 
-		$sql = 'SELECT submitter, lid, cid, title, url, description, screenshot, forumid, country, keywords, item_tag, googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, ttlat, ttlong FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $mod_array['lid'];
+		$sql = 'SELECT submitter, lid, cid, title, url, description, screenshot, forumid, country, keywords googlemap, yahoomap, multimap, street1, street2, town, state, zip, tel, fax, voip, mobile, email, vat, ttlat, ttlong FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $mod_array['lid'];
 		$orig_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 		unset( $sql );
 
@@ -159,7 +159,7 @@ switch ( strtolower( $op ) ) {
 		$submitter = $link_array['modifysubmitter'];
 		$country = $link_array['country'];
 		$keywords = $link_array['keywords'];
-		$item_tag = $link_array['item_tag'];
+//		$item_tag = $link_array['item_tag'];
 		$googlemap = $link_array['googlemap'];
 		$yahoomap = $link_array['yahoomap'];
 		$multimap = $link_array['multimap'];
@@ -178,7 +178,7 @@ switch ( strtolower( $op ) ) {
 		$ttlong = $link_array['ttlong'];
 		$updated = time();
 
-		icms::$xoopsDB -> query( "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET cid='$cid', title='$title', url='$url', submitter='$submitter', screenshot='$screenshot', publisher='$publisher', status='2', updated='$updated', description='$description', country='$country', keywords='$keywords', item_tag='$item_tag', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state', zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat', ttlat='$ttlat', ttlong='$ttlong' WHERE lid=" . $lid );
+		icms::$xoopsDB -> query( "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET cid='$cid', title='$title', url='$url', submitter='$submitter', screenshot='$screenshot', publisher='$publisher', status='2', updated='$updated', description='$description', country='$country', keywords='$keywords', googlemap='$googlemap', yahoomap='$yahoomap', multimap='$multimap', street1='$street1', street2='$street2', town='$town', state='$state', zip='$zip', tel='$tel', fax='$fax', voip='$voip', mobile='$mobile', email='$email', vat='$vat', ttlat='$ttlat', ttlong='$ttlong' WHERE lid=" . $lid );
 
 		$sql = 'DELETE FROM ' . icms::$xoopsDB -> prefix( 'imlinks_mod' ) . ' WHERE requestid=' . $requestid;
 
