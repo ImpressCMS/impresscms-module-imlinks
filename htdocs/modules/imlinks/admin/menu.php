@@ -80,9 +80,6 @@ if ( isset( icms::$module ) ) {
 	$headermenu[$i]['title'] = _COMMENTS;
 	$headermenu[$i]['link']  = "../../system/admin.php?module=" . icms::$module -> getVar( 'mid' ) . "&status=0&limit=100&fct=comments&selsubmit=Go";
 	$i++;
-	$headermenu[$i]['title'] = _AM_IMLINKS_DOCUMENTATION;
-	$headermenu[$i]['link']  = 'http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual.pdf" target="_blank"';
-	$i++;
 	$headermenu[$i]['title'] = _MODABOUT_ABOUT;
 	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/about.php';
 }
