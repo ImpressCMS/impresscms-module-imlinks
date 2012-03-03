@@ -46,36 +46,35 @@ class imLinksModuleAbout {
 	 * @param string $aboutTitle text used in the extreme right caption of the menu
 	 * @return IcmsModuleAbout
 	 */
-	
+
 	function imLinksModuleAbout( $aboutTitle='About' ) {
 		global $icmsConfig;
 
 		icms_loadLanguageFile( icms::$module -> getVar( 'dirname' ), 'modinfo' );
 		icms_loadLanguageFile( icms::$module -> getVar( 'dirname' ), 'moduleabout' );
-		
+
 		$this -> _aboutTitle = $aboutTitle;
 
-		$this -> _lang_developer_contributor = _MODABOUT_IMLINKS_DEVELOPER_CONTRIBUTOR;
-		$this -> _lang_developer_website = _MODABOUT_IMLINKS_DEVELOPER_WEBSITE;
-		$this -> _lang_developer_email = _MODABOUT_IMLINKS_DEVELOPER_EMAIL;
-		$this -> _lang_developer_credits = _MODABOUT_IMLINKS_DEVELOPER_CREDITS;
-		$this -> _lang_module_info = _MODABOUT_IMLINKS_MODULE_INFO;
-		$this -> _lang_module_status = _MODABOUT_IMLINKS_MODULE_STATUS;
-		$this -> _lang_module_release_date =_MODABOUT_IMLINKS_MODULE_RELEASE_DATE ;
-		$this -> _lang_module_demo = _MODABOUT_IMLINKS_MODULE_DEMO;
-		$this -> _lang_module_support = _CO_ICMS_MODULE_SUPPORT;
-		$this -> _lang_module_bug = _MODABOUT_IMLINKS_MODULE_BUG;
-		$this -> _lang_module_submit_bug = _MODABOUT_IMLINKS_MODULE_SUBMIT_BUG;
-		$this -> _lang_module_feature = _MODABOUT_IMLINKS_MODULE_FEATURE;
-		$this -> _lang_module_submit_feature = _CO_ICMS_MODULE_SUBMIT_FEATURE;
-		$this -> _lang_module_disclaimer = _MODABOUT_IMLINKS_MODULE_DISCLAIMER;
-		$this -> _lang_author_word = _MODABOUT_IMLINKS_AUTHOR_WORD;
-		$this -> _lang_version_history = _MODABOUT_IMLINKS_VERSION_HISTORY;
+		$this -> _lang_developer_contributor	= _MODABOUT_IMLINKS_DEVELOPER_CONTRIBUTOR;
+		$this -> _lang_developer_website		= _MODABOUT_IMLINKS_DEVELOPER_WEBSITE;
+		$this -> _lang_developer_email			= _MODABOUT_IMLINKS_DEVELOPER_EMAIL;
+		$this -> _lang_developer_credits		= _MODABOUT_IMLINKS_DEVELOPER_CREDITS;
+		$this -> _lang_module_info				= _MODABOUT_IMLINKS_MODULE_INFO;
+		$this -> _lang_module_status			= _MODABOUT_IMLINKS_MODULE_STATUS;
+		$this -> _lang_module_release_date		= _MODABOUT_IMLINKS_MODULE_RELEASE_DATE ;
+		$this -> _lang_module_demo				= _MODABOUT_IMLINKS_MODULE_DEMO;
+		$this -> _lang_module_support			= _CO_ICMS_MODULE_SUPPORT;
+		$this -> _lang_module_bug				= _MODABOUT_IMLINKS_MODULE_BUG;
+		$this -> _lang_module_submit_bug		= _MODABOUT_IMLINKS_MODULE_SUBMIT_BUG;
+		$this -> _lang_module_feature			= _MODABOUT_IMLINKS_MODULE_FEATURE;
+		$this -> _lang_module_submit_feature	= _CO_ICMS_MODULE_SUBMIT_FEATURE;
+		$this -> _lang_module_disclaimer		= _MODABOUT_IMLINKS_MODULE_DISCLAIMER;
+		$this -> _lang_author_word				= _MODABOUT_IMLINKS_AUTHOR_WORD;
+		$this -> _lang_version_history			= _MODABOUT_IMLINKS_VERSION_HISTORY;
 	}
 
 	/**
 	 * Santizie a value 
-	 *
 	 * @param string $value to be sanitized
 	 * @return string santizied value
 	 */
@@ -85,7 +84,6 @@ class imLinksModuleAbout {
 
 	/**
 	 * Render the whole About page of a module
-	 *
 	 */
 	function render() {
 		global $icmsConfig;
@@ -147,7 +145,7 @@ class imLinksModuleAbout {
 		$this -> _tpl->assign( 'module_support_site_name', $versioninfo -> getInfo( 'support_site_name' ) );
 		$this -> _tpl->assign( 'module_submit_bug', $versioninfo -> getInfo( 'submit_bug' ) );
 		$this -> _tpl->assign( 'module_submit_feature', $versioninfo -> getInfo( 'submit_feature' ) );
-		
+
 		// Manual
 		$manual = $versioninfo -> getInfo( 'manual' );
 		if ( $manual ) {

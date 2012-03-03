@@ -103,7 +103,7 @@
 			<div class="imlinks_tblhdrcell" style="width: 300px;"><{$smarty.const._MODABOUT_IMLINKS_PEOPLE_TESTERS}></div>
 			<div class="imlinks_tblcell">
 				<{foreach item=person from=$module_people_testers}>
-					<div><{$person}></div>
+					<div>&middot;&nbsp;<{$person}></div>
 				<{/foreach}>
 			</div>
 		</div>
@@ -114,7 +114,7 @@
 			<div class="imlinks_tblhdrcell" style="width: 300px;"><{$smarty.const._MODABOUT_IMLINKS_PEOPLE_TRANSLATERS}></div>
 			<div class="imlinks_tblcell">
 				<{foreach item=person from=$module_people_translators}>
-					<div><{$person}></div>
+					<div>&middot;&nbsp;<{$person}></div>
 				<{/foreach}>
 			</div>
 		</div>
@@ -125,7 +125,7 @@
 			<div class="imlinks_tblhdrcell" style="width: 300px;"><{$smarty.const._MODABOUT_IMLINKS_PEOPLE_DOCUMENTERS}></div>
 			<div class="imlinks_tblcell">
 				<{foreach item=person from=$module_people_documenters}>
-					<div><{$person}></div>
+					<div>&middot;&nbsp;<{$person}></div>
 				<{/foreach}>
 			</div>
 		</div>
@@ -136,7 +136,7 @@
 			<div class="imlinks_tblhdrcell" style="width: 300px;"><{$smarty.const._MODABOUT_IMLINKS_PEOPLE_OTHER}></div>
 			<div class="imlinks_tblcell">
 				<{foreach item=person from=$module_people_other}>
-					<div><{$person}></div>
+					<div>&middot;&nbsp;<{$person}></div>
 				<{/foreach}>
 			</div>
 		</div>
@@ -164,7 +164,7 @@
 		<div class="imlinks_tblhdrcell" style="width: 300px;"><{$smarty.const._MODABOUT_IMLINKS_MANUAL_WIKI}></div>
 		<div class="imlinks_tblcell">
 			<{foreach item=manual from=$module_manual}>
-				<div><{$manual}></div>
+				<div>&middot;&nbsp;<{$manual}></div>
 			<{/foreach}>
 		</div>
 	</div>

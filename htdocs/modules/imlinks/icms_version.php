@@ -52,38 +52,43 @@ $modversion['author']			= 'Version developer: John N';
 $modversion['credits']			= 'WF-Projects Team: Based on WF-Links, thanks to the dream-team for some code snippits. Team members: amayer, bender, david, dqflyer, draven, frankblack, gladiac, hervet, jackj, mercibe, John N, phppp, predator, reliableSol, tom, xpider, xtheme.';
 $modversion['author_website_url']	= 'http://code.google.com/p/mcdonaldsstore/downloads/list';
 $modversion['author_website_name']	= 'McDonalds Store';
-$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual.pdf" target="_blank">English [PDF]</a>';
 
 $modversion['support_site_url'] = 'http://community.impresscms.org/modules/newbb/viewforum.php?forum=9';
 $modversion['support_site_name']= 'ImpressCMS Community Forum - Modules Support';
 
 // ** Contributors **
 $modversion['people']['developers'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a>&nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
-$modversion['people']['testers'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a>';
-$modversion['people']['testers'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>';
-$modversion['people']['testers'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=480" target="_blank">algalochkin</a>';
+$modversion['people']['testers'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a>';
+$modversion['people']['testers'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>';
+$modversion['people']['testers'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=480" target="_blank">algalochkin</a>';
 
 // ** Translators **
-$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a> (German)';
-$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>  (Portuguese-Brazil)';
-$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=97" target="_blank">debianus</a> (Spanish)';
-$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a>  (Dutch)';
-$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=480" target="_blank">algalochkin</a> (Russian)';
-$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=523" target="_blank">JardaR</a> (Czech)';
-$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=555" target="_blank">cpascal</a> (French)';
-$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=953" target="_blank">hisapapa</a> (Japanese)';
-$modversion['people']['translators'][] = '&middot; <a href="http://www.frxoops.org/userinfo.php?uid=18073" target="_blank">Burning</a> (French)';
+$modversion['people']['translators'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a> (German)';
+$modversion['people']['translators'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>  (Portuguese-Brazil)';
+$modversion['people']['translators'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=97" target="_blank">debianus</a> (Spanish)';
+$modversion['people']['translators'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a>  (Dutch)';
+$modversion['people']['translators'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=480" target="_blank">algalochkin</a> (Russian)';
+$modversion['people']['translators'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=523" target="_blank">JardaR</a> (Czech)';
+$modversion['people']['translators'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=555" target="_blank">cpascal</a> (French)';
+$modversion['people']['translators'][] = '<a href="http://community.impresscms.org/userinfo.php?uid=953" target="_blank">hisapapa</a> (Japanese)';
+$modversion['people']['translators'][] = '<a href="http://www.frxoops.org/userinfo.php?uid=18073" target="_blank">Burning</a> (French)';
 
 // ** Other contributors **
-$modversion['people']['other'][] = '&middot; <a href="http://www.bitfolge.de" target="_blank">Kai Blankenhorn</a> (vCard script)';
-$modversion['people']['other'][] = '&middot; <a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
-$modversion['people']['other'][] = '&middot; <a href="http://www.masugadesign.com" target="_blank">Ryan Masuga</a> (AJAX Rating Bars)';
-$modversion['people']['other'][] = '&middot; <a href="http://www.p51labs.com/lightwindow/" target="_blank">Kevin Miller</a> (LightWindow)';
-$modversion['people']['other'][] = '&middot; <a href="http://orangoo.com/labs/GreyBox/" target="_blank">Orangoo Labs</a> (GreyBox)';
-$modversion['people']['other'][] = '&middot; <a href="http://www.heise.de/extras/socialshareprivacy/" target="_blank">Social Share Privacy</a>';
-$modversion['people']['other'][] = '&middot; <a href="http://lytebox.com" target="_blank">Lytebox</a>';
-$modversion['people']['other'][] = '&middot; <a href="http://prototypejs.org" target="_blank">Prototype</a>';
-$modversion['people']['other'][] = '&middot; <a href="http://script.aculo.us" target="_blank">script.aculo.us</a>';
+$modversion['people']['other'][] = '<a href="http://www.bitfolge.de" target="_blank">Kai Blankenhorn</a> (vCard script)';
+$modversion['people']['other'][] = '<a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
+$modversion['people']['other'][] = '<a href="http://www.masugadesign.com" target="_blank">Ryan Masuga</a> (AJAX Rating Bars)';
+$modversion['people']['other'][] = '<a href="http://www.p51labs.com/lightwindow/" target="_blank">Kevin Miller</a> (LightWindow)';
+$modversion['people']['other'][] = '<a href="http://orangoo.com/labs/GreyBox/" target="_blank">Orangoo Labs</a> (GreyBox)';
+$modversion['people']['other'][] = '<a href="http://www.heise.de/extras/socialshareprivacy/" target="_blank">Social Share Privacy</a>';
+$modversion['people']['other'][] = '<a href="http://lytebox.com" target="_blank">Lytebox</a>';
+$modversion['people']['other'][] = '<a href="http://prototypejs.org" target="_blank">Prototype</a>';
+$modversion['people']['other'][] = '<a href="http://script.aculo.us" target="_blank">script.aculo.us</a>';
+
+// ** Documentation
+$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual.pdf" target="_blank">English [PDF]</a>';
+//$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual_de.pdf" target="_blank">German [PDF]</a>';
+//$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual_nl.pdf" target="_blank">Nederlands [PDF]</a>';
+//$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual_es.pdf" target="_blank">Spanish [PDF]</a>';
 
 // ** If Release Candidate **
 $modversion['warning'] = _MODABOUT_IMLINKS_WARNING_RC;
