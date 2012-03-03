@@ -29,8 +29,8 @@ define('_MODABOUT_IMLINKS_PEOPLE_OTHER', 'Other contributors');
 define('_MODABOUT_IMLINKS_AUTHOR_INFO', 'Contributors Information');
 define('_MODABOUT_IMLINKS_AUTHOR_WORD', 'Author\'s words');
 define('_MODABOUT_IMLINKS_MODULE_LICENSE', 'License');
-define('_MODABOUT_IMLINKS_MANUAL', 'Manual');
-define('_MODABOUT_IMLINKS_MANUAL_WIKI', 'ImpressCMS Wiki');
+define('_MODABOUT_IMLINKS_MANUAL', 'Documentation');
+define('_MODABOUT_IMLINKS_MANUAL_WIKI', 'Manual');
 
 // Version 1.01
 define('_MODABOUT_IMLINKS_WARNINGTEXT', "THE SOFTWARE IS PROVIDED \"AS IS\" AND \"WITH ALL FAULTS.\"

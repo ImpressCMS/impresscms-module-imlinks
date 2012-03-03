@@ -12,7 +12,7 @@
 
 <{if $module_credits}>
 	<div class="imlinks_table">
-		<div class="imlinks_tblhdrrow">
+		<div class="imlinks_tblhdrrow" style="color: #33538E;">
 			<div class="imlinks_tblcell"><{$smarty.const._MODABOUT_IMLINKS_DEVELOPER_CREDITS}></div>
 		</div>
 		<div class="imlinks_tblcell"><{$module_credits}></div>
@@ -21,7 +21,7 @@
 
 <br />
 
-<div class="imlinks_tblhdr"><{$smarty.const._MODABOUT_IMLINKS_MODULE_INFO}></div>
+<div class="imlinks_tblhdr" style="color: #33538E;"><{$smarty.const._MODABOUT_IMLINKS_MODULE_INFO}></div>
 <div class="imlinks_table">
 
 	<div class="imlinks_tblrow">
@@ -71,7 +71,7 @@
 
 <br />
 
-<div class="imlinks_tblhdr"><{$smarty.const._MODABOUT_IMLINKS_AUTHOR_INFO}></div>
+<div class="imlinks_tblhdr" style="color: #33538E;"><{$smarty.const._MODABOUT_IMLINKS_AUTHOR_INFO}></div>
 <div class="imlinks_table">
 	<{if $module_developer_lead}>
 		<div class="imlinks_tblrow">
@@ -159,11 +159,8 @@
 
 <{if $module_manual}>
 	<br />
+	<div class="imlinks_tblhdr" style="color: #33538E;"><{$smarty.const._MODABOUT_IMLINKS_MANUAL}></div>
 	<div class="imlinks_table">
-		<div class="imlinks_tblhdrrow">
-			<div style="padding: 3px; font-weight: bold;" class="bg3">&nbsp;<{$smarty.const._MODABOUT_IMLINKS_MANUAL}></div>
-			<div style="display: table-cell; padding: 3px;"> </div>
-		</div>
 		<div class="imlinks_tblhdrcell" style="width: 300px;"><{$smarty.const._MODABOUT_IMLINKS_MANUAL_WIKI}></div>
 		<div class="imlinks_tblcell">
 			<{foreach item=manual from=$module_manual}>
@@ -176,7 +173,7 @@
 <{if $module_warning}>
 	<br />
 	<div class="imlinks_table">
-		<div class="imlinks_tblhdrrow">
+		<div class="imlinks_tblhdrrow" style="color: #33538E;">
 			 <div style="display: table-cell; padding: 3px;"><{$smarty.const._MODABOUT_IMLINKS_MODULE_DISCLAIMER}></div>
 		</div>
 		<div class="imlinks_tblrow">
@@ -198,7 +195,7 @@
 <{if $module_version_history}>
 	<br />
 	<div class="imlinks_table">
-		<div class="imlinks_tblhdrrow">
+		<div class="imlinks_tblhdrrow" style="color: #33538E;">
 			 <div style="display: table-cell; padding: 3px;"><{$smarty.const._MODABOUT_IMLINKS_VERSION_HISTORY}></div>
 		</div>
 		<div class="imlinks_tblrow">
@@ -214,7 +211,7 @@
 <{if $module_license_txt}>
 	<br />
 	<div class="imlinks_table">
-		<div class="imlinks_tblhdrrow">
+		<div class="imlinks_tblhdrrow" style="color: #33538E;">
 			 <div style="display: table-cell; padding: 3px;"><{$smarty.const._MODABOUT_IMLINKS_MODULE_LICENSE}></div>
 		</div>
 		<div class="imlinks_tblrow">

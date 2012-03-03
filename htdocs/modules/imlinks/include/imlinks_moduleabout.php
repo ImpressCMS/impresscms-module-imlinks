@@ -149,9 +149,9 @@ class imLinksModuleAbout {
 		$this -> _tpl->assign( 'module_submit_feature', $versioninfo -> getInfo( 'submit_feature' ) );
 		
 		// Manual
-		$manual =$versioninfo -> getInfo( 'manual' );
+		$manual = $versioninfo -> getInfo( 'manual' );
 		if ( $manual ) {
-			$this -> _tpl -> assign( 'module_manual', isset( $manual['wiki'] ) ? array_map( array( $this, 'sanitize' ), $manual['wiki']) : false );
+			$this -> _tpl -> assign( 'module_manual', $versioninfo -> getInfo( 'manual' ) );
 		}
 
 		// Warning

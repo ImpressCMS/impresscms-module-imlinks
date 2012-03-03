@@ -52,6 +52,7 @@ $modversion['author']			= 'Version developer: John N';
 $modversion['credits']			= 'WF-Projects Team: Based on WF-Links, thanks to the dream-team for some code snippits. Team members: amayer, bender, david, dqflyer, draven, frankblack, gladiac, hervet, jackj, mercibe, John N, phppp, predator, reliableSol, tom, xpider, xtheme.';
 $modversion['author_website_url']	= 'http://code.google.com/p/mcdonaldsstore/downloads/list';
 $modversion['author_website_name']	= 'McDonalds Store';
+$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual.pdf" target="_blank">English [PDF]</a>';
 
 $modversion['support_site_url'] = 'http://community.impresscms.org/modules/newbb/viewforum.php?forum=9';
 $modversion['support_site_name']= 'ImpressCMS Community Forum - Modules Support';
