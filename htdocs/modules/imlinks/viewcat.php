@@ -198,6 +198,11 @@ if ( $selectdate ) {
 	$xoopsTpl -> assign( 'page_nav', $istrue );
 	$xoopsTpl -> assign( 'pagenav', $page_nav );
 	$xoopsTpl -> assign( 'module_dir', $mydirname );
+	$xoopsTpl -> assign( 'xoops_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />
+<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/behavior.js"></script>
+<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/rating.js"></script>
+<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />' );
 
 // Show links
 if ( $count > 0 ) {

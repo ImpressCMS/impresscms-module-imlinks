@@ -215,8 +215,9 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		
 			$xoopsOption['template_main'] = 'imlinks_disclaimer.html';
 			include_once ICMS_ROOT_PATH . '/header.php';
-
-			$xoopsTpl -> assign( 'image_header', iml_imageheader() );
+			if ( iml_imageheader() ) {
+				$xoopsTpl -> assign( 'image_header', '<div style="text-align: center; margin-bottom: 20px;">' . iml_imageheader() . '</div>' );
+			}
 			$xoopsTpl -> assign( 'disclaimer', icms::$module -> config['disclaimer'] );
 			$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . $mydirname . '/index.php' );
 			$xoopsTpl -> assign( 'link_disclaimer', false );
