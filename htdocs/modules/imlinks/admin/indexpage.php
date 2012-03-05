@@ -66,8 +66,8 @@ switch ( strtolower( $op ) ) {
 			' . _AM_IMLINKS_MINDEX_PAGEINFOTXT . '</div>
 			</div><br />';
 
-		echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
-			  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
+		$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+			  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />' );
 
 		$sform = new icms_form_Theme( _AM_IMLINKS_IPAGE_MODIFY, 'op', '' );
 

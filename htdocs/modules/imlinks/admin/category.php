@@ -69,6 +69,7 @@ function createcat($cid = 0) {
 		$groups = true;
 	}
 	echo '<div style="clear: both;">&nbsp;</div>';
+
 	$sform = new icms_form_Theme( $heading, 'op', '' );
 	$sform -> setExtra( 'enctype="multipart/form-data"' );
 

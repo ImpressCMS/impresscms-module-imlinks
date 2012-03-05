@@ -34,7 +34,7 @@ $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 $lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
 function edit( $lid = 0, $doclone = 0 ) {
-	global $immyts, $mytree, $imagearray, $icmsConfig;
+	global $immyts, $mytree, $imagearray, $icmsConfig, $icmsAdminTpl;
 
 	$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
 	if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
@@ -88,8 +88,8 @@ function edit( $lid = 0, $doclone = 0 ) {
 	icms_cp_header();
 	iml_adminmenu( 2, _AM_IMLINKS_MLINKS );
 
-	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
-		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
+	$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />' );
 
 	if ( $lid > 0 ) {
 		$_vote_data = iml_getVoteDetails( $lid );
@@ -789,7 +789,8 @@ switch ( strtolower( $op ) ) {
 
 		// Module admin summary
 		iml_adminmenu( 1, _AM_IMLINKS_BINDEX );
-		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
+
+		$icmsAdminTpl -> assign( 'xoops_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />' );
 		echo '
 			<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_LINKSUMMARY . '</div>

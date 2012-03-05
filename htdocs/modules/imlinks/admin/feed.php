@@ -21,7 +21,7 @@ include 'admin_header.php';
 $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 
 function imlinks_rss_edit() {
-	global $immyts, $icmsConfig;
+	global $immyts, $icmsConfig, $icmsAdminTpl;
 
 	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
 
@@ -64,8 +64,8 @@ function imlinks_rss_edit() {
 			}
 	echo '</div><br />';
 
-	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
-		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
+	$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+		<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />' );
 
 	$sform = new icms_form_Theme( _AM_IMLINKS_RSSFEEDCFG, 'storyform', '' );
 	$sform -> setExtra( 'enctype="multipart / form - data"' );

@@ -66,10 +66,10 @@ include ICMS_ROOT_PATH . '/header.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/address.php';
 
 // tags support
-if ( iml_tag_module_included() ) {
-	include_once ICMS_ROOT_PATH . '/modules/tag/include/tagbar.php';
-	$xoopsTpl -> assign( 'tagbar', tagBar( $link_arr['lid'], 0 ) );
-}
+//if ( iml_tag_module_included() ) {
+//	include_once ICMS_ROOT_PATH . '/modules/tag/include/tagbar.php';
+//	$xoopsTpl -> assign( 'tagbar', tagBar( $link_arr['lid'], 0 ) );
+//}
 
 if ( iml_imageheader() != '' ) {
 $imlink['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>'; }
@@ -360,10 +360,6 @@ if ( iml_imageheader() != '' ) {
 $catarray['letters'] = '<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink" id="button">' . iml_letters() . '</div>';
 $catarray['toolbar'] = '<div style="padding-bottom: 12px; text-align: center;" id="button">' . iml_toolbar() . '</div>';
 $xoopsTpl -> assign( 'catarray', $catarray );
-
-if ( icms::$module -> config['lightwindow'] == 2 ) {
-	$xoopsTpl -> assign( 'xoops_module_header', '<script type="text/javascript">var GB_ROOT_DIR = "' . ICMS_URL . '/libraries/greybox/";</script>' );
-}
 
 include ICMS_ROOT_PATH . '/include/comment_view.php';
 include ICMS_ROOT_PATH . '/footer.php';
