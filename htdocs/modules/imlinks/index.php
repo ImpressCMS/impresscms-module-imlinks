@@ -185,21 +185,21 @@ $rsssql = 'SELECT rssactive FROM ' . icms::$xoopsDB -> prefix( 'imlinks_configs'
 $result = icms::$xoopsDB -> query( $rsssql );
 list( $rssactive ) = icms::$xoopsDB -> fetchRow( $result );
 if ( $rssactive == 1 && icms::$module -> config['lightwindow'] < 2 ) {
-	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="" title="' . _MD_IMLINKS_FEED . '" /></a>' );
+	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="" title="' . icms::$module -> getVar( 'name' ) . ' ' . _MD_IMLINKS_FEED . '" /></a>' );
 	$xoopsTpl -> assign( 'xoops_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />
 <script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/behavior.js"></script>
 <script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/rating.js"></script>
 <script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />
-<atom:link rel="alternate" type="application/rss+xml" title="' . _MD_IMLINKS_FEED . '" href="feed.php">' );
+<link rel="alternate" type="application/rss+xml" title="' . icms::$module -> getVar( 'name' ) . ' ' . _MD_IMLINKS_FEED . '" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php">' );
 } elseif ( $rssactive == 1 && icms::$module -> config['lightwindow'] == 2 ) {
-	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="" title="' . _MD_IMLINKS_FEED . '" /></a>' );
+	$xoopsTpl -> assign( 'imlinks_feed', '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed.png" border="0" alt="" title="' . icms::$module -> getVar( 'name' ) . ' ' . _MD_IMLINKS_FEED . '" /></a>' );
 	$xoopsTpl -> assign( 'xoops_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />
 <script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/behavior.js"></script>
 <script type="text/javascript" language="javascript" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/js/rating.js"></script>
 <script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />
-<atom:link rel="alternate" type="application/rss+xml" title="' . _MD_IMLINKS_FEED . '" href="feed.php">
+<link rel="alternate" type="application/rss+xml" title="' . icms::$module -> getVar( 'name' ) . ' ' . _MD_IMLINKS_FEED . '" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php">
 	<script type="text/javascript">var GB_ROOT_DIR = "' . ICMS_URL . '/libraries/greybox/";</script>' );
 } elseif ( $rssactive == 0 &&  icms::$module -> config['lightwindow'] == 2 ) {
 	$xoopsTpl -> assign( 'xoops_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />
