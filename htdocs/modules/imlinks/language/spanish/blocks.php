@@ -45,7 +45,7 @@ define( "_MB_IMLINKS_CLICKS", "Clics" );
 define( "_MB_IMLINKS_CATTITLE", "Categoría" );
 define( "_MB_IMLINKS_UNLIMIT", "Ilimitado" );
 define( "_MB_IMLINKS_DATEFORMAT", "Formato de fecha" );
-define( "_MB_IMLINKS_DATEFORMATMANUAL", 'Vea el <a href="http://jp.php.net/manual/es/function.date.php" target="_blank">Manual de PHP</a> para más información sobre esta materia' );
+define( "_MB_IMLINKS_DATEFORMATMANUAL", "Vea el <a href='http://jp.php.net/manual/es/function.date.php' target='_blank'>Manual de PHP</a> para más información sobre esta materia" );
 
 // Version 1.12
 define( '_MB_IMLINKS_SUBMITTER', 'Submitter' );

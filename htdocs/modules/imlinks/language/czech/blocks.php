@@ -41,7 +41,7 @@ define( '_MB_IMLINKS_CLICKS', 'Clicks' );
 define( '_MB_IMLINKS_CATTITLE', 'Kategorie' );
 define( '_MB_IMLINKS_UNLIMIT', 'neomezeně' );
 define( '_MB_IMLINKS_DATEFORMAT', 'Formát datumu' );
-define( '_MB_IMLINKS_DATEFORMATMANUAL', 'Podívejte se do <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manuálu</a>' );
+define( '_MB_IMLINKS_DATEFORMATMANUAL', "Podívejte se do <a href='http://jp.php.net/manual/en/function.date.php' target='_blank'>PHP manuálu</a>" );
 
 // Version 1.12
 define( '_MB_IMLINKS_SUBMITTER', 'Submitter' );
