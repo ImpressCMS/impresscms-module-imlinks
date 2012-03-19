@@ -88,13 +88,19 @@ function iml_adminmenu( $currentoption = 0, $header = '', $menu = '', $extra = '
 	if ( !is_dir( $path3_t ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path3_t ) ); }
 	if ( !is_writable( $path3_t ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL4, $path3_t ) ); }
 
-	// Check if library folders are there
-	if ( !is_dir( ICMS_LIBRARIES_PATH . '/greybox' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB1 ) ); }
-	if ( !is_dir( ICMS_LIBRARIES_PATH . '/lightwindow' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB2 ) ); }
-	if ( !is_dir( ICMS_LIBRARIES_PATH . '/lytebox' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB3 ) ); }
-	if ( !is_dir( ICMS_LIBRARIES_PATH . '/prototype' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB4 ) ); }
-	if ( !is_dir( ICMS_LIBRARIES_PATH . '/scriptaculous' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB5 ) ); }
-	if ( !is_dir( ICMS_LIBRARIES_PATH . '/socialshareprivacy' ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNLIB6 ) ); }
+	// Check if library folders are present
+	$path_tickers_01 = ICMS_LIBRARIES_PATH . '/greybox';
+	$path_tickers_02 = ICMS_LIBRARIES_PATH . '/lightwindow';
+	$path_tickers_03 = ICMS_LIBRARIES_PATH . '/lytebox';
+	$path_tickers_04 = ICMS_LIBRARIES_PATH . '/prototype';
+	$path_tickers_05 = ICMS_LIBRARIES_PATH . '/scriptaculous';
+	$path_tickers_06 = ICMS_LIBRARIES_PATH . '/socialshareprivacy';
+	if ( !is_dir( $path_tickers_01 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path_tickers_01 ) ); }
+	if ( !is_dir( $path_tickers_02 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path_tickers_02 ) ); }
+	if ( !is_dir( $path_tickers_03 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path_tickers_03 ) ); }
+	if ( !is_dir( $path_tickers_04 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path_tickers_04 ) ); }
+	if ( !is_dir( $path_tickers_05 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path_tickers_05 ) ); }
+	if ( !is_dir( $path_tickers_06 ) ) { icms_core_Message::error( sprintf( _AM_IMLINKS_WARNINSTALL3, $path_tickers_06 ) ); }
 
 	echo '<h3 style="color: #2F5376;">' . $header . '</h3>';
 	if ( $extra ) { echo '<div>$extra</div>'; }
