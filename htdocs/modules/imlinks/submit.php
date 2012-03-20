@@ -287,7 +287,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		$url_text = new icms_form_elements_Text( '', 'url', 70, 255, $url );
 		$url_tray = new icms_form_elements_Tray( _MD_IMLINKS_DLURL . imlinks_tooltip( _MD_IMLINKS_LINKURLDSC, 'help' ), '' );
 		$url_tray -> addElement( $url_text , true ) ;
-		$url_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/world.png' onClick=\"window.open(storyform.url.value,'','');return(false);\" alt='' title='Check URL' />" ));
+		$url_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/world.png' onClick=\"window.open(storyform.url.value,'','');return(false);\" alt='' title='Check URL' style='cursor:pointer;' />" ));
 		$sform -> addElement( $url_tray );
 
 		// Category selection menu
@@ -329,21 +329,21 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		$googlemap_text = new icms_form_elements_Text( '', 'googlemap', 70, 1024, $googlemap );
 		$googlemap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_GOOGLEMAP . imlinks_tooltip( sprintf( _MD_IMLINKS_MAPDSC, '<i>http://maps.google.com</i>' ), 'help' ), '' );
 		$googlemap_tray -> addElement( $googlemap_text , false ) ;
-		$googlemap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/google_map.png' onClick=\"window.open(storyform.googlemap.value,'','');\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' />" ) );
+		$googlemap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/google_map.png' onClick=\"window.open(storyform.googlemap.value,'','');\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' style='cursor:pointer;' />" ) );
 		$sform -> addElement( $googlemap_tray );
 
 		// Yahoo Maps
 		$yahoomap_text = new icms_form_elements_Text( '', 'yahoomap', 70, 1024, $yahoomap );
 		$yahoomap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_YAHOOMAP . imlinks_tooltip( sprintf( _MD_IMLINKS_MAPDSC, '<i>http://maps.yahoo.com</i>' ), 'help' ), '' );
 		$yahoomap_tray -> addElement( $yahoomap_text , false ) ;
-		$yahoomap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/yahoo_map.png' onClick=\"window.open(storyform.yahoomap.value,'','');return(false);\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' />" ) );
+		$yahoomap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/yahoo_map.png' onClick=\"window.open(storyform.yahoomap.value,'','');return(false);\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' style='cursor:pointer;' />" ) );
 		$sform -> addElement( $yahoomap_tray );
 
 		// Bing Maps
 		$multimap_text = new icms_form_elements_Text( '', 'multimap', 70, 1024, $multimap );
 		$multimap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_BINGMAP . imlinks_tooltip( sprintf( _MD_IMLINKS_MAPDSC, '<i>http://www.bing.com/maps/</i>' ), 'help' ), '' );
 		$multimap_tray -> addElement( $multimap_text , false ) ;
-		$multimap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/bing_map.png' onClick=\"window.open(storyform.multimap.value,'','');return(false);\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' />" ));
+		$multimap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/bing_map.png' onClick=\"window.open(storyform.multimap.value,'','');return(false);\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' style='cursor:pointer;' />" ));
 		$sform -> addElement( $multimap_tray );
 
 		// Address forms
