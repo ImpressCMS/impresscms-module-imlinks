@@ -613,7 +613,7 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
 	'default'		=> 0,
-	'options'		=> array( _NONE => 0, _MI_IMLINKS_HORICNT => 1, _MI_IMLINKS_VERTCNT => 2 ) );
+	'options'		=> array( _NONE => 0, _MI_IMLINKS_DEFAULT => 1, _MI_IMLINKS_HORICNT => 2, _MI_IMLINKS_VERTCNT => 3 ) );
 
 $modversion['config'][] = array(
 	'name'			=> 'plusone_bttn',

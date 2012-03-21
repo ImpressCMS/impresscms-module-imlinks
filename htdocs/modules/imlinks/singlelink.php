@@ -301,15 +301,18 @@ if ( icms::$module -> config['twitt_bttn'] > 0 ) {
 //Facebook button
 switch ( icms::$module -> config['faceb_bttn'] ) {
 	case 1:
-		$fbcount = 'button_count';
+		$fbcount = '';
 		break;
 	case 2:
-		$fbcount = 'box_count';
+		$fbcount = 'data-layout="button_count"';
+		break;
+	case 3:
+		$fbcount = 'data-layout="box_count"';
 		break;
 }
 
 if ( icms::$module -> config['faceb_bttn'] > 0 ) {
-	$facebook = '<div data-href="' . $link_url . '" class="fb-like" data-send="false" data-layout="' . $fbcount . '" data-show-faces="false"></div>';
+	$facebook = '<div data-href="' . $link_url . '" class="fb-like" data-send="false" ' . $fbcount . ' data-show-faces="false"></div>';
 }
 
 //Google +1 button
