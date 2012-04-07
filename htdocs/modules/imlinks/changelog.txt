@@ -1,5 +1,5 @@
 ﻿=========================================================
-25.02.2012 - Version 1.12
+07.04.2012 - Version 1.12
 =========================================================
 Fixed:
 - Categories couldn't be saved [#345]
@@ -33,6 +33,7 @@ Removed files and folders:
 - docs
 - lightwindow.css
 - blocks/imlinks_banner.php
+- class/myts_extended.php
 - images/icon/blocks.png
 - images/icon/blocks_small.png
 - images/lightwindow/
