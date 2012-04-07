@@ -92,7 +92,7 @@ if ( icms::$module -> config['showlinkdisclaimer'] && $agreed == 0 ) {
 		reportBroken( $lid );
 	} else {
 		list( $url ) = icms::$xoopsDB -> fetchRow( $result );
-		$url = $immyts -> htmlSpecialCharsStrip( preg_replace( '/javascript:/si' , 'java script:', $url ), ENT_QUOTES );
+		$url = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( preg_replace( '/javascript:/si' , 'java script:', $url ), ENT_QUOTES ) );
 	}
 
 	if ( !empty( $url ) ) {

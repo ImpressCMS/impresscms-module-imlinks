@@ -106,9 +106,9 @@ switch ( strtolower( $op ) ) {
 			while ( $new = icms::$xoopsDB -> fetchArray( $new_array ) ) {
 				$lid = intval( $new['lid'] );
 				$rating = number_format( $new['rating'], 2 );
-				$title = $immyts -> htmlSpecialCharsStrip( $new['title'] );
-				$url = urldecode( $immyts -> htmlSpecialCharsStrip( $new['url'] ) );
-				$logourl = $immyts -> htmlSpecialCharsStrip( $new['screenshot'] );
+				$title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $new['title'] ) );
+				$url = urldecode( icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $new['url'] ) ) );
+				$logourl = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $new['screenshot'] ) );
 				$submitter = icms_member_user_Handler::getUserLink( $new['submitter'] );
 				$datetime = formatTimestamp( $new['date'], icms::$module -> config['dateformatadmin'] );
 

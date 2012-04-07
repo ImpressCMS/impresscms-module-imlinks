@@ -70,7 +70,7 @@ switch ( strtolower( $op ) ) {
 			if ( is_object( $submit_user ) && !empty( $submit_user ) ) {
 				$subdate = formatTimestamp( $link_arr['date'], icms::$module -> config['dateformat'] );
 				$cid = $link_arr['cid'];
-				$title = $immyts -> htmlSpecialCharsStrip( $link_arr['title'] );
+				$title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_arr['title'] ) );
 				$subject = _MD_IMLINKS_BROKENREPORTED;
 
 				$xoopsMailer = new icms_messaging_Handler();
@@ -116,7 +116,7 @@ switch ( strtolower( $op ) ) {
 		$broke_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
 		if ( is_array( $broke_arr ) ) {
-			$broken['title'] = $immyts -> htmlSpecialCharsStrip( $link_arr['title'] );
+			$broken['title'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_arr['title'] ) );
 			$broken['id'] = $broke_arr['reportid'];
 			$broken['reporter'] = icms_member_user_Handler::getUserLink( $broke_arr['sender'] );
 			$broken['date'] = formatTimestamp( $broke_arr['date'], icms::$module -> config['dateformat'] );
@@ -131,7 +131,7 @@ switch ( strtolower( $op ) ) {
 			}
 
 			// file info
-			$link['title'] = $immyts -> htmlSpecialCharsStrip( $link_arr['title'] );
+			$link['title'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_arr['title'] ) );
 			$time = ( $link_arr['published'] > 0 ) ? $link_arr['published'] : $link_arr['updated'];
 			$link['updated'] = formatTimestamp( $time, icms::$module -> config['dateformat'] );
 			$is_updated = ( $link_arr['updated'] != 0 ) ? _MD_IMLINKS_UPDATEDON : _MD_IMLINKS_SUBMITDATE;

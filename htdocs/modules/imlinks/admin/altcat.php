@@ -32,7 +32,6 @@ $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 $lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
 function makeTreeCheckTable( $xt, $itemid, $title, $checks, $cidd ) {
-	global $immyts;
 	echo '<div style="text-align: left;">';
 	echo '<form name="altcat" method="post" action="altcat.php">';
 	echo '<table width="100%" callspacing="1" class="outer">';
@@ -53,7 +52,7 @@ function makeTreeCheckTable( $xt, $itemid, $title, $checks, $cidd ) {
 
 		foreach ( $arr as $cat ) {
 			$cat['prefix'] = str_replace( '.', '-', $cat['prefix'] );
-			$catpath = $cat['prefix'] . '&nbsp;' . $immyts -> htmlSpecialCharsStrip( $cat[$title] ) . '&nbsp;';
+			$catpath = $cat['prefix'] . '&nbsp;' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $cat[$title] ) ) . '&nbsp;';
 			$checked = array_key_exists( $cat['cid'], $checks ) ? 'checked="checked"' : '';
 			$disabled = ( $cat['cid'] == $cidd ) ? 'disabled="yes"' : '';
 			$level = substr_count( $cat['prefix'], '-' ) + 1;
@@ -108,7 +107,7 @@ switch ( strtolower( $op ) ) {
 				<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_ALTCAT_MODIFYF . '</div>
 				<div style="padding: 8px;">' . _AM_IMLINKS_ALTCAT_INFOTEXT . '</div>
 				</div>';
-		echo '<div style="text-align: left; font-size: larger;"><h4>' . $immyts -> htmlSpecialCharsStrip( $title ) . '</h4></div>';
+		echo '<div style="text-align: left; font-size: larger;"><h4>' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $title ) ) . '</h4></div>';
 		// Get an array of all alternate categories for this topic
 		$sql2 = icms::$xoopsDB -> query( 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . ' WHERE lid=' . intval( $lid ) . ' ORDER BY lid' );
 		$altcats = array();

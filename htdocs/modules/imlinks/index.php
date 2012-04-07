@@ -43,8 +43,8 @@ $catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center
 if ( $head_arr['indexheading'] != '' ) {
 $catarray['indexheading'] = '<h4 style="text-align: center;">' . $head_arr['indexheading'] . '</h4>'; }
 
-$catarray['indexheaderalign'] = $immyts -> htmlSpecialCharsStrip( $head_arr['indexheaderalign'] );
-$catarray['indexfooteralign'] = $immyts -> htmlSpecialCharsStrip( $head_arr['indexfooteralign'] );
+$catarray['indexheaderalign'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $head_arr['indexheaderalign'] ) );
+$catarray['indexfooteralign'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $head_arr['indexfooteralign'] ) );
 
 if ( $head_arr['indexheader'] != '' ) {
 $catarray['indexheader'] = '<div style="margin-bottom: 10px; text-align: ' . $head_arr['indexheaderalign'] . ';">' . $head_arr['indexheader'] . '</div>'; }
@@ -70,7 +70,7 @@ while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
 	$totallinkload = iml_getTotalItems( $myrow['cid'], 1 );
 	$indicator = iml_isnewimage( $totallinkload['published'] );
 	if ( iml_checkgroups( $myrow['cid'] ) ) {
-		$title = $immyts -> htmlSpecialCharsStrip( $myrow['title'] );
+		$title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $myrow['title'] ) );
 		$arr = array();
 		$arr = $mytree -> getFirstChild( $myrow['cid'], $catsort );
 		$space = 1;
@@ -80,7 +80,7 @@ while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
 			$hassubitems = iml_getTotalItems( $ele['cid'], 1 );
 			if ( true == iml_checkgroups( $ele['cid'] ) ) {
 				if ( icms::$module -> config['subcats'] == 1 ) {
-					$chtitle = $immyts -> htmlSpecialCharsStrip( $ele['title'] );
+					$chtitle = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $ele['title'] ) );
 					if ( $chcount > 5 ) {
 						$subcategories .= '&nbsp;&nbsp;...';
 						break;

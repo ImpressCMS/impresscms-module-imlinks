@@ -140,8 +140,6 @@ function b_imlinks_recent_show( $options ) {
 	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
 	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
 	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/class_thumbnail.php';
-	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/myts_extended.php';
-	$immyts = new imlTextSanitizer();
 	$block = array();
 	$modhandler = icms::handler( 'icms_module' );
 	$imlModule = &$modhandler -> getByDirname( $mydirname );
@@ -160,7 +158,7 @@ function b_imlinks_recent_show( $options ) {
 		}
 		$linkload['date'] = formatTimestamp( $myrow['published'], $options[1] );
 		$linkload['submitter'] = icms_member_user_Handler::getUserLink( $myrow['submitter'] );
-		$linkload['publisher'] = ( isset( $myrow['publisher'] ) && !empty( $myrow['publisher'] ) ) ? $immyts -> htmlSpecialCharsStrip( $myrow['publisher'] ) : _MB_IMLINKS_NOTSPECIFIED;
+		$linkload['publisher'] = ( isset( $myrow['publisher'] ) && !empty( $myrow['publisher'] ) ) ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $myrow['publisher'] ) ) : _MB_IMLINKS_NOTSPECIFIED;
 		$linkload['hits'] = $myrow['hits'];
 		$linkload['description'] = icms_core_DataFilter::icms_substr( $myrow['description'], 0, $imlModuleConfig['totalchars'], '&#8230;' );
 		if ( $myrow['country'] ) {

@@ -82,7 +82,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 					break;
 				}
 				if ( $space > 0 ) $infercategories .= '<div style="margin-left: 45px; font-size: smaller; padding-top: 0px;">- ';
-					$infercategories .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/viewcat.php?cid=' . $sub_ele['cid'] . '">' . $immyts -> htmlSpecialCharsStrip( $sub_ele['title'] ) . '</a> (' . $hassubitems['count'] . ')</div>';
+					$infercategories .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/viewcat.php?cid=' . $sub_ele['cid'] . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $sub_ele['title'] ) ) . '</a> (' . $hassubitems['count'] . ')</div>';
 				$space++;
 				$chcount++;
 			}
@@ -112,7 +112,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 		}
 // End
 		$xoopsTpl -> append( 'subcategories',
-		array( 'title' => $immyts -> htmlSpecialCharsStrip( $ele['title'] ),	'id' => $ele['cid'],
+		array( 'title' => icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $ele['title'] ) ),	'id' => $ele['cid'],
 																				'image' => ICMS_URL . "/$imgurl",
 																				'infercategories' => $infercategories,
 																				'totallinks' => $totallinks['count'],
@@ -146,7 +146,7 @@ $xoopsTpl -> assign( 'show_categort_title', true );
 
 $start = iml_cleanRequestVars( $_REQUEST, 'start', 0 );
 $start = intval( $start );
-$orderby = ( isset( $_REQUEST['orderby'] ) && !empty( $_REQUEST['orderby'] ) ) ? iml_convertorderbyin( $immyts -> htmlSpecialCharsStrip( $_REQUEST['orderby'] ) ) : iml_convertorderbyin( icms::$module -> config['linkxorder'] );
+$orderby = ( isset( $_REQUEST['orderby'] ) && !empty( $_REQUEST['orderby'] ) ) ? iml_convertorderbyin( icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $_REQUEST['orderby'] ) ) ) : iml_convertorderbyin( icms::$module -> config['linkxorder'] );
 
 if ( $selectdate ) {
 	$d = date( 'j', $selectdate );

@@ -21,7 +21,7 @@ include 'admin_header.php';
 $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 
 function imlinks_rss_edit() {
-	global $immyts, $icmsConfig, $icmsAdminTpl;
+	global $icmsConfig, $icmsAdminTpl;
 
 	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
 
@@ -35,23 +35,23 @@ function imlinks_rss_edit() {
 	$copyright	= _AM_IMLINKS_COPYRIGHT . ' ' . formatTimestamp( time(), 'Y' ) . ' - ' . $icmsConfig['sitename'];
 
 	$rssactive		= $feed_array['rssactive'];
-	$rsstitle		= $feed_array['rsstitle'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsstitle'] ) : $icmsConfig['sitename'];
-	$rsslink		= $feed_array['rsslink'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsslink'] ) : ICMS_URL;
-	$rssdsc			= $feed_array['rssdsc'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssdsc'] ) : $icmsConfig['slogan'];
-	$rssimgurl		= $feed_array['rssimgurl'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssimgurl'] ) : ICMS_URL .'/modules/' . $mydirname . '/images/imlinks_iconbig.png';
-	$rsswidth		= $feed_array['rsswidth'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsswidth'] ) : '32';
-	$rssheight		= $feed_array['rssheight'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssheight'] ) : '32';
-	$rssimgtitle	= $feed_array['rssimgtitle'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssimgtitle'] ) : $modulename;
-	$rssimglink		= $feed_array['rssimglink'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssimglink'] ) : ICMS_URL;
-	$rssttl			= $feed_array['rssttl'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssttl'] ) : '60';
-	$rsswebmaster	= $feed_array['rsswebmaster'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsswebmaster'] ) : $webmaster;
-	$rsseditor		= $feed_array['rsseditor'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsseditor'] ) : $webmaster;
-	$rsscategory	= $feed_array['rsscategory'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsscategory'] ) : $modulename;
-	$rssgenerator	= $feed_array['rssgenerator'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssgenerator'] ) : $generator;
-	$rsscopyright	= $feed_array['rsscopyright'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsscopyright'] ) : $copyright;
-	$rsstotal		= $feed_array['rsstotal'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rsstotal'] ) : '15';
-	$rssofftitle	= $feed_array['rssofftitle'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssofftitle'] ) : _AM_IMLINKS_RSSOFFTITLE;
-	$rssoffdsc	= $feed_array['rssoffdsc'] ? $immyts -> htmlSpecialCharsStrip( $feed_array['rssoffdsc'] ) : _AM_IMLINKS_RSSOFFMSGDEF;
+	$rsstitle		= $feed_array['rsstitle'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rsstitle'] ) ) : $icmsConfig['sitename'];
+	$rsslink		= $feed_array['rsslink'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rsslink'] ) ) : ICMS_URL;
+	$rssdsc			= $feed_array['rssdsc'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssdsc'] ) ) : $icmsConfig['slogan'];
+	$rssimgurl		= $feed_array['rssimgurl'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssimgurl'] ) ) : ICMS_URL .'/modules/' . $mydirname . '/images/imlinks_iconbig.png';
+	$rsswidth		= $feed_array['rsswidth'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rsswidth'] ) ) : '32';
+	$rssheight		= $feed_array['rssheight'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssheight'] ) ) : '32';
+	$rssimgtitle	= $feed_array['rssimgtitle'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssimgtitle'] ) ) : $modulename;
+	$rssimglink		= $feed_array['rssimglink'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssimglink'] ) ) : ICMS_URL;
+	$rssttl			= $feed_array['rssttl'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssttl'] ) ) : '60';
+	$rsswebmaster	= $feed_array['rsswebmaster'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rsswebmaster'] ) ) : $webmaster;
+	$rsseditor		= $feed_array['rsseditor'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rsseditor'] ) ) : $webmaster;
+	$rsscategory	= $feed_array['rsscategory'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rsscategory'] ) ) : $modulename;
+	$rssgenerator	= $feed_array['rssgenerator'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssgenerator'] ) ) : $generator;
+	$rsscopyright	= $feed_array['rsscopyright'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rsscopyright'] ) ) : $copyright;
+	$rsstotal		= $feed_array['rsstotal'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rsstotal'] ) ) : '15';
+	$rssofftitle	= $feed_array['rssofftitle'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssofftitle'] ) ) : _AM_IMLINKS_RSSOFFTITLE;
+	$rssoffdsc	= $feed_array['rssoffdsc'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssoffdsc'] ) ) : _AM_IMLINKS_RSSOFFMSGDEF;
 
 	icms_cp_header();
 	iml_adminmenu( 7, _AM_IMLINKS_RSSFEED );

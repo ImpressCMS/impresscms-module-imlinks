@@ -33,9 +33,6 @@ include '../../../include/cp_header.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/admin/functions.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/iml_lists.php';
-include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/myts_extended.php';
-
-$immyts = new imlTextSanitizer(); // MyTextSanitizer object
 
 $imagearray = array(
 	'editimg' 		=> '<img src="../images/icon/world_edit.png" alt="' . _AM_IMLINKS_ICO_EDIT . '" title="' . _AM_IMLINKS_ICO_EDIT . '" style="vertical-align: middle;" />',
@@ -60,5 +57,5 @@ $imagearray = array(
 	'waiting'		=> '<img src="../images/icon/hourglass.png" alt="' . _AM_IMLINKS_ICO_WAITING . '" title="' . _AM_IMLINKS_ICO_WAITING . '" style="vertical-align: middle;" />'
 	);
 	
-global $immyts, $imagearray, $icmsConfig, $mytree;
+global $imagearray, $icmsConfig, $mytree;
 ?>

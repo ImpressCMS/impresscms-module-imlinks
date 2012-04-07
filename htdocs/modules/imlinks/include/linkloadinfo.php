@@ -64,7 +64,7 @@ if ( $moderate == 0 ) {
 $imlink['updated'] = formatTimestamp( $time, icms::$module -> config['dateformat'] );
 $imlink['description'] = icms_core_DataFilter::icms_substr( strip_tags( $link_arr['description'] ), 0, icms::$module -> config['totalchars'], '&#8230;' );
 $imlink['submitter'] = icms_member_user_Handler::getUserLink( $link_arr['submitter'] );
-$imlink['publisher'] = ( isset( $link_arr['publisher'] ) && !empty( $link_arr['publisher'] ) ) ? $immyts -> htmlSpecialCharsStrip( $link_arr['publisher'] ) : _MD_IMLINKS_NOTSPECIFIED;
+$imlink['publisher'] = ( isset( $link_arr['publisher'] ) && !empty( $link_arr['publisher'] ) ) ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_arr['publisher'] ) ) : _MD_IMLINKS_NOTSPECIFIED;
 
 if ( $link_arr['country'] ) {
 	$imlink['country'] = _MD_IMLINKS_COUNTRYB . '&nbsp;<img src="' . ICMS_URL . '/' . icms::$module -> config['flagimage']. '/' . $link_arr['country'] . '.gif" alt="" title="' . iml_countryname( $link_arr['country'] ) . '" style="vertical-align: middle;" />';
@@ -145,7 +145,7 @@ if ( icms::$module -> config['useautothumb'] == 1 && icms::$module -> config['au
 	$imlink['screenshot'] = iml_thumbshot( $link_arr['url'] );
 } else {
 	if ( isset( $link_arr['screenshot'] ) ) {
-		$imlink['screenshot_full'] = $immyts -> htmlSpecialCharsStrip( $link_arr['screenshot'] );
+		$imlink['screenshot_full'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_arr['screenshot'] ) );
 		if ( !empty( $link_arr['screenshot'] ) && file_exists( ICMS_ROOT_PATH . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) ) ) {
 			if ( isset( icms::$module -> config['usethumbs'] ) && icms::$module -> config['usethumbs'] == 1 ) {
 				$_thumb_image = new imThumbsNails( $imlink['screenshot_full'], icms::$module -> config['screenshots'], 'thumbs' );

@@ -43,7 +43,7 @@ if ( isset( $_GET ) ) {
 
 function createcat($cid = 0) {
 	include_once '../class/iml_lists.php';
-	global $immyts, $totalcats;
+	global $totalcats;
 
 	$lid = 0;
 	$title = '';
@@ -57,9 +57,9 @@ function createcat($cid = 0) {
 	if ( $cid ) {
 		$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . $cid;
 		$cat_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
-		$title = $immyts -> htmlSpecialCharsStrip( $cat_arr['title'] );
-		$imgurl = $immyts -> htmlSpecialCharsStrip( $cat_arr['imgurl'] );
-		$description = $immyts -> htmlSpecialCharsStrip( $cat_arr['description'] );
+		$title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $cat_arr['title'] ) );
+		$imgurl = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $cat_arr['imgurl'] ) );
+		$description = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $cat_arr['description'] ) );
 		$weight = $cat_arr['weight'];
 		$heading = _AM_IMLINKS_CCATEGORY_MODIFY;
 

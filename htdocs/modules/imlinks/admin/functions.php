@@ -153,16 +153,16 @@ function iml_cattitle( $catt ) {
 }
 
 function iml_linklistbody( $published ) {
-	global $immyts, $imagearray;
+	global $imagearray;
 	$lid = $published['lid'];
 	$cid = $published['cid'];
 	$nice_link = iml_nicelink( $published['title'], $published['nice_url'] );
 	if ( icms::$module -> config['niceurl'] ) {
-		$title = '<a href="../singlelink.php?lid=' . $lid . '&amp;page=' . $nice_link . '">' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
+		$title = '<a href="../singlelink.php?lid=' . $lid . '&amp;page=' . $nice_link . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) . '</a>';
 	} else {
-		$title = '<a href="../singlelink.php?lid=' . $lid . '">' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
+		$title = '<a href="../singlelink.php?lid=' . $lid . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) . '</a>';
 	}
-	$maintitle = urlencode( $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) );
+	$maintitle = urlencode( icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) );
 	$cattitle = '<a href="../viewcat.php?cid=' . $cid . '">' . iml_cattitle( $cid ) . '</a>';
 	$submitter = icms_member_user_Handler::getUserLink( $published['submitter'] );
 	$hwhoisurl = str_replace( 'http://', '', $published['url']);

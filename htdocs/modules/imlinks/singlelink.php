@@ -231,7 +231,7 @@ $sql = 'SELECT lid, cid, title, published, nice_url FROM ' . icms::$xoopsDB -> p
 $result = icms::$xoopsDB -> query( $sql, 10, 0 );
 
 while ( $arr = icms::$xoopsDB -> fetchArray( $result ) ) {
-	$linkuid['title'] = $immyts -> htmlSpecialCharsStrip( $arr['title'] );
+	$linkuid['title'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $arr['title'] ) );
 	$linkuid['niceurl'] = iml_niceurl( $arr['lid'], $arr['title'], $arr['nice_url'] );
 	$linkuid['published'] = formatTimestamp( $arr['published'], icms::$module -> config['dateformat'] );
 	$xoopsTpl -> append( 'link_uid', $linkuid );

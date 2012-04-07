@@ -45,45 +45,45 @@ function edit( $lid = 0, $doclone = 0 ) {
 	$directory = icms::$module -> config['screenshots'];
 	if ( !$doclone ) {
 		$lid = $link_array['lid'] ? $link_array['lid'] : 0;
-		$title = $link_array['title'] ? $immyts -> htmlSpecialCharsStrip( $link_array['title'] ) : '';
+		$title = $link_array['title'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['title'] ) ) : '';
 		$published = $link_array['published'] ? $link_array['published'] : time();
 	} else {
 		$lid = '';
-		$title = $link_array['title'] ? $immyts -> htmlSpecialCharsStrip( $link_array['title'] . '  **' . _CLONE . '**') : '';
+		$title = $link_array['title'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['title'] . '  **' . _CLONE . '**') ) : '';
 		$published = time();
 	}
 	$cid = $link_array['cid'] ? $link_array['cid'] : 0;
-	$url = $link_array['url'] ? $immyts -> htmlSpecialCharsStrip( $link_array['url'] ) : 'http://';
-	$publisher = $link_array['publisher'] ? $immyts -> htmlSpecialCharsStrip( $link_array['publisher'] ) : '';
-	$submitter = $link_array['submitter'] ? $immyts -> htmlSpecialCharsStrip( $link_array['submitter'] ) : '';
-	$screenshot = $link_array['screenshot'] ? $immyts -> htmlSpecialCharsStrip( $link_array['screenshot'] ) : '';
-	$descriptionb = $link_array['description'] ? $immyts -> htmlSpecialCharsStrip( $link_array['description'] ) : '';
+	$url = $link_array['url'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['url'] ) ) : 'http://';
+	$publisher = $link_array['publisher'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['publisher'] ) ) : '';
+	$submitter = $link_array['submitter'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['submitter'] ) ) : '';
+	$screenshot = $link_array['screenshot'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['screenshot'] ) ) : '';
+	$descriptionb = $link_array['description'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['description'] ) ) : '';
 	$expired = $link_array['expired'] ? $link_array['expired'] : 0;
 	$updated = $link_array['updated'] ? $link_array['updated'] : 0;
 	$offline = $link_array['offline'] ? $link_array['offline'] : 0;
 	$forumid = $link_array['forumid'] ? $link_array['forumid'] : 0;
 	$ipaddress = $link_array['ipaddress'] ? $link_array['ipaddress'] : 0;
 	$notifypub = $link_array['notifypub'] ? $link_array['notifypub'] : 0;
-	$country = $link_array['country'] ? $immyts -> htmlSpecialCharsStrip( $link_array['country'] ) : '-';
-	$keywords = $link_array['keywords'] ? $immyts -> htmlSpecialCharsStrip( $link_array['keywords'] ) : '';
-	$item_tag = $link_array['item_tag'] ? $immyts -> htmlSpecialCharsStrip( $link_array['item_tag'] ) : '';
-	$googlemap = $link_array['googlemap'] ? $immyts -> htmlSpecialCharsStrip( $link_array['googlemap'] ) : 'http://maps.google.com';
-	$yahoomap = $link_array['yahoomap'] ? $immyts -> htmlSpecialCharsStrip( $link_array['yahoomap'] ) : 'http://maps.yahoo.com';
-	$multimap = $link_array['multimap'] ? $immyts -> htmlSpecialCharsStrip( $link_array['multimap'] ) : 'http://www.bing.com/maps/';
-	$street1 = $link_array['street1'] ? $immyts -> htmlSpecialCharsStrip( $link_array['street1'] ) : '';
-	$street2 = $link_array['street2'] ? $immyts -> htmlSpecialCharsStrip( $link_array['street2'] ) : '';
-	$town = $link_array['town'] ? $immyts -> htmlSpecialCharsStrip( $link_array['town'] ) : '';
-	$state = $link_array['state'] ? $immyts -> htmlSpecialCharsStrip( $link_array['state'] ) : '';
-	$zip = $link_array['zip'] ? $immyts -> htmlSpecialCharsStrip( $link_array['zip'] ) : '';
-	$tel = $link_array['tel'] ? $immyts -> htmlSpecialCharsStrip( $link_array['tel'] ) : '';
-	$mobile = $link_array['mobile'] ? $immyts -> htmlSpecialCharsStrip( $link_array['mobile'] ) : '';
-	$voip = $link_array['voip'] ? $immyts -> htmlSpecialCharsStrip( $link_array['voip'] ) : '';
-	$fax = $link_array['fax'] ? $immyts -> htmlSpecialCharsStrip( $link_array['fax'] ) : '';
-	$email = $link_array['email'] ? $immyts -> htmlSpecialCharsStrip( $link_array['email'] ) : '';
-	$vat = $link_array['vat'] ? $immyts -> htmlSpecialCharsStrip( $link_array['vat'] ) : '';
-	$nice_url = $link_array['nice_url'] ? $immyts -> htmlSpecialCharsStrip( $link_array['nice_url'] ) : '';
-	$ttlong = $link_array['ttlong'] ? $immyts -> htmlSpecialCharsStrip( $link_array['ttlong'] ) : '';
-	$ttlat = $link_array['ttlat'] ? $immyts -> htmlSpecialCharsStrip( $link_array['ttlat'] ) : '';
+	$country = $link_array['country'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['country'] ) ) : '-';
+	$keywords = $link_array['keywords'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['keywords'] ) ) : '';
+	$item_tag = $link_array['item_tag'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['item_tag'] ) ) : '';
+	$googlemap = $link_array['googlemap'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['googlemap'] ) ) : 'http://maps.google.com';
+	$yahoomap = $link_array['yahoomap'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['yahoomap'] ) ) : 'http://maps.yahoo.com';
+	$multimap = $link_array['multimap'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['multimap'] ) ) : 'http://www.bing.com/maps/';
+	$street1 = $link_array['street1'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['street1'] ) ) : '';
+	$street2 = $link_array['street2'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['street2'] ) ) : '';
+	$town = $link_array['town'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['town'] ) ) : '';
+	$state = $link_array['state'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['state'] ) ) : '';
+	$zip = $link_array['zip'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['zip'] ) ) : '';
+	$tel = $link_array['tel'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['tel'] ) ) : '';
+	$mobile = $link_array['mobile'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['mobile'] ) ) : '';
+	$voip = $link_array['voip'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['voip'] ) ) : '';
+	$fax = $link_array['fax'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['fax'] ) ) : '';
+	$email = $link_array['email'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['email'] ) ) : '';
+	$vat = $link_array['vat'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['vat'] ) ) : '';
+	$nice_url = $link_array['nice_url'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['nice_url'] ) ) : '';
+	$ttlong = $link_array['ttlong'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['ttlong'] ) ) : '';
+	$ttlat = $link_array['ttlat'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['ttlat'] ) ) : '';
 
 	icms_cp_header();
 	iml_adminmenu( 2, _AM_IMLINKS_MLINKS );
@@ -110,7 +110,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 				if ( !empty( $link_array['screenshot'] ) && file_exists( ICMS_ROOT_PATH . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_array['screenshot'] ) ) ) {
 				if ( isset( icms::$module -> config['usethumbs'] ) && icms::$module -> config['usethumbs'] == 1 ) {
 					include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/class/class_thumbnail.php';
-					$_thumb_image = new imThumbsNails( $immyts -> htmlSpecialCharsStrip( $link_array['screenshot'] ), icms::$module -> config['screenshots'], 'thumbs' );
+					$_thumb_image = new imThumbsNails( icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['screenshot'] ) ), icms::$module -> config['screenshots'], 'thumbs' );
 					if ( $_thumb_image ) {
 						$_thumb_image -> setUseThumbs( 1 );
 						$_thumb_image -> setImageType( 'gd2' );
@@ -489,12 +489,12 @@ switch ( strtolower( $op ) ) {
 				$cid = $published['cid'];
 				$nice_link = iml_nicelink( $published['title'], $published['nice_url'] );
 				if ( icms::$module -> config['niceurl'] ) {
-					$title = '<a href="../singlelink.php?lid=' . $published['lid'] . '&amp;page=' . $nice_link . '">' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
+					$title = '<a href="../singlelink.php?lid=' . $published['lid'] . '&amp;page=' . $nice_link . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) . '</a>';
 				} else {
-					$title = '<a href="../singlelink.php?lid=' . $published['lid'] . '">' . $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
+					$title = '<a href="../singlelink.php?lid=' . $published['lid'] . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) . '</a>';
 				}
 				$cattitle = '<a href="../viewcat.php?cid=' . $published['cid'] . '">' . iml_cattitle( $published['cid'] ) . '</a>';
-				$maintitle = urlencode( $immyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) );
+				$maintitle = urlencode( icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) );
 				$submitter = icms_member_user_Handler::getUserLink( $published['submitter'] );
 				$publish = formatTimestamp( $published['published'], icms::$module -> config['dateformatadmin'] );
 				$status = ( $published['published'] > 0 ) ? $imagearray['online'] : '<a href="newlinks.php">' . $imagearray['offline'] . '</a>';
