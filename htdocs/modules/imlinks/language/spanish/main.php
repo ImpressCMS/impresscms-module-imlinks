@@ -200,5 +200,5 @@ define( '_MD_IMLINKS_TOMTOMLONG', 'Establecer longitud:' );
 define( '_MD_IMLINKS_TOMTOMLAT', 'Establecer latitud:' );
 
 // version 1.12
-define( '_MD_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
+define( '_MD_IMLINKS_SCRSHOTENLARGE', 'Clic para agrandar la imagen' );
 ?>

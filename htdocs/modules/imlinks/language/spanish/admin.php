@@ -429,12 +429,12 @@ define( '_AM_IMLINKS_MOD_TTLAT', 'Latitud para TomTom:' );
 define( '_AM_IMLINKS_MOD_TTLONG', 'Longitud para TomTom:' );
 
 // Version 1.1
-define( '_AM_IMLINKS_MSG_OFFLINE', 'Link was set Offline successfully.' );
-define( '_AM_IMLINKS_MSG_ONLINE', 'Link was set Online successfully.' );
-define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
+define( '_AM_IMLINKS_MSG_OFFLINE', 'El enlace fue desactivado con éxito' );
+define( '_AM_IMLINKS_MSG_ONLINE', 'El enlace fue activado con éxito' );
+define( '_AM_IMLINKS_ICO_WAITING','Enviado y aguardando aprobación' );
 
 // Version 1.12
 define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "El enlace no estará visible para los usuarios." );
 define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "El enlace mostrará un ícono de actualizado." );
-define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
+define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Clic para agrandar la imagen' );
 ?>

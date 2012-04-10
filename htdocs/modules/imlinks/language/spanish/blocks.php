@@ -48,13 +48,13 @@ define( "_MB_IMLINKS_DATEFORMAT", "Formato de fecha" );
 define( "_MB_IMLINKS_DATEFORMATMANUAL", "Vea el <a href='http://jp.php.net/manual/es/function.date.php' target='_blank'>Manual de PHP</a> para más información sobre esta materia" );
 
 // Version 1.12
-define( '_MB_IMLINKS_SUBMITTER', 'Submitter' );
-define( '_MB_IMLINKS_PUBLISHER', 'Publisher' );
-define( '_MB_IMLINKS_DATE', 'Date' );
-define( '_MB_IMLINKS_COUNTRY', 'Country' );
-define( '_MB_IMLINKS_HITS', 'Hits' );
-define( '_MB_IMLINKS_NOTSPECIFIED', 'Not specified' );
-define( '_MB_IMLINKS_VIEWDETAILS', 'View Full Details' );
-define( '_MB_IMLINKS_ADMINSECTION', 'Administration' );
-define( '_MB_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
+define( '_MB_IMLINKS_SUBMITTER', 'Envió' );
+define( '_MB_IMLINKS_PUBLISHER', 'Publicó' );
+define( '_MB_IMLINKS_DATE', 'Fecha' );
+define( '_MB_IMLINKS_COUNTRY', 'País' );
+define( '_MB_IMLINKS_HITS', 'Visto' );
+define( '_MB_IMLINKS_NOTSPECIFIED', 'No especificado' );
+define( '_MB_IMLINKS_VIEWDETAILS', 'Ver información detallada' );
+define( '_MB_IMLINKS_ADMINSECTION', 'Administración' );
+define( '_MB_IMLINKS_SCRSHOTENLARGE', 'Clic para agrandar la imagen' );
 ?>
