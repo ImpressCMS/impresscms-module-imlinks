@@ -281,8 +281,6 @@ define( '_MI_IMLINKS_LIGHTWINDOW', '¿Mostrar cómo se debería abrir el enlace?
 define( '_MI_IMLINKS_LIGHTWINDOWDSC', 'Seleccione <em>Predeterminado</em> para que se abran en una nueva solapa del  nevegador.<br />
 									   Seleccione <em>LightWindow</em> para usar el script  <a href="http://www.stickmanlabs.com/lightwindow/" target="_blank">LightWindow</a>.<br />
 									   Seleccione <em>GreyBox</em> para usar el script <a href="http://orangoo.com/labs/GreyBox/" target="_blank">GreyBox</a>.' );
-define( '_MI_IMLINKS_DEFAULT', 'Predeterminado' );
-
 // imLinks 1.03
 define( '_MI_IMLINKS_NICEURL', '¿Usar URL abreviadas?' );
 define( '_MI_IMLINKS_NICEURLDSC', 'Esta opción permite usar URL abreviadas para los enlaces.' );
@@ -292,7 +290,7 @@ define( '_MI_IMLINKS_TOMTOMLOGO', 'Establezca el URL del logo que se mostrará:'
 define( '_MI_IMLINKS_TOMTOMLOGODSC', 'El mismo aparecerá en la ventana <em>Accediendo a TomTom</em>.<br />Este logo se mostrará con el nombre del sitio como <em>Contenido porporcionado por</em>.' );
 
 // imLinks 1.12
-efine( '_MI_IMLINKS_SOCIALBTTNS', 'Mostrar botones Social Media' );
+define( '_MI_IMLINKS_SOCIALBTTNS', 'Mostrar botones Social Media' );
 define( '_MI_IMLINKS_SOCIALBTTNSDSC', 'Seleccione si desea mostrar Social Bookmarks (estilo tradicional), botones de Social Media normales u otros con selección de privacidad (sólo en Alemania). Si selecciona <i>Social Share Privacy</i> the type of button is not taken into account.' );
 define( '_IM_IMLINKS_SOCBOOK', 'Marcadores sociales' );
 define( '_IM_IMLINKS_SOCMEDIA', 'Social Media' );
@@ -308,4 +306,5 @@ define( '_MI_IMLINKS_FACEBOOKBTTN', 'Botón "Me gusta" de Facebook' );
 define( '_MI_IMLINKS_FACEBOOKBTTNDSC', 'Elija un estilo para el botón de Facebook.' );
 define( '_MI_IMLINKS_PLUSONEBTTN', 'Botón de Google +1' );
 define( '_MI_IMLINKS_PLUSONEBTTNDSC', 'Elija un estilo para el botón de Google +1.' );
+define( '_MI_IMLINKS_BNAME7', 'Enlaces recientes - Extendidos' );
 ?>
