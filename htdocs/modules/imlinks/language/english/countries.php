@@ -27,7 +27,7 @@ define( '_IMLINKS_COUNTRY_AG', 'Antigua and Barbuda' );
 define( '_IMLINKS_COUNTRY_AI', 'Anguilla' );
 define( '_IMLINKS_COUNTRY_AL', 'Albania' );
 define( '_IMLINKS_COUNTRY_AM', 'Armenia' );
-define( '_IMLINKS_COUNTRY_AN', 'Netherlands Antilles' );
+// define( '_IMLINKS_COUNTRY_AN', 'Netherlands Antilles' ); transitionally reserved
 define( '_IMLINKS_COUNTRY_AO', 'Angola' );
 define( '_IMLINKS_COUNTRY_AQ', 'Antarctica' );
 define( '_IMLINKS_COUNTRY_AR', 'Argentina' );
