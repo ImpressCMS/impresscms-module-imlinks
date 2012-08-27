@@ -466,7 +466,7 @@ function iml_countryname( $countryn ) {
 				'AI' => _IMLINKS_COUNTRY_AI,
 				'AL' => _IMLINKS_COUNTRY_AL,
 				'AM' => _IMLINKS_COUNTRY_AM,
-				'AN' => _IMLINKS_COUNTRY_AN,
+			//	'AN' => _IMLINKS_COUNTRY_AN,
 				'AO' => _IMLINKS_COUNTRY_AO,
 				'AQ' => _IMLINKS_COUNTRY_AQ,
 				'AR' => _IMLINKS_COUNTRY_AR,
