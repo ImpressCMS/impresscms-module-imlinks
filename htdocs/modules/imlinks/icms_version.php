@@ -756,7 +756,7 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'int',
 	'default'		=> 0,
-	'options'		=> array( '_NONE' => 0, '_MI_IMLINKS_DISPLAYFORUM1' => 1, '_MI_IMLINKS_DISPLAYFORUM2' => 2, '_MI_IMLINKS_DISPLAYFORUM3' => 3, '_MI_IMLINKS_DISPLAYFORUM4' => 4 ) );
+	'options'		=> array( _NONE => 0, _MI_IMLINKS_DISPLAYFORUM1 => 1, _MI_IMLINKS_DISPLAYFORUM2 => 2, _MI_IMLINKS_DISPLAYFORUM3 => 3, _MI_IMLINKS_DISPLAYFORUM4 => 4 ) );
 
 // Notification
 $modversion['hasNotification'] = 1;

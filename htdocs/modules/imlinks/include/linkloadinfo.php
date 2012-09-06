@@ -91,6 +91,7 @@ switch ( icms::$module -> config['selectforum'] ) {
 	case '0':
 		$forum = '';
 		$forum_path_prefix = '';
+		break;
 	case '1':
 		$forum = 'newbb';
 		$forum_path_prefix = '/modules/newbb/viewforum.php?forum=';
@@ -108,13 +109,14 @@ switch ( icms::$module -> config['selectforum'] ) {
 		$forum_path_prefix = '/modules/newbbex/viewforum.php?forum=';
 		break;
 }
-$module_handler = icms::handler( 'icms_module' );
-$icmsforumModule = $module_handler -> getByDirname( $forum );
-if ( is_object( $icmsforumModule ) && $icmsforumModule -> getVar( 'isactive' ) ) {
-	$imlink['forumid'] = ( $link_arr['forumid'] > 0 ) ? $link_arr['forumid'] : 0;
-	$imlink['forum_path'] = $forum_path_prefix . "{$imlink['forumid']}";
+if ( $forum && $forum_path_prefix ) {
+	$module_handler = icms::handler( 'icms_module' );
+	$icmsforumModule = $module_handler -> getByDirname( $forum );
+	if ( is_object( $icmsforumModule ) && $icmsforumModule -> getVar( 'isactive' ) ) {
+		$imlink['forumid'] = ( $link_arr['forumid'] > 0 ) ? $link_arr['forumid'] : 0;
+		$imlink['forum_path'] = $forum_path_prefix . "{$imlink['forumid']}";
+	}
 }
-
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/_drawrating.php';
 $imlink['ratingbar'] = rating_bar( $link_arr['lid'], '5', $link_arr['cid'] );
 
