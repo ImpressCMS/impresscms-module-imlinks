@@ -115,7 +115,7 @@ switch ( strtolower( $op ) ) {
 					' . $imagearray['editimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_BROKEN_EDITDESC . '<br />
 					' . $imagearray['deleteimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_BROKEN_DELETEDESC . '</div>
 			</div></div></div><br />';
-		$icmsAdminTpl -> assign( 'xoops_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />' );
+		$icmsAdminTpl -> assign( 'icms_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />' );
 		
 
 		if ( $totalbrokenlinks == 0 ) {

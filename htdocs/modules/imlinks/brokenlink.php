@@ -143,7 +143,7 @@ switch ( strtolower( $op ) ) {
 		}
 		iml_noindexnofollow();
 		$xoopsTpl -> assign( 'module_dir', $mydirname );
-		$xoopsTpl -> assign( 'xoops_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />' );
+		$xoopsTpl -> assign( 'icms_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />' );
 		include ICMS_ROOT_PATH . '/footer.php';
 		break;
 }
