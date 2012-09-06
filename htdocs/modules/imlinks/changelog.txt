@@ -2,6 +2,7 @@
 xx.xx.2012 - Trunk
 =========================================================
 Fixed:
+- Google Pagerank, updated to v2.1
 - Rating feature not working
 
 =========================================================
