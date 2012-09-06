@@ -55,7 +55,7 @@ $xoopsTpl -> assign( 'catcols', icms::$module -> config['catcols'] );
 $xoopsTpl -> assign( 'lightwindow', icms::$module -> config['lightwindow'] );
 if ( icms::$module -> config['lightwindow'] == 2 ) {
 	if ( is_readable(ICMS_ROOT_PATH . '/libraries/greybox/AJS.js' ) ) {
-		$xoopsTpl -> assign( 'xoops_module_header', '<script type="text/javascript">var GB_ROOT_DIR = "' . ICMS_URL . '/libraries/greybox/";</script>' );
+		$xoopsTpl -> assign( 'icms_module_header', '<script type="text/javascript">var GB_ROOT_DIR = "' . ICMS_URL . '/libraries/greybox/";</script>' );
 	}
 }
 
