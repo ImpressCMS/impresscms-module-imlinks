@@ -274,7 +274,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		$ttlong = $link_array['ttlong'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['ttlong'] ) ) : '';
 		$ttlat = $link_array['ttlat'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_array['ttlat'] ) ) : '';
 
-		$xoopsTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+		$xoopsTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
 		<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />' );
 
 		$sform = new icms_form_Theme( _MD_IMLINKS_SUBMITCATHEAD, 'storyform', '' );
