@@ -83,6 +83,7 @@ $modversion['people']['other'][] = '<a href="http://www.heise.de/extras/socialsh
 $modversion['people']['other'][] = '<a href="http://lytebox.com" target="_blank">Lytebox</a>';
 $modversion['people']['other'][] = '<a href="http://prototypejs.org" target="_blank">Prototype</a>';
 $modversion['people']['other'][] = '<a href="http://script.aculo.us" target="_blank">script.aculo.us</a>';
+$modversion['people']['other'][] = '<a href="http://pagerank.phurix.net/" target="_blank">Phurix Labs (Google Pagerank script)</a>';
 
 // ** Documentation
 $modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual.pdf" target="_blank">English [PDF]</a>';
