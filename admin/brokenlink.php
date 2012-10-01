@@ -121,17 +121,10 @@ switch ( strtolower( $op ) ) {
 		if ( $totalbrokenlinks == 0 ) {
 			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMLINKS_BROKEN_NOFILEMATCH . '</div>';
 		} else {
-			echo '<div class="imlinks_table" style="font-size: 10px;">
-					<div class="imlinks_tblhdrrow">
-					<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_ID . '</div>
-					<div class="imlinks_tblcell">' . _TITLE . '</div>
-					<div class="imlinks_tblcell">' . _AM_IMLINKS_BROKEN_REPORTER . '</div>
-					<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_FILESUBMITTER . '</div>
-					<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_DATESUBMITTED . '</div>
-					<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_ACKNOWLEDGED . '</div>
-					<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_DCONFIRMED . '</div>
-					<div class="imlinks_tblcell" style="text-align: center; white-space: nowrap;">' . _AM_IMLINKS_BROKEN_ACTION . '</div>
-				</div>';
+			$objectTable = new icms_ipf_view_Table( $imlinks_links_handler, false, array() );
+
+		$objectTable -> addHeader('<span style="float: left; font-size: 12px; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_PUBLISHEDLINK . '</span>');
+		
 			while ( list( $reportid, $lid, $sender, $ip, $date, $confirmed, $acknowledged ) = icms::$xoopsDB -> fetchRow( $result ) ) {
 				$result2 = icms::$xoopsDB -> query( 'SELECT cid, title, url, submitter, nice_url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid );
 				list( $cid, $linkshowname, $url, $submitter, $niceurl ) = icms::$xoopsDB -> fetchRow( $result2 );
@@ -148,7 +141,12 @@ switch ( strtolower( $op ) ) {
 				$con_image = ( $confirmed ) ? $imagearray['con_yes'] : $imagearray['con_no'];
 
 				if ( $ownername == '' ) { $ownername = '&nbsp;'; }
-
+				
+				$objectTable -> addColumn( new icms_ipf_view_Column( 'reportid', 'center', 40, true ) );
+				$objectTable -> addColumn( new icms_ipf_view_Column( 'lid', 'center', 40, true ) );
+				$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, 200, false ) );
+$icmsAdminTpl -> assign( 'imlinks_links_table', $objectTable -> fetch() );
+		$icmsAdminTpl -> display( 'db:imlinks_admin_index.html' );
 				echo '<div class="imlinks_tblrow">';
 				echo '<div class="imlinks_tblhdrcell" style="text-align: center;">' . $lid . '</div>';
 

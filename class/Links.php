@@ -131,11 +131,10 @@ class mod_imlinks_Links extends icms_ipf_seo_Object {
 	function ViewLink() {
 		$nice_link = iml_nicelink( $this -> getVar( 'title' ), $this -> getVar( 'nice_url' ) );
 		if ( icms::$module -> config['niceurl'] ) {
-			$title = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/singlelink.php?lid=' . $this -> getVar( 'lid' ) . '&amp;title=' . $nice_link . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $this -> getVar( 'title' ) ) ) ) . '</a>';
+			$title = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/singlelink.php?lid=' . $this -> getVar( 'lid' ) . '&amp;title=' . $nice_link . '">' . $this -> getVar( 'title' ) . '</a>';
 		} else {
 			$title = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/singlelink.php?lid=' . $this -> getVar( 'lid' ) . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $this -> getVar( 'title' ) ) ) ) . '</a>';
 		}
-		// $ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/singlelink.php?lid=' . $this -> getVar( 'lid' ) . '">' . $title . '</a>';
 		return $title;
 	}
 	

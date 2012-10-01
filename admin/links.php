@@ -845,7 +845,7 @@ switch ( strtolower( $op ) ) {
 		$objectTable -> addHeader('<span style="float: left; font-size: 12px; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_PUBLISHEDLINK . '</span>');
 
 		$objectTable -> addColumn( new icms_ipf_view_Column( 'lid', 'center', 40, true ) );
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, 200, false, 'ViewLink' ) );
+		$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, false, 'ViewLink' ) );
 		$objectTable -> addColumn( new icms_ipf_view_Column( 'cid', _GLOBAL_LEFT, false ) );
 		$objectTable -> addColumn( new icms_ipf_view_Column( 'submitter', 'center' ) );
 		$objectTable -> addColumn( new icms_ipf_view_Column( 'published', 'center', 100 ) );
