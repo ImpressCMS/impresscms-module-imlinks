@@ -1,24 +1,26 @@
 <?php
 /**
-* Impression - a light article management module for ImpressCMS
+* imLinks - a multicategory links management module for ImpressCMS
 *
-* Based upon WF-Links
+* Based upon WF-Links 1.06
 *
-* File: /class/Articles.php
+* File: class/Links.php
 *
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
 * @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links
+* @package		WF-Links 
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links
+* 				WF-Links 
 * @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
-* 				Impression
+* 				imLinks
 * @since		1.00
 * @author		McDonald
 * @version		$Id$

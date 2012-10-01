@@ -1,10 +1,10 @@
 <?php
 /**
-* imGlossary - a multicategory glossary for ImpressCMS
+* imLinks - a multicategory links management module for ImpressCMS
 *
-* Based upon Wordbook 1.16
+* Based upon WF-Links 1.06
 *
-* File: class/Cats.php
+* File: class/Cat.php
 *
 * @copyright	http://www.xoops.org/ The XOOPS Project
 * @copyright	XOOPS_copyrights.txt
@@ -12,13 +12,17 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		Wordbook - a multicategory glossary
-* @since		1.16
-* @author		hsalazar
-* ----------------------------------------------------------------------------------------------------------
-* 				imGlossary - a multicategory glossary
+* @package		WF-Links 
 * @since		1.03
-* @author		modified by McDonald
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since		1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				imLinks
+* @since		1.00
+* @author		McDonald
 * @version		$Id$
 */
 
