@@ -45,7 +45,6 @@ function icms_module_update_imlinks( &$module, $oldversion = null, $dbversion = 
 					'admin/mygrouppermform.php',
 					'blocks/imlinks_banner.php',
 					'blocks/imlinks_block_tag.php',
-					'class/class_thumbnail.php',
 					'class/myts_extended.php',
 					'images/icon/blocks.png',
 					'images/icon/blocks_small.png',
