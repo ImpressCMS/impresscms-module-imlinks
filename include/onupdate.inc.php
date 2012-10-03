@@ -31,6 +31,60 @@ if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 define( 'IMLINKS_DB_VERSION', 1 );
 
 function icms_module_update_imlinks( &$module, $oldversion = null, $dbversion = null ) {
+
+	// Start removing obsolete files
+	$file = array(	'lightwindow.css',
+					'list.tag.php',
+					'view.tag.php',
+					'xoops_version.php',
+					'admin/admin.php',
+					'admin/myblockform.php',
+					'admin/myblocksadmin.php',
+					'admin/myblocksadmin.txt',
+					'admin/mygroupperm.php',
+					'admin/mygrouppermform.php',
+					'blocks/imlinks_banner.php',
+					'blocks/imlinks_block_tag.php',
+					'class/class_thumbnail.php',
+					'class/myts_extended.php',
+					'images/icon/blocks.png',
+					'images/icon/blocks_small.png',
+					'images/icon/multimap.png',
+					'images/icon/new.png',
+					'images/icon/popular.png',
+					'images/icon/updated.png',
+					'images/icon/view.png',
+					'images/sbookmarks/simpy.png',
+					'images/sbookmarks/spurl.png',
+					'include/blocksadmin.inc.php',
+					'include/config.php',
+					'include/gtickets.php',
+					'include/install.php',
+					'include/plugin.tag.php',
+					'include/update.php',
+					'include/updateblock.inc.php',
+					'js/lightwindow.js',
+					'templates/blocks/imlinks_block_banner.html',
+					'templates/blocks/imlinks_tag_block_cloud.html',
+					'templates/blocks/imlinks_tag_block_tag.html' );
+	foreach ( $file as $item ) {
+		if ( file_exists(ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $item ) ) {
+			chmod( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $item, 0777 );
+			unlink( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $item );
+		}
+	}
+	// End of removing obsolete files
+	
+	// Start removing obsolete folders
+	$folder = array(	'docs' );
+	foreach ( $folder as $dir ) {
+		if ( is_dir( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $dir ) ) {
+			chmod( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $dir, 0777 );
+			rmdir( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $dir );
+		}
+	}
+	// End of removing obsolete folders
+	
 	return TRUE;
 }
 
