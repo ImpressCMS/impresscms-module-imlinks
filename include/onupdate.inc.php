@@ -43,6 +43,7 @@ function icms_module_update_imlinks( &$module, $oldversion = null, $dbversion = 
 					'admin/myblocksadmin.txt',
 					'admin/mygroupperm.php',
 					'admin/mygrouppermform.php',
+					'admin/newstory.php',
 					'blocks/imlinks_banner.php',
 					'blocks/imlinks_block_tag.php',
 					'class/myts_extended.php',
@@ -63,6 +64,8 @@ function icms_module_update_imlinks( &$module, $oldversion = null, $dbversion = 
 					'include/update.php',
 					'include/updateblock.inc.php',
 					'js/lightwindow.js',
+					'sql/imlinks.sql',
+					'sql/index.html',
 					'templates/blocks/imlinks_block_banner.html',
 					'templates/blocks/imlinks_tag_block_cloud.html',
 					'templates/blocks/imlinks_tag_block_tag.html' );
@@ -73,9 +76,10 @@ function icms_module_update_imlinks( &$module, $oldversion = null, $dbversion = 
 		}
 	}
 	// End of removing obsolete files
-	
+
 	// Start removing obsolete folders
-	$folder = array(	'docs' );
+	$folder = array(	'docs',
+						'sql' );
 	foreach ( $folder as $dir ) {
 		if ( is_dir( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $dir ) ) {
 			chmod( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $dir, 0777 );
@@ -90,13 +94,13 @@ function icms_module_update_imlinks( &$module, $oldversion = null, $dbversion = 
 function icms_module_install_imlinks( $module ) {
 
 	$queries = array();
-	
+
 	$queries[] = "CREATE TABLE ". icms::$xoopsDB -> prefix( 'imlinks_altcat' ) . " (
 		`lid` int(11) unsigned NOT NULL default '0',
 		`cid` int(5) unsigned NOT NULL default '0',
 		PRIMARY KEY (`lid`,`cid`)
 	)";
-	
+
 	$queries[] = "CREATE TABLE ". icms::$xoopsDB -> prefix( 'imlinks_indexpage' ) . " (
 		`indeximage` varchar(255) NOT NULL default 'blank.gif',
 		`indexheading` varchar(255) NOT NULL default 'imLinks',
@@ -106,9 +110,9 @@ function icms_module_install_imlinks( $module ) {
 		`indexfooteralign` varchar(25) NOT NULL default 'center',
 		`lastlinkstotal` varchar(5) NOT NULL default '50'
 	)";
-	
+
 	$queries[] = "INSERT INTO " . icms::$xoopsDB -> prefix( 'imlinks_indexpage' ) . " (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`indexheaderalign`,`indexfooteralign`,`lastlinkstotal`) VALUES ('logo-en.png', 'imLinks', 'Welcome to imLinks.', 'imLinks footer', 'left', 'left', 50)";
-	
+
 	$queries[] = "CREATE TABLE ". icms::$xoopsDB -> prefix( 'imlinks_configs' ) . " (
 		`rssactive` int(1) NOT NULL default '1',
 		`rsstitle` varchar(128) NOT NULL,
@@ -131,7 +135,7 @@ function icms_module_install_imlinks( $module ) {
 	)";
 
 	$queries[] = "INSERT INTO " . icms::$xoopsDB -> prefix( 'imlinks_configs' ) . " (`rssactive`,`rsstitle`,`rsslink`,`rssdsc`,`rssimgurl`,`rsswidth`,`rssheight`,`rssimgtitle`,`rssimglink`,`rssttl`,`rsswebmaster`,`rsseditor`,`rsscategory`,`rssgenerator`,`rsscopyright`,`rsstotal`,`rssofftitle`,`rssoffdsc`) VALUES ('1', '', '', '', '', '', '', '', '', '60', '', '', '', '', '', '15', '', '')";
-	
+
 	$queries[] = "CREATE TABLE " . icms::$xoopsDB -> prefix( 'imlinks_ratings' ) . " (
 		`id` int(11) NOT NULL,
 		`total_votes` int(11) NOT NULL default '0',
@@ -139,7 +143,7 @@ function icms_module_install_imlinks( $module ) {
 		`used_ips` longtext,
 		PRIMARY KEY (`id`)
 	)";
-	
+
 	foreach( $queries as $query ) {
 		icms::$xoopsDB -> query( $query );;
 	}

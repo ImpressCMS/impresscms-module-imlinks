@@ -414,9 +414,6 @@ function iml_editorform( $caption, $name, $value, $width, $height ) {
 	case 'fck':
 		$editor = iml_fckeditor( $caption, $name, $value, $width, $height );
 		break;
-	case 'tinyeditor':
-		$editor = iml_tinyeditor( $caption, $name, $value, $width, $height );
-		break;
 	case 'tinymce' :
 		$editor = iml_tinymce( $caption, $name, $value, $width, $height );    
 		break;
@@ -433,16 +430,6 @@ function iml_fckeditor( $caption, $name, $value, $width = '100%', $height = '500
 	}
 	return $imlinks_editor;
 }
-
-function iml_tinyeditor( $caption, $name, $value, $width = '100%', $height = '500px' ) {
-	if ( file_exists( ICMS_ROOT_PATH . '/class/xoopseditor/tinyeditor/formtinyeditortextarea.php' ) ) {
-		include_once( ICMS_ROOT_PATH . '/class/xoopseditor/tinyeditor/formtinyeditortextarea.php' );
-		$imlinks_editor = new XoopsFormTinyeditorTextArea( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => '100%', 'height' => '500px' ) );
-	} else {
-		$imlinks_editor = new icms_form_elements_Dhtmltextarea( $caption, $name, $value, 35, 60 );
-	}
-	return $imlinks_editor;
-}	
 
 function iml_tinymce( $caption, $name, $value, $width = '100%', $height = '500px' ) {
 	if ( file_exists( ICMS_ROOT_PATH . '/editors/tinymce/formtinymce.php' ) ) {
@@ -749,45 +736,6 @@ function imlinks_pagerank( $q, $host = 'toolbarqueries.google.com', $context = N
     return $pr?substr( strrchr( $pr, ':' ), 1 ):false;
 }
 // End Google Pagerank function
-
-// Check if Tag module is installed
-function iml_tag_module_included() {
-	static $iml_tag_module_included;
-	if ( !isset( $iml_tag_module_included ) ) {
-		$modules_handler = icms::handler( 'icms_module' );
-		$tag_mod = $modules_handler -> getByDirName( 'tag' );
-		if ( !$tag_mod ) {
-			$tag_mod = false;
-		} else {
-			$iml_tag_module_included = $tag_mod -> getVar( 'isactive' ) == 1;
-		}
-	}
-	return $iml_tag_module_included;
-}
-
-// Add item_tag to Tag-module
-function iml_tagupdate( $lid, $item_tag ) {
-	if ( iml_tag_module_included() ) {
-		include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
-		$tag_handler = icms_getModuleHandler( 'tag', 'tag' );
-		$tag_handler -> updateByItem( $item_tag, $lid, icms::$module -> getVar( 'dirname' ), 0 );
-	}
-}
-
-// Check if News module is installed
-function iml_news_module_included() {
-	static $iml_news_module_included;
-	if ( !isset( $iml_news_module_included ) ) {
-		$modules_handler = icms::handler( 'icms_module' );
-		$news_mod = $modules_handler -> getByDirName( 'news' );
-		if ( !$news_mod ) {
-			$news_mod = false;
-		} else {
-			$iml_news_module_included = $news_mod -> getVar( 'isactive' ) == 1;
-		}
-	}
-	return $iml_news_module_included;
-}
 
 function iml_emailcnvrt( $email ) {
 	$search = array(

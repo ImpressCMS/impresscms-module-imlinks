@@ -34,7 +34,6 @@ $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 $lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
 $imlinks_links_handler = icms_getModuleHandler( 'links', basename( dirname( dirname( __FILE__ ) ) ), 'imlinks' );
-// $imlinks_cat_handler = icms_getModuleHandler( 'cat', basename( dirname( dirname( __FILE__ ) ) ), 'imlinks' );
 
 function edit( $lid = 0, $doclone = 0 ) {
 	global $immyts, $mytree, $imagearray, $icmsConfig, $icmsAdminTpl;
@@ -209,15 +208,6 @@ function edit( $lid = 0, $doclone = 0 ) {
 	$keywords = new icms_form_elements_Textarea( _AM_IMLINKS_KEYWORDS . imlinks_tooltip( _AM_IMLINKS_KEYWORDS_NOTE, 'help' ), 'keywords', $keywords, 5, 50 );
 	$sform -> addElement( $keywords, false );
 
-	// Insert tags if Tag-module is installed
-//	if ( iml_tag_module_included() ) {
-//		include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
-//		$text_tags = new XoopsFormTag( 'item_tag', 70, 255, $link_array['item_tag'], 0 );
-//		$sform -> addElement( $text_tags );
-//	} else {
-//		$sform -> addElement( new icms_form_elements_Hidden( 'item_tag', $link_array['item_tag'] ) );
-//	}
-
 	// Screenshot
 	$graph_array = &imlLists :: getListTypeAsArray( ICMS_ROOT_PATH . '/' . icms::$module -> config['screenshots'], $type='images' );
 	$indeximage_select = new icms_form_elements_Select( '', 'screenshot', $screenshot );
@@ -339,20 +329,6 @@ if ( icms::$module -> config['useaddress'] ) {
 			imlLists :: getforum( icms::$module -> config['selectforum'], $forumid );
 			$sform -> addElement( new icms_form_elements_Label( _AM_IMLINKS_LINK_DISCUSSINFORUM, ob_get_contents() ) );
 		ob_end_clean();
-	}
-
-	//Create News Story
-	if ( iml_news_module_included() ) {
-		$sform -> insertBreak( _AM_IMLINKS_LINK_CREATENEWSSTORY, 'bg3' );
-		$submitNews_radio = new icms_form_elements_Radioyn( _AM_IMLINKS_LINK_SUBMITNEWS, 'submitnews', 0, ' ' . _YES . '', ' ' . _NO . '' );
-		$sform -> addElement( $submitNews_radio );
-		include_once ICMS_ROOT_PATH . '/class/xoopstopic.php';
-		$xt = new XoopsTopic( icms::$xoopsDB -> prefix( 'topics' ) );
-		ob_start();
-			$xt -> makeTopicSelBox( 1, 0, 'newstopicid' );
-			$sform -> addElement( new icms_form_elements_Label( _AM_IMLINKS_LINK_NEWSCATEGORY, ob_get_contents() ) );
-		ob_end_clean();
-		$sform -> addElement( new icms_form_elements_Text( _AM_IMLINKS_LINK_NEWSTITLE, 'newsTitle', 70, 255, '' ), false );
 	}
 
 	if ( $lid && $published == 0 ) {
@@ -528,24 +504,6 @@ switch ( strtolower( $op ) ) {
 		icms_cp_footer();
 		break;
 
-	case 'status_off':
-		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET offline='1' WHERE lid=" . $lid;
-		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
-			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
-			return false;
-		}
-		redirect_header( 'links.php', 1, _AM_IMLINKS_MSG_OFFLINE );
-		break;
-
-	case 'status_on':
-		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET offline='0' WHERE lid=" . $lid;
-		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
-			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
-			return false;
-		}
-		redirect_header( 'links.php', 1, _AM_IMLINKS_MSG_ONLINE );
-		break;
-
 	case 'edit':
 		edit( intval( $lid ), 0 );
 		break;
@@ -568,7 +526,6 @@ switch ( strtolower( $op ) ) {
 		$descriptionb = icms_core_DataFilter::addSlashes( trim( $_POST['descriptionb'] ) );
 		$country = icms_core_DataFilter::addSlashes( trim( $_POST['country'] ) );
 		$keywords = icms_core_DataFilter::addSlashes( trim(substr($_POST['keywords'], 0, icms::$module -> config['keywordlength']) ) );
-//		$item_tag = icms_core_DataFilter::addSlashes( trim( $_POST['item_tag'] ) );
 		$forumid = ( isset( $_POST['forumid'] ) && $_POST['forumid'] > 0 ) ? intval( $_POST['forumid'] ) : 0;
 
 		if ( icms::$module -> config['useaddress'] ) {
@@ -650,13 +607,6 @@ switch ( strtolower( $op ) ) {
 
 		$newid = mysql_insert_id();
 
-//		// Add item_tag to Tag-module
-//		if ( !$lid ) {
-//			$tagupdate = iml_tagupdate( $newid, $item_tag );
-//		} else {
-//			$tagupdate = iml_tagupdate( $lid, $item_tag );
-//		}
-
 		// Send notifications
 		if ( !$lid ) {
 			$tags = array();
@@ -695,10 +645,7 @@ switch ( strtolower( $op ) ) {
 				return false;
 			}
 		}
-		// Create News story
-		if ( iml_cleanRequestVars( $_REQUEST, 'submitnews', 0 ) ) {
-			include_once 'newstory.php';
-		}
+
 		redirect_header( 'links.php', 1, $message );
 		break;
 
@@ -751,9 +698,6 @@ switch ( strtolower( $op ) ) {
 			icms_cp_header();
 			iml_adminmenu( _AM_IMLINKS_BINDEX );
 			icms_core_Message::confirm( array( 'op' => 'delete', 'lid' => $lid, 'confirm' => 1, 'title' => $title ), 'links.php', _AM_IMLINKS_LINK_REALLYDELETEDTHIS . '<br /><br>' . $title, _DELETE );
-
-			// Remove item_tag from Tag-module
-			$tagupdate = iml_tagupdate($lid, $item_tag);
 
 			icms_cp_footer();
 		}

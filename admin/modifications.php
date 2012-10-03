@@ -159,7 +159,6 @@ switch ( strtolower( $op ) ) {
 		$submitter = $link_array['modifysubmitter'];
 		$country = $link_array['country'];
 		$keywords = $link_array['keywords'];
-//		$item_tag = $link_array['item_tag'];
 		$googlemap = $link_array['googlemap'];
 		$yahoomap = $link_array['yahoomap'];
 		$multimap = $link_array['multimap'];

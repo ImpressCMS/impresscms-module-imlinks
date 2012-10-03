@@ -66,12 +66,6 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		$descriptionb = ltrim( $_REQUEST['descriptionb'] );
 		$keywords = icms_core_DataFilter::addSlashes( trim(substr($_POST['keywords'], 0, icms::$module -> config['keywordlength']) ) );
 
-//		if ( icms::$module -> config['usercantag'] ) {
-//			$item_tag = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['item_tag'] ) );
-//		} else {
-//			$item_tag = '';
-//		}
-
 		if ( icms::$module -> config['useaddress'] ) {
 			$googlemap = ( $_POST['googlemap'] != 'http://maps.google.com' ) ? icms_core_DataFilter::addSlashes( $_POST['googlemap'] ) : '';
 			$yahoomap = ( $_POST['yahoomap'] != 'http://maps.yahoo.com' ) ? icms_core_DataFilter::addSlashes( $_POST['yahoomap'] ) : '';
@@ -123,13 +117,6 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 					icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
 			}
 			$newid = mysql_insert_id();
-
-			// Add item_tag to Tag-module
-//			if ( $lid == 0 ) {
-//				$tagupdate = iml_tagupdate( $newid, $item_tag );
-//			} else {
-//				$tagupdate = iml_tagupdate( $lid, $item_tag );
-//			}
 
 			// Notify of new link (anywhere) and new link in category
 			$notification_handler = icms::handler( 'icms_data_notification' );
@@ -313,16 +300,6 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 	$keywords = new icms_form_elements_Textarea( _MD_IMLINKS_KEYWORDS . imlinks_tooltip( _MD_IMLINKS_KEYWORDS_NOTE, 'help' ), 'keywords', $keywords, 5, 50 );
 	$sform -> addElement( $keywords, false );
 
-	// Insert tags if Tag-module is installed and if user is allowed
-	if ( iml_tag_module_included() ) {
-		if ( icms::$module -> config['usercantag'] ) {
-			include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
-			$text_tags = new XoopsFormTag( 'item_tag', 70, 255, $link_array['item_tag'], 0 );
-			$sform -> addElement( $text_tags );
-		} else {
-			$sform -> addElement( new icms_form_elements_Hidden( 'item_tag', $link_array['item_tag'] ) ) ;
-		}
-	}
 	if ( icms::$module -> config['useaddress'] ) {
 		$sform -> insertBreak( '&#9658; ' . _MD_IMLINKS_LINK_CREATEADDRESS, 'even' );
 		// Google Maps

@@ -134,26 +134,6 @@ $modversion['blocks'][] = array(
 	'template'		=> 'imlinks_block_top.html',
 	'can_clone'		=> true );
 
-//$modversion['blocks'][] = array(
-//	'file'			=> 'imlinks_block_tag.php',
-//	'name'			=> _MI_IMLINKS_BNAME4,
-//	'description'	=> 'Show tag cloud',
-//	'show_func'		=> 'imlinks_tag_block_cloud_show',
-//	'edit_func'		=> 'imlinks_tag_block_cloud_edit',
-//	'options'		=> '100|0|150|80',
-//	'template'		=> 'imlinks_tag_block_cloud.html',
-//	'can_clone'		=> true );
-
-//$modversion['blocks'][] = array(
-//	'file'			=> 'imlinks_block_tag.php',
-//	'name'			=> _MI_IMLINKS_BNAME5,
-//	'description'	=> 'Show top tag',
-//	'show_func'		=> 'imlinks_tag_block_top_show',
-//	'edit_func'		=> 'imlinks_tag_block_top_edit',
-//	'options'		=> '50|30|c',
-//	'template'		=> 'imlinks_tag_block_tag.html',
-//	'can_clone'		=> true );
-
 $modversion['blocks'][] = array(
 	'file'			=> 'imlinks_top.php',
 	'name'			=> _MI_IMLINKS_BNAME6,
@@ -365,7 +345,6 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'text',
 	'default'		=> 'tinymce',
 	'options'		=>  array(	_MI_IMLINKS_FORM_FCK => 'fck',
-							//	_MI_IMLINKS_FORM_TINYEDITOR => 'tinyeditor',
 								_MI_IMLINKS_FORM_TINYMCE => 'tinymce' ) );
 
 $modversion['config'][] = array(
@@ -376,7 +355,6 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'text',
 	'default'		=> 'tinymce',
 	'options'		=>  array(	_MI_IMLINKS_FORM_FCK => 'fck',
-							//	_MI_IMLINKS_FORM_TINYEDITOR => 'tinyeditor',
 								_MI_IMLINKS_FORM_TINYMCE => 'tinymce') );
 
 $modversion['config'][] = array(
@@ -636,14 +614,6 @@ $modversion['config'][] = array(
 	'formtype'		=> 'yesno',
 	'valuetype'		=> 'int',
 	'default'		=> 1 );
-
-//$modversion['config'][] = array(
-//	'name'			=> 'usercantag',
-//	'title'			=> '_MI_IMLINKS_USERTAGDESCR',
-//	'description'	=> '_MI_IMLINKS_USERTAGDSC',
-//	'formtype'		=> 'yesno',
-//	'valuetype'		=> 'int',
-//	'default'		=> 0 );
 
 $modversion['config'][] = array(
 	'name'			=> 'useaddress',

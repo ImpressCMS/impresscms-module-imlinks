@@ -65,12 +65,6 @@ $xoopsOption['template_main'] = 'imlinks_singlelink.html';
 include ICMS_ROOT_PATH . '/header.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/address.php';
 
-// tags support
-//if ( iml_tag_module_included() ) {
-//	include_once ICMS_ROOT_PATH . '/modules/tag/include/tagbar.php';
-//	$xoopsTpl -> assign( 'tagbar', tagBar( $link_arr['lid'], 0 ) );
-//}
-
 if ( iml_imageheader() != '' ) {
 $imlink['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>'; }
 $imlink['id'] = $link_arr['lid'];

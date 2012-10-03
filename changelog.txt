@@ -1,9 +1,18 @@
 ﻿=========================================================
 xx.xx.2012 - Trunk
 =========================================================
+Added:
+- IPF classes
+- Automatic deleting of obsolete files and folders
+
 Fixed:
 - Google Pagerank, updated to v2.1
 - Rating feature not working
+
+Removed:
+- support for TinyEditor
+- support for XOOPS TAG module
+- support for News module
 
 =========================================================
 07.04.2012 - Version 1.12
