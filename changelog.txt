@@ -8,6 +8,7 @@ Added:
 Fixed:
 - Google Pagerank, updated to v2.1
 - Rating feature not working
+- Title of link was stored in lowercase when reported broken
 
 Removed:
 - support for TinyEditor

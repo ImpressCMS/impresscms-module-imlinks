@@ -31,6 +31,8 @@ include 'admin_header.php';
 $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 $lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
+$imlinks_broken_handler = icms_getModuleHandler( 'broken', basename( dirname( dirname( __FILE__ ) ) ), 'imlinks' );
+
 switch ( strtolower( $op ) ) {
 	case 'updatenotice':
 		$ack = iml_cleanRequestVars( $_REQUEST, 'ack', 0 );
@@ -80,11 +82,6 @@ switch ( strtolower( $op ) ) {
 		break;
 
 	case 'delbrokenlinks':
-		// Remove item_tag from Tag-module
-		$sql2 = 'SELECT item_tag FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
-		list( $item_tag ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql2 ) );
-		$tagupdate = iml_tagupdate( $lid, $item_tag );
-
 		xoops_comment_delete( icms::$module -> getVar( 'mid' ), $lid ); // delete comments
 
 		icms::$xoopsDB -> queryF( 'DELETE FROM ' . icms::$xoopsDB -> prefix( 'imlinks_broken' ) . ' WHERE lid=' . $lid );	// delete broken link entry
@@ -99,6 +96,22 @@ switch ( strtolower( $op ) ) {
 	case 'ignorebrokenlinks':
 		icms::$xoopsDB -> queryF( 'DELETE FROM ' . icms::$xoopsDB -> prefix( 'imlinks_broken' ) . ' WHERE lid=' . $lid );
 		redirect_header( 'brokenlink.php?op=default', 1, _AM_IMLINKS_BROKEN_FILEIGNORED );
+		break;
+		
+	case 'changeacknowledged':
+		$status = $ret = '';
+		$reportid = isset( $_POST['reportid'] ) ? intval( $_POST['reportid'] ) : intval( $_GET['reportid'] );
+		$status = $imlinks_broken_handler -> changeAckStatus( $reportid, 'acknowledged' );
+		$ret = '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/brokenlink.php';
+		redirect_header( ICMS_URL . $ret, 2, _AM_IMLINKS_BROKEN_NOWACK );
+		break;
+		
+	case 'changeconfirmed':
+		$status = $ret = '';
+		$reportid = isset( $_POST['reportid'] ) ? intval( $_POST['reportid'] ) : intval( $_GET['reportid'] );
+		$status = $imlinks_broken_handler -> changeAckStatus( $reportid, 'confirmed' );
+		$ret = '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/brokenlink.php';
+		redirect_header( ICMS_URL . $ret, 2, _AM_IMLINKS_BROKEN_NOWCON );
 		break;
 
 	default:
@@ -117,67 +130,94 @@ switch ( strtolower( $op ) ) {
 			</div></div></div><br />';
 		$icmsAdminTpl -> assign( 'icms_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />' );
 		
+		if ( icms::$module -> config['ipftables'] == 1 ) {
 
-		if ( $totalbrokenlinks == 0 ) {
-			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMLINKS_BROKEN_NOFILEMATCH . '</div>';
-		} else {
-			$objectTable = new icms_ipf_view_Table( $imlinks_links_handler, false, array() );
+			$objectTable = new icms_ipf_view_Table( $imlinks_broken_handler, false, array() );
 
-		$objectTable -> addHeader('<span style="float: left; font-size: 12px; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_PUBLISHEDLINK . '</span>');
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'reportid', 'center', 40, true ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, false, 'ViewLink' ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'sender', 'center', false ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'acknowledged', 'center', false, 'Acknowledge' ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'confirmed', 'center', false, 'Confirmed' ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'date', 'center' ) );
+			
+			$objectTable -> addCustomAction( 'getIgnoreBroken' );
+			$objectTable -> addCustomAction( 'getEditBroken' );
+			$objectTable -> addCustomAction( 'getDeleteBroken' );
 		
-			while ( list( $reportid, $lid, $sender, $ip, $date, $confirmed, $acknowledged ) = icms::$xoopsDB -> fetchRow( $result ) ) {
-				$result2 = icms::$xoopsDB -> query( 'SELECT cid, title, url, submitter, nice_url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid );
-				list( $cid, $linkshowname, $url, $submitter, $niceurl ) = icms::$xoopsDB -> fetchRow( $result2 );
-				$email = '';
-				$sendername = '';
-				if ( $sender != 0 ) {
-					$result3 = icms::$xoopsDB -> query( 'SELECT uid, email FROM ' . icms::$xoopsDB -> prefix( 'users' ) . ' WHERE uid=' . $sender );
-					list( $sendername, $email ) = icms::$xoopsDB -> fetchRow( $result3 );
-				}
-				$result4 = icms::$xoopsDB -> query( 'SELECT uname, email FROM ' . icms::$xoopsDB -> prefix( 'users' ) . ' WHERE uid=' . $submitter );
-				list( $ownername, $owneremail ) = icms::$xoopsDB -> fetchRow( $result4 );
+			$objectTable -> addQuickSearch( array( 'title' ), _AM_IMLINKS_SEARCHTITLE );
+		
+			$objectTable -> setDefaultSort( 'reportid' );
+			$objectTable -> setDefaultOrder( 'DESC' );
 
-				$ack_image = ( $acknowledged ) ? $imagearray['ack_yes'] : $imagearray['ack_no'];
-				$con_image = ( $confirmed ) ? $imagearray['con_yes'] : $imagearray['con_no'];
+			$icmsAdminTpl -> assign( 'imlinks_broken_table', $objectTable -> fetch() );
+			$icmsAdminTpl -> display( 'db:imlinks_admin_index.html' );
+		
+		} else {
 
-				if ( $ownername == '' ) { $ownername = '&nbsp;'; }
-				
-				$objectTable -> addColumn( new icms_ipf_view_Column( 'reportid', 'center', 40, true ) );
-				$objectTable -> addColumn( new icms_ipf_view_Column( 'lid', 'center', 40, true ) );
-				$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, 200, false ) );
-$icmsAdminTpl -> assign( 'imlinks_links_table', $objectTable -> fetch() );
-		$icmsAdminTpl -> display( 'db:imlinks_admin_index.html' );
-				echo '<div class="imlinks_tblrow">';
-				echo '<div class="imlinks_tblhdrcell" style="text-align: center;">' . $lid . '</div>';
+			if ( $totalbrokenlinks == 0 ) {
+				echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMLINKS_BROKEN_NOFILEMATCH . '</div>';
+			} else {
+				echo '<div class="imlinks_table" style="font-size: 10px;">
+						<div class="imlinks_tblhdrrow">
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_ID . '</div>
+						<div class="imlinks_tblcell">' . _TITLE . '</div>
+						<div class="imlinks_tblcell">' . _AM_IMLINKS_BROKEN_REPORTER . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_FILESUBMITTER . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_DATESUBMITTED . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_ACKNOWLEDGED . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_BROKEN_DCONFIRMED . '</div>
+						<div class="imlinks_tblcell" style="text-align: center; white-space: nowrap;">' . _AM_IMLINKS_BROKEN_ACTION . '</div>
+					</div>';
+				while ( list( $reportid, $lid, $sender, $ip, $date, $confirmed, $acknowledged ) = icms::$xoopsDB -> fetchRow( $result ) ) {
+					$result2 = icms::$xoopsDB -> query( 'SELECT cid, title, url, submitter, nice_url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid );
+					list( $cid, $linkshowname, $url, $submitter, $niceurl ) = icms::$xoopsDB -> fetchRow( $result2 );
+					$email = '';
+					$sendername = '';
+					if ( $sender != 0 ) {
+						$result3 = icms::$xoopsDB -> query( 'SELECT uid, email FROM ' . icms::$xoopsDB -> prefix( 'users' ) . ' WHERE uid=' . $sender );
+						list( $sendername, $email ) = icms::$xoopsDB -> fetchRow( $result3 );
+					}
+					$result4 = icms::$xoopsDB -> query( 'SELECT uname, email FROM ' . icms::$xoopsDB -> prefix( 'users' ) . ' WHERE uid=' . $submitter );
+					list( $ownername, $owneremail ) = icms::$xoopsDB -> fetchRow( $result4 );
 
-				$nice_link = iml_nicelink( $linkshowname, $niceurl );
-				if ( icms::$module -> config['niceurl'] ) {
-				echo '<div class="imlinks_tblcell"><a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $lid . '&amp;page=' . $nice_link . '" target="_blank">' . $linkshowname . '</a></div>';
-				} else {
-				echo '<div class="imlinks_tblcell"><a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $lid . '" target="_blank">' . $linkshowname . '</a></div>';
-				}
+					$ack_image = ( $acknowledged ) ? $imagearray['ack_yes'] : $imagearray['ack_no'];
+					$con_image = ( $confirmed ) ? $imagearray['con_yes'] : $imagearray['con_no'];
 
-				if ( $email == '' ) {
-					echo '<div class="imlinks_tblcell">' . icms_member_user_Handler::getUserLink( $sender ) . ' (' . $ip . ')</div>';
-				} else {
-					echo '<div class="imlinks_tblcell"><a href="mailto:' . $email . '">' . icms_member_user_Handler::getUserLink( $sender ). '</a> (' . $ip . ')</div>';
-				}
-				if ( $owneremail == '' ) {
-					echo '<div class="imlinks_tblcell">' . $ownername . '</div>';
-				} else {
-					echo '<div class="imlinks_tblcell" style="text-align: center;"><a href="mailto:' . $owneremail . '">' . $ownername . '</a></div>';
-				}
-				echo '<div class="imlinks_tblcell" style="text-align: center;">' . formatTimestamp( $date, icms::$module -> config['dateformatadmin'] ) . '</div>
+					if ( $ownername == '' ) { $ownername = '&nbsp;'; }
+
+					echo '<div class="imlinks_tblrow">';
+					echo '<div class="imlinks_tblhdrcell" style="text-align: center;">' . $lid . '</div>';
+
+					$nice_link = iml_nicelink( $linkshowname, $niceurl );
+					if ( icms::$module -> config['niceurl'] ) {
+						echo '<div class="imlinks_tblcell"><a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $lid . '&amp;page=' . $nice_link . '" target="_blank">' . $linkshowname . '</a></div>';
+					} else {
+						echo '<div class="imlinks_tblcell"><a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $lid . '" target="_blank">' . $linkshowname . '</a></div>';
+					}
+
+					if ( $email == '' ) {
+						echo '<div class="imlinks_tblcell">' . icms_member_user_Handler::getUserLink( $sender ) . ' (' . $ip . ')</div>';
+					} else {
+						echo '<div class="imlinks_tblcell"><a href="mailto:' . $email . '">' . icms_member_user_Handler::getUserLink( $sender ). '</a> (' . $ip . ')</div>';
+					}
+					if ( $owneremail == '' ) {
+						echo '<div class="imlinks_tblcell">' . $ownername . '</div>';
+					} else {
+						echo '<div class="imlinks_tblcell" style="text-align: center;"><a href="mailto:' . $owneremail . '">' . $ownername . '</a></div>';
+					}
+					echo '<div class="imlinks_tblcell" style="text-align: center;">' . formatTimestamp( $date, icms::$module -> config['dateformatadmin'] ) . '</div>
 						<div class="imlinks_tblcell" style="text-align: center;"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&ack=' . intval( $acknowledged ) . '">' . $ack_image . ' </a></div>
 						<div class="imlinks_tblcell" style="text-align: center;"><a href="brokenlink.php?op=updateNotice&amp;lid=' . $lid . '&con=' . intval( $confirmed ) . '">' . $con_image . '</a></div>
 						<div class="imlinks_tblcell" style="text-align: center; width: 70px;">
 							<a href="brokenlink.php?op=ignoreBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['ignore'] . '</a>
-							<a style="padding-left: 5px;" href="links.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>
+							<a style="padding-left: 5px;" href="index.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>
 							<a style="padding-left: 5px;" href="brokenlink.php?op=delBrokenlinks&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>
 						</div></div>';
+				}
+				echo '</div>';
 			}
 		}
-		echo '</div>';
 }
 icms_cp_footer();
 ?>

@@ -71,20 +71,20 @@ if ( $link_arr['country'] ) {
 }
 
 $mail_subject = rawurlencode( sprintf( _MD_IMLINKS_INTFILEFOUND, $icmsConfig['sitename'] ) );
-$mail_body = rawurlencode( sprintf( _MD_IMLINKS_INTFILEFOUND, $icmsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] );
+$mail_body = rawurlencode( sprintf( _MD_IMLINKS_INTFILEFOUND, $icmsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?cid=' . $link_arr['cid'] . '&amp;lid=' . $link_arr['lid'] );
 $imlink['comments'] = $link_arr['comments'];
 $whoisurl = str_replace( 'http://', '', $imlink['url'] );
 
 $imlink['adminlink'] = '';
 if ( icms_userIsAdmin() == true && $moderate == 0 ) {
-	$imlink['adminlink'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/links.php"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/computer.png" alt="' . _MD_IMLINKS_ADMINSECTION . '" title="' . _MD_IMLINKS_ADMINSECTION . '" style="vertical-align: bottom;" /></a>&nbsp;';
-	$imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/links.php?op=edit&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_edit.png" alt="' . _EDIT . '" title="' . _EDIT . '" style="vertical-align: bottom;" /></a>&nbsp;';
-	$imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/links.php?op=delete&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_delete.png" alt="' . _DELETE . '" title="' . _DELETE . '" style="vertical-align: bottom;" /></a>&nbsp;';
-	$imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/links.php?op=clone&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_clone.png" alt="' . _CLONE . '" title="' . _CLONE . '" style="vertical-align: bottom;" /></a>&nbsp;';
-	$imlink['adminlink'] .= '<a href="http://whois.domaintools.com/' . $whoisurl . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" style="vertical-align: bottom;" /></a>';
+	$imlink['adminlink'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/links.php"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/computer.png" alt="' . _MD_IMLINKS_ADMINSECTION . '" title="' . _MD_IMLINKS_ADMINSECTION . '" style="vertical-align: bottom;" /></a>&nbsp;';
+	$imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/links.php?op=edit&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/world_edit.png" alt="' . _EDIT . '" title="' . _EDIT . '" style="vertical-align: bottom;" /></a>&nbsp;';
+	$imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/links.php?op=delete&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/world_delete.png" alt="' . _DELETE . '" title="' . _DELETE . '" style="vertical-align: bottom;" /></a>&nbsp;';
+	$imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/links.php?op=clone&amp;lid=' . $link_arr['lid'] . '"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/world_clone.png" alt="' . _CLONE . '" title="' . _CLONE . '" style="vertical-align: bottom;" /></a>&nbsp;';
+	$imlink['adminlink'] .= '<a href="http://whois.domaintools.com/' . $whoisurl . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" style="vertical-align: bottom;" /></a>';
 } else {
-	$imlink['adminlink'] = '[ <a href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?op=edit&amp;lid=' . $link_arr['lid'] . '&approve=1">' . _MD_IMLINKS_APPROVE . '</a> | ';
-	$imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/submit.php?op=delete&amp;lid=' . $link_arr['lid'] . '">' . _DELETE . '</a> ]';
+	$imlink['adminlink'] = '[ <a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?op=edit&amp;lid=' . $link_arr['lid'] . '&approve=1">' . _MD_IMLINKS_APPROVE . '</a> | ';
+	$imlink['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?op=delete&amp;lid=' . $link_arr['lid'] . '">' . _DELETE . '</a> ]';
 }
 
 switch ( icms::$module -> config['selectforum'] ) {
@@ -117,22 +117,22 @@ if ( $forum && $forum_path_prefix ) {
 		$imlink['forum_path'] = $forum_path_prefix . "{$imlink['forumid']}";
 	}
 }
-include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/_drawrating.php';
+include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/_drawrating.php';
 $imlink['ratingbar'] = rating_bar( $link_arr['lid'], '5', $link_arr['cid'] );
 
 $nice_link = iml_nicelink( $link_arr['title'], $link_arr['nice_url'] );
 if ( icms::$module -> config['niceurl'] ) {
-	$url = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . intval( $link_arr['lid'] ) . '&amp;page=' . $nice_link;
-	$imlink['viewdetails']   = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . $link_arr['lid'] . '&amp;page=' . $nice_link . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
-	$imlink['visit'] = ICMS_URL . '/modules/' . $mydirname . '/visit.php?lid=' . $link_arr['lid'] . '&amp;page=' . $nice_link;
+	$url = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $link_arr['lid'] ) . '&amp;page=' . $nice_link;
+	$imlink['viewdetails']   = '<a class="button" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $link_arr['lid'] . '&amp;page=' . $nice_link . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
+	$imlink['visit'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/visit.php?lid=' . $link_arr['lid'] . '&amp;page=' . $nice_link;
 } else {
-	$url = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . intval( $link_arr['lid'] );
-	$imlink['viewdetails'] = '<a class="button" href="' . ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . $link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
-	$imlink['visit'] = ICMS_URL . '/modules/' . $mydirname . '/visit.php?lid=' . $link_arr['lid'];
+	$url = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $link_arr['lid'] );
+	$imlink['viewdetails'] = '<a class="button" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
+	$imlink['visit'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/visit.php?lid=' . $link_arr['lid'];
 }
 
 $imlink['icons']			= iml_displayicons( $link_arr['published'], $link_arr['status'], $link_arr['hits'] );
-$imlink['module_dir']		= $mydirname;
+$imlink['module_dir']		= icms::$module -> getVar( 'dirname' );
 $imlink['showrating']		= icms::$module -> config['showrating'];
 $imlink['showpagerank']		= icms::$module -> config['showpagerank'];
 $imlink['infoblock2']		= ( $imlink['showrating'] || $imlink['showpagerank'] );
@@ -172,7 +172,7 @@ switch( icms::$module -> config['lightwindow'] ) {
 
 	// Open link in new browser tab/window
 	case 0:
-		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
+		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
 		$imlink['visitlink']    = '<span id="button"><a class="button" href="' . $imlink['visit'] . '" target="_blank">' . _MD_IMLINKS_LINKNOW . '</a></span>';
 		$imlink['visittitle']   = '<a href="' . $imlink['visit'] . '" target="_blank">' . $link_arr['title'] . '</a>';
 		break;
@@ -180,14 +180,14 @@ switch( icms::$module -> config['lightwindow'] ) {
 	// Open link in LightWindow
 	case 1:
 		$lightwindow = 'params="lightwindow_width=800,lightwindow_height=600,lightwindow_loading_animation=true" title="' . $link_arr['title'] . '" caption="' . $imlink['hits'] . '"';
-		$imlink['visitspinner'] = '<a class="lightwindow" href="' . $imlink['visit'] . '" ' . $lightwindow . '><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
+		$imlink['visitspinner'] = '<a class="lightwindow" href="' . $imlink['visit'] . '" ' . $lightwindow . '><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" title="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
 		$imlink['visitlink']    = '<span id="button"><a class="lightwindow button" href="' . $imlink['visit'] . '"  ' . $lightwindow . '>' . _MD_IMLINKS_LINKNOW . '</a></span>';
 		$imlink['visittitle']   = '<a class="lightwindow" href="' . $imlink['visit'] . '">' . $link_arr['title'] . '</a>';
 		break;
 
 	// Open link in GreyBox
 	case 2:
-		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" rel="gb_page_center[800, 600]"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
+		$imlink['visitspinner'] = '<a href="' . $imlink['visit'] . '" rel="gb_page_center[800, 600]"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/spinner.gif" alt="' . _MD_IMLINKS_LINKNOW . '" style="vertical-align: middle;" /></a>';
 		$imlink['visitlink']    = '<span id="button"><a class="button" href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]">' . _MD_IMLINKS_LINKNOW . '</a></span>';
 		$imlink['visittitle']   = '<a href="' . $imlink['visit'] . '" title="' . $link_arr['title'] . '" rel="gb_page_center[800, 600]">' . $link_arr['title'] . '</a>';
 		break;

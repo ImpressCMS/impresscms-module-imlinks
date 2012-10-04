@@ -31,6 +31,20 @@ defined( 'ICMS_ROOT_PATH' ) or die ( 'ICMS root path not defined' );
 class mod_imlinks_BrokenHandler extends icms_ipf_Handler {
 
 	public function __construct( &$db ) {
-		parent::__construct( $db, 'broken', 'reportid', 'lid', 'title', basename( dirname( dirname( __FILE__ ) ) ) );
+		parent::__construct( $db, 'broken', 'reportid', 'title', 'lid', basename( dirname( dirname( __FILE__ ) ) ) );
+	}
+	
+	public function changeAckStatus( $reportid, $field ) {
+		$visibility = $entryObj = '';
+		$entryObj = $this -> get( $reportid );
+		if ( $entryObj -> getVar( $field, 'e' ) == true ) {
+			$entryObj -> setVar( $field, 0 );
+			$visibility = 0;
+		} else {
+			$entryObj -> setVar( $field, 1 );
+			$visibility = 1;
+		}
+		$this -> insert( $entryObj, true );
+		return $visibility;
 	}
 }

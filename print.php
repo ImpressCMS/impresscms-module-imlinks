@@ -69,7 +69,7 @@ if ( icms::$module -> config['printlogourl'] ) {
 	$xoopsTpl -> assign( 'printlogo', '' );
 }
 
-include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/address.php';
+include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/address.php';
 $street1	= $myrow['street1'];
 $street2	= $myrow['street2'];
 $town		= $myrow['town'];
@@ -90,23 +90,23 @@ if ( $street1 == '' || $town == '' || icms::$module -> config['useaddress'] == 0
 	$print['address'] = '<br />' . iml_address( $street1, $street2, $town, $state, $zip, $myrow['country'] ) . '<br />' . $country;
 
 	if ( $myrow['tel'] == true ) {
-		$print['tel'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/telephone.png" title="'._MD_IMLINKS_TELEPHONE.'" alt="'._MD_IMLINKS_TELEPHONE.'" style="vertical-align: middle;" />&nbsp;' . $tel;
+		$print['tel'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/telephone.png" title="'._MD_IMLINKS_TELEPHONE.'" alt="'._MD_IMLINKS_TELEPHONE.'" style="vertical-align: middle;" />&nbsp;' . $tel;
 	}
 
 	if ( $myrow['mobile'] == true ) {
-		$print['mobile'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/phone.png" title="'._MD_IMLINKS_MOBILE.'" alt="'._MD_IMLINKS_MOBILE.'" style="vertical-align: middle;" />&nbsp;' . $mobile;
+		$print['mobile'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/phone.png" title="'._MD_IMLINKS_MOBILE.'" alt="'._MD_IMLINKS_MOBILE.'" style="vertical-align: middle;" />&nbsp;' . $mobile;
 	}
 
 	if ( $myrow['voip'] == true ) {
-		$print['voip'] = '<br />' .'<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/voip.png" title="'._MD_IMLINKS_VOIP.'" alt="'._MD_IMLINKS_VOIP.'" style="vertical-align: middle;" />&nbsp;'  . $voip;
+		$print['voip'] = '<br />' .'<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/voip.png" title="'._MD_IMLINKS_VOIP.'" alt="'._MD_IMLINKS_VOIP.'" style="vertical-align: middle;" />&nbsp;'  . $voip;
 	}
 
 	if ( $myrow['fax'] == true ) {
-		$print['fax'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/fax.png" title="'._MD_IMLINKS_FAX.'" alt="'._MD_IMLINKS_FAX.'" style="vertical-align: middle;" />&nbsp;' . $fax;
+		$print['fax'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/fax.png" title="'._MD_IMLINKS_FAX.'" alt="'._MD_IMLINKS_FAX.'" style="vertical-align: middle;" />&nbsp;' . $fax;
 	}
 
 	if ( $myrow['email'] == true ) {
-		$print['email'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" title="'._MD_IMLINKS_EMAIL . '" alt="' ._MD_IMLINKS_EMAIL.'" style="vertical-align: middle;" />&nbsp;' . $email;
+		$print['email'] = '<br />' . '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/email.png" title="'._MD_IMLINKS_EMAIL . '" alt="' ._MD_IMLINKS_EMAIL.'" style="vertical-align: middle;" />&nbsp;' . $email;
 	}
 
 	if ( $myrow['vat'] == true ) {
@@ -148,6 +148,6 @@ $link_meta_description = implode( ' ', $newWords );
 	iml_noindexnofollow();
 // End of meta tags
 
-$xoopsTpl -> assign( 'module_dir', $mydirname );
+$xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 $xoopsTpl -> display( 'db:imlinks_print.html' );
 ?>

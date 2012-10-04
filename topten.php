@@ -86,7 +86,7 @@ $xoopsTpl -> assign( 'back' , '<a class="button" href="javascript:history.go(-1)
 $xoopsTpl -> assign( 'lang_sortby' , $lang_array[$sort_arr] );
 $xoopsTpl -> assign( 'nice_url', icms::$module -> config['niceurl'] );
 $xoopsTpl -> assign( 'rankings', $rankings );
-$xoopsTpl -> assign( 'module_dir', $mydirname );
+$xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 $xoopsTpl -> assign( 'icms_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />' );
 
 include ICMS_ROOT_PATH . '/footer.php';

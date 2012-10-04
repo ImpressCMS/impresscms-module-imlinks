@@ -36,7 +36,7 @@ switch ( strtolower( $op ) ) {
 
 		$sender = ( is_object( icms::$user ) && !empty( icms::$user ) ) ? icms::$user -> getVar( 'uid' ) : 0;
 		$ip = getenv( 'REMOTE_ADDR' );
-		$title = iml_cleanRequestVars( $_REQUEST, 'title', '' );
+		$title = isset( $_POST['title'] ) ? $_POST['title'] : $_GET['title'];
 		$title = icms_core_DataFilter::addSlashes( $title );
 		$time = time();
 

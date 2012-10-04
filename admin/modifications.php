@@ -203,7 +203,7 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		iml_adminmenu( '', _AM_IMLINKS_MOD_MODREQUESTS );
 
-		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . $mydirname . '/style.css" />';
+		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
 
 		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MOD_MODREQUESTSINFO . '</div>

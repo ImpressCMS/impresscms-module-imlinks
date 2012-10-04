@@ -47,7 +47,7 @@ $xoopsOption['template_main'] = 'imlinks_viewcat.html';
 include ICMS_ROOT_PATH . '/header.php';
 
 // Breadcrumb
-$pathstring  = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/index.php">' . _MD_IMLINKS_MAIN . '</a>&nbsp;:&nbsp;';
+$pathstring  = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/index.php">' . _MD_IMLINKS_MAIN . '</a>&nbsp;:&nbsp;';
 $pathstring .= $mytree -> getNicePathFromId( $cid, 'title', 'viewcat.php?op=' );
 $xoopsTpl -> assign( 'category_path', $pathstring );
 $xoopsTpl -> assign( 'category_id', $cid );
@@ -82,7 +82,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 					break;
 				}
 				if ( $space > 0 ) $infercategories .= '<div style="margin-left: 45px; font-size: smaller; padding-top: 0px;">- ';
-					$infercategories .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/viewcat.php?cid=' . $sub_ele['cid'] . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $sub_ele['title'] ) ) . '</a> (' . $hassubitems['count'] . ')</div>';
+					$infercategories .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/viewcat.php?cid=' . $sub_ele['cid'] . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $sub_ele['title'] ) ) . '</a> (' . $hassubitems['count'] . ')</div>';
 				$space++;
 				$chcount++;
 			}
@@ -197,7 +197,7 @@ $page_nav = $pagenav -> renderNav();
 $istrue   = ( isset( $page_nav ) && !empty( $page_nav ) ) ? true : false;
 $xoopsTpl -> assign( 'page_nav', $istrue );
 $xoopsTpl -> assign( 'pagenav', $page_nav );
-$xoopsTpl -> assign( 'module_dir', $mydirname );
+$xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 $xoopsTpl -> assign( 'icms_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />
 <script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />' );
@@ -207,7 +207,7 @@ if ( $count > 0 ) {
 	$moderate = 0;
 	while ( $link_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
 		$res_type = 0;
-		require ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/linkloadinfo.php';
+		require ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/linkloadinfo.php';
 		$xoopsTpl -> append( 'imlink', $imlink );
 	}
 

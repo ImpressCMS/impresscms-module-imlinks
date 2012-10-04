@@ -152,4 +152,53 @@ function iml_cattitle( $catt ) {
 	return $result['title'];
 }
 
+function iml_linklistbody( $published ) {
+	global $imagearray;
+	$lid = $published['lid'];
+	$cid = $published['cid'];
+	$nice_link = iml_nicelink( $published['title'], $published['nice_url'] );
+	if ( icms::$module -> config['niceurl'] ) {
+		$title = '<a href="../singlelink.php?lid=' . $lid . '&amp;page=' . $nice_link . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) . '</a>';
+	} else {
+		$title = '<a href="../singlelink.php?lid=' . $lid . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) . '</a>';
+	}
+	$maintitle = urlencode( icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) );
+	$cattitle = '<a href="../viewcat.php?cid=' . $cid . '">' . iml_cattitle( $cid ) . '</a>';
+	$submitter = icms_member_user_Handler::getUserLink( $published['submitter'] );
+	$hwhoisurl = str_replace( 'http://', '', $published['url']);
+	$submitted = formatTimestamp( $published['date'], icms::$module -> config['dateformat'] );
+	$publish = ( $published['published'] > 0 ) ? formatTimestamp( $published['published'], icms::$module -> config['dateformatadmin'] ): 'Not Published';
+	$expires = $published['expired'] ? formatTimestamp( $published['expired'], icms::$module -> config['dateformatadmin'] ): _AM_IMLINKS_MINDEX_NOTSET;
+	
+	if ( $published['status'] == 0 && $published['offline'] == 0 ) {
+		// Link submitted, waiting for approval
+		$published_status = $imagearray['waiting'];
+	} elseif ( ( ( $published['expired'] && $published['expired'] > time() ) OR  $published['expired']==0)&& ( $published['published'] && $published['published'] < time() ) && $published['offline'] == 0 ) {
+		// Online
+		$published_status = '<a href="index.php?op=status_off&amp;lid=' . $lid . '">' . $imagearray['online'] . '</a>';
+	} elseif ( ( $published['expired'] && $published['expired'] < time() )  && $published['offline'] == 0 ) {
+		// Expired
+		$published_status = $imagearray['expired'];
+	} else {
+		// Offline
+		$published_status = ( $published['published'] == 0 ) ? "<a href='newlinks.php'>" . $imagearray['offline'] . "</a>" : '<a href="index.php?op=status_on&amp;lid=' . $lid . '">' . $imagearray['offline'] . '</a>';
+	}
+
+	$icon = '<a href="index.php?op=edit&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_EDIT . '">' . $imagearray['editimg'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="index.php?op=delete&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_DELETE . '">' . $imagearray['deleteimg'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="index.php?op=clone&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_CLONE . '">' . $imagearray['clone'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="altcat.php?op=main&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ALTCAT_CREATEF . '">' . $imagearray['altcat'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="http://whois.domaintools.com/' . $hwhoisurl . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" align="absmiddle"/></a>';
+	echo '<div class="imlinks_tblrow">
+			<div class="imlinks_tblhdrcell" style="text-align: center;">' . $lid . '</div>
+			<div class="imlinks_tblcell">' . $title . '</div>
+			<div class="imlinks_tblcell">' . $cattitle . '</div>
+			<div class="imlinks_tblcell" style="text-align: center;">' . $submitter . '</div>
+			<div class="imlinks_tblcell" style="text-align: center;">' . $publish . '</div>
+			<div class="imlinks_tblcell" style="text-align: center;">' . $expires . '</div>
+			<div class="imlinks_tblcell" style="text-align: center;">' . $published_status . '</div>
+			<div class="imlinks_tblcell" style="white-space: nowrap; text-align: center; width: 110px;">' . $icon . '</div>
+		  </div>';
+	unset( $published );
+}
 ?>

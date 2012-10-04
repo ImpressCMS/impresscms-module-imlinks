@@ -27,11 +27,11 @@
 */
 
 function imlinks_notify_iteminfo( $category, $item_id ) {
-	$mydirname = basename( dirname(  dirname( __FILE__ ) ) );
+	icms::$module -> getVar( 'dirname' ) = basename( dirname(  dirname( __FILE__ ) ) );
 
-	if ( empty( icms::$module ) || icms::$module -> getVar('dirname') != $mydirname ) {
+	if ( empty( icms::$module ) || icms::$module -> getVar('dirname') != icms::$module -> getVar( 'dirname' ) ) {
 		$module_handler = icms::handler( 'icms_module' );
-		$module =& $module_handler -> getByDirname( $mydirname );
+		$module =& $module_handler -> getByDirname( icms::$module -> getVar( 'dirname' ) );
 		$config_handler = icms::$config;
 		$config =& $config_handler -> getConfigsByCat( 0, $module -> getVar('mid') );
 	} else {
@@ -53,7 +53,7 @@ function imlinks_notify_iteminfo( $category, $item_id ) {
 		}
 		$result_array = icms::$xoopsDB -> fetchArray( $result );
 		$item['name'] = $result_array['title'];
-		$item['url'] = ICMS_URL . '/modules/' . $mydirname . '/viewcat.php?cid=' . $item_id;
+		$item['url'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/viewcat.php?cid=' . $item_id;
 		return $item;
 	}
 
@@ -65,7 +65,7 @@ function imlinks_notify_iteminfo( $category, $item_id ) {
 		}
 		$result_array = icms::$xoopsDB -> fetchArray( $result );
 		$item['name'] = $result_array['title'];
-		$item['url'] = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . $item_id;
+		$item['url'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $item_id;
 		return $item;
 	}
 }

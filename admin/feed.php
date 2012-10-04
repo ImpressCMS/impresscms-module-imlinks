@@ -23,8 +23,6 @@ $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 function imlinks_rss_edit() {
 	global $icmsConfig, $icmsAdminTpl;
 
-	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
-
 	$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_configs' );
 	$feed_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
@@ -38,7 +36,7 @@ function imlinks_rss_edit() {
 	$rsstitle		= $feed_array['rsstitle'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rsstitle'] ) ) : $icmsConfig['sitename'];
 	$rsslink		= $feed_array['rsslink'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rsslink'] ) ) : ICMS_URL;
 	$rssdsc			= $feed_array['rssdsc'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssdsc'] ) ) : $icmsConfig['slogan'];
-	$rssimgurl		= $feed_array['rssimgurl'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssimgurl'] ) ) : ICMS_URL .'/modules/' . $mydirname . '/images/imlinks_iconbig.png';
+	$rssimgurl		= $feed_array['rssimgurl'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssimgurl'] ) ) : ICMS_URL .'/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/imlinks_iconbig.png';
 	$rsswidth		= $feed_array['rsswidth'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rsswidth'] ) ) : '32';
 	$rssheight		= $feed_array['rssheight'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssheight'] ) ) : '32';
 	$rssimgtitle	= $feed_array['rssimgtitle'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $feed_array['rssimgtitle'] ) ) : $modulename;
@@ -57,7 +55,7 @@ function imlinks_rss_edit() {
 	iml_adminmenu( 7, _AM_IMLINKS_RSSFEED );
 
 	echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
-			<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
+			<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
 			' . _AM_IMLINKS_RSSFEEDDSC . '';
 			if ( $feed_array['rsstitle'] == '' ) {
 				echo '<br /><br /><span style="text-decoration: blink; font-weight: bold; color: red;">' . _AM_IMLINKS_RSSCLICKSUBMIT . '</span>';

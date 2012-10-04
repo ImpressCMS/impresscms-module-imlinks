@@ -36,7 +36,7 @@ $lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 $imlinks_links_handler = icms_getModuleHandler( 'links', basename( dirname( dirname( __FILE__ ) ) ), 'imlinks' );
 
 function edit( $lid = 0, $doclone = 0 ) {
-	global $immyts, $mytree, $imagearray, $icmsConfig, $icmsAdminTpl;
+	global $mytree, $imagearray, $icmsAdminTpl;
 
 	$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
 	if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
@@ -431,7 +431,7 @@ switch ( strtolower( $op ) ) {
 		if ( $op == 'pingtime' ) {
 			iml_adminmenu( '', _AM_IMLINKS_MLISTPINGTIMES );
 			echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px; margin-bottom: 15px;">
-				  <img src="' . ICMS_URL . '/modules/' . $icmsModule -> getVar( 'dirname' ) . '/images/icon/ping.png" alt="" style="float: left;" /><div style="margin-left: 50px;">' . _AM_IMLINKS_PINGTIMES . '</div>
+				  <img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/ping.png" alt="" style="float: left;" /><div style="margin-left: 50px;">' . _AM_IMLINKS_PINGTIMES . '</div>
 				  </div>';
 		} else {
 			iml_adminmenu( '', _AM_IMLINKS_MLISTBROKEN );
@@ -502,6 +502,24 @@ switch ( strtolower( $op ) ) {
 		echo '</div>';
 		iml_linklistpagenav( $broken_array_count, $start, 'art', 'op=' . $op, 'right' );
 		icms_cp_footer();
+		break;
+		
+	case 'status_off':
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET offline='1' WHERE lid=" . $lid;
+		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
+			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+			return false;
+		}
+		redirect_header( 'index.php', 1, _AM_IMLINKS_MSG_OFFLINE );
+		break;
+
+	case 'status_on':
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET offline='0' WHERE lid=" . $lid;
+		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
+			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+			return false;
+		}
+		redirect_header( 'index.php', 1, _AM_IMLINKS_MSG_ONLINE );
 		break;
 
 	case 'edit':
@@ -781,33 +799,69 @@ switch ( strtolower( $op ) ) {
 			$sform -> display();
 		}
 		
-		echo '<br />';
-		
 		// Main Index
-		$objectTable = new icms_ipf_view_Table( $imlinks_links_handler, false, array() );
-
-		$objectTable -> addHeader('<span style="float: left; font-size: 12px; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_PUBLISHEDLINK . '</span>');
-
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'lid', 'center', 40, true ) );
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, false, 'ViewLink' ) );
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'cid', _GLOBAL_LEFT, false ) );
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'submitter', 'center' ) );
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'published', 'center', 100 ) );
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'status', 'center' ) );
-
-		$objectTable -> addCustomAction( 'getEditLink' );
-		$objectTable -> addCustomAction( 'getDeleteLink' );
-		$objectTable -> addCustomAction( 'getCloneLink' );
-		$objectTable -> addCustomAction( 'getAltcatLink' );
-		$objectTable -> addCustomAction( 'getWhoisLink' );
+		if ( icms::$module -> config['ipftables'] == 1 ) {
 		
-		$objectTable -> addQuickSearch( array( 'title' ), _AM_IMLINKS_SEARCHTITLE );
+			echo '<br />';
 		
-		$objectTable -> setDefaultSort( 'lid' );
-		$objectTable -> setDefaultOrder( 'DESC' );
+			$objectTable = new icms_ipf_view_Table( $imlinks_links_handler, false, array() );
 
-		$icmsAdminTpl -> assign( 'imlinks_links_table', $objectTable -> fetch() );
-		$icmsAdminTpl -> display( 'db:imlinks_admin_index.html' );
+			$objectTable -> addHeader('<span style="float: left; font-size: 12px; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_PUBLISHEDLINK . '</span>');
+
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'lid', 'center', 40, true ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, false, 'ViewLink' ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'cid', _GLOBAL_LEFT, false ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'submitter', 'center' ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'published', 'center', 100 ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'status', 'center' ) );
+
+			$objectTable -> addCustomAction( 'getEditLink' );
+			$objectTable -> addCustomAction( 'getDeleteLink' );
+			$objectTable -> addCustomAction( 'getCloneLink' );
+			$objectTable -> addCustomAction( 'getAltcatLink' );
+			$objectTable -> addCustomAction( 'getWhoisLink' );
+		
+			$objectTable -> addQuickSearch( array( 'title' ), _AM_IMLINKS_SEARCHTITLE );
+		
+			$objectTable -> setDefaultSort( 'lid' );
+			$objectTable -> setDefaultOrder( 'DESC' );
+
+			$icmsAdminTpl -> assign( 'imlinks_links_table', $objectTable -> fetch() );
+			$icmsAdminTpl -> display( 'db:imlinks_admin_index.html' );
+		
+		} else {
+		
+			$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' ORDER BY lid DESC';
+			$published_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
+			$published_array_count = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
+			echo '<br /><span style="float: left; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_MINDEX_PUBLISHEDLINK . '</span>';
+			echo iml_linklistpagenav( $published_array_count, $start, 'art', '', 'right' );
+			
+			if ( $published_array_count > 0 ) {
+			
+				echo '<div class="imlinks_table" style="font-size: 10px;">
+					<div class="imlinks_tblhdrrow">
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_ID . '</div>
+						<div class="imlinks_tblcell">' . _AM_IMLINKS_MINDEX_TITLE . '</div>
+						<div class="imlinks_tblcell">' . _AM_IMLINKS_CATTITLE . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_POSTER . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_PUBLISH . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_EXPIRE . '</div>
+						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_ONLINE . '</div>
+						<div class="imlinks_tblcell">' . _AM_IMLINKS_MINDEX_ACTION . '</div>
+					</div>';
+				while ( $published = icms::$xoopsDB -> fetchArray( $published_array ) ) {
+					iml_linklistbody( $published );
+				}
+				echo '</div>';
+				iml_linklistpagenav( $published_array_count, $start, 'art', '', 'right' );
+				
+			} else {
+			
+				echo '<br /><div style="border: 1px solid #ccc; text-align: center; width: 100%; font-weight: bold; background-color: #FFFF99;">' . _AM_IMLINKS_MINDEX_NOLINKSFOUND . '</div>';
+				
+			}
+		}
 
 		icms_cp_footer();
 		break;

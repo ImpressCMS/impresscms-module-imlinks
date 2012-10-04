@@ -62,7 +62,7 @@ switch ( strtolower( $op ) ) {
 			<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 			<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMLINKS_IPAGE_INFORMATION . '</div>
 			<div style="padding: 8px; font-weight: normal;">
-				<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/indexpage.png" alt="" style="float: left; padding-right: 10px;" />
+				<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/indexpage.png" alt="" style="float: left; padding-right: 10px;" />
 			' . _AM_IMLINKS_MINDEX_PAGEINFOTXT . '</div>
 			</div><br />';
 

@@ -58,7 +58,7 @@ if ( $action == 'message' ) {
 	if ( isset( $wflinks_version ) ) {
 		$link_num = $wflinks_version;
 	}
-	echo '<div style="text-align: center; padding-bottom: 20px;"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/logo-en.png" alt="" /></div>';
+	echo '<div style="text-align: center; padding-bottom: 20px;"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/logo-en.png" alt="" /></div>';
 	echo '<div><b>Welcome to the imLinks Update script</b></div><br />';
 	echo '<div>This script will upgrade imLinks from WF-Links.</div><br /><br />';
 
@@ -99,7 +99,7 @@ if ( $action == 'upgrade' ) {
 	switch ( $num ) {
 		case '1.06':
 		case '1.07':
-			echo '<div style="text-align: center; padding-bottom: 20px;"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/logo-en.png" alt="" /></div>';
+			echo '<div style="text-align: center; padding-bottom: 20px;"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/logo-en.png" alt="" /></div>';
 			echo 'Updating from WF-Links $num';
 			include 'update/wflinks_update.php';
 			break;

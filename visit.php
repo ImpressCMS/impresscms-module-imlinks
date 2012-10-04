@@ -73,10 +73,10 @@ if ( icms::$module -> config['showlinkdisclaimer'] && $agreed == 0 ) {
 
 		$xoopsTpl -> assign( 'image_header', iml_imageheader() );
 		$xoopsTpl -> assign( 'linkdisclaimer', icms::$module -> config['linkdisclaimer'] );
-		$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . $mydirname . '/index.php' );
-		$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . $mydirname . '/visit.php?agree=1&amp;lid=' . intval( $lid ) );
+		$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/index.php' );
+		$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/visit.php?agree=1&amp;lid=' . intval( $lid ) );
 		$xoopsTpl -> assign( 'link_disclaimer', true );
-		$xoopsTpl -> assign( 'module_dir', $mydirname );
+		$xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 
 		include ICMS_ROOT_PATH . '/footer.php';
 		exit();

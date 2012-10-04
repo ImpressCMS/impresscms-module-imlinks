@@ -32,9 +32,9 @@ $mydirname = basename( dirname( __FILE__ ) );
 
 global $icmsConfig;
 
-if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/'. $icmsConfig['language'] . '/moduleabout.php' ) ) {
-	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/'. $icmsConfig['language'] . '/moduleabout.php';
-} else { include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/english/moduleabout.php'; }
+if ( file_exists( ICMS_ROOT_PATH . '/modules/' . basename( dirname( __FILE__ ) ) . '/language/'. $icmsConfig['language'] . '/moduleabout.php' ) ) {
+	include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname( __FILE__ ) ) . '/language/'. $icmsConfig['language'] . '/moduleabout.php';
+} else { include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname( __FILE__ ) ) . '/language/english/moduleabout.php'; }
 
 $modversion['name'] 			= _MI_IMLINKS_NAME;
 $modversion['version']			= '1.13';
@@ -46,7 +46,7 @@ $modversion['license']			= _MI_IMLINKS_ABOUTLICENSE;
 $modversion['image']			= 'images/imlinks_ilogo.png';		// standard XOOPS icon, 92x52 px  
 $modversion['iconsmall']		= 'images/imlinks_iconsmall.png';	// small icon for ImpressCMS, 16x16 px 
 $modversion['iconbig']			= 'images/imlinks_iconbig.png';		// big icon for ImpressCMS, 37x35 px
-$modversion['dirname']			= $mydirname;
+$modversion['dirname']			= basename( dirname( __FILE__ ) );
 $modversion['modname']			= 'imlinks';
 
 $modversion['author']			= 'Version developer: John N';
@@ -292,6 +292,14 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'int',
 	'default'		=> 50,
 	'options'		=> array( '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30, '50' => 50, '75' => 75, '100' => 100, '200' => 200 ) );
+	
+$modversion['config'][] = array(
+	'name'			=> 'ipftables',
+	'title'			=> '_MI_IMLINKS_IPFTABLE',
+	'description'	=> '_MI_IMLINKS_IPFTABLEDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 0 );
 
 $modversion['config'][] = array(
 	'name'			=> 'linkxorder',
@@ -469,7 +477,7 @@ $modversion['config'][] = array(
 	'description'	=> '_MI_IMLINKS_MAINIMGDIRDSC',
 	'formtype'		=> 'textbox',
 	'valuetype'		=> 'text',
-	'default'		=> 'modules/' . $mydirname . '/images' );
+	'default'		=> 'modules/' . basename( dirname( __FILE__ ) ) . '/images' );
 
 $modversion['config'][] = array(
 	'name'			=> 'screenshots',
@@ -669,7 +677,7 @@ $modversion['config'][] = array(
 	'description'	=> '_MI_IMLINKS_LOGOURLDSCPRINT',
 	'formtype'		=> 'textbox',
 	'valuetype'		=> 'text',
-	'default'		=> ICMS_URL . '/modules/' . $modversion['dirname'] . '/images/logo-en.png' );
+	'default'		=> ICMS_URL . '/modules/' . basename( dirname( __FILE__ ) ) . '/images/logo-en.png' );
 
 $modversion['config'][] = array(
 	'name'			=> 'footerprint',

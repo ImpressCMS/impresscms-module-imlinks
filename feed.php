@@ -17,7 +17,7 @@
 */
 
 include 'header.php';
-include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/imlinksfeed.php'; 
+include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/class/imlinksfeed.php'; 
 
 $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_configs' );
 $config_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );

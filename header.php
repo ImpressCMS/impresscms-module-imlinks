@@ -26,11 +26,9 @@
 * @version		$Id$
 */
 
-$mydirname = basename( dirname( __FILE__ ) );
-
 include_once '../../mainfile.php';
-include ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
-include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/class_thumbnail.php';
+include ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/functions.php';
+include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/class/class_thumbnail.php';
 
 if ( !file_exists( 'language/' . $icmsConfig['language'] . '/main.php' ) ) {
 	include 'language/' . $icmsConfig['language'] . '/main.php';

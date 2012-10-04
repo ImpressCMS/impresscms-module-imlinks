@@ -123,19 +123,19 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 
 			$tags = array();
 			$tags['LINK_NAME'] = $title;
-			$tags['LINK_URL'] = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . intval( $newid );
+			$tags['LINK_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $newid );
 
 			$sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . intval( $cid );
 			$row = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
 			$tags['CATEGORY_NAME'] = $row['title'];
-			$tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . $mydirname . '/viewcat.php?cid=' . intval( $cid );
+			$tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/viewcat.php?cid=' . intval( $cid );
 			if ( true == iml_checkgroups( $cid, 'imLinkAutoApp' ) ) {
 				$notification_handler -> triggerEvent( 'global', 0, 'new_link', $tags );
 				$notification_handler -> triggerEvent( 'category', $cid, 'new_link', $tags );
 				redirect_header( 'index.php', 2, _MD_IMLINKS_ISAPPROVED );
 			} else {
-				$tags['WAITINGFILES_URL'] = ICMS_URL . '/modules/' . $mydirname . '/admin/newlinks.php';
+				$tags['WAITINGFILES_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/newlinks.php';
 				$notification_handler -> triggerEvent( 'global', 0, 'link_submit', $tags );
 				$notification_handler -> triggerEvent( 'category', $cid, 'link_submit', $tags );
 				if ( $notifypub ) {
@@ -156,12 +156,12 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 				$notification_handler = icms::handler( 'icms_data_notification' );
 				$tags = array();
 				$tags['LINK_NAME'] = $title;
-				$tags['LINK_URL'] = ICMS_URL . '/modules/' . $mydirname . '/singlelink.php?lid=' . intval( $lid );
+				$tags['LINK_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $lid );
 				$sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'imlinks_cat' ) . ' WHERE cid=' . intval( $cid );
 				$result = icms::$xoopsDB -> query( $sql );
 				$row = icms::$xoopsDB -> fetchArray( $result );
 				$tags['CATEGORY_NAME'] = $row['title'];
-				$tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . $mydirname . '/viewcat.php?cid=' . intval( $cid );
+				$tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/viewcat.php?cid=' . intval( $cid );
 
 				$notification_handler -> triggerEvent( 'global', 0, 'new_link', $tags );
 				$notification_handler -> triggerEvent( 'category', intval($cid), 'new_link', $tags );
@@ -179,11 +179,11 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 				}
 
 				$tags = array();
-				$tags['MODIFYREPORTS_URL'] = ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=listModReq';
+				$tags['MODIFYREPORTS_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php?op=listModReq';
 				$notification_handler = icms::handler( 'icms_data_notification' );
 				$notification_handler -> triggerEvent( 'global', 0, 'link_modify', $tags );
 
-				$tags['WAITINGFILES_URL'] = ICMS_URL . '/modules/' . $mydirname . '/admin/index.php?op=listNewlinks';
+				$tags['WAITINGFILES_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php?op=listNewlinks';
 				$notification_handler -> triggerEvent( 'global', 0, 'link_submit', $tags );
 				$notification_handler -> triggerEvent( 'category', intval($cid), 'link_submit', $tags );
 				if ( $notifypub ) {
@@ -206,14 +206,14 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 				$xoopsTpl -> assign( 'image_header', '<div style="text-align: center; margin-bottom: 20px;">' . iml_imageheader() . '</div>' );
 			}
 			$xoopsTpl -> assign( 'disclaimer', icms::$module -> config['disclaimer'] );
-			$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . $mydirname . '/index.php' );
+			$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/index.php' );
 			$xoopsTpl -> assign( 'link_disclaimer', false );
 			$xoopsTpl -> assign( 'module_dir', icms::$module -> getVar('dirname') );
 			if ( !isset( $_REQUEST['lid'] ) ) {
-				$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . $mydirname . '/submit.php?agree=1' );
+				$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?agree=1' );
 			} elseif ( isset( $_REQUEST['lid'] ) ) {
 				$lid = intval( $_REQUEST['lid'] );
-				$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . $mydirname . '/submit.php?agree=1&amp;lid=' . intval( $lid ) );
+				$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?agree=1&amp;lid=' . intval( $lid ) );
 			}
 			include ICMS_ROOT_PATH . '/footer.php';
 			exit();
@@ -274,7 +274,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		$url_text = new icms_form_elements_Text( '', 'url', 70, 255, $url );
 		$url_tray = new icms_form_elements_Tray( _MD_IMLINKS_DLURL . imlinks_tooltip( _MD_IMLINKS_LINKURLDSC, 'help' ), '' );
 		$url_tray -> addElement( $url_text , true ) ;
-		$url_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/world.png' onClick=\"window.open(storyform.url.value,'','');return(false);\" alt='' title='Check URL' style='cursor:pointer;' />" ));
+		$url_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . icms::$module -> getVar( 'dirname' ) . "/images/icon/world.png' onClick=\"window.open(storyform.url.value,'','');return(false);\" alt='' title='Check URL' style='cursor:pointer;' />" ));
 		$sform -> addElement( $url_tray );
 
 		// Category selection menu
@@ -306,21 +306,21 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 		$googlemap_text = new icms_form_elements_Text( '', 'googlemap', 70, 1024, $googlemap );
 		$googlemap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_GOOGLEMAP . imlinks_tooltip( sprintf( _MD_IMLINKS_MAPDSC, '<i>http://maps.google.com</i>' ), 'help' ), '' );
 		$googlemap_tray -> addElement( $googlemap_text , false ) ;
-		$googlemap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/google_map.png' onClick=\"window.open(storyform.googlemap.value,'','');\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' style='cursor:pointer;' />" ) );
+		$googlemap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . icms::$module -> getVar( 'dirname' ) . "/images/icon/google_map.png' onClick=\"window.open(storyform.googlemap.value,'','');\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' style='cursor:pointer;' />" ) );
 		$sform -> addElement( $googlemap_tray );
 
 		// Yahoo Maps
 		$yahoomap_text = new icms_form_elements_Text( '', 'yahoomap', 70, 1024, $yahoomap );
 		$yahoomap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_YAHOOMAP . imlinks_tooltip( sprintf( _MD_IMLINKS_MAPDSC, '<i>http://maps.yahoo.com</i>' ), 'help' ), '' );
 		$yahoomap_tray -> addElement( $yahoomap_text , false ) ;
-		$yahoomap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/yahoo_map.png' onClick=\"window.open(storyform.yahoomap.value,'','');return(false);\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' style='cursor:pointer;' />" ) );
+		$yahoomap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . icms::$module -> getVar( 'dirname' ) . "/images/icon/yahoo_map.png' onClick=\"window.open(storyform.yahoomap.value,'','');return(false);\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' style='cursor:pointer;' />" ) );
 		$sform -> addElement( $yahoomap_tray );
 
 		// Bing Maps
 		$multimap_text = new icms_form_elements_Text( '', 'multimap', 70, 1024, $multimap );
 		$multimap_tray = new icms_form_elements_Tray( _MD_IMLINKS_LINK_BINGMAP . imlinks_tooltip( sprintf( _MD_IMLINKS_MAPDSC, '<i>http://www.bing.com/maps/</i>' ), 'help' ), '' );
 		$multimap_tray -> addElement( $multimap_text , false ) ;
-		$multimap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . $mydirname . "/images/icon/bing_map.png' onClick=\"window.open(storyform.multimap.value,'','');return(false);\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' style='cursor:pointer;' />" ));
+		$multimap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='" . ICMS_URL . "/modules/" . icms::$module -> getVar( 'dirname' ) . "/images/icon/bing_map.png' onClick=\"window.open(storyform.multimap.value,'','');return(false);\" alt='' title='" . _MD_IMLINKS_LINK_CHECKMAP . "' style='cursor:pointer;' />" ));
 		$sform -> addElement( $multimap_tray );
 
 		// Address forms
