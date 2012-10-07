@@ -4,7 +4,7 @@
 *
 * Based upon WF-Links 1.06
 *
-* File: newlinks.php
+* File: admin/newlinks.php
 *
 * @copyright	http://www.xoops.org/ The XOOPS Project
 * @copyright	XOOPS_copyrights.txt
@@ -30,6 +30,8 @@ include 'admin_header.php';
 
 $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 $lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', '' ) );
+
+$imlinks_newlinks_handler = icms_getModuleHandler( 'links', basename( dirname( dirname( __FILE__ ) ) ), 'imlinks' );
 
 switch ( strtolower( $op ) ) {
 	case 'approve':
@@ -94,44 +96,71 @@ switch ( strtolower( $op ) ) {
 					' . $imagearray['deleteimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_SUB_DELETEWAITINGFILE . '</div>
 				</div><br />';
 		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
-		if ( $new_array_count > 0 ) {
-			echo '<div class="imlinks_table" style="font-size: 10px;">
-					<div class="imlinks_tblhdrrow">
+		
+		if ( icms::$module -> config['ipftables'] == 1 ) {
+		
+			$criteria = new icms_db_criteria_Compo();
+			$criteria -> add( new icms_db_criteria_Item( 'published', 0 ) );
+
+			$objectTable = new icms_ipf_view_Table( $imlinks_newlinks_handler, $criteria, array() );
+
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'lid', 'center', 40, true ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, false, 'ViewLink' ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'submitter', 'center', false ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'date', 'center' ) );
+			
+			$objectTable -> addCustomAction( 'getApprove' );
+			$objectTable -> addCustomAction( 'getEditLink' );
+			$objectTable -> addCustomAction( 'getDeleteLink' );
+		
+			$objectTable -> addQuickSearch( array( 'title' ), _AM_IMLINKS_SEARCHTITLE );
+		
+			$objectTable -> setDefaultSort( 'lid' );
+			$objectTable -> setDefaultOrder( 'DESC' );
+
+			$icmsAdminTpl -> assign( 'imlinks_newlinks_table', $objectTable -> fetch() );
+			$icmsAdminTpl -> display( 'db:imlinks_admin_index.html' );
+		
+		} else {
+			if ( $new_array_count > 0 ) {
+				echo '<div class="imlinks_table" style="font-size: 10px;">
+						<div class="imlinks_tblhdrrow">
 						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_ID . '</div>
 						<div class="imlinks_tblcell">' . _AM_IMLINKS_MINDEX_TITLE . '</div>
 						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_POSTER . '</div>
 						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_SUBMITTED . '</div>
 						<div class="imlinks_tblcell" style="text-align: center; width: 60px;">' . _AM_IMLINKS_MINDEX_ACTION . '</div>
 					</div>';
-			while ( $new = icms::$xoopsDB -> fetchArray( $new_array ) ) {
-				$lid = intval( $new['lid'] );
-				$rating = number_format( $new['rating'], 2 );
-				$title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $new['title'] ) );
-				$url = urldecode( icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $new['url'] ) ) );
-				$logourl = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $new['screenshot'] ) );
-				$submitter = icms_member_user_Handler::getUserLink( $new['submitter'] );
-				$datetime = formatTimestamp( $new['date'], icms::$module -> config['dateformatadmin'] );
+				while ( $new = icms::$xoopsDB -> fetchArray( $new_array ) ) {
+					$lid = intval( $new['lid'] );
+					$rating = number_format( $new['rating'], 2 );
+					$title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $new['title'] ) );
+					$url = urldecode( icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $new['url'] ) ) );
+					$logourl = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $new['screenshot'] ) );
+					$submitter = icms_member_user_Handler::getUserLink( $new['submitter'] );
+					$datetime = formatTimestamp( $new['date'], icms::$module -> config['dateformatadmin'] );
 
-				$icon = ( $new['published'] ) ? $approved : '<a href="newlinks.php?op=approve&amp;lid=' . $lid . '">' . $imagearray['approve'] . '</a>';
-				$icon .= '<a style="padding-left: 5px;" href="links.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>';
-				$icon .= '<a style="padding-left: 5px;" href="links.php?op=delete&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>';
+					$icon = ( $new['published'] ) ? $approved : '<a href="newlinks.php?op=approve&amp;lid=' . $lid . '">' . $imagearray['approve'] . '</a>';
+					$icon .= '<a style="padding-left: 5px;" href="links.php?op=edit&amp;lid=' . $lid . '">' . $imagearray['editimg'] . '</a>';
+					$icon .= '<a style="padding-left: 5px;" href="links.php?op=delete&amp;lid=' . $lid . '">' . $imagearray['deleteimg'] . '</a>';
 
-				echo '<div class="imlinks_tblrow">
-						<div class="imlinks_tblhdrcell" style="text-align: center;">' . $lid . '</div>
-						<div class="imlinks_tblcell"><a href="newlinks.php?op=edit&amp;lid=' . $lid . '">' . $title . '</a></div>
-						<div class="imlinks_tblcell" style="text-align: center;">'. $submitter . '</div>
-						<div class="imlinks_tblcell" style="text-align: center;">' . $datetime . '</div>
-						<div class="imlinks_tblcell" style="text-align: center; width: 70px;">' . $icon . '</div>
-					</div>';
+					echo '<div class="imlinks_tblrow">
+							<div class="imlinks_tblhdrcell" style="text-align: center;">' . $lid . '</div>
+							<div class="imlinks_tblcell"><a href="newlinks.php?op=edit&amp;lid=' . $lid . '">' . $title . '</a></div>
+							<div class="imlinks_tblcell" style="text-align: center;">'. $submitter . '</div>
+							<div class="imlinks_tblcell" style="text-align: center;">' . $datetime . '</div>
+							<div class="imlinks_tblcell" style="text-align: center; width: 70px;">' . $icon . '</div>
+						</div>';
+				}
+				echo '</div>';
+			} else {
+				echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMLINKS_SUB_NOFILESWAITING . '</div>';
 			}
-			echo '</div>';
-		} else {
-			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMLINKS_SUB_NOFILESWAITING . '</div>';
-		}
 
-		include_once ICMS_ROOT_PATH . '/class/pagenav.php';
-		$pagenav = new icms_view_PageNav( $new_array_count, icms::$module -> config['admin_perpage'], $start, 'start' );
-		echo '<div align="right" style="padding: 8px;">' . $pagenav -> renderNav() . '</div>';
+			include_once ICMS_ROOT_PATH . '/class/pagenav.php';
+			$pagenav = new icms_view_PageNav( $new_array_count, icms::$module -> config['admin_perpage'], $start, 'start' );
+			echo '<div align="right" style="padding: 8px;">' . $pagenav -> renderNav() . '</div>';
+		}
 		icms_cp_footer();
 		break;
 }

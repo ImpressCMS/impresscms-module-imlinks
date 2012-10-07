@@ -80,7 +80,7 @@ class mod_imlinks_Links extends icms_ipf_seo_Object {
 	}
 	
 	public function getVar( $key, $format = 's' ) {
-		if ( $format == 's' && in_array( $key, array( 'submitter', 'status', 'published', 'cid' ) ) ) {
+		if ( $format == 's' && in_array( $key, array( 'submitter', 'status', 'published', 'cid', 'date' ) ) ) {
 			return call_user_func( array( $this, $key ) );
 		}
 		return parent::getVar( $key, $format );
@@ -123,6 +123,11 @@ class mod_imlinks_Links extends icms_ipf_seo_Object {
 		return $publish;
 	}
 	
+	function date() {
+		$date = formatTimestamp( $this -> getVar( 'date', 'e' ), icms::$module -> config['dateformatadmin'] );
+		return $date;
+	}
+	
 	function cid() {
 		$ret = iml_cattitle( $this -> getVar( 'cid', 'e' ) );
 		return $ret;
@@ -161,6 +166,11 @@ class mod_imlinks_Links extends icms_ipf_seo_Object {
 	function getWhoisLink() {
 		$whoisurl = str_replace( 'http://', '', $this -> getVar( 'url' ) );
 		$ret = '<a href="http://whois.domaintools.com/' . $whoisurl . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/domaintools.png" alt="" title="WHOIS" /></a>';
+		return $ret;
+	}
+	
+	function getApprove() {
+		$ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/newlinks.php?op=approve&amp;lid=' . $this -> getVar( 'lid' ) . '"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/accept.png" alt="" title="' . _AM_IMLINKS_ICO_APPROVE . '" /></a>';
 		return $ret;
 	}
 

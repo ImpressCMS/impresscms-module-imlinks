@@ -31,6 +31,8 @@ include 'admin_header.php';
 $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 $requestid = intval( iml_cleanRequestVars( $_REQUEST, 'requestid', 0 ) );
 
+$imlinks_mod_handler = icms_getModuleHandler( 'mod', basename( dirname( dirname( __FILE__ ) ) ), 'imlinks' );
+
 switch ( strtolower( $op ) ) {
 	case 'listmodreqshow':
 
@@ -212,39 +214,59 @@ switch ( strtolower( $op ) ) {
 
 		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
 
+		if ( icms::$module -> config['ipftables'] == 1 ) {
 		
-		if ( $totalmodrequests > 0 ) {
-			echo '<div class="imlinks_table" style="font-size: 10px;">
-					<div class="imlinks_tblhdrrow">
+			$objectTable = new icms_ipf_view_Table( $imlinks_mod_handler, false, array() );
+
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'requestid', 'center', 40, true ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, false, 'ViewLink' ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'modifysubmitter', 'center' ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'requestdate', 'center', 100 ) );
+
+			$objectTable -> addCustomAction( 'getListModReqShow' );
+		
+			$objectTable -> addQuickSearch( array( 'title' ), _AM_IMLINKS_SEARCHTITLE );
+		
+			$objectTable -> setDefaultSort( 'requestid' );
+			$objectTable -> setDefaultOrder( 'DESC' );
+
+			$icmsAdminTpl -> assign( 'imlinks_mod_table', $objectTable -> fetch() );
+			$icmsAdminTpl -> display( 'db:imlinks_admin_index.html' );
+		
+		} else {
+			if ( $totalmodrequests > 0 ) {
+				echo '<div class="imlinks_table" style="font-size: 10px;">
+						<div class="imlinks_tblhdrrow">
 						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MOD_MODID . '</div>
 						<div class="imlinks_tblcell">' . _AM_IMLINKS_MOD_MODTITLE . '</div>
 						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MOD_MODIFYSUBMIT . '</div>
 						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MOD_DATE . '</div>
 						<div class="imlinks_tblcell" style="text-align: center;">' . _AM_IMLINKS_MINDEX_ACTION . '</div>
 					</div>';
-			while ( $link_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
-				$path = $mytree -> getNicePathFromId( $link_arr['requestid'], 'title', 'modifications.php?op=listmodreqshow&requestid' );
-				$path = str_replace( '/', '', $path );
-				$path = str_replace( ':', '', trim( $path ) );
-				$title = trim( $path );
-				$submitter = icms_member_user_Handler::getUserLink( $link_arr['modifysubmitter'] );;
-				$requestdate = formatTimestamp( $link_arr['requestdate'], icms::$module -> config['dateformatadmin'] );
+				while ( $link_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
+					$path = $mytree -> getNicePathFromId( $link_arr['requestid'], 'title', 'modifications.php?op=listmodreqshow&requestid' );
+					$path = str_replace( '/', '', $path );
+					$path = str_replace( ':', '', trim( $path ) );
+					$title = trim( $path );
+					$submitter = icms_member_user_Handler::getUserLink( $link_arr['modifysubmitter'] );;
+					$requestdate = formatTimestamp( $link_arr['requestdate'], icms::$module -> config['dateformatadmin'] );
 
-				echo '<div class="imlinks_tblrow">
-						<div class="imlinks_tblhdrcell" style="text-align: center;">' . $link_arr['requestid'] . '</div>
-						<div class="imlinks_tblcell">' . $title . '</div>
-						<div class="imlinks_tblcell" style="text-align: center;">' . $submitter . '</div>
-						<div class="imlinks_tblcell" style="text-align: center;">' . $requestdate . '</div>
-						<div class="imlinks_tblcell" style="text-align: center;">
-						<a href="modifications.php?op=listmodreqshow&amp;requestid=' . $link_arr['requestid'] . '">' . $imagearray['view'] . '</a>
+					echo '<div class="imlinks_tblrow">
+							<div class="imlinks_tblhdrcell" style="text-align: center;">' . $link_arr['requestid'] . '</div>
+							<div class="imlinks_tblcell">' . $title . '</div>
+							<div class="imlinks_tblcell" style="text-align: center;">' . $submitter . '</div>
+							<div class="imlinks_tblcell" style="text-align: center;">' . $requestdate . '</div>
+							<div class="imlinks_tblcell" style="text-align: center;">
+							<a href="modifications.php?op=listmodreqshow&amp;requestid=' . $link_arr['requestid'] . '">' . $imagearray['view'] . '</a>
 						</div>
 					</div>';
+				}
+			} else {
+				echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMLINKS_MOD_NOMODREQUEST . '</div>';
 			}
-		} else {
-			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMLINKS_MOD_NOMODREQUEST . '</div>';
+			echo '</div>';
 		}
-		echo '</div>';
-
+		
 		include_once ICMS_ROOT_PATH . '/class/pagenav.php';
 		$pagenav = new icms_view_PageNav( $totalmodrequests, icms::$module -> config['admin_perpage'], $start, 'start' );
 		echo '<div style="text-align: right; padding: 8px;">' . $pagenav -> renderNav() . '</div>';

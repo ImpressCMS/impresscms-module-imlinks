@@ -31,14 +31,20 @@ define( '_CO_IMLINKS_LINKS_TITLE', 'Title' );
 define( '_CO_IMLINKS_LINKS_LID', 'ID' );
 define( '_CO_IMLINKS_LINKS_PUBLISHED', 'Published' );
 define( '_CO_IMLINKS_LINKS_STATUS', 'Status' );
-define( '_CO_IMLINKS_LINKS_SUBMITTER', 'Poster' );
+define( '_CO_IMLINKS_LINKS_SUBMITTER', 'Submitter' );
 define( '_CO_IMLINKS_LINKS_CID', 'Category' );
+define( '_CO_IMLINKS_LINKS_DATE', 'Date submitted' );
 
 define( '_CO_IMLINKS_BROKEN_REPORTID', 'ID' );
 define( '_CO_IMLINKS_BROKEN_TITLE', 'Title' );
 define( '_CO_IMLINKS_BROKEN_DATE', 'Submit date' );
 define( '_CO_IMLINKS_BROKEN_STATUS', 'Status' );
-define( '_CO_IMLINKS_BROKEN_SENDER', 'Poster' );
+define( '_CO_IMLINKS_BROKEN_SENDER', 'Submitter' );
 define( '_CO_IMLINKS_BROKEN_IP', 'IP Address' );
 define( '_CO_IMLINKS_BROKEN_ACKNOWLEDGED', 'Acknowledged' );
 define( '_CO_IMLINKS_BROKEN_CONFIRMED', 'Confirmed' );
+
+define( '_CO_IMLINKS_MOD_REQUESTID', 'ID' );
+define( '_CO_IMLINKS_MOD_TITLE', 'Title' );
+define( '_CO_IMLINKS_MOD_REQUESTDATE', 'Request date' );
+define( '_CO_IMLINKS_MOD_MODIFYSUBMITTER', 'Submitter' );
