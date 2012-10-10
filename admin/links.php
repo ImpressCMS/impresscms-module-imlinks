@@ -34,6 +34,7 @@ $op = iml_cleanRequestVars( $_REQUEST, 'op', '' );
 $lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
 $imlinks_links_handler = icms_getModuleHandler( 'links', basename( dirname( dirname( __FILE__ ) ) ), 'imlinks' );
+$imlinks_cat_handler = icms_getModuleHandler( 'cat', basename( dirname( dirname( __FILE__ ) ) ), 'imlinks' );
 
 function edit( $lid = 0, $doclone = 0 ) {
 	global $mytree, $imagearray, $icmsAdminTpl;
@@ -368,7 +369,7 @@ if ( icms::$module -> config['useaddress'] ) {
 	icms_cp_footer();
 }
 
-function fetchURL( $url, $timeout = 2 ) {
+function fetchURL( $url, $timeout = 6 ) {
 	$url = urldecode( $url );
 	$url_parsed = parse_url( $url );
 	if ( !isset( $url_parsed['host'] ) ) {
@@ -705,7 +706,9 @@ switch ( strtolower( $op ) ) {
 			xoops_comment_delete( $icmsModule -> getVar( 'mid' ), $lid );
 			redirect_header( 'links.php', 1, sprintf( _AM_IMLINKS_LINK_FILEWASDELETED, $title ) );
 			exit();
+			
 		} else {
+		
 			$sql = 'SELECT lid, title, item_tag, url FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
 			if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 				icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
@@ -718,6 +721,7 @@ switch ( strtolower( $op ) ) {
 			icms_core_Message::confirm( array( 'op' => 'delete', 'lid' => $lid, 'confirm' => 1, 'title' => $title ), 'links.php', _AM_IMLINKS_LINK_REALLYDELETEDTHIS . '<br /><br>' . $title, _DELETE );
 
 			icms_cp_footer();
+			
 		}
 		break;
 
@@ -820,6 +824,8 @@ switch ( strtolower( $op ) ) {
 			$objectTable -> addCustomAction( 'getCloneLink' );
 			$objectTable -> addCustomAction( 'getAltcatLink' );
 			$objectTable -> addCustomAction( 'getWhoisLink' );
+			
+			$objectTable -> addFilter( 'submitter', 'submitterArray' );
 		
 			$objectTable -> addQuickSearch( array( 'title' ), _AM_IMLINKS_SEARCHTITLE );
 		

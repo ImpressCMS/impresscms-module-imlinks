@@ -4,6 +4,7 @@ xx.xx.2012 - Trunk
 Added:
 - IPF classes
 - Automatic deleting of obsolete files and folders
+- New vCard script
 
 Fixed:
 - Google Pagerank, updated to v2.1

@@ -38,7 +38,7 @@ class mod_imlinks_Links extends icms_ipf_seo_Object {
 		$this -> quickInitVar( 'title', XOBJ_DTYPE_TXTBOX, true );
 		$this -> quickInitVar( 'url', XOBJ_DTYPE_TXTBOX, true );
 		$this -> quickInitVar( 'screenshot', XOBJ_DTYPE_TXTBOX, true );
-		$this -> quickInitVar( 'submitter', XOBJ_DTYPE_INT, false );
+		$this -> quickInitVar( 'submitter', XOBJ_DTYPE_INT, true );
 		$this -> quickInitVar( 'publisher', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'status', XOBJ_DTYPE_INT, true, false, false, true );
 		$this -> quickInitVar( 'date', XOBJ_DTYPE_LTIME, false, '', '', 1033141070 );
@@ -77,6 +77,8 @@ class mod_imlinks_Links extends icms_ipf_seo_Object {
 		$this -> quickInitVar( 'ttlong', XOBJ_DTYPE_TXTBOX, false );
 		
 		$this -> setControl( 'status', 'yesno' );
+		
+		$this -> setControl( 'submitter', 'user' );
 	}
 	
 	public function getVar( $key, $format = 's' ) {

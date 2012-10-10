@@ -47,4 +47,9 @@ class mod_imlinks_LinksHandler extends icms_ipf_Handler {
 		$this -> insert( $entryObj, true );
 		return $visibility;
 	}
+	
+	public function submitterArray() {
+		return icms::handler( 'icms_member' ) -> getUserList();
+	}
+
 }

@@ -75,7 +75,7 @@ $modversion['people']['translators'][] = '<a href="http://community.impresscms.o
 $modversion['people']['translators'][] = '<a href="http://www.frxoops.org/userinfo.php?uid=18073" target="_blank">Burning</a> (French)';
 
 // ** Other contributors **
-$modversion['people']['other'][] = '<a href="http://www.bitfolge.de" target="_blank">Kai Blankenhorn</a> (vCard script)';
+$modversion['people']['other'][] = '<a href="http://www.troywolf.com/articles/php/class_vcard/" target="_blank">Troy Wolf</a> (vCard script)';
 $modversion['people']['other'][] = '<a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
 $modversion['people']['other'][] = '<a href="http://www.masugadesign.com" target="_blank">Ryan Masuga</a> (AJAX Rating Bars)';
 $modversion['people']['other'][] = '<a href="http://www.p51labs.com/lightwindow/" target="_blank">Kevin Miller</a> (LightWindow)';
