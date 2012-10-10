@@ -66,6 +66,7 @@ $imlink['description'] = icms_core_DataFilter::icms_substr( strip_tags( $link_ar
 $imlink['submitter'] = icms_member_user_Handler::getUserLink( $link_arr['submitter'] );
 $imlink['publisher'] = ( isset( $link_arr['publisher'] ) && !empty( $link_arr['publisher'] ) ) ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_arr['publisher'] ) ) : _MD_IMLINKS_NOTSPECIFIED;
 
+$imlink['country'] = '';
 if ( $link_arr['country'] ) {
 	$imlink['country'] = _MD_IMLINKS_COUNTRYB . '&nbsp;<img src="' . ICMS_URL . '/' . icms::$module -> config['flagimage']. '/' . $link_arr['country'] . '.gif" alt="" title="' . iml_countryname( $link_arr['country'] ) . '" style="vertical-align: middle;" />';
 }
