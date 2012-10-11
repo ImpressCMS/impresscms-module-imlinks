@@ -6,41 +6,22 @@
 * Description....: An example of using Troy Wolf's class_vcard.
 */
 
-/*
-Modify the path according to your system.
-*/
-require_once('/class/class_vcard.php');
 include_once 'header.php';
+include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/class/class_vcard.php';
 
-$lid = iml_cleanRequestVars( $_REQUEST, 'lid', 0 );
-$lid = intval( $lid );
+$lid = intval( iml_cleanRequestVars( $_REQUEST, 'lid', 0 ) );
 
-$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid ) );
+$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid );
 $vcard_arr = icms::$xoopsDB -> fetchArray( $result );
 
-$title		= $vcard_arr['title'];
-$street1	= $vcard_arr['street1'];
-$street2	= $vcard_arr['street2'];
-$town		= $vcard_arr['town'];
-$zip		= $vcard_arr['zip'];
-$state		= $vcard_arr['state'];
-$country	= iml_countryname( $vcard_arr['country'] );
-$tel		= $vcard_arr['tel'];
-$mobile		= $vcard_arr['mobile'];
-$fax		= $vcard_arr['fax'];
-$voip		= $vcard_arr['voip'];
-$url		= $vcard_arr['url'];
-$email		= $vcard_arr['email'];
-$vat		= $vcard_arr['vat'];
-$charset	= _CHARSET;
-
-if ( $street2 ){
-	$street = $street1 . ', ' . $street2;
+if ( $vcard_arr['street2'] ) {
+	$street = $vcard_arr['street1'] . ", " . $vcard_arr['street2'];
 } else {
-	$street = $street1;
+	$street = $vcard_arr['street1'];
 }
 
-$emailaddr = vcardemailcnvrt( $email );
+$emailaddr = vcardemailcnvrt( $vcard_arr['email'] );
+
 /*
 Instantiate a new vcard object.
 */
@@ -51,7 +32,7 @@ filename is the name of the .vcf file that will be sent to the user if you
 call the download() method. If you leave this blank, the class will 
 automatically build a filename using the contact's data.
 */
-$vc->filename = "vcard";
+$vc -> filename = "vcard";
 
 /*
 If you leave this blank, the current timestamp will be used.
@@ -79,7 +60,7 @@ If you leave display_name blank, it will be built using the first and last name.
 /*
 Contact's company, department, title, profession
 */
-$vc->data['company'] = $title;
+$vc -> data['company'] = $vcard_arr['title'];
 #$vc->data['department'] = "";
 #$vc->data['title'] = "Web Developer";
 #$vc->data['role'] = "";
@@ -89,11 +70,11 @@ Contact's work address
 */
 #$vc->data['work_po_box'] = "";
 #$vc->data['work_extended_address'] = "";
-$vc->data['work_address'] = $street;
-$vc->data['work_city'] = $town;
-$vc->data['work_state'] = $state;
-$vc->data['work_postal_code'] = $zip;
-$vc->data['work_country'] = $country;
+$vc -> data['work_address'] = $street;
+$vc -> data['work_city'] = $vcard_arr['town'];
+$vc -> data['work_state'] = $vcard_arr['state'];
+$vc -> data['work_postal_code'] = $vcard_arr['zip'];
+$vc -> data['work_country'] = iml_countryname( $vcard_arr['country'] );
 
 /*
 Contact's home address
@@ -109,22 +90,22 @@ Contact's home address
 /*
 Contact's telephone numbers.
 */
-$vc->data['office_tel'] = $tel;
+$vc -> data['office_tel'] = $vcard_arr['tel'];
 #$vc->data['home_tel'] = "";
-$vc->data['cell_tel'] = $mobile;
-$vc->data['fax_tel'] = $fax;
-$vc->data['pcs_tel'] = $voip;
+$vc -> data['cell_tel'] = $vcard_arr['mobile'];
+$vc -> data['fax_tel'] = $vcard_arr['fax'];
+$vc -> data['pcs_tel'] = $vcard_arr['voip'];
 
 /*
 Contact's email addresses
 */
-$vc->data['email1'] = $emailaddr;
+$vc -> data['email1'] = $emailaddr;
 #$vc->data['email2'] = "";
 
 /*
 Contact's website
 */
-$vc->data['url'] = $url;
+$vc -> data['url'] = $vcard_arr['url'];
 
 /*
 Some other contact data.
@@ -142,13 +123,13 @@ If you leave this blank, the class will default to using last_name or company.
 Notes about this contact.
 */
 if ( $vat ) {
-	$vc->data['note'] = _MD_IMLINKS_VAT . $vat;
+	$vc -> data['note'] = _MD_IMLINKS_VAT . $vcard_arr['vat'];
 }
 
 /*
 Generate card and send as a .vcf file to user's browser for download.
 */
-$vc->download();
+$vc -> download();
 
 function vcardemailcnvrt( $email ) {
 	
@@ -166,7 +147,6 @@ function vcardemailcnvrt( $email ) {
 		".",
 	);
 
-	$text = preg_replace( $search, $replace, $email );
-		return $text;
+	return preg_replace( $search, $replace, $email );
 }
 ?>
