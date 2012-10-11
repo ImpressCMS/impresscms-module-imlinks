@@ -11,6 +11,10 @@ Fixed:
 - Rating feature not working
 - Title of link was stored in lowercase when reported broken
 
+Updated:
+- Prototype to version 1.7.1
+- Social Share Privacy icons
+
 Removed:
 - support for TinyEditor
 - support for XOOPS TAG module
