@@ -350,9 +350,6 @@ switch ( icms::$module -> config['showsbookmarks'] ) {
 
 $xoopsTpl -> assign( 'imlink', $imlink );
 $xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
-$xoopsTpl -> assign( 'icms_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />
-<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />' );
 
 if ( iml_imageheader() != '' ) {
 	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';

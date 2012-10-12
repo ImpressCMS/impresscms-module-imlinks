@@ -107,8 +107,6 @@ switch ( strtolower( $op ) ) {
 		$catarray['letters'] = iml_letters();
 		$catarray['toolbar'] = iml_toolbar();
 		$xoopsTpl -> assign( 'catarray', $catarray );
-		
-		$xoopsTpl -> assign( 'icms_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />' );
 
 		$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . $lid;
 		$link_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
