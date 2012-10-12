@@ -221,7 +221,7 @@ if ( true == iml_checkgroups( $cid, 'imLinkSubPerm' ) ) {
 
 		// Submit form
 		include_once ICMS_ROOT_PATH . '/header.php';
-		echo '<br /><div style="text-align: center;">' . iml_imageheader() . '</div><br />';
+		echo '<div style="text-align: center;">' . iml_imageheader() . '</div><br />';
 		echo '<div style="margin: auto; width: 90%;">' . _MD_IMLINKS_SUB_SNEWMNAMEDESC . '</div><br />';
 
 		$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE lid=' . intval( $lid );
