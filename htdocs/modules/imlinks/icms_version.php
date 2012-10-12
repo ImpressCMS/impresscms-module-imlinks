@@ -86,7 +86,7 @@ $modversion['people']['other'][] = '<a href="http://prototypejs.org" target="_bl
 $modversion['people']['other'][] = '<a href="http://script.aculo.us" target="_blank">script.aculo.us</a>';
 $modversion['people']['other'][] = '<a href="http://pagerank.phurix.net/" target="_blank">Phurix Labs (Google Pagerank script)</a>';
 
-// ** Documentation
+// ** Documentation **
 $modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/imlinks/docs/imlinks_manual.pdf" target="_blank">English [PDF]</a>';
 
 // ** If Release Candidate **
@@ -95,7 +95,7 @@ $modversion['warning'] = _MODABOUT_IMLINKS_WARNING_RC;
 // ** If Final  **
 // $modversion['warning'] = _MODABOUT_IMLINKS_WARNING_FINAL;
 
-// Launch additional install script to check
+// Launch additional install, update and uninstall script
 $modversion['onInstall']	= 'include/onupdate.inc.php';
 $modversion['onUpdate']		= 'include/onupdate.inc.php';
 $modversion['onUninstall']	= 'include/onupdate.inc.php';

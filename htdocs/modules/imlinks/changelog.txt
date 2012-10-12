@@ -1,5 +1,5 @@
 ﻿=========================================================
-xx.xx.2012 - Trunk
+xx.xx.2012 - Version 1.13
 =========================================================
 Added:
 - IPF classes
@@ -19,7 +19,7 @@ Updated:
 Removed:
 - support for TinyEditor
 - support for XOOPS TAG module
-- support for News module
+- support for XOOPS News module
 
 =========================================================
 07.04.2012 - Version 1.12
