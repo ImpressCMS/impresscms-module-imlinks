@@ -84,18 +84,11 @@
 				<br />
 			<{/if}>
 			<b><{$smarty.const._MD_IMLINKS_PAGERANK}></b>&nbsp;
-			<img src="<{$icms_url}>/modules/<{$imlink.module_dir}>/images/icon/pr<{$imlink.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" style="vertical-align: middle;" />&nbsp;
+			<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/pr<{$imlink.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" style="vertical-align: middle;" />&nbsp;
 			(<{$imlink.pagerank}>/10)
 		<{/if}>
 		</div>
 	<{/if}>
-	
-	<{if $tagbar}>
-		<div class="infoblock2" style="margin-top: 10px;">
-			<{include file="db:tag_bar.html"}>
-		</div>
-	<{/if}>
-	
 
 	<{if $imlink.screenshot}>
 		<div class="infoblock2" style="text-align: center; margin-top: 10px;"><{$imlink.screenshot}></div>

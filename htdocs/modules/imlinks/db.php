@@ -45,7 +45,7 @@ $voted = mysql_num_rows( mysql_query( "SELECT used_ips FROM " . icms::$xoopsDB -
 if(!$voted) {     //if the user hasn't yet voted, then vote normally...
 	if ( ( $vote_sent >= 1 && $vote_sent <= $units ) && ( $ip == $ip_num ) ) { // keep votes within range
 		$update = 'UPDATE ' . icms::$xoopsDB -> prefix( 'imlinks_ratings' ) . ' SET total_votes=' . $added . ', total_value=' . $sum . ', used_ips=' . $insertip . ' WHERE id=' . $id_sent;
-		$result = mysql_query( $update );		
+		$result = mysql_query( $update );
 	} 
 	exit;
 } //end for the "if(!$voted)"

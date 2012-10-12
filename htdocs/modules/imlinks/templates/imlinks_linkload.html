@@ -24,7 +24,7 @@
 				<br />
 			<{/if}>
 			<b><{$smarty.const._MD_IMLINKS_PAGERANK}></b>&nbsp;
-			<img src="<{$icms_url}>/modules/<{$imlink.module_dir}>/images/icon/pr<{$imlink.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" style="vertical-align: middle;" />&nbsp;
+			<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/pr<{$imlink.pagerank}>.png" alt="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" title="<{$smarty.const._MD_IMLINKS_PAGERANKALT}><{$imlink.pagerank}>" style="vertical-align: middle;" />&nbsp;
 			(<{$imlink.pagerank}>/10)
 		<{/if}>
 		</div>
@@ -40,7 +40,7 @@
 		<{$imlink.visitspinner}>&nbsp;
 		<{$imlink.visitlink}>
 	<{else}>
-		<a href="<{$imlink.visit}>" target="_blank"><img src="<{$icms_url}>/modules/<{$imlink.module_dir}>/images/icon/spinner.gif" alt="<{$smarty.const._MD_IMLINKS_LINKNOW}>" align="middle" /></a>&nbsp;
+		<a href="<{$imlink.visit}>" target="_blank"><img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/spinner.gif" alt="<{$smarty.const._MD_IMLINKS_LINKNOW}>" align="middle" /></a>&nbsp;
 		<{$imlink.visitlink}>
 	<{/if}>
 </div>
@@ -57,11 +57,11 @@
 
 <{if $imlink.quickview}>
 	<div style="clear: both; width: 99%;">&nbsp;</div>
-	<script language="javascript" src="<{$icms_url}>/modules/<{$imlink.module_dir}>/js/quickview.js"></script>
+	<script language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/quickview.js"></script>
 		<div class="imlinks_even" style="clear: both; font-style: italic; font-size: 10px; text-align: center; width: 99%; border-bottom: 2px solid #AAAAAA;">
 			<script>
-				ppreview("<{$icms_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>",<{$imlink.id}>);
-				potherfunctions("<{$icms_url}>/modules/<{$imlink.module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>",<{$imlink.id}>, '');
+				ppreview("<{$icms_url}>/modules/<{$module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>",<{$imlink.id}>);
+				potherfunctions("<{$icms_url}>/modules/<{$module_dir}>/visit.php?cid=<{$imlink.cid}>&amp;lid=<{$imlink.id}>",<{$imlink.id}>, '');
 			</script>
 		</div>
 <{/if}>

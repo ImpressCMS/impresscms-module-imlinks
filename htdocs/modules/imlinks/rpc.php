@@ -78,7 +78,6 @@ $new_back[] .= '<div class="thanks">' . _MD_IMLINKS_THANKYOU . '</div>';
 $allnewback = join("\n", $new_back);
 
 //name of the div id to be updated | the html that needs to be changed
-global $xoopsLogger;
-$xoopsLogger->disableLogger();
+icms::$logger->disableLogger();
 echo "unit_long$id_sent|$allnewback\n";
 ?>

@@ -134,7 +134,6 @@ if ( icms::$module -> config['niceurl'] ) {
 }
 
 $imlink['icons']			= iml_displayicons( $link_arr['published'], $link_arr['status'], $link_arr['hits'] );
-$imlink['module_dir']		= icms::$module -> getVar( 'dirname' );
 $imlink['showrating']		= icms::$module -> config['showrating'];
 $imlink['showpagerank']		= icms::$module -> config['showpagerank'];
 $imlink['infoblock2']		= ( $imlink['showrating'] || $imlink['showpagerank'] );
