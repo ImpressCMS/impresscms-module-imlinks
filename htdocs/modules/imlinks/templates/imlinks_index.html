@@ -1,0 +1,85 @@
+<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/behavior.js"></script>
+<script type="text/javascript" language="javascript" src="<{$icms_url}>/modules/<{$module_dir}>/js/rating.js"></script>
+
+<{if $lightwindow == 1}>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/prototype/prototype.js"></script>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/scriptaculous/src/scriptaculous.js?load=effects"></script>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lightwindow/lightwindow.js"></script>
+	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/lightwindow/lightwindow.css" />
+<{elseif $lightwindow == 2}>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/AJS.js"></script>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/greybox/gb_scripts.js"></script> 
+	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/greybox/gb_styles.css" />
+<{/if}>
+
+<{$catarray.imageheader}>
+<{$catarray.indexheading}>
+<{$catarray.indexheader}>
+<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink" id="button"><{$catarray.letters}></div>
+<div style="padding-bottom: 12px; text-align: center;" id="button"><{$catarray.toolbar}></div>
+
+<{if count($categories) gt 0}> 
+	<div class="imlinks_catpath" style="margin-top: 10px; font-weight: bold;"><{$smarty.const._MD_IMLINKS_MAINLISTING}></div>
+
+<table width="100%" cellspacing="1" cellpadding="3" summary="" style="text-align: center; padding-top: 8px;"> 
+	<tr> 
+		<!-- Start category loop --> 
+		<{foreach item=category from=$categories}>
+			<td style="width: 34px; text-align: center; vertical-align: top;"> 
+				<a href="<{$icms_url}>/modules/<{$module_dir}>/viewcat.php?cid=<{$category.id}>"><img src="<{$category.image}>" alt="<{$category.alttext}>" title="<{$category.alttext}>" /></a>
+			</td> 
+			<td style="text-align: left; vertical-align: top;">
+				<a href="<{$icms_url}>/modules/<{$module_dir}>/viewcat.php?cid=<{$category.id}>"><b><{$category.title}></b></a>&nbsp;(<{$category.totallinks}>) 
+				<{if $category.subcategories}>
+					<div style="margin-bottom: 3px; margin-left: 16px; font-size: smaller; vertical-align: top;"><{$category.subcategories}></div>
+				<{/if}>
+			</td>
+			<{if $category.count is div by $catcols}> 
+				</tr> 
+				<tr>
+			<{/if}>
+		<{/foreach}> 
+		<!-- End category loop --> 
+	</tr> 
+</table>
+<div class="odd" style="text-align: left; font-size: smaller;"><{$lang_thereare}></div>
+<div style="padding-bottom: 12px; padding-top: 5px;">
+	<div style="float: left;">&nbsp;<{$imlinks_feed}></div>
+	<{if $showlegend}>
+		<div style="float: right; font-size: smaller;">
+			<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload1_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEW}>" alt=""  style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEW}> 
+			<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload2_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWTHREE}>" alt="" style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWTHREE}> 
+			<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload3_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTTHISWEEK}>" alt="" style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTTHISWEEK}> 
+			<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/linkload4_small.png" title="<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWLAST}>"  alt="" style="vertical-align: bottom;" />&nbsp;<{$smarty.const._MD_IMLINKS_LEGENDTEXTNEWLAST}>
+			&nbsp;
+		</div>
+<{/if}>
+</div>
+<{/if}>
+
+<{$catarray.indexfooter}>
+
+<{if $showlatest > 0}>
+
+	<br /><br />
+	<div class="imlinks_catpath" style="font-size: bigger; font-weight: bold;"><{$smarty.const._MD_IMLINKS_LATESTLIST}></div>
+
+	<{if $pagenav}>
+		<div style="float: right; padding: 4px;"><{$pagenav}></div>
+	<{/if}>
+	<div style="clear: both;">
+		<!-- Start link loop -->
+		<{section name=i loop=$imlink}>
+			<{include file="db:imlinks_linkload.html" imlink=$imlink[i]}>
+		<{/section}>
+		<!-- End link loop -->
+	</div>
+	<{if $pagenav}>
+		<div class="imlinks_horline">&nbsp;</div>
+		<div style="float: right;"><{$pagenav}></div>
+	<{/if}>
+<{/if}>
+
+<br /><br />
+
+<{include file="db:system_notification_select.html"}>
