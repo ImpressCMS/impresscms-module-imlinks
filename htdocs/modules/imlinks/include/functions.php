@@ -30,7 +30,7 @@ if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 
 function iml_checkgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = false ) {
 	$groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-	$gperm_handler = icms::handler('icms_member_groupperm');
+	$gperm_handler = icms::handler( 'icms_member_groupperm' );
 	if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, icms::$module -> getVar( 'mid' ) ) ) {
 		if ( $redirect == false ) {
 			return false;
@@ -386,7 +386,7 @@ function iml_getDirSelectOption( $selected, $dirarray, $namearray ) {
 function iml_getforum( $forumid ) {
 	echo '<select name="forumid">';
 	echo '<option value="0">----------------------</option>';
-	if ($forumid < 4) {
+	if ( $forumid < 4 ) {
 		$result = icms::$xoopsDB -> query( 'SELECT forum_name, forum_id FROM ' . icms::$xoopsDB -> prefix( 'bb_forums' ) . ' ORDER BY forum_id' );
 	} else {
 		$result = icms::$xoopsDB -> query( 'SELECT forum_name, forum_id FROM ' . icms::$xoopsDB -> prefix( 'bbex_forums' ) . ' ORDER BY forum_id' );

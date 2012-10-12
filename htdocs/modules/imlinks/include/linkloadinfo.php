@@ -118,16 +118,17 @@ if ( $forum && $forum_path_prefix ) {
 		$imlink['forum_path'] = $forum_path_prefix . "{$imlink['forumid']}";
 	}
 }
+
 include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/_drawrating.php';
 $imlink['ratingbar'] = rating_bar( $link_arr['lid'], '5', $link_arr['cid'] );
 
 $nice_link = iml_nicelink( $link_arr['title'], $link_arr['nice_url'] );
 if ( icms::$module -> config['niceurl'] ) {
-	$url = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $link_arr['lid'] ) . '&amp;page=' . $nice_link;
+	$url = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $link_arr['lid'] . '&amp;page=' . $nice_link;
 	$imlink['viewdetails']   = '<a class="button" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $link_arr['lid'] . '&amp;page=' . $nice_link . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
 	$imlink['visit'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/visit.php?lid=' . $link_arr['lid'] . '&amp;page=' . $nice_link;
 } else {
-	$url = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . intval( $link_arr['lid'] );
+	$url = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $link_arr['lid'];
 	$imlink['viewdetails'] = '<a class="button" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $link_arr['lid'] . '">' . _MD_IMLINKS_VIEWDETAILS . '</a>';
 	$imlink['visit'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/visit.php?lid=' . $link_arr['lid'];
 }

@@ -28,12 +28,11 @@
 
 function imlinks_checkSearchgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = false ) {
 
-	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
 	$groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-	$gperm_handler = icms::handler('icms_member_groupperm');
+	$gperm_handler = icms::handler( 'icms_member_groupperm' );
 
 	$module_handler = icms::handler( 'icms_module' );
-	$module = &$module_handler -> getByDirname( $mydirname );
+	$module = &$module_handler -> getByDirname( basename( dirname( dirname( __FILE__ ) ) ) );
 
 	if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
 		if ( $redirect == false ) {
@@ -48,10 +47,10 @@ function imlinks_checkSearchgroups( $cid = 0, $permType = 'imLinkCatPerm', $redi
 }
 
 function imlinks_search( $queryarray, $andor, $limit, $offset, $userid ) {
-	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
-	include_once ICMS_ROOT_PATH . '/modules/'. $mydirname . '/include/functions.php';
+
+	include_once ICMS_ROOT_PATH . '/modules/'. basename( dirname( dirname( __FILE__ ) ) ) . '/include/functions.php';
 	$modhandler = icms::handler( 'icms_module' );
-	$imlModule = &$modhandler -> getByDirname( $mydirname );
+	$imlModule = &$modhandler -> getByDirname( basename( dirname( dirname( __FILE__ ) ) ) );
 	$config_handler = icms::$config;
 	$imlModuleConfig = &$config_handler -> getConfigsByCat( 0, $imlModule -> getVar( 'mid' ) );
 
@@ -89,9 +88,9 @@ function imlinks_search( $queryarray, $andor, $limit, $offset, $userid ) {
 		}
 		$nice_link = iml_nicelink( $myrow['title'], $myrow['nice_url'] );
 		if ( $imlModuleConfig['niceurl'] ) {
-			$ret[$i]['link'] = 'singlelink.php?lid=' . intval( $myrow['lid'] ) . '&amp;page=' . $nice_link;
+			$ret[$i]['link'] = 'singlelink.php?lid=' . $myrow['lid'] . '&amp;page=' . $nice_link;
 		} else {
-			$ret[$i]['link'] = 'singlelink.php?lid=' . intval( $myrow['lid'] );
+			$ret[$i]['link'] = 'singlelink.php?lid=' . $myrow['lid'];
 		}
 		$ret[$i]['image'] = 'images/imlinks_search.png';
 		$ret[$i]['title'] = $myrow['title'];
