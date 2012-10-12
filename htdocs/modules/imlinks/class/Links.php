@@ -131,7 +131,7 @@ class mod_imlinks_Links extends icms_ipf_seo_Object {
 	}
 	
 	function cid() {
-		$ret = iml_cattitle( $this -> getVar( 'cid', 'e' ) );
+		$ret = '<a href="../viewcat.php?cid=' . $this -> getVar( 'cid', 'e' ) . '">' . iml_cattitle( $this -> getVar( 'cid', 'e' ) ) . '</a>';
 		return $ret;
 	}
 	
