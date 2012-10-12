@@ -6,27 +6,27 @@
 *
 * File: language/nederlands/modinfo.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		imLinks
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 * ----------------------------------------------------------------------------------------------------------
-* translation		mcdonald
+* translation	mcdonald
 * language		dutch (nederlands)
-* format			utf-8
+* format		utf-8
 */
 
 // Module Info
@@ -327,4 +327,8 @@ define( '_MI_IMLINKS_FACEBOOKBTTNDSC', 'Kies een Facebook knop stijl.' );
 define( '_MI_IMLINKS_PLUSONEBTTN', 'Google +1 knop' );
 define( '_MI_IMLINKS_PLUSONEBTTNDSC', 'Kies een Google +1 knop stijl.' );
 define( '_MI_IMLINKS_BNAME7', 'Recent links - extended' );
+
+// imLinks 1.13
+define( '_MI_IMLINKS_IPFTABLE', 'Gebruik IPF tabellen voor administratie pagina\'s' );
+define( '_MI_IMLINKS_IPFTABLEDSC', 'Het gebruik van IPF tabellen limiteerd het aantal mogelijke items per pagina.' );
 ?>

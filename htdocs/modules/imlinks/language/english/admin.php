@@ -541,7 +541,7 @@ define( '_AM_IMLINKS_LINK_FILESSTATUSDSC', 'Link will not be viewable to all use
 define( '_AM_IMLINKS_LINK_SETASUPDATEDDSC', 'Link will display updated icon.' );
 define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
 
-// Version x.xx
-define( '_AM_IMLINKS_SEARCHTITLE', 'Searche title' );
+// Version 1.13
+define( '_AM_IMLINKS_SEARCHTITLE', 'Search title' );
 define( '_AM_IMLINKS_NOTPUBLISHED', 'Not Published' );
 ?>

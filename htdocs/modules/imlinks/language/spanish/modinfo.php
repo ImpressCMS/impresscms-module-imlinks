@@ -307,4 +307,8 @@ define( '_MI_IMLINKS_FACEBOOKBTTNDSC', 'Elija un estilo para el botón de Facebo
 define( '_MI_IMLINKS_PLUSONEBTTN', 'Botón de Google +1' );
 define( '_MI_IMLINKS_PLUSONEBTTNDSC', 'Elija un estilo para el botón de Google +1.' );
 define( '_MI_IMLINKS_BNAME7', 'Enlaces recientes - Extendidos' );
+
+// imLinks 1.13
+define( '_MI_IMLINKS_IPFTABLE', 'Use IPF table on admin main index page' );
+define( '_MI_IMLINKS_IPFTABLEDSC', 'Using the IPF table will limit the amount of links listed per page.' );
 ?>

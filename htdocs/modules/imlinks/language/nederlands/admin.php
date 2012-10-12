@@ -451,4 +451,8 @@ define( '_AM_IMLINKS_ICO_WAITING','Ingediend, wachtend goedkeuring' );
 define( '_AM_IMLINKS_LINK_FILESSTATUSDSC', 'Link zal niet zichbaar zijn.' );
 define( '_AM_IMLINKS_LINK_SETASUPDATEDDSC', 'Link zal een <i>bijgewerkt</i> icoon weergeven.' );
 define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Klik op afbeelding voor uitvergroting' );
+
+// Version 1.13
+define( '_AM_IMLINKS_SEARCHTITLE', 'Zoek titel' );
+define( '_AM_IMLINKS_NOTPUBLISHED', 'Niet gepubliceerd' );
 ?>
