@@ -169,7 +169,7 @@ function b_imlinks_recent_show( $options ) {
 		} elseif ( $imlModuleConfig['useautothumb'] == 1 && $imlModuleConfig['autothumbsrc'] == 0 ) {
 			$linkload['autothumbsrc'] = iml_thumbshot( $myrow['url'] );
 		} else {
-			if ( isset( $myrow['screenshot'] ) ) {
+			if ( $imlModuleConfig['screenshot'] == 1 && isset( $myrow['screenshot'] ) ) {
 				if ( !empty( $myrow['screenshot'] ) && file_exists( ICMS_ROOT_PATH . '/' . $imlModuleConfig['screenshots'] . '/' . trim( $myrow['screenshot'] ) ) ) {
 					if ( isset( $imlModuleConfig['usethumbs'] ) && $imlModuleConfig['usethumbs'] == 1 ) {
 						$_thumb_image = new imThumbsNails( $myrow['screenshot'], $imlModuleConfig['screenshots'], 'thumbs' );

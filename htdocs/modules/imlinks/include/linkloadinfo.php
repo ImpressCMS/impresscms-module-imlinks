@@ -147,7 +147,7 @@ if ( icms::$module -> config['useautothumb'] == 1 && icms::$module -> config['au
 } elseif ( icms::$module -> config['useautothumb'] == 1 && icms::$module -> config['autothumbsrc'] == 0 ) {
 	$imlink['screenshot'] = iml_thumbshot( $link_arr['url'] );
 } else {
-	if ( isset( $link_arr['screenshot'] ) ) {
+	if ( icms::$module -> config['screenshot'] == 1 && isset( $link_arr['screenshot'] ) ) {
 		$imlink['screenshot_full'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $link_arr['screenshot'] ) );
 		if ( !empty( $link_arr['screenshot'] ) && file_exists( ICMS_ROOT_PATH . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) ) ) {
 			if ( isset( icms::$module -> config['usethumbs'] ) && icms::$module -> config['usethumbs'] == 1 ) {
