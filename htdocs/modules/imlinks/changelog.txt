@@ -3,6 +3,7 @@ xx.xx.2012 - Version 1.13
 =========================================================
 Added:
 - IPF classes
+- Option to switch between IPF tables and normal tables
 - Automatic deleting of obsolete files and folders
 - New vCard script
 
@@ -11,6 +12,7 @@ Fixed:
 - Rating feature not working
 - Title of link was stored in lowercase when reported broken
 - Fixed typo concerning Scriptaculous
+- Screenshot option not working correctly
 
 Updated:
 - Prototype to version 1.7.1
