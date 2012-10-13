@@ -817,6 +817,7 @@ switch ( strtolower( $op ) ) {
 			$objectTable -> addColumn( new icms_ipf_view_Column( 'cid', _GLOBAL_LEFT, false ) );
 			$objectTable -> addColumn( new icms_ipf_view_Column( 'submitter', 'center' ) );
 			$objectTable -> addColumn( new icms_ipf_view_Column( 'published', 'center', 100 ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'expired', 'center', 100 ) );
 			$objectTable -> addColumn( new icms_ipf_view_Column( 'status', 'center' ) );
 
 			$objectTable -> addCustomAction( 'getEditLink' );

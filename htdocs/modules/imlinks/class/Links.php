@@ -75,14 +75,14 @@ class mod_imlinks_Links extends icms_ipf_seo_Object {
 		$this -> quickInitVar( 'nice_url', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'ttlat', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'ttlong', XOBJ_DTYPE_TXTBOX, false );
-		
+
 		$this -> setControl( 'status', 'yesno' );
-		
+
 		$this -> setControl( 'submitter', 'user' );
 	}
-	
+
 	public function getVar( $key, $format = 's' ) {
-		if ( $format == 's' && in_array( $key, array( 'submitter', 'status', 'published', 'cid', 'date' ) ) ) {
+		if ( $format == 's' && in_array( $key, array( 'submitter', 'status', 'published', 'expired', 'cid', 'date' ) ) ) {
 			return call_user_func( array( $this, $key ) );
 		}
 		return parent::getVar( $key, $format );
@@ -91,50 +91,55 @@ class mod_imlinks_Links extends icms_ipf_seo_Object {
 	function submitter() {
 		return icms_member_user_Handler::getUserLink( $this -> getVar( 'submitter', 'e' ) );
 	}
-	
+
 	function status() {
-	
+
 		$published_status = '';
 		
 		if ( $this -> getVar( 'status', 'e' ) == 0 && $this -> getVar( 'offline' ) == 0 ) {
 		
 			// Link submitted, waiting for approval
 			$published_status = '<img src="../images/icon/hourglass.png" alt="" title="' . _AM_IMLINKS_ICO_WAITING . '" />';
-		
+
 		} elseif ( ( ( $this -> getVar( 'expired', 'e' ) && $this -> getVar( 'expired', 'e' ) > time() ) OR  $this -> getVar( 'expired', 'e' )==0)&& ( $this -> getVar( 'published', 'e' ) && $this -> getVar( 'published', 'e' ) < time() ) && $this -> getVar( 'offline' ) == 0 ) {
 		
 			// Online
 			$published_status = '<a href="links.php?op=changestatus&amp;lid=' . $this -> getVar( 'lid' ) . '"><img src="../images/icon/on.png" alt="" title="' . _AM_IMLINKS_ICO_ONLINE . '" /></a>';
-		
+
 		} elseif ( ( $this -> getVar( 'expired', 'e' ) && $this -> getVar( 'expired', 'e' ) < time() )  && $this -> getVar( 'offline' ) == 0 ) {
-	
+
 			// Expired
 			$published_status = '<img src="../images/icon/clock_red.png" alt="" title="' . _AM_IMLINKS_ICO_EXPIRE . '" />';
-		
+
 		} else {
-	
+
 			// Offline
 			$published_status = ( $this -> getVar( 'published', 'e' ) == 0 ) ? '<a href="newlinks.php"><img src="../images/icon/off.png" alt="" title="' . _AM_IMLINKS_ICO_OFFLINE . '" /></a>' : '<a href="links.php?op=changestatus&amp;lid=' . $this -> getVar( 'lid' ) . '"><img src="../images/icon/off.png" alt="" title="' . _AM_IMLINKS_ICO_OFFLINE . '" /></a>';
-		
+
 		}
 		return $published_status;
 	}
-	
+
 	function published() {
 		$publish = ( $this -> getVar( 'published', 'e' ) > 0 ) ? formatTimestamp( $this -> getVar( 'published', 'e' ), icms::$module -> config['dateformatadmin'] ): _AM_IMLINKS_NOTPUBLISHED;
 		return $publish;
 	}
-	
+
+	function expired() {
+		$expired = $this -> getVar( 'expired', 'e' ) ? formatTimestamp( $this -> getVar( 'expired', 'e' ), icms::$module -> config['dateformatadmin'] ): _AM_IMLINKS_MINDEX_NOTSET;
+		return $expired;
+	}
+
 	function date() {
 		$date = formatTimestamp( $this -> getVar( 'date', 'e' ), icms::$module -> config['dateformatadmin'] );
 		return $date;
 	}
-	
+
 	function cid() {
 		$ret = '<a href="../viewcat.php?cid=' . $this -> getVar( 'cid', 'e' ) . '">' . iml_cattitle( $this -> getVar( 'cid', 'e' ) ) . '</a>';
 		return $ret;
 	}
-	
+
 	function ViewLink() {
 		$nice_link = iml_nicelink( $this -> getVar( 'title' ), $this -> getVar( 'nice_url' ) );
 		if ( icms::$module -> config['niceurl'] ) {
@@ -144,33 +149,33 @@ class mod_imlinks_Links extends icms_ipf_seo_Object {
 		}
 		return $title;
 	}
-	
+
 	function getEditLink() {
 		$ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/links.php?op=edit&amp;lid=' . $this -> getVar( 'lid' ) . '"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/world_edit.png" alt="" title="' . _AM_IMLINKS_ICO_EDIT . '" /></a>';
 		return $ret;
 	}
-	
+
 	function getDeleteLink() {
 		$ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/links.php?op=delete&amp;lid=' . $this -> getVar( 'lid' ) . '"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/world_delete.png" alt="" title="' . _AM_IMLINKS_ICO_DELETE . '" /></a>';
 		return $ret;
 	}
-	
+
 	function getCloneLink() {
 		$ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/links.php?op=clone&amp;lid=' . $this -> getVar( 'lid' ) . '"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/world_clone.png" alt="" title="' . _AM_IMLINKS_ICO_CLONE . '" /></a>';
 		return $ret;
 	}
-	
+
 	function getAltcatLink() {
 		$ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/altcat.php?op=main&amp;lid=' . $this -> getVar( 'lid' ) . '"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/folder_add.png" alt="" title="' . _AM_IMLINKS_ALTCAT_CREATEF . '" /></a>';
 		return $ret;
 	}
-	
+
 	function getWhoisLink() {
 		$whoisurl = str_replace( 'http://', '', $this -> getVar( 'url' ) );
 		$ret = '<a href="http://whois.domaintools.com/' . $whoisurl . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/domaintools.png" alt="" title="WHOIS" /></a>';
 		return $ret;
 	}
-	
+
 	function getApprove() {
 		$ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/newlinks.php?op=approve&amp;lid=' . $this -> getVar( 'lid' ) . '"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/accept.png" alt="" title="' . _AM_IMLINKS_ICO_APPROVE . '" /></a>';
 		return $ret;

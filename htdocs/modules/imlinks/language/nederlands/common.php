@@ -30,6 +30,7 @@ defined( 'ICMS_ROOT_PATH' ) or die( 'ICMS root path not defined' );
 define( '_CO_IMLINKS_LINKS_TITLE', 'Titel' );
 define( '_CO_IMLINKS_LINKS_LID', 'ID' );
 define( '_CO_IMLINKS_LINKS_PUBLISHED', 'Publiceren' );
+define( '_CO_IMLINKS_LINKS_EXPIRED', 'Verloopdatum' );
 define( '_CO_IMLINKS_LINKS_STATUS', 'Status' );
 define( '_CO_IMLINKS_LINKS_SUBMITTER', 'Inzender' );
 define( '_CO_IMLINKS_LINKS_CID', 'Categorie' );
