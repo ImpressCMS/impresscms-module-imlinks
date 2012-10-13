@@ -102,11 +102,11 @@
 		<{$imlink.visitspinner}>&nbsp;
 		<{$imlink.visitlink}>
 	<{else}>
-		<a href="<{$imlink.visit}>" target="_blank"><img src="<{$icms_url}>/modules/<{$imlink.module_dir}>/images/icon/spinner.gif" alt="<{$smarty.const._MD_IMLINKS_LINKNOW}>" align="middle" /></a>&nbsp;
+		<a href="<{$imlink.visit}>" target="_blank"><img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/spinner.gif" alt="<{$smarty.const._MD_IMLINKS_LINKNOW}>" align="middle" /></a>&nbsp;
 		<{$imlink.visitlink}>
 	<{/if}> 
 	<{if $imlink.forumid > 0}> 
-		&nbsp;<a href="<{$icms_url}><{$imlink.forum_path}>"><img src="<{$icms_url}>/modules/<{$imlink.module_dir}>/images/icon/forum.png" title="<{$smarty.const._MD_IMLINKS_INFORUM}>" alt="<{$smarty.const._MD_IMLINKS_INFORUM}>" border="0" /></a> 
+		&nbsp;<a href="<{$icms_url}><{$imlink.forum_path}>"><img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/forum.png" title="<{$smarty.const._MD_IMLINKS_INFORUM}>" alt="<{$smarty.const._MD_IMLINKS_INFORUM}>" border="0" /></a> 
 		<a href="<{$icms_url}><{$imlink.forum_path}>"><{$smarty.const._MD_IMLINKS_INFORUM}></a>
 	<{/if}>
 	
