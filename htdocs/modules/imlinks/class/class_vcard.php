@@ -15,7 +15,7 @@ class vcard {
 	var $class;			//PUBLIC, PRIVATE, CONFIDENTIAL
 	var $revision_date;
 	var $card;
-  
+
 	/*
 	The class constructor. You can set some defaults here if desired.
 	*/
@@ -68,7 +68,7 @@ class vcard {
 	/*
 	build() method checks all the values, builds appropriate defaults for
 	missing values, generates the vcard data string.
-	*/  
+	*/
 	function build() {
 		$this -> log .= "vcard build() called<br />";
 		/*

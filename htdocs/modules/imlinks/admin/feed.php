@@ -55,7 +55,7 @@ function imlinks_rss_edit() {
 	iml_adminmenu( 7, _AM_IMLINKS_RSSFEED );
 
 	echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
-			<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
+			<img src="../images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
 			' . _AM_IMLINKS_RSSFEEDDSC . '';
 			if ( $feed_array['rsstitle'] == '' ) {
 				echo '<br /><br /><span style="text-decoration: blink; font-weight: bold; color: red;">' . _AM_IMLINKS_RSSCLICKSUBMIT . '</span>';

@@ -191,9 +191,9 @@ switch ( strtolower( $op ) ) {
 
 					$nice_link = iml_nicelink( $linkshowname, $niceurl );
 					if ( icms::$module -> config['niceurl'] ) {
-						echo '<div class="imlinks_tblcell"><a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $lid . '&amp;page=' . $nice_link . '" target="_blank">' . $linkshowname . '</a></div>';
+						echo '<div class="imlinks_tblcell"><a href="../singlelink.php?lid=' . $lid . '&amp;page=' . $nice_link . '" target="_blank">' . $linkshowname . '</a></div>';
 					} else {
-						echo '<div class="imlinks_tblcell"><a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlelink.php?lid=' . $lid . '" target="_blank">' . $linkshowname . '</a></div>';
+						echo '<div class="imlinks_tblcell"><a href="../singlelink.php?lid=' . $lid . '" target="_blank">' . $linkshowname . '</a></div>';
 					}
 
 					if ( $email == '' ) {

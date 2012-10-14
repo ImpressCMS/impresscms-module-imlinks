@@ -33,7 +33,7 @@ class mod_imlinks_BrokenHandler extends icms_ipf_Handler {
 	public function __construct( &$db ) {
 		parent::__construct( $db, 'broken', 'reportid', 'title', 'lid', basename( dirname( dirname( __FILE__ ) ) ) );
 	}
-	
+
 	public function changeAckStatus( $reportid, $field ) {
 		$visibility = $entryObj = '';
 		$entryObj = $this -> get( $reportid );

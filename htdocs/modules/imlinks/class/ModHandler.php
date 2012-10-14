@@ -33,7 +33,7 @@ class mod_imlinks_ModHandler extends icms_ipf_Handler {
 	public function __construct( &$db ) {
 		parent::__construct( $db, 'mod', 'requestid', 'title', 'description', basename( dirname( dirname( __FILE__ ) ) ) );
 	}
-	
+
 	public function changeOnlineStatus( $aid, $field ) {
 		$visibility = $entryObj = '';
 		$entryObj = $this -> get( $aid );

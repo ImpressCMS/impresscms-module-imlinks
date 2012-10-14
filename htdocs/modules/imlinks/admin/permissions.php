@@ -49,7 +49,7 @@ echo "<form method='post' name='fselperm' action='permissions.php'>
 	</form>";
 $module_id = icms::$module -> getVar( 'mid' );
 
-$icon = '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/information_big.png" alt="" style="float: left; padding-right: 10px;" />';
+$icon = '<img src="../images/icon/information_big.png" alt="" style="float: left; padding-right: 10px;" />';
 
 switch( $permtoset ) {
 	case 1:

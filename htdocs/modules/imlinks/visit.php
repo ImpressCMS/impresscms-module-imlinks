@@ -44,7 +44,7 @@ $sql2 = 'SELECT count(*) FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . 
  . ' ON b.lid = a.lid'
  . ' WHERE a.published > 0 AND a.published <= ' . time()
  . ' AND (a.expired = 0 OR a.expired > ' . time() . ') AND a.offline = 0'
- . ' AND (b.cid=a.cid OR (a.cid=' . intval( $cid ) . ' OR b.cid=' . intval($cid) . '))';
+ . ' AND (b.cid=a.cid OR (a.cid=' . $cid . ' OR b.cid=' . $cid . '))';
 list( $count ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql2 ) );
 
 if ( false == iml_checkgroups( $cid ) && $count == 0 ) {
@@ -73,8 +73,8 @@ if ( icms::$module -> config['showlinkdisclaimer'] && $agreed == 0 ) {
 
 		$xoopsTpl -> assign( 'image_header', iml_imageheader() );
 		$xoopsTpl -> assign( 'linkdisclaimer', icms::$module -> config['linkdisclaimer'] );
-		$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/index.php' );
-		$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/visit.php?agree=1&amp;lid=' . intval( $lid ) );
+		$xoopsTpl -> assign( 'cancel_location', '/index.php' );
+		$xoopsTpl -> assign( 'agree_location', 'visit.php?agree=1&amp;lid=' . $lid );
 		$xoopsTpl -> assign( 'link_disclaimer', true );
 		$xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 

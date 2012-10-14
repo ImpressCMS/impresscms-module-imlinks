@@ -95,10 +95,10 @@ switch ( strtolower( $op ) ) {
 					' . $imagearray['editimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_SUB_EDITWAITINGFILE . '<br />
 					' . $imagearray['deleteimg'] . '&nbsp;&nbsp;' . _AM_IMLINKS_SUB_DELETEWAITINGFILE . '</div>
 				</div><br />';
-		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
-		
+		echo '<link rel="stylesheet" type="text/css" href="../style.css" />';
+
 		if ( icms::$module -> config['ipftables'] == 1 ) {
-		
+
 			$criteria = new icms_db_criteria_Compo();
 			$criteria -> add( new icms_db_criteria_Item( 'published', 0 ) );
 
@@ -108,19 +108,19 @@ switch ( strtolower( $op ) ) {
 			$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, false, 'ViewLink' ) );
 			$objectTable -> addColumn( new icms_ipf_view_Column( 'submitter', 'center', false ) );
 			$objectTable -> addColumn( new icms_ipf_view_Column( 'date', 'center' ) );
-			
+
 			$objectTable -> addCustomAction( 'getApprove' );
 			$objectTable -> addCustomAction( 'getEditLink' );
 			$objectTable -> addCustomAction( 'getDeleteLink' );
-		
+
 			$objectTable -> addQuickSearch( array( 'title' ), _AM_IMLINKS_SEARCHTITLE );
-		
+
 			$objectTable -> setDefaultSort( 'lid' );
 			$objectTable -> setDefaultOrder( 'DESC' );
 
 			$icmsAdminTpl -> assign( 'imlinks_newlinks_table', $objectTable -> fetch() );
 			$icmsAdminTpl -> display( 'db:imlinks_admin_index.html' );
-		
+
 		} else {
 			if ( $new_array_count > 0 ) {
 				echo '<div class="imlinks_table" style="font-size: 10px;">

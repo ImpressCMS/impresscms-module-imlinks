@@ -212,7 +212,7 @@ switch ( strtolower( $op ) ) {
 				<div style="padding: 8px;">' . _AM_IMLINKS_MOD_TOTMODREQUESTS . ' <b>' . $totalmodrequests . '</b></div>
 			</div><br />';
 
-		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
+		echo '<link rel="stylesheet" type="text/css" href="../style.css" />';
 
 		if ( icms::$module -> config['ipftables'] == 1 ) {
 		

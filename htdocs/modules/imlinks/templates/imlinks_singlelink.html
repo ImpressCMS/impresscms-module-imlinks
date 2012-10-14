@@ -110,21 +110,21 @@
 		<a href="<{$icms_url}><{$imlink.forum_path}>"><{$smarty.const._MD_IMLINKS_INFORUM}></a>
 	<{/if}>
 	
-<div style="margin-left: 6px; margin-top: 10px;">
+<div style="margin-top: 10px;">
 		<b><{$smarty.const._DESCRIPTION}>:</b>
 		<br /> 
 		<{$imlink.description2}>
 	</div>
 
 	<{if $imlink.addryn == 1}>
-		<div style="margin-left: 6px; text-align: left; padding: 1px; margin-top: 20px;">
+		<div style="text-align: left; padding: 1px; margin-top: 20px;">
 			<div><{$contactdetails}><{$imlink.address}>
 				<{$imlink.tel}><{$imlink.mobile}><{$imlink.voip}><{$imlink.fax}><{$imlink.email}><{$vcard}><{$imlink.vat}>
 			</div>
 		</div>
 	<{/if}>
 	<{if $imlink.googlemap || $imlink.yahoomap || $imlink.multimap == true}>
-		<div style="margin-left: 6px; text-align: left; white-space: nowrap; padding: 3px; margin-bottom: 5px;">
+		<div style="text-align: left; white-space: nowrap; padding: 3px; margin-bottom: 5px;">
 			<{$imlink.googlemap}><{$imlink.yahoomap}><{$imlink.multimap}>
 			<{if $imlink.addtotomtom == true}>
 				<div style="text-align: left; padding-top: 3px;"><{$imlink.addtotomtom}></div>

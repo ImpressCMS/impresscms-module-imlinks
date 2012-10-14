@@ -76,10 +76,10 @@ class mod_imlinks_Mod extends icms_ipf_seo_Object {
 		$this -> quickInitVar( 'nice_url', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'ttlat', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'ttlong', XOBJ_DTYPE_TXTBOX, false );
-		
+
 		$this -> setControl( 'status', 'yesno' );
 	}
-	
+
 	public function getVar( $key, $format = 's' ) {
 		if ( $format == 's' && in_array( $key, array( 'modifysubmitter', 'requestdate' ) ) ) {
 			return call_user_func( array( $this, $key ) );
@@ -90,20 +90,19 @@ class mod_imlinks_Mod extends icms_ipf_seo_Object {
 	function modifysubmitter() {
 		return icms_member_user_Handler::getUserLink( $this -> getVar( 'modifysubmitter', 'e' ) );
 	}
-	
+
 	function requestdate() {
 		$publish = formatTimestamp( $this -> getVar( 'requestdate', 'e' ), icms::$module -> config['dateformatadmin'] );
 		return $publish;
 	}
-	
+
 	function ViewLink() {
-		$title = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/singlelink.php?lid=' . $this -> getVar( 'lid' ) . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $this -> getVar( 'title' ) ) ) ) . '</a>';
+		$title = '<a href="../singlelink.php?lid=' . $this -> getVar( 'lid' ) . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $this -> getVar( 'title' ) ) ) ) . '</a>';
 		return $title;
 	}
-	
+
 	function getListModReqShow() {
-		$ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/modifications.php?op=listmodreqshow&amp;requestid=' . $this -> getVar( 'requestid' ) . '"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/find.png" alt="" title="' . _AM_IMLINKS_ICO_VIEW . '" /></a>';
+		$ret = '<a href="../admin/modifications.php?op=listmodreqshow&amp;requestid=' . $this -> getVar( 'requestid' ) . '"><img src="../images/icon/find.png" alt="" title="' . _AM_IMLINKS_ICO_VIEW . '" /></a>';
 		return $ret;
 	}
-
 }

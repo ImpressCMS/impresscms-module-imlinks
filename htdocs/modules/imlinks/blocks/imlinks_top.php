@@ -35,11 +35,10 @@ if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 // @param boolean $redirect
 // @return
 function imlinks_checkBlockgroups( $cid = 0, $permType = 'imLinkCatPerm', $redirect = false ) {
-	$mydirname = basename( dirname(  dirname( __FILE__ ) ) );
 	$groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
 	$gperm_handler = icms::handler( 'icms_member_groupperm' );
 	$module_handler = icms::handler( 'icms_module' );
-	$module = &$module_handler -> getByDirname( $mydirname );
+	$module = &$module_handler -> getByDirname( basename( dirname(  dirname( __FILE__ ) ) ) );
 	if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
 		if ( $redirect == false ) {
 			return false;
@@ -62,11 +61,10 @@ function imlinks_checkBlockgroups( $cid = 0, $permType = 'imLinkCatPerm', $redir
 // Output  : Returns the most recent or most popular links
 function b_imlinks_top_show( $options ) {
 	global $xoopsTpl;
-	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
-	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
+	include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/include/functions.php';
 	$block = array();
 	$modhandler = icms::handler( 'icms_module' );
-	$imlModule = &$modhandler -> getByDirname( $mydirname );
+	$imlModule = &$modhandler -> getByDirname( basename( dirname( dirname( __FILE__ ) ) ) );
 	$config_handler = icms::$config;
 	$imlModuleConfig = &$config_handler -> getConfigsByCat( 0, $imlModule -> getVar( 'mid' ) );
 	$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0 ORDER BY ' . $options[0] . ' DESC', $options[1], 0 );
@@ -192,10 +190,10 @@ function b_imlinks_recent_show( $options ) {
 		$isAdmin = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( $imlModule -> getVar( 'mid' ) ) ) ? true : false;
 		if ( $isAdmin == true ) {
 			$linkload['adminlink'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/computer.png" alt="" title="' . _MB_IMLINKS_ADMINSECTION . '" style="vertical-align: bottom;" /></a>&nbsp;';
-			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/links.php?op=edit&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_edit.png" alt="' . _EDIT . '" title="' . _EDIT . '" style="vertical-align: bottom;" /></a>&nbsp;';
-			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/links.php?op=delete&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_delete.png" alt="' . _DELETE . '" title="' . _DELETE . '" style="vertical-align: bottom;" /></a>&nbsp;';
-			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/links.php?op=clone&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_clone.png" alt="' . _CLONE . '" title="' . _CLONE . '" style="vertical-align: bottom;" /></a>&nbsp;';
-			$linkload['adminlink'] .= '<a href="http://whois.domaintools.com/' . str_replace( 'http://', '', $myrow['url'] ) . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/domaintools.png" alt="WHOIS" title="WHOIS" style="vertical-align: bottom;" /></a>';
+			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/links.php?op=edit&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_edit.png" alt="" title="' . _EDIT . '" style="vertical-align: bottom;" /></a>&nbsp;';
+			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/links.php?op=delete&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_delete.png" alt="" title="' . _DELETE . '" style="vertical-align: bottom;" /></a>&nbsp;';
+			$linkload['adminlink'] .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/admin/links.php?op=clone&amp;lid=' . $myrow['lid'] . '"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/world_clone.png" alt="" title="' . _CLONE . '" style="vertical-align: bottom;" /></a>&nbsp;';
+			$linkload['adminlink'] .= '<a href="http://whois.domaintools.com/' . str_replace( 'http://', '', $myrow['url'] ) . '" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/domaintools.png" alt="" title="WHOIS" style="vertical-align: bottom;" /></a>';
 		}
 
 		$xoopsTpl -> assign( 'dirname', basename( dirname( dirname( __FILE__ ) ) ) );
@@ -239,10 +237,9 @@ function b_imlinks_recent_edit( $options ) {
 //			 $block['content'] = The optional above content
 // Output  : Returns the most recent or most popular links
 function b_imlinks_random_show( $options ) {
-	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
 	$block = array();
 	$modhandler = icms::handler( 'icms_module' );
-	$imlModule = &$modhandler -> getByDirname( $mydirname );
+	$imlModule = &$modhandler -> getByDirname( basename( dirname( dirname( __FILE__ ) ) ) );
 	$config_handler = icms::$config;
 	$imlModuleConfig = &$config_handler -> getConfigsByCat( 0, $imlModule -> getVar( 'mid' ) );
 	$result = icms::$xoopsDB -> query( 'SELECT lid FROM ' . icms::$xoopsDB -> prefix( 'imlinks_links' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND (expired = 0 OR expired > ' . time() . ') AND offline = 0');

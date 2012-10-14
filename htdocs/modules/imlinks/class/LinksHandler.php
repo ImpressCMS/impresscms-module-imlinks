@@ -33,7 +33,7 @@ class mod_imlinks_LinksHandler extends icms_ipf_Handler {
 	public function __construct( &$db ) {
 		parent::__construct( $db, 'links', 'lid', 'title', 'description', basename( dirname( dirname( __FILE__ ) ) ) );
 	}
-	
+
 	public function changeOnlineStatus( $lid, $field ) {
 		$visibility = $entryObj = '';
 		$entryObj = $this -> get( $lid );
@@ -47,7 +47,7 @@ class mod_imlinks_LinksHandler extends icms_ipf_Handler {
 		$this -> insert( $entryObj, true );
 		return $visibility;
 	}
-	
+
 	public function submitterArray() {
 		return icms::handler( 'icms_member' ) -> getUserList();
 	}

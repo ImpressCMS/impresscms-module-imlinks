@@ -32,10 +32,9 @@ include 'header.php';
 $cid		= intval( iml_cleanRequestVars( $_REQUEST, 'cid', 0 ) );
 $selectdate = iml_cleanRequestVars( $_REQUEST, 'selectdate', '' );
 $list		= iml_cleanRequestVars( $_REQUEST, 'list', '' );
-$catsort	= icms::$module -> config['sortcats'];
 
 $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'imlinks_cat' ), 'cid', 'pid' );
-$arr = $mytree -> getFirstChild( $cid, $catsort );
+$arr = $mytree -> getFirstChild( $cid, icms::$module -> config['sortcats'] );
 
 if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 	if ( false == iml_checkgroups( $cid ) ) {
@@ -47,7 +46,7 @@ $xoopsOption['template_main'] = 'imlinks_viewcat.html';
 include ICMS_ROOT_PATH . '/header.php';
 
 // Breadcrumb
-$pathstring  = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/index.php">' . _MD_IMLINKS_MAIN . '</a>&nbsp;:&nbsp;';
+$pathstring  = '<a href="index.php">' . _MD_IMLINKS_MAIN . '</a>&nbsp;:&nbsp;';
 $pathstring .= $mytree -> getNicePathFromId( $cid, 'title', 'viewcat.php?op=' );
 $xoopsTpl -> assign( 'category_path', $pathstring );
 $xoopsTpl -> assign( 'category_id', $cid );
@@ -82,7 +81,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 					break;
 				}
 				if ( $space > 0 ) $infercategories .= '<div style="margin-left: 45px; font-size: smaller; padding-top: 0px;">- ';
-					$infercategories .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/viewcat.php?cid=' . $sub_ele['cid'] . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $sub_ele['title'] ) ) . '</a> (' . $hassubitems['count'] . ')</div>';
+					$infercategories .= '<a href="viewcat.php?cid=' . $sub_ele['cid'] . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $sub_ele['title'] ) ) . '</a> (' . $hassubitems['count'] . ')</div>';
 				$space++;
 				$chcount++;
 			}
