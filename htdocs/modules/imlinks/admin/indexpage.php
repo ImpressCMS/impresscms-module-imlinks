@@ -66,7 +66,7 @@ switch ( strtolower( $op ) ) {
 			' . _AM_IMLINKS_MINDEX_PAGEINFOTXT . '</div>
 			</div><br />';
 
-		$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+		if ( icms::$module -> config['uselyte'] == 1 ) $icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
 			  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />' );
 
 		$sform = new icms_form_Theme( _AM_IMLINKS_IPAGE_MODIFY, 'op', '' );
@@ -100,6 +100,7 @@ switch ( strtolower( $op ) ) {
 		$sform -> addElement( $footeralign_select );
 
 		$lastlinkstotalform = new icms_form_elements_Text( _AM_IMLINKS_IPAGE_LATESTTOTAL . imlinks_tooltip( _AM_IMLINKS_IPAGE_LATESTTOTAL_DSC, 'help' ), 'lastlinkstotal', 2, 2, $lastlinkstotal );
+		if ( icms::$module -> config['uselyte'] == 0 ) $lastlinkstotalform -> setDescription( _AM_IMLINKS_IPAGE_LATESTTOTAL_DSC );
 		$sform -> addElement( $lastlinkstotalform, false );
 
 		$button_tray = new icms_form_elements_Tray( '', '' );

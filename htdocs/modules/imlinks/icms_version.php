@@ -302,6 +302,14 @@ $modversion['config'][] = array(
 	'default'		=> 0 );
 
 $modversion['config'][] = array(
+	'name'			=> 'uselyte',
+	'title'			=> '_MI_IMLINKS_USELYTE',
+	'description'	=> '_MI_IMLINKS_USELYTEDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 1 );
+
+$modversion['config'][] = array(
 	'name'			=> 'linkxorder',
 	'title'			=> '_MI_IMLINKS_ARTICLESSORT',
 	'description'	=> '_MI_IMLINKS_ARTICLESSORTDSC',

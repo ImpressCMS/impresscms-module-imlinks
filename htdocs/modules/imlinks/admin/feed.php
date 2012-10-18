@@ -62,64 +62,82 @@ function imlinks_rss_edit() {
 			}
 	echo '</div><br />';
 
-	$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+	if ( icms::$module -> config['uselyte'] == 1 ) $icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
 		<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />' );
 
 	$sform = new icms_form_Theme( _AM_IMLINKS_RSSFEEDCFG, 'storyform', '' );
 	$sform -> setExtra( 'enctype="multipart / form - data"' );
 
 	$rssstatus_radio = new icms_form_elements_Radioyn( _AM_IMLINKS_RSSACTIVE . imlinks_tooltip( _AM_IMLINKS_RSSACTIVEDSC, 'help' ), 'rssactive', $rssactive, ' ' . _YES . ' ', ' ' . _NO . '' );
+	if ( icms::$module -> config['uselyte'] == 0 ) $rssstatus_radio -> setDescription( _AM_IMLINKS_RSSACTIVEDSC );
 	$sform -> addElement( $rssstatus_radio );
 
 	$formtitle = new icms_form_elements_Text( _AM_IMLINKS_RSSTITLE . imlinks_tooltip( _AM_IMLINKS_RSSTITLEDSC, 'help' ), 'rsstitle', 90, 128, $rsstitle );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formtitle -> setDescription( _AM_IMLINKS_RSSTITLEDSC );
 	$sform -> addElement( $formtitle, false );
 
 	$formlink = new icms_form_elements_Text( _AM_IMLINKS_RSSLINKS . imlinks_tooltip( _AM_IMLINKS_RSSLINKSDSC, 'help' ), 'rsslink', 90, 255, $rsslink );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formlink -> setDescription( _AM_IMLINKS_RSSLINKSDSC );
 	$sform -> addElement( $formlink, false );
 
 	$formdsc = new icms_form_elements_Textarea( _AM_IMLINKS_RSSDESCRIPTION . imlinks_tooltip( _AM_IMLINKS_RSSDESCRIPTIONDSC, 'help' ), 'rssdsc', $rssdsc, 4, 50 );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formdsc -> setDescription( _AM_IMLINKS_RSSDESCRIPTIONDSC );
 	$sform -> addElement( $formdsc, false );
 
 	$formimage = new icms_form_elements_Text( _AM_IMLINKS_RSSIMAGE . imlinks_tooltip( _AM_IMLINKS_RSSIMAGEDSC, 'help' ), 'rssimgurl', 90, 255, $rssimgurl );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formimage -> setDescription( _AM_IMLINKS_RSSIMAGEDSC );
 	$sform -> addElement( $formimage, false );
 
 	$formwidth = new icms_form_elements_Text( _AM_IMLINKS_RSSWIDTH . imlinks_tooltip( _AM_IMLINKS_RSSWIDTHDSC, 'help' ), 'rsswidth', 3, 8, $rsswidth );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formwidth -> setDescription( _AM_IMLINKS_RSSWIDTHDSC );
 	$sform -> addElement( $formwidth, false );
 
 	$formheight = new icms_form_elements_Text( _AM_IMLINKS_RSSHEIGHT . imlinks_tooltip( _AM_IMLINKS_RSSHEIGHTDSC, 'help' ), 'rssheight', 3, 8, $rssheight );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formheight -> setDescription( _AM_IMLINKS_RSSHEIGHTDSC );
 	$sform -> addElement( $formheight, false );
 
 	$formimgtitle = new icms_form_elements_Text( _AM_IMLINKS_RSSIMGTITLE . imlinks_tooltip( _AM_IMLINKS_RSSIMGTITLEDSC, 'help' ), 'rssimgtitle', 90, 128, $rssimgtitle );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formimgtitle -> setDescription( _AM_IMLINKS_RSSIMGTITLEDSC );
 	$sform -> addElement( $formimgtitle, false );
 
 	$formimglink = new icms_form_elements_Text( _AM_IMLINKS_RSSIMGLINK . imlinks_tooltip( _AM_IMLINKS_RSSIMGLINKDSC, 'help' ), 'rssimglink', 90, 255, $rssimglink );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formimglink -> setDescription( _AM_IMLINKS_RSSIMGLINKDSC );
 	$sform -> addElement( $formimglink, false );
 
 	$formttl = new icms_form_elements_Text( _AM_IMLINKS_RSSTTL . imlinks_tooltip( _AM_IMLINKS_RSSTTLDSC, 'help' ), 'rssttl', 3, 128, $rssttl );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formttl -> setDescription( _AM_IMLINKS_RSSTTLDSC );
 	$sform -> addElement( $formttl, false );
 
 	$formwebmaster = new icms_form_elements_Text( _AM_IMLINKS_RSSWEBMASTER . imlinks_tooltip( _AM_IMLINKS_RSSWEBMASTERDSC, 'help' ), 'rsswebmaster', 90, 255, $rsswebmaster );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formwebmaster -> setDescription( _AM_IMLINKS_RSSWEBMASTERDSC );
 	$sform -> addElement( $formwebmaster, false );
 
 	$formeditor = new icms_form_elements_Text( _AM_IMLINKS_RSSEDITOR . imlinks_tooltip( _AM_IMLINKS_RSSEDITORDSC, 'help' ), 'rsseditor', 90, 255, $rsseditor );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formeditor -> setDescription( _AM_IMLINKS_RSSEDITORDSC );
 	$sform -> addElement( $formeditor, false );
 
 	$formcategory = new icms_form_elements_Text( _AM_IMLINKS_RSSCATEGORY . imlinks_tooltip( _AM_IMLINKS_RSSCATEGORYDSC, 'help' ), 'rsscategory', 90, 128, $rsscategory );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formcategory -> setDescription( _AM_IMLINKS_RSSCATEGORYDSC );
 	$sform -> addElement( $formcategory, false );
 
 	$formgenerator = new icms_form_elements_Text( _AM_IMLINKS_RSSGENERATOR . imlinks_tooltip( _AM_IMLINKS_RSSGENERATORDSC, 'help' ), 'rssgenerator', 90, 128, $rssgenerator );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formgenerator -> setDescription( _AM_IMLINKS_RSSGENERATORDSC );
 	$sform -> addElement( $formgenerator, false );
 
 	$formcopyright = new icms_form_elements_Text( _AM_IMLINKS_RSSCOPYRIGHT . imlinks_tooltip( _AM_IMLINKS_RSSCOPYRIGHTDSC, 'help' ), 'rsscopyright', 90, 128, $rsscopyright );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formcopyright -> setDescription( _AM_IMLINKS_RSSCOPYRIGHTDSC );
 	$sform -> addElement( $formcopyright, false );
 
 	$formtotal = new icms_form_elements_Text( _AM_IMLINKS_RSSTOTAL . imlinks_tooltip( _AM_IMLINKS_RSSTOTALDSC, 'help' ), 'rsstotal', 3, 8, $rsstotal );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formtotal -> setDescription( _AM_IMLINKS_RSSTOTALDSC );
 	$sform -> addElement( $formtotal, false );
 
 	$formofftitle = new icms_form_elements_Text( _AM_IMLINKS_RSSOFFLINE . imlinks_tooltip( _AM_IMLINKS_RSSOFFLINEDSC, 'help' ), 'rssofftitle', 90, 128, $rssofftitle );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formofftitle -> setDescription( _AM_IMLINKS_RSSOFFLINEDSC );
 	$sform -> addElement( $formofftitle, false );
 
 	$formoffmsg = new icms_form_elements_Textarea( _AM_IMLINKS_RSSOFFMSG . imlinks_tooltip( _AM_IMLINKS_RSSOFFMSGDSC, 'help' ), 'rssoffdsc', $rssoffdsc, 4, 50 );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formoffmsg -> setDescription( _AM_IMLINKS_RSSOFFMSGDSC );
 	$sform -> addElement( $formoffmsg, false );
 
 	$button_tray = new icms_form_elements_Tray( '', '' );

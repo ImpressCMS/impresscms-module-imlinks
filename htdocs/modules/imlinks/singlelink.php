@@ -350,6 +350,7 @@ switch ( icms::$module -> config['showsbookmarks'] ) {
 
 $xoopsTpl -> assign( 'imlink', $imlink );
 $xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
+$xoopsTpl -> assign( 'uselyte', icms::$module -> config['uselyte'] );
 
 if ( iml_imageheader() != '' ) {
 	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';

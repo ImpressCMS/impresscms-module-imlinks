@@ -142,6 +142,7 @@ $xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 $xoopsTpl -> assign( 'catcols', icms::$module -> config['catcols'] );
 $xoopsTpl -> assign( 'showlegend', icms::$module -> config['showlegend'] );
 $xoopsTpl -> assign( 'lightwindow', icms::$module -> config['lightwindow'] );
+$xoopsTpl -> assign( 'uselyte', icms::$module -> config['uselyte'] );
 
 // Show Latest Listings on Index Page
 if ( $head_arr['lastlinkstotal'] > 0 ) {

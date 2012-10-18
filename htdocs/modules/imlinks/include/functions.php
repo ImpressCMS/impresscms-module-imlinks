@@ -926,6 +926,10 @@ function imlinks_tooltip( $description, $tip = 'help' ) {
 			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:error tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_LIBRARIES_URL . '/lytebox/images/exclamation_small.png" alt="" /></a>';
 			break;
 	}
-	return $tooltip;
+	if ( icms::$module -> config['uselyte'] ) {
+		return $tooltip;
+	} else {
+		return '';
+	}
 }
 ?>

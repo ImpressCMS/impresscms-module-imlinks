@@ -90,7 +90,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 	icms_cp_header();
 	iml_adminmenu( 2, _AM_IMLINKS_MLINKS );
 
-	$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+	if ( icms::$module -> config['uselyte'] == 1 ) $icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
 		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />' );
 
 	if ( $lid > 0 ) {
@@ -182,6 +182,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 	// Link nice url
 	if ( icms::$module -> config['niceurl'] ) {
 		$niceform = new icms_form_elements_Text( _AM_IMLINKS_NICEURL . imlinks_tooltip( _AM_IMLINKS_NICEURLDSC, 'help' ), 'nice_url', 70, 100, $nice_url );
+		if ( icms::$module -> config['uselyte'] == 0 ) $niceform -> setDescription( _AM_IMLINKS_NICEURLDSC );
 		$sform -> addElement( $niceform, false );
 	} else {
 		$sform -> addElement( new icms_form_elements_Hidden( 'nice_url', $nice_url ) );
@@ -190,6 +191,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 	// Link url form
 	$url_text = new icms_form_elements_Text( '', 'url', 70, 255, $url );
 	$url_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_DLURL . imlinks_tooltip( _AM_IMLINKS_LINKURLDSC, 'help' ), '' );
+	if ( icms::$module -> config['uselyte'] == 0 ) $url_tray -> setDescription( _AM_IMLINKS_LINKURLDSC );
 	$url_tray -> addElement( $url_text, true);
 	$url_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/world.png' onClick=\"window.open(storyform.url.value,'','');return(false);\" alt='Check URL' title='Check URL' style='cursor:pointer;' />" ) );
 	$sform -> addElement( $url_tray );
@@ -206,6 +208,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 
 	// Meta keywords form
 	$keywords = new icms_form_elements_Textarea( _AM_IMLINKS_KEYWORDS . imlinks_tooltip( _AM_IMLINKS_KEYWORDS_NOTE, 'help' ), 'keywords', $keywords, 5, 50 );
+	if ( icms::$module -> config['uselyte'] == 0 ) $keywords -> setDescription( _AM_IMLINKS_KEYWORDS_NOTE );
 	$sform -> addElement( $keywords, false );
 
 	// Screenshot
@@ -214,6 +217,7 @@ function edit( $lid = 0, $doclone = 0 ) {
 	$indeximage_select -> addOptionArray( $graph_array );
 	$indeximage_select -> setExtra( "onchange = 'showImgSelected(\"image\", \"screenshot\", \"" . icms::$module -> config['screenshots'] . "\", \"\", \"" . ICMS_URL . "\")'" );
 	$indeximage_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_SHOTIMAGE . imlinks_tooltip( sprintf( _AM_IMLINKS_LINK_MUSTBEVALID, '<b>' . $directory . '</b>' ), 'help' ), '&nbsp;' );
+	if ( icms::$module -> config['uselyte'] == 0 ) $indeximage_tray -> setDescription( sprintf( _AM_IMLINKS_LINK_MUSTBEVALID, '<b>' . $directory . '</b>' ) );
 	$indeximage_tray -> addElement( $indeximage_select );
 	if ( !empty( $imgurl ) ) {
 		$indeximage_tray -> addElement( new icms_form_elements_Label( '', '<br /><br />< img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $screenshot . '" name="image" id="image" alt="" />' ) );
@@ -227,18 +231,21 @@ if ( icms::$module -> config['useaddress'] ) {
 	// Google Maps
 	$googlemap_text = new icms_form_elements_Text( '', 'googlemap', 70, 1024, $googlemap );
 	$googlemap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_GOOGLEMAP . imlinks_tooltip( sprintf( _AM_IMLINKS_MAPDSC, '<i>http://maps.google.com</i>' ), 'help' ), '' );
+	if ( icms::$module -> config['uselyte'] == 0 ) $googlemap_tray -> setDescription( sprintf( _AM_IMLINKS_MAPDSC, '<i>http://maps.google.com</i>' ) );
 	$googlemap_tray -> addElement( $googlemap_text , false );
 	$googlemap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/google_map.png' onClick=\"window.open(storyform.googlemap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' title='"._AM_IMLINKS_LINK_CHECKMAP."' style='cursor:pointer;' />" ) );
 	$sform -> addElement( $googlemap_tray );
 	// Yahoo Maps
 	$yahoomap_text = new icms_form_elements_Text( '', 'yahoomap', 70, 1024, $yahoomap );
 	$yahoomap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_YAHOOMAP . imlinks_tooltip( sprintf( _AM_IMLINKS_MAPDSC, '<i>http://maps.yahoo.com</i>' ), 'help' ), '' );
+	if ( icms::$module -> config['uselyte'] == 0 ) $yahoomap_tray -> setDescription( sprintf( _AM_IMLINKS_MAPDSC, '<i>http://maps.yahoo.com</i>' ) );
 	$yahoomap_tray -> addElement( $yahoomap_text , false );
 	$yahoomap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/yahoo_map.png' onClick=\"window.open(storyform.yahoomap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' title='"._AM_IMLINKS_LINK_CHECKMAP."' style='cursor:pointer;' />" ) );
 	$sform -> addElement( $yahoomap_tray );
 	// Bing Maps
 	$multimap_text = new icms_form_elements_Text( '', 'multimap', 70, 1024, $multimap );
 	$multimap_tray = new icms_form_elements_Tray( _AM_IMLINKS_LINK_BINGMAP . imlinks_tooltip( sprintf( _AM_IMLINKS_MAPDSC, '<i>http://www.bing.com/maps/</i>' ), 'help' ), '' );
+	if ( icms::$module -> config['uselyte'] == 0 ) $multimap_tray -> setDescription( sprintf( _AM_IMLINKS_MAPDSC, '<i>http://www.bing.com/maps/</i>' ) );
 	$multimap_tray -> addElement( $multimap_text , false );
 	$multimap_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/bing_map.png' onClick=\"window.open(storyform.multimap.value,'','');return(false);\" alt='"._AM_IMLINKS_LINK_CHECKMAP."' title='"._AM_IMLINKS_LINK_CHECKMAP."' style='cursor:pointer;' />" ) );
 	$sform -> addElement( $multimap_tray );
@@ -247,10 +254,12 @@ if ( icms::$module -> config['useaddress'] ) {
 	$street1 = new icms_form_elements_Text( _AM_IMLINKS_STREET1, 'street1', 70, 255, $street1 );
 	$sform -> addElement( $street1, false );
 	$street2 = new icms_form_elements_Text( _AM_IMLINKS_STREET2 . imlinks_tooltip( _AM_IMLINKS_STREETTWODSC, 'help' ), 'street2', 70, 255, $street2 );
+	if ( icms::$module -> config['uselyte'] == 0 ) $street2 -> setDescription( _AM_IMLINKS_STREETTWODSC );
 	$sform -> addElement( $street2, false );
 	$town = new icms_form_elements_Text( _AM_IMLINKS_TOWN, 'town', 70, 255, $town );
 	$sform -> addElement( $town, false );
 	$state = new icms_form_elements_Text( _AM_IMLINKS_STATE . imlinks_tooltip( _AM_IMLINKS_STATEDSC, 'help' ), 'state', 70, 255, $state );
+	if ( icms::$module -> config['uselyte'] == 0 ) $state -> setDescription( _AM_IMLINKS_STATEDSC );
 	$sform -> addElement( $state, false );
 	$zip = new icms_form_elements_Text( _AM_IMLINKS_ZIPCODE, 'zip', 40, 25, $zip );
 	$sform -> addElement( $zip, false );
@@ -263,8 +272,10 @@ if ( icms::$module -> config['useaddress'] ) {
 	$fax = new icms_form_elements_Text( _AM_IMLINKS_FAX, 'fax', 40, 25, $fax );
 	$sform -> addElement( $fax, false );
 	$email = new icms_form_elements_Text( _AM_IMLINKS_EMAIL . imlinks_tooltip( _AM_IMLINKS_EMAILDSC, 'help' ), 'email', 40, 60, $email );
+	if ( icms::$module -> config['uselyte'] == 0 ) $email -> setDescription( _AM_IMLINKS_EMAILDSC );
 	$sform -> addElement( $email, false );
 	$vat = new icms_form_elements_Text( _AM_IMLINKS_VAT . imlinks_tooltip( _AM_IMLINKS_VATWIKI, 'help' ), 'vat', 40, 25, $vat );
+	if ( icms::$module -> config['uselyte'] == 0 ) $vat -> setDescription( _AM_IMLINKS_VATWIKI );
 	$sform -> addElement( $vat, false );
 //  $sform -> addElement( new icms_form_elements_Hidden( 'vat', $link_array['vat'] ) ); /* If you don't want to use the VAT form,  */
 																						/* use this line and comment-out the 3 lines above  */
@@ -272,6 +283,7 @@ if ( icms::$module -> config['useaddress'] ) {
 
 	// Country form
 	$country_select = new icms_form_elements_select_Country( _AM_IMLINKS_COUNTRY . imlinks_tooltip( _AM_IMLINKS_COUNTRYDSC, 'warning' ), 'country', $country );
+	if ( icms::$module -> config['uselyte'] == 0 ) $country_select -> setDescription( _AM_IMLINKS_COUNTRYDSC );
 	$sform -> addElement( $country_select, false );
 
 	// TomTom form
@@ -309,11 +321,13 @@ if ( icms::$module -> config['useaddress'] ) {
 
 	// Set Link offline
 	$linkstatus_radio = new icms_form_elements_Radioyn( _AM_IMLINKS_LINK_FILESSTATUS . imlinks_tooltip( _AM_IMLINKS_LINK_FILESSTATUSDSC, 'help' ), 'offline', $offline, ' ' . _YES . ' ', ' ' . _NO );
+	if ( icms::$module -> config['uselyte'] == 0 ) $linkstatus_radio -> setDescription( _AM_IMLINKS_LINK_FILESSTATUSDSC );
 	$sform -> addElement( $linkstatus_radio );
 
 	// Set Link updated
 	$up_dated = ( $updated == 0 ) ? 0 : 1;
 	$link_updated_radio = new icms_form_elements_Radioyn( _AM_IMLINKS_LINK_SETASUPDATED . imlinks_tooltip( _AM_IMLINKS_LINK_SETASUPDATEDDSC, 'help' ), 'up_dated', $up_dated, ' ' . _YES . ' ', ' ' . _NO );
+	if ( icms::$module -> config['uselyte'] == 0 ) $link_updated_radio -> setDescription( _AM_IMLINKS_LINK_SETASUPDATEDDSC );
 	$sform -> addElement( $link_updated_radio );
 
 	$result = icms::$xoopsDB -> query( 'SELECT COUNT(*) FROM ' . icms::$xoopsDB -> prefix( 'imlinks_broken' ) . ' WHERE lid=' . $lid );

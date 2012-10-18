@@ -311,4 +311,6 @@ define( '_MI_IMLINKS_BNAME7', 'Enlaces recientes - Extendidos' );
 // imLinks 1.13
 define( '_MI_IMLINKS_IPFTABLE', 'Use IPF table on admin main index page' );
 define( '_MI_IMLINKS_IPFTABLEDSC', 'Using the IPF table will limit the amount of links listed per page.' );
+define( '_MI_IMLINKS_USELYTE', 'Use Lytebox for helptips and enlarging screenshots:' );
+define( '_MI_IMLINKS_USELYTEDSC', 'Choose <i>Yes</i> for helptips in the forms and enlarging screenshots. Choose <i>No</i> to disable these features.' );
 ?>

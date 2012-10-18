@@ -161,7 +161,11 @@ if ( icms::$module -> config['useautothumb'] == 1 && icms::$module -> config['au
 															 icms::$module -> config['updatethumbs'],
 															 icms::$module -> config['keepaspect'] );
 				}
-				$imlink['screenshot'] = '<a class="lytebox" title="' . $link_arr['title'] . '" href="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) . '"><img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $_image . '" alt="" title="' . _MD_IMLINKS_SCRSHOTENLARGE . '" /></a>';
+				if ( icms::$module -> config['uselyte'] == 1 ) {
+					$imlink['screenshot'] = '<a class="lytebox" title="' . $link_arr['title'] . '" href="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) . '"><img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $_image . '" alt="" title="' . _MD_IMLINKS_SCRSHOTENLARGE . '" /></a>';
+				} else {
+					$imlink['screenshot'] = '<a title="' . $link_arr['title'] . '" href="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) . '" target="_blank"><img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . $_image . '" alt="" title="' . _MD_IMLINKS_SCRSHOTENLARGE . '" /></a>';
+				}
 			} else {
 				$imlink['screenshot'] = '<img src="' . ICMS_URL . '/' . icms::$module -> config['screenshots'] . '/' . trim( $link_arr['screenshot'] ) . '" alt="" />';
 			}

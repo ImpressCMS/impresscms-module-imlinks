@@ -331,4 +331,6 @@ define( '_MI_IMLINKS_BNAME7', 'Recent links - extended' );
 // imLinks 1.13
 define( '_MI_IMLINKS_IPFTABLE', 'Gebruik IPF tabellen voor administratie pagina\'s' );
 define( '_MI_IMLINKS_IPFTABLEDSC', 'Het gebruik van IPF tabellen limiteerd het aantal mogelijke items per pagina.' );
+define( '_MI_IMLINKS_USELYTE', 'Gebruik Lytebox voor helptips en uitvergroten screenshots:' );
+define( '_MI_IMLINKS_USELYTEDSC', 'Kies <i>Ja</i> voor helptips in de formulieren en uitvergroten van screenshots. Kies <i>Nee</i> om deze funkties uit te schakelen.' );
 ?>

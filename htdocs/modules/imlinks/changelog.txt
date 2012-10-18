@@ -4,6 +4,7 @@ xx.xx.2012 - Version 1.13
 Added:
 - IPF classes
 - Option to switch between IPF tables and normal tables
+- Option to enable/disable Lytebox library
 - Automatic deleting of obsolete files and folders
 - New vCard script
 

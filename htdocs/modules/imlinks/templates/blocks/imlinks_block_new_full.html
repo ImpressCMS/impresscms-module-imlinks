@@ -1,6 +1,8 @@
 <link href="<{$icms_url}>/modules/<{$dirname}>/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lytebox/lytebox.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="<{$icms_url}>/libraries/lytebox/lytebox.css" />
+<{if $uselyte == 1}>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lytebox/lytebox.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="<{$icms_url}>/libraries/lytebox/lytebox.css" />
+<{/if}>
 <{foreach item=linkload from=$block.links}>
 	<div class="imlinks_even" style="clear: both; margin-bottom: 5px;"><a href="<{$linkload.link}>"><{$linkload.title_long}></a><{if $icms_isadmin}>&nbsp;<{$linkload.adminlink}> <{/if}></div>
 	<div class="infoblock" style="width: 200px; float: right; margin-left: 10px; margin-right: 5px; margin-bottom: 10px;">
