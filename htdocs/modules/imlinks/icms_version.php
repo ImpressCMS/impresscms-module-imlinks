@@ -299,7 +299,7 @@ $modversion['config'][] = array(
 	'description'	=> '_MI_IMLINKS_IPFTABLEDSC',
 	'formtype'		=> 'yesno',
 	'valuetype'		=> 'int',
-	'default'		=> 0 );
+	'default'		=> 1 );
 
 $modversion['config'][] = array(
 	'name'			=> 'uselyte',
