@@ -110,7 +110,7 @@ define( "_MD_IMLINKS_DISPLAYING", "Displayed by: " );
 define( "_MD_IMLINKS_LEGENDTEXTNEW", "New today" );
 define( "_MD_IMLINKS_LEGENDTEXTNEWTHREE", "New 3 days" );
 define( "_MD_IMLINKS_LEGENDTEXTTHISWEEK", "New this week" );
-define( "_MD_IMLINKS_LEGENDTEXTNEWLAST", "Over 1 Week" );
+define( "_MD_IMLINKS_LEGENDTEXTNEWLAST", "Over 1 week" );
 define( "_MD_IMLINKS_THISFILEDOESNOTEXIST", "Error: This link does not exist!" );
 define( "_MD_IMLINKS_BROKENREPORTED", "Broken link reported" );
 
