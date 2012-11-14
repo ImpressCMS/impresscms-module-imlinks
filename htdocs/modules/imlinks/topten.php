@@ -42,11 +42,16 @@ $sort		= ( isset( $_GET['list'] ) && in_array( $_GET['list'], $action_array ) ) 
 $sort_arr	= $action_array[$sort];
 $sortDB		= $list_array[$sort_arr];
 
+$sql = 'SELECT letters, buttons FROM ' . icms::$xoopsDB -> prefix( 'imlinks_indexpage' );
+list( $lettersyn, $buttonsyn ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql ) );
+
 if ( iml_imageheader() != '' ) {
 	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';
 }
 $catarray['letters'] = iml_letters();
 $catarray['toolbar'] = iml_toolbar();
+$catarray['lettersyn'] = $lettersyn;
+$catarray['buttonsyn'] = $buttonsyn;
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 	$arr = array();

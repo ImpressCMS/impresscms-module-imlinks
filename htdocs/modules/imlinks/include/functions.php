@@ -88,6 +88,22 @@ function iml_cleanRequestVars( &$array, $name = null, $def = null, $strict = fal
 	return $value;
 }
 
+function iml_letters() {
+	$letterchoice = '<div style="padding: 2px; font-size: smaller;">' . _MD_IMLINKS_BROWSETOTOPIC . '</div>';
+	$alphabet = alfabet();
+	$num = count( $alphabet ) - 1;
+	$counter = 0;
+	while ( list( , $ltr ) = each( $alphabet ) ) {
+		$letterchoice .= '<a class="letters" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/viewcat.php?list=' . $ltr .'">' .$ltr . '</a>';
+		if ( $counter == round( $num / 2 ) )
+			$letterchoice .= '<br />';
+		elseif ( $counter != $num )
+			$letterchoice .= '&nbsp;';
+		$counter++;
+	}
+	return $letterchoice;
+}
+
 // toolbar()
 // @return
 function iml_toolbar( $cid = 0 ) {
@@ -323,22 +339,6 @@ function iml_displayimage( $image = '', $path = '', $imgsource = '', $alttext = 
 	}
 	clearstatcache();
 	return $showimage;
-}
-
-function iml_letters() {
-	$letterchoice = '<div style="padding: 2px; font-size: smaller;">' . _MD_IMLINKS_BROWSETOTOPIC . '</div>';
-	$alphabet = alfabet();
-	$num = count( $alphabet ) - 1;
-	$counter = 0;
-	while ( list( , $ltr ) = each( $alphabet ) ) {
-		$letterchoice .= '<a class="letters" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/viewcat.php?list=' . $ltr .'">' .$ltr . '</a>';
-		if ( $counter == round( $num / 2 ) )
-			$letterchoice .= '<br />';
-		elseif ( $counter != $num )
-			$letterchoice .= '&nbsp;';
-		$counter++;
-	}
-	return $letterchoice;
 }
 
 function iml_isnewimage( $published ) {

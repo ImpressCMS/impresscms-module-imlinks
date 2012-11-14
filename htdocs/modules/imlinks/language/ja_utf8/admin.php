@@ -472,4 +472,12 @@ define( '_AM_IMLINKS_ICO_WAITING','Submitted, waiting approval' );
 define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "オフラインにするとユーザから見れなくなります。" );
 define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "リンクに更新アイコンがつきます。" );
 define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
+
+// Version 1.13
+define( '_AM_IMLINKS_SEARCHTITLE', 'Search title' );
+define( '_AM_IMLINKS_NOTPUBLISHED', 'Not Published' );
+define( '_AM_IMLINKS_IPAGE_LETTERS', 'Show letters:' );
+define( '_AM_IMLINKS_IPAGE_LETTERSDSC', 'Show letters above each page.' );
+define( '_AM_IMLINKS_IPAGE_BUTTONS', 'Show buttons:' );
+define( '_AM_IMLINKS_IPAGE_BUTTONSDSC', 'Show buttons like Submit, Popular and Latest Listing above each page.' );
 ?>

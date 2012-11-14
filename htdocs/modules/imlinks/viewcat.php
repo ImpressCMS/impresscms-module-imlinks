@@ -137,8 +137,13 @@ if ( iml_imageheader() != '' ) {
 	$catarray['imageheader'] = ''; 
 }
 
+$sql = 'SELECT letters, buttons FROM ' . icms::$xoopsDB -> prefix( 'imlinks_indexpage' );
+list( $lettersyn, $buttonsyn ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql ) );
+
 $catarray['letters'] = iml_letters();
 $catarray['toolbar'] = iml_toolbar();
+$catarray['lettersyn'] = $lettersyn;
+$catarray['buttonsyn'] = $buttonsyn;
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 // Extract linkload information from database

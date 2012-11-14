@@ -1,10 +1,12 @@
 ﻿=========================================================
-xx.xx.2012 - Version 1.13
+08.11.2012 - Version 1.13
 =========================================================
 Added:
 - IPF classes
 - Option to switch between IPF tables and normal tables
 - Option to enable/disable Lytebox library
+- Option to enable/disable letters above each page (Index Page)
+- Option to enable/disable buttons above each page (Index Page)
 - Automatic deleting of obsolete files and folders
 - New vCard script
 

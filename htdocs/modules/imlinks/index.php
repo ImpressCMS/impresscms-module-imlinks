@@ -54,6 +54,8 @@ $catarray['indexfooter'] = '<div style="margin-top: 15px; padding 12px; text-ali
 
 $catarray['letters'] = iml_letters();
 $catarray['toolbar'] = iml_toolbar();
+$catarray['lettersyn'] = $head_arr['letters'];
+$catarray['buttonsyn'] = $head_arr['buttons'];
 $xoopsTpl -> assign( 'catarray', $catarray );
 // End main page Headers
 

@@ -88,6 +88,12 @@ function icms_module_update_imlinks( &$module, $oldversion = null, $dbversion = 
 	}
 	// End of removing obsolete folders
 	
+	//Start updating tables
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_indexpage') . " ADD COLUMN `letters` INT(11) NOT NULL DEFAULT 1";
+		if ( !mysql_query( $sql ) ) {}
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'imlinks_indexpage') . " ADD COLUMN `buttons` INT(11) NOT NULL DEFAULT 1";
+		if ( !mysql_query( $sql ) ) {}
+
 	return TRUE;
 }
 
@@ -109,9 +115,11 @@ function icms_module_install_imlinks( $module ) {
 		`indexheaderalign` varchar(25) NOT NULL default 'left',
 		`indexfooteralign` varchar(25) NOT NULL default 'center',
 		`lastlinkstotal` varchar(5) NOT NULL default '50'
+		`letters` int(11) NOT NULL default '1',
+		`buttons` int(11) NOT NULL default '1'
 	)";
 
-	$queries[] = "INSERT INTO " . icms::$xoopsDB -> prefix( 'imlinks_indexpage' ) . " (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`indexheaderalign`,`indexfooteralign`,`lastlinkstotal`) VALUES ('logo-en.png', 'imLinks', 'Welcome to imLinks.', 'imLinks footer', 'left', 'left', 50)";
+	$queries[] = "INSERT INTO " . icms::$xoopsDB -> prefix( 'imlinks_indexpage' ) . " (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`indexheaderalign`,`indexfooteralign`,`lastlinkstotal`,`letters`,`buttons`) VALUES ('logo-en.png', 'imLinks', 'Welcome to imLinks.', 'imLinks footer', 'left', 'left', 50, 1, 1)";
 
 	$queries[] = "CREATE TABLE ". icms::$xoopsDB -> prefix( 'imlinks_configs' ) . " (
 		`rssactive` int(1) NOT NULL default '1',

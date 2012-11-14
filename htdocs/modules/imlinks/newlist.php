@@ -31,11 +31,16 @@ include 'header.php';
 $xoopsOption['template_main'] = 'imlinks_newlistindex.html';
 include ICMS_ROOT_PATH . '/header.php';
 
+$sql = 'SELECT letters, buttons FROM ' . icms::$xoopsDB -> prefix( 'imlinks_indexpage' );
+list( $lettersyn, $buttonsyn ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql ) );
+
 if ( iml_imageheader() != '' ) {
 	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';
 }
 $catarray['letters'] = iml_letters();
 $catarray['toolbar'] = iml_toolbar();
+$catarray['lettersyn'] = $lettersyn;
+$catarray['buttonsyn'] = $buttonsyn;
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 if ( isset( $_GET['newlinkshowdays'] ) ) {

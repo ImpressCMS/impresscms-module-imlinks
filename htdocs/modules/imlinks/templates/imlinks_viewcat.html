@@ -23,8 +23,12 @@
 
 <{$description}>
 
-<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink" id="button"><{$catarray.letters}></div>
-<div style="padding-bottom: 16px; text-align: center;" id="button"><{$catarray.toolbar}></div>
+<{if $catarray.lettersyn == 1}>
+	<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink" id="button"><{$catarray.letters}></div>
+<{/if}>
+<{if $catarray.buttonsyn == 1}>
+	<div style="padding-bottom: 12px; text-align: center;" id="button"><{$catarray.toolbar}></div>
+<{/if}>
 
 <div class="imlinks_catpath" style="font-size: smaller; font-weight: bold; margin-bottom: 10px;"><{$category_path}></div>
 

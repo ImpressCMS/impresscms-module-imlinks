@@ -455,4 +455,8 @@ define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Klik op afbeelding voor uitvergroting' );
 // Version 1.13
 define( '_AM_IMLINKS_SEARCHTITLE', 'Zoek titel' );
 define( '_AM_IMLINKS_NOTPUBLISHED', 'Niet gepubliceerd' );
+define( '_AM_IMLINKS_IPAGE_LETTERS', 'Laat letters zien:' );
+define( '_AM_IMLINKS_IPAGE_LETTERSDSC', 'Laat letters zien boven iedere pagina.' );
+define( '_AM_IMLINKS_IPAGE_BUTTONS', 'Laat knoppen zien:' );
+define( '_AM_IMLINKS_IPAGE_BUTTONSDSC', 'Laat knoppen zien als Inzenden, Populariteit en Recente Linken boven iedere pagina.' );
 ?>
