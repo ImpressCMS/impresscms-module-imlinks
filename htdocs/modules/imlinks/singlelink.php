@@ -352,11 +352,15 @@ $xoopsTpl -> assign( 'imlink', $imlink );
 $xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 $xoopsTpl -> assign( 'uselyte', icms::$module -> config['uselyte'] );
 
+$sql = 'SELECT letters, buttons FROM ' . icms::$xoopsDB -> prefix( 'imlinks_indexpage' );
+list( $lettersyn, $buttonsyn ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql ) );
 if ( iml_imageheader() != '' ) {
 	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';
 }
-$catarray['letters'] = '<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink" id="button">' . iml_letters() . '</div>';
-$catarray['toolbar'] = '<div style="padding-bottom: 12px; text-align: center;" id="button">' . iml_toolbar() . '</div>';
+$catarray['letters'] = iml_letters();
+$catarray['toolbar'] = iml_toolbar();
+$catarray['lettersyn'] = $lettersyn;
+$catarray['buttonsyn'] = $buttonsyn;
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 include ICMS_ROOT_PATH . '/include/comment_view.php';

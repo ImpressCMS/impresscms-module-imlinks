@@ -53,8 +53,12 @@
 <{/if}>
 
 <{$catarray.imageheader}>
-<{$catarray.letters}>
-<{$catarray.toolbar}>
+<{if $catarray.lettersyn == 1}>
+	<div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink" id="button"><{$catarray.letters}></div>
+<{/if}>
+<{if $catarray.buttonsyn == 1}>
+	<div style="padding-bottom: 12px; text-align: center;" id="button"><{$catarray.toolbar}></div>
+<{/if}>
 
 <div style="float: right; padding: 0 2px 8px 0;" id="button"><{$back}></div>
 <br />
