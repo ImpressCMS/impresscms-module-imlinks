@@ -14,37 +14,34 @@
 
 <body style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 12px;" bgcolor="#ffffff" text="#000000">
 <script for=window event=onload language="javascript">
-    window.print();
+	window.print();
 </script>
-
 <div style="width: 650px; padding: 20px;">
-  <div style="text-align: left; display: block; margin: 0 0 6px 0;">
-    <div style="text-align: center;"><{$printlogo}></div>
-    <br />
-    <div style="margin-top: 10px; background-color: #E8E6E2; padding: 4px;"><{$lang_category}> : <{$printcategoryname}></div>
-    <br />
-    <div style="padding-top: 5px; font-size: 14px; font-weight: bold"><{$printtitle}></div>
-    <br />
-  <div style="text-align: justify">
-		<span style="float: right; padding:  0 0 5px 5px;"><{$printscrshot}></span>
-		<{$printdescription}>
-  </div>
-  <{if $print.addryn == 1}>
-    <br />
-    <div style="text-align: left; padding: 1px;">
-	  <strong><{$smarty.const._MD_IMLINKS_ADDRESS}></strong>
-	  <{$print.address}>
-	  <{$print.tel}>
-	  <{$print.mobile}>
-	  <{$print.voip}>
-	  <{$print.fax}>
-	  <{$print.email}>
-    </div>
-  <{/if}>
-  <img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/world.png" title="" alt="" align="absmiddle" />&nbsp;<{$worldwideweb}>
-  <br />
-  <div style="clear: both; text-align: center; margin-top: 10px; background-color: #E8E6E2; padding: 4px; font-weight: bold;"><{$printfooter}></div>
-</div>
+	<div style="text-align: left; display: block; margin: 0 0 6px 0;">
+			<div style="text-align: center;"><{$printlogo}></div>
+			<br />
+			<div style="margin-top: 10px; background-color: #E8E6E2; padding: 4px;"><{$lang_category}> : <{$printcategoryname}></div>
+			<br />
+			<div style="padding-top: 5px; font-size: 14px; font-weight: bold"><{$printtitle}></div>
+			<br />
+			<div style="text-align: justify"><{$printdescription}></div>
+		<{if $print.addryn == 1}>
+			<br />
+			<div style="text-align: left; padding: 1px;">
+				<strong><{$smarty.const._MD_IMLINKS_ADDRESS}></strong>
+				<{$print.address}>
+				<{$print.tel}>
+				<{$print.mobile}>
+				<{$print.voip}>
+				<{$print.fax}>
+				<{$print.email}>
+			</div>
+		<{/if}>
+		<img src="<{$icms_url}>/modules/<{$module_dir}>/images/icon/world.png" title="" alt="" align="absmiddle" />&nbsp;<{$worldwideweb}>
+		<br /><br />
+		<div style="text-align: center;"><{$printscrshot}></div>
+		<div style="clear: both; text-align: center; margin-top: 10px; background-color: #E8E6E2; padding: 4px; font-weight: bold;"><{$printfooter}></div>
+	</div>
 </div>
 </body>
 </html>
