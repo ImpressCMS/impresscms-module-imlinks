@@ -16,6 +16,7 @@ Fixed:
 - Title of link was stored in lowercase when reported broken
 - Fixed typo concerning Scriptaculous
 - Screenshot option not working correctly
+- Converted CRLF linebreaks of files to LF linebreaks
 
 Updated:
 - Prototype to version 1.7.1
