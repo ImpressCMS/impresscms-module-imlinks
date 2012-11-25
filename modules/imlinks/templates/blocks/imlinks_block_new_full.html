@@ -1,0 +1,23 @@
+<link href="<{$icms_url}>/modules/<{$dirname}>/style.css" rel="stylesheet" type="text/css" />
+<{if $uselyte == 1}>
+	<script type="text/javascript" language="javascript" src="<{$icms_url}>/libraries/lytebox/lytebox.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="<{$icms_url}>/libraries/lytebox/lytebox.css" />
+<{/if}>
+<{foreach item=linkload from=$block.links}>
+	<div class="imlinks_even" style="clear: both; margin-bottom: 5px;"><a href="<{$linkload.link}>"><{$linkload.title_long}></a><{if $icms_isadmin}>&nbsp;<{$linkload.adminlink}> <{/if}></div>
+	<div class="infoblock" style="width: 200px; float: right; margin-left: 10px; margin-right: 5px; margin-bottom: 10px;">
+		<b><{$smarty.const._MB_IMLINKS_SUBMITTER}>:</b>&nbsp;<{$linkload.submitter}><br />
+		<b><{$smarty.const._MB_IMLINKS_PUBLISHER}>:</b>&nbsp;<{$linkload.publisher}><br />
+		<b><{$smarty.const._MB_IMLINKS_DATE}>:</b>&nbsp;<{$linkload.date}><br />
+		<b><{$smarty.const._MB_IMLINKS_HITS}>:</b>&nbsp;<{$linkload.hits}><br />
+		<{$linkload.country}>
+	</div>
+	<div style="margin-left: 5px;">
+		<{if $linkload.autothumbsrc}>
+			<span style="float: right; padding: 0 0 4px 4px;"><{$linkload.autothumbsrc}></span>
+		<{/if}>
+		<{$linkload.description}>
+		<br />
+		<div style="clear: both; margin: 5px 0 15px 5px;" id="button"><a class="button" href="<{$linkload.link}>"><{$smarty.const._MB_IMLINKS_VIEWDETAILS}></a></div>
+	</div>
+<{/foreach}>
