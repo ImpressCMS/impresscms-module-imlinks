@@ -44,13 +44,13 @@ define( "_MB_IMLINKS_DATEFORMAT", "Datumsformat" );
 define( "_MB_IMLINKS_DATEFORMATMANUAL", "Siehe <a href='http://docs.php.net/manual/de/function.date.php' target='_blank'>PHP-Handbuch</a>" );
 
 // Version 1.12
-define( '_MB_IMLINKS_SUBMITTER', 'Submitter' );
-define( '_MB_IMLINKS_PUBLISHER', 'Publisher' );
-define( '_MB_IMLINKS_DATE', 'Date' );
-define( '_MB_IMLINKS_COUNTRY', 'Country' );
-define( '_MB_IMLINKS_HITS', 'Hits' );
-define( '_MB_IMLINKS_NOTSPECIFIED', 'Not specified' );
-define( '_MB_IMLINKS_VIEWDETAILS', 'View Full Details' );
+define( '_MB_IMLINKS_SUBMITTER', 'Antragsteller' );
+define( '_MB_IMLINKS_PUBLISHER', 'Freigabe durch' );
+define( '_MB_IMLINKS_DATE', 'Datum' );
+define( '_MB_IMLINKS_COUNTRY', 'Land' );
+define( '_MB_IMLINKS_HITS', 'Counter' );
+define( '_MB_IMLINKS_NOTSPECIFIED', 'Nicht angegeben' );
+define( '_MB_IMLINKS_VIEWDETAILS', 'Zeige alle Details' );
 define( '_MB_IMLINKS_ADMINSECTION', 'Administration' );
-define( '_MB_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
+define( '_MB_IMLINKS_SCRSHOTENLARGE', 'Bild klicken zum Vergrößern' );
 ?>

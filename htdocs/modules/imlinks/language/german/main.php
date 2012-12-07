@@ -225,5 +225,5 @@ define( '_MD_IMLINKS_TOMTOMLONG', 'Längengrad eingeben:' );
 define( '_MD_IMLINKS_TOMTOMLAT', 'Breitengrad eingeben:' );
 
 // version 1.12
-define( '_MD_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
+define( '_MD_IMLINKS_SCRSHOTENLARGE', 'Bild klicken zum Vergrößern' );
 ?>

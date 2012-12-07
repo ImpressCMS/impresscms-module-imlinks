@@ -539,13 +539,13 @@ define( '_AM_IMLINKS_ICO_WAITING','Hinzugefügt, warten auf Freigabe' );
 // Version 1.12
 define( "_AM_IMLINKS_LINK_FILESSTATUSDSC", "Links ist unsichtbar für alle Benutzer." );
 define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "Das Update-Icon wird angezeigt." );
-define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Click image to enlarge' );
+define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Anklicken zum Vergrößern' );
 
 // Version 1.13
-define( '_AM_IMLINKS_SEARCHTITLE', 'Search title' );
-define( '_AM_IMLINKS_NOTPUBLISHED', 'Not Published' );
-define( '_AM_IMLINKS_IPAGE_LETTERS', 'Show letters:' );
-define( '_AM_IMLINKS_IPAGE_LETTERSDSC', 'Show letters above each page.' );
-define( '_AM_IMLINKS_IPAGE_BUTTONS', 'Show buttons:' );
-define( '_AM_IMLINKS_IPAGE_BUTTONSDSC', 'Show buttons like Submit, Popular and Latest Listing above each page.' );
+define( '_AM_IMLINKS_SEARCHTITLE', 'Suchtitel' );
+define( '_AM_IMLINKS_NOTPUBLISHED', 'Unveröffentlicht' );
+define( '_AM_IMLINKS_IPAGE_LETTERS', 'Zeige Buchstaben:' );
+define( '_AM_IMLINKS_IPAGE_LETTERSDSC', 'Zeigt die Anzahl der Buchstaben jeder Seite.' );
+define( '_AM_IMLINKS_IPAGE_BUTTONS', 'Zeige Buttons:' );
+define( '_AM_IMLINKS_IPAGE_BUTTONSDSC', 'Zeigt die Buttons für "Hinzufügen, Populär and letzte Einträge" in jeder Seite.' );
 ?>
