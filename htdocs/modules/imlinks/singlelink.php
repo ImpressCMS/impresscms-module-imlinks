@@ -65,8 +65,6 @@ $xoopsOption['template_main'] = 'imlinks_singlelink.html';
 include ICMS_ROOT_PATH . '/header.php';
 include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/address.php';
 
-if ( iml_imageheader() != '' ) {
-$imlink['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>'; }
 $imlink['id'] = $link_arr['lid'];
 $imlink['cid'] = $link_arr['cid'];
 
@@ -354,6 +352,7 @@ $xoopsTpl -> assign( 'uselyte', icms::$module -> config['uselyte'] );
 
 $sql = 'SELECT letters, buttons FROM ' . icms::$xoopsDB -> prefix( 'imlinks_indexpage' );
 list( $lettersyn, $buttonsyn ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql ) );
+
 if ( iml_imageheader() != '' ) {
 	$catarray['imageheader'] = '<div style="padding-bottom: 12px; text-align: center;">' . iml_imageheader() . '</div>';
 }
