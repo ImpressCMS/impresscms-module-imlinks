@@ -175,13 +175,13 @@ function iml_linklistbody( $published ) {
 		$published_status = $imagearray['waiting'];
 	} elseif ( ( ( $published['expired'] && $published['expired'] > time() ) OR  $published['expired']==0)&& ( $published['published'] && $published['published'] < time() ) && $published['offline'] == 0 ) {
 		// Online
-		$published_status = '<a href="index.php?op=status_off&amp;lid=' . $lid . '">' . $imagearray['online'] . '</a>';
+		$published_status = '<a href="links.php?op=status_off&amp;lid=' . $lid . '">' . $imagearray['online'] . '</a>';
 	} elseif ( ( $published['expired'] && $published['expired'] < time() )  && $published['offline'] == 0 ) {
 		// Expired
 		$published_status = $imagearray['expired'];
 	} else {
 		// Offline
-		$published_status = ( $published['published'] == 0 ) ? "<a href='newlinks.php'>" . $imagearray['offline'] . "</a>" : '<a href="index.php?op=status_on&amp;lid=' . $lid . '">' . $imagearray['offline'] . '</a>';
+		$published_status = ( $published['published'] == 0 ) ? "<a href='newlinks.php'>" . $imagearray['offline'] . "</a>" : '<a href="links.php?op=status_on&amp;lid=' . $lid . '">' . $imagearray['offline'] . '</a>';
 	}
 
 	$icon = '<a href="links.php?op=edit&amp;lid=' . $lid . '" title="' . _AM_IMLINKS_ICO_EDIT . '">' . $imagearray['editimg'] . '</a>';
