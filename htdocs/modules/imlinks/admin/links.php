@@ -749,7 +749,7 @@ switch ( strtolower( $op ) ) {
 		redirect_header( 'links.php', 1, _AM_IMLINKS_VOTE_VOTEDELETED );
 		break;
 
-	case 'changestatus':
+	case 'changestatus':		// IPF mode on
 		$status = $ret = '';
 		$lid = isset( $_POST['lid'] ) ? intval( $_POST['lid'] ) : intval( $_GET['lid'] );
 		$status = $imlinks_links_handler -> changeOnlineStatus( $lid, 'offline' );
@@ -759,6 +759,24 @@ switch ( strtolower( $op ) ) {
 		} else {
 			redirect_header( ICMS_URL . $ret, 2, _AM_IMLINKS_ICO_OFFLINE );
 		}
+		break;
+		
+	case 'status_off':		// IPF mode off
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET offline='1' WHERE lid=" . $lid;
+		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
+			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+			return false;
+		}
+		redirect_header( 'index.php', 1, _AM_IMLINKS_MSG_OFFLINE );
+		break;
+
+	case 'status_on':		// IPF mode off
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'imlinks_links' ) . " SET offline='0' WHERE lid=" . $lid;
+		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
+			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+			return false;
+		}
+		redirect_header( 'index.php', 1, _AM_IMLINKS_MSG_ONLINE );
 		break;
 
 	case 'main':
