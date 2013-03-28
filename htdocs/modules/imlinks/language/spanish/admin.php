@@ -439,10 +439,10 @@ define( "_AM_IMLINKS_LINK_SETASUPDATEDDSC", "El enlace mostrará un ícono de ac
 define( '_AM_IMLINKS_SCRSHOTENLARGE', 'Clic para agrandar la imagen' );
 
 // Version 1.13
-define( '_AM_IMLINKS_SEARCHTITLE', 'Search title' );
-define( '_AM_IMLINKS_NOTPUBLISHED', 'Not Published' );
-define( '_AM_IMLINKS_IPAGE_LETTERS', 'Show letters:' );
-define( '_AM_IMLINKS_IPAGE_LETTERSDSC', 'Show letters above each page.' );
-define( '_AM_IMLINKS_IPAGE_BUTTONS', 'Show buttons:' );
-define( '_AM_IMLINKS_IPAGE_BUTTONSDSC', 'Show buttons like Submit, Popular and Latest Listing above each page.' );
+define( '_AM_IMLINKS_SEARCHTITLE', 'Buscar título' );
+define( '_AM_IMLINKS_NOTPUBLISHED', 'No publicado' );
+define( '_AM_IMLINKS_IPAGE_LETTERS', 'Mostrar letras:' );
+define( '_AM_IMLINKS_IPAGE_LETTERSDSC', 'Mostrar letras sobre cada página.' );
+define( '_AM_IMLINKS_IPAGE_BUTTONS', 'Mostrar botones:' );
+define( '_AM_IMLINKS_IPAGE_BUTTONSDSC', 'Mostrar los botones de Enviar, Popular y Últimos en cada página.' );
 ?>
