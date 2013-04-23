@@ -114,7 +114,7 @@ function icms_module_install_imlinks( $module ) {
 		`indexfooter` text NOT NULL,
 		`indexheaderalign` varchar(25) NOT NULL default 'left',
 		`indexfooteralign` varchar(25) NOT NULL default 'center',
-		`lastlinkstotal` varchar(5) NOT NULL default '50'
+		`lastlinkstotal` varchar(5) NOT NULL default '50',
 		`letters` int(11) NOT NULL default '1',
 		`buttons` int(11) NOT NULL default '1'
 	)";
